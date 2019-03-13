@@ -1,0 +1,12 @@
+#red.progress-bar > .track
+{
+	-fx-control-inner-background: #e74c3c;
+	-fx-text-box-border: #c0392b;
+	-fx-background-insets: 0, 0, 3;
+}
+
+#normal.progress-bar > .track
+{
+	-fx-control-inner-background: derive(#ececec,80%);
+	-fx-background-insets: 0, 0, 0;
+}

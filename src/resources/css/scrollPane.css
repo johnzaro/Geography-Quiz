@@ -1,0 +1,37 @@
+.increment-button ,.decrement-button
+{
+    -fx-background-color:#AB5C3D;
+	-fx-padding:8px;
+}
+
+.scroll-bar .increment-arrow,.scroll-bar .decrement-arrow
+{
+	-fx-background-color:white;
+}
+
+.scroll-bar .track
+{
+     -fx-background-color: #DAB06E;
+	 -fx-padding:8px;
+}
+
+.scroll-bar .thumb
+{
+    -fx-background-color: #AB5C3D;
+	-fx-padding:8px;
+}
+
+.scroll-pane:disabled
+{
+	-fx-opacity: 1;
+}
+
+.scroll-pane
+{
+	-fx-background-color: transparent;
+}
+
+.scroll-pane > .viewport
+{
+	-fx-background-color: transparent;
+}

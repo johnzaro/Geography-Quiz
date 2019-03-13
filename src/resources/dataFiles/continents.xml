@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<continents>
+	<continent>
+		<greekName>Ανταρκτική</greekName>
+		<englishName>Antarctica</englishName>
+		<genitiveCaseOfContinent>Ανταρκτικής</genitiveCaseOfContinent>
+		<highestPointInGreek>Vinson Massif: 4.892 m / 16,050ft</highestPointInGreek>
+		<highestPointInEnglish>Vinson Massif: 4.892 m / 16,050ft</highestPointInEnglish>
+		<lowestPointInGreek>Bentley Subglacial Trench: -2.555m / -8,382ft</lowestPointInGreek>
+		<lowestPointInEnglish>Bentley Subglacial Trench: -2.555m / -8,382ft</lowestPointInEnglish>
+		<timeZones>(11) UTC-6, UTC-4, UTC-3, UTC+0, UTC+3, UTC+6, UTC+7, UTC+8, UTC+10, UTC+12, UTC+13</timeZones>
+		<areaData>
+			<areaInKilometers>14000000</areaInKilometers>
+			<areaInMiles>5400000</areaInMiles>
+			<globalRanking>5</globalRanking>
+			<percentOfTheEarth>2.7</percentOfTheEarth>
+			<percentOfLandOfTheEarth>9</percentOfLandOfTheEarth>
+			<coastlineInKilometers>18000</coastlineInKilometers>
+			<coastlineInMiles>11250</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<populationInGreek>Μόνιμος Πληθυσμός: 0, περιοδικός: 1.000 - 5.000</populationInGreek>
+			<populationInEnglish>Permanent residents: 0, temporary: 1.000 - 5.000</populationInEnglish>
+			<globalRanking>7</globalRanking>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Ασία</greekName>
+		<englishName>Asia</englishName>
+		<genitiveCaseOfContinent>Ασίας</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>48 μέλη του Ο.Η.Ε. και 6 άλλες χώρες</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>48 UN members 6 other states</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Ρωσία</country>
+			<country>Λαϊκή Δημοκρατία της Κίνας</country>
+			<country>Ινδία</country>
+			<country>Καζακστάν</country>
+			<country>Σαουδική Αραβία</country>
+			<country>Ιράν</country>
+			<country>Μογγολία</country>
+			<country>Ινδονησία</country>
+			<country>Πακιστάν</country>
+			<country>Τουρκία</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Russia</country>
+			<country>People's Republic of China</country>
+			<country>India</country>
+			<country>Kazakhstan</country>
+			<country>Saudi Arabia</country>
+			<country>Iran</country>
+			<country>Mongolia</country>
+			<country>Indonesia</country>
+			<country>Pakistan</country>
+			<country>Turkey</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Λαϊκή Δημοκρατία της Κίνας</country>
+			<country>Ινδία</country>
+			<country>Ινδονησία</country>
+			<country>Πακιστάν</country>
+			<country>Μπαγκλαντές</country>
+			<country>Ρωσία</country>
+			<country>Ιαπωνία</country>
+			<country>Φιλιππίνες</country>
+			<country>Βιετνάμ</country>
+			<country>Ιράν</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>People's Republic of China</country>
+			<country>India</country>
+			<country>Indonesia</country>
+			<country>Pakistan</country>
+			<country>Bangladesh</country>
+			<country>Russia</country>
+			<country>Japan</country>
+			<country>Philippines</country>
+			<country>Vietnam</country>
+			<country>Iran</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Τόκιο</city>
+			<city>Σεούλ</city>
+			<city>Μουμπάι</city>
+			<city>Ντάκα</city>
+			<city>Δελχί</city>
+			<city>Καράτσι</city>
+			<city>Τζακάρτα</city>
+			<city>Οσάκα</city>
+			<city>Σαγκάη</city>
+			<city>Μανίλα</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>Tokyo</city>
+			<city>Seoul</city>
+			<city>Mumbai</city>
+			<city>Dhaka</city>
+			<city>Delhi</city>
+			<city>Karachi</city>
+			<city>Jakarta</city>
+			<city>Osaka</city>
+			<city>Shanghai</city>
+			<city>Manila</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>Περίπου 2.269 γλώσσες</languagesInGreek>
+		<languagesInEnglish>Approximately 2.269 languages</languagesInEnglish>
+		<highestPointInGreek>Έβερεστ: 8.848m / 29,029ft</highestPointInGreek>
+		<highestPointInEnglish>Everest: 8.848m / 29,029ft</highestPointInEnglish>
+		<lowestPointInGreek>Νεκρά Θάλασσα: -417.5m / -1369ft</lowestPointInGreek>
+		<lowestPointInEnglish>Dead Sea shore: -417.5m / -1369ft</lowestPointInEnglish>
+		<longestRiverInGreek>Γιανγκτσέ: 6.418km / 3,988mi</longestRiverInGreek>
+		<longestRiverInEnglish>Yangtze: 6.418km / 3,988mi</longestRiverInEnglish>
+		<largestLakeInGreek>Κασπία: 371.000km² / 143,244 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Caspian: 371.000km² / 143,244 sq mi</largestLakeInEnglish>
+		<timeZones>(11) UTC+2 - UTC+12</timeZones>
+		<areaData>
+			<areaInKilometers>44579000</areaInKilometers>
+			<areaInMiles>17212000</areaInMiles>
+			<globalRanking>1</globalRanking>
+			<percentOfTheEarth>8.7</percentOfTheEarth>
+			<percentOfLandOfTheEarth>30</percentOfLandOfTheEarth>
+			<coastlineInKilometers>230300</coastlineInKilometers>
+			<coastlineInMiles>143101</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>4164252000</population>
+			<globalRanking>1</globalRanking>
+			<populationDensityPerSquareKilometer>87</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>225</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Αφρική</greekName>
+		<englishName>Africa</englishName>
+		<genitiveCaseOfContinent>Αφρικής</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>54 (και 2 αμφισβητούνται)</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>54 (and 2 disputed)</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Αλγερία</country>
+			<country>Λαϊκή Δημοκρατία του Κονγκό</country>
+			<country>Σουδάν</country>
+			<country>Λιβύη</country>
+			<country>Τσαντ</country>
+			<country>Νίγηρας</country>
+			<country>Ανγκόλα</country>
+			<country>Μάλι</country>
+			<country>Νότια Αφρική</country>
+			<country>Αιθιοπία</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Algeria</country>
+			<country>Democratic Republic of the Congo</country>
+			<country>Sudan</country>
+			<country>Libya</country>
+			<country>Chad</country>
+			<country>Niger</country>
+			<country>Angola</country>
+			<country>Mali</country>
+			<country>South Africa</country>
+			<country>Ethiopia</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Νιγηρία</country>
+			<country>Αιθιοπία</country>
+			<country>Αίγυπτος</country>
+			<country>Λαϊκή Δημοκρατία του Κονγκό</country>
+			<country>Νότια Αφρική</country>
+			<country>Τανζανία</country>
+			<country>Κενύα</country>
+			<country>Σουδάν</country>
+			<country>Αλγερία</country>
+			<country>Ουγκάντα</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>Nigeria</country>
+			<country>Ethiopia</country>
+			<country>Egypt</country>
+			<country>Democratic Republic of the Congo</country>
+			<country>South Africa</country>
+			<country>Tanzania</country>
+			<country>Kenya</country>
+			<country>Sudan</country>
+			<country>Algeria</country>
+			<country>Uganda</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Λάγος</city>
+			<city>Κάιρο</city>
+			<city>Κινσάσα</city>
+			<city>Μπραζαβίλ</city>
+			<city>Γκρέιτερ Γιοχάνεσμπουργκ</city>
+			<city>Μογκαντίσου</city>
+			<city>Χαρτούμ</city>
+			<city>Ομντουρμάν</city>
+			<city>Νταρ Ες Σαλάμ</city>
+			<city>Αλεξάνδρεια</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>Lagos</city>
+			<city>Cairo</city>
+			<city>Kinshasa</city>
+			<city>Brazzaville</city>
+			<city>Greater Johannesburg</city>
+			<city>Mogadishu</city>
+			<city>Khartoum</city>
+			<city>Omdurman</city>
+			<city>Dar es Salaam</city>
+			<city>Alexandria</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>1.250 - 3.000 γλώσσες</languagesInGreek>
+		<languagesInEnglish>1.250 - 3.000 languages</languagesInEnglish>
+		<highestPointInGreek>Κιλιμάντζαρο: 5.895m / 19,341ft</highestPointInGreek>
+		<highestPointInEnglish>Kilimanjaro: 5.895m / 19,341ft</highestPointInEnglish>
+		<lowestPointInGreek>Λίμνη Ασσάλ: -156m / -512ft</lowestPointInGreek>
+		<lowestPointInEnglish>Lake Assal: -156m / -512ft</lowestPointInEnglish>
+		<longestRiverInGreek>Νείλος: 6853km / 4258mi</longestRiverInGreek>
+		<longestRiverInEnglish>Nile: 6853km / 4258mi</longestRiverInEnglish>
+		<largestLakeInGreek>Λίμνη Βικτώρια: 184.000km² / 71040 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Lake Victoria: 184.000km² / 71040 sq mi</largestLakeInEnglish>
+		<timeZones>(6) UTC-1 - UTC+4</timeZones>
+		<areaData>
+			<areaInKilometers>30221532</areaInKilometers>
+			<areaInMiles>11668599</areaInMiles>
+			<globalRanking>2</globalRanking>
+			<percentOfTheEarth>6</percentOfTheEarth>
+			<percentOfLandOfTheEarth>20.4</percentOfLandOfTheEarth>
+			<coastlineInKilometers>26000</coastlineInKilometers>
+			<coastlineInMiles>16155</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>1100000000</population>
+			<globalRanking>2</globalRanking>
+			<populationDensityPerSquareKilometer>36.4</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>94</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Βόρεια Αμερική</greekName>
+		<englishName>North America</englishName>
+		<genitiveCaseOfContinent>Βόρειας Αμερικής</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>23</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>23</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Καναδάς</country>
+			<country>Ηνωμένες Πολιτείες Αμερικής</country>
+			<country>Μεξικό</country>
+			<country>Γροιλανδία</country>
+			<country>Νικαράγουα</country>
+			<country>Ονδούρα</country>
+			<country>Κούβα</country>
+			<country>Γουατεμάλα</country>
+			<country>Παναμάς</country>
+			<country>Κόστα Ρίκα</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Canada</country>
+			<country>United States of America</country>
+			<country>Mexico</country>
+			<country>Greenland</country>
+			<country>Nicaragua</country>
+			<country>Honduras</country>
+			<country>Cuba</country>
+			<country>Guatemala</country>
+			<country>Panama</country>
+			<country>Costa Rica</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Ηνωμένες Πολιτείες Αμερικής</country>
+			<country>Μεξικό</country>
+			<country>Καναδάς</country>
+			<country>Γουατεμάλα</country>
+			<country>Κούβα</country>
+			<country>Αϊτή</country>
+			<country>Δομινικανή Δημοκρατία</country>
+			<country>Ονδούρα</country>
+			<country>Νικαράγουα</country>
+			<country>Ελ Σαλβαδόρ</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>United States of America</country>
+			<country>Mexico</country>
+			<country>Canada</country>
+			<country>Guatemala</country>
+			<country>Cuba</country>
+			<country>Haiti</country>
+			<country>Dominican Republic</country>
+			<country>Honduras</country>
+			<country>Nicaragua</country>
+			<country>El Salvador</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Πόλη του Μεξικού</city>
+			<city>Νέα Υόρκη</city>
+			<city>Λος Άντζελες</city>
+			<city>Σικάγο</city>
+			<city>Τορόντο</city>
+			<city>Ντάλλας - Φορτ Γουόρθ</city>
+			<city>Σαν Φρανσίσκο</city>
+			<city>Χιούστον</city>
+			<city>Μαϊάμι</city>
+			<city>Φιλαδέλφεια</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>Mexico City</city>
+			<city>New York City</city>
+			<city>Los Angeles</city>
+			<city>Chicago</city>
+			<city>Toronto</city>
+			<city>Dallas – Fort Worth</city>
+			<city>San Francisco</city>
+			<city>Houston</city>
+			<city>Miami</city>
+			<city>Philadelphia</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>Αγγλικά, Ισπανικά, Γαλλικά και πολλές ακόμα γλώσσες</languagesInGreek>
+		<languagesInEnglish>English, Spanish, French and many others</languagesInEnglish>
+		<highestPointInGreek>Όρος ΜακΚίνλεϋ: 6.194m / 20,322ft</highestPointInGreek>
+		<highestPointInEnglish>Mount McKinley: 6.194m / 20,322ft</highestPointInEnglish>
+		<lowestPointInGreek>Κοιλάδα του θανάτου: -86m / -282ft</lowestPointInGreek>
+		<lowestPointInEnglish>Death Valley: -86m / -282ft</lowestPointInEnglish>
+		<longestRiverInGreek>Ποταμός του Μισσούρι: 3.767km / 2,341mi</longestRiverInGreek>
+		<longestRiverInEnglish>Missouri River: 3.767km / 2,341mi</longestRiverInEnglish>
+		<largestLakeInGreek>Λίμνη Superior: 82.100km² / 31,700 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Lake Superior: 82.100km² / 31,700 sq mi</largestLakeInEnglish>
+		<timeZones>(11) UTC-10 - UTC+0</timeZones>
+		<areaData>
+			<areaInKilometers>24709000</areaInKilometers>
+			<areaInMiles>9540000</areaInMiles>
+			<globalRanking>3</globalRanking>
+			<percentOfTheEarth>4.8</percentOfTheEarth>
+			<percentOfLandOfTheEarth>16.5</percentOfLandOfTheEarth>
+			<coastlineInKilometers>295300</coastlineInKilometers>
+			<coastlineInMiles>18349</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>565265000</population>
+			<globalRanking>4</globalRanking>
+			<populationDensityPerSquareKilometer>22.9</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>59.3</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Ευρώπη</greekName>
+		<englishName>Europe</englishName>
+		<genitiveCaseOfContinent>Ευρώπης</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>50 και 5 με περιορισμένη αναγνώριση</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>50 and 5 with limited recognition</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Ρωσία</country>
+			<country>Ουκρανία</country>
+			<country>Γαλλία</country>
+			<country>Ισπανία</country>
+			<country>Σουηδία</country>
+			<country>Νορβηγία</country>
+			<country>Γερμανία</country>
+			<country>Φινλανδία</country>
+			<country>Πολωνία</country>
+			<country>Ιταλία</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Russia</country>
+			<country>Ukraine</country>
+			<country>France</country>
+			<country>Spain</country>
+			<country>Sweden</country>
+			<country>Norway</country>
+			<country>Germany</country>
+			<country>Finland</country>
+			<country>Poland</country>
+			<country>Italy</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Ρωσία</country>
+			<country>Γερμανία</country>
+			<country>Τουρκία</country>
+			<country>Γαλλία</country>
+			<country>Ηνωμένο Βασίλειο</country>
+			<country>Ιταλία</country>
+			<country>Ισπανία</country>
+			<country>Ουκρανία</country>
+			<country>Πολωνία</country>
+			<country>Ρουμανία</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>Russia</country>
+			<country>Germany</country>
+			<country>Turkey</country>
+			<country>France</country>
+			<country>United Kingdom</country>
+			<country>Italy</country>
+			<country>Spain</country>
+			<country>Ukraine</country>
+			<country>Poland</country>
+			<country>Romania</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Κωσταντινούπολη</city>
+			<city>Μόσχα</city>
+			<city>Λονδίνο</city>
+			<city>Αγία Πετρούπολη</city>
+			<city>Βερολίνο</city>
+			<city>Μαδρίτη</city>
+			<city>Ρώμη</city>
+			<city>Κίεβο</city>
+			<city>Παρίσι</city>
+			<city>Μινσκ</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>Istanbul</city>
+			<city>Moscow</city>
+			<city>London</city>
+			<city>Saint Petersburg</city>
+			<city>Berlin</city>
+			<city>Madrid</city>
+			<city>Rome</city>
+			<city>Kiev</city>
+			<city>Paris</city>
+			<city>Minsk</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>Περίπου 225 γλώσσες</languagesInGreek>
+		<languagesInEnglish>Approximately 225 languages</languagesInEnglish>
+		<highestPointInGreek>Mont Blanc: 4.810m / 15,781ft</highestPointInGreek>
+		<highestPointInEnglish>Mont Blanc: 4.810m / 15,781ft</highestPointInEnglish>
+		<lowestPointInGreek>Lammefjord: -7m / -23ft</lowestPointInGreek>
+		<lowestPointInEnglish>Lammefjord: -7m / -23ft</lowestPointInEnglish>
+		<longestRiverInGreek>Δούναβης: 2.860km / 1,777mi</longestRiverInGreek>
+		<longestRiverInEnglish>Danube: 2.860km / 1,777mi</longestRiverInEnglish>
+		<largestLakeInGreek>Vänern: 5.650km² / 2,181 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Vänern: 5.650km² / 2,181 sq mi</largestLakeInEnglish>
+		<timeZones>(6) UTC+0 - UTC+5</timeZones>
+		<areaData>
+			<areaInKilometers>10180000</areaInKilometers>
+			<areaInMiles>3930000</areaInMiles>
+			<globalRanking>6</globalRanking>
+			<percentOfTheEarth>2</percentOfTheEarth>
+			<percentOfLandOfTheEarth>6.8</percentOfLandOfTheEarth>
+			<coastlineInKilometers>65993</coastlineInKilometers>
+			<coastlineInMiles>41006</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>742452000</population>
+			<globalRanking>3</globalRanking>
+			<populationDensityPerSquareKilometer>72.9</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>188</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Νότια Αμερική</greekName>
+		<englishName>South America</englishName>
+		<genitiveCaseOfContinent>Νότιας Αμερικής</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>12</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>12</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Βραζιλία</country>
+			<country>Αργεντίνη</country>
+			<country>Περού</country>
+			<country>Κολομβία</country>
+			<country>Βολιβία</country>
+			<country>Βενεζουέλα</country>
+			<country>Χιλή</country>
+			<country>Παραγουάη</country>
+			<country>Ισημερινός (Εκουαδόρ)</country>
+			<country>Γουιάνα</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Brazil</country>
+			<country>Argentina</country>
+			<country>Peru</country>
+			<country>Colombia</country>
+			<country>Bolivia</country>
+			<country>Venezuela</country>
+			<country>Chile</country>
+			<country>Paraguay</country>
+			<country>Ecuador</country>
+			<country>Guyana</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Βραζιλία</country>
+			<country>Κολομβία</country>
+			<country>Αργεντινή</country>
+			<country>Περού</country>
+			<country>Βενεζουέλα</country>
+			<country>Χιλή</country>
+			<country>Ισημερινός (Εκουαδόρ)</country>
+			<country>Βολιβία</country>
+			<country>Παραγουάη</country>
+			<country>Ουρουγουάη</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>Brazil</country>
+			<country>Colombia</country>
+			<country>Argentina</country>
+			<country>Peru</country>
+			<country>Venezuela</country>
+			<country>Chile</country>
+			<country>Ecuador</country>
+			<country>Bolivia</country>
+			<country>Paraguay</country>
+			<country>Uruguay</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Σάο Πάολο</city>
+			<city>Λίμα</city>
+			<city>Μπογκοτά</city>
+			<city>Ρίο ντε Ζανέιρο</city>
+			<city>Σαντιάγκο</city>
+			<city>Καράκας</city>
+			<city>Μπουένος Άιρες</city>
+			<city>Σαλβαδόρ</city>
+			<city>Brasília</city>
+			<city>Φορταλέζα</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>São Paulo</city>
+			<city>Lima</city>
+			<city>Bogotá</city>
+			<city>Rio de Janeiro</city>
+			<city>Santiago</city>
+			<city>Caracas</city>
+			<city>Buenos Aires</city>
+			<city>Salvador</city>
+			<city>Brasília</city>
+			<city>Fortaleza</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>Ισπανικά, Πορτογαλικά, Κέτσουα και πολλές ακόμα γλώσσες</languagesInGreek>
+		<languagesInEnglish>Spanish, Portuguese, Quechua and many others</languagesInEnglish>
+		<highestPointInGreek>Όρος Ακονκάγκουα: 6.960m / 22,835ft</highestPointInGreek>
+		<highestPointInEnglish>Mount Aconcagua: 6.960m / 22,835ft</highestPointInEnglish>
+		<lowestPointInGreek>Λιμνοθάλασσα του Άνθρακα: -105m / -345ft</lowestPointInGreek>
+		<lowestPointInEnglish>Laguna del Carbón: -105m / -345ft</lowestPointInEnglish>
+		<longestRiverInGreek>Αμαζόνιος ποταμός: 6.992km / 4,345mi</longestRiverInGreek>
+		<longestRiverInEnglish>Amazon River: 6.992km / 4,345mi</longestRiverInEnglish>
+		<largestLakeInGreek>Λίμνη Τιτικάκα: 8.372km² / 3,232 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Lake Titicaca: 8.372km² / 3,232 sq mi</largestLakeInEnglish>
+		<timeZones>(4) UTC-5 - UTC-2</timeZones>
+		<areaData>
+			<areaInKilometers>17840000</areaInKilometers>
+			<areaInMiles>6890000</areaInMiles>
+			<globalRanking>4</globalRanking>
+			<percentOfTheEarth>4.8</percentOfTheEarth>
+			<percentOfLandOfTheEarth>16.5</percentOfLandOfTheEarth>
+			<coastlineInKilometers>32700</coastlineInKilometers>
+			<coastlineInMiles>20318</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>385742554</population>
+			<globalRanking>5</globalRanking>
+			<populationDensityPerSquareKilometer>21.4</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>56</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+	<continent>
+		<greekName>Ωκεανία</greekName>
+		<englishName>Oceania</englishName>
+		<genitiveCaseOfContinent>Ωκεανίας</genitiveCaseOfContinent>
+		<numberOfCountriesInGreek>14</numberOfCountriesInGreek>
+		<numberOfCountriesInEnglish>14</numberOfCountriesInEnglish>
+		<largestCountriesByAreaInGreek>
+			<country>Αυστραλία</country>
+			<country>Παπούα Νέα Γουινέα</country>
+			<country>Ινδονησία</country>
+			<country>Νέα Ζηλανδία</country>
+			<country>Νήσοι Σολομώντα</country>
+			<country>Φίτζι</country>
+			<country>Βανουάτου</country>
+			<country>Σαμόα</country>
+			<country>Κιριμπάτι</country>
+			<country>Τόνγκα</country>
+		</largestCountriesByAreaInGreek>
+		<largestCountriesByAreaInEnglish>
+			<country>Australia</country>
+			<country>Papua New Guinea</country>
+			<country>Indonesia</country>
+			<country>New Zealand</country>
+			<country>Solomon Islands</country>
+			<country>Fiji</country>
+			<country>Vanuatu</country>
+			<country>Samoa</country>
+			<country>Kiribati</country>
+			<country>Tonga</country>
+		</largestCountriesByAreaInEnglish>
+		<largestCountriesByPopulationInGreek>
+			<country>Αυστραλία</country>
+			<country>Παπούα Νέα Γουινέα</country>
+			<country>Νέα Ζηλανδία</country>
+			<country>Φίτζι</country>
+			<country>Νήσοι Σολομώντα</country>
+			<country>Βανουάτου</country>
+			<country>Νέα Καληδονία</country>
+			<country>Γαλλική Πολυνησία</country>
+			<country>Σαμόα</country>
+			<country>Γκουάμ</country>
+		</largestCountriesByPopulationInGreek>
+		<largestCountriesByPopulationInEnglish>
+			<country>Australia</country>
+			<country>Papua New Guinea</country>
+			<country>New Zealand</country>
+			<country>Fiji</country>
+			<country>Solomon Islands</country>
+			<country>Vanuatu</country>
+			<country>New Caledonia</country>
+			<country>French Polynesia</country>
+			<country>Samoa</country>
+			<country>Guam</country>
+		</largestCountriesByPopulationInEnglish>
+		<largestCitiesInGreek>
+			<city>Σίδνεϊ</city>
+			<city>Μελβούρνη</city>
+			<city>Μπρίσμπεϊν</city>
+			<city>Περθ</city>
+			<city>Αδελαΐδα</city>
+			<city>Γκολντ Κόουστ - Τουίντ</city>
+			<city>Νιούκαστλ</city>
+			<city>Καμπέρα - Queanbeyan</city>
+			<city>Wollongong</city>
+			<city>Πορτ Μόρεσμπι</city>
+		</largestCitiesInGreek>
+		<largestCitiesInEnglish>
+			<city>Sydney</city>
+			<city>Melbourne</city>
+			<city>Brisbane</city>
+			<city>Perth</city>
+			<city>Adelaide</city>
+			<city>Gold Coast - Tweed</city>
+			<city>Newcastle</city>
+			<city>Canberra - Queanbeyan</city>
+			<city>Wollongong</city>
+			<city>Port Moresby</city>
+		</largestCitiesInEnglish>
+		<languagesInGreek>Αγγλικά, Ινδονησιακά, Τοκ Πισίν, Hiri Motu, 269 διάλεκτοι των γλωσσών Παπούα και Austronesian, Κινέζικα, Ιταλικά, Αραβικά, Ελληνικά, καντονέζικα και περίπου 70 τοπικές γλώσσες των ιθαγενών της Αυστραλίας</languagesInGreek>
+		<languagesInEnglish>English, Indonesian, Tok Pisin, Hiri Motu, 269 indigenous Papuan and Austronesian languages, Mandarin Chinese, Italian, Arabic, Greek, Cantonese and about 70 Indigenous Australian languages</languagesInEnglish>
+		<highestPointInGreek>Όρος Κουκ: 3.754m / 12,316ft</highestPointInGreek>
+		<highestPointInEnglish>Mount Cook: 3.754m / 12,316ft</highestPointInEnglish>
+		<lowestPointInGreek>Λίμνη Έιρε: -12m / -39ft</lowestPointInGreek>
+		<lowestPointInEnglish>Lake Eyre: -12m / -39ft</lowestPointInEnglish>
+		<longestRiverInGreek>Μάρεϊ ποταμός: 6.992km / 4,345mi</longestRiverInGreek>
+		<longestRiverInEnglish>Murray River: 2.375km / 1,4765mi</longestRiverInEnglish>
+		<largestLakeInGreek>Λίμνη Έιρε: 9.500km² / 3,668 sq mi</largestLakeInGreek>
+		<largestLakeInEnglish>Lake Eyre: 9.500km² / 3,668 sq mi</largestLakeInEnglish>
+		<timeZones>(8) UTC+8 - UTC+14, UTC-11</timeZones>
+		<areaData>
+			<areaInKilometers>8112000</areaInKilometers>
+			<areaInMiles>3132060</areaInMiles>
+			<globalRanking>7</globalRanking>
+			<percentOfTheEarth>1.5</percentOfTheEarth>
+			<percentOfLandOfTheEarth>5.2</percentOfLandOfTheEarth>
+			<coastlineInKilometers>71200</coastlineInKilometers>
+			<coastlineInMiles>44242</coastlineInMiles>
+		</areaData>
+		<populationData>
+			<population>385742554</population>
+			<globalRanking>6</globalRanking>
+			<populationDensityPerSquareKilometer>4.2</populationDensityPerSquareKilometer>
+			<populationDensityPerSquareMile>11</populationDensityPerSquareMile>
+		</populationData>
+	</continent>
+</continents>
