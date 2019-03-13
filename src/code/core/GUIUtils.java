@@ -5,12 +5,12 @@ package code.core;
  */
 
 import code.screens.ErrorScreen;
-import com.sun.javafx.scene.control.skin.TableViewSkin;
-//import javafx.scene.control.skin.TableViewSkin;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.skin.TableViewSkin;
+
 import java.lang.reflect.Method;
 
 public class GUIUtils

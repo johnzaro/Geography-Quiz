@@ -77,7 +77,7 @@ public class BaseClass extends Application
 				Runtime.getRuntime().addShutdownHook(shutdownHook);
 
 //				setup custom tooltip timings so it appears after 100ms and stays forever open - NOT VALID FOR JDK >= 9
-				PowerOn.setupCustomTooltipBehavior(100, Integer.MAX_VALUE, 0);
+//				PowerOn.setupCustomTooltipBehavior(100, Integer.MAX_VALUE, 0);
 				
 //				load basic images and sounds
 				powerOnMedia();

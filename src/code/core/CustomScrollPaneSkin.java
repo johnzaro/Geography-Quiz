@@ -1,7 +1,6 @@
 package code.core;
 
-import com.sun.javafx.scene.control.skin.ScrollPaneSkin;
-//import javafx.scene.control.skin.ScrollPaneSkin;
+import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.StackPane;
 
