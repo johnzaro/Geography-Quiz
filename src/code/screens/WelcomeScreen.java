@@ -57,7 +57,7 @@ public class WelcomeScreen extends CoreScreen
 	private ToggleGroup toggleGroupForSegmentedButton, toggleGroupForUnitsOfLength;
 
 	private ScaleTransition scaleTransitionForInfoButton, scaleTransitionFor2Settings, scaleTransitionFor4Settings,
-			scaleTransitionForWelcomeLabel, scaleTransitionForEditIcon, scaleTransitionForRectangleForInfoAboutGame, scaleTransitionForVBoxForSettings, scaleTransitionForSettinsIcon,
+			scaleTransitionForWelcomeLabel, scaleTransitionForEditIcon, scaleTransitionForRectangleForInfoAboutGame, scaleTransitionForVBoxForSettings, scaleTransitionForSettingsIcon,
 			scaleTransitionMessageAllDataDeleted;
 	private SequentialTransition sequentialTransitionForOnePlayerGameButton, sequentialTransitionForTwoPlayersGameButton, sequentialTransitionForAtlasButton,
 			sequentialTransitionForScoreBoardButton, sequentialTransitionForInfoButton, sequentialTransitionForSettingsButton;
@@ -120,7 +120,7 @@ public class WelcomeScreen extends CoreScreen
 			
 			editNameIcon.setLayoutY(0.3250 * height);
 
-			hBoxForSettingsAndInfoIcons.setLayoutX(0.7266 * width);
+			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
 			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
 
 			woodPanelFor4IconsImage.setLayoutY(0.0574 * height);
@@ -494,7 +494,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		deleteAllDataButton.setPrefSize(0.2865 * width, 0.0741 * height);
 		
-		hBoxForSettingsAndInfoIcons.setSpacing(0.0130 * width);
+		hBoxForSettingsAndInfoIcons.setSpacing(0.0100 * width);
 		
 		double maxWidth = (0.2604) * width;
 		moveTooltip.setMaxWidth(maxWidth);
@@ -623,7 +623,7 @@ public class WelcomeScreen extends CoreScreen
 		cancelNewNameButton.setPrefWidth(hBoxForNewNameButtons.getPrefWidth() / 2.0);
 		setNewNameButton.setPrefWidth(hBoxForNewNameButtons.getPrefWidth() / 2.0);
 
-		rectangleForInformationAboutGame.setWidth(0.4948 * width);
+		rectangleForInformationAboutGame.setWidth(0.4427 * width);
 		rectangleForInformationAboutGame.setHeight(0.6018 * height);
 		rectangleForInformationAboutGame.setArcWidth(0.0208 * width);
 		rectangleForInformationAboutGame.setArcHeight(0.0208 * width);
@@ -967,7 +967,9 @@ public class WelcomeScreen extends CoreScreen
 		settingsIcon = new ImageView();
 		settingsIcon.setCursor(Cursor.HAND);
 		settingsIcon.setPreserveRatio(true);
-		settingsIcon.setStyle("-fx-background-color: transparent");
+		settingsIcon.setSmooth(true);
+		settingsIcon.setCache(true);
+		settingsIcon.setCacheHint(CacheHint.SCALE);
 		settingsTooltip = new CustomTooltip();
 		settingsTooltip.setWrapText(true);
 		Tooltip.install(settingsIcon, settingsTooltip);
@@ -975,19 +977,18 @@ public class WelcomeScreen extends CoreScreen
 		//INFO ICON AND RECTANGLE FOR INFO
 		infoIcon = new ImageView();
 		infoIcon.setCursor(Cursor.HAND);
-		infoIcon.setPickOnBounds(true);
 		infoIcon.setPreserveRatio(true);
 		infoIcon.setSmooth(true);
+		infoIcon.setCache(true);
+		infoIcon.setCacheHint(CacheHint.SCALE);
 		infoIconTooltip = new CustomTooltip();
 		infoIconTooltip.setWrapText(true);
 		Tooltip.install(infoIcon, infoIconTooltip);
-		infoIcon.setCache(true);
-		infoIcon.setCacheHint(CacheHint.SCALE);
 		
 		hBoxForSettingsAndInfoIcons = new HBox();
 		hBoxForSettingsAndInfoIcons.setAlignment(Pos.CENTER);
 		hBoxForSettingsAndInfoIcons.setFillHeight(true);
-		hBoxForSettingsAndInfoIcons.getChildren().addAll(settingsIcon, infoIcon);
+		hBoxForSettingsAndInfoIcons.getChildren().addAll(infoIcon, settingsIcon);
 		
 		rectangleForInformationAboutGame = new Rectangle();
 		rectangleForInformationAboutGame.setSmooth(true);
@@ -2010,7 +2011,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		scaleTransitionForWelcomeLabel = new ScaleTransition();
 		scaleTransitionForWelcomeLabel.setNode(welcomeLabel);
-				
+		
 		scaleTransitionForEditIcon = new ScaleTransition(Duration.millis(300), editNameIcon);
 		scaleTransitionForInfoButton = new ScaleTransition(Duration.millis(300), infoIcon);
 
@@ -2032,7 +2033,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		scaleTransitionForVBoxForSettings = new ScaleTransition(Duration.millis(300), vBoxForSettings);
 		
-		scaleTransitionForSettinsIcon = new ScaleTransition(Duration.millis(300), settingsIcon);
+		scaleTransitionForSettingsIcon = new ScaleTransition(Duration.millis(300), settingsIcon);
 		
 		scaleTransitionForRectangleForInfoAboutGame = new ScaleTransition(Duration.millis(300), rectangleForInformationAboutGame);
 		
@@ -2143,8 +2144,8 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionFor4Settings.setToY(0);
 				scaleTransitionForEditIcon.setToX(0);
 				scaleTransitionForEditIcon.setToY(0);
-				scaleTransitionForSettinsIcon.setToX(0);
-				scaleTransitionForSettinsIcon.setToY(0);
+				scaleTransitionForSettingsIcon.setToX(0);
+				scaleTransitionForSettingsIcon.setToY(0);
 				scaleTransitionForInfoButton.setToX(0);
 				scaleTransitionForInfoButton.setToY(0);
 				
@@ -2157,7 +2158,7 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionFor2Settings.playFromStart();
 				scaleTransitionFor4Settings.playFromStart();
 				scaleTransitionForEditIcon.playFromStart();
-				scaleTransitionForSettinsIcon.playFromStart();
+				scaleTransitionForSettingsIcon.playFromStart();
 				scaleTransitionForInfoButton.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(300), e ->
@@ -2429,13 +2430,13 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForInfoButton.setToY(0);
 				
 				settingsIcon.setDisable(true);
-				scaleTransitionForSettinsIcon.setToX(0);
-				scaleTransitionForSettinsIcon.setToY(0);
+				scaleTransitionForSettingsIcon.setToX(0);
+				scaleTransitionForSettingsIcon.setToY(0);
 				
 				playSlideSound();
 				translateTransitionForVBoxWithButtons.playFromStart();
 				scaleTransitionForInfoButton.playFromStart();
-				scaleTransitionForSettinsIcon.playFromStart();
+				scaleTransitionForSettingsIcon.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(300), e ->
 			{
@@ -2453,13 +2454,13 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForInfoButton.setToX(1);
 				scaleTransitionForInfoButton.setToY(1);
 				
-				scaleTransitionForSettinsIcon.setToX(1);
-				scaleTransitionForSettinsIcon.setToY(1);
+				scaleTransitionForSettingsIcon.setToX(1);
+				scaleTransitionForSettingsIcon.setToY(1);
 				
 				playSlideSound();
 				translateTransitionForVBoxForNewName.playFromStart();
 				scaleTransitionForInfoButton.playFromStart();
-				scaleTransitionForSettinsIcon.playFromStart();
+				scaleTransitionForSettingsIcon.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(300), e ->
 			{
@@ -2500,13 +2501,13 @@ public class WelcomeScreen extends CoreScreen
 				 scaleTransitionForEditIcon.setToY(0);
 				 
 				 settingsIcon.setDisable(true);
-				 scaleTransitionForSettinsIcon.setToX(0);
-				 scaleTransitionForSettinsIcon.setToY(0);
+				 scaleTransitionForSettingsIcon.setToX(0);
+				 scaleTransitionForSettingsIcon.setToY(0);
 				 
 				 playMinimizeSound();
 				 scaleTransitionForWelcomeLabel.playFromStart();
 				 scaleTransitionForEditIcon.playFromStart();
-				 scaleTransitionForSettinsIcon.playFromStart();
+				 scaleTransitionForSettingsIcon.playFromStart();
 			 }),
 			 new KeyFrame(Duration.millis(300), e ->
 			 {
@@ -2580,13 +2581,13 @@ public class WelcomeScreen extends CoreScreen
 				 scaleTransitionForEditIcon.setToX(1);
 				 scaleTransitionForEditIcon.setToY(1);
 				
-				 scaleTransitionForSettinsIcon.setToX(1);
-				 scaleTransitionForSettinsIcon.setToY(1);
+				 scaleTransitionForSettingsIcon.setToX(1);
+				 scaleTransitionForSettingsIcon.setToY(1);
 				 
 				 playPopUpSound();
 				 scaleTransitionForWelcomeLabel.playFromStart();
 				 scaleTransitionForEditIcon.playFromStart();
-				 scaleTransitionForSettinsIcon.playFromStart();
+				 scaleTransitionForSettingsIcon.playFromStart();
 			 }),
 			 new KeyFrame(Duration.millis(900), e ->
 			 {
