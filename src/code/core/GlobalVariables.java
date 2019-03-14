@@ -245,24 +245,18 @@ public class GlobalVariables
 	
 	public static double getHeightBasedOnWidth(double width)
 	{
-		if (getCurrentScreenRatio() == RATIO_16_9) return width * 9.0 / 16.0;
-		else if (getCurrentScreenRatio() == RATIO_25_16) return width * 16.0 / 25.0;
-		else if (getCurrentScreenRatio() == RATIO_16_10) return width * 10.0 / 16.0;
-		else if (getCurrentScreenRatio() == RATIO_4_3) return width * 3.0 / 4.0;
-		else if (getCurrentScreenRatio() == RATIO_5_4) return width * 4.0 / 5.0;
-		else if (getCurrentScreenRatio() == RATIO_3_2) return width * 2.0 / 3.0;
-		else return 0;
+		return width / getCurrentScreenRatioValue();
 	}
 	
 	public static boolean isWidthValid(double width)
 	{
 		return width <= primaryScreenWidth &&
-				(getCurrentScreenRatio() == RATIO_16_9 && width >= MIN_WIDTH_FOR_16_9 ||
-				 getCurrentScreenRatio() == RATIO_16_10 && width >= MIN_WIDTH_FOR_16_10 ||
-				 getCurrentScreenRatio() == RATIO_25_16 && width >= MIN_WIDTH_FOR_25_16 ||
-				 getCurrentScreenRatio() == RATIO_4_3 && width >= MIN_WIDTH_FOR_4_3 ||
-				 getCurrentScreenRatio() == RATIO_5_4 && width >= MIN_WIDTH_FOR_5_4 ||
-				 getCurrentScreenRatio() == RATIO_3_2 && width >= MIN_WIDTH_FOR_3_2);
+				(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && width >= MIN_WIDTH_FOR_16_9 ||
+				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && width >= MIN_WIDTH_FOR_16_10 ||
+				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && width >= MIN_WIDTH_FOR_25_16 ||
+				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && width >= MIN_WIDTH_FOR_4_3 ||
+				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && width >= MIN_WIDTH_FOR_5_4 ||
+				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && width >= MIN_WIDTH_FOR_3_2);
 	}
 
 	public static void minimizeGame(Pane anchorPane)
@@ -329,18 +323,7 @@ public class GlobalVariables
 		}
 		else Platform.exit();
 	}
-
-//	--------------------- SCREEN STUFF ---------------------
-	private static int currentScreenRatio;
-	public static final int RATIO_16_9 = 1, RATIO_16_10 = 2, RATIO_25_16 = 3, RATIO_3_2 = 4, RATIO_4_3 = 5,  RATIO_5_4 = 6;
-	public static double primaryScreenWidth, primaryScreenHeight;
-	public static Rectangle2D primaryScreenResolution;
-	static double worldMapLayoutX, worldMapLayoutY, worldMapFitWidth, worldMapFitHeight;
 	
-	public static final int MIN_WIDTH_FOR_16_9 = 1050, MIN_HEIGHT_FOR_16_9 = 590, MIN_WIDTH_FOR_16_10 = 1000, MIN_HEIGHT_FOR_16_10 = 625,
-							MIN_WIDTH_FOR_25_16 = 1000, MIN_HEIGHT_FOR_25_16 = 640, MIN_WIDTH_FOR_3_2 = 990, MIN_HEIGHT_FOR_3_2 = 660,
-							MIN_WIDTH_FOR_4_3 = 800, MIN_HEIGHT_FOR_4_3 = 600, MIN_WIDTH_FOR_5_4 = 900, MIN_HEIGHT_FOR_5_4 = 720;
-
 	public static double getWorldMapLayoutX()
 	{
 		return worldMapLayoutX;
@@ -360,37 +343,59 @@ public class GlobalVariables
 	{
 		return worldMapFitHeight;
 	}
-	
-	public static boolean setCurrentScreenRatio(double width, double height)
-	{
-		double ratio = width / height;
 
-		/* NORMAL CODE IS BELOW */
-//		if(ratio == 16.0 / 9.0 || ratio == 85.0 / 48.0 || ratio == 683.0 / 384.0 || ratio == 221.0 / 124.0 || ratio == 147.0 / 83.0)
-//			currentScreenRatio = RATIO_16_9;
-//		else if(ratio == 16.0 / 10.0)
-//			currentScreenRatio = RATIO_16_10;
-//		else if(ratio == 25.0 / 16.0)
-//			currentScreenRatio = RATIO_25_16;
-//		else if(ratio == 3.0 / 2.0)
-//			currentScreenRatio = RATIO_3_2;
-//		else if(ratio == 4.0 / 3.0)
-//			currentScreenRatio = RATIO_4_3;
-//		else if(ratio == 5.0 / 4.0)
-//			currentScreenRatio = RATIO_5_4;
-//		else
-//			return false;
-//
-//		return  true;
-		
-		/* TEMP CODE IS BELOW */
-		currentScreenRatio = RATIO_16_9;
-		return ratio == 16.0 / 9.0 || ratio == 85.0 / 48.0 || ratio == 683.0 / 384.0 || ratio == 221.0 / 124.0 || ratio == 147.0 / 83.0;
+//	--------------------- SCREEN STUFF ---------------------
+	public enum SUPPORTED_SCREEN_RATIOS { RATIO_16_9, RATIO_16_10, RATIO_25_16, RATIO_3_2, RATIO_4_3, RATIO_5_4, RATIO_NOT_SUPPORTED }
+	
+	
+	public static SUPPORTED_SCREEN_RATIOS currentScreenRatioEnum;
+	public static double currentScreenRatioValue;
+	
+	public static double primaryScreenWidth, primaryScreenHeight;
+	public static Rectangle2D primaryScreenResolution;
+	
+	static double worldMapLayoutX, worldMapLayoutY, worldMapFitWidth, worldMapFitHeight;
+	
+	public static final int MIN_WIDTH_FOR_16_9 = 1050, MIN_HEIGHT_FOR_16_9 = 590, MIN_WIDTH_FOR_16_10 = 1000, MIN_HEIGHT_FOR_16_10 = 625,
+							MIN_WIDTH_FOR_25_16 = 1000, MIN_HEIGHT_FOR_25_16 = 640, MIN_WIDTH_FOR_3_2 = 990, MIN_HEIGHT_FOR_3_2 = 660,
+							MIN_WIDTH_FOR_4_3 = 800, MIN_HEIGHT_FOR_4_3 = 600, MIN_WIDTH_FOR_5_4 = 900, MIN_HEIGHT_FOR_5_4 = 720;
+	
+	public static final double EPSILON_VALUE = 0.00001;
+	
+	public static void setCurrentScreenRatio(double screenWidth, double screenHeight)
+	{
+		currentScreenRatioValue = screenWidth / screenHeight;
+
+		if(currentScreenRatioValue - 16.0 / 9.0 <= EPSILON_VALUE
+				|| currentScreenRatioValue - 85.0 / 48.0 <= EPSILON_VALUE
+				|| currentScreenRatioValue - 683.0 / 384.0 <= EPSILON_VALUE
+				|| currentScreenRatioValue - 221.0 / 124.0 <= EPSILON_VALUE
+				|| currentScreenRatioValue - 147.0 / 83.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_9;
+		else if(currentScreenRatioValue - 16.0 / 10.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_10;
+		else if(currentScreenRatioValue - 25.0 / 16.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_25_16;
+		else if(currentScreenRatioValue - 3.0 / 2.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_3_2;
+		else if(currentScreenRatioValue - 4.0 / 3.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_4_3;
+		else if(currentScreenRatioValue - 5.0 / 4.0 <= EPSILON_VALUE)
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_5_4;
+		else
+			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_NOT_SUPPORTED;
 	}
 
-	public static int getCurrentScreenRatio()
+	public static SUPPORTED_SCREEN_RATIOS getCurrentScreenRatioEnum()
 	{
-		return currentScreenRatio;
+		return currentScreenRatioEnum;
+	}
+	
+	public static double getCurrentScreenRatioValue() { return currentScreenRatioValue; }
+	
+	public static boolean isCurrentScreenRatioSupported()
+	{
+		return currentScreenRatioEnum != SUPPORTED_SCREEN_RATIOS.RATIO_NOT_SUPPORTED;
 	}
 	
 	public static void setSoundIcon(ImageView soundIcon, boolean clicked)

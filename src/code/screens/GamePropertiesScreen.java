@@ -143,7 +143,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			
 			Font fontForLabels = Font.font("Comic Sans MS", 0.0182 * width);
 			
-			if (getCurrentScreenRatio() == RATIO_16_9)
+			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 			{
 				titleImage1.setLayoutY(0.0574 * height);
 				titleLabel1.setLayoutX(0.2479 * width);
@@ -172,7 +172,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				
 				rectangleForExtendedQuestionCategories.setHeight(0.6926 * height);
 			}
-			else if (getCurrentScreenRatio() == RATIO_16_10)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 			{
 				titleImage1.setLayoutY(0.0574 * height);
 				titleLabel1.setLayoutX(0.2470 * width);
@@ -199,9 +199,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				
 				rectangleForExtendedQuestionCategories.setHeight(0.7121 * height);
 			}
-			else if (getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 			{
-				if(getCurrentScreenRatio() == RATIO_25_16)
+				if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 				{
 					titleImage2.setLayoutY(0.1904 * height);
 					titleLabel2.setLayoutY(0.4053 * height);
@@ -244,9 +244,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				
 				extendedQuestionCategories.setPrefSize(0.2604 * width, 0.0463 * height);
 			}
-			else if (getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
-				if (getCurrentScreenRatio() == RATIO_4_3)
+				if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 				{
 					titleLabel1.setLayoutY(0.0450 * height);
 					
@@ -268,7 +268,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					
 					rectangleForExtendedQuestionCategories.setHeight(0.7731 * height);
 				}
-				else if (getCurrentScreenRatio() == RATIO_5_4)
+				else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 				{
 					titleLabel1.setLayoutY(0.0439 * height);
 					
@@ -481,7 +481,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			if(getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0469 * width));
 			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0521 * width));
 			
-			if(getCurrentScreenRatio() == RATIO_16_9)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 			{
 				titleImage1.setLayoutY(0.0574 * height);
 				
@@ -496,7 +496,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				buttonHeight = 0.1019 * height;
 				heightOfDescriptions = 0.3000 * height;
 			}
-			else if(getCurrentScreenRatio() == RATIO_16_10)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 			{
 				titleImage1.setLayoutY(0.0574 * height);
 				
@@ -511,9 +511,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				buttonHeight = 0.0952 * height;
 				heightOfDescriptions = 0.2667 * height;
 			}
-			else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 			{
-				if(getCurrentScreenRatio() == RATIO_25_16)
+				if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 				{
 					hBoxForGameModes.setPrefSize(0.7688 * width, 0.6348 * height);
 					hBoxForGameModes.setLayoutY(0.2344 * height);
@@ -534,14 +534,14 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				buttonHeight = 0.0938 * height;
 				heightOfDescriptions = 0.2539 * height;
 			}
-			else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
-				if(getCurrentScreenRatio() == RATIO_4_3)
+				if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 				{
 					hBoxForGameModes.setPrefSize(0.8214 * width, 0.5714 * height);
 					hBoxForGameModes.setLayoutY(0.2619 * height);
 				}
-				else if(getCurrentScreenRatio() == RATIO_5_4)
+				else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 				{
 					hBoxForGameModes.setPrefSize(0.8203 * width, 0.5469 * height);
 					hBoxForGameModes.setLayoutY(0.2766 * height);
@@ -667,7 +667,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			descriptionForEndlessGameLabel.setFont(fontForLabels);
 		}
 		
-		if (getCurrentScreenRatio() == RATIO_16_9)
+		if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			woodPanelFor5IconsImage.setLayoutY(0.0454 * height);
 			hBoxFor5Icons.setLayoutY(0.1009 * height);
@@ -675,7 +675,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			backButton.setLayoutY(0.8056 * height);
 			nextButton.setLayoutY(0.8056 * height);
 		}
-		else if (getCurrentScreenRatio() == RATIO_16_10)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 		{
 			woodPanelFor5IconsImage.setLayoutY(0.0467 * height);
 			hBoxFor5Icons.setLayoutY(0.0952 * height);
@@ -683,9 +683,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			backButton.setLayoutY(0.8120 * height);
 			nextButton.setLayoutY(0.8120 * height);
 		}
-		else if (getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
-			if(getCurrentScreenRatio() == RATIO_25_16) woodPanelFor5IconsImage.setLayoutY(0.0461 * height);
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16) woodPanelFor5IconsImage.setLayoutY(0.0461 * height);
 			else woodPanelFor5IconsImage.setLayoutY(0.0478 * height);
 			
 			hBoxFor5Icons.setLayoutY(0.0908 * height);
@@ -693,16 +693,16 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			backButton.setLayoutY(0.8200 * height);
 			nextButton.setLayoutY(0.8200 * height);
 		}
-		else if (getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
-			if (getCurrentScreenRatio() == RATIO_4_3)
+			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 			{
 				hBoxFor5Icons.setLayoutY(0.0638 * height);
 				
 				backButton.setLayoutY(0.8429 * height);
 				nextButton.setLayoutY(0.8429 * height);
 			}
-			else if (getCurrentScreenRatio() == RATIO_5_4)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				hBoxFor5Icons.setLayoutY(0.0600 * height);
 				
@@ -791,22 +791,22 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		super.recalculateBackground(width, height);
 		
-		if(getCurrentScreenRatio() == RATIO_16_9)
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			movingEarthImage.setFitWidth(0.9500 * width);
 			movingEarthImage.setLayoutY(0.0500 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_16_10  || getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10  || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
 			movingEarthImage.setFitWidth(0.9590 * width);
 			movingEarthImage.setLayoutY(0.0519 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_4_3)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 		{
 			movingEarthImage.setFitWidth(0.9548 * width);
 			movingEarthImage.setLayoutY(0.0322 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_5_4)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
 			movingEarthImage.setFitWidth(0.9500 * width);
 			movingEarthImage.setLayoutY(0.0332 * height);

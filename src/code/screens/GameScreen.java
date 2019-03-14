@@ -184,7 +184,7 @@ public class GameScreen extends CoreScreen
 		}
 		
 		//SCREEN RATIO DEPENDENT----------------------------------------------------------------------
-		if (getCurrentScreenRatio() == RATIO_16_9)
+		if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			woodPanelFor5IconsImage.setLayoutY(0.0454 * height);
 			hBoxFor5Icons.setLayoutY(0.1009 * height);
@@ -193,7 +193,7 @@ public class GameScreen extends CoreScreen
 			vBoxForSound.setPrefSize(0.1458 * width, 0.1481 * height);
 			
 		}
-		else if (getCurrentScreenRatio() == RATIO_16_10)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 		{
 			woodPanelFor5IconsImage.setLayoutY(0.0467 * height);
 			hBoxFor5Icons.setLayoutY(0.0952 * height);
@@ -202,7 +202,7 @@ public class GameScreen extends CoreScreen
 			vBoxForSound.setPrefSize(0.1220 * width, 0.1389 * height);
 			
 		}
-		else if (getCurrentScreenRatio() == RATIO_25_16)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 		{
 			woodPanelFor5IconsImage.setLayoutY(0.0459 * height);
 			hBoxFor5Icons.setLayoutY(0.0908 * height);
@@ -211,14 +211,14 @@ public class GameScreen extends CoreScreen
 			vBoxForSound.setPrefSize(0.1200 * width, 0.1389 * height);
 			
 		}
-		else if (getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
-			if (getCurrentScreenRatio() == RATIO_4_3)
+			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 			{
 				hBoxFor5Icons.setLayoutY(0.0638 * height);
 				
 			}
-			else if (getCurrentScreenRatio() == RATIO_5_4)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				hBoxFor5Icons.setLayoutY(0.0600 * height);
 				

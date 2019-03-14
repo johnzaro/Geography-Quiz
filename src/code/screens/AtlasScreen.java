@@ -190,7 +190,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		Font fontForSound = Font.font("Comic Sans MS", 0.0094 * width);
 		
 		//SCREEN DEPENDENT STUFF
-		if(getCurrentScreenRatio() == RATIO_16_9)
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			titleImage.setLayoutY(0.0509 * height);
 
@@ -206,7 +206,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 			hBoxForToggleButtons.setLayoutY(0.2296 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_16_10)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 		{
 			titleImage.setLayoutY(0.0574 * height);
 			
@@ -222,7 +222,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			hBoxForToggleButtons.setLayoutY(0.2296 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
 			titleImage.setLayoutY(0.0574 * height);
 			
@@ -238,15 +238,15 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			hBoxForToggleButtons.setLayoutY(0.2296 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
-			if(getCurrentScreenRatio() == RATIO_4_3)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 			{
 				titleLabel.setLayoutY(0.0333 * height);
 				
 				hBoxFor5Icons.setLayoutY(0.0667 * height);
 			}
-			else if(getCurrentScreenRatio() == RATIO_5_4)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				titleLabel.setLayoutY(0.0313 * height);
 				
@@ -737,22 +737,24 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	{
 		super.recalculateBackground(width, height);
 		
-		if(getCurrentScreenRatio() == RATIO_16_9)
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			movingEarthImage.setFitWidth(0.9500 * width);
 			movingEarthImage.setLayoutY(0.0500 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_16_10  || getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
 			movingEarthImage.setFitWidth(0.9590 * width);
 			movingEarthImage.setLayoutY(0.0519 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_4_3)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 		{
 			movingEarthImage.setFitWidth(0.9548 * width);
 			movingEarthImage.setLayoutY(0.0322 * height);
 		}
-		else if(getCurrentScreenRatio() == RATIO_5_4)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
 			movingEarthImage.setFitWidth(0.9500 * width);
 			movingEarthImage.setLayoutY(0.0332 * height);

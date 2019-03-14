@@ -32,10 +32,10 @@ public class BaseClass extends Application
 //		get the bounds of primary screen that is used in order to check if it is supported
 		setupPrimaryScreenBounds();
 		
-//		pass the width and height of primary screen to method that returns boolean if it is supported
-		boolean displayResolutionIsSupported = setCurrentScreenRatio(primaryScreenWidth, primaryScreenHeight);
-//		if(!displayResolutionIsSupported)
-		if(false)
+//		pass the width and height of primary screen to method to set currentScreenRatioValue & enum
+		setCurrentScreenRatio(primaryScreenWidth, primaryScreenHeight);
+		
+		if(!isCurrentScreenRatioSupported())
 		{
 //			follow steps to show the "display not supported" screen
 //			use helping resourceBundle to get the system language

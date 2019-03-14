@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/BaseClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/UTF8Control.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/CoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/CoreScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/screens/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/SplashScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,142 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="339">
-              <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="84" column="36" lean-forward="true" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
-              <folding>
-                <element signature="method#setupGameVariables#0;class#PowerOn#0" />
-                <element signature="method#loadFonts#0;class#PowerOn#0" />
-                <element signature="e#2113#2317#0" />
-                <element signature="e#2341#2439#0" />
-                <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
-                <element signature="e#3001#3151#0" />
-                <element signature="method#setupStage#0;class#PowerOn#0" />
-                <element signature="e#4085#6773#0" />
-                <element signature="e#4123#5542#1" />
-                <element signature="e#4171#5202#1" />
-                <element signature="e#4351#4451#1" />
-                <element signature="e#4563#4670#1" />
-                <element signature="e#4762#4810#1" />
-                <element signature="e#4904#4993#1" />
-                <element signature="e#5097#5196#1" />
-                <element signature="e#5292#5350#1" />
-                <element signature="e#5383#5537#1" />
-                <element signature="e#5554#6769#1" />
-                <element signature="e#5602#6617#1" />
-                <element signature="e#5768#5867#1" />
-                <element signature="e#5979#6086#1" />
-                <element signature="e#6178#6225#1" />
-                <element signature="e#6319#6408#1" />
-                <element signature="e#6512#6611#1" />
-                <element signature="e#6707#6764#1" />
-                <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
-                <element signature="e#6859#8583#0" />
-                <element signature="e#6898#7195#1" />
-                <element signature="e#7238#7535#1" />
-                <element signature="e#7547#7844#1" />
-                <element signature="e#8607#8743#0" />
-                <element signature="method#loadSettings#0;class#PowerOn#0" />
-                <element signature="e#9044#9102#1" />
-                <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
-                <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
-                <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
-                <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
-                <element signature="e#10511#12456#0" />
-                <element signature="e#10992#11249#1" />
-                <element signature="e#11289#11546#1" />
-                <element signature="e#11555#11812#1" />
-                <element signature="e#12480#12615#0" />
-                <element signature="method#powerOnMedia#0;class#PowerOn#0" />
-                <element signature="e#12660#15171#0" />
-                <element signature="e#15195#15293#0" />
-                <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-                <element signature="e#18385#18468#0" />
-                <element signature="method#powerOnImages#0;class#PowerOn#0" />
-                <element signature="e#25041#25523#1" />
-                <element signature="e#25533#25847#1" />
-                <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
-                <element signature="e#25927#32732#0" />
-                <element signature="e#25977#27534#1" />
-                <element signature="e#26018#26502#1" />
-                <element signature="e#26547#27031#1" />
-                <element signature="e#27045#27529#1" />
-                <element signature="e#27671#29234#1" />
-                <element signature="e#27712#28196#1" />
-                <element signature="e#28241#28728#1" />
-                <element signature="e#28742#29229#1" />
-                <element signature="e#29327#31784#1" />
-                <element signature="e#29368#30152#1" />
-                <element signature="e#29662#29896#1" />
-                <element signature="e#29912#30146#1" />
-                <element signature="e#30197#30981#1" />
-                <element signature="e#30491#30725#1" />
-                <element signature="e#30741#30975#1" />
-                <element signature="e#30995#31779#1" />
-                <element signature="e#31289#31523#1" />
-                <element signature="e#31539#31773#1" />
-                <element signature="e#31826#32106#1" />
-                <element signature="e#32150#32432#1" />
-                <element signature="e#32444#32728#1" />
-                <element signature="e#32756#32872#0" />
-                <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
-                <element signature="e#32972#33362#1" />
-                <element signature="e#33372#33675#1" />
-                <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
-                <element signature="e#33727#34950#0" />
-                <element signature="e#34974#35087#0" />
-                <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
-                <element signature="e#35140#35185#0" />
-                <element signature="e#35209#35320#0" />
-                <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
-                <element signature="e#35380#35439#0" />
-                <element signature="e#35463#35615#0" />
-                <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
-                <element signature="e#35665#35704#0" />
-                <element signature="e#35728#35836#0" />
-                <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
-                <element signature="e#35887#35928#0" />
-                <element signature="e#35952#36057#0" />
-                <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-                <element signature="e#36113#36164#0" />
-                <element signature="e#36188#36298#0" />
-                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-                <element signature="e#36365#39478#0" />
-                <element signature="e#36648#36662#0" />
-                <element signature="e#39509#40846#0" />
-                <element signature="e#39962#40010#0" />
-                <element signature="e#40891#40924#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3272">
-              <caret line="497" column="5" lean-forward="true" selection-start-line="497" selection-start-column="5" selection-end-line="497" selection-end-column="5" />
-              <folding>
-                <element signature="e#18493#19727#0" />
-                <element signature="e#19730#20270#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -165,9 +32,12 @@
       <find>ToolTip</find>
       <find>tooltip</find>
       <find>tool</find>
+      <find>enum</find>
+      <find>RATIO_</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
+      <replace>SUPPORTED_SCREEN_RATIOS.RATIO_</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -181,18 +51,21 @@
         <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
         <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/GameScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/GameScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1324" />
@@ -249,12 +122,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552591580889" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552594556061" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -316,8 +189,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12170146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -327,7 +199,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.23863636" />
+      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.23863636" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39935064" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -394,65 +266,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="17" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="722">
-          <caret line="764" column="5" lean-forward="true" selection-start-line="764" selection-start-column="5" selection-end-line="764" selection-end-column="5" />
-          <folding>
-            <element signature="e#261157#261158#0" expanded="true" />
-            <element signature="e#261199#261200#0" expanded="true" />
-            <element signature="e#261238#261239#0" expanded="true" />
-            <element signature="e#261281#261282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/ErrorScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
           <caret line="34" column="46" lean-forward="true" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="829" column="9" selection-start-line="829" selection-start-column="9" selection-end-line="829" selection-end-column="9" />
-          <folding>
-            <element signature="e#4721#33571#0" />
-            <element signature="e#35289#54183#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="830">
-          <caret line="666" column="48" selection-start-line="666" selection-start-column="48" selection-end-line="666" selection-end-column="48" />
-          <folding>
-            <element signature="e#7130#29718#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -463,44 +280,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="358" column="53" selection-start-line="358" selection-start-column="53" selection-end-line="358" selection-end-column="53" />
-          <folding>
-            <element signature="e#3392#12227#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="715" column="8" selection-start-line="715" selection-start-column="8" selection-end-line="715" selection-end-column="8" />
-          <folding>
-            <element signature="e#4897#28513#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3272">
-          <caret line="497" column="5" lean-forward="true" selection-start-line="497" selection-start-column="5" selection-end-line="497" selection-end-column="5" />
-          <folding>
-            <element signature="e#18493#19727#0" />
-            <element signature="e#19730#20270#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="339">
-          <caret line="35" column="57" lean-forward="true" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/UTF8Control.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -508,10 +287,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="834">
+          <caret line="105" column="42" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
+          <folding>
+            <element signature="e#19730#20270#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="931">
+          <caret line="746" column="16" selection-start-line="746" selection-start-column="16" selection-end-line="746" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="84" column="36" lean-forward="true" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
+        <state relative-caret-position="8609">
+          <caret line="658" column="149" selection-start-line="658" selection-start-column="149" selection-end-line="658" selection-end-column="149" />
           <folding>
             <element signature="method#setupGameVariables#0;class#PowerOn#0" />
             <element signature="method#loadFonts#0;class#PowerOn#0" />
@@ -520,101 +323,88 @@
             <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
             <element signature="e#3001#3151#0" />
             <element signature="method#setupStage#0;class#PowerOn#0" />
-            <element signature="e#4085#6773#0" />
-            <element signature="e#4123#5542#1" />
-            <element signature="e#4171#5202#1" />
-            <element signature="e#4351#4451#1" />
-            <element signature="e#4563#4670#1" />
-            <element signature="e#4762#4810#1" />
-            <element signature="e#4904#4993#1" />
-            <element signature="e#5097#5196#1" />
-            <element signature="e#5292#5350#1" />
-            <element signature="e#5383#5537#1" />
-            <element signature="e#5554#6769#1" />
-            <element signature="e#5602#6617#1" />
-            <element signature="e#5768#5867#1" />
-            <element signature="e#5979#6086#1" />
-            <element signature="e#6178#6225#1" />
-            <element signature="e#6319#6408#1" />
-            <element signature="e#6512#6611#1" />
-            <element signature="e#6707#6764#1" />
             <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
-            <element signature="e#6859#8583#0" />
-            <element signature="e#6898#7195#1" />
-            <element signature="e#7238#7535#1" />
-            <element signature="e#7547#7844#1" />
-            <element signature="e#8607#8743#0" />
             <element signature="method#loadSettings#0;class#PowerOn#0" />
-            <element signature="e#9044#9102#1" />
+            <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
             <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
             <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
             <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
-            <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
-            <element signature="e#10511#12456#0" />
-            <element signature="e#10992#11249#1" />
-            <element signature="e#11289#11546#1" />
-            <element signature="e#11555#11812#1" />
-            <element signature="e#12480#12615#0" />
-            <element signature="method#powerOnMedia#0;class#PowerOn#0" />
-            <element signature="e#12660#15171#0" />
-            <element signature="e#15195#15293#0" />
-            <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-            <element signature="e#18385#18468#0" />
-            <element signature="method#powerOnImages#0;class#PowerOn#0" />
-            <element signature="e#25041#25523#1" />
-            <element signature="e#25533#25847#1" />
-            <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
-            <element signature="e#25927#32732#0" />
-            <element signature="e#25977#27534#1" />
-            <element signature="e#26018#26502#1" />
-            <element signature="e#26547#27031#1" />
-            <element signature="e#27045#27529#1" />
-            <element signature="e#27671#29234#1" />
-            <element signature="e#27712#28196#1" />
-            <element signature="e#28241#28728#1" />
-            <element signature="e#28742#29229#1" />
-            <element signature="e#29327#31784#1" />
-            <element signature="e#29368#30152#1" />
-            <element signature="e#29662#29896#1" />
-            <element signature="e#29912#30146#1" />
-            <element signature="e#30197#30981#1" />
-            <element signature="e#30491#30725#1" />
-            <element signature="e#30741#30975#1" />
-            <element signature="e#30995#31779#1" />
-            <element signature="e#31289#31523#1" />
-            <element signature="e#31539#31773#1" />
-            <element signature="e#31826#32106#1" />
-            <element signature="e#32150#32432#1" />
-            <element signature="e#32444#32728#1" />
-            <element signature="e#32756#32872#0" />
-            <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
-            <element signature="e#32972#33362#1" />
-            <element signature="e#33372#33675#1" />
-            <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
-            <element signature="e#33727#34950#0" />
-            <element signature="e#34974#35087#0" />
             <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
-            <element signature="e#35140#35185#0" />
-            <element signature="e#35209#35320#0" />
             <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
-            <element signature="e#35380#35439#0" />
-            <element signature="e#35463#35615#0" />
             <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
-            <element signature="e#35665#35704#0" />
-            <element signature="e#35728#35836#0" />
             <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
-            <element signature="e#35887#35928#0" />
-            <element signature="e#35952#36057#0" />
             <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-            <element signature="e#36113#36164#0" />
-            <element signature="e#36188#36298#0" />
             <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-            <element signature="e#36365#39478#0" />
-            <element signature="e#36648#36662#0" />
-            <element signature="e#39509#40846#0" />
-            <element signature="e#39962#40010#0" />
-            <element signature="e#40891#40924#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="375" column="9" lean-forward="true" selection-start-line="375" selection-start-column="9" selection-end-line="375" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="640" column="82" lean-forward="true" selection-start-line="640" selection-start-column="82" selection-end-line="640" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="247" column="51" selection-start-line="247" selection-start-column="51" selection-end-line="247" selection-end-column="51" />
+          <folding>
+            <element signature="e#11475#11476#0" expanded="true" />
+            <element signature="e#11525#11526#0" expanded="true" />
+            <element signature="e#17087#17088#0" expanded="true" />
+            <element signature="e#17169#17170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1100">
+          <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8393">
+          <caret line="313" column="77" selection-start-line="313" selection-start-column="77" selection-end-line="313" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2518">
+          <caret line="341" column="16" selection-start-line="341" selection-start-column="16" selection-end-line="341" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14870">
+          <caret line="808" column="77" selection-start-line="808" selection-start-column="77" selection-end-line="808" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="36" column="145" selection-start-line="36" selection-start-column="145" selection-end-line="36" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="44" column="145" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="145" />
         </state>
       </provider>
     </entry>

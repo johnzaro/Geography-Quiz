@@ -103,7 +103,7 @@ abstract class CoreScreen
 		fullScreenTooltip.setWrapText(true);
 		Tooltip.install(fullScreenIcon, fullScreenTooltip);
 
-		if(!setCurrentScreenRatio(primaryScreenWidth, primaryScreenHeight)) fullScreenIcon.setDisable(true);
+		if(!isCurrentScreenRatioSupported()) fullScreenIcon.setDisable(true);
 		
 		exitIcon = new ImageView(EXIT_ICON);
 		exitIcon.setPreserveRatio(true);
@@ -319,22 +319,17 @@ abstract class CoreScreen
 				if (!stage.isFullScreen())
 				{
 					if (positionOfResizing == 1 &&
-					    (getCurrentScreenRatio() == RATIO_16_9 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_9 ||
-					     getCurrentScreenRatio() == RATIO_16_10 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_10 ||
-					     getCurrentScreenRatio() == RATIO_25_16 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_25_16 ||
-					     getCurrentScreenRatio() == RATIO_3_2 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_3_2 ||
-					     getCurrentScreenRatio() == RATIO_4_3 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_4_3 ||
-					     getCurrentScreenRatio() == RATIO_5_4 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_5_4))
+					    (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_9 ||
+					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_10 ||
+					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_25_16 ||
+					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_3_2 ||
+					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_4_3 ||
+					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_5_4))
 					{
 						windowHeight = windowHeight - e.getScreenY() + stage.getY() + dy;
 						double prevWidth = windowWidth;
 						
-						if(getCurrentScreenRatio() == RATIO_16_9) windowWidth = windowHeight * 16.0 / 9.0;
-						else if(getCurrentScreenRatio() == RATIO_16_10) windowWidth = windowHeight * 16.0 / 10.0;
-						else if(getCurrentScreenRatio() == RATIO_25_16) windowWidth = windowHeight * 25.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_3_2) windowWidth = windowHeight * 3.0 / 2.0;
-						else if(getCurrentScreenRatio() == RATIO_4_3) windowWidth = windowHeight * 4.0 / 3.0;
-						else if(getCurrentScreenRatio() == RATIO_5_4) windowWidth = windowHeight * 5.0 / 4.0;
+						windowWidth = windowHeight * getCurrentScreenRatioValue();
 						
 						recalculateBackground(windowWidth, windowHeight);
 						
@@ -344,21 +339,16 @@ abstract class CoreScreen
 						stage.setX(stage.getX() - (windowWidth - prevWidth));
 					}
 					else if (positionOfResizing == 2 &&
-					         (getCurrentScreenRatio() == RATIO_16_9 && e.getX() + dx > MIN_WIDTH_FOR_16_9 ||
-					          getCurrentScreenRatio() == RATIO_16_10 && e.getX() + dx > MIN_WIDTH_FOR_16_10 ||
-					          getCurrentScreenRatio() == RATIO_25_16 && e.getX() + dx > MIN_WIDTH_FOR_25_16 ||
-					          getCurrentScreenRatio() == RATIO_3_2 && e.getX() + dx > MIN_WIDTH_FOR_3_2 ||
-					          getCurrentScreenRatio() == RATIO_4_3 && e.getX() + dx > MIN_WIDTH_FOR_4_3 ||
-					          getCurrentScreenRatio() == RATIO_5_4 && e.getX() + dx > MIN_WIDTH_FOR_5_4))
+					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && e.getX() + dx > MIN_WIDTH_FOR_16_9 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && e.getX() + dx > MIN_WIDTH_FOR_16_10 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && e.getX() + dx > MIN_WIDTH_FOR_25_16 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && e.getX() + dx > MIN_WIDTH_FOR_3_2 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && e.getX() + dx > MIN_WIDTH_FOR_4_3 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && e.getX() + dx > MIN_WIDTH_FOR_5_4))
 					{
 						windowWidth = e.getX() + dx;
 						
-						if(getCurrentScreenRatio() == RATIO_16_9) windowHeight = windowWidth * 9.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_16_10) windowHeight = windowWidth * 10.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_25_16) windowHeight = windowWidth * 16.0 / 25.0;
-						else if(getCurrentScreenRatio() == RATIO_3_2) windowHeight = windowWidth * 2.0 / 3.0;
-						else if(getCurrentScreenRatio() == RATIO_4_3) windowHeight = windowWidth * 3.0 / 4.0;
-						else if(getCurrentScreenRatio() == RATIO_5_4) windowHeight = windowWidth * 4.0 / 5.0;
+						windowHeight = windowWidth / getCurrentScreenRatioValue();
 						
 						recalculateBackground(windowWidth, windowHeight);
 						
@@ -366,21 +356,16 @@ abstract class CoreScreen
 						stage.setHeight(windowHeight);
 					}
 					else if (positionOfResizing == 3 &&
-					         (getCurrentScreenRatio() == RATIO_16_9 && e.getY() + dy > MIN_HEIGHT_FOR_16_9 ||
-					          getCurrentScreenRatio() == RATIO_16_10 && e.getY() + dy > MIN_HEIGHT_FOR_16_10 ||
-					          getCurrentScreenRatio() == RATIO_25_16 && e.getY() + dy > MIN_HEIGHT_FOR_25_16 ||
-					          getCurrentScreenRatio() == RATIO_3_2 && e.getY() + dy > MIN_HEIGHT_FOR_3_2 ||
-					          getCurrentScreenRatio() == RATIO_4_3 && e.getY() + dy > MIN_HEIGHT_FOR_4_3 ||
-					          getCurrentScreenRatio() == RATIO_5_4 && e.getY() + dy > MIN_HEIGHT_FOR_5_4))
+					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && e.getY() + dy > MIN_HEIGHT_FOR_16_9 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && e.getY() + dy > MIN_HEIGHT_FOR_16_10 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && e.getY() + dy > MIN_HEIGHT_FOR_25_16 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && e.getY() + dy > MIN_HEIGHT_FOR_3_2 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && e.getY() + dy > MIN_HEIGHT_FOR_4_3 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && e.getY() + dy > MIN_HEIGHT_FOR_5_4))
 					{
 						windowHeight = e.getY() + dy;
 						
-						if(getCurrentScreenRatio() == RATIO_16_9) windowWidth = windowHeight * 16.0 / 9.0;
-						else if(getCurrentScreenRatio() == RATIO_16_10) windowWidth = windowHeight * 16.0 / 10.0;
-						else if(getCurrentScreenRatio() == RATIO_25_16) windowWidth = windowHeight * 25.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_3_2) windowWidth = windowHeight * 3.0 / 2.0;
-						else if(getCurrentScreenRatio() == RATIO_4_3) windowWidth = windowHeight * 4.0 / 3.0;
-						else if(getCurrentScreenRatio() == RATIO_5_4) windowWidth = windowHeight * 5.0 / 4.0;
+						windowWidth = windowHeight * getCurrentScreenRatioValue();
 						
 						recalculateBackground(windowWidth, windowHeight);
 						
@@ -388,22 +373,17 @@ abstract class CoreScreen
 						stage.setWidth(windowWidth);
 					}
 					else if (positionOfResizing == 4 &&
-					         (getCurrentScreenRatio() == RATIO_16_9 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_9 ||
-					          getCurrentScreenRatio() == RATIO_16_10 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_10 ||
-					          getCurrentScreenRatio() == RATIO_25_16 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_25_16 ||
-					          getCurrentScreenRatio() == RATIO_3_2 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_3_2 ||
-					          getCurrentScreenRatio() == RATIO_4_3 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_4_3 ||
-					          getCurrentScreenRatio() == RATIO_5_4 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_5_4))
+					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_9 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_10 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_25_16 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_3_2 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_4_3 ||
+					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_5_4))
 					{
 						windowWidth = windowWidth - e.getScreenX() + stage.getX() + dx;
 						double prevHeight = windowHeight;
 						
-						if(getCurrentScreenRatio() == RATIO_16_9) windowHeight = windowWidth * 9.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_16_10) windowHeight = windowWidth * 10.0 / 16.0;
-						else if(getCurrentScreenRatio() == RATIO_25_16) windowHeight = windowWidth * 16.0 / 25.0;
-						else if(getCurrentScreenRatio() == RATIO_3_2) windowHeight = windowWidth * 2.0 / 3.0;
-						else if(getCurrentScreenRatio() == RATIO_4_3) windowHeight = windowWidth * 3.0 / 4.0;
-						else if(getCurrentScreenRatio() == RATIO_5_4) windowHeight = windowWidth * 4.0 / 5.0;
+						windowHeight = windowWidth / getCurrentScreenRatioValue();
 						
 						recalculateBackground(windowWidth, windowHeight);
 						
@@ -439,15 +419,16 @@ abstract class CoreScreen
 	
 	void setFullScreenMode()
 	{
-		double newWidth, newHeight, previousScreenRatio;
+		double newWidth, newHeight;
+		SUPPORTED_SCREEN_RATIOS previousScreenRatio;
 		ObservableList<Screen> screens = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
 		
 		newWidth = screens.get(0).getBounds().getWidth();
 		newHeight = screens.get(0).getBounds().getHeight();
 		
-		previousScreenRatio = getCurrentScreenRatio();
+		previousScreenRatio = getCurrentScreenRatioEnum();
 		setCurrentScreenRatio(newWidth, newHeight);
-		if (previousScreenRatio != getCurrentScreenRatio())
+		if (previousScreenRatio != getCurrentScreenRatioEnum())
 		{
 			primaryScreenWidth = newWidth;
 			primaryScreenHeight = newHeight;

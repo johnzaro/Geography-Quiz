@@ -3,8 +3,6 @@ package code.core;
 import code.dataStructures.*;
 import code.screens.*;
 import javafx.application.Platform;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
@@ -17,21 +15,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStreamWriter;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.*;
@@ -295,10 +281,10 @@ public class PowerOn
 		try
 		{
 			double width;
-			if(getCurrentScreenRatio() == RATIO_16_9 || getCurrentScreenRatio() == RATIO_16_10)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 				width = 0.75 * primaryScreenWidth;
-			else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2) width = 0.8 * primaryScreenWidth;
-			else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) width = 0.8 * primaryScreenWidth;
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 				width = 0.9 * primaryScreenWidth;
 			else width = 0.85 * primaryScreenWidth;
 			
@@ -526,7 +512,7 @@ public class PowerOn
 	{
 		try
 		{
-			if(getCurrentScreenRatio() == RATIO_16_9)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 			{
 				if(primaryScreenWidth <= 1920)
 				{
@@ -550,7 +536,7 @@ public class PowerOn
 					worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0444; worldMapFitWidth = 0.9505; worldMapFitHeight = 0.9167;
 				}
 			}
-			else if(getCurrentScreenRatio() == RATIO_16_10 || getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 			{
 				if(primaryScreenWidth <= 1440)
 				{
@@ -574,7 +560,7 @@ public class PowerOn
 					worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0442; worldMapFitWidth = 0.9531; worldMapFitHeight = 0.9150;
 				}
 			}
-			else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				if(primaryScreenWidth <= 1400)
 				{
@@ -667,10 +653,10 @@ public class PowerOn
 		try
 		{
 			double width;
-			if(getCurrentScreenRatio() == RATIO_16_9 || getCurrentScreenRatio() == RATIO_16_10)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 				width = 0.75 * primaryScreenWidth;
-			else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2) width = 0.8 * primaryScreenWidth;
-			else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) width = 0.8 * primaryScreenWidth;
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 				width = 0.9 * primaryScreenWidth;
 			else width = 0.85 * primaryScreenWidth;
 			

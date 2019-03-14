@@ -40,9 +40,9 @@ public class SplashScreen
 
 	public SplashScreen()
 	{
-		if(getCurrentScreenRatio() == RATIO_16_9 || getCurrentScreenRatio() == RATIO_16_10) splashWidth = 0.75 * primaryScreenWidth;
-		else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2) splashWidth = 0.8 * primaryScreenWidth;
-		else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4) splashWidth = 0.9 * primaryScreenWidth;
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10) splashWidth = 0.75 * primaryScreenWidth;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) splashWidth = 0.8 * primaryScreenWidth;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) splashWidth = 0.9 * primaryScreenWidth;
 		splashHeight = splashWidth * 9.0 / 16.0;
 
 		task = new Task<Void>()

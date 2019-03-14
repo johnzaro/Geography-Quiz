@@ -51,12 +51,12 @@ abstract class CoreScreenWithMovingBackground extends CoreScreen
 	
 	void setViewPortProperties()
 	{
-		if(getCurrentScreenRatio() == RATIO_16_9) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4850;
-		else if(getCurrentScreenRatio() == RATIO_16_10) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4450;
-		else if(getCurrentScreenRatio() == RATIO_25_16) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4350;
-		else if(getCurrentScreenRatio() == RATIO_3_2) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4150;
-		else if(getCurrentScreenRatio() == RATIO_4_3) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.3538;
-		else if(getCurrentScreenRatio() == RATIO_5_4) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.3312;
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4850;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4450;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4350;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.4150;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.3538;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) viewPortWidth = MOVING_EARTH_IMAGE_1.getWidth() * 0.3312;
 		viewPortHeight = (int) MOVING_EARTH_IMAGE_1.getHeight();
 		movingImageHalfWidth = MOVING_EARTH_IMAGE_1.getWidth() / 2.0;
 		movingEarthImage.setViewport(new Rectangle2D(movingEarthStartX, 0, viewPortWidth, viewPortHeight));

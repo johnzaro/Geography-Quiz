@@ -11,8 +11,6 @@ import javafx.scene.effect.DropShadow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
@@ -34,9 +32,9 @@ public class MessageGameIsAlreadyRunningScreen
 
 	public MessageGameIsAlreadyRunningScreen()
 	{
-		if(getCurrentScreenRatio() == RATIO_16_9 || getCurrentScreenRatio() == RATIO_16_10) width = 0.75 * primaryScreenWidth;
-		else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2) width = 0.8 * primaryScreenWidth;
-		else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4) width = 0.9 * primaryScreenWidth;
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10) width = 0.75 * primaryScreenWidth;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) width = 0.8 * primaryScreenWidth;
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) width = 0.9 * primaryScreenWidth;
 		height = width * 9.0 / 16.0;
 		
 		anchorPane = new AnchorPane();

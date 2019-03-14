@@ -84,7 +84,7 @@ public class WelcomeScreen extends CoreScreen
 		hBoxFor2SettingsButtons.setPrefSize(0.0781 * width, 0.0777 * height);
 		hBoxFor4SettingsButtons.setPrefSize(0.1276 * width, 0.0787 * height);
 
-		if(getCurrentScreenRatio() == RATIO_16_9)
+		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
 		{
 			leftGlobeImage.setFitWidth(0.1614 * width);
 			rightGlobeImage.setFitWidth(0.1614 * width);
@@ -150,7 +150,7 @@ public class WelcomeScreen extends CoreScreen
 //				vBoxForSettings.setLayoutX(0.8230 * width);
 			}
 		}
-		else if(getCurrentScreenRatio() == RATIO_16_10)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
 		{
 			leftGlobeImage.setFitWidth(0.1625 * width);
 			rightGlobeImage.setFitWidth(0.1625 * width);
@@ -216,9 +216,9 @@ public class WelcomeScreen extends CoreScreen
 //				vBoxForSettings.setLayoutX(0.8226 * width);
 			}
 		}
-		else if(getCurrentScreenRatio() == RATIO_25_16 || getCurrentScreenRatio() == RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
-			if(getCurrentScreenRatio() == RATIO_25_16)
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 			{
 				woodPanelFor2IconsImage.setLayoutY(0.0556 * height);
 				hBoxFor2SettingsButtons.setLayoutY(0.0898 * height);
@@ -306,12 +306,12 @@ public class WelcomeScreen extends CoreScreen
 //				vBoxForSettings.setLayoutX(0.8220 * width);
 			}
 		}
-		else if(getCurrentScreenRatio() == RATIO_4_3 || getCurrentScreenRatio() == RATIO_5_4)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
 			leftGlobeImage.setFitWidth(0.1757 * width);
 			rightGlobeImage.setFitWidth(0.1757 * width);
 
-			if (getCurrentScreenRatio() == RATIO_5_4)
+			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				gameNameWoodenImage.setLayoutY(0.0225 * height);
 				welcomeImage.setLayoutY(0.1797 * height);
