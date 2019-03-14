@@ -129,12 +129,13 @@ public class GameScreen extends CoreScreen
 	
 	protected void recalculateUI(double width, double height)
 	{
+		super.recalculateUI(width, height);
+		
 		double iconSize  = 0.0260 * width;
 		
 		Font fontForButtons        = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0234 * width);
 		Font fontForArrowButtons   = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0156 * width);
 		Font fontForLabels         = Font.font("Comic Sans MS", 0.0208 * width);
-		Font fontForTooltips       = Font.font("Comic Sans MS", 0.0187 * width);
 		double maxWidthForTooltips = (0.2604) * width;
 		
 		if (width < 1100)

@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 
 import static code.core.GlobalVariables.*;
@@ -29,6 +30,8 @@ abstract class CoreScreen
 	
 	private double xOffset = 0, yOffset = 0, dx = 0, dy = 0;
 	private int positionOfResizing = 0;
+	
+	Font fontForTooltips;
 	
 	CoreScreen()
 	{
@@ -467,7 +470,10 @@ abstract class CoreScreen
 	
 	protected abstract void setScreenRatioDependentImages();
 
-	protected abstract void recalculateUI(double width, double height);
+	protected void recalculateUI(double width, double height)
+	{
+		fontForTooltips = Font.font("Comic Sans MS", 0.013 * width); // 30 -> 1920
+	}
 	
 	protected void recalculateBackground(double width, double height)
 	{

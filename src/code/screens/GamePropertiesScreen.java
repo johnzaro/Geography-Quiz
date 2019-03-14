@@ -75,10 +75,11 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 	protected void recalculateUI(double width, double height)
 	{
+		super.recalculateUI(width, height);
+		
 		double iconSize  = 0.0260 * width;
 		
 		Font fontForButtons  = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0234 * width);
-		Font fontForTooltips = Font.font("Comic Sans MS", 0.0130 * width);
 		Font fontForArrowButtons = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0156 * width);
 		
 		if (width < 1200)
@@ -590,23 +591,14 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			vBoxForTimeAttackGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
 			vBoxForEndlessGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
 			
-			vBoxForClassicGame.setStyle(
-					"-fx-background-color: #00000099; -fx-border-color: black;" +
+			String vBoxStyle = "-fx-background-color: #00000099; -fx-border-color: black;" +
 					"-fx-background-radius:" + 0.0208 * width + ";" +
 					"-fx-border-radius:" + 0.0208 * width + ";" +
-					"-fx-border-width:" + 0.0042 * width);
+					"-fx-border-width:" + 0.0042 * width;
 			
-			vBoxForTimeAttackGame.setStyle(
-					"-fx-background-color: #00000099; -fx-border-color: black;" +
-					"-fx-background-radius:" + 0.0208 * width + ";" +
-					"-fx-border-radius:" + 0.0208 * width + ";" +
-					"-fx-border-width:" + 0.0042 * width);
-			
-			vBoxForEndlessGame.setStyle(
-					"-fx-background-color: #00000099; -fx-border-color: black;" +
-					"-fx-background-radius:" + 0.0208 * width + ";" +
-					"-fx-border-radius:" + 0.0208 * width + ";" +
-					"-fx-border-width:" + 0.0042 * width);
+			vBoxForClassicGame.setStyle(vBoxStyle);
+			vBoxForTimeAttackGame.setStyle(vBoxStyle);
+			vBoxForEndlessGame.setStyle(vBoxStyle);
 			
 			widthOfNodesInVBox = 0.2266 * width;
 			heightOfNodesInVBox = 0.0509 * height;

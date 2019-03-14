@@ -89,7 +89,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 	private Timeline timeLineToShowAllStuff, timeLineToHideAllStuff, timelineToShowSoundOptions, timelineToHideSoundOptions;
 	
-	private Font fontBig, fontForTooltips;
+	private Font fontBig;
 	
 	//VARIABLES NEEDED IN THIS CLASS
 	private String previousBigImagePath = "", newBigImagePath = "", bigImageSize = "";
@@ -153,6 +153,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 	protected void recalculateUI(double width, double height)
 	{
+		super.recalculateUI(width, height);
+		
 		if (width < 1850)
 		{
 			masterVolumeSlider.setId("small");
@@ -185,7 +187,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		Font fontForButtons  = Font.font("Comic Sans MS", 0.0156 * width);
 		Font fontForLabels= Font.font("Comic Sans MS", FontWeight.BOLD, 0.0146 * width); // 26 -> 1920
-		fontForTooltips = Font.font("Comic Sans MS", 0.0188 * width); // 30 -> 1920
 		fontBig = Font.font("Comic Sans MS", 0.0125 * width); // 26 -> 1920
 		Font fontForSound = Font.font("Comic Sans MS", 0.0094 * width);
 		

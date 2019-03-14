@@ -81,6 +81,8 @@ public class WelcomeScreen extends CoreScreen
 
 	protected void recalculateUI(double width, double height)
 	{
+		super.recalculateUI(width, height);
+		
 		hBoxFor2SettingsButtons.setPrefSize(0.0781 * width, 0.0777 * height);
 		hBoxFor4SettingsButtons.setPrefSize(0.1276 * width, 0.0787 * height);
 
@@ -629,7 +631,6 @@ public class WelcomeScreen extends CoreScreen
 		rectangleForInformationAboutGame.setLayoutX(width / 2.0 - rectangleForInformationAboutGame.getWidth() / 2.0);
 		
 		Font fontForButtons  = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0234 * width);
-		Font fontForTooltips = Font.font("Comic Sans MS", 0.0187 * width);
 		Font fontForLabels = Font.font("Comic Sans MS", 0.0094 * width);
 		Font fontForNewName = Font.font("Comic Sans MS", 0.0182 * width);
 		
