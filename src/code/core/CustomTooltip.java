@@ -5,10 +5,10 @@ import javafx.util.Duration;
 
 public class CustomTooltip extends Tooltip
 {
-	public CustomTooltip() //For JDK >= 9
+	public CustomTooltip()
 	{
-//		setShowDelay(Duration.millis(100));
-//		setShowDuration(Duration.INDEFINITE);
-//		setHideDelay(Duration.ZERO);
+		setShowDelay(Duration.millis(100));
+		setShowDuration(Duration.INDEFINITE);
+		setHideDelay(Duration.ZERO);
 	}
 }

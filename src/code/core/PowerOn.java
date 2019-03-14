@@ -336,44 +336,6 @@ public class PowerOn
 		}
 	}
 	
-	static void setupCustomTooltipBehavior(int openDelayInMillis, int visibleDurationInMillis, int closeDelayInMillis)
-	{
-		new Thread(() ->
-		{
-			try
-			{
-				Class TTBehaviourClass = null;
-				Class<?>[] declaredClasses = Tooltip.class.getDeclaredClasses();
-				for (Class c: declaredClasses)
-				{
-					if (c.getCanonicalName().equals("javafx.scene.control.Tooltip.TooltipBehavior"))
-					{
-						TTBehaviourClass = c;
-						break;
-					}
-				}
-				if (TTBehaviourClass == null) return;
-
-				Constructor constructor = TTBehaviourClass.getDeclaredConstructor(Duration.class, Duration.class, Duration.class, boolean.class);
-				if (constructor == null) return;
-
-				constructor.setAccessible(true);
-				Object newTooltipBehaviour = constructor.newInstance(new Duration(openDelayInMillis), new Duration(visibleDurationInMillis), new Duration(closeDelayInMillis), false);
-				if (newTooltipBehaviour == null) return;
-
-				Field tooltipBehaviourField = Tooltip.class.getDeclaredField("BEHAVIOR");
-				if (tooltipBehaviourField == null) return;
-
-				tooltipBehaviourField.setAccessible(true);
-				tooltipBehaviourField.set(Tooltip.class, newTooltipBehaviour);
-			}
-			catch (Exception e)
-			{
-				Platform.runLater(() -> new ErrorScreen("Error occurred while trying to setup custom tooltip behavior", e));
-			}
-		}).start();
-	}
-	
 	static void powerOnMedia()
 	{
 		try

@@ -53,7 +53,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			titleImage, backArrowImage, flagForCountriesAndContinentsImageSmall, flagForUSAImageSmall, coatOfArmsForCountriesAndContinentsImageSmall,
 			sealForUSAImageSmall, locationForCountriesAndContinentsImageSmall, locationForUSAImageSmall, logoForGreeceImageSmall, locationForGreeceSmall,
 			attractionImageSmall, attractionLocationImageSmall, bigImage, previousInBigImageButton, nextInBigImageButton, exitBigImage, zoomInBigImage, zoomOutBigImage;
-	private Tooltip countriesToggleButtonTooltip, USAToggleButtonTooltip, greekCountiesToggleButtonTooltip, attractionsToggleButtonTooltip;
+	private CustomTooltip countriesToggleButtonTooltip, USAToggleButtonTooltip, greekCountiesToggleButtonTooltip, attractionsToggleButtonTooltip;
 	private ComboBox<String> optionsForCountriesAndContinentsComboBox, optionsForUSAComboBox, optionsForGreeceComboBox, optionsForAttractionsComboBox;
 	private Label titleLabel, flagLabelForCountriesAndContinents, flagLabelForUSA, coatOfArmsLabelForCountriesAndContinents, sealLabelForUSA,
 			locationLabelForCountriesAndContinents, locationLabelForUSA, logoLabelForGreece, locationLabelForGreece, attractionLabel, attractionLocationLabel, attractionBasicInfoLabel, labelForBigImage;
@@ -827,16 +827,16 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		woodPanelFor5IconsImage.setEffect(dropShadow);
 		
 		//TOGGLE BUTTONS-------------------------------------------------------------------------------------
-		countriesToggleButtonTooltip = new Tooltip();
+		countriesToggleButtonTooltip = new CustomTooltip();
 		countriesToggleButtonTooltip.setWrapText(true);
 
-		USAToggleButtonTooltip = new Tooltip();
+		USAToggleButtonTooltip = new CustomTooltip();
 		USAToggleButtonTooltip.setWrapText(true);
 
-		greekCountiesToggleButtonTooltip = new Tooltip();
+		greekCountiesToggleButtonTooltip = new CustomTooltip();
 		greekCountiesToggleButtonTooltip.setWrapText(true);
 
-		attractionsToggleButtonTooltip = new Tooltip();
+		attractionsToggleButtonTooltip = new CustomTooltip();
 		attractionsToggleButtonTooltip.setWrapText(true);
 
 		continentsAndCountriesToggleButton = new ToggleButton();
@@ -903,7 +903,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForCountriesAndContinents[i][1].setStyle("-fx-background-color: #EDD1A6; -fx-text-fill: #323232;");
 			}
 			
-			gridPaneTooltipsForCountriesAndContinents[i] = new Tooltip();
+			gridPaneTooltipsForCountriesAndContinents[i] = new CustomTooltip();
 			
 			gridPaneTooltipsForCountriesAndContinents[i].setWrapText(true);
 			
@@ -1018,7 +1018,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForUSA[i][1].setStyle("-fx-background-color: #EDD1A6; -fx-text-fill: #323232;");
 			}
 			
-			gridPaneTooltipsForUSA[i] = new Tooltip();
+			gridPaneTooltipsForUSA[i] = new CustomTooltip();
 			
 			gridPaneTooltipsForUSA[i].setWrapText(true);
 			
@@ -1135,7 +1135,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForGreece[i][1].setStyle("-fx-background-color: #EDD1A6; -fx-text-fill: #323232;");
 			}
 			
-			gridPaneTooltipsForGreece[i] = new Tooltip();
+			gridPaneTooltipsForGreece[i] = new CustomTooltip();
 			
 			gridPaneTooltipsForGreece[i].setWrapText(true);
 			
@@ -1219,7 +1219,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForAttractions[i][1].setStyle("-fx-background-color: #EDD1A6; -fx-text-fill: #323232;");
 			}
 			
-			gridPaneTooltipsForAttractions[i] = new Tooltip();
+			gridPaneTooltipsForAttractions[i] = new CustomTooltip();
 			
 			gridPaneTooltipsForAttractions[i].setWrapText(true);
 			
@@ -5768,7 +5768,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if (imageName != null && imageName.length() > 25)
 				{
-					Tooltip tooltip = new Tooltip();
+					Tooltip tooltip = new CustomTooltip();
 					tooltip.setWrapText(true);
 					tooltip.setText(imageName);
 					tooltip.setFont(fontForTooltips);

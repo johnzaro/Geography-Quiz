@@ -67,7 +67,7 @@ public class GameScreen extends CoreScreen
 	private ToggleGroup toggleGroupFor4PossibleAnswers, toggleGroupFor2PossibleAnswers;
 	
 	private CustomTooltip pauseGameTooltip;
-	private Tooltip[] tooltipsForRadioButtonsFor4TextAnswers;
+	private CustomTooltip[] tooltipsForRadioButtonsFor4TextAnswers;
 	
 	private FadeTransition fadeTransitionForWorldMapImage;
 	private ScaleTransition scaleTransitionForTitleLabelForFinishedGame, scaleTransitionForHBoxFor5Icons,
