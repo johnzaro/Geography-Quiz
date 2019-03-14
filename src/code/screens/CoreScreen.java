@@ -488,7 +488,14 @@ abstract class CoreScreen
 
 	protected abstract void recalculateUI(double width, double height);
 	
-	protected abstract void recalculateBackground(double width, double height);
+	protected void recalculateBackground(double width, double height)
+	{
+		anchorPane.setPrefSize(width, height);
+		nodesPane.setPrefSize(width, height);
+		
+		woodenFrameImage.setFitWidth(width);
+		woodenFrameImage.setFitHeight(height);
+	}
 
 	protected abstract void setupListeners();
 

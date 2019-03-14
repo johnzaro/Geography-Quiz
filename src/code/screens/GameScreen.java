@@ -654,8 +654,7 @@ public class GameScreen extends CoreScreen
 	
 	protected void recalculateBackground(double width, double height)
 	{
-		anchorPane.setPrefSize(width, height);
-		nodesPane.setPrefSize(width, height);
+		super.recalculateBackground(width, height);
 		
 		worldMapBackground.setLayoutX(getWorldMapLayoutX() * width);
 		worldMapBackground.setLayoutY(getWorldMapLayoutY() * height);
@@ -666,9 +665,6 @@ public class GameScreen extends CoreScreen
 		welcomeScreenImage.setLayoutY(0);
 		welcomeScreenImage.setFitWidth(width);
 		welcomeScreenImage.setFitHeight(height);
-		
-		woodenFrameImage.setFitWidth(width);
-		woodenFrameImage.setFitHeight(height);
 	}
 	
 	protected void setScreenRatioDependentImages()

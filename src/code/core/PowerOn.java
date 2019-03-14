@@ -86,14 +86,8 @@ public class PowerOn
 	{
 		try
 		{
-			if(Locale.getDefault().getLanguage().equals("el"))
-			{
-				languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"), new UTF8Control());
-			}
-			else
-			{
-				languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"), new UTF8Control());
-			}
+			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
+			else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
 		}
 		catch (Exception e)
 		{
@@ -261,8 +255,8 @@ public class PowerOn
 	
 	public static void loadLanguageResourceBundle()
 	{
-		if (getCurrentLanguage() == LANGUAGE_GREEK) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"), new UTF8Control());
-		else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"), new UTF8Control());
+		if (getCurrentLanguage() == LANGUAGE_GREEK) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
+		else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
 	}
 	
 	public static void setNumberAndDateFormats(Locale locale)

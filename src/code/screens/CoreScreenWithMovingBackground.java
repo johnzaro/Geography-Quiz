@@ -24,16 +24,6 @@ abstract class CoreScreenWithMovingBackground extends CoreScreen
 	boolean previousEarthTransitionWasToLeft;
 	double viewPortX, viewPortY;
 	
-	protected abstract void setScreenRatioDependentImages();
-	
-	protected abstract void recalculateUI(double width, double height);
-	
-	protected abstract void recalculateBackground(double width, double height);
-	
-	protected abstract void setupListeners();
-	
-	protected abstract void setupLimitedAnimations();
-	
 	protected void setupAdvancedAnimations()
 	{
 		movingEarthStartX = 0;

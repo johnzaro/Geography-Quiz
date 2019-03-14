@@ -735,8 +735,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	protected void recalculateBackground(double width, double height)
 	{
-		anchorPane.setPrefSize(width, height);
-		nodesPane.setPrefSize(width, height);
+		super.recalculateBackground(width, height);
 		
 		if(getCurrentScreenRatio() == RATIO_16_9)
 		{
@@ -763,9 +762,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		previousChalkboardImage.setFitWidth(width);
 		previousChalkboardImage.setFitHeight(height);
-		
-		woodenFrameImage.setFitWidth(width);
-		woodenFrameImage.setFitHeight(height);
 	}
 	
 	protected void setScreenRatioDependentImages()

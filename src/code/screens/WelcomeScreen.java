@@ -712,14 +712,10 @@ public class WelcomeScreen extends CoreScreen
 	
 	protected void recalculateBackground(double width, double height)
 	{
-		anchorPane.setPrefSize(width, height);
-		nodesPane.setPrefSize(width, height);
+		super.recalculateBackground(width, height);
 		
 		chalkboardBackgroundImage.setFitWidth(width);
 		chalkboardBackgroundImage.setFitHeight(height);
-		
-		woodenFrameImage.setFitWidth(width);
-		woodenFrameImage.setFitHeight(height);
 	}
 	
 	protected void setScreenRatioDependentImages()
