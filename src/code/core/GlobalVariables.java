@@ -259,7 +259,8 @@ public class GlobalVariables
 
 	public static void minimizeGame(Pane anchorPane)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		playMinimizeSound();
+		if(OS == OsCheck.OSType.Windows && animationsUsed != NO_ANIMATIONS)
 		{
 			scaleTransitionForAnchorPane.setNode(anchorPane);
 			scaleTransitionForAnchorPane.setToX(0);
@@ -271,7 +272,6 @@ public class GlobalVariables
 				if(isIntroductionSoundPlaying()) pauseIntroductionSound();
 				else if(isWelcomeLoopSoundPlaying()) pauseWelcomeLoopSound();
 			});
-			playMinimizeSound();
 			scaleTransitionForAnchorPane.playFromStart();
 		}
 		else
@@ -285,8 +285,9 @@ public class GlobalVariables
 
 	static void restoreMinimizedWindow(Pane anchorPane)
 	{
+		playMaximizeSound();
 		stage.setIconified(false);
-		if(animationsUsed != NO_ANIMATIONS)
+		if(OS == OsCheck.OSType.Windows && animationsUsed != NO_ANIMATIONS)
 		{
 			scaleTransitionForAnchorPane.setNode(anchorPane);
 			scaleTransitionForAnchorPane.setToX(1);
@@ -296,7 +297,6 @@ public class GlobalVariables
 				if(isIntroductionSoundPaused()) playIntroductionSound();
 				else if(isWelcomeLoopSoundPaused()) playWelcomeLoopSoundSound();
 			});
-			playMaximizeSound();
 			scaleTransitionForAnchorPane.playFromStart();
 		
 		}

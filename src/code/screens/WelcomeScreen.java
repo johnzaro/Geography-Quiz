@@ -2268,7 +2268,7 @@ public class WelcomeScreen extends CoreScreen
 			}),
 			new KeyFrame(Duration.millis(800), e ->
 			{
-				if(settingsIcon.getScaleX() == 0)
+				if(infoIcon.getScaleX() == 0)
 				{
 					playPopUpSound();
 					sequentialTransitionForInfoButton.playFromStart();
@@ -2276,7 +2276,7 @@ public class WelcomeScreen extends CoreScreen
 			}),
 			new KeyFrame(Duration.millis(1000), e ->
 			{
-				if(infoIcon.getScaleX() == 0)
+				if(settingsIcon.getScaleX() == 0)
 				{
 					playPopUpSound();
 					sequentialTransitionForSettingsButton.playFromStart();
@@ -2542,9 +2542,6 @@ public class WelcomeScreen extends CoreScreen
 			 }),
 			 new KeyFrame(Duration.millis(600), e ->
 			 {
-				 vBoxWithBasicButtons.setOpacity(0);
-				 vBoxForNewName.setOpacity(0);
-
 				 rectangleForInformationAboutGame.setVisible(true);
 				 scaleTransitionForRectangleForInfoAboutGame.setToX(1);
 				 scaleTransitionForRectangleForInfoAboutGame.setToY(1);

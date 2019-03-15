@@ -444,7 +444,11 @@ abstract class CoreScreen
 		recalculateUI(primaryScreenWidth, primaryScreenHeight);
 		
 		fullScreenMode = true;
-		if(!stage.isFullScreen()) stage.setFullScreen(true);
+		if(!stage.isFullScreen())
+		{
+			playMaximizeSound();
+			stage.setFullScreen(true);
+		}
 		
 		if(moveIcon.getImage() != MOVE_ICON_DISABLED) moveIcon.setImage(MOVE_ICON_DISABLED);
 		if(fullScreenIcon.getImage() != FULL_SCREEN_ICON_CLICKED) fullScreenIcon.setImage(FULL_SCREEN_ICON_CLICKED);
@@ -456,7 +460,11 @@ abstract class CoreScreen
 	void setWindowedMode()
 	{
 		fullScreenMode = false;
-		if (stage.isFullScreen()) stage.setFullScreen(false);
+		if (stage.isFullScreen())
+		{
+			playMinimizeSound();
+			stage.setFullScreen(false);
+		}
 		
 		if(moveIcon.getImage() != MOVE_ICON) moveIcon.setImage(MOVE_ICON);
 		if(fullScreenIcon.getImage() != FULL_SCREEN_ICON) fullScreenIcon.setImage(FULL_SCREEN_ICON);
