@@ -43,8 +43,8 @@ public class GlobalVariables
 	static ShutdownHook shutdownHook;
 	public static String email;
 	public static ResourceBundle languageResourceBundle;
-	public static ArrayList<Player> playersArrayList = new ArrayList<>();
-	public static ArrayList<Game> games = new ArrayList<>();
+	public static ArrayList<Player> playersArrayList;
+	public static ArrayList<Game> games;
 	
 	public static NumberFormat numberFormatForUI;
 	public static DateTimeFormatter dateTimeForUI, dateForUI;
@@ -241,7 +241,7 @@ public class GlobalVariables
 
 	public static double windowWidth, windowHeight;
 
-	private static ScaleTransition scaleTransitionForAnchorPane = new ScaleTransition(Duration.millis(350));
+	public static ScaleTransition scaleTransitionForAnchorPane;
 	
 	public static double getHeightBasedOnWidth(double width)
 	{
@@ -504,12 +504,12 @@ public class GlobalVariables
 	public static Image PROGRESS_BAR_COLOR;
 
 //	--------------------- AUDIO FILES ---------------------
-	public static DoubleProperty masterSliderVolume = new SimpleDoubleProperty();
-	public static DoubleProperty musicSliderVolume = new SimpleDoubleProperty();
-	public static DoubleProperty soundEffectsSliderVolume = new SimpleDoubleProperty();
+	public static DoubleProperty masterSliderVolume;
+	public static DoubleProperty musicSliderVolume;
+	public static DoubleProperty soundEffectsSliderVolume;
 	
-	static DoubleBinding musicCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(musicSliderVolume.divide(100.0));
-	static DoubleBinding soundEffectsCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(soundEffectsSliderVolume.divide(100.0));
+	static DoubleBinding musicCalculatedVolume;
+	static DoubleBinding soundEffectsCalculatedVolume;
 	
 	static AudioClip HOVER_SOUND;
 	static AudioClip BUTTON_CLICK_SOUND;

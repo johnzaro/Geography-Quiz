@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,18 +13,79 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="657">
-              <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
+            <state relative-caret-position="818">
+              <caret line="189" column="71" selection-start-line="189" selection-start-column="71" selection-end-line="189" selection-end-column="71" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="41" column="81" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="41" selection-end-column="81" />
               <folding>
-                <element signature="e#104279#104280#0" expanded="true" />
-                <element signature="e#104323#104324#0" expanded="true" />
-                <element signature="e#104369#104370#0" expanded="true" />
-                <element signature="e#104414#104415#0" expanded="true" />
+                <element signature="e#11475#11476#0" expanded="true" />
+                <element signature="e#11525#11526#0" expanded="true" />
+                <element signature="e#23997#24103#0" expanded="true" />
+                <element signature="e#24102#24103#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-5894">
+              <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="726">
+              <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+              <folding>
+                <element signature="method#loadFonts#0;class#PowerOn#0" />
+                <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+                <element signature="method#setupStage#0;class#PowerOn#0" />
+                <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
+                <element signature="method#loadSettings#0;class#PowerOn#0" />
+                <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
+                <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
+                <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
+                <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
+                <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="452">
+              <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -51,6 +113,7 @@
       <find>.setOpacity(0);</find>
       <find>info</find>
       <find>hboxfors</find>
+      <find>new</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -69,8 +132,6 @@
         <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
         <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
-        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
         <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
@@ -83,10 +144,12 @@
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
         <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1324" />
@@ -96,6 +159,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -145,17 +210,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552596106269" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552645121114" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -218,9 +281,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12170146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12170146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -237,6 +299,7 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -256,13 +319,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/ShutdownHook.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -313,58 +369,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/UTF8Control.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8609">
-          <caret line="658" column="149" selection-start-line="658" selection-start-column="149" selection-end-line="658" selection-end-column="149" />
-          <folding>
-            <element signature="method#setupGameVariables#0;class#PowerOn#0" />
-            <element signature="method#loadFonts#0;class#PowerOn#0" />
-            <element signature="e#2113#2317#0" />
-            <element signature="e#2341#2439#0" />
-            <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
-            <element signature="e#3001#3151#0" />
-            <element signature="method#setupStage#0;class#PowerOn#0" />
-            <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
-            <element signature="method#loadSettings#0;class#PowerOn#0" />
-            <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
-            <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
-            <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
-            <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
-            <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="94">
           <caret line="375" column="9" lean-forward="true" selection-start-line="375" selection-start-column="9" selection-end-line="375" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="247" column="51" selection-start-line="247" selection-start-column="51" selection-end-line="247" selection-end-column="51" />
-          <folding>
-            <element signature="e#11475#11476#0" expanded="true" />
-            <element signature="e#11525#11526#0" expanded="true" />
-            <element signature="e#17087#17088#0" expanded="true" />
-            <element signature="e#17169#17170#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -399,24 +407,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/GameScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="343">
           <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="58" column="77" selection-start-line="58" selection-start-column="77" selection-end-line="58" selection-end-column="77" />
         </state>
       </provider>
     </entry>
@@ -446,30 +440,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties">
       <provider editor-type-id="ResourceBundle" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+          <caret line="31" column="28" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Geography-Quiz/resources/lang/GeoQuiz_el.properties">
+      <provider editor-type-id="ResourceBundle" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13060">
+          <caret line="643" column="12" selection-start-line="643" selection-start-column="12" selection-end-line="643" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5894">
+          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1101">
-          <caret line="189" column="19" selection-start-line="189" selection-start-column="19" selection-end-line="189" selection-end-column="19" />
+        <state relative-caret-position="818">
+          <caret line="189" column="71" selection-start-line="189" selection-start-column="71" selection-end-line="189" selection-end-column="71" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="657">
-          <caret line="625" column="56" selection-start-line="625" selection-start-column="56" selection-end-line="625" selection-end-column="56" />
+        <state relative-caret-position="452">
+          <caret line="34" column="99" selection-start-line="34" selection-start-column="99" selection-end-line="34" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="41" column="81" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="41" selection-end-column="81" />
           <folding>
-            <element signature="e#104279#104280#0" expanded="true" />
-            <element signature="e#104323#104324#0" expanded="true" />
-            <element signature="e#104369#104370#0" expanded="true" />
-            <element signature="e#104414#104415#0" expanded="true" />
+            <element signature="e#11475#11476#0" expanded="true" />
+            <element signature="e#11525#11526#0" expanded="true" />
+            <element signature="e#23997#24103#0" expanded="true" />
+            <element signature="e#24102#24103#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="59" column="81" selection-start-line="59" selection-start-column="81" selection-end-line="59" selection-end-column="81" />
+          <folding>
+            <element signature="method#loadFonts#0;class#PowerOn#0" />
+            <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+            <element signature="method#setupStage#0;class#PowerOn#0" />
+            <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
+            <element signature="method#loadSettings#0;class#PowerOn#0" />
+            <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
+            <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
+            <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
+            <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
+            <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,10 @@ package code.core;
 
 import code.dataStructures.*;
 import code.screens.*;
+import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
+import javafx.beans.binding.DoubleBinding;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
@@ -15,6 +18,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -46,6 +50,18 @@ public class PowerOn
 		
 		dateTimeFormatForSaving = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
 		dateFormatForSaving = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+		
+		masterSliderVolume = new SimpleDoubleProperty();
+		musicSliderVolume = new SimpleDoubleProperty();
+		soundEffectsSliderVolume = new SimpleDoubleProperty();
+		
+		musicCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(musicSliderVolume.divide(100.0));
+		soundEffectsCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(soundEffectsSliderVolume.divide(100.0));
+		
+		playersArrayList = new ArrayList<>();
+		games = new ArrayList<>();
+		
+		scaleTransitionForAnchorPane = new ScaleTransition(Duration.millis(350));
 	}
 	
 	static void loadFonts()
