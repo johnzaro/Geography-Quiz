@@ -15,6 +15,7 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -101,13 +102,17 @@ public class PowerOn
 	{
 //		set global variable "stage" = javafx stage
 		stage = coreStage;
+		
 //		set background of stage to transparent
 		stage.initStyle(StageStyle.TRANSPARENT);
+		
 //		disable default resize function
 		stage.setResizable(false);
+		
 //		add all icon sizes to program
 		stage.getIcons().addAll(new Image("/resources/images/icons/icon@16x16.png"), new Image("/resources/images/icons/icon@32x32.png"),
 				new Image("/resources/images/icons/icon@64x64.png"), new Image("/resources/images/icons/icon@128x128.png"));
+		
 //		disable exit key working as "exit full screen"
 		stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
 

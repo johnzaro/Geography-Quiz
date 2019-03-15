@@ -2271,7 +2271,7 @@ public class WelcomeScreen extends CoreScreen
 				if(settingsIcon.getScaleX() == 0)
 				{
 					playPopUpSound();
-					sequentialTransitionForSettingsButton.playFromStart();
+					sequentialTransitionForInfoButton.playFromStart();
 				}
 			}),
 			new KeyFrame(Duration.millis(1000), e ->
@@ -2279,7 +2279,7 @@ public class WelcomeScreen extends CoreScreen
 				if(infoIcon.getScaleX() == 0)
 				{
 					playPopUpSound();
-					sequentialTransitionForInfoButton.playFromStart();
+					sequentialTransitionForSettingsButton.playFromStart();
 				}
 			}));
 

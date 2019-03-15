@@ -279,7 +279,7 @@ public class GlobalVariables
 		else
 		{
 			stage.setIconified(true);
-			
+
 			if(isIntroductionSoundPlaying()) pauseIntroductionSound();
 			else if(isWelcomeLoopSoundPlaying()) pauseWelcomeLoopSound();
 		}
