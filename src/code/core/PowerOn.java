@@ -406,27 +406,27 @@ public class PowerOn
 	
 	private static void powerOnAudio()
 	{
-		HOVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/hover.mp3").toExternalForm());
-		BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.mp3").toExternalForm());
-		SWITCH_BUTTON_ON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOn.mp3").toExternalForm());
-		SWITCH_BUTTON_OFF_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOff.mp3").toExternalForm());
-		CHECKBOX_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxSelected.mp3").toExternalForm());
-		CHECKBOX_DESELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxDeselected.mp3").toExternalForm());
-		RADIOBUTTON_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/radioButtonSelected.mp3").toExternalForm());
+		HOVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/hover.wav").toExternalForm());
+		BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.wav").toExternalForm());
+		SWITCH_BUTTON_ON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOn.wav").toExternalForm());
+		SWITCH_BUTTON_OFF_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOff.wav").toExternalForm());
+		CHECKBOX_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxSelected.wav").toExternalForm());
+		CHECKBOX_DESELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxDeselected.wav").toExternalForm());
+		RADIOBUTTON_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/radioButtonSelected.wav").toExternalForm());
 		
-		POPUP_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/popUp.mp3").toExternalForm());
-		SLIDE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/slide.mp3").toExternalForm());
+		POPUP_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/popUp.wav").toExternalForm());
+		SLIDE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/slide.wav").toExternalForm());
 		
-		MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/minimize.mp3").toExternalForm());
-		MAXIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/maximize.mp3").toExternalForm());
+		MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/minimize.wav").toExternalForm());
+		MAXIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/maximize.wav").toExternalForm());
 		
-		REWIND_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/rewind.mp3").toExternalForm());
-		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/correctAnswerSimple.mp3").toExternalForm());
-		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/wrongAnswerSimple.mp3").toExternalForm());
-		GAME_WON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameWon.mp3").toExternalForm());
-		GAME_LOST_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameLost.mp3").toExternalForm());
-		HEART_BREAKING_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/heartBreaking.mp3").toExternalForm());
-		TIME_OVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/timeOver.mp3").toExternalForm());
+		REWIND_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/rewind.wav").toExternalForm());
+		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/correctAnswerSimple.wav").toExternalForm());
+		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/wrongAnswerSimple.wav").toExternalForm());
+		GAME_WON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameWon.wav").toExternalForm());
+		GAME_LOST_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameLost.wav").toExternalForm());
+		HEART_BREAKING_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/heartBreaking.wav").toExternalForm());
+		TIME_OVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/timeOver.wav").toExternalForm());
 		
 		CLOCK_TICKING_30S_SOUND = new Media(GlobalVariables.class.getResource("/resources/audio/clockTicking30S.mp3").toExternalForm());
 		CLOCK_TICKING_30S_PLAYER = new MediaPlayer(CLOCK_TICKING_30S_SOUND);

@@ -2,7 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/resources/audio/hover.mp3" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/audio/hover.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/checkboxDeselected.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/checkboxSelected.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/correctAnswerSimple.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/gameLost.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/gameWon.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/heartBreaking.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/hover.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/maximize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/minimize.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/popUp.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/radioButtonSelected.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/rewind.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/slide.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/switchButtonOff.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/switchButtonOn.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/timeOver.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/audio/wrongAnswerSimple.mp3" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -250,8 +268,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="407" column="5" lean-forward="true" selection-start-line="407" selection-start-column="5" selection-end-line="407" selection-end-column="5" />
+            <state relative-caret-position="775">
+              <caret line="428" column="125" selection-start-line="428" selection-start-column="125" selection-end-line="428" selection-end-column="125" />
               <folding>
                 <element signature="method#loadFonts#0;class#PowerOn#0" />
                 <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
@@ -903,8 +921,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="407" column="5" lean-forward="true" selection-start-line="407" selection-start-column="5" selection-end-line="407" selection-end-column="5" />
+        <state relative-caret-position="775">
+          <caret line="428" column="125" selection-start-line="428" selection-start-column="125" selection-end-line="428" selection-end-column="125" />
           <folding>
             <element signature="method#loadFonts#0;class#PowerOn#0" />
             <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
