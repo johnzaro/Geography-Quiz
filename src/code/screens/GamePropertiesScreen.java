@@ -245,7 +245,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				
 				extendedQuestionCategories.setPrefSize(0.2604 * width, 0.0463 * height);
 			}
-			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
+			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3
+					|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 			{
 				if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
 				{
@@ -512,7 +513,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				buttonHeight = 0.0952 * height;
 				heightOfDescriptions = 0.2667 * height;
 			}
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
+					|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 			{
 				if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 				{
@@ -716,15 +718,39 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			woodPanelFor5IconsImage.setLayoutX(0.7792 * width);
 			
-			if(screen1) vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() / 2.0 - vBoxForSound.getPrefWidth() / 2.0);
-			else vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() - vBoxForSound.getPrefWidth() - 0.0156 * width);
+			if(screen1)
+			{
+				vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() / 2.0 - vBoxForSound.getPrefWidth() / 2.0);
+				if(vBoxForSound.getTranslateX() != 0) vBoxForSound.setTranslateX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
+			}
+			else
+			{
+				vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() - vBoxForSound.getPrefWidth() - 0.0156 * width);
+				if(titleImage1.getTranslateX() != 0)
+				{
+					titleImage1.setTranslateX(-0.1484 * width);
+					titleLabel1.setTranslateX(-0.1484 * width);
+				}
+			}
 		}
 		else
 		{
 			woodPanelFor5IconsImage.setLayoutX(0.0542 * width);
 			
-			if(screen1) vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() / 2.0 - vBoxForSound.getPrefWidth() / 2.0);
-			else vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + vBoxForSound.getPrefWidth() + 0.0156 * width);
+			if(screen1)
+			{
+				vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() / 2.0 - vBoxForSound.getPrefWidth() / 2.0);
+				if(vBoxForSound.getTranslateX() != 0) vBoxForSound.setTranslateX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
+			}
+			else
+			{
+				vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() + 0.0156 * width);
+				if(titleImage1.getTranslateX() != 0)
+				{
+					titleImage1.setTranslateX(0.1523 * width);
+					titleLabel1.setTranslateX(0.1523 * width);
+				}
+			}
 		}
 		
 		hBoxFor5Icons.setLayoutX(woodPanelFor5IconsImage.getLayoutX());
@@ -788,7 +814,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			movingEarthImage.setFitWidth(0.9500 * width);
 			movingEarthImage.setLayoutY(0.0500 * height);
 		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10  || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
 			movingEarthImage.setFitWidth(0.9590 * width);
 			movingEarthImage.setLayoutY(0.0519 * height);
@@ -1485,8 +1513,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 							}
 							else
 							{
-								titleImage1.setTranslateX(0.1484 * stage.getWidth());
-								titleLabel1.setTranslateX(0.1484 * stage.getWidth());
+								titleImage1.setTranslateX(0.1523 * stage.getWidth());
+								titleLabel1.setTranslateX(0.1523 * stage.getWidth());
 							}
 							vBoxForSound.setTranslateY(0);
 						}
@@ -2250,8 +2278,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						}
 						else
 						{
-							translateTransitionForTitleImage1.setToX(0.1484 * stage.getWidth());
-							translateTransitionForTitleLabel1.setToX(0.1484 * stage.getWidth());
+							translateTransitionForTitleImage1.setToX(0.1523 * stage.getWidth());
+							translateTransitionForTitleLabel1.setToX(0.1523 * stage.getWidth());
 						}
 						translateTransitionForTitleImage1.setToY(0);
 						translateTransitionForTitleLabel1.setToY(0);
@@ -2269,7 +2297,6 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						translateTransitionForVBoxForSound.setToX(0);
 						translateTransitionForVBoxForSound.setToY(0);
 						
-						playSlideSound();
 						translateTransitionForVBoxForSound.playFromStart();
 					}
 					else
@@ -2313,7 +2340,6 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						translateTransitionForTitleLabel1.setToY(0);
 						translateTransitionForTitleLabel1.setToX(0);
 						
-						playSlideSound();
 						translateTransitionForTitleImage1.playFromStart();
 						translateTransitionForTitleLabel1.playFromStart();
 					}

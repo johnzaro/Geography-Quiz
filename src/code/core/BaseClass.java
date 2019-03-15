@@ -78,19 +78,25 @@ public class BaseClass extends Application
 
 //				load basic images and sounds
 				powerOnMedia();
-
-//				setup various screens
-				t1 = new Thread(() -> powerOnWelcomeScreen());
-				t2 = new Thread(() -> powerOnGamePropertiesScreen());
-				t3 = new Thread(() -> powerOnGameScreen());
-				t4 = new Thread(() -> powerOnAtlasScreen());
-				t5 = new Thread(() -> powerOnScoreBoardScreen());
 				
-				t1.start();
-				t2.start();
-				t3.start();
-				t4.start();
-				t5.start();
+				powerOnWelcomeScreen();
+				powerOnGamePropertiesScreen();
+				powerOnGameScreen();
+				powerOnAtlasScreen();
+				powerOnScoreBoardScreen();
+
+////				setup various screens
+//				t1 = new Thread(() -> powerOnWelcomeScreen());
+//				t2 = new Thread(() -> powerOnGamePropertiesScreen());
+//				t3 = new Thread(() -> powerOnGameScreen());
+//				t4 = new Thread(() -> powerOnAtlasScreen());
+//				t5 = new Thread(() -> powerOnScoreBoardScreen());
+//
+//				t1.start();
+//				t2.start();
+//				t3.start();
+//				t4.start();
+//				t5.start();
 				
 //				load all data files
 				powerOnStringData();

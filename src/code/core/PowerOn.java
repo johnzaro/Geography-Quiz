@@ -351,30 +351,6 @@ public class PowerOn
 			t3.join();
 			t4.join();
 			
-			setSoundEffectsVolumeToAudioClips(0);
-			
-			playHoverSound();
-			playButtonClickSound();
-			playSwitchButtonOnSound();
-			playSwitchButtonOffSound();
-			playCheckBoxSelectedSound();
-			playCheckBoxDeselectedSound();
-			playRadioButtonSelectedSound();
-			
-			playPopUpSound();
-			playSlideSound();
-			
-			playMinimizeSound();
-			playMaximizeSound();
-			
-			playRewindSound();
-			playCorrectAnswerSimpleSound();
-			playWrongAnswerSimpleSound();
-			playGameWonSound();
-			playGameLostSound();
-			playHeartBreakingSound();
-			playTimeOverSound();
-			
 			HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
 			BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
 			SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);

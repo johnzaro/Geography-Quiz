@@ -541,33 +541,6 @@ public class GlobalVariables
 	static MediaPlayer introductionMediaPlayer;
 	static MediaPlayer welcomeLoopMediaPlayer;
 
-	static void setSoundEffectsVolumeToAudioClips(double volume)
-	{
-		HOVER_SOUND.setVolume(volume);
-		BUTTON_CLICK_SOUND.setVolume(volume);
-		SWITCH_BUTTON_ON_SOUND.setVolume(volume);
-		SWITCH_BUTTON_OFF_SOUND.setVolume(volume);
-		CHECKBOX_SELECTED_SOUND.setVolume(volume);
-		CHECKBOX_DESELECTED_SOUND.setVolume(volume);
-		RADIOBUTTON_SELECTED_SOUND.setVolume(volume);
-		
-		POPUP_SOUND.setVolume(volume);
-		SLIDE_SOUND.setVolume(volume);
-		
-		MINIMIZE_SOUND.setVolume(volume);
-		MAXIMIZE_SOUND.setVolume(volume);
-		
-		REWIND_SOUND.setVolume(volume);
-		CORRECT_ANSWER_SIMPLE_SOUND.setVolume(volume);
-		WRONG_ANSWER_SIMPLE_SOUND.setVolume(volume);
-		GAME_WON_SOUND.setVolume(volume);
-		GAME_LOST_SOUND.setVolume(volume);
-		HEART_BREAKING_SOUND.setVolume(volume);
-		TIME_OVER_SOUND.setVolume(volume);
-		
-		CLOCK_TICKING_30S_PLAYER.setVolume(volume);
-	}
-
 	public static void playIntroductionSound()
 	{
 		new Thread(new Task<Void>() { protected Void call() throws Exception { introductionMediaPlayer.play(); return null; }}).start();
