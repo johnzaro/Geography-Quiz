@@ -7,8 +7,8 @@ public class CustomTooltip extends Tooltip
 {
 	public CustomTooltip()
 	{
-//		setShowDelay(Duration.millis(100));
-//		setShowDuration(Duration.INDEFINITE);
-//		setHideDelay(Duration.ZERO);
+		setShowDelay(Duration.millis(100));
+		setShowDuration(Duration.INDEFINITE);
+		setHideDelay(Duration.ZERO);
 	}
 }

@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Geography-Quiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Geography-Quiz.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Geography_Quiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Geography_Quiz.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/JavaFX_11_0_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_11_0_0_20190311_060242_10.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/core/CustomTooltip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/CustomTooltip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/GUIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GUIUtils.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,86 +16,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1188">
-              <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
-              <folding>
-                <element signature="method#loadFonts#0;class#PowerOn#0" />
-                <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
-                <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
-                <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
-                <element signature="method#loadSettings#0;class#PowerOn#0" />
-                <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
-                <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
-                <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
-                <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
-                <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
-                <element signature="method#powerOnMedia#0;class#PowerOn#0" />
-                <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-                <element signature="method#powerOnImages#0;class#PowerOn#0" />
-                <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
-                <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
-                <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-              <folding>
-                <element signature="e#22131#22238#0" expanded="true" />
-                <element signature="e#22237#22238#0" expanded="true" />
-                <element signature="e#22808#22914#0" expanded="true" />
-                <element signature="e#22913#22914#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -165,9 +78,9 @@
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
         <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
       </list>
     </option>
@@ -311,7 +224,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12170146" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -743,10 +655,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+          <folding>
+            <element signature="e#22131#22238#0" expanded="true" />
+            <element signature="e#22237#22238#0" expanded="true" />
+            <element signature="e#22808#22914#0" expanded="true" />
+            <element signature="e#22913#22914#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="106" column="46" selection-start-line="106" selection-start-column="46" selection-end-line="106" selection-end-column="46" />
+        <state relative-caret-position="442">
+          <caret line="106" column="48" lean-forward="true" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
           <folding>
             <element signature="method#loadFonts#0;class#PowerOn#0" />
             <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
@@ -770,43 +722,6 @@
             <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="38" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#22131#22238#0" expanded="true" />
-            <element signature="e#22237#22238#0" expanded="true" />
-            <element signature="e#22808#22914#0" expanded="true" />
-            <element signature="e#22913#22914#0" expanded="true" />
           </folding>
         </state>
       </provider>
