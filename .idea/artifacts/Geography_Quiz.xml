@@ -17,7 +17,6 @@
         <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/controlsfx-9.0.0.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/jdom-2.0.6.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/reactfx-2.0-M5.jar" path-in-jar="/" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/controlsfx-8.40.14.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/junique-1.0.4.jar" path-in-jar="/" />
         <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/commons-io-2.6.jar" path-in-jar="/" />
       </element>

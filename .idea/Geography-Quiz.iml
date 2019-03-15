@@ -13,7 +13,6 @@
     <orderEntry type="library" name="jdom-2.0.6" level="project" />
     <orderEntry type="library" name="junique-1.0.4" level="project" />
     <orderEntry type="library" name="reactfx-2.0-M5" level="project" />
-    <orderEntry type="library" name="JavaFX-11.0.2" level="project" />
-    <orderEntry type="library" name="controlsfx-11.0.0-20190311.060242-10" level="project" />
+    <orderEntry type="library" name="controlsfx-9.0.0" level="project" />
   </component>
 </module>

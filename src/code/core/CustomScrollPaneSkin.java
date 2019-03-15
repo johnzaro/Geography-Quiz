@@ -1,7 +1,7 @@
 package code.core;
 
-import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.skin.ScrollPaneSkin;
 import javafx.scene.layout.StackPane;
 
 import java.lang.reflect.Field;
