@@ -345,7 +345,6 @@ public class GlobalVariables
 //	--------------------- SCREEN STUFF ---------------------
 	public enum SUPPORTED_SCREEN_RATIOS { RATIO_16_9, RATIO_16_10, RATIO_25_16, RATIO_3_2, RATIO_4_3, RATIO_5_4, RATIO_NOT_SUPPORTED }
 	
-	
 	public static SUPPORTED_SCREEN_RATIOS currentScreenRatioEnum;
 	public static double currentScreenRatioValue;
 	
@@ -363,22 +362,22 @@ public class GlobalVariables
 	public static void setCurrentScreenRatio(double screenWidth, double screenHeight)
 	{
 		currentScreenRatioValue = screenWidth / screenHeight;
-
-		if(currentScreenRatioValue - 16.0 / 9.0 <= EPSILON_VALUE
-				|| currentScreenRatioValue - 85.0 / 48.0 <= EPSILON_VALUE
-				|| currentScreenRatioValue - 683.0 / 384.0 <= EPSILON_VALUE
-				|| currentScreenRatioValue - 221.0 / 124.0 <= EPSILON_VALUE
-				|| currentScreenRatioValue - 147.0 / 83.0 <= EPSILON_VALUE)
+		
+		if(Math.abs(currentScreenRatioValue - 16.0 / 9.0) <= EPSILON_VALUE
+				|| Math.abs(currentScreenRatioValue - 85.0 / 48.0) <= EPSILON_VALUE
+				|| Math.abs(currentScreenRatioValue - 683.0 / 384.0) <= EPSILON_VALUE
+				|| Math.abs(currentScreenRatioValue - 221.0 / 124.0) <= EPSILON_VALUE
+				|| Math.abs(currentScreenRatioValue - 147.0 / 83.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_9;
-		else if(currentScreenRatioValue - 16.0 / 10.0 <= EPSILON_VALUE)
+		else if(Math.abs(currentScreenRatioValue - 16.0 / 10.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_10;
-		else if(currentScreenRatioValue - 25.0 / 16.0 <= EPSILON_VALUE)
+		else if(Math.abs(currentScreenRatioValue - 25.0 / 16.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_25_16;
-		else if(currentScreenRatioValue - 3.0 / 2.0 <= EPSILON_VALUE)
+		else if(Math.abs(currentScreenRatioValue - 3.0 / 2.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_3_2;
-		else if(currentScreenRatioValue - 4.0 / 3.0 <= EPSILON_VALUE)
+		else if(Math.abs(currentScreenRatioValue - 4.0 / 3.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_4_3;
-		else if(currentScreenRatioValue - 5.0 / 4.0 <= EPSILON_VALUE)
+		else if(Math.abs(currentScreenRatioValue - 5.0 / 4.0) <= EPSILON_VALUE)
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_5_4;
 		else
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_NOT_SUPPORTED;
@@ -438,7 +437,8 @@ public class GlobalVariables
 	public static Image EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE;
 
 	public static Image CHALKBOARD_BACKGROUND_IMAGE;
-	public static Image WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS;
+	public static Image WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON;
+//	public static Image WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS;
 	public static Image WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS;
 	public static Image LEFT_GLOBE_STAND_IMAGE;
 	public static Image RIGHT_GLOBE_STAND_IMAGE;

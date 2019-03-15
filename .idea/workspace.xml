@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/CoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/CoreScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +22,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="2958" column="26" selection-start-line="2958" selection-start-column="26" selection-end-line="2958" selection-end-column="26" />
+            <state relative-caret-position="478">
+              <caret line="263" column="108" lean-forward="true" selection-start-line="263" selection-start-column="108" selection-end-line="263" selection-end-column="108" />
+              <folding>
+                <element signature="e#5190#7382#1" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -33,10 +35,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new Tooltip()</find>
-      <find>new ToolTip</find>
-      <find>oolTip</find>
-      <find>ToolTip</find>
       <find>tooltip</find>
       <find>tool</find>
       <find>enum</find>
@@ -63,6 +61,10 @@
       <find>vBoxForSound.setLayoutX</find>
       <find>screen1</find>
       <find>vBoxForSound.settra</find>
+      <find>vboxfornewname.seto</find>
+      <find>hBoxForSoundButtons</find>
+      <find>woodPanelFor1IconImage</find>
+      <find>soundicon.setlayouty</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -88,20 +90,20 @@
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
-        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
         <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
-        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1324" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="44" />
+    <option name="width" value="1280" />
+    <option name="height" value="932" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -169,12 +171,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552670852391" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552682389058" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="project.propCompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -236,10 +238,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
+    <frame x="1" y="23" width="2560" height="1324" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12170146" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24543288" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -247,8 +249,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2573052" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.39772728" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
@@ -264,6 +266,32 @@
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24543288" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.25641027" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.4832347" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -682,14 +710,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="464" column="32" selection-start-line="464" selection-start-column="32" selection-end-line="464" selection-end-column="32" />
+          <folding>
+            <element signature="e#1096#17155#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="106" column="48" lean-forward="true" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
+        <state relative-caret-position="281">
+          <caret line="439" column="20" selection-start-line="439" selection-start-column="20" selection-end-line="439" selection-end-column="20" />
           <folding>
             <element signature="method#loadFonts#0;class#PowerOn#0" />
             <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
             <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+            <element signature="method#setupStage#0;class#PowerOn#0" />
             <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
             <element signature="method#loadSettings#0;class#PowerOn#0" />
             <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
@@ -699,7 +738,6 @@
             <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
             <element signature="method#powerOnMedia#0;class#PowerOn#0" />
             <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-            <element signature="method#powerOnImages#0;class#PowerOn#0" />
             <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
             <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
             <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
@@ -715,28 +753,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1097">
-          <caret line="298" column="15" selection-start-line="298" selection-start-column="15" selection-end-line="298" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="464" column="32" selection-start-line="464" selection-start-column="32" selection-end-line="464" selection-end-column="32" />
-          <folding>
-            <element signature="e#1096#17155#0" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="364" column="8" selection-start-line="364" selection-start-column="8" selection-end-line="364" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="2958" column="26" selection-start-line="2958" selection-start-column="26" selection-end-line="2958" selection-end-column="26" />
+        <state relative-caret-position="478">
+          <caret line="263" column="108" lean-forward="true" selection-start-line="263" selection-start-column="108" selection-end-line="263" selection-end-column="108" />
+          <folding>
+            <element signature="e#5190#7382#1" />
+          </folding>
         </state>
       </provider>
     </entry>

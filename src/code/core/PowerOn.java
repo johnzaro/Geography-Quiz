@@ -435,7 +435,8 @@ public class PowerOn
 		EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE = new Image("/resources/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png", 0.7 * primaryScreenWidth, 0, true, true);
 		EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE = new Image("/resources/images/backgrounds/emptyWoodBackgroundPanelBigRope.png", 0.7 * primaryScreenWidth, 0, true, true);
 		
-		WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor2Icons.png", 0.2 * primaryScreenWidth, 0, true, true);
+		WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON = new Image("/resources/images/backgrounds/backgroundFor1Icon.png", 0.15 * primaryScreenWidth, 0, true, true);
+//		WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor2Icons.png", 0.2 * primaryScreenWidth, 0, true, true);
 		WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor4Icons.png", 0.3 * primaryScreenWidth, 0, true, true);
 		WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor5Icons.png", 0.4 * primaryScreenWidth, 0, true, true);
 		

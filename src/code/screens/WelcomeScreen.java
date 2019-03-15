@@ -34,7 +34,7 @@ public class WelcomeScreen extends CoreScreen
 	private ObservableList<String> originalNamesObservableList, countriesLocalesObservableList;
 	private ObservableList<Short> countriesLocalesSortList;
 	
-	private HBox hBoxFor2SettingsButtons, hBoxFor4SettingsButtons, hBoxForNewNameButtons, hBoxForSavedNames, hBoxForDeleteSavedNames,
+	private HBox hBoxFor4SettingsButtons, hBoxForNewNameButtons, hBoxForSavedNames, hBoxForDeleteSavedNames,
 			hBoxForLanguageSelection, hBoxForLanguagesButtons, hBoxForUnitOfLengthSelection, hBoxForUnitOfLengthRadioButtons,
 			hBoxForSettingsAndInfoIcons, hBoxForCountrySelection;
 	private VBox vBoxForSettings, vBoxForAnimationsUsedSettings, vBoxWithBasicButtons, vBoxForNewName;
@@ -44,7 +44,7 @@ public class WelcomeScreen extends CoreScreen
 	private TextField textFieldForNewName;
 	private ImageView chalkboardBackgroundImage, gameNameWoodenImage, welcomeImage,
 			leftGlobeStand, rightGlobeStand, leftGlobeImage, rightGlobeImage, woodPanelFor4IconsImage,
-			woodPanelFor2IconsImage, greekLanguageFlag, englishLanguageFlag;
+			woodPanelFor1IconImage, greekLanguageFlag, englishLanguageFlag;
 	private ImageView settingsIcon, editNameIcon, singlePlayerIcon, multiPlayerIcon, atlasIcon, scoresIcon, infoIcon;
 	private Button singlePlayerGameButton, multiPlayerGameButton, atlasButton, scoreBoardButton, greekLanguageLabel, englishLanguageLabel,
 			cancelNewNameButton, setNewNameButton, deleteAllDataButton;
@@ -56,13 +56,13 @@ public class WelcomeScreen extends CoreScreen
 	private SegmentedButton animationsUsedSegmentedButton;
 	private ToggleGroup toggleGroupForSegmentedButton, toggleGroupForUnitsOfLength;
 
-	private ScaleTransition scaleTransitionForInfoButton, scaleTransitionFor2Settings, scaleTransitionFor4Settings,
+	private ScaleTransition scaleTransitionForInfoButton, scaleTransitionForSoundIcon, scaleTransitionFor4Settings,
 			scaleTransitionForWelcomeLabel, scaleTransitionForEditIcon, scaleTransitionForRectangleForInfoAboutGame, scaleTransitionForVBoxForSettings, scaleTransitionForSettingsIcon,
 			scaleTransitionMessageAllDataDeleted, scaleTransitionForVBoxForNewName, scaleTransitionForVBoxWithButtons;
 	private SequentialTransition sequentialTransitionForOnePlayerGameButton, sequentialTransitionForTwoPlayersGameButton, sequentialTransitionForAtlasButton,
 			sequentialTransitionForScoreBoardButton, sequentialTransitionForInfoButton, sequentialTransitionForSettingsButton;
 	private TranslateTransition translateTransitionForVBoxWithButtons, translateTransitionForVBoxForNewName, translateTransitionForVBoxForSound,
-			translateTransitionForWoodPanelFor2IconsImage, translateTransitionForWoodPanelFor4IconsImage, translateTransitionForGameNameImage,
+			translateTransitionForWoodPanelFor1IconImage, translateTransitionForWoodPanelFor4IconsImage, translateTransitionForGameNameImage,
 			translateTransitionForLeftGlobeStand, translateTransitionForLeftGlobeImage, translateTransitionForRightGlobeStand, translateTransitionForRightGlobeImage;
 	private ParallelTransition parallelTransitionForWelcomeImage;
 	private FadeTransition fadeInTransition;
@@ -83,7 +83,6 @@ public class WelcomeScreen extends CoreScreen
 	{
 		super.recalculateUI(width, height);
 		
-		hBoxFor2SettingsButtons.setPrefSize(0.0781 * width, 0.0777 * height);
 		hBoxFor4SettingsButtons.setPrefSize(0.1276 * width, 0.0787 * height);
 
 		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
@@ -109,14 +108,12 @@ public class WelcomeScreen extends CoreScreen
 			rightGlobeImage.setLayoutX(0.7885 * width);
 			rightGlobeImage.setLayoutY(0.5480 * height);
 
-			woodPanelFor2IconsImage.setLayoutY(0.0574 * height);
-			hBoxFor2SettingsButtons.setLayoutY(0.1027 * height);
+			woodPanelFor1IconImage.setLayoutY(0.0574 * height);
+			soundIcon.setLayoutY(0.1140 * height);
 
 			vBoxForSound.setLayoutY(0.2000 * height);
-//			vBoxForSettings.setLayoutY(0.2000 * height);
 			
 			vBoxForSound.setPrefHeight(0.1759 * height);
-//			vBoxForSettings.setPrefHeight(0.3000 * height);
 			
 			editNameIcon.setLayoutY(0.3250 * height);
 
@@ -137,19 +134,17 @@ public class WelcomeScreen extends CoreScreen
 
 			if (OS == OSType.Windows)
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.0667 * width);
+				woodPanelFor1IconImage.setLayoutX(0.0667 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.8214 * width);
 				
 				vBoxForSound.setLayoutX(0.0420 * width);
-//				vBoxForSettings.setLayoutX(0.0420 * width);
 			}
 			else
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.8448 * width);
+				woodPanelFor1IconImage.setLayoutX(0.8665 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.0427 * width);
 				
 				vBoxForSound.setLayoutX(0.8230 * width);
-//				vBoxForSettings.setLayoutX(0.8230 * width);
 			}
 		}
 		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
@@ -175,19 +170,17 @@ public class WelcomeScreen extends CoreScreen
 			rightGlobeImage.setLayoutX(0.7875 * width);
 			rightGlobeImage.setLayoutY(0.5857 * height);
 
-			woodPanelFor2IconsImage.setLayoutY(0.0552 * height);
-			hBoxFor2SettingsButtons.setLayoutY(0.0914 * height);
+			woodPanelFor1IconImage.setLayoutY(0.0552 * height);
+			soundIcon.setLayoutY(0.1050 * height);
 
 			vBoxForSound.setLayoutY(0.1824 * height);
-//			vBoxForSettings.setLayoutY(0.1824 * height);
 			
 			vBoxForSound.setPrefHeight(0.1714 * height);
-//			vBoxForSettings.setPrefHeight(0.2700 * height);
 
 			editNameIcon.setLayoutY(0.2915 * height);
-
-			infoIcon.setLayoutX(0.7604 * width);
-			infoIcon.setLayoutY(0.8048 * height);
+			
+			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
+			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
 
 			woodPanelFor4IconsImage.setLayoutY(0.0552 * height);
 			hBoxFor4SettingsButtons.setLayoutY(0.0885 * height);
@@ -203,27 +196,26 @@ public class WelcomeScreen extends CoreScreen
 
 			if (OS == OSType.Windows)
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.0667 * width);
+				woodPanelFor1IconImage.setLayoutX(0.0667 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.8232 * width);
 				
 				vBoxForSound.setLayoutX(0.0421 * width);
-//				vBoxForSettings.setLayoutX(0.0421 * width);
 			}
 			else
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.8454 * width);
+				woodPanelFor1IconImage.setLayoutX(0.8454 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.0429 * width);
 				
 				vBoxForSound.setLayoutX(0.8226 * width);
-//				vBoxForSettings.setLayoutX(0.8226 * width);
 			}
 		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
 		{
 			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
 			{
-				woodPanelFor2IconsImage.setLayoutY(0.0556 * height);
-				hBoxFor2SettingsButtons.setLayoutY(0.0898 * height);
+				woodPanelFor1IconImage.setLayoutY(0.0556 * height);
+				soundIcon.setLayoutY(0.0898 * height);
 				
 				woodPanelFor4IconsImage.setLayoutY(0.0557 * height);
 				hBoxFor4SettingsButtons.setLayoutY(0.0879 * height);
@@ -241,8 +233,8 @@ public class WelcomeScreen extends CoreScreen
 			}
 			else
 			{
-				woodPanelFor2IconsImage.setLayoutY(0.0541 * height);
-				hBoxFor2SettingsButtons.setLayoutY(0.0836 * height);
+				woodPanelFor1IconImage.setLayoutY(0.0541 * height);
+				soundIcon.setLayoutY(0.0836 * height);
 				
 				woodPanelFor4IconsImage.setLayoutY(0.0541 * height);
 				hBoxFor4SettingsButtons.setLayoutY(0.0840 * height);
@@ -258,6 +250,9 @@ public class WelcomeScreen extends CoreScreen
 				
 				editNameIcon.setLayoutY(0.2777 * height);
 			}
+			
+			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
+			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
 			
 			leftGlobeImage.setFitWidth(0.1625 * width);
 			rightGlobeImage.setFitWidth(0.1625 * width);
@@ -293,7 +288,7 @@ public class WelcomeScreen extends CoreScreen
 
 			if (OS == OSType.Windows)
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.0663 * width);
+				woodPanelFor1IconImage.setLayoutX(0.0663 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.8219 * width);
 				
 				vBoxForSound.setLayoutX(0.0431 * width);
@@ -301,14 +296,15 @@ public class WelcomeScreen extends CoreScreen
 			}
 			else
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.8454 * width);
+				woodPanelFor1IconImage.setLayoutX(0.8454 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.0419 * width);
 				
 				vBoxForSound.setLayoutX(0.8220 * width);
 //				vBoxForSettings.setLayoutX(0.8220 * width);
 			}
 		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
+		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3
+				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
 		{
 			leftGlobeImage.setFitWidth(0.1757 * width);
 			rightGlobeImage.setFitWidth(0.1757 * width);
@@ -321,10 +317,9 @@ public class WelcomeScreen extends CoreScreen
 				welcomeLabel.setLayoutY(0.1806 * height);
 				
 				hBoxFor4SettingsButtons.setLayoutY(0.0615 * height);
-				hBoxFor2SettingsButtons.setLayoutY(0.0625 * height);
+				soundIcon.setLayoutY(0.0820 * height);
 				
 				vBoxForSound.setLayoutY(0.1416 * height);
-//				vBoxForSettings.setLayoutY(0.1416 * height);
 			
 				leftGlobeImage.setLayoutY(0.6573 * height);
 				rightGlobeImage.setLayoutY(0.6573 * height);
@@ -334,7 +329,7 @@ public class WelcomeScreen extends CoreScreen
 				
 				editNameIcon.setLayoutY(0.2295 * height);
 				
-//				vBoxForSettings.setPrefHeight(0.2100 * height);
+				hBoxForSettingsAndInfoIcons.setLayoutY(0.8850 * height);
 			}
 			else
 			{
@@ -344,7 +339,7 @@ public class WelcomeScreen extends CoreScreen
 				welcomeLabel.setLayoutY(0.1933 * height);
 				
 				hBoxFor4SettingsButtons.setLayoutY(0.0638 * height);
-				hBoxFor2SettingsButtons.setLayoutY(0.0648 * height);
+				soundIcon.setLayoutY(0.0850 * height);
 				
 				vBoxForSound.setLayoutY(0.1505 * height);
 				vBoxForSettings.setLayoutY(0.1505 * height);
@@ -357,8 +352,10 @@ public class WelcomeScreen extends CoreScreen
 				
 				editNameIcon.setLayoutY(0.2419 * height);
 				
-//				vBoxForSettings.setPrefHeight(0.2300 * height);
+				hBoxForSettingsAndInfoIcons.setLayoutY(0.8800 * height);
 			}
+			
+			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
 			
 			leftGlobeStand.setFitWidth(0.1714 * width);
 			leftGlobeStand.setLayoutX(0.0329 * width);
@@ -369,7 +366,7 @@ public class WelcomeScreen extends CoreScreen
 			leftGlobeImage.setLayoutX(0.0493 * width);
 			rightGlobeImage.setLayoutX(0.7729 * width);
 
-			woodPanelFor2IconsImage.setLayoutY(0.0419 * height);
+			woodPanelFor1IconImage.setLayoutY(0.0419 * height);
 			woodPanelFor4IconsImage.setLayoutY(0.0428 * height);
 			
 			vBoxForSound.setPrefHeight(0.1476 * height);
@@ -388,7 +385,7 @@ public class WelcomeScreen extends CoreScreen
 
 			if (OS == OSType.Windows)
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.0657 * width);
+				woodPanelFor1IconImage.setLayoutX(0.0657 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.8214 * width);
 				
 				vBoxForSound.setLayoutX(0.0414 * width);
@@ -396,7 +393,7 @@ public class WelcomeScreen extends CoreScreen
 			}
 			else
 			{
-				woodPanelFor2IconsImage.setLayoutX(0.8459 * width);
+				woodPanelFor1IconImage.setLayoutX(0.8459 * width);
 				woodPanelFor4IconsImage.setLayoutX(0.0429 * width);
 				
 				vBoxForSound.setLayoutX(0.8228 * width);
@@ -524,16 +521,10 @@ public class WelcomeScreen extends CoreScreen
 		welcomeImage.setFitWidth(0.5156 * width);
 		welcomeImage.setLayoutX(width / 2.0 - welcomeImage.getFitWidth() / 2.0);
 
-		woodPanelFor2IconsImage.setFitWidth(0.0875 * width);
+		woodPanelFor1IconImage.setFitWidth(0.0482 * width);
 		woodPanelFor4IconsImage.setFitWidth(0.1354 * width);
-
-		hBoxFor2SettingsButtons.setSpacing(0.0078 * width);
 		
-		hBoxFor2SettingsButtons.setPrefSize(0.0875 * width, 0.0777 * height);
 		hBoxFor4SettingsButtons.setPrefSize(0.1354 * width, 0.0787 * height);
-		
-		hBoxFor2SettingsButtons.setLayoutX(woodPanelFor2IconsImage.getLayoutX());
-		hBoxFor4SettingsButtons.setLayoutX(woodPanelFor4IconsImage.getLayoutX());
 
 		vBoxForSound.setPrefWidth(0.1350 * width);
 
@@ -572,6 +563,9 @@ public class WelcomeScreen extends CoreScreen
 		moveIcon.setFitWidth(iconSize);
 		fullScreenIcon.setFitWidth(iconSize);
 		exitIcon.setFitWidth(iconSize);
+		
+		soundIcon.setLayoutX(woodPanelFor1IconImage.getLayoutX() + woodPanelFor1IconImage.getFitWidth() / 2.0 - soundIcon.getFitWidth() / 2.0);
+		hBoxFor4SettingsButtons.setLayoutX(woodPanelFor4IconsImage.getLayoutX());
 
 		vBoxWithBasicButtons.setLayoutX(width / 2.0 - vBoxWithBasicButtons.getPrefWidth() / 2.0);
 
@@ -772,17 +766,11 @@ public class WelcomeScreen extends CoreScreen
 		editNameIcon.setCacheHint(CacheHint.SCALE);
 		
 		//WOOD IMAGE AND BOX FOR 2 ICON SETTINGS
-		woodPanelFor2IconsImage = new ImageView();
-		woodPanelFor2IconsImage.setSmooth(true);
-		woodPanelFor2IconsImage.setPreserveRatio(true);
-		woodPanelFor2IconsImage.setCache(true);
-		woodPanelFor2IconsImage.setCacheHint(CacheHint.SPEED);
-		
-		hBoxFor2SettingsButtons = new HBox();
-		hBoxFor2SettingsButtons.setAlignment(Pos.CENTER);
-		hBoxFor2SettingsButtons.setFillHeight(true);
-		hBoxFor2SettingsButtons.setCache(true);
-		hBoxFor2SettingsButtons.setCacheHint(CacheHint.SCALE);
+		woodPanelFor1IconImage = new ImageView();
+		woodPanelFor1IconImage.setSmooth(true);
+		woodPanelFor1IconImage.setPreserveRatio(true);
+		woodPanelFor1IconImage.setCache(true);
+		woodPanelFor1IconImage.setCacheHint(CacheHint.SPEED);
 		
 		//WOOD IMAGE AND BOX FOR 4 ICON SETTINGS
 		woodPanelFor4IconsImage = new ImageView();
@@ -798,16 +786,8 @@ public class WelcomeScreen extends CoreScreen
 		hBoxFor4SettingsButtons.setCacheHint(CacheHint.SCALE);
 		
 		//POSITION OF SETTINGS BOXES BASED ON O.S.
-		if (OS == OsCheck.OSType.Windows)
-		{
-			hBoxFor4SettingsButtons.getChildren().addAll(minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
-			hBoxFor2SettingsButtons.getChildren().addAll(soundIcon);
-		}
-		else
-		{
-			hBoxFor4SettingsButtons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon);
-			hBoxFor2SettingsButtons.getChildren().addAll(soundIcon);
-		}
+		if (OS == OsCheck.OSType.Windows) hBoxFor4SettingsButtons.getChildren().addAll(minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
+		else hBoxFor4SettingsButtons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon);
 		
 		//LEFT STAND GLOBE AND SHADOW
 		leftGlobeStand = new ImageView();
@@ -1122,7 +1102,7 @@ public class WelcomeScreen extends CoreScreen
 		//ADD DROP SHADOW EFFECT TO NODES
 		dropShadow = new DropShadow();
 		woodenFrameImage.setEffect(dropShadow);
-		woodPanelFor2IconsImage.setEffect(dropShadow);
+		woodPanelFor1IconImage.setEffect(dropShadow);
 		woodPanelFor4IconsImage.setEffect(dropShadow);
 		gameNameWoodenImage.setEffect(dropShadow);
 		welcomeImage.setEffect(dropShadow);
@@ -1135,11 +1115,11 @@ public class WelcomeScreen extends CoreScreen
 		//ADD EVERYTHING TO ANCHOR PANE
 		nodesPane.getChildren().addAll(
 				chalkboardBackgroundImage, welcomeImage, gameNameWoodenImage,
-				leftGlobeStand, rightGlobeStand, woodPanelFor2IconsImage,
+				leftGlobeStand, rightGlobeStand, woodPanelFor1IconImage,
 				leftGlobeImage, rightGlobeImage, welcomeLabel, editNameIcon,
 				woodPanelFor4IconsImage, vBoxWithBasicButtons, hBoxForSettingsAndInfoIcons,
 				vBoxForNewName, rectangleForInformationAboutGame, vBoxForSound,
-				vBoxForSettings, hBoxFor4SettingsButtons, hBoxFor2SettingsButtons, popUpMessage
+				vBoxForSettings, hBoxFor4SettingsButtons, soundIcon, popUpMessage
 		                               );
 		
 		originalNamesObservableList = FXCollections.observableArrayList();
@@ -1227,7 +1207,7 @@ public class WelcomeScreen extends CoreScreen
 		{
 			woodenFrameImage.setImage(FRAME_IMAGE);
 			chalkboardBackgroundImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
-			woodPanelFor2IconsImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS);
+			woodPanelFor1IconImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON);
 			woodPanelFor4IconsImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS);
 			welcomeImage.setImage(EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE);
 			gameNameWoodenImage.setImage(GAME_NAME_IMAGE);
@@ -1303,7 +1283,7 @@ public class WelcomeScreen extends CoreScreen
 		if(animationsUsed != NO_ANIMATIONS)
 		{
 			woodPanelFor4IconsImage.setTranslateY(-1.0 * (woodPanelFor4IconsImage.getLayoutY() + woodPanelFor4IconsImage.getBoundsInParent().getHeight()));
-			woodPanelFor2IconsImage.setTranslateY(-1.0 * (woodPanelFor2IconsImage.getLayoutY() + woodPanelFor2IconsImage.getBoundsInParent().getHeight()));
+			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
 			gameNameWoodenImage.setTranslateY(-1.0 * (gameNameWoodenImage.getLayoutY() + gameNameWoodenImage.getBoundsInParent().getHeight()));
 			leftGlobeStand.setTranslateX(-1.0 * (leftGlobeStand.getLayoutX() + leftGlobeStand.getFitWidth() + 20));
 			leftGlobeImage.setTranslateX(-1.0 * (leftGlobeStand.getLayoutX() + leftGlobeStand.getFitWidth() + 20));
@@ -1315,8 +1295,8 @@ public class WelcomeScreen extends CoreScreen
 			
 			vBoxWithBasicButtons.setTranslateY(0);
 			
-			hBoxFor2SettingsButtons.setScaleX(0);
-			hBoxFor2SettingsButtons.setScaleY(0);
+			soundIcon.setScaleX(0);
+			soundIcon.setScaleY(0);
 			hBoxFor4SettingsButtons.setScaleX(0);
 			hBoxFor4SettingsButtons.setScaleY(0);
 			welcomeLabel.setScaleX(0);
@@ -2009,7 +1989,7 @@ public class WelcomeScreen extends CoreScreen
 		sequentialTransitionForInfoButton = new SequentialTransition(infoIcon, scaleTransitionForInfoButton1, scaleTransitionForInfoButton2);
 		sequentialTransitionForSettingsButton = new SequentialTransition(settingsIcon, scaleTransitionForSettingsButton1, scaleTransitionForSettingsButton2);
 
-		translateTransitionForWoodPanelFor2IconsImage = new TranslateTransition(Duration.millis(300), woodPanelFor2IconsImage);
+		translateTransitionForWoodPanelFor1IconImage = new TranslateTransition(Duration.millis(300), woodPanelFor1IconImage);
 		translateTransitionForWoodPanelFor4IconsImage = new TranslateTransition(Duration.millis(300), woodPanelFor4IconsImage);
 
 		translateTransitionForGameNameImage = new TranslateTransition(Duration.millis(300), gameNameWoodenImage);
@@ -2018,7 +1998,7 @@ public class WelcomeScreen extends CoreScreen
 		ScaleTransition scaleTransitionForWelcomeImage = new ScaleTransition(Duration.millis(300), welcomeImage);
 		parallelTransitionForWelcomeImage = new ParallelTransition(translateTransitionForWelcomeImage, scaleTransitionForWelcomeImage);
 		
-		scaleTransitionFor2Settings = new ScaleTransition(Duration.millis(300), hBoxFor2SettingsButtons);
+		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(300), soundIcon);
 		scaleTransitionFor4Settings = new ScaleTransition(Duration.millis(300), hBoxFor4SettingsButtons);
 		
 		scaleTransitionForWelcomeLabel = new ScaleTransition();
@@ -2056,12 +2036,12 @@ public class WelcomeScreen extends CoreScreen
 				editNameIcon.setDisable(true);
 
 				translateTransitionForGameNameImage.setToY(0);
-				translateTransitionForWoodPanelFor2IconsImage.setToY(0);
+				translateTransitionForWoodPanelFor1IconImage.setToY(0);
 				translateTransitionForWoodPanelFor4IconsImage.setToY(0);
 				
 				playSlideSound();
 				translateTransitionForGameNameImage.playFromStart();
-				translateTransitionForWoodPanelFor2IconsImage.playFromStart();
+				translateTransitionForWoodPanelFor1IconImage.playFromStart();
 				translateTransitionForWoodPanelFor4IconsImage.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(300), e ->
@@ -2093,8 +2073,8 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForWelcomeLabel.setCycleCount(1);
 				scaleTransitionForWelcomeLabel.setAutoReverse(false);
 				
-				scaleTransitionFor2Settings.setToX(1);
-				scaleTransitionFor2Settings.setToY(1);
+				scaleTransitionForSoundIcon.setToX(1);
+				scaleTransitionForSoundIcon.setToY(1);
 				scaleTransitionFor4Settings.setToX(1);
 				scaleTransitionFor4Settings.setToY(1);
 				scaleTransitionForEditIcon.setToX(1);
@@ -2112,7 +2092,7 @@ public class WelcomeScreen extends CoreScreen
 				timelineToPopUpBasicButtons.playFromStart();
 				
 				scaleTransitionForWelcomeLabel.playFromStart();
-				scaleTransitionFor2Settings.playFromStart();
+				scaleTransitionForSoundIcon.playFromStart();
 				scaleTransitionFor4Settings.playFromStart();
 				scaleTransitionForEditIcon.playFromStart();
 			}),
@@ -2147,8 +2127,8 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForWelcomeLabel.setCycleCount(1);
 				scaleTransitionForWelcomeLabel.setOnFinished(ev -> {});
 
-				scaleTransitionFor2Settings.setToX(0);
-				scaleTransitionFor2Settings.setToY(0);
+				scaleTransitionForSoundIcon.setToX(0);
+				scaleTransitionForSoundIcon.setToY(0);
 				scaleTransitionFor4Settings.setToX(0);
 				scaleTransitionFor4Settings.setToY(0);
 				scaleTransitionForEditIcon.setToX(0);
@@ -2164,7 +2144,7 @@ public class WelcomeScreen extends CoreScreen
 				
 				playMinimizeSound();
 				scaleTransitionForWelcomeLabel.playFromStart();
-				scaleTransitionFor2Settings.playFromStart();
+				scaleTransitionForSoundIcon.playFromStart();
 				scaleTransitionFor4Settings.playFromStart();
 				scaleTransitionForEditIcon.playFromStart();
 				scaleTransitionForSettingsIcon.playFromStart();
@@ -2190,7 +2170,7 @@ public class WelcomeScreen extends CoreScreen
 			new KeyFrame(Duration.millis(600), e ->
 			{
 				translateTransitionForGameNameImage.setToY(-1.0 * (gameNameWoodenImage.getLayoutY() + gameNameWoodenImage.getBoundsInParent().getHeight()));
-				translateTransitionForWoodPanelFor2IconsImage.setToY(-1.0 * (woodPanelFor2IconsImage.getLayoutY() + woodPanelFor2IconsImage.getBoundsInParent().getHeight()));
+				translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
 				translateTransitionForWoodPanelFor4IconsImage.setToY(-1.0 * (woodPanelFor4IconsImage.getLayoutY() + woodPanelFor4IconsImage.getBoundsInParent().getHeight()));
 				
 				if(vBoxForSettings.isVisible())
@@ -2206,7 +2186,7 @@ public class WelcomeScreen extends CoreScreen
 				
 				playSlideSound();
 				translateTransitionForGameNameImage.playFromStart();
-				translateTransitionForWoodPanelFor2IconsImage.playFromStart();
+				translateTransitionForWoodPanelFor1IconImage.playFromStart();
 				translateTransitionForWoodPanelFor4IconsImage.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(900), e ->
@@ -2286,7 +2266,7 @@ public class WelcomeScreen extends CoreScreen
 		timelineToShowSoundOptions = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
-				hBoxFor2SettingsButtons.setDisable(true);
+				soundIcon.setDisable(true);
 				
 				vBoxForSound.setVisible(true);
 				translateTransitionForVBoxForSound.setToX(0);
@@ -2294,12 +2274,12 @@ public class WelcomeScreen extends CoreScreen
 				playSlideSound();
 				translateTransitionForVBoxForSound.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(300), e -> hBoxFor2SettingsButtons.setDisable(false)));
+			new KeyFrame(Duration.millis(300), e -> soundIcon.setDisable(false)));
 
 		timelineToHideSoundOptions = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
-				hBoxFor2SettingsButtons.setDisable(true);
+				soundIcon.setDisable(true);
 				
 				if(OS == OSType.Windows) translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
 				else translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
@@ -2311,7 +2291,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				vBoxForSound.setVisible(false);
 				
-				hBoxFor2SettingsButtons.setDisable(false);
+				soundIcon.setDisable(false);
 			}));
 
 		timelineToShowSettings = new Timeline(
