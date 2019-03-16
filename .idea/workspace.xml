@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/code/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/FilesIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/dataStructures/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/dataStructures/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/dataStructures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/dataStructures/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,15 +18,247 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+            <state relative-caret-position="67">
+              <caret line="745" column="13" lean-forward="true" selection-start-line="745" selection-start-column="13" selection-end-line="745" selection-end-column="13" />
               <folding>
                 <element signature="e#2833#2994#0" />
                 <element signature="e#17788#17789#0" expanded="true" />
                 <element signature="e#17825#17826#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="830">
+              <caret line="2293" column="47" selection-start-line="2293" selection-start-column="47" selection-end-line="2293" selection-end-column="47" />
+              <folding>
+                <element signature="e#4908#28217#0" />
+                <element signature="e#5157#7121#1" />
+                <element signature="e#6771#6938#1" />
+                <element signature="e#6950#7117#1" />
+                <element signature="e#7202#9166#1" />
+                <element signature="e#8816#8983#1" />
+                <element signature="e#8995#9162#1" />
+                <element signature="e#9319#12276#1" />
+                <element signature="e#9398#9974#1" />
+                <element signature="e#9986#10562#1" />
+                <element signature="e#11826#12043#1" />
+                <element signature="e#12055#12272#1" />
+                <element signature="e#12427#15395#1" />
+                <element signature="e#12601#13233#1" />
+                <element signature="e#13245#13927#1" />
+                <element signature="e#14945#15162#1" />
+                <element signature="e#15174#15391#1" />
+                <element signature="e#15461#15677#1" />
+                <element signature="e#15705#15926#1" />
+                <element signature="e#15954#16160#1" />
+                <element signature="e#16170#16396#1" />
+                <element signature="e#28221#28439#0" />
+                <element signature="e#28443#28604#0" />
+                <element signature="e#28608#46693#0" />
+                <element signature="e#45313#45802#0" />
+                <element signature="e#45394#45649#1" />
+                <element signature="e#45683#45790#1" />
+                <element signature="e#45851#46343#0" />
+                <element signature="e#45932#46190#1" />
+                <element signature="e#46224#46331#1" />
+                <element signature="e#46504#46622#1" />
+                <element signature="e#46697#47019#0" />
+                <element signature="e#46753#46864#1" />
+                <element signature="e#47023#51398#0" />
+                <element signature="e#47248#48195#1" />
+                <element signature="e#48241#48339#1" />
+                <element signature="e#48455#48564#1" />
+                <element signature="e#49677#51395#1" />
+                <element signature="e#51402#68607#0" />
+                <element signature="e#51479#52549#0" />
+                <element signature="e#51575#51730#1" />
+                <element signature="e#51753#51908#1" />
+                <element signature="e#51920#52545#1" />
+                <element signature="e#52116#52267#1" />
+                <element signature="e#52595#52951#0" />
+                <element signature="e#53064#53293#0" />
+                <element signature="e#53138#53289#1" />
+                <element signature="e#53348#53468#0" />
+                <element signature="e#53415#53464#1" />
+                <element signature="e#53765#56157#0" />
+                <element signature="e#53894#56153#1" />
+                <element signature="e#54303#55645#1" />
+                <element signature="e#54377#54651#1" />
+                <element signature="e#54697#55028#1" />
+                <element signature="e#54748#54867#0" />
+                <element signature="e#54895#55011#0" />
+                <element signature="e#55072#55408#1" />
+                <element signature="e#55124#55245#0" />
+                <element signature="e#55273#55391#0" />
+                <element signature="e#55449#55517#1" />
+                <element signature="e#55659#56148#1" />
+                <element signature="e#55746#55975#1" />
+                <element signature="e#56230#56495#0" />
+                <element signature="e#56534#57263#0" />
+                <element signature="e#56759#57259#1" />
+                <element signature="e#57317#57941#0" />
+                <element signature="e#57428#57937#1" />
+                <element signature="e#58113#58471#0" />
+                <element signature="e#58293#58467#1" />
+                <element signature="e#58510#58882#0" />
+                <element signature="e#58700#58877#1" />
+                <element signature="e#58935#59153#0" />
+                <element signature="e#59191#59268#0" />
+                <element signature="e#59306#59508#0" />
+                <element signature="e#59829#60700#0" />
+                <element signature="e#59950#60188#1" />
+                <element signature="e#60094#60176#1" />
+                <element signature="e#60202#60626#1" />
+                <element signature="e#60347#60620#1" />
+                <element signature="e#60736#60853#0" />
+                <element signature="e#60890#61007#0" />
+                <element signature="e#61044#62887#0" />
+                <element signature="e#61096#61906#1" />
+                <element signature="e#61251#61900#1" />
+                <element signature="e#61920#62882#1" />
+                <element signature="e#62305#62876#1" />
+                <element signature="e#62926#63196#0" />
+                <element signature="e#63236#63504#0" />
+                <element signature="e#63548#63837#0" />
+                <element signature="e#63607#63681#1" />
+                <element signature="e#63693#63770#1" />
+                <element signature="e#63870#64010#0" />
+                <element signature="e#64043#65797#0" />
+                <element signature="e#64111#64988#1" />
+                <element signature="e#64270#64982#1" />
+                <element signature="e#65002#65792#1" />
+                <element signature="e#65153#65786#1" />
+                <element signature="e#65831#65975#0" />
+                <element signature="e#66014#66587#0" />
+                <element signature="e#66070#66582#1" />
+                <element signature="e#66108#66231#1" />
+                <element signature="e#66273#66436#1" />
+                <element signature="e#66452#66576#1" />
+                <element signature="e#66627#67233#0" />
+                <element signature="e#66685#67228#1" />
+                <element signature="e#66726#66856#1" />
+                <element signature="e#66901#67072#1" />
+                <element signature="e#67090#67221#1" />
+                <element signature="e#67274#67550#0" />
+                <element signature="e#67357#67497#1" />
+                <element signature="e#67660#67702#0" />
+                <element signature="e#67801#68055#0" />
+                <element signature="e#67888#68015#1" />
+                <element signature="e#68151#68415#0" />
+                <element signature="e#68238#68370#1" />
+                <element signature="e#68512#68602#0" />
+                <element signature="e#97532#98787#0" />
+                <element signature="e#97803#98183#0" />
+                <element signature="e#97850#97939#1" />
+                <element signature="e#97982#98071#1" />
+                <element signature="e#98327#98718#0" />
+                <element signature="e#98375#98467#1" />
+                <element signature="e#98511#98603#1" />
+                <element signature="e#98963#100290#0" />
+                <element signature="e#100119#100902#0" />
+                <element signature="e#101072#103860#0" />
+                <element signature="e#101065#101145#1" />
+                <element signature="e#101169#101332#1" />
+                <element signature="e#101357#101599#1" />
+                <element signature="e#101785#103857#1" />
+                <element signature="e#102023#103640#1" />
+                <element signature="e#102128#103633#1" />
+                <element signature="e#102281#103154#0" />
+                <element signature="e#102846#103029#1" />
+                <element signature="e#102899#103020#0" />
+                <element signature="e#103657#103772#1" />
+                <element signature="e#103875#104080#0" />
+                <element signature="e#104083#104278#0" />
+                <element signature="e#104282#106087#0" />
+                <element signature="e#103808#104982#1" />
+                <element signature="e#104372#104925#0" />
+                <element signature="e#104992#105525#1" />
+                <element signature="e#106010#106055#1" />
+                <element signature="e#107739#107740#0" expanded="true" />
+                <element signature="e#106100#106146#1" />
+                <element signature="e#107830#107831#0" expanded="true" />
+                <element signature="e#106273#106904#0" />
+                <element signature="e#106908#111314#0" />
+                <element signature="e#107980#108155#1" />
+                <element signature="e#108165#108333#1" />
+                <element signature="e#111318#112316#0" />
+                <element signature="e#111243#111335#0" />
+                <element signature="e#111364#111612#0" />
+                <element signature="e#111653#111686#0" />
+                <element signature="e#112320#112960#0" />
+                <element signature="e#112964#115509#0" />
+                <element signature="e#112648#113916#1" />
+                <element signature="e#112700#113251#1" />
+                <element signature="e#112763#113246#1" />
+                <element signature="e#112835#113152#0" />
+                <element signature="e#113517#113912#1" />
+                <element signature="e#113926#114553#1" />
+                <element signature="e#113978#114549#1" />
+                <element signature="e#114041#114544#1" />
+                <element signature="e#114111#114450#0" />
+                <element signature="e#114603#114947#1" />
+                <element signature="e#114664#114943#1" />
+                <element signature="e#114766#114938#1" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2217">
+              <caret line="625" column="40" selection-start-line="625" selection-start-column="40" selection-end-line="625" selection-end-column="40" />
+              <folding>
+                <element signature="method#setupGameVariables#0;class#PowerOn#0" />
+                <element signature="method#loadFonts#0;class#PowerOn#0" />
+                <element signature="e#2536#2634#0" />
+                <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
+                <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+                <element signature="e#2914#3171#0" />
+                <element signature="e#3196#3346#0" />
+                <element signature="method#setupStage#0;class#PowerOn#0" />
+                <element signature="e#4312#5343#1" />
+                <element signature="e#4492#4592#1" />
+                <element signature="e#4704#4811#1" />
+                <element signature="e#4903#4951#1" />
+                <element signature="e#5045#5134#1" />
+                <element signature="e#5238#5337#1" />
+                <element signature="e#5433#5491#1" />
+                <element signature="e#5524#5678#1" />
+                <element signature="e#5743#6758#1" />
+                <element signature="e#5909#6008#1" />
+                <element signature="e#6120#6227#1" />
+                <element signature="e#6319#6366#1" />
+                <element signature="e#6460#6549#1" />
+                <element signature="e#6653#6752#1" />
+                <element signature="e#6848#6905#1" />
+                <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
+                <element signature="e#7000#8724#0" />
+                <element signature="e#7039#7336#1" />
+                <element signature="e#7379#7676#1" />
+                <element signature="e#7688#7985#1" />
+                <element signature="e#8748#8884#0" />
+                <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
+                <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
+                <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
+                <element signature="method#powerOnAudio#0;class#PowerOn#0" />
+                <element signature="method#powerOnImages#0;class#PowerOn#0" />
+                <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
+                <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
+                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
               </folding>
             </state>
           </provider>
@@ -110,7 +334,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vBoxWithBasicButtons</find>
       <find>.setOpacity(0);</find>
       <find>info</find>
       <find>hboxfors</find>
@@ -140,6 +363,7 @@
       <find>= ALL_ANIMATIONS</find>
       <find>= NO_ANIMATIONS</find>
       <find>DIFFICULTY_DIFFICULT</find>
+      <find>welcomelabel.settext(</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -178,7 +402,6 @@
         <option value="$PROJECT_DIR$/src/code/dataStructures/Area.java" />
         <option value="$PROJECT_DIR$/src/code/core/ShutdownHook.java" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
         <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
@@ -188,11 +411,12 @@
         <option value="$PROJECT_DIR$/src/code/dataStructures/Game.java" />
         <option value="$PROJECT_DIR$/src/code/core/FilesIO.java" />
         <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1324" />
   </component>
@@ -272,7 +496,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552745503168" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552760405521" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -339,7 +563,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.15202835" />
@@ -350,7 +574,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290008" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.25324675" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.25324675" />
       <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -620,69 +844,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="625" column="40" selection-start-line="625" selection-start-column="40" selection-end-line="625" selection-end-column="40" />
-          <folding>
-            <element signature="method#setupGameVariables#0;class#PowerOn#0" />
-            <element signature="method#loadFonts#0;class#PowerOn#0" />
-            <element signature="e#2536#2634#0" />
-            <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
-            <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
-            <element signature="e#2914#3171#0" />
-            <element signature="e#3196#3346#0" />
-            <element signature="e#4312#5343#1" />
-            <element signature="e#4492#4592#1" />
-            <element signature="e#4704#4811#1" />
-            <element signature="e#4903#4951#1" />
-            <element signature="e#5045#5134#1" />
-            <element signature="e#5238#5337#1" />
-            <element signature="e#5433#5491#1" />
-            <element signature="e#5524#5678#1" />
-            <element signature="e#5743#6758#1" />
-            <element signature="e#5909#6008#1" />
-            <element signature="e#6120#6227#1" />
-            <element signature="e#6319#6366#1" />
-            <element signature="e#6460#6549#1" />
-            <element signature="e#6653#6752#1" />
-            <element signature="e#6848#6905#1" />
-            <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
-            <element signature="e#7000#8724#0" />
-            <element signature="e#7039#7336#1" />
-            <element signature="e#7379#7676#1" />
-            <element signature="e#7688#7985#1" />
-            <element signature="e#8748#8884#0" />
-            <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
-            <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
-            <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
-            <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-            <element signature="method#powerOnImages#0;class#PowerOn#0" />
-            <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
-            <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="1396" column="53" selection-start-line="1396" selection-start-column="53" selection-end-line="1396" selection-end-column="53" />
-          <folding>
-            <element signature="e#105805#105806#0" expanded="true" />
-            <element signature="e#105849#105850#0" expanded="true" />
-            <element signature="e#105895#105896#0" expanded="true" />
-            <element signature="e#105940#105941#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/dataStructures/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -750,12 +911,240 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
+        <state relative-caret-position="67">
+          <caret line="745" column="13" lean-forward="true" selection-start-line="745" selection-start-column="13" selection-end-line="745" selection-end-column="13" />
           <folding>
             <element signature="e#2833#2994#0" />
             <element signature="e#17788#17789#0" expanded="true" />
             <element signature="e#17825#17826#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2217">
+          <caret line="625" column="40" selection-start-line="625" selection-start-column="40" selection-end-line="625" selection-end-column="40" />
+          <folding>
+            <element signature="method#setupGameVariables#0;class#PowerOn#0" />
+            <element signature="method#loadFonts#0;class#PowerOn#0" />
+            <element signature="e#2536#2634#0" />
+            <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
+            <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+            <element signature="e#2914#3171#0" />
+            <element signature="e#3196#3346#0" />
+            <element signature="method#setupStage#0;class#PowerOn#0" />
+            <element signature="e#4312#5343#1" />
+            <element signature="e#4492#4592#1" />
+            <element signature="e#4704#4811#1" />
+            <element signature="e#4903#4951#1" />
+            <element signature="e#5045#5134#1" />
+            <element signature="e#5238#5337#1" />
+            <element signature="e#5433#5491#1" />
+            <element signature="e#5524#5678#1" />
+            <element signature="e#5743#6758#1" />
+            <element signature="e#5909#6008#1" />
+            <element signature="e#6120#6227#1" />
+            <element signature="e#6319#6366#1" />
+            <element signature="e#6460#6549#1" />
+            <element signature="e#6653#6752#1" />
+            <element signature="e#6848#6905#1" />
+            <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
+            <element signature="e#7000#8724#0" />
+            <element signature="e#7039#7336#1" />
+            <element signature="e#7379#7676#1" />
+            <element signature="e#7688#7985#1" />
+            <element signature="e#8748#8884#0" />
+            <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
+            <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
+            <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
+            <element signature="method#powerOnAudio#0;class#PowerOn#0" />
+            <element signature="method#powerOnImages#0;class#PowerOn#0" />
+            <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
+            <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="830">
+          <caret line="2293" column="47" selection-start-line="2293" selection-start-column="47" selection-end-line="2293" selection-end-column="47" />
+          <folding>
+            <element signature="e#4908#28217#0" />
+            <element signature="e#5157#7121#1" />
+            <element signature="e#6771#6938#1" />
+            <element signature="e#6950#7117#1" />
+            <element signature="e#7202#9166#1" />
+            <element signature="e#8816#8983#1" />
+            <element signature="e#8995#9162#1" />
+            <element signature="e#9319#12276#1" />
+            <element signature="e#9398#9974#1" />
+            <element signature="e#9986#10562#1" />
+            <element signature="e#11826#12043#1" />
+            <element signature="e#12055#12272#1" />
+            <element signature="e#12427#15395#1" />
+            <element signature="e#12601#13233#1" />
+            <element signature="e#13245#13927#1" />
+            <element signature="e#14945#15162#1" />
+            <element signature="e#15174#15391#1" />
+            <element signature="e#15461#15677#1" />
+            <element signature="e#15705#15926#1" />
+            <element signature="e#15954#16160#1" />
+            <element signature="e#16170#16396#1" />
+            <element signature="e#28221#28439#0" />
+            <element signature="e#28443#28604#0" />
+            <element signature="e#28608#46693#0" />
+            <element signature="e#45313#45802#0" />
+            <element signature="e#45394#45649#1" />
+            <element signature="e#45683#45790#1" />
+            <element signature="e#45851#46343#0" />
+            <element signature="e#45932#46190#1" />
+            <element signature="e#46224#46331#1" />
+            <element signature="e#46504#46622#1" />
+            <element signature="e#46697#47019#0" />
+            <element signature="e#46753#46864#1" />
+            <element signature="e#47023#51398#0" />
+            <element signature="e#47248#48195#1" />
+            <element signature="e#48241#48339#1" />
+            <element signature="e#48455#48564#1" />
+            <element signature="e#49677#51395#1" />
+            <element signature="e#51402#68607#0" />
+            <element signature="e#51479#52549#0" />
+            <element signature="e#51575#51730#1" />
+            <element signature="e#51753#51908#1" />
+            <element signature="e#51920#52545#1" />
+            <element signature="e#52116#52267#1" />
+            <element signature="e#52595#52951#0" />
+            <element signature="e#53064#53293#0" />
+            <element signature="e#53138#53289#1" />
+            <element signature="e#53348#53468#0" />
+            <element signature="e#53415#53464#1" />
+            <element signature="e#53765#56157#0" />
+            <element signature="e#53894#56153#1" />
+            <element signature="e#54303#55645#1" />
+            <element signature="e#54377#54651#1" />
+            <element signature="e#54697#55028#1" />
+            <element signature="e#54748#54867#0" />
+            <element signature="e#54895#55011#0" />
+            <element signature="e#55072#55408#1" />
+            <element signature="e#55124#55245#0" />
+            <element signature="e#55273#55391#0" />
+            <element signature="e#55449#55517#1" />
+            <element signature="e#55659#56148#1" />
+            <element signature="e#55746#55975#1" />
+            <element signature="e#56230#56495#0" />
+            <element signature="e#56534#57263#0" />
+            <element signature="e#56759#57259#1" />
+            <element signature="e#57317#57941#0" />
+            <element signature="e#57428#57937#1" />
+            <element signature="e#58113#58471#0" />
+            <element signature="e#58293#58467#1" />
+            <element signature="e#58510#58882#0" />
+            <element signature="e#58700#58877#1" />
+            <element signature="e#58935#59153#0" />
+            <element signature="e#59191#59268#0" />
+            <element signature="e#59306#59508#0" />
+            <element signature="e#59829#60700#0" />
+            <element signature="e#59950#60188#1" />
+            <element signature="e#60094#60176#1" />
+            <element signature="e#60202#60626#1" />
+            <element signature="e#60347#60620#1" />
+            <element signature="e#60736#60853#0" />
+            <element signature="e#60890#61007#0" />
+            <element signature="e#61044#62887#0" />
+            <element signature="e#61096#61906#1" />
+            <element signature="e#61251#61900#1" />
+            <element signature="e#61920#62882#1" />
+            <element signature="e#62305#62876#1" />
+            <element signature="e#62926#63196#0" />
+            <element signature="e#63236#63504#0" />
+            <element signature="e#63548#63837#0" />
+            <element signature="e#63607#63681#1" />
+            <element signature="e#63693#63770#1" />
+            <element signature="e#63870#64010#0" />
+            <element signature="e#64043#65797#0" />
+            <element signature="e#64111#64988#1" />
+            <element signature="e#64270#64982#1" />
+            <element signature="e#65002#65792#1" />
+            <element signature="e#65153#65786#1" />
+            <element signature="e#65831#65975#0" />
+            <element signature="e#66014#66587#0" />
+            <element signature="e#66070#66582#1" />
+            <element signature="e#66108#66231#1" />
+            <element signature="e#66273#66436#1" />
+            <element signature="e#66452#66576#1" />
+            <element signature="e#66627#67233#0" />
+            <element signature="e#66685#67228#1" />
+            <element signature="e#66726#66856#1" />
+            <element signature="e#66901#67072#1" />
+            <element signature="e#67090#67221#1" />
+            <element signature="e#67274#67550#0" />
+            <element signature="e#67357#67497#1" />
+            <element signature="e#67660#67702#0" />
+            <element signature="e#67801#68055#0" />
+            <element signature="e#67888#68015#1" />
+            <element signature="e#68151#68415#0" />
+            <element signature="e#68238#68370#1" />
+            <element signature="e#68512#68602#0" />
+            <element signature="e#97532#98787#0" />
+            <element signature="e#97803#98183#0" />
+            <element signature="e#97850#97939#1" />
+            <element signature="e#97982#98071#1" />
+            <element signature="e#98327#98718#0" />
+            <element signature="e#98375#98467#1" />
+            <element signature="e#98511#98603#1" />
+            <element signature="e#98963#100290#0" />
+            <element signature="e#100119#100902#0" />
+            <element signature="e#101072#103860#0" />
+            <element signature="e#101065#101145#1" />
+            <element signature="e#101169#101332#1" />
+            <element signature="e#101357#101599#1" />
+            <element signature="e#101785#103857#1" />
+            <element signature="e#102023#103640#1" />
+            <element signature="e#102128#103633#1" />
+            <element signature="e#102281#103154#0" />
+            <element signature="e#102846#103029#1" />
+            <element signature="e#102899#103020#0" />
+            <element signature="e#103657#103772#1" />
+            <element signature="e#103875#104080#0" />
+            <element signature="e#104083#104278#0" />
+            <element signature="e#104282#106087#0" />
+            <element signature="e#103808#104982#1" />
+            <element signature="e#104372#104925#0" />
+            <element signature="e#104992#105525#1" />
+            <element signature="e#106010#106055#1" />
+            <element signature="e#107739#107740#0" expanded="true" />
+            <element signature="e#106100#106146#1" />
+            <element signature="e#107830#107831#0" expanded="true" />
+            <element signature="e#106273#106904#0" />
+            <element signature="e#106908#111314#0" />
+            <element signature="e#107980#108155#1" />
+            <element signature="e#108165#108333#1" />
+            <element signature="e#111318#112316#0" />
+            <element signature="e#111243#111335#0" />
+            <element signature="e#111364#111612#0" />
+            <element signature="e#111653#111686#0" />
+            <element signature="e#112320#112960#0" />
+            <element signature="e#112964#115509#0" />
+            <element signature="e#112648#113916#1" />
+            <element signature="e#112700#113251#1" />
+            <element signature="e#112763#113246#1" />
+            <element signature="e#112835#113152#0" />
+            <element signature="e#113517#113912#1" />
+            <element signature="e#113926#114553#1" />
+            <element signature="e#113978#114549#1" />
+            <element signature="e#114041#114544#1" />
+            <element signature="e#114111#114450#0" />
+            <element signature="e#114603#114947#1" />
+            <element signature="e#114664#114943#1" />
+            <element signature="e#114766#114938#1" />
           </folding>
         </state>
       </provider>

@@ -296,7 +296,6 @@ public class GlobalVariables
 				else if(isWelcomeLoopSoundPaused()) playWelcomeLoopSoundSound();
 			});
 			scaleTransitionForAnchorPane.playFromStart();
-		
 		}
 		else
 		{
@@ -343,8 +342,8 @@ public class GlobalVariables
 //	--------------------- SCREEN STUFF ---------------------
 	public enum SUPPORTED_SCREEN_RATIOS { RATIO_16_9, RATIO_16_10, RATIO_25_16, RATIO_3_2, RATIO_4_3, RATIO_5_4, RATIO_NOT_SUPPORTED }
 	
-	public static SUPPORTED_SCREEN_RATIOS currentScreenRatioEnum;
-	public static double currentScreenRatioValue;
+	private static SUPPORTED_SCREEN_RATIOS currentScreenRatioEnum;
+	private static double currentScreenRatioValue;
 	
 	public static double primaryScreenWidth, primaryScreenHeight;
 	public static Rectangle2D primaryScreenResolution;

@@ -702,7 +702,7 @@ public class WelcomeScreen extends CoreScreen
 		deleteSingleNameLabel.getTooltip().setFont(fontForTooltips);
 		deleteAllNamesLabel.getTooltip().setFont(fontForTooltips);
 		
-		recalculateWelcomeLabelText(playersArrayList.get(0).getEditedName().length());
+		setTextAndFontForWelcomeLabel();
 	}
 	
 	protected void recalculateBackground(double width, double height)
@@ -1114,9 +1114,9 @@ public class WelcomeScreen extends CoreScreen
 
 		//ADD EVERYTHING TO ANCHOR PANE
 		nodesPane.getChildren().addAll(
-				chalkboardBackgroundImage, welcomeImage, gameNameWoodenImage,
+				chalkboardBackgroundImage, welcomeImage, welcomeLabel, gameNameWoodenImage,
 				leftGlobeStand, rightGlobeStand, woodPanelFor1IconImage,
-				leftGlobeImage, rightGlobeImage, welcomeLabel, editNameIcon,
+				leftGlobeImage, rightGlobeImage, editNameIcon,
 				woodPanelFor4IconsImage, vBoxForMainButtons, hBoxForSettingsAndInfoIcons,
 				vBoxForNewName, rectangleForInformationAboutGame, vBoxForSound,
 				vBoxForSettings, hBoxFor4SettingsButtons, soundIcon, popUpMessage
@@ -1239,7 +1239,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		setUIToggleValuesBasedOnSettings();
 		
-		welcomeLabel.setText(languageResourceBundle.getString("welcomeLabel") + getCurrentPlayer().getEditedName());
+		setTextAndFontForWelcomeLabel();
 		
 //		--------------- SET POSITIONS ---------------
 		vBoxForSound.setVisible(false);
@@ -1560,7 +1560,7 @@ public class WelcomeScreen extends CoreScreen
 
 		textFieldForNewName.setOnAction(e ->
 			{
-				if (!setNewNameButton.isDisabled()) changeCurrentPlayer();
+				if (!setNewNameButton.isDisabled()) changeCurrentPlayer(textFieldForNewName.getText(), getEditedOriginalName(textFieldForNewName.getText()));
 			});
 
 		cancelNewNameButton.setOnAction(e ->
@@ -1573,7 +1573,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		cancelNewNameButton.setOnMouseEntered(e -> playHoverSound());
 
-		setNewNameButton.setOnAction(e -> changeCurrentPlayer());
+		setNewNameButton.setOnAction(e -> changeCurrentPlayer(textFieldForNewName.getText(), getEditedOriginalName(textFieldForNewName.getText())));
 		
 		setNewNameButton.setOnMouseEntered(e -> playHoverSound());
 
@@ -1660,8 +1660,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					settingsIcon.setImage(SETTINGS_ICON);
 					
-					welcomeLabel.setText(languageResourceBundle.getString("welcomeLabel") + getCurrentPlayer().getEditedName());
-					recalculateWelcomeLabelText(getCurrentPlayer().getEditedName().length());
+					setTextAndFontForWelcomeLabel();
 					
 					FilesIO.writePlayersFile();
 					
@@ -2177,15 +2176,37 @@ public class WelcomeScreen extends CoreScreen
 			   scaleTransitionForVBoxForSettings.setToX(0);
 			   scaleTransitionForVBoxForSettings.setToY(0);
 	
-			   translateTransitionForGameNameImage.setToY((-1.0 * (gameNameWoodenImage.getLayoutY() + gameNameWoodenImage.getBoundsInParent().getHeight())));
-	
+			   if(vBoxForSound.isVisible())
+			   {
+			   		translateTransitionForVBoxForSound.setOnFinished(ev ->
+					{
+						translateTransitionForVBoxForSound.setOnFinished(eve ->{});
+						vBoxForSound.setOpacity(0);
+					});
+			   	
+				   if(OS == OSType.Windows) translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
+				   else translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
+				
+				   translateTransitionForVBoxForSound.playFromStart();
+			   }
+			   
 			   playSlideSound();
+			   
+			   translateTransitionForGameNameImage.setToY((-1.0 * (gameNameWoodenImage.getLayoutY() + gameNameWoodenImage.getBoundsInParent().getHeight())));
+			   
 			   translateTransitionForGameNameImage.playFromStart();
 			   scaleTransitionForVBoxForSettings.playFromStart();
            }),
            new KeyFrame(Duration.millis(300), e -> changeLanguage()),
            new KeyFrame(Duration.millis(400), e ->
            {
+			   if(vBoxForSound.getOpacity() == 0)
+			   {
+				   vBoxForSound.setOpacity(1);
+				   translateTransitionForVBoxForSound.setToX(0);
+				   translateTransitionForVBoxForSound.playFromStart();
+			   }
+			   
 			   scaleTransitionForVBoxForSettings.setToX(1);
 			   scaleTransitionForVBoxForSettings.setToY(1);
 			   
@@ -2200,6 +2221,20 @@ public class WelcomeScreen extends CoreScreen
 		timelineToChangeLanguageByPlayer = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
+				if(vBoxForSound.isVisible())
+				{
+					translateTransitionForVBoxForSound.setOnFinished(ev ->
+					{
+						translateTransitionForVBoxForSound.setOnFinished(eve ->{});
+						vBoxForSound.setOpacity(0);
+					});
+					
+					if(OS == OSType.Windows) translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
+					else translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
+					
+					translateTransitionForVBoxForSound.playFromStart();
+				}
+				
 				translateTransitionForVBoxForNewName.setToY(stage.getHeight() - vBoxForNewName.getLayoutY() + 20);
 				
 				scaleTransitionForWelcomeImage.setToY(0);
@@ -2208,10 +2243,14 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForWelcomeLabelParallel.setToY(0);
 				translateTransitionForWelcomeLabel.setToY(-0.1759 * stage.getHeight());
 				
+				scaleTransitionForEditIcon.setToX(0);
+				scaleTransitionForEditIcon.setToY(0);
+				
 				playSlideSound();
 				translateTransitionForVBoxForNewName.playFromStart();
 				parallelTransitionForWelcomeImage.playFromStart();
 				parallelTransitionForWelcomeLabel.playFromStart();
+				scaleTransitionForEditIcon.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(300), e ->
 			{
@@ -2219,7 +2258,11 @@ public class WelcomeScreen extends CoreScreen
 				translateTransitionForGameNameImage.setToY((-1.0 * (gameNameWoodenImage.getLayoutY() + gameNameWoodenImage.getBoundsInParent().getHeight())));
 				translateTransitionForGameNameImage.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(600), e -> changeLanguage()),
+			new KeyFrame(Duration.millis(600), e ->
+			{
+				changeLanguage();
+				setTextAndFontForWelcomeLabel();
+			}),
 			new KeyFrame(Duration.millis(700), e ->
 			{
 				translateTransitionForGameNameImage.setToY(0);
@@ -2243,19 +2286,31 @@ public class WelcomeScreen extends CoreScreen
 				infoIcon.setScaleY(0);
 				settingsIcon.setScaleX(0);
 				settingsIcon.setScaleY(0);
-				timelineToPopUpMainButtons.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(1000), e ->
 			{
+				if(vBoxForSound.getOpacity() == 0)
+				{
+					vBoxForSound.setOpacity(1);
+					translateTransitionForVBoxForSound.setToX(0);
+					translateTransitionForVBoxForSound.playFromStart();
+				}
+				
 				scaleTransitionForWelcomeImage.setToY(1);
 				translateTransitionForWelcomeImage.setToY(0);
 				
 				scaleTransitionForWelcomeLabelParallel.setToY(1);
 				translateTransitionForWelcomeLabel.setToY(0);
 				
+				editNameIcon.setImage(EDIT_ICON);
+				scaleTransitionForEditIcon.setToX(1);
+				scaleTransitionForEditIcon.setToY(1);
+				
 				playSlideSound();
 				parallelTransitionForWelcomeImage.playFromStart();
 				parallelTransitionForWelcomeLabel.playFromStart();
+				timelineToPopUpMainButtons.playFromStart();
+				scaleTransitionForEditIcon.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(1300), e->
 			{
@@ -2263,8 +2318,6 @@ public class WelcomeScreen extends CoreScreen
 				vBoxForNewName.setTranslateY(0);
 				vBoxForNewName.setScaleX(0);
 				vBoxForNewName.setScaleY(0);
-				
-				editNameIcon.setImage(EDIT_ICON);
 				
 				editNameIcon.setDisable(false);
 				infoIcon.setDisable(false);
@@ -2687,8 +2740,9 @@ public class WelcomeScreen extends CoreScreen
 		timelineForRightGlobe.setCycleCount(Timeline.INDEFINITE);
 	}
 	
-	private void recalculateWelcomeLabelText(int length)
+	private void setTextAndFontForWelcomeLabel()
 	{
+		int length = getCurrentPlayer().getEditedName().length();
 		double size;
 		
 		//		set correct font size based on name length
@@ -2708,6 +2762,7 @@ public class WelcomeScreen extends CoreScreen
 		else size = 0.1020 * welcomeLabel.getPrefWidth(); // 75 -> 735
 		
 		welcomeLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, size));
+		welcomeLabel.setText(String.format("%s%s", languageResourceBundle.getString("welcomeLabel"), getCurrentPlayer().getEditedName()));
 	}
 	
 	private void setUIToggleValuesBasedOnSettings()
@@ -2729,6 +2784,8 @@ public class WelcomeScreen extends CoreScreen
 	
 	private void changeCurrentPlayer(String originalName, String editedName)
 	{
+		LANGUAGE prevLan = getCurrentLanguage();
+		
 		int index = -1;
 		for (int i = 1; i < originalNamesObservableList.size(); i++)
 		{
@@ -2758,44 +2815,54 @@ public class WelcomeScreen extends CoreScreen
 			PowerOn.setSettingsBasedOnCurrentPlayer();
 			setUIToggleValuesBasedOnSettings();
 			
-			recalculateWelcomeLabelText(editedName.length());
-			
-			if (animationsUsed != ANIMATIONS.NO)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
-				scaleTransitionForWelcomeLabel.setDuration(Duration.millis(300));
-				scaleTransitionForWelcomeLabel.setFromX(welcomeLabel.getScaleX());
-				scaleTransitionForWelcomeLabel.setFromY(welcomeLabel.getScaleY());
-				scaleTransitionForWelcomeLabel.setToX(0);
-				scaleTransitionForWelcomeLabel.setToY(0);
-				scaleTransitionForWelcomeLabel.setAutoReverse(false);
-				scaleTransitionForWelcomeLabel.setCycleCount(1);
-				
-				scaleTransitionForWelcomeLabel.setOnFinished(e ->
+				if(prevLan != getCurrentLanguage()) timelineToChangeLanguageByPlayer.playFromStart();
+				else
 				{
-					welcomeLabel.setText(String.format("%s%s", languageResourceBundle.getString("welcomeLabel"), editedName));
+					timelineToHideNewNameBoxAndShowButtonsBox.playFromStart();
 					
 					scaleTransitionForWelcomeLabel.setDuration(Duration.millis(300));
-					scaleTransitionForWelcomeLabel.setFromX(0);
-					scaleTransitionForWelcomeLabel.setFromY(0);
-					scaleTransitionForWelcomeLabel.setToX(0.95);
-					scaleTransitionForWelcomeLabel.setToY(0.95);
-					scaleTransitionForWelcomeLabel.setCycleCount(1);
+					scaleTransitionForWelcomeLabel.setFromX(welcomeLabel.getScaleX());
+					scaleTransitionForWelcomeLabel.setFromY(welcomeLabel.getScaleY());
+					scaleTransitionForWelcomeLabel.setToX(0);
+					scaleTransitionForWelcomeLabel.setToY(0);
 					scaleTransitionForWelcomeLabel.setAutoReverse(false);
+					scaleTransitionForWelcomeLabel.setCycleCount(1);
 					
-					if (animationsUsed == ANIMATIONS.ALL)
+					scaleTransitionForWelcomeLabel.setOnFinished(e ->
 					{
-						scaleTransitionForWelcomeLabel.setOnFinished(ev ->
+						setTextAndFontForWelcomeLabel();
+						
+						scaleTransitionForWelcomeLabel.setDuration(Duration.millis(300));
+						scaleTransitionForWelcomeLabel.setFromX(0);
+						scaleTransitionForWelcomeLabel.setFromY(0);
+						scaleTransitionForWelcomeLabel.setToX(0.95);
+						scaleTransitionForWelcomeLabel.setToY(0.95);
+						scaleTransitionForWelcomeLabel.setCycleCount(1);
+						scaleTransitionForWelcomeLabel.setAutoReverse(false);
+						
+						if(animationsUsed == ANIMATIONS.ALL)
 						{
-							scaleTransitionForWelcomeLabel.setOnFinished(eve -> {});
-							startWelcomeTextAnimation();
-						});
-					}
-					else scaleTransitionForWelcomeLabel.setOnFinished(ev -> {});
+							scaleTransitionForWelcomeLabel.setOnFinished(ev ->
+							{
+								scaleTransitionForWelcomeLabel.setOnFinished(eve -> {});
+								startWelcomeTextAnimation();
+							});
+						}
+						else scaleTransitionForWelcomeLabel.setOnFinished(ev -> {});
+						scaleTransitionForWelcomeLabel.playFromStart();
+					});
 					scaleTransitionForWelcomeLabel.playFromStart();
-				});
-				scaleTransitionForWelcomeLabel.playFromStart();
+				}
 			}
-			else welcomeLabel.setText(languageResourceBundle.getString("welcomeLabel") + editedName);
+			else
+			{
+				if(prevLan != getCurrentLanguage()) changeLanguage();
+				
+				hideNewNameBoxAndShowButtonsBoxNoAnimations();
+				setTextAndFontForWelcomeLabel();
+			}
 		}
 	}
 
@@ -3092,23 +3159,6 @@ public class WelcomeScreen extends CoreScreen
 					break;
 				}
 			}
-		}
-	}
-	
-	private void changeCurrentPlayer()
-	{
-		LANGUAGE prevLan = getCurrentLanguage();
-		changeCurrentPlayer(textFieldForNewName.getText(), getEditedOriginalName(textFieldForNewName.getText()));
-		
-		if(animationsUsed != ANIMATIONS.NO)
-		{
-			if(prevLan != getCurrentLanguage()) timelineToChangeLanguageByPlayer.playFromStart();
-			else timelineToHideNewNameBoxAndShowButtonsBox.playFromStart();
-		}
-		else
-		{
-			if(prevLan != getCurrentLanguage()) changeLanguage();
-			hideNewNameBoxAndShowButtonsBoxNoAnimations();
 		}
 	}
 }
