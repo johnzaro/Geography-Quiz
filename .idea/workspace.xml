@@ -2,223 +2,58 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="geographyquiz" />
+      <artifact name="Geography-Quiz" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jdom2_2_0_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/junique_1_0_4.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/reactfx_2_0_M5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileChanges/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/fileHashes/fileHashes.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.10/taskHistory/taskHistory.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Geography_Quiz.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__commons_io_commons_io_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__de_huxhorn_lilith_de_huxhorn_lilith_3rdparty_junique_1_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__junit_junit_4_12.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_controlsfx_controlsfx_9_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_hamcrest_hamcrest_core_1_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jdom_jdom2_2_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_reactfx_reactfx_2_0_M5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Geography_Quiz.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Geography_Quiz.test.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/statistic.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomCheckBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomCheckBox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomImageView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomScrollPaneSkin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPaneSkin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/CustomTooltip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomTooltip.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/GUIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GUIUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/GreekLanguageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GreekLanguageHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/MouseStationaryEvent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/MouseStationaryEvent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/MouseStationaryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/MouseStationaryHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/OsCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/OsCheck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/ShutdownHook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/ShutdownHook.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/SwitchButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/SwitchButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/core/UrlOpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Attraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Attraction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/CapitalInAlphabeticalOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/CapitalInAlphabeticalOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Continent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Currency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Currency.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/GeneralQuestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GeneralQuestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/GreekDecentralizedAdministration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/GreekMunicipality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekMunicipality.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/GreekRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/GreekRegionalUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/RatioProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/RatioProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dataStructures/StateOfUSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/StateOfUSA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/CoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/CoreScreenWithMovingBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreenWithMovingBackground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/ErrorScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ErrorScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/GamePropertiesScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/MessageDisplayResolutionNotSupportedScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/MessageGameIsAlreadyRunningScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/ScoreBoardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/button.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/label.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/label.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/listView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/listView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/popOver.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/popOver.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/progressBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/progressBar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/tableView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/tableView.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/textArea.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/textArea.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/toggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/toggleButton.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaAll.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaAll.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaDifficult.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaDifficult.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaEasy.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaEasy.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/currenciesEnglish.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/currenciesEnglish.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/currenciesGreek.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/currenciesGreek.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/dependentStates.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/dependentStates.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/languagesEnglish.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/languagesEnglish.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/languagesGreek.data" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/languagesGreek.data" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_el.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_el.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_en.properties" afterDir="false" />
-    </list>
-    <ignored path="JavaFxApplication.iws" />
-    <ignored path=".idea/workspace.xml" />
-    <ignored path="$PROJECT_DIR$/out/" />
+    <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DebuggerManager">
-    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="SUSPEND" value="true" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="true" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
-    <ui_properties converted="true" />
-    <breakpoint_rules converted="true" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="JavaFxApplication" />
-  </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;/image</find>
-      <find>&quot;/</find>
-      <find>&quot;/d</find>
-      <find>&quot;/c</find>
-      <find>&quot;/a</find>
-      <find>);</find>
-      <find>&quot;,</find>
-      <find>GlobalVariables.class.getResource(</find>
-      <find>/resour</find>
-      <find>datafiles</find>
-      <find>/resources</find>
-      <find>/images</find>
+      <find>tooltip</find>
+      <find>tool</find>
+      <find>enum</find>
+      <find>RATIO_</find>
+      <find>fontforto</find>
+      <find>toolt</find>
+      <find>settingsicon.set</find>
+      <find>settingsicon.</find>
+      <find>hBoxForSettingsAndInfoIcons</find>
+      <find>sett</find>
+      <find>settingsi</find>
+      <find>vBoxWithBasicButtons</find>
+      <find>.setOpacity(0);</find>
+      <find>info</find>
+      <find>hboxfors</find>
+      <find>new</find>
+      <find>playpop</find>
+      <find>fadeTransitionForVBoxWithButtons</find>
+      <find>vBoxForSound.setTranslateY</find>
+      <find>vBoxForSound.setTranslate</find>
+      <find>setTranslate</find>
+      <find>vbox</find>
+      <find>vboxfors</find>
+      <find>vBoxForSound.setLayoutX</find>
+      <find>screen1</find>
+      <find>vBoxForSound.settra</find>
+      <find>vboxfornewname.seto</find>
+      <find>hBoxForSoundButtons</find>
+      <find>woodPanelFor1IconImage</find>
+      <find>soundicon.setlayouty</find>
     </findStrings>
     <replaceStrings>
-      <replace>&quot;/resources/image</replace>
-      <replace>&quot;/resources/dataFiles</replace>
-      <replace>&quot;/resources/c</replace>
-      <replace>&quot;/resources/a</replace>
-      <replace>).toExternalForm());</replace>
-      <replace>&quot;).toExternalForm(),</replace>
+      <replace>new CustomTooltip()</replace>
+      <replace>SUPPORTED_SCREEN_RATIOS.RATIO_</replace>
+      <replace>.setVisible(false);</replace>
     </replaceStrings>
-  </component>
-  <component name="FindManager">
-    <FindUsagesManager>
-      <setting name="OPEN_NEW_TAB" value="false" />
-    </FindUsagesManager>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -226,42 +61,32 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/johnzaro/geographyquiz/FilesIO.java" />
-        <option value="$PROJECT_DIR$/src/com/johnzaro/geographyquiz/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/code/com/johnzaro/geographyquiz/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/resources/dataFiles/attractions.xml" />
-        <option value="$PROJECT_DIR$/src/com/johnzaro/geographyquiz/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/module-info.java" />
-        <option value="$PROJECT_DIR$/src/geographyquiz/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/main/geographyquiz/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/FilesIO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/BaseClass.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/MouseStationaryHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/geographyquiz/AtlasScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/GamePropertiesScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/WelcomeScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/CoreScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/module-info.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/GameScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
+        <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
+        <option value="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
+        <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
       </list>
     </option>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="44" />
     <option name="width" value="1280" />
-    <option name="height" value="1324" />
-  </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
-  <component name="ProjectReloadState">
-    <option name="STATE" value="0" />
+    <option name="height" value="932" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -280,25 +105,47 @@
             <path>
               <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="libraries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
               <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="dataFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -307,30 +154,12 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="GoToClass.includeLibraries" value="false" />
-    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="MemberChooser.showClasses" value="true" />
-    <property name="MemberChooser.sorted" value="false" />
-    <property name="OverrideImplement.combined" value="false" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553447878183" />
-    <property name="dynamic.classpath" value="false" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552682389058" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="recentsLimit" value="5" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libraries" />
-      <recent name="$PROJECT_DIR$/src/main" />
-      <recent name="$PROJECT_DIR$/src/main/java/geographyquiz" />
-      <recent name="$PROJECT_DIR$/src/main/java" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -345,51 +174,14 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <method />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
     </configuration>
-    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" />
-      <method />
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
@@ -397,436 +189,564 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="com.johnzaro.geographyquiz.core.BaseClass" />
-      <module name="geographyquiz" />
-      <option name="VM_PARAMETERS" value="--add-opens=javafx.controls/javafx.scene.control.skin=geographyquiz --add-exports=javafx.base/com.sun.javafx.runtime=org.controlsfx.controls" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="sample.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+    <configuration name="Geography Quiz" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="code.core.BaseClass" />
+      <module name="Geography-Quiz" />
+      <option name="VM_PARAMETERS" value="--module-path /Library/Java/JavaVirtualMachines/javafx-sdk-12/lib --add-modules=javafx.controls,javafx.graphics,javafx.media --add-opens javafx.controls/javafx.scene.control.skin=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
-      <created>1359379246138</created>
-      <updated>1359379246138</updated>
-      <workItem from="1359379250712" duration="1302000" />
-    </task>
-    <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1302000" />
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="1324" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.32956383" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info id="Favorites" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24543288" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
-      <window_info id="Image Layers" order="4" />
-      <window_info id="Capture Tool" order="5" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32954547" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Application Servers" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Problems" order="9" />
-      <window_info anchor="bottom" id="Changes" order="10" />
-      <window_info anchor="bottom" id="Profiler" order="11" />
-      <window_info anchor="bottom" id="Event Log" order="12" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.32954547" />
-      <window_info anchor="bottom" id="Statistic" order="14" />
-      <window_info anchor="bottom" id="Terminal" order="15" />
-      <window_info anchor="bottom" id="IvyIDEA" order="16" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
-      <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
-      <window_info anchor="right" id="Maven" order="7" />
-      <window_info anchor="right" id="Capture Analysis" order="8" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24543288" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.25641027" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.4832347" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
+      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout-to-restore>
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
-    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
-  </component>
-  <component name="antWorkspaceConfiguration">
-    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
-    <option name="FILTER_TARGETS" value="false" />
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>vBoxWithBasicButtons.getTranslateY()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>vBoxWithBasicButtons.getScaleX()</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>settingsIcon.getBoundsInParent().getMinX()</expression-string>
+        <language-id>JAVA</language-id>
+        <custom-info>javafx.beans.property.SimpleDoubleProperty</custom-info>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/libraries/jdom2-2.0.6.jar!/org/jdom2/Document.class">
+    <entry file="file://$PROJECT_DIR$/src/code/core/ShutdownHook.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        <state relative-caret-position="132">
+          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPane.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libraries/jdom2-2.0.6.jar!/org/jdom2/Element.class">
+    <entry file="file://$PROJECT_DIR$/src/code/screens/ErrorScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="506">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <caret line="34" column="46" lean-forward="true" selection-start-line="34" selection-start-column="46" selection-end-line="34" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageDisplayResolutionNotSupportedScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/UTF8Control.java" />
+    <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="375" column="9" lean-forward="true" selection-start-line="375" selection-start-column="9" selection-end-line="375" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="36" column="145" selection-start-line="36" selection-start-column="145" selection-end-line="36" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="44" column="145" selection-start-line="44" selection-start-column="145" selection-end-line="44" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/GameScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="133" column="8" selection-start-line="133" selection-start-column="8" selection-end-line="133" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="91" column="24" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#36787#37962#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/libraries/jdom2-2.0.6.jar!/org/jdom2/input/SAXBuilder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libraries/jdom2-2.0.6.jar!/org/jdom2/output/Format.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/libraries/jdom2-2.0.6.jar!/org/jdom2/output/XMLOutputter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/module-info.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="37" column="13" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreenWithMovingBackground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ErrorScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="33" column="13" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Currency.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/CapitalInAlphabeticalOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Attraction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekMunicipality.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GeneralQuestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomCheckBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomImageView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPaneSkin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomTooltip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GreekLanguageHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="35" column="64" selection-start-line="35" selection-start-column="64" selection-end-line="35" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="40" column="64" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home!/javafx.media/module-info.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jrt:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home!/javafx.graphics/module-info.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-634" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/artifacts/geographyquiz/module-info.class" />
-    <entry file="file://$PROJECT_DIR$/libraries/module-info 1.class">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
-          <caret line="23" column="7" lean-forward="true" selection-start-line="23" selection-start-column="7" selection-end-line="30" selection-end-column="34" />
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/module-info 1.class">
+    <entry file="file://$PROJECT_DIR$/out/production/Geography-Quiz/resources/lang/GeoQuiz_el.properties">
       <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="ResourceBundle" />
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/module-info.class">
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="28" column="1" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="154">
+          <caret line="15" column="62" selection-start-line="15" selection-start-column="62" selection-end-line="15" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/libraries/commons_io_2_6.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/gradle.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/geographyquiz.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/modules.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libraries/module-info.class">
+    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="4" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="-5894">
+          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="83" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java">
+    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
+        <state relative-caret-position="259">
+          <caret line="82" column="45" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="2288" column="74" selection-start-line="2288" selection-start-column="74" selection-end-line="2288" selection-end-column="74" />
+          <folding>
+            <element signature="docComment;class#GamePropertiesScreen#0" />
+            <element signature="e#4721#34248#0" />
+            <element signature="e#5064#5842#1" />
+            <element signature="e#5852#6604#1" />
+            <element signature="e#6624#20683#1" />
+            <element signature="e#6650#6778#1" />
+            <element signature="e#6808#6939#1" />
+            <element signature="e#6969#7091#1" />
+            <element signature="e#7103#7237#1" />
+            <element signature="e#7391#8548#1" />
+            <element signature="e#8632#9630#1" />
+            <element signature="e#9782#11280#1" />
+            <element signature="e#9863#10237#1" />
+            <element signature="e#10251#10624#1" />
+            <element signature="e#11430#13458#1" />
+            <element signature="e#11510#12345#1" />
+            <element signature="e#12429#13264#1" />
+            <element signature="e#14656#14967#1" />
+            <element signature="e#14979#15290#1" />
+            <element signature="e#16464#16725#1" />
+            <element signature="e#16737#17092#1" />
+            <element signature="e#20037#20675#1" />
+            <element signature="e#20078#20213#1" />
+            <element signature="e#20380#20507#1" />
+            <element signature="e#20543#20670#1" />
+            <element signature="e#20693#29313#1" />
+            <element signature="e#20719#20847#1" />
+            <element signature="e#20877#21008#1" />
+            <element signature="e#21038#21160#1" />
+            <element signature="e#21172#21306#1" />
+            <element signature="e#21780#22183#1" />
+            <element signature="e#22266#22669#1" />
+            <element signature="e#22820#23452#1" />
+            <element signature="e#22901#23027#1" />
+            <element signature="e#23041#23167#1" />
+            <element signature="e#23601#24305#1" />
+            <element signature="e#23680#23806#1" />
+            <element signature="e#23889#24015#1" />
+            <element signature="e#24353#24624#1" />
+            <element signature="e#24397#24502#1" />
+            <element signature="e#24516#24619#1" />
+            <element signature="e#29392#29589#1" />
+            <element signature="e#29671#29868#1" />
+            <element signature="e#30018#30351#1" />
+            <element signature="e#30499#31015#1" />
+            <element signature="e#30577#30723#1" />
+            <element signature="e#30805#30951#1" />
+            <element signature="e#31288#31630#1" />
+            <element signature="e#31799#32320#1" />
+            <element signature="e#33914#35498#0" />
+            <element signature="e#34106#34209#1" />
+            <element signature="e#34429#34532#1" />
+            <element signature="e#34611#34714#1" />
+            <element signature="e#34793#34896#1" />
+            <element signature="e#35091#35236#1" />
+            <element signature="e#35246#35495#1" />
+            <element signature="e#35502#35674#0" />
+            <element signature="e#35678#54572#0" />
+            <element signature="e#43545#43804#1" />
+            <element signature="e#54445#54546#1" />
+            <element signature="e#54662#54913#1" />
+            <element signature="e#55161#55507#0" />
+            <element signature="e#56158#56233#0" />
+            <element signature="e#56339#56418#0" />
+            <element signature="e#56518#56593#0" />
+            <element signature="e#56664#57364#0" />
+            <element signature="e#57425#57810#0" />
+            <element signature="e#57877#58262#0" />
+            <element signature="e#58336#59087#0" />
+            <element signature="e#59158#59644#0" />
+            <element signature="e#59705#60090#0" />
+            <element signature="e#60154#60539#0" />
+            <element signature="e#64601#64718#0" />
+            <element signature="e#64755#64872#0" />
+            <element signature="e#64915#65497#0" />
+            <element signature="e#64971#65492#1" />
+            <element signature="e#65015#65138#1" />
+            <element signature="e#65186#65346#1" />
+            <element signature="e#65362#65486#1" />
+            <element signature="e#65557#66402#0" />
+            <element signature="e#65609#66398#1" />
+            <element signature="e#66463#67059#0" />
+            <element signature="e#66515#67055#1" />
+            <element signature="e#67094#67284#0" />
+            <element signature="e#67147#67279#1" />
+            <element signature="e#70131#70368#0" />
+            <element signature="e#70410#70722#0" />
+            <element signature="e#70764#70960#0" />
+            <element signature="e#71003#73382#0" />
+            <element signature="e#72515#72746#1" />
+            <element signature="e#72567#72737#0" />
+            <element signature="e#73425#73549#0" />
+            <element signature="e#73648#76280#0" />
+            <element signature="e#76322#76551#0" />
+            <element signature="e#76593#77132#0" />
+            <element signature="e#77174#77300#0" />
+            <element signature="e#77343#77586#0" />
+            <element signature="e#77401#77466#1" />
+            <element signature="e#77686#78141#0" />
+            <element signature="e#78182#78279#0" />
+            <element signature="e#78320#78414#0" />
+            <element signature="e#78455#79315#0" />
+            <element signature="e#79357#80206#0" />
+            <element signature="e#79923#80201#1" />
+            <element signature="e#80248#80370#0" />
+            <element signature="e#80412#80736#0" />
+            <element signature="e#80467#80529#1" />
+            <element signature="e#80829#83437#0" />
+            <element signature="e#83479#84190#0" />
+            <element signature="e#83748#84184#1" />
+            <element signature="e#84232#84509#0" />
+            <element signature="e#85185#85463#0" />
+            <element signature="e#85518#86442#0" />
+            <element signature="e#86019#86279#1" />
+            <element signature="e#86083#86258#0" />
+            <element signature="e#86497#86843#0" />
+            <element signature="e#86898#87047#0" />
+            <element signature="e#87102#87251#0" />
+            <element signature="e#87306#87655#0" />
+            <element signature="e#87751#88254#0" />
+            <element signature="e#88296#88397#0" />
+            <element signature="e#88439#88537#0" />
+            <element signature="e#88579#89305#0" />
+            <element signature="e#89348#89982#0" />
+            <element signature="e#89692#89976#1" />
+            <element signature="e#91108#91385#0" />
+            <element signature="e#91428#91624#0" />
+            <element signature="e#91667#93815#0" />
+            <element signature="e#92943#93174#1" />
+            <element signature="e#92995#93165#0" />
+            <element signature="e#93858#94111#0" />
+            <element signature="e#97153#97485#0" />
+            <element signature="e#97399#97482#1" />
+            <element signature="e#97722#98292#1" />
+            <element signature="e#99729#100996#1" />
+            <element signature="e#101006#102325#1" />
+            <element signature="e#102576#103047#1" />
+            <element signature="e#103192#103266#1" />
+            <element signature="e#104568#107980#0" />
+            <element signature="e#104702#107063#1" />
+            <element signature="e#105150#106160#0" />
+            <element signature="e#105811#106035#1" />
+            <element signature="e#105862#106027#0" />
+            <element signature="e#106655#106824#0" />
+            <element signature="e#107073#107749#1" />
+            <element signature="e#107984#111355#0" />
+            <element signature="e#108074#110426#1" />
+            <element signature="e#108522#109538#0" />
+            <element signature="e#109189#109413#1" />
+            <element signature="e#109240#109405#0" />
+            <element signature="e#110024#110302#0" />
+            <element signature="e#110436#111118#1" />
+            <element signature="e#111359#113894#0" />
+            <element signature="e#113898#114605#0" />
+            <element signature="e#114252#114420#1" />
+            <element signature="e#114430#114602#1" />
+            <element signature="e#114609#115001#0" />
+            <element signature="e#115005#117848#0" />
+            <element signature="e#115053#116487#1" />
+            <element signature="e#116497#117327#1" />
+            <element signature="e#117852#119633#0" />
+            <element signature="e#117943#119100#1" />
+            <element signature="e#118501#119040#0" />
+            <element signature="e#119110#119630#1" />
+            <element signature="e#119637#121418#0" />
+            <element signature="e#119728#120885#1" />
+            <element signature="e#120286#120825#0" />
+            <element signature="e#120895#121415#1" />
+            <element signature="e#121422#121553#0" />
+            <element signature="e#121557#121689#0" />
+            <element signature="e#121693#122330#0" />
+            <element signature="e#121807#122287#1" />
+            <element signature="e#122334#122862#0" />
+            <element signature="e#122447#122819#1" />
+            <element signature="e#122866#123718#0" />
+            <element signature="e#123010#123346#1" />
+            <element signature="e#123356#123692#1" />
+            <element signature="e#123722#124558#0" />
+            <element signature="e#123869#124201#1" />
+            <element signature="e#124211#124532#1" />
+            <element signature="e#124562#125570#0" />
+            <element signature="e#124706#125130#1" />
+            <element signature="e#125140#125544#1" />
+            <element signature="e#125574#138138#0" />
+            <element signature="e#125638#130236#0" />
+            <element signature="e#125974#127055#1" />
+            <element signature="e#126024#126530#1" />
+            <element signature="e#126072#126198#1" />
+            <element signature="e#126255#126381#1" />
+            <element signature="e#126397#126524#1" />
+            <element signature="e#126544#126831#1" />
+            <element signature="e#126604#126706#1" />
+            <element signature="e#126722#126825#1" />
+            <element signature="e#127139#127924#1" />
+            <element signature="e#127189#127436#1" />
+            <element signature="e#127237#127325#1" />
+            <element signature="e#127341#127430#1" />
+            <element signature="e#127450#127718#1" />
+            <element signature="e#127491#127593#1" />
+            <element signature="e#127609#127712#1" />
+            <element signature="e#128011#128827#1" />
+            <element signature="e#128061#128320#1" />
+            <element signature="e#128109#128203#1" />
+            <element signature="e#128219#128314#1" />
+            <element signature="e#128334#128605#1" />
+            <element signature="e#128378#128480#1" />
+            <element signature="e#128496#128599#1" />
+            <element signature="e#128919#129543#1" />
+            <element signature="e#128969#129248#1" />
+            <element signature="e#129017#129121#1" />
+            <element signature="e#129137#129242#1" />
+            <element signature="e#129262#129538#1" />
+            <element signature="e#129311#129413#1" />
+            <element signature="e#129429#129532#1" />
+            <element signature="e#129741#130232#1" />
+            <element signature="e#130242#138135#0" />
+            <element signature="e#130356#133074#1" />
+            <element signature="e#130609#130646#0" />
+            <element signature="e#133135#135401#1" />
+            <element signature="e#133324#133457#1" />
+            <element signature="e#133463#133500#0" />
+            <element signature="e#135490#135582#1" />
+            <element signature="e#135634#135849#1" />
+            <element signature="e#135874#136089#1" />
+            <element signature="e#136101#136318#1" />
+            <element signature="e#136476#136564#1" />
+            <element signature="e#136637#136814#1" />
+            <element signature="e#136839#137016#1" />
+            <element signature="e#137028#137207#1" />
+            <element signature="e#137370#137464#1" />
+            <element signature="e#137543#137726#1" />
+            <element signature="e#137751#137934#1" />
+            <element signature="e#137946#138131#1" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291">
+          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="464" column="32" selection-start-line="464" selection-start-column="32" selection-end-line="464" selection-end-column="32" />
+          <folding>
+            <element signature="e#1096#17155#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="439" column="20" selection-start-line="439" selection-start-column="20" selection-end-line="439" selection-end-column="20" />
+          <folding>
+            <element signature="method#loadFonts#0;class#PowerOn#0" />
+            <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
+            <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
+            <element signature="method#setupStage#0;class#PowerOn#0" />
+            <element signature="method#powerOnMessageDisplayIsNotSupported#0;class#PowerOn#0" />
+            <element signature="method#loadSettings#0;class#PowerOn#0" />
+            <element signature="method#loadLanguageResourceBundle#0;class#PowerOn#0" />
+            <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
+            <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
+            <element signature="method#setDefaultSettings#0;class#PowerOn#0" />
+            <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
+            <element signature="method#powerOnMedia#0;class#PowerOn#0" />
+            <element signature="method#powerOnAudio#0;class#PowerOn#0" />
+            <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
+            <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
+            <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="364" column="8" selection-start-line="364" selection-start-column="8" selection-end-line="364" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="263" column="108" lean-forward="true" selection-start-line="263" selection-start-column="108" selection-end-line="263" selection-end-column="108" />
+          <folding>
+            <element signature="e#5190#7382#1" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -836,7 +756,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>geographyquiz</last-edited>
+          <last-edited>Geography-Quiz</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -872,7 +792,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.8</last-edited>
+          <last-edited>12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -884,11 +804,12 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>geographyquiz</last-edited>
+          <last-edited>Geography-Quiz</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -896,7 +817,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>reactfx-2.0-M5</last-edited>
+          <last-edited>javaFX12</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
