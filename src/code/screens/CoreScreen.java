@@ -155,7 +155,11 @@ abstract class CoreScreen
                 else if (soundIcon.getImage() == SOUND_ON_3_BARS_ICON) soundIcon.setImage(SOUND_ON_3_BARS_ICON_CLICKED);
             }
         });
-
+		
+		masterVolumeSlider.setOnMouseReleased(mouseEvent -> getCurrentPlayer().setMasterSliderVolume(masterSliderVolume.get()));
+		musicVolumeSlider.setOnMouseReleased(mouseEvent -> getCurrentPlayer().setMusicSliderVolume(musicSliderVolume.get()));
+		soundEffectsVolumeSlider.setOnMouseReleased(mouseEvent -> getCurrentPlayer().setSoundEffectsSliderVolume(soundEffectsSliderVolume.get()));
+		
 		masterVolumeSlider.valueProperty().addListener((observable, oldValue, newValue) ->
 				{
 					if (masterSliderVolume.get() == 0)
@@ -321,13 +325,7 @@ abstract class CoreScreen
 			{
 				if (!stage.isFullScreen())
 				{
-					if (positionOfResizing == 1 &&
-					    (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_9 ||
-					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_16_10 ||
-					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_25_16 ||
-					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_3_2 ||
-					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_4_3 ||
-					     getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && (windowHeight - e.getScreenY() + stage.getY() + dy) > MIN_HEIGHT_FOR_5_4))
+					if (positionOfResizing == 1 && windowHeight - e.getScreenY() + stage.getY() + dy > minStageHeight)
 					{
 						windowHeight = windowHeight - e.getScreenY() + stage.getY() + dy;
 						double prevWidth = windowWidth;
@@ -341,13 +339,7 @@ abstract class CoreScreen
 						stage.setY(e.getScreenY() - dy);
 						stage.setX(stage.getX() - (windowWidth - prevWidth));
 					}
-					else if (positionOfResizing == 2 &&
-					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && e.getX() + dx > MIN_WIDTH_FOR_16_9 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && e.getX() + dx > MIN_WIDTH_FOR_16_10 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && e.getX() + dx > MIN_WIDTH_FOR_25_16 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && e.getX() + dx > MIN_WIDTH_FOR_3_2 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && e.getX() + dx > MIN_WIDTH_FOR_4_3 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && e.getX() + dx > MIN_WIDTH_FOR_5_4))
+					else if (positionOfResizing == 2 && e.getX() + dx > minStageWidth)
 					{
 						windowWidth = e.getX() + dx;
 						
@@ -358,13 +350,7 @@ abstract class CoreScreen
 						stage.setWidth(windowWidth);
 						stage.setHeight(windowHeight);
 					}
-					else if (positionOfResizing == 3 &&
-					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && e.getY() + dy > MIN_HEIGHT_FOR_16_9 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && e.getY() + dy > MIN_HEIGHT_FOR_16_10 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && e.getY() + dy > MIN_HEIGHT_FOR_25_16 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && e.getY() + dy > MIN_HEIGHT_FOR_3_2 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && e.getY() + dy > MIN_HEIGHT_FOR_4_3 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && e.getY() + dy > MIN_HEIGHT_FOR_5_4))
+					else if (positionOfResizing == 3 && e.getY() + dy > minStageHeight)
 					{
 						windowHeight = e.getY() + dy;
 						
@@ -375,13 +361,7 @@ abstract class CoreScreen
 						stage.setHeight(windowHeight);
 						stage.setWidth(windowWidth);
 					}
-					else if (positionOfResizing == 4 &&
-					         (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_9 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_16_10 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_25_16 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_3_2 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_4_3 ||
-					          getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && (windowWidth - e.getScreenX() + stage.getX() + dx) > MIN_WIDTH_FOR_5_4))
+					else if (positionOfResizing == 4 && windowWidth - e.getScreenX() + stage.getX() + dx > minStageWidth)
 					{
 						windowWidth = windowWidth - e.getScreenX() + stage.getX() + dx;
 						double prevHeight = windowHeight;
@@ -408,6 +388,7 @@ abstract class CoreScreen
 					recalculateBackground(windowWidth, windowHeight);
 					recalculateUI(windowWidth, windowHeight);
 					nodesPane.setEffect(null);
+					getCurrentPlayer().setWindowWidth(windowWidth);
 				}
 			}
 		});

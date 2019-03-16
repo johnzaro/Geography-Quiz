@@ -22,7 +22,7 @@ import static code.core.GlobalVariables.*;
 
 public class FilesIO
 {
-	static File savedSettingsFile, gamesScoresFile, playersFile;
+	static File gamesScoresFile, playersFile;
 	private static File gameFolder;
 	
 	//	SET GAME DATA PATH FOR EACH OPERATING SYSTEM
@@ -46,7 +46,6 @@ public class FilesIO
 	{
 		gameFolder = new File(GAME_DATA_PATH);
 		
-		savedSettingsFile = new File(GAME_DATA_PATH + File.separator + GAME_SETTINGS_FILE_PATH);
 		playersFile = new File(GAME_DATA_PATH + File.separator + PLAYERS_FILE_PATH);
 		gamesScoresFile = new File(GAME_DATA_PATH + File.separator + GAMES_SCORES_FILE_PATH);
 		
@@ -54,9 +53,8 @@ public class FilesIO
 		{
 			//create game data folder and data files if they don't exist
 			
-			if (!savedSettingsFile.getParentFile().exists()) savedSettingsFile.getParentFile().mkdirs();
+			if (!playersFile.getParentFile().exists()) playersFile.getParentFile().mkdirs();
 			
-			if (!savedSettingsFile.exists()) savedSettingsFile.createNewFile();
 			if (!playersFile.exists()) playersFile.createNewFile();
 			if (!gamesScoresFile.exists()) gamesScoresFile.createNewFile();
 		}
@@ -134,7 +132,7 @@ public class FilesIO
 					Locale locale = Locale.forLanguageTag(player.getChildText("locale"));
 					int localeIndex = Integer.parseInt(player.getChildText("localeIndex"));
 					int language = Integer.parseInt(player.getChildText("language"));
-					int unitsOfMeasurement = Integer.parseInt(player.getChildText("unitSystem"));
+					int unitSystem = Integer.parseInt(player.getChildText("unitSystem"));
 					int difficulty = Integer.parseInt(player.getChildText("difficultyLevel"));
 					int numForClassic = Integer.parseInt(player.getChildText("numOfQuestionsInClassicMode"));
 					int duration = Integer.parseInt(player.getChildText("durationForTimeAttackMode"));
@@ -147,13 +145,42 @@ public class FilesIO
 					for(int i = 0; i < categories.length; i++) selectedCategories[Integer.parseInt(categories[i])] = true;
 					tempPlayer.setQuestionCategories(selectedCategories);
 					
-					if((localeIndex < 0 || localeIndex > NUM_ALL_COUNTRIES) || (language < 0 || language > 1) || (unitsOfMeasurement < 0 || unitsOfMeasurement > 1) || (difficulty < 0 || difficulty > 1) ||
+					double masterSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("masterVolume"));
+					double musicSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("musicVolume"));
+					double soundEffectsSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("soundEffectsVolume"));
+					
+					double windowWidth = Double.parseDouble(player.getChild("settings").getChildText("windowWidth"));
+					//check if width got is valid for current screen resolution
+					if (!isWidthValid(windowWidth)) windowWidth = 0.75 * primaryScreenWidth;
+					
+					boolean startAtFullScreen = Boolean.parseBoolean(player.getChild("settings").getChildText("startAtFullScreen"));
+					
+					int animationsUsed = Integer.parseInt(player.getChild("settings").getChildText("animationsUsed"));
+					
+					if((localeIndex < 0 || localeIndex > NUM_ALL_COUNTRIES) || (language < 0 || language > 1) || (unitSystem < 0 || unitSystem > 1) || (difficulty < 0 || difficulty > 1) ||
 						(numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_10  && numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_20  &&
 						 numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_50  && numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_100) ||
 						(duration != TIME_ATTACK_DURATION_1_MINUTE && duration != TIME_ATTACK_DURATION_2_MINUTES &&
 						 duration != TIME_ATTACK_DURATION_5_MINUTES && duration != TIME_ATTACK_DURATION_10_MINUTES) ||
-						(lives != ENDLESS_LIVES_1 && lives != ENDLESS_LIVES_3 && lives != ENDLESS_LIVES_5)) tempPlayer.setDefaultPlayerSettings();
-					else tempPlayer.setPlayerSettings(locale, localeIndex, language, unitsOfMeasurement, difficulty, numForClassic, timerClassic, duration, lives, timerEndless);
+						(lives != ENDLESS_LIVES_1 && lives != ENDLESS_LIVES_3 && lives != ENDLESS_LIVES_5) ||
+						(masterSliderVolume < 0 || masterSliderVolume > 100 ||
+						 musicSliderVolume < 0 || musicSliderVolume > 100 ||
+						 soundEffectsSliderVolume < 0 || soundEffectsSliderVolume > 100) ||
+						 animationsUsed < 0 || animationsUsed > 2)
+							tempPlayer.setDefaultPlayerSettings();
+					else
+					{
+						LANGUAGE lan;
+						if(language == 0) lan = LANGUAGE.ENGLISH;
+						else lan = LANGUAGE.GREEK;
+						
+						UNIT_SYSTEM unS;
+						if(unitSystem == 0) unS = UNIT_SYSTEM.METRIC;
+						else unS = UNIT_SYSTEM.IMPERIAL;
+						
+						tempPlayer.setPlayerSettings(locale, localeIndex, lan, unS, difficulty, numForClassic, timerClassic,
+								duration, lives, timerEndless, masterSliderVolume, musicSliderVolume, soundEffectsSliderVolume, windowWidth, animationsUsed, startAtFullScreen);
+					}
 					
 					playersArrayList.add(tempPlayer);
 				}
@@ -183,7 +210,7 @@ public class FilesIO
 			Element  namesElement = new Element("playersArrayList");
 			Document doc = new Document(namesElement);
 			if(playersArrayList.size() == 0)
-				playersArrayList.add(new Player(System.getProperty("user.name"), System.getProperty("user.name")));
+				playersArrayList.add(new Player(System.getProperty("user.name"), getEditedOriginalName(System.getProperty("user.name"))));
 			
 			boolean exists;
 			for(Player newPlayer : playersArrayList)
@@ -212,8 +239,18 @@ public class FilesIO
 					
 					player.addContent(new Element("locale").setText(newPlayer.getLocale().toLanguageTag()));
 					player.addContent(new Element("localeIndex").setText(String.valueOf(newPlayer.getLocaleIndex())));
-					player.addContent(new Element("language").setText(String.valueOf(newPlayer.getLanguage())));
-					player.addContent(new Element("unitSystem").setText(String.valueOf(newPlayer.getUnitSystem())));
+					
+					switch(newPlayer.getLanguage())
+					{
+						case ENGLISH: player.addContent(new Element("language").setText("0")); break;
+						case GREEK: player.addContent(new Element("language").setText("1")); break;
+					}
+					switch(newPlayer.getUnitSystem())
+					{
+						case METRIC: player.addContent(new Element("unitSystem").setText("0")); break;
+						case IMPERIAL: player.addContent(new Element("unitSystem").setText("1")); break;
+					}
+					
 					player.addContent(new Element("difficultyLevel").setText(String.valueOf(newPlayer.getDifficultyLevel())));
 					player.addContent(new Element("numOfQuestionsInClassicMode").setText(String.valueOf(newPlayer.getNumberOfQuestionsInClassicalMode())));
 					player.addContent(new Element("durationForTimeAttackMode").setText(String.valueOf(newPlayer.getDurationForTimeAttackMode())));
@@ -225,6 +262,15 @@ public class FilesIO
 					for(int i = 0; i < newPlayer.getQuestionCategories().length; i++) if(newPlayer.getQuestionCategories()[i]) sb.append(i).append(" ");
 					if(sb.length() > 0) sb.deleteCharAt(sb.length() - 1);
 					player.addContent(new Element("questionCategories").setText(sb.toString()));
+					
+					Element settingsElement = new Element("settings");
+					settingsElement.addContent(new Element("masterVolume").setText(String.valueOf((int) newPlayer.getMasterSliderVolume())));
+					settingsElement.addContent(new Element("musicVolume").setText(String.valueOf((int) newPlayer.getMusicSliderVolume())));
+					settingsElement.addContent(new Element("soundEffectsVolume").setText(String.valueOf((int) newPlayer.getSoundEffectsSliderVolume())));
+					settingsElement.addContent(new Element("windowWidth").setText(String.valueOf((int) newPlayer.getWindowWidth())));
+					settingsElement.addContent(new Element("startAtFullScreen").setText(String.valueOf(newPlayer.getStartAtFullScreen())));
+					settingsElement.addContent(new Element("animationsUsed").setText(String.valueOf(newPlayer.getAnimationsUsed())));
+					player.addContent(settingsElement);
 					
 					namesElement.addContent(player);
 				}
@@ -272,9 +318,13 @@ public class FilesIO
 				game.setPlayerName(gameElement.getChildText("playerName"));
 				game.setGameStartedTime(LocalDateTime.parse(gameElement.getChildText("gameStartedTime"), dateTimeFormatForSaving));
 				game.setGameDurationInSeconds(Integer.parseInt(gameElement.getChildText("gameDurationInSeconds")));
-				game.setGameMode(Integer.parseInt(gameElement.getChildText("gameMode")));
-				if(game.getGameMode() == ENDLESS_GAMEMODE)
-					game.setLivesForEndless(Integer.parseInt(gameElement.getChildText("livesForEndless")));
+				
+				switch(Integer.parseInt(gameElement.getChildText("gameMode")))
+				{
+					case 0: game.setGameMode(GAMEMODE.CLASSIC_GAMEMODE);break;
+					case 1: game.setGameMode(GAMEMODE.TIME_ATTACK_GAMEMODE);break;
+					case 2: game.setGameMode(GAMEMODE.ENDLESS_GAMEMODE); game.setLivesForEndless(Integer.parseInt(gameElement.getChildText("livesForEndless")));break;
+				}
 				
 				game.setIsCountdownEnabled(Boolean.parseBoolean(gameElement.getChildText("isCountdownEnabled")));
 				
@@ -324,9 +374,15 @@ public class FilesIO
 						game.getGameStartedTime().format(dateTimeFormatForSaving)));
 				gameElement.addContent(new Element("gameDurationInSeconds").setText(
 						String.valueOf(game.getGameDurationInSeconds())));
-				gameElement.addContent(new Element("gameMode").setText(String.valueOf(game.getGameMode())));
 				
-				if(game.getGameMode() == ENDLESS_GAMEMODE)
+				switch(game.getGameMode())
+				{
+					case CLASSIC_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("0")); break;
+					case TIME_ATTACK_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("1")); break;
+					case ENDLESS_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("2")); break;
+				}
+				
+				if(game.getGameMode() == GAMEMODE.ENDLESS_GAMEMODE)
 					gameElement.addContent(new Element("livesForEndless").setText(
 							String.valueOf(game.getLivesForEndless())));
 				
@@ -366,75 +422,6 @@ public class FilesIO
 		catch (Exception e)
 		{
 			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to save game scores", e));
-		}
-	}
-	
-	//	method to read all the game settings that are saved in data file
-	static void readGameSettings()
-	{
-		try
-		{
-			SAXBuilder builder = new SAXBuilder();
-			Document doc = builder.build(savedSettingsFile);
-			
-			Element root = doc.getRootElement();
-			
-			masterSliderVolume.set(Double.parseDouble(root.getChildText("masterVolume")));
-			musicSliderVolume.set(Double.parseDouble(root.getChildText("musicVolume")));
-			soundEffectsSliderVolume.set(Double.parseDouble(root.getChildText("soundEffectsVolume")));
-			
-			windowWidth = Double.parseDouble(root.getChildText("windowWidth"));
-			
-			//check if width got is valid for current screen resolution
-			if (!isWidthValid(windowWidth)) windowWidth = 0.75 * primaryScreenWidth;
-			
-			//set height based on current screen ratio
-			windowHeight = getHeightBasedOnWidth(windowWidth);
-			
-			startAtFullScreen = Boolean.parseBoolean(root.getChildText("startAtFullScreen"));
-			fullScreenMode = startAtFullScreen;
-			
-			animationsUsed = Integer.parseInt(root.getChildText("animationsUsed"));
-		}
-		catch (Exception e)
-		{
-			try
-			{
-				savedSettingsFile.delete();
-				savedSettingsFile.createNewFile();
-				PowerOn.loadSettings();
-			}
-			catch (Exception ex)
-			{
-				Platform.runLater(() -> new ErrorScreen("Error occurred while trying to read game settings", e));
-			}
-		}
-	}
-	
-	//	method to write all the game settings to data file
-	static void writeGameSettings()
-	{
-		try
-		{
-			Element  settingsElement = new Element("settings");
-			Document doc = new Document(settingsElement);
-			
-			settingsElement.addContent(new Element("masterVolume").setText(String.valueOf((int) masterSliderVolume.get())));
-			settingsElement.addContent(new Element("musicVolume").setText(String.valueOf((int) musicSliderVolume.get())));
-			settingsElement.addContent(new Element("soundEffectsVolume").setText(String.valueOf((int) soundEffectsSliderVolume.get())));
-			
-			settingsElement.addContent(new Element("windowWidth").setText(String.valueOf((int) windowWidth)));
-			
-			settingsElement.addContent(new Element("startAtFullScreen").setText(String.valueOf(startAtFullScreen)));
-			settingsElement.addContent(new Element("animationsUsed").setText(String.valueOf(animationsUsed)));
-			
-			XMLOutputter xmlOutput = new XMLOutputter();
-			xmlOutput.setFormat(Format.getPrettyFormat().setIndent("\t"));
-			xmlOutput.output(doc, new OutputStreamWriter(new FileOutputStream(savedSettingsFile, false), "UTF-8"));
-		}
-		catch (Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to save game settings", e));
 		}
 	}
 	
@@ -522,7 +509,7 @@ public class FilesIO
 				if (node.getChild("isIslandCountry") != null) countries[i].setIsIslandCountry(Boolean.parseBoolean(node.getChildText("isIslandCountry")));
 				else countries[i].setIsIslandCountry(false);
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					countries[i].setNameInEnglish("");
 					countries[i].setCapitalName(node.getChildText("greekCapital"));
@@ -677,7 +664,7 @@ public class FilesIO
 			Element node = (Element) list.get(0);
 			
 			if (continents[0] == null) continents[0] = new Continent();
-			if (getCurrentLanguage() == LANGUAGE_GREEK)
+			if (getCurrentLanguage() == LANGUAGE.GREEK)
 			{
 				continents[0].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
 				continents[0].setHighestPoint(node.getChildText("highestPointInGreek"));
@@ -712,7 +699,7 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					continents[i].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
 					continents[i].setNameInEnglish("");
@@ -838,7 +825,7 @@ public class FilesIO
 				
 				if (statesOfUSA[i] == null) statesOfUSA[i] = new StateOfUSA();
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					statesOfUSA[i].setArticleForState(node.getChildText("articleForState"));
 					statesOfUSA[i].setArticleForCapital(node.getChildText("articleForCapital"));
@@ -929,7 +916,7 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekDecAdm[i].setHeadquarters(node.getChildText("headquartersInGreek"));
 					greekDecAdm[i].setWikipediaLink(node.getChildText("wikipediaLinkInGreek"));
@@ -1041,7 +1028,7 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekRegions[i].setSeat(node.getChildText("seatInGreek"));
 					greekRegions[i].setLargestCity(node.getChildText("largestCityInGreek"));
@@ -1143,7 +1130,7 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekRegionalUnits[i].setCapital(node.getChildText("capitalInGreek"));
 					greekRegionalUnits[i].setLargestCity(node.getChildText("largestCityInGreek"));
@@ -1223,7 +1210,7 @@ public class FilesIO
 				
 				if (attractions[i] == null) attractions[i] = new Attraction();
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					attractions[i].setCountry(node.getChildText("countryInGreek"));
 					attractions[i].setCity(node.getChildText("cityInGreek"));

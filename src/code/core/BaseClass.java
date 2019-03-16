@@ -58,7 +58,7 @@ public class BaseClass extends Application
 			FilesIO.setupFiles();
 
 //			use the files to load the settings or set default settings if not any
-			loadSettings();
+			loadPlayersDataAndSettings();
 
 //			setup the stage
 			setupStage(coreStage);

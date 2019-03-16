@@ -1,7 +1,6 @@
 package code.dataStructures;
 
 import static code.core.GlobalVariables.*;
-import static code.core.GlobalVariables.LANGUAGE_GREEK;
 
 public class Continent
 {
@@ -65,7 +64,7 @@ public class Continent
 	
 	public String getAreaBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
 		else return numberFormatForUI.format(areaInMiles) + " sq mi";
 	}
 	
@@ -91,7 +90,7 @@ public class Continent
 	
 	public String getCoastlineBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(coastlineInKilometers) + "km";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(coastlineInKilometers) + "km";
 		else return numberFormatForUI.format(coastlineInMiles) + "mi";
 	}
 	
@@ -247,14 +246,14 @@ public class Continent
 	
 	public String getPopulationDensityBasedOnLocaleToString()
 	{
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " κάτ./ sq mi";
 		}
 		else
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " inh./ sq mi";
 		}
 	}

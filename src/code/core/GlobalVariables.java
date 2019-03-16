@@ -51,11 +51,13 @@ public class GlobalVariables
 	static DateTimeFormatter dateTimeFormatForSaving, dateFormatForSaving;
 	
 	//  --------------------- OTHER GAME VARIABLES ---------------------
-	public static final int LANGUAGE_ENGLISH = 0, LANGUAGE_GREEK = 1;
-	public static final int METRIC_SYSTEM = 0, IMPERIAL_SYSTEM = 1;
+	public enum LANGUAGE { ENGLISH, GREEK }
+	
+	public enum UNIT_SYSTEM { METRIC, IMPERIAL }
+	
+	public enum GAMEMODE { CLASSIC_GAMEMODE, TIME_ATTACK_GAMEMODE, ENDLESS_GAMEMODE }
 	
 	public static final double TEXT_SCALE_ANIMATION_TIME = 4000.0;
-	public static final byte CLASSIC_GAMEMODE = 0, TIME_ATTACK_GAMEMODE = 1, ENDLESS_GAMEMODE = 2;
 	public static final int NO_ANIMATIONS = 0, LIMITED_ANIMATIONS = 1, ALL_ANIMATIONS = 2;
 	
 	public static final byte DIFFICULTY_EASY = 0, DIFFICULTY_DIFFICULT = 1;
@@ -68,10 +70,10 @@ public class GlobalVariables
 	
 	public static final int MAX_WIDTH_FOR_X250_IMAGES = 280, MAX_WIDTH_FOR_X500_IMAGES = 550, MAX_WIDTH_FOR_X1000_IMAGES = 1200;
 	
-	public static int getCurrentLanguage()
+	public static LANGUAGE getCurrentLanguage()
 	{
-		if(getCurrentPlayer().getLanguage() == LANGUAGE_GREEK) return LANGUAGE_GREEK;
-		else return LANGUAGE_ENGLISH;
+		if(getCurrentPlayer().getLanguage() == LANGUAGE.GREEK) return LANGUAGE.GREEK;
+		else return LANGUAGE.ENGLISH;
 	}
 	
 	public static int getDifficultyLevel()
@@ -248,13 +250,7 @@ public class GlobalVariables
 	
 	public static boolean isWidthValid(double width)
 	{
-		return width <= primaryScreenWidth &&
-				(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 && width >= MIN_WIDTH_FOR_16_9 ||
-				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 && width >= MIN_WIDTH_FOR_16_10 ||
-				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 && width >= MIN_WIDTH_FOR_25_16 ||
-				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 && width >= MIN_WIDTH_FOR_4_3 ||
-				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4 && width >= MIN_WIDTH_FOR_5_4 ||
-				 getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2 && width >= MIN_WIDTH_FOR_3_2);
+		return width <= primaryScreenWidth && width >= minStageWidth;
 	}
 
 	public static void minimizeGame(Pane anchorPane)
@@ -353,11 +349,12 @@ public class GlobalVariables
 	
 	static double worldMapLayoutX, worldMapLayoutY, worldMapFitWidth, worldMapFitHeight;
 	
-	public static final int MIN_WIDTH_FOR_16_9 = 1050, MIN_HEIGHT_FOR_16_9 = 590, MIN_WIDTH_FOR_16_10 = 1000, MIN_HEIGHT_FOR_16_10 = 625,
+	private static final int MIN_WIDTH_FOR_16_9 = 1050, MIN_HEIGHT_FOR_16_9 = 590, MIN_WIDTH_FOR_16_10 = 1000, MIN_HEIGHT_FOR_16_10 = 625,
 							MIN_WIDTH_FOR_25_16 = 1000, MIN_HEIGHT_FOR_25_16 = 640, MIN_WIDTH_FOR_3_2 = 990, MIN_HEIGHT_FOR_3_2 = 660,
 							MIN_WIDTH_FOR_4_3 = 800, MIN_HEIGHT_FOR_4_3 = 600, MIN_WIDTH_FOR_5_4 = 900, MIN_HEIGHT_FOR_5_4 = 720;
+	public static int minStageWidth, minStageHeight;
 	
-	public static final double EPSILON_VALUE = 0.00001;
+	private static final double EPSILON_VALUE = 0.00001;
 	
 	public static void setCurrentScreenRatio(double screenWidth, double screenHeight)
 	{
@@ -368,17 +365,41 @@ public class GlobalVariables
 				|| Math.abs(currentScreenRatioValue - 683.0 / 384.0) <= EPSILON_VALUE
 				|| Math.abs(currentScreenRatioValue - 221.0 / 124.0) <= EPSILON_VALUE
 				|| Math.abs(currentScreenRatioValue - 147.0 / 83.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_9;
+			minStageWidth = MIN_WIDTH_FOR_16_9;
+			minStageHeight = MIN_HEIGHT_FOR_16_9;
+		}
 		else if(Math.abs(currentScreenRatioValue - 16.0 / 10.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_16_10;
+			minStageWidth = MIN_WIDTH_FOR_16_10;
+			minStageHeight = MIN_HEIGHT_FOR_16_10;
+		}
 		else if(Math.abs(currentScreenRatioValue - 25.0 / 16.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_25_16;
+			minStageWidth = MIN_WIDTH_FOR_25_16;
+			minStageHeight = MIN_HEIGHT_FOR_25_16;
+		}
 		else if(Math.abs(currentScreenRatioValue - 3.0 / 2.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_3_2;
+			minStageWidth = MIN_WIDTH_FOR_3_2;
+			minStageHeight = MIN_HEIGHT_FOR_3_2;
+		}
 		else if(Math.abs(currentScreenRatioValue - 4.0 / 3.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_4_3;
+			minStageWidth = MIN_WIDTH_FOR_4_3;
+			minStageHeight = MIN_HEIGHT_FOR_4_3;
+		}
 		else if(Math.abs(currentScreenRatioValue - 5.0 / 4.0) <= EPSILON_VALUE)
+		{
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_5_4;
+			minStageWidth = MIN_WIDTH_FOR_5_4;
+			minStageHeight = MIN_HEIGHT_FOR_5_4;
+		}
 		else
 			currentScreenRatioEnum = SUPPORTED_SCREEN_RATIOS.RATIO_NOT_SUPPORTED;
 	}

@@ -114,7 +114,7 @@ public class GameScreen extends CoreScreen
 	
 	//GENERAL VARIABLES
 	private boolean returningToWelcomeScreen;
-	private byte gameMode;
+	private GAMEMODE gameMode;
 	private int currentQuestionNumber, correctAnswers, scorePoints, combo, currentProgressForProgressbar;
 	private int progressFor4SecondsWait;
 	private int maxCombo;
@@ -234,7 +234,7 @@ public class GameScreen extends CoreScreen
 		woodPanelFor5IconsImage.setFitWidth(0.1667 * width);
 		
 		//HBOX FOR LIVES
-		if(gameMode == ENDLESS_GAMEMODE)
+		if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 		{
 			hBoxForLives.setLayoutY(0.1435 * height);
 			hBoxForLives.setSpacing(0.0026 * width);
@@ -421,7 +421,7 @@ public class GameScreen extends CoreScreen
 		
 		if(OS != OsCheck.OSType.Windows)
 		{
-			if(gameMode == ENDLESS_GAMEMODE)
+			if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 			{
 				textForScore.setLayoutY(0.2500 * height);
 				textForCombo.setLayoutY(0.3889 * height);
@@ -617,7 +617,7 @@ public class GameScreen extends CoreScreen
 		textForResults2.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0010 * width + ";");
 		textForResults2.setX(width / 2.0 - textForResults2.getBoundsInLocal().getWidth() / 2.0);
 		
-		if(gameMode == TIME_ATTACK_GAMEMODE)
+		if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
 			textForResults.setLayoutY(0.3241 * height);
 			textForResults2.setLayoutY(0.5185 * height);
@@ -1243,8 +1243,8 @@ public class GameScreen extends CoreScreen
 			
 			hideAnimations();
 			
-			if(gameMode == CLASSIC_GAMEMODE && getCurrentQuestionNumber() >= getNumberOfQuestionsForClassic() ||
-			   gameMode == ENDLESS_GAMEMODE && getRemainingLivesForEndless() <= 0 || availableCategories.size() == 0) finishGame();
+			if(gameMode == GAMEMODE.CLASSIC_GAMEMODE && getCurrentQuestionNumber() >= getNumberOfQuestionsForClassic() ||
+			   gameMode == GAMEMODE.ENDLESS_GAMEMODE && getRemainingLivesForEndless() <= 0 || availableCategories.size() == 0) finishGame();
 			else prepareForNextQuestion();
 		});
 		
@@ -1884,7 +1884,7 @@ public class GameScreen extends CoreScreen
 			timelineFor2_5SecondsWaitForNextQuestion.setCycleCount(Animation.INDEFINITE);
 		}
 		
-		if ((gameMode == CLASSIC_GAMEMODE || gameMode == ENDLESS_GAMEMODE) && timelineForTimePassedCount == null)
+		if ((gameMode == GAMEMODE.CLASSIC_GAMEMODE || gameMode == GAMEMODE.ENDLESS_GAMEMODE) && timelineForTimePassedCount == null)
 		{
 			timelineForTimePassedCount = new Timeline(
 				new KeyFrame(Duration.millis(0), e -> setReadableTimePassed()),
@@ -1892,7 +1892,7 @@ public class GameScreen extends CoreScreen
 			timelineForTimePassedCount.setCycleCount(Animation.INDEFINITE);
 		}
 		
-		if (gameMode == TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 1 && timelineFor1MinuteProgressbarForTimeAttack == null)
+		if (gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 1 && timelineFor1MinuteProgressbarForTimeAttack == null)
 		{
 			timelineFor1MinuteProgressbarForTimeAttack = new Timeline(new KeyFrame(Duration.millis(0), e ->
 			{
@@ -1911,7 +1911,7 @@ public class GameScreen extends CoreScreen
 			}));
 			timelineFor1MinuteProgressbarForTimeAttack.setCycleCount(Animation.INDEFINITE);
 		}
-		else if (gameMode == TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 2 && timelineFor2MinutesProgressbarForTimeAttack == null)
+		else if (gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 2 && timelineFor2MinutesProgressbarForTimeAttack == null)
 		{
 			timelineFor2MinutesProgressbarForTimeAttack = new Timeline(new KeyFrame(Duration.millis(0), e ->
 			{
@@ -1930,7 +1930,7 @@ public class GameScreen extends CoreScreen
 			}));
 			timelineFor2MinutesProgressbarForTimeAttack.setCycleCount(Animation.INDEFINITE);
 		}
-		else if (gameMode == TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 5 && timelineFor5MinutesProgressbarForTimeAttack == null)
+		else if (gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 5 && timelineFor5MinutesProgressbarForTimeAttack == null)
 		{
 			timelineFor5MinutesProgressbarForTimeAttack = new Timeline(new KeyFrame(Duration.millis(0), e ->
 			{
@@ -1949,7 +1949,7 @@ public class GameScreen extends CoreScreen
 			}));
 			timelineFor5MinutesProgressbarForTimeAttack.setCycleCount(Animation.INDEFINITE);
 		}
-		else if (gameMode == TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 10 && timelineFor10MinutesProgressbarForTimeAttack == null)
+		else if (gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE && getDurationInMinutesForTimeAttack() == 10 && timelineFor10MinutesProgressbarForTimeAttack == null)
 		{
 			timelineFor10MinutesProgressbarForTimeAttack = new Timeline(new KeyFrame(Duration.millis(0), e ->
 			{
@@ -1969,7 +1969,7 @@ public class GameScreen extends CoreScreen
 			timelineFor10MinutesProgressbarForTimeAttack.setCycleCount(Animation.INDEFINITE);
 		}
 		
-		if (gameMode == TIME_ATTACK_GAMEMODE && timelineToCountSecondsForTimeAttack == null)
+		if (gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE && timelineToCountSecondsForTimeAttack == null)
 		{
 			timelineToCountSecondsForTimeAttack = new Timeline(new KeyFrame(Duration.millis(0), e ->
 			{
@@ -2099,7 +2099,7 @@ public class GameScreen extends CoreScreen
 					answerEvaluator.hintToCorrectAnswer();
 					pauseTimePassedCounting();
 					
-					if (gameMode == ENDLESS_GAMEMODE) loseALife();
+					if (gameMode == GAMEMODE.ENDLESS_GAMEMODE) loseALife();
 					
 					int points = newScorePoints(false);
 					setScorePoints(getScorePoints() + points);
@@ -2500,7 +2500,7 @@ public class GameScreen extends CoreScreen
 					scaleTransitionForProgressBarForCountdown.setToY(1);
 					scaleTransitionForProgressBarForCountdown.playFromStart();
 					
-					if(gameMode == TIME_ATTACK_GAMEMODE)
+					if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 					{
 						scaleTransitionForTextForCountdown.setToX(1);
 						scaleTransitionForTextForCountdown.setToY(1);
@@ -2771,7 +2771,7 @@ public class GameScreen extends CoreScreen
 				}),
 				new KeyFrame(Duration.millis(1200), e ->
 				{
-					if(gameMode != TIME_ATTACK_GAMEMODE)
+					if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
 					{
 						textForResultsDuration.setVisible(true);
 						scaleTransitionForTextForResultsDuration.setToX(1);
@@ -2823,7 +2823,7 @@ public class GameScreen extends CoreScreen
 				}),
 				new KeyFrame(Duration.millis(300), e ->
 				{
-					if(gameMode != TIME_ATTACK_GAMEMODE)
+					if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
 					{
 						scaleTransitionForTextForResultsDuration.setToX(0);
 						
@@ -2938,7 +2938,7 @@ public class GameScreen extends CoreScreen
 		
 	}
 	
-	public void showScreen(byte gameMode)
+	public void showScreen(GAMEMODE gameMode)
 	{
 		this.gameMode = gameMode;
 		setInitialStateForAllNodes();
@@ -2970,7 +2970,7 @@ public class GameScreen extends CoreScreen
 		
 		questionMaker.setAvailableQuestions();
 		
-		if(gameMode == ENDLESS_GAMEMODE)
+		if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 		{
 			setRemainingLivesForEndless(getLivesForEndless());
 			
@@ -2996,9 +2996,9 @@ public class GameScreen extends CoreScreen
 		}
 		else hBoxForLives.setVisible(false);
 		
-		if(gameMode == CLASSIC_GAMEMODE && isTimerForClassic() || gameMode == ENDLESS_GAMEMODE && isTimerForEndless() || gameMode == TIME_ATTACK_GAMEMODE)
+		if(gameMode == GAMEMODE.CLASSIC_GAMEMODE && isTimerForClassic() || gameMode == GAMEMODE.ENDLESS_GAMEMODE && isTimerForEndless() || gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
-			if(gameMode == TIME_ATTACK_GAMEMODE)
+			if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 			{
 				setQuestionCountdownEnabled(false);
 				
@@ -3027,7 +3027,7 @@ public class GameScreen extends CoreScreen
 			textForCountdown.setVisible(false);
 		}
 		
-		if(gameMode == CLASSIC_GAMEMODE || gameMode == ENDLESS_GAMEMODE)
+		if(gameMode == GAMEMODE.CLASSIC_GAMEMODE || gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 		{
 			textForTimePassed.setVisible(true);
 			setSecondsPassed(0);
@@ -3079,7 +3079,7 @@ public class GameScreen extends CoreScreen
 			numberOfQuestionAnimated.setScaleY(0);
 			numberOfQuestionAnimated.setVisible(true);
 			
-			if(gameMode == ENDLESS_GAMEMODE)
+			if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 			{
 				hBoxForLives.setScaleX(0);
 				hBoxForLives.setScaleY(0);
@@ -3210,7 +3210,7 @@ public class GameScreen extends CoreScreen
 			
 			numberOfQuestionAnimated.setVisible(false);
 			
-			if(gameMode == ENDLESS_GAMEMODE)
+			if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 			{
 				hBoxForLives.setScaleX(1);
 				hBoxForLives.setScaleY(1);
@@ -3522,9 +3522,9 @@ public class GameScreen extends CoreScreen
 	
 	private void updateQuestionNumberText()
 	{
-		if(gameMode == CLASSIC_GAMEMODE)
+		if(gameMode == GAMEMODE.CLASSIC_GAMEMODE)
 		{
-			if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestionNumber.setText(String.valueOf(getCurrentQuestionNumber()) + "η ερώτηση από τις " + getNumberOfQuestionsForClassic());
+			if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestionNumber.setText(String.valueOf(getCurrentQuestionNumber()) + "η ερώτηση από τις " + getNumberOfQuestionsForClassic());
 			else
 			{
 				int n = getCurrentQuestionNumber();
@@ -3536,7 +3536,7 @@ public class GameScreen extends CoreScreen
 		}
 		else
 		{
-			if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestionNumber.setText(String.valueOf(getCurrentQuestionNumber()) + "η ερώτηση");
+			if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestionNumber.setText(String.valueOf(getCurrentQuestionNumber()) + "η ερώτηση");
 			else
 			{
 				int n = getCurrentQuestionNumber();
@@ -3552,7 +3552,7 @@ public class GameScreen extends CoreScreen
 	
 	private void updateScoreText()
 	{
-		if(getCurrentLanguage() == LANGUAGE_GREEK) textForScore.setText("Σκορ: " + getCorrectAnswers() + "/" + getCurrentQuestionNumber() + "\n" + getScorePoints() + " πόντοι");
+		if(getCurrentLanguage() == LANGUAGE.GREEK) textForScore.setText("Σκορ: " + getCorrectAnswers() + "/" + getCurrentQuestionNumber() + "\n" + getScorePoints() + " πόντοι");
 		else textForScore.setText("Score: " + getCorrectAnswers() + "/" + getCurrentQuestionNumber() + "\n" + getScorePoints() + " points");
 		
 		textForScore.setLayoutX(0.8625 * stage.getWidth() - textForScore.getBoundsInLocal().getWidth() * 0.95 / 2.0);
@@ -3575,7 +3575,7 @@ public class GameScreen extends CoreScreen
 		
 		if(isCorrect)
 		{
-			if(gameMode == TIME_ATTACK_GAMEMODE)
+			if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 			{
 				int seconds = answerEvaluator.getSecondsLastQuestionTook();
 				
@@ -3642,14 +3642,14 @@ public class GameScreen extends CoreScreen
 		
 		if(progressBarForCountdown.getProgress() == 1)
 		{
-			if(gameMode == TIME_ATTACK_GAMEMODE) startTimeAttackCountdown();
+			if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE) startTimeAttackCountdown();
 			else startTimePassedCounting();
 			
 			timelineToCountMilliseconds.playFromStart();
 		}
 		else
 		{
-			if(gameMode == TIME_ATTACK_GAMEMODE) resumeTimeAttackCountdown();
+			if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE) resumeTimeAttackCountdown();
 			else resumeTimePassedCounting();
 			
 			timelineToCountMilliseconds.play();
@@ -4318,11 +4318,11 @@ public class GameScreen extends CoreScreen
 		currentGame.setPlayerName(getCurrentPlayer().getOriginalName());
 		currentGame.setGameStartedTime(gameStartedTime);
 		
-		if(gameMode != TIME_ATTACK_GAMEMODE)
+		if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
 			currentGame.setGameDurationInSeconds(getSecondsPassed());
 			
-			if(gameMode == ENDLESS_GAMEMODE) currentGame.setLivesForEndless(getLivesForEndless());
+			if(gameMode == GAMEMODE.ENDLESS_GAMEMODE) currentGame.setLivesForEndless(getLivesForEndless());
 		}
 		else currentGame.setGameDurationInSeconds(getDurationInSecondsForTimeAttack());
 		
@@ -4365,7 +4365,7 @@ public class GameScreen extends CoreScreen
 		updatePlayerStatistics(getCurrentPlayer());
 		saveGameStatistics();
 		
-		if(gameMode != TIME_ATTACK_GAMEMODE) textForResultsDuration.setText(getResultsDurationMessage());
+		if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE) textForResultsDuration.setText(getResultsDurationMessage());
 		
 		textForResults.setText(getResultsMessage());
 		textForResults2.setText(getResults2Message());
@@ -4393,7 +4393,7 @@ public class GameScreen extends CoreScreen
 			titleLabelForFinishedGame.setScaleY(1);
 			titleLabelForFinishedGame.setVisible(true);
 			
-			if(gameMode != TIME_ATTACK_GAMEMODE)
+			if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
 			{
 				textForResultsDuration.setScaleX(1);
 				textForResultsDuration.setVisible(true);
@@ -4424,11 +4424,11 @@ public class GameScreen extends CoreScreen
 	
 	private boolean isGameWon()
 	{
-		if(gameMode == CLASSIC_GAMEMODE)
+		if(gameMode == GAMEMODE.CLASSIC_GAMEMODE)
 		{
 			return getCorrectAnswers() > getNumberOfQuestionsForClassic() / 2;
 		}
-		else if(gameMode == TIME_ATTACK_GAMEMODE)
+		else if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
 			return !(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 8 ||
 					getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 4 ||
@@ -4458,11 +4458,11 @@ public class GameScreen extends CoreScreen
 		
 		StringBuilder sb = new StringBuilder();
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			sb.append("Το παιχνίδι ");
 			
-			if(gameMode == CLASSIC_GAMEMODE) sb.append("των " + getNumberOfQuestionsForClassic() + " ερωτήσεων ");
+			if(gameMode == GAMEMODE.CLASSIC_GAMEMODE) sb.append("των " + getNumberOfQuestionsForClassic() + " ερωτήσεων ");
 			
 			sb.append("διήρκησε ");
 			
@@ -4501,7 +4501,7 @@ public class GameScreen extends CoreScreen
 		{
 			sb.append("The ");
 			
-			if(gameMode == CLASSIC_GAMEMODE) sb.append(getNumberOfQuestionsForClassic() + " questions ");
+			if(gameMode == GAMEMODE.CLASSIC_GAMEMODE) sb.append(getNumberOfQuestionsForClassic() + " questions ");
 			
 			sb.append("game lasted ");
 			
@@ -4546,7 +4546,7 @@ public class GameScreen extends CoreScreen
 		{
 			sb.append(String.format(languageResourceBundle.getString("finishedMaxCombo"), getMaxCombo()));
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK) sb.append(" και ");
+			if(getCurrentLanguage() == LANGUAGE.GREEK) sb.append(" και ");
 			else sb.append(" and ");
 			
 			if(numberFormatForUI.format(currentGame.getAverageAnswerTime()).equals("1"))
@@ -4565,7 +4565,7 @@ public class GameScreen extends CoreScreen
 	
 	private String getResultsMessage()
 	{
-		if(gameMode == CLASSIC_GAMEMODE)
+		if(gameMode == GAMEMODE.CLASSIC_GAMEMODE)
 		{
 			if(getCorrectAnswers() == 0) return String.format(languageResourceBundle.getString("finishedClassic0"), getNumberOfQuestionsForClassic());
 			else if(getCorrectAnswers() == 1) return String.format(languageResourceBundle.getString("finishedClassic1"), getNumberOfQuestionsForClassic(), getScorePoints());
@@ -4575,7 +4575,7 @@ public class GameScreen extends CoreScreen
 				return String.format(languageResourceBundle.getString("finishedClassic3"), getCorrectAnswers(), getNumberOfQuestionsForClassic(), getScorePoints());
 			else return String.format(languageResourceBundle.getString("finishedClassic4"), getNumberOfQuestionsForClassic(), getScorePoints());
 		}
-		else if(gameMode == TIME_ATTACK_GAMEMODE)
+		else if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
 			if(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 8 ||
 			   getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 4 ||
@@ -4818,7 +4818,7 @@ public class GameScreen extends CoreScreen
 	
 	private void showScoreAnimated(int points)
 	{
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			if (points > 0) scoreAnimated.setText("+" + points + " πόντοι");
 			else scoreAnimated.setText(points + " πόντοι");
@@ -4920,7 +4920,7 @@ public class GameScreen extends CoreScreen
 				}
 			}
 			
-			if(gameMode != TIME_ATTACK_GAMEMODE) pauseTimePassedCounting();
+			if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE) pauseTimePassedCounting();
 			
 			pauseGameIcon.setDisable(true);
 			
@@ -4979,7 +4979,7 @@ public class GameScreen extends CoreScreen
 				{
 					hideComboText();
 					
-					if(gameMode == ENDLESS_GAMEMODE)
+					if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 					{
 						loseALife();
 						
@@ -5111,7 +5111,7 @@ public class GameScreen extends CoreScreen
 					else if (source == radioButtonsFor4TextAnswers[2]) index = 2;
 					else index = 3;
 					
-					if(gameMode == ENDLESS_GAMEMODE)
+					if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 					{
 						loseALife();
 						
@@ -5205,7 +5205,7 @@ public class GameScreen extends CoreScreen
 				{
 					hideComboText();
 					
-					if(gameMode == ENDLESS_GAMEMODE) loseALife();
+					if(gameMode == GAMEMODE.ENDLESS_GAMEMODE) loseALife();
 					else wrongAnswerReaction();
 					
 					int index;
@@ -5583,7 +5583,7 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/languagesGreek.data"), "UTF-8");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/languagesGreek.data"), "UTF-8");
 						else input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/languagesEnglish.data"), "UTF-8");
 						
 						while(input.hasNext())
@@ -5630,7 +5630,7 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/currenciesGreek.data"), "UTF-8");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/currenciesGreek.data"), "UTF-8");
 						else input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/currenciesEnglish.data"), "UTF-8");
 						
 						while(input.hasNext())
@@ -5778,7 +5778,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					textForQuestion.setText("Ποια χώρα έχει πρωτεύουσα " + GreekLanguageHelper.getAccusative(countries[correctIndex].getArticleForCapital(),
 							GreekLanguageHelper.needsN(countries[correctIndex].getCapitalName())).toLowerCase() + " " + countries[correctIndex].getCapitalName() + ";");
@@ -5798,7 +5798,7 @@ public class GameScreen extends CoreScreen
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
-				if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η πρωτεύουσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+				if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η πρωτεύουσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 				                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 				else textForQuestion.setText("What is the capital of " + countries[correctIndex].getNameInEnglish() + "?");
 				
@@ -5813,7 +5813,7 @@ public class GameScreen extends CoreScreen
 				
 				if (positionOfCorrectAnswer == 0)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -5833,7 +5833,7 @@ public class GameScreen extends CoreScreen
 					while(countries[correctIndex].askCapital() != countries[index].askCapital() ||
 							countries[index].getCapitalName().equals(countries[correctIndex].getCapitalName()));
 					
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -5893,24 +5893,24 @@ public class GameScreen extends CoreScreen
 			{
 				if(countries[correctIndex].getLargestCities().length == 1 || y == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[0] + " είναι η μεγαλύτερη πόλη της χώρας...;");
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[0] + " είναι η μεγαλύτερη πόλη της χώρας...;");
 					else textForQuestion.setText(countries[correctIndex].getLargestCities()[0] + " is the largest city of...?");
 				}
 				else
 				{
 					if(y == 1)
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[1] + " είναι η 2η μεγαλύτερη πόλη της χώρας...;");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[1] + " είναι η 2η μεγαλύτερη πόλη της χώρας...;");
 						else textForQuestion.setText(countries[correctIndex].getLargestCities()[1] + " is the 2nd largest city of...?");
 					}
 					else
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[2] + " είναι η 3η μεγαλύτερη πόλη της χώρας...;");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[2] + " είναι η 3η μεγαλύτερη πόλη της χώρας...;");
 						else textForQuestion.setText(countries[correctIndex].getLargestCities()[2] + " is the 3nd largest city of...?");
 					}
 				}
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					correctAnswerString = countries[correctIndex].getNameInGreek();
 					for(int i = 0; i < 3; i++)
@@ -5928,7 +5928,7 @@ public class GameScreen extends CoreScreen
 				int r1, r2, r3;
 				if(countries[correctIndex].getLargestCities().length == 1 || y == 0)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 					                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 					else textForQuestion.setText("What is the largest city of " + countries[correctIndex].getNameInEnglish() + "?");
 					
@@ -5957,7 +5957,7 @@ public class GameScreen extends CoreScreen
 				{
 					if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 						else textForQuestion.setText("What is the 2nd largest city of " + countries[correctIndex].getNameInEnglish() + "?");
 						
@@ -5969,7 +5969,7 @@ public class GameScreen extends CoreScreen
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 						else textForQuestion.setText("What is the 3rd largest city of " + countries[correctIndex].getNameInEnglish() + "?");
 						
@@ -5993,7 +5993,7 @@ public class GameScreen extends CoreScreen
 				{
 					if(countries[correctIndex].getLargestCities().length == 1 || y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[0] +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[0] +
 						                                                     " είναι η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(countries[correctIndex].getLargestCities()[0] +
@@ -6003,7 +6003,7 @@ public class GameScreen extends CoreScreen
 					{
 						if(y == 1)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[1] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[1] +
 							                                                     " είναι η 2η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 							                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 							else textForQuestion.setText(countries[correctIndex].getLargestCities()[1] +
@@ -6011,7 +6011,7 @@ public class GameScreen extends CoreScreen
 						}
 						else
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[2] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + countries[correctIndex].getLargestCities()[2] +
 							                                                     " είναι η 3η μεγαλύτερη πόλη " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 							                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 							else textForQuestion.setText(countries[correctIndex].getLargestCities()[2] +
@@ -6041,21 +6041,21 @@ public class GameScreen extends CoreScreen
 					}
 					if(y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η μεγαλύτερη πόλη " +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η μεγαλύτερη πόλη " +
 						                                                     GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(randomLar + " is the largest city of " + countries[correctIndex].getNameInEnglish() + ".");
 					}
 					else if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 2η μεγαλύτερη πόλη " +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 2η μεγαλύτερη πόλη " +
 						                                                     GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(randomLar + " is the 2nd largest city of " + countries[correctIndex].getNameInEnglish() + ".");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 3η μεγαλύτερη πόλη " +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 3η μεγαλύτερη πόλη " +
 						                                                     GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(randomLar + " is the 3rd largest city of " + countries[correctIndex].getNameInEnglish() + ".");
@@ -6091,7 +6091,7 @@ public class GameScreen extends CoreScreen
 				int r1, r2, r3;
 				if(y == 0)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 					else textForQuestion.setText("What is the largest city of " + continents[correctIndex].getNameInEnglish() + "?");
 					
 					correctAnswerString = continents[correctIndex].getLargestCities()[0];
@@ -6102,7 +6102,7 @@ public class GameScreen extends CoreScreen
 				}
 				else if(y == 1)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 					else textForQuestion.setText("What is the 2nd largest city of " + continents[correctIndex].getNameInEnglish() + "?");
 					
 					correctAnswerString = continents[correctIndex].getLargestCities()[1];
@@ -6113,7 +6113,7 @@ public class GameScreen extends CoreScreen
 				}
 				else
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 					else textForQuestion.setText("What is the 3rd largest city of " + continents[correctIndex].getNameInEnglish() + "?");
 					
 					correctAnswerString = continents[correctIndex].getLargestCities()[2];
@@ -6135,21 +6135,21 @@ public class GameScreen extends CoreScreen
 				{
 					if(y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[0] +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[0] +
 						                                                     " είναι η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(continents[correctIndex].getLargestCities()[0] +
 						                             " is the largest city of " + continents[correctIndex].getNameInEnglish() + ".");
 					}
 					else if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[1] +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[1] +
 						                                                     " είναι η 2η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(continents[correctIndex].getLargestCities()[1] +
 						                             " is the 2nd largest city of " + continents[correctIndex].getNameInEnglish() + ".");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[2] +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + continents[correctIndex].getLargestCities()[2] +
 						                                                     " είναι η 3η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(continents[correctIndex].getLargestCities()[2] +
 						                             " is the 3rd largest city of " + continents[correctIndex].getNameInEnglish() + ".");
@@ -6167,17 +6167,17 @@ public class GameScreen extends CoreScreen
 					
 					if(y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(randomLar + " is the largest city of " + continents[correctIndex].getNameInEnglish() + ".");
 					}
 					else if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 2η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 2η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(randomLar + " is the 2nd largest city of " + continents[correctIndex].getNameInEnglish() + ".");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 3η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η πόλη " + randomLar + " είναι η 3η μεγαλύτερη πόλη της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 						else textForQuestion.setText(randomLar + " is the 3rd largest city of " + continents[correctIndex].getNameInEnglish() + ".");
 					}
 				}
@@ -6219,7 +6219,7 @@ public class GameScreen extends CoreScreen
 					      randomIndexForMultipleChoice[2] == randomIndexForMultipleChoice[0] ||
 					      randomIndexForMultipleChoice[2] == randomIndexForMultipleChoice[1]);
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Τα " + countries[correctIndex].getLanguagesToAsk()[0] + " σε ποια από τις ακόλουθες χώρες είναι η επίσημη γλώσσα;");
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Τα " + countries[correctIndex].getLanguagesToAsk()[0] + " σε ποια από τις ακόλουθες χώρες είναι η επίσημη γλώσσα;");
 					else textForQuestion.setText(countries[correctIndex].getLanguagesToAsk()[0] + " is the official language of...?");
 				}
 				else
@@ -6236,11 +6236,11 @@ public class GameScreen extends CoreScreen
 					      randomIndexForMultipleChoice[2] == randomIndexForMultipleChoice[0] ||
 					      randomIndexForMultipleChoice[2] == randomIndexForMultipleChoice[1]);
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Τα " + lang + " είναι μία από τις επίσημες γλώσσες της χώρας...;");
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Τα " + lang + " είναι μία από τις επίσημες γλώσσες της χώρας...;");
 					else textForQuestion.setText(lang + " is one of the official languages of...?");
 				}
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					correctAnswerString = countries[correctIndex].getNameInGreek();
 					
@@ -6269,7 +6269,7 @@ public class GameScreen extends CoreScreen
 				
 				if(countries[correctIndex].askLanguage() == 1)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η επίσημη γλώσσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η επίσημη γλώσσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 							" " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 					else textForQuestion.setText("Which of the following is the official language of " + countries[correctIndex].getNameInEnglish() + "?");
 					
@@ -6277,7 +6277,7 @@ public class GameScreen extends CoreScreen
 				}
 				else
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Μία από τις επίσημες γλώσσες " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Μία από τις επίσημες γλώσσες " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 							" " + countries[correctIndex].getGenitiveCaseOfCountry() + " είναι τα...;");
 					else textForQuestion.setText("Which of the following is one of the official languages of " + countries[correctIndex].getNameInEnglish() + "?");
 					
@@ -6295,7 +6295,7 @@ public class GameScreen extends CoreScreen
 				{
 					if(countries[correctIndex].askLanguage() == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Τα " + countries[correctIndex].getLanguagesToAsk()[0] +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Τα " + countries[correctIndex].getLanguagesToAsk()[0] +
 						                                                     " είναι η επίσημη γλώσσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 								" " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(countries[correctIndex].getLanguagesToAsk()[0] +
@@ -6303,7 +6303,7 @@ public class GameScreen extends CoreScreen
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 							textForQuestion.setText("Τα " + countries[correctIndex].getLanguagesToAsk()[random.nextInt(countries[correctIndex].getLanguagesToAsk().length)] +
 							                        " είναι μία από τις επίσημες γλώσσες " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 									" " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
@@ -6320,13 +6320,13 @@ public class GameScreen extends CoreScreen
 					
 					if(countries[correctIndex].askLanguage() == 1)
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Τα " + randomCap + " είναι η επίσημη γλώσσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+						if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Τα " + randomCap + " είναι η επίσημη γλώσσα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 								" " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(randomCap + " is the official language of " + countries[correctIndex].getNameInEnglish() + ".");
 					}
 					else
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Τα " + randomCap + " είναι μία από τις επίσημες γλώσσες " +
+						if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Τα " + randomCap + " είναι μία από τις επίσημες γλώσσες " +
 						                                                    GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 								" " + countries[correctIndex].getGenitiveCaseOfCountry() + ".");
 						else textForQuestion.setText(randomCap + " is one of the official languages of " + countries[correctIndex].getNameInEnglish() + ".");
@@ -6370,7 +6370,7 @@ public class GameScreen extends CoreScreen
 				
 				correctAnswerString = countries[correctIndex].getCurrency().getName();
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποιο είναι το νόμισμα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+				if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποιο είναι το νόμισμα " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 						" " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 				else textForQuestion.setText("What is the official currency of " + countries[correctIndex].getNameInEnglish() + "?");
 				
@@ -6382,7 +6382,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						textForQuestion.setText(
 								"Το νόμισμα " + countries[correctIndex].getCurrency().getName() +
@@ -6402,7 +6402,7 @@ public class GameScreen extends CoreScreen
 					do index = random.nextInt(currencies.length);
 					while(currencies[index].equals(countries[correctIndex].getCurrency().getName()));
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						textForQuestion.setText(
 								"Το νόμισμα " + countries[index].getCurrency().getName() +
@@ -6453,7 +6453,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					String verb;
 					if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -6516,7 +6516,7 @@ public class GameScreen extends CoreScreen
 					else if(lowBoundary == 0 || rand == 1) s = numberFormatForUI.format(countriesPopulationBoundaries[lowBoundary + 1]) + " - " +
 					                                           numberFormatForUI.format(countriesPopulationBoundaries[lowBoundary + 2]);
 				}
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					String verb;
 					if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -6550,7 +6550,7 @@ public class GameScreen extends CoreScreen
 			wayOfAskingCurrentQuestion = random.nextInt(3) + 1;
 			
 			String t = "";
-			if(getCurrentLanguage() == LANGUAGE_ENGLISH)
+			if(getCurrentLanguage() == LANGUAGE.ENGLISH)
 			{
 				if(continents[correctIndex].getGlobalPopulationRanking() == 2)
 					t = "nd";
@@ -6570,16 +6570,16 @@ public class GameScreen extends CoreScreen
 				
 				if(continents[correctIndex].getGlobalPopulationRanking() == 1)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη ήπειρος σε πληθυσμό;");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη ήπειρος σε πληθυσμό;");
 					else textForQuestion.setText("What is the largest continent by population?");
 				}
 				else
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η " + continents[correctIndex].getGlobalPopulationRanking() + "η μεγαλύτερη ήπειρος σε πληθυσμό;");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η " + continents[correctIndex].getGlobalPopulationRanking() + "η μεγαλύτερη ήπειρος σε πληθυσμό;");
 					else textForQuestion.setText("What is the " + continents[correctIndex].getGlobalPopulationRanking() + t + " largest continent by population?");
 				}
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					correctAnswerString = continents[correctIndex].getNameInGreek();
 					
@@ -6604,12 +6604,12 @@ public class GameScreen extends CoreScreen
 				{
 					if(continents[correctIndex].getGlobalPopulationRanking() == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε πληθυσμό ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε πληθυσμό ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the largest continent by population.");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " +
 						                                                     continents[correctIndex].getGlobalPopulationRanking() + "η μεγαλύτερη σε πληθυσμό ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the " +
 						                             continents[correctIndex].getGlobalPopulationRanking() + t + " largest continent by population.");
@@ -6622,12 +6622,12 @@ public class GameScreen extends CoreScreen
 					
 					if(index == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε πληθυσμό ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε πληθυσμό ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the largest continent by population.");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " + index + "η μεγαλύτερη σε πληθυσμό ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " + index + "η μεγαλύτερη σε πληθυσμό ήπειρος.");
 						else
 						{
 							if(continents[correctIndex].getGlobalPopulationRanking() == 2)
@@ -6653,7 +6653,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalPopulationRanking() <= continents[correctIndex].getGlobalPopulationRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6668,7 +6668,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalPopulationRanking() >= continents[correctIndex].getGlobalPopulationRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6686,7 +6686,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalPopulationRanking() >= continents[correctIndex].getGlobalPopulationRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6701,7 +6701,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalPopulationRanking() <= continents[correctIndex].getGlobalPopulationRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6761,7 +6761,7 @@ public class GameScreen extends CoreScreen
 			wayOfAskingCurrentQuestion = random.nextInt(3) + 1;
 			
 			String t = "";
-			if(getCurrentLanguage() == LANGUAGE_ENGLISH)
+			if(getCurrentLanguage() == LANGUAGE.ENGLISH)
 			{
 				if(continents[correctIndex].getGlobalAreaRanking() == 2)
 					t = "nd";
@@ -6781,16 +6781,16 @@ public class GameScreen extends CoreScreen
 				
 				if(continents[correctIndex].getGlobalAreaRanking() == 1)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη ήπειρος σε έκταση;");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη ήπειρος σε έκταση;");
 					else textForQuestion.setText("What is the largest continent by area?");
 				}
 				else
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η " + continents[correctIndex].getGlobalAreaRanking() + "η μεγαλύτερη ήπειρος σε έκταση;");
+					if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η " + continents[correctIndex].getGlobalAreaRanking() + "η μεγαλύτερη ήπειρος σε έκταση;");
 					else textForQuestion.setText("What is the " + continents[correctIndex].getGlobalAreaRanking() + t + " largest continent by area?");
 				}
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					correctAnswerString = continents[correctIndex].getNameInGreek();
 					
@@ -6815,12 +6815,12 @@ public class GameScreen extends CoreScreen
 				{
 					if(continents[correctIndex].getGlobalAreaRanking() == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε έκταση ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε έκταση ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the largest continent by area.");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " +
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " +
 						                                                     continents[correctIndex].getGlobalAreaRanking() + "η μεγαλύτερη σε έκταση ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the " +
 						                             continents[correctIndex].getGlobalAreaRanking() + t + " largest continent by area.");
@@ -6833,12 +6833,12 @@ public class GameScreen extends CoreScreen
 					
 					if(index == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε έκταση ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η μεγαλύτερη σε έκταση ήπειρος.");
 						else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is the largest continent by area.");
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " + index + "η μεγαλύτερη σε έκταση ήπειρος.");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η " + continents[correctIndex].getNameInGreek() + " είναι η " + index + "η μεγαλύτερη σε έκταση ήπειρος.");
 						else
 						{
 							if(continents[correctIndex].getGlobalAreaRanking() == 2)
@@ -6864,7 +6864,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalAreaRanking() <= continents[correctIndex].getGlobalAreaRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6879,7 +6879,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalAreaRanking() >= continents[correctIndex].getGlobalAreaRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6897,7 +6897,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalAreaRanking() >= continents[correctIndex].getGlobalAreaRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6912,7 +6912,7 @@ public class GameScreen extends CoreScreen
 						do randomIndexForMultipleChoice[0] = random.nextInt(continents.length - 1) + 1;
 						while(continents[randomIndexForMultipleChoice[0]].getGlobalAreaRanking() <= continents[correctIndex].getGlobalAreaRanking());
 						
-						if (getCurrentLanguage() == LANGUAGE_GREEK)
+						if (getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							randomStringForMultipleChoice[0] = continents[randomIndexForMultipleChoice[0]].getNameInGreek();
 							if(randomStringForMultipleChoice[0].equals("Βόρεια Αμερική") || randomStringForMultipleChoice[0].equals("Νότια Αμερική"))
@@ -6967,7 +6967,7 @@ public class GameScreen extends CoreScreen
 				       countries[randomIndexForMultipleChoice[2]].hasEasyLocation() && !countries[correctIndex].hasEasyLocation() ||
 				       !countries[randomIndexForMultipleChoice[2]].hasEasyLocation() && countries[correctIndex].hasEasyLocation());
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					if(countries[correctIndex].getContinent().equals("Βόρεια Αμερική") || countries[correctIndex].getContinent().equals("Νότια Αμερική"))
 						textForQuestion.setText("Ποια χώρα από τις παρακάτω βρίσκεται στη " + countries[correctIndex].getContinent() + ";");
@@ -7002,7 +7002,7 @@ public class GameScreen extends CoreScreen
 				       continents[randomIndexForMultipleChoice[2]].getNameInGreek().equals(countries[correctIndex].getContinent()) ||
 				       continents[randomIndexForMultipleChoice[2]].getNameInEnglish().equals(countries[correctIndex].getContinent()));
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα")) verb = " βρίσκονται ";
 					else verb = " βρίσκεται ";
@@ -7025,7 +7025,7 @@ public class GameScreen extends CoreScreen
 			{
 				positionOfCorrectAnswer = random.nextInt(2);
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα")) verb = " βρίσκονται ";
 					else verb = " βρίσκεται ";
@@ -7095,7 +7095,7 @@ public class GameScreen extends CoreScreen
 					int r1, r2, r3;
 					if(y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the largest country of " + continents[correctIndex].getNameInEnglish() + " by area?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByArea()[0];
@@ -7106,7 +7106,7 @@ public class GameScreen extends CoreScreen
 					}
 					else if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by area?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByArea()[1];
@@ -7117,7 +7117,7 @@ public class GameScreen extends CoreScreen
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by area?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByArea()[2];
@@ -7139,21 +7139,21 @@ public class GameScreen extends CoreScreen
 					{
 						if(y == 0)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[0] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[0] +
 							                                                     " είναι η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByArea()[0] +
 							                             " is the largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
 						}
 						else if(y == 1)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[1] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[1] +
 							                                                     " είναι η 2η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByArea()[1] +
 							                             " is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
 						}
 						else
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[2] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByArea()[2] +
 							                                                     " είναι η 3η μεγαλύτερη σε έκταση χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByArea()[2] +
 							                             " is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
@@ -7171,19 +7171,19 @@ public class GameScreen extends CoreScreen
 						
 						if(y == 0)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η μεγαλύτερη σε έκταση χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η μεγαλύτερη σε έκταση χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
 						}
 						else if(y == 1)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 2η μεγαλύτερη σε έκταση χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 2η μεγαλύτερη σε έκταση χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
 						}
 						else
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 3η μεγαλύτερη σε έκταση χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 3η μεγαλύτερη σε έκταση χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by area.");
 						}
@@ -7197,7 +7197,7 @@ public class GameScreen extends CoreScreen
 					int r1, r2, r3;
 					if(y == 0)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the largest country of " + continents[correctIndex].getNameInEnglish() + " by population?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByPopulation()[0];
@@ -7208,7 +7208,7 @@ public class GameScreen extends CoreScreen
 					}
 					else if(y == 1)
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 2η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by population?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByPopulation()[1];
@@ -7219,7 +7219,7 @@ public class GameScreen extends CoreScreen
 					}
 					else
 					{
-						if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
+						if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η 3η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ";");
 						else textForQuestion.setText("What is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by population?");
 						
 						correctAnswerString = continents[correctIndex].getLargestCountriesByPopulation()[2];
@@ -7241,21 +7241,21 @@ public class GameScreen extends CoreScreen
 					{
 						if(y == 0)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[0] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[0] +
 							                                                     " είναι η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByPopulation()[0] +
 							                             " is the largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
 						}
 						else if(y == 1)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[1] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[1] +
 							                                                     " είναι η 2η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByPopulation()[1] +
 							                             " is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
 						}
 						else
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[2] +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + continents[correctIndex].getLargestCountriesByPopulation()[2] +
 							                                                     " είναι η 3η μεγαλύτερη σε πληθυσμό χώρα της " + continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(continents[correctIndex].getLargestCountriesByPopulation()[2] +
 							                             " is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
@@ -7273,19 +7273,19 @@ public class GameScreen extends CoreScreen
 						
 						if(y == 0)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η μεγαλύτερη σε πληθυσμό χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η μεγαλύτερη σε πληθυσμό χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
 						}
 						else if(y == 1)
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 2η μεγαλύτερη σε πληθυσμό χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 2η μεγαλύτερη σε πληθυσμό χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the 2nd largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
 						}
 						else
 						{
-							if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 3η μεγαλύτερη σε πληθυσμό χώρα της " +
+							if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η χώρα " + randomLar + " είναι η 3η μεγαλύτερη σε πληθυσμό χώρα της " +
 							                                                     continents[correctIndex].getGenitiveCaseOfContinent() + ".");
 							else textForQuestion.setText(randomLar + " is the 3rd largest country of " + continents[correctIndex].getNameInEnglish() + " by population.");
 						}
@@ -7336,7 +7336,7 @@ public class GameScreen extends CoreScreen
 				int beSovereignState = random.nextInt(3); //0=dependent state, 1=pretend sovereign, 2=be sovereign
 				String sovereignState = "";
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					String verb;
 					
@@ -7414,7 +7414,7 @@ public class GameScreen extends CoreScreen
 				boolean pretendNone = random.nextBoolean();
 				String none = "";
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					int index = 0;
 					for(int i = 0; i < countries.length; i++)
@@ -7465,7 +7465,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						int index = 0;
 						for(int i = 0; i < countries.length; i++)
@@ -7485,7 +7485,7 @@ public class GameScreen extends CoreScreen
 				else
 				{
 					int r;
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						do r = random.nextInt(countries.length);
 						while(countries[r].getNameInGreek().equals(countries[correctIndex].getSovereignState()) || !countries[r].isSovereignState());
@@ -7549,7 +7549,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					textForQuestion.setText("Ποια χώρα έχει αυτήν τη σημαία;");
 					correctAnswerString = countries[correctIndex].getNameInGreek();
@@ -7570,7 +7570,7 @@ public class GameScreen extends CoreScreen
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
-				if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια είναι η σημαία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+				if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια είναι η σημαία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 				                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 				else textForQuestion.setText("Which is the flag of " + countries[correctIndex].getNameInEnglish() + "?");
 				
@@ -7585,7 +7585,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -7608,7 +7608,7 @@ public class GameScreen extends CoreScreen
 					      (countries[index].getNameInGreek().equals("Ηνωμένο Βασίλειο") || countries[index].getNameInGreek().equals("Βόρεια Ιρλανδία")) &&
 					      (countries[correctIndex].getNameInGreek().equals("Ηνωμένο Βασίλειο") || countries[correctIndex].getNameInGreek().equals("Βόρεια Ιρλανδία")));
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -7688,7 +7688,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					textForQuestion.setText("Ποια χώρα έχει αυτό το εθνόσημο;");
 					correctAnswerString = countries[correctIndex].getNameInGreek();
@@ -7709,7 +7709,7 @@ public class GameScreen extends CoreScreen
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
-				if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποιο είναι το εθνόσημο " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+				if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποιο είναι το εθνόσημο " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 				                                                     " " + countries[correctIndex].getGenitiveCaseOfCountry() + ";");
 				else textForQuestion.setText("Which of the following is the coat of arms of " + countries[correctIndex].getNameInEnglish() + "?");
 				
@@ -7724,7 +7724,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -7751,7 +7751,7 @@ public class GameScreen extends CoreScreen
 					       || countries[correctIndex].getNameInGreek().equals("Βόρεια Ιρλανδία") || countries[correctIndex].getNameInGreek().equals("Ουαλία")
 					       || countries[correctIndex].getNameInGreek().equals("Σκωτία")) || index == correctIndex);
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						String verb;
 						if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -7817,7 +7817,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					textForQuestion.setText("Ποια είναι η χώρα που τονίζεται με πράσινο χρώμα;");
 					correctAnswerString = countries[correctIndex].getNameInGreek();
@@ -7838,7 +7838,7 @@ public class GameScreen extends CoreScreen
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
-				if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Πού βρίσκεται " + countries[correctIndex].getArticleForCountry().toLowerCase() + " " + countries[correctIndex].getNameInGreek() + ";");
+				if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Πού βρίσκεται " + countries[correctIndex].getArticleForCountry().toLowerCase() + " " + countries[correctIndex].getNameInGreek() + ";");
 				else textForQuestion.setText("What is the location of " + countries[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
@@ -7852,7 +7852,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η τοποθεσία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η τοποθεσία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 					                                                    " " + countries[correctIndex].getGenitiveCaseOfCountry() + " είναι αυτή:");
 					else textForQuestion.setText(countries[correctIndex].getNameInEnglish() + " is located here:");
 					
@@ -7867,7 +7867,7 @@ public class GameScreen extends CoreScreen
 					      !isIslandCountry(correctIndex) && countries[index].isIslandCountry() ||
 					      !haveSameContinent(correctIndex, index) || index == correctIndex);
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η τοποθεσία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η τοποθεσία " + GreekLanguageHelper.getGenitive(countries[correctIndex].getArticleForCountry()).toLowerCase() +
 					                                                    " " + countries[correctIndex].getGenitiveCaseOfCountry() + " είναι αυτή:");
 					else textForQuestion.setText(countries[correctIndex].getNameInEnglish() + " is located here:");
 					
@@ -7962,7 +7962,7 @@ public class GameScreen extends CoreScreen
 					       randomIndexForMultipleChoice[2] == randomIndexForMultipleChoice[1]);
 				}
 				
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					if(category == 0) textForQuestion.setText("Ποια από τις παρακάτω χώρες δε βρέχεται από θάλασσα;");
 					else if(category == 1) textForQuestion.setText("Ποια από τις παρακάτω χώρες βρέχεται από θάλασσα;");
@@ -7989,7 +7989,7 @@ public class GameScreen extends CoreScreen
 			{
 				positionOfCorrectAnswer = random.nextInt(2);
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK)
+				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					String verb;
 					if(countries[correctIndex].getArticleForCountry().equals("Οι") || countries[correctIndex].getArticleForCountry().equals("Τα"))
@@ -8111,7 +8111,7 @@ public class GameScreen extends CoreScreen
 			
 			if(wayOfAskingCurrentQuestion == 1)
 			{
-				if(getCurrentLanguage() == LANGUAGE_GREEK)
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					textForQuestion.setText("Ποια είναι η ήπειρος που τονίζεται με πράσινο χρώμα;");
 					correctAnswerString = continents[correctIndex].getNameInGreek();
@@ -8132,7 +8132,7 @@ public class GameScreen extends CoreScreen
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
-				if (getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Ποια από τις ακόλουθες είναι η ήπειρος " + continents[correctIndex].getNameInGreek() + ";");
+				if (getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Ποια από τις ακόλουθες είναι η ήπειρος " + continents[correctIndex].getNameInGreek() + ";");
 				else textForQuestion.setText("Which of the following is the continent " + continents[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
@@ -8146,7 +8146,7 @@ public class GameScreen extends CoreScreen
 				
 				if(positionOfCorrectAnswer == 0)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
 					else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is located here:");
 					
 					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInGreek(), true));
@@ -8158,7 +8158,7 @@ public class GameScreen extends CoreScreen
 					do index = random.nextInt(continents.length);
 					while(index == correctIndex);
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
+					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
 					else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is located here:");
 					
 					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[index].getNameInGreek(), true));

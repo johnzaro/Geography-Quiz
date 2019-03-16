@@ -53,7 +53,8 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	private TableView<Game> tableView;
 	private TableColumn<Game, String> playerNameColumn, selectedCategoriesColumn;
 	private TableColumn<Game, LocalDateTime> gameStartedTimeColumn;
-	private TableColumn<Game, Integer> gameDurationColumn, gameModeColumn, numberOfAllQuestionsColumn, numberOfCorrectQuestionsColumn, scorePointsColumn, maxComboColumn;
+	private TableColumn<Game, Integer> gameDurationColumn, numberOfAllQuestionsColumn, numberOfCorrectQuestionsColumn, scorePointsColumn, maxComboColumn;
+	private TableColumn<Game, GAMEMODE> gameModeColumn;
 	private TableColumn<Game, Double> averageAnswerTimeColumn;
 	private TableColumn<Game, Boolean> isCountdownEnabledColumn;
 	
@@ -445,7 +446,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		gameDurationColumn.setSortable(false);
 		gameDurationColumn.setCellValueFactory(param -> param.getValue().gameDurationInSecondsProperty());
 		gameDurationColumn.setCellFactory(param ->
-				new TableCell<Game, Integer>()
+				new TableCell<>()
 				{
 					protected void updateItem(Integer item, boolean empty)
 					{
@@ -460,17 +461,17 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		gameModeColumn.setSortable(false);
 		gameModeColumn.setCellValueFactory(param -> param.getValue().gameModeProperty());
 		gameModeColumn.setCellFactory(param ->
-				new TableCell<Game, Integer>()
+				new TableCell<>()
 				{
-					protected void updateItem(Integer item, boolean empty)
+					protected void updateItem(GAMEMODE item, boolean empty)
 					{
 						super.updateItem(item, empty);
 						
 						if (item == null || empty) setText(null);
 						else
 						{
-							if(item == 1) setText("Classic");
-							else if(item == 2) setText("Time Attack");
+							if(item == GAMEMODE.CLASSIC_GAMEMODE) setText("Classic");
+							else if(item == GAMEMODE.TIME_ATTACK_GAMEMODE) setText("Time Attack");
 							else
 							{
 								if(games.get(this.getIndex()).getLivesForEndless() == 1)
@@ -484,7 +485,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		selectedCategoriesColumn = new TableColumn<>();
 		selectedCategoriesColumn.setSortable(false);
 		selectedCategoriesColumn.setCellFactory(param ->
-				new TableCell<Game, String>()
+				new TableCell<>()
 				{
 					protected void updateItem(String item, boolean empty)
 					{
@@ -493,7 +494,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 						if (empty) setText(null);
 						else
 						{
-							if(getCurrentLanguage() == LANGUAGE_GREEK) setText("Προβολή");
+							if(getCurrentLanguage() == LANGUAGE.GREEK) setText("Προβολή");
 							else setText("Show");
 							
 							setCursor(Cursor.HAND);
@@ -516,7 +517,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 						if (item == null || empty) setText(null);
 						else
 						{
-							if(games.get(this.getIndex()).getGameMode() != TIME_ATTACK_GAMEMODE)
+							if(games.get(this.getIndex()).getGameMode() != GAMEMODE.TIME_ATTACK_GAMEMODE)
 							{
 								if(item) setText("\u2713");
 								else setText("\u274C");
@@ -555,7 +556,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					if (item == null || empty) setText(null);
 					else
 					{
-						if(getCurrentLanguage() == LANGUAGE_GREEK) setText(numberFormatForUI.format(item) + " δευτ.");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) setText(numberFormatForUI.format(item) + " δευτ.");
 						else setText(numberFormatForUI.format(item) + " sec.");
 					}
 				}
@@ -1505,7 +1506,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		gridPaneLabels[3][1].setText(getReadablePlayedTime(playersArrayList.get(index).getTotalTimePlayed()));
 		gridPaneLabels[5][1].setText(String.valueOf(playersArrayList.get(index).getMaxCombo()));
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			gridPaneLabels[0][1].setText(String.valueOf(playersArrayList.get(index).getHighestScorePoints()) + " πόντοι");
 			

@@ -114,22 +114,22 @@ public class Player
 		this.localeIndex = localeIndex;
 	}
 	
-	private int language;
-	public int getLanguage()
+	private LANGUAGE language;
+	public LANGUAGE getLanguage()
 	{
 		return language;
 	}
-	public void setLanguage(int language)
+	public void setLanguage(LANGUAGE language)
 	{
 		this.language = language;
 	}
 	
-	private int unitSystem;
-	public int getUnitSystem()
+	private UNIT_SYSTEM unitSystem;
+	public UNIT_SYSTEM getUnitSystem()
 	{
 		return unitSystem;
 	}
-	public void setUnitSystem(int unitSystem)
+	public void setUnitSystem(UNIT_SYSTEM unitSystem)
 	{
 		this.unitSystem = unitSystem;
 	}
@@ -204,6 +204,66 @@ public class Player
 		return questionCategories;
 	}
 	
+	private double masterSliderVolume;
+	public void setMasterSliderVolume(double masterSliderVolume)
+	{
+		this.masterSliderVolume = masterSliderVolume;
+	}
+	public double getMasterSliderVolume()
+	{
+		return masterSliderVolume;
+	}
+	
+	private double musicSliderVolume;
+	public void setMusicSliderVolume(double musicSliderVolume)
+	{
+		this.musicSliderVolume = musicSliderVolume;
+	}
+	public double getMusicSliderVolume()
+	{
+		return musicSliderVolume;
+	}
+	
+	private double soundEffectsSliderVolume;
+	public void setSoundEffectsSliderVolume(double soundEffectsSliderVolume)
+	{
+		this.soundEffectsSliderVolume = soundEffectsSliderVolume;
+	}
+	public double getSoundEffectsSliderVolume()
+	{
+		return soundEffectsSliderVolume;
+	}
+	
+	private double windowWidth;
+	public void setWindowWidth(double windowWidth)
+	{
+		this.windowWidth = windowWidth;
+	}
+	public double getWindowWidth()
+	{
+		return windowWidth;
+	}
+	
+	private int animationsUsed;
+	public int getAnimationsUsed()
+	{
+		return animationsUsed;
+	}
+	public void setAnimationsUsed(int animationsUsed)
+	{
+		this.animationsUsed = animationsUsed;
+	}
+	
+	private boolean startAtFullScreen;
+	public void setStartAtFullScreen(boolean startAtFullScreen)
+	{
+		startAtFullScreen = startAtFullScreen;
+	}
+	public boolean getStartAtFullScreen()
+	{
+		return startAtFullScreen;
+	}
+	
 	public Player(String originalName, String editedName)
 	{
 		timerForClassicMode = new SimpleBooleanProperty();
@@ -219,19 +279,29 @@ public class Player
 		setDefaultQuestionCategories();
 	}
 	
-	public void setPlayerSettings(Locale locale, int localeIndex, int language, int unitsOfMeasurement, int difficultyLevel, int numberOfQuestionsInClassicalMode, boolean timerForClassicMode,
-								  int durationForTimeAttackMode, int livesForEndlessMode, boolean timerForEndlessMode)
+	public void setPlayerSettings(Locale locale, int localeIndex, LANGUAGE language, UNIT_SYSTEM unitSystem, int difficultyLevel, int numberOfQuestionsInClassicalMode, boolean timerForClassicMode,
+								  int durationForTimeAttackMode, int livesForEndlessMode, boolean timerForEndlessMode, double masterSliderVolume, double musicSliderVolume, double soundEffectsSliderVolume,
+								  double windowWidth, int animationsUsed, boolean startAtFullScreen)
 	{
 		setLocale(locale);
 		setLocaleIndex(localeIndex);
 		setLanguage(language);
-		setUnitSystem(unitsOfMeasurement);
+		setUnitSystem(unitSystem);
+		
 		setDifficultyLevel(difficultyLevel);
+		
 		setNumberOfQuestionsInClassicalMode(numberOfQuestionsInClassicalMode);
 		setTimerForClassicMode(timerForClassicMode);
 		setDurationForTimeAttackMode(durationForTimeAttackMode);
 		setLivesForEndlessMode(livesForEndlessMode);
 		setTimerForEndlessMode(timerForEndlessMode);
+		
+		setMasterSliderVolume(masterSliderVolume);
+		setMusicSliderVolume(musicSliderVolume);
+		setSoundEffectsSliderVolume(soundEffectsSliderVolume);
+		setWindowWidth(windowWidth);
+		setAnimationsUsed(animationsUsed);
+		setStartAtFullScreen(startAtFullScreen);
 	}
 	
 	public void setDefaultQuestionCategories()
@@ -244,13 +314,13 @@ public class Player
 		setLocale(Locale.getDefault());
 		setLocaleIndex(-1);
 		
-		if(getLocale().getLanguage().equals("el")) setLanguage(LANGUAGE_GREEK);
-		else setLanguage(LANGUAGE_ENGLISH);
+		if(getLocale().getLanguage().equals("el")) setLanguage(LANGUAGE.GREEK);
+		else setLanguage(LANGUAGE.ENGLISH);
 		
 		switch(getLocale().getCountry())
 		{
-			case "GB":case "US": setUnitSystem(IMPERIAL_SYSTEM);break;
-			default: setUnitSystem(METRIC_SYSTEM);break;
+			case "GB":case "US": setUnitSystem(UNIT_SYSTEM.IMPERIAL);break;
+			default: setUnitSystem(UNIT_SYSTEM.METRIC);break;
 		}
 		
 		setDifficultyLevel(DIFFICULTY_EASY);
@@ -260,6 +330,15 @@ public class Player
 		setDurationForTimeAttackMode(TIME_ATTACK_DURATION_2_MINUTES);
 		setLivesForEndlessMode(ENDLESS_LIVES_3);
 		setTimerForEndlessMode(false);
+		
+		setMasterSliderVolume(100);
+		setMusicSliderVolume(50);
+		setSoundEffectsSliderVolume(50);
+		
+		setWindowWidth(0.75 * primaryScreenWidth);
+		
+		setAnimationsUsed(ALL_ANIMATIONS);
+		setStartAtFullScreen(false);
 	}
 	
 	public void resetPlayerStatistics()

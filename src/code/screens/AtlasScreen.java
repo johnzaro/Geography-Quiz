@@ -341,7 +341,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		innerShadow.setOffsetY(0.0041 * width);
 		titleLabel.setEffect(innerShadow);
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK) titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * width));
+		if(getCurrentLanguage() == LANGUAGE.GREEK) titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * width));
 		else titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * width));
 		
 		//HBOX FOR TOGGLE BUTTONS ------------------------------------------------------
@@ -2185,7 +2185,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 							countries[index].getCurrency().getISOCode()
 					                                                      );
 					
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						gridPaneLabelsForCountriesAndContinents[0][1].setText(countries[index].getNameInGreek());
 						
@@ -2276,7 +2276,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
                         gridPaneLabelsForCountriesAndContinents[3][1].setCursor(Cursor.MOVE);
                         gridPaneLabelsForCountriesAndContinents[4][1].setCursor(Cursor.MOVE);
 
-						if(getCurrentLanguage() == LANGUAGE_GREEK) gridPaneLabelsForCountriesAndContinents[0][1].setText(continents[index].getNameInGreek());
+						if(getCurrentLanguage() == LANGUAGE.GREEK) gridPaneLabelsForCountriesAndContinents[0][1].setText(continents[index].getNameInGreek());
 						else gridPaneLabelsForCountriesAndContinents[0][1].setText(continents[index].getNameInEnglish());
 						
 						gridPaneLabelsForCountriesAndContinents[1][1].setText("-");
@@ -2329,7 +2329,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						gridPaneLabelsForCountriesAndContinents[15][1].setText(continents[index].getLargestLake());
 						gridPaneLabelsForCountriesAndContinents[16][1].setText(continents[index].getTimeZones());
 						
-						if(getCurrentLanguage() == LANGUAGE_GREEK)
+						if(getCurrentLanguage() == LANGUAGE.GREEK)
 						{
 							gridPaneLabelsForCountriesAndContinents[0][1].setText(continents[index].getNameInGreek());
 
@@ -2553,7 +2553,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					gridPaneLabelsForUSA[16][1].setText(statesOfUSA[index].getLowestPoint());
 					gridPaneLabelsForUSA[17][1].setText(statesOfUSA[index].getTimeZones());
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK)
+					if(getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						gridPaneLabelsForUSA[0][1].setText(statesOfUSA[index].getNameInGreek() + " (" + statesOfUSA[index].getAbbreviation() + ")");
 						
@@ -2836,7 +2836,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					gridPaneLabelsForGreece[5][1].setText(greekDecAdm[index].getWebsite());
 					gridPaneLabelsForGreece[6][1].setText(greekDecAdm[index].getWikipediaLink());
 					
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekDecAdm[index].getNameInGreek());
 						
@@ -2882,7 +2882,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					gridPaneLabelsForGreece[9][1].setText(greekRegions[index].getWebsite());
 					gridPaneLabelsForGreece[10][1].setText(greekRegions[index].getWikipediaLink());
 					
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekRegions[index].getNameInGreek());
 						
@@ -2952,7 +2952,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					gridPaneLabelsForGreece[10][1].setText(greekRegionalUnits[index].getWebsite());
 					gridPaneLabelsForGreece[11][1].setText(greekRegionalUnits[index].getWikipediaLink());
 					
-					if (getCurrentLanguage() == LANGUAGE_GREEK)
+					if (getCurrentLanguage() == LANGUAGE.GREEK)
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekRegionalUnits[index].getNameInGreek());
 						
@@ -3028,7 +3028,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				{
 					int index = attractionsSortList.get(newValue.intValue());
 					
-					if(getCurrentLanguage() == LANGUAGE_GREEK) gridPaneLabelsForAttractions[0][1].setText(attractions[index].getNameInGreek());
+					if(getCurrentLanguage() == LANGUAGE.GREEK) gridPaneLabelsForAttractions[0][1].setText(attractions[index].getNameInGreek());
 					else gridPaneLabelsForAttractions[0][1].setText(attractions[index].getNameInEnglish());
 					
 					gridPaneLabelsForAttractions[1][1].setText(attractions[index].getCountry());
@@ -3700,7 +3700,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 		
 		//IF ATLAS SCREEN LOADS FOR THE FIRST TIME OR LANGUAGE IS CHANGED LOAD AGAIN DATA IN OBSERVABLE LISTS
-		if(getCurrentLanguage() == LANGUAGE_GREEK && !countriesObservableNamesList.get(0).equals(countries[0].getNameInGreek()))
+		if(getCurrentLanguage() == LANGUAGE.GREEK && !countriesObservableNamesList.get(0).equals(countries[0].getNameInGreek()))
 		{
 			countriesObservableNamesList.clear();
 			countriesSortList.clear();
@@ -3861,7 +3861,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				attractionsSortList.add(i);
 			}
 		}
-		else if (getCurrentLanguage() == LANGUAGE_ENGLISH && !countriesObservableNamesList.get(0).equals(countries[0].getNameInEnglish()))
+		else if (getCurrentLanguage() == LANGUAGE.ENGLISH && !countriesObservableNamesList.get(0).equals(countries[0].getNameInEnglish()))
 		{
 			countriesObservableNamesList.clear();
 			countriesSortList.clear();
@@ -4878,13 +4878,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if (getIndexInOptionsForCountriesAndContinents() != 5)
 			{
 				name = countries[index].getNameInGreek();
-				if (getCurrentLanguage() == LANGUAGE_GREEK) labelForBigImage.setText(name);
+				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(countries[index].getNameInEnglish());
 			}
 			else
 			{
 				name = continents[index].getNameInGreek();
-				if (getCurrentLanguage() == LANGUAGE_GREEK) labelForBigImage.setText(name);
+				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(continents[index].getNameInEnglish());
 			}
 			
@@ -4899,7 +4899,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		else if(getCategoryCurrentlyViewing() == 2)
 		{
 			name = statesOfUSA[index].getNameInGreek();
-			if (getCurrentLanguage() == LANGUAGE_GREEK) labelForBigImage.setText(name);
+			if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 			else labelForBigImage.setText(statesOfUSA[index].getNameInEnglish());
 			
 			if (getIndexInListViewForUSA() == 0) previousInBigImageButton.setDisable(true);
@@ -4914,7 +4914,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if (getIndexInOptionsForGreece() == 0)
 			{
 				name = greekDecAdm[index].getNameInGreek();
-				if (getCurrentLanguage() == LANGUAGE_GREEK) labelForBigImage.setText(name);
+				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(greekDecAdm[index].getNameInEnglish());
 				
 				if (labelForBigImage.getText().length() > 55) labelForBigImage.setFont(Font.font("Comic Sans MS", (0.0119) * stage.getWidth()));
@@ -4923,7 +4923,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			else if (getIndexInOptionsForGreece() == 1)
 			{
 				name = greekRegions[index].getNameInGreek();
-				if (getCurrentLanguage() == LANGUAGE_GREEK) labelForBigImage.setText(name);
+				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(greekRegions[index].getNameInEnglish());
 			}
 			
@@ -5570,7 +5570,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		attractionLocationLabel.setText(languageResourceBundle.getString("locationLabel"));
 		
 		//COMBO BOXES
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			optionsForCountriesAndContinentsComboBox.setItems(optionsForCountriesAndContinentsObservableListInGreek);
 			optionsForUSAComboBox.setItems(optionsForUSAObservableListInGreek);
@@ -5683,7 +5683,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if(getCategoryCurrentlyViewing() == 1)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK) imageName = countries[item].getNameInGreek();
+					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = countries[item].getNameInGreek();
 					else imageName = countries[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForCountriesAndContinents == GridViewImagesForCountriesAndContinentsType.FLAG)
@@ -5722,7 +5722,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				}
 				else if(getCategoryCurrentlyViewing() == 2)
 				{
-					if(getCurrentLanguage() == LANGUAGE_GREEK) imageName = statesOfUSA[item].getNameInGreek();
+					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = statesOfUSA[item].getNameInGreek();
 					else imageName = statesOfUSA[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForUSA == GridViewImagesForUSAType.FLAG)

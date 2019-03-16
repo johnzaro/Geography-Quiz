@@ -4,7 +4,6 @@ import code.dataStructures.*;
 import code.screens.*;
 import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
-import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
@@ -15,7 +14,6 @@ import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
-import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -224,7 +222,7 @@ public class PowerOn
 				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", 0.85 * primaryScreenWidth, 0, true, false);
 			}
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
 			else GAME_NAME_IMAGE  = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 			
 			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.mp3").toExternalForm());
@@ -241,29 +239,35 @@ public class PowerOn
 		}
 	}
 	
-	static void loadSettings()
+	static void loadPlayersDataAndSettings()
 	{
 		if(!isEmpty(playersFile)) readPlayersFile();
 		else setDefaultPlayerName();
 		
 		loadLanguageResourceBundle();
-		setNumberAndDateFormats(getCurrentPlayer().getLocale());
+		
+		setSettingsBasedOnCurrentPlayer();
 		
 		if(!isEmpty(gamesScoresFile)) readGamesScores();
-		
-		if(isEmpty(savedSettingsFile))
-		{
-			setDefaultSettings();
-			
-			writeGameSettings();
-		}
-		else readGameSettings();
 	}
 	
 	public static void loadLanguageResourceBundle()
 	{
-		if (getCurrentLanguage() == LANGUAGE_GREEK) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
+		if (getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
 		else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
+	}
+	
+	public static void setSettingsBasedOnCurrentPlayer()
+	{
+		setNumberAndDateFormats(getCurrentPlayer().getLocale());
+		
+		masterSliderVolume.set(getCurrentPlayer().getMasterSliderVolume());
+		musicSliderVolume.set(getCurrentPlayer().getMusicSliderVolume());
+		soundEffectsSliderVolume.set(getCurrentPlayer().getSoundEffectsSliderVolume());
+		windowWidth = getCurrentPlayer().getWindowWidth();
+		windowHeight = getHeightBasedOnWidth(windowWidth);
+		startAtFullScreen = getCurrentPlayer().getStartAtFullScreen();
+		animationsUsed = getCurrentPlayer().getAnimationsUsed();
 	}
 	
 	public static void setNumberAndDateFormats(Locale locale)
@@ -283,18 +287,6 @@ public class PowerOn
 		stage.setY(primaryScreenResolution.getMinY() + primaryScreenHeight / 2.0 - windowHeight / 2.0);
 		stage.setWidth(windowWidth);
 		stage.setHeight(windowHeight);
-	}
-	
-	private static void setDefaultSettings()
-	{
-		masterSliderVolume.set(100);
-		musicSliderVolume.set(50);
-		soundEffectsSliderVolume.set(50);
-		
-		windowWidth = 0.75 * primaryScreenWidth;
-		
-		animationsUsed = ALL_ANIMATIONS;
-		startAtFullScreen = false;
 	}
 	
 	static void powerOnMessageGameIsAlreadyRunning()
@@ -323,7 +315,7 @@ public class PowerOn
 				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", width, 0, true, false);
 			}
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
 			else GAME_NAME_IMAGE  = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 			
 			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.mp3").toExternalForm());
@@ -429,7 +421,7 @@ public class PowerOn
 	
 	private static void powerOnImages()
 	{
-		if (getCurrentLanguage() == LANGUAGE_GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+		if (getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
 		else GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 		
 		EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE = new Image("/resources/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png", 0.7 * primaryScreenWidth, 0, true, true);
@@ -629,7 +621,7 @@ public class PowerOn
 		}
 	}
 	
-	private static void powerOnAnimatedGlobeImages()
+	public static void powerOnAnimatedGlobeImages()
 	{
 		if(animationsUsed == ALL_ANIMATIONS)
 		{
@@ -662,7 +654,7 @@ public class PowerOn
 			else if(primaryScreenWidth <= 2560) SPLASH_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/splashImage@2560x1440.png", width, 0, true, false);
 			else SPLASH_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/splashImage@3072x1728.png", width, 0, true, false);
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK) SPLASH_TEXT_IMAGE = new Image("/resources/images/backgrounds/splashImageGreekName.png", 0.7 * width, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) SPLASH_TEXT_IMAGE = new Image("/resources/images/backgrounds/splashImageGreekName.png", 0.7 * width, 0, true, false);
 			else SPLASH_TEXT_IMAGE = new Image("/resources/images/backgrounds/splashImageEnglishName.png", 0.7 * width, 0, true, false);
 			
 			splashScreen = new SplashScreen();

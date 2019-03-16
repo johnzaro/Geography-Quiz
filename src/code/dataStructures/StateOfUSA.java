@@ -3,7 +3,6 @@ package code.dataStructures;
 import java.time.LocalDate;
 
 import static code.core.GlobalVariables.*;
-import static code.core.GlobalVariables.LANGUAGE_GREEK;
 
 public class StateOfUSA
 {
@@ -87,25 +86,25 @@ public class StateOfUSA
 	
 	public String getCoastlineBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(coastlineLengthInKilometers) + "km";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(coastlineLengthInKilometers) + "km";
 		else return numberFormatForUI.format(coastlineLengthInMiles) + "mi";
 	}
 	
 	public String getWaterAreaBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(waterAreaInKilometers) + "km\u00B2";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(waterAreaInKilometers) + "km\u00B2";
 		else return numberFormatForUI.format(waterAreaInMiles) + " sq mi";
 	}
 	
 	public String getLandAreaBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(landAreaInKilometers) + "km\u00B2";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(landAreaInKilometers) + "km\u00B2";
 		else return numberFormatForUI.format(landAreaInMiles) + " sq mi";
 	}
 	
 	public String getTotalAreaBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(totalAreaInKilometers) + "km\u00B2";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(totalAreaInKilometers) + "km\u00B2";
 		else return numberFormatForUI.format(totalAreaInMiles) + " sq mi";
 	}
 	
@@ -176,14 +175,14 @@ public class StateOfUSA
 	
 	public String getPopulationDensityBasedOnLocaleToString()
 	{
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " κάτ./ sq mi";
 		}
 		else
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " inh./ sq mi";
 		}
 	}

@@ -5,7 +5,6 @@ public class ShutdownHook extends Thread
 {
 	public void run()
 	{
-		FilesIO.writeGameSettings();
 		FilesIO.writePlayersFile();
 //		FilesIO.writeGameScores();
 	}

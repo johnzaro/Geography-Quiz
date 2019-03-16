@@ -1,6 +1,7 @@
 package code.dataStructures;
 
-import static code.core.GlobalVariables.METRIC_SYSTEM;
+import code.core.GlobalVariables;
+
 import static code.core.GlobalVariables.getCurrentPlayer;
 import static code.core.GlobalVariables.numberFormatForUI;
 
@@ -37,7 +38,7 @@ public class GreekRegionalUnit
     
     public String getAreaBasedOnLocaleToString()
     {
-        if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
+        if(getCurrentPlayer().getUnitSystem() == GlobalVariables.UNIT_SYSTEM.METRIC) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
         else return numberFormatForUI.format(areaInMiles) + " sq mi";
     }
     

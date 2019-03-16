@@ -142,7 +142,7 @@ public class SplashScreen
 		loadingDots[2] = "..";
 		loadingDots[3] = "...";
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			loadingText = "Φόρτωση";
 			

@@ -19,19 +19,19 @@ public class Area
 	
 	public String getCoastlineBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(coastlineInKilometers) + "km";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(coastlineInKilometers) + "km";
 		else return numberFormatForUI.format(coastlineInMiles) + "mi";
 	}
 	
 	public String getBordersBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(bordersInKilometers) + "km";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(bordersInKilometers) + "km";
 		else return numberFormatForUI.format(bordersInMiles) + "mi";
 	}
 	
 	public String getAreaBasedOnLocaleToString()
 	{
-		if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
+		if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(areaInKilometers) + "km\u00B2";
 		else return numberFormatForUI.format(areaInMiles) + " sq mi";
 	}
 

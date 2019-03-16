@@ -318,7 +318,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			titleImage2.setLayoutX(width / 2.0 - titleImage2.getFitWidth() / 2.0);
 			titleLabel2.setPrefSize(0.5052 * width, 0.1111 * height);
 			
-			if (getCurrentLanguage() == LANGUAGE_GREEK)
+			if (getCurrentLanguage() == LANGUAGE.GREEK)
 			{
 				if(isExtendedQuestionCategoriesOpen) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * width));
 				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * width));
@@ -359,7 +359,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			easyLevelRadioButton.setFont(fontForLabels);
 			difficultLevelRadioButton.setFont(fontForLabels);
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK)
+			if(getCurrentLanguage() == LANGUAGE.GREEK)
 			{
 				gridPaneForQuestionsCategories.setHgap(0.0390 * width);
 				
@@ -480,7 +480,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			
 			double widthOfNodesInVBox, heightOfNodesInVBox, heightOfDescriptions = 0, buttonHeight = 0;
 			
-			if(getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0469 * width));
+			if(getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0469 * width));
 			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0521 * width));
 			
 			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
@@ -1308,7 +1308,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			playButtonClickSound();
 			
-			startGame(CLASSIC_GAMEMODE);
+			startGame(GAMEMODE.CLASSIC_GAMEMODE);
 		});
 		
 		timeAttackGameButton.setOnMouseEntered(e -> playHoverSound());
@@ -1316,7 +1316,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			playButtonClickSound();
 			
-			startGame(TIME_ATTACK_GAMEMODE);
+			startGame(GAMEMODE.TIME_ATTACK_GAMEMODE);
 		});
 		
 		endlessGameButton.setOnMouseEntered(e -> playHoverSound());
@@ -1324,7 +1324,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			playButtonClickSound();
 			
-			startGame(ENDLESS_GAMEMODE);
+			startGame(GAMEMODE.ENDLESS_GAMEMODE);
 		});
 		
 		toggleGroupForClassicGame.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) ->
@@ -2589,7 +2589,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				titleLabel1.setText(languageResourceBundle.getString("extendedQuestionCategories"));
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * stage.getWidth()));
+				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * stage.getWidth()));
 				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0401 * stage.getWidth()));
 				
 				pauseTextAnimation();
@@ -2635,7 +2635,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			titleLabel1.setText(languageResourceBundle.getString("extendedQuestionCategories"));
 			
-			if (getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * stage.getWidth()));
+			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * stage.getWidth()));
 			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0401 * stage.getWidth()));
 			
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleX(1);
@@ -2669,7 +2669,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				titleLabel1.setText(languageResourceBundle.getString("titleForDifficultySelectionLabel"));
 				
-				if (getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * stage.getWidth()));
+				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * stage.getWidth()));
 				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0354 * stage.getWidth()));
 				
 				pauseTextAnimation();
@@ -2715,7 +2715,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		{
 			titleLabel1.setText(languageResourceBundle.getString("titleForDifficultySelectionLabel"));
 			
-			if (getCurrentLanguage() == LANGUAGE_GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * stage.getWidth()));
+			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * stage.getWidth()));
 			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0354 * stage.getWidth()));
 			
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleX(0);
@@ -2949,7 +2949,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		if(screen1) scaleTransitionForTitleLabel2.pause();
 	}
 	
-	private void startGame(byte gameMode)
+	private void startGame(GAMEMODE gameMode)
 	{
 		FilesIO.writePlayersFile();
 		
@@ -2989,7 +2989,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		StringBuilder s = new StringBuilder();
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			s.append("Γίνονται " + getNumberOfQuestionsForClassic() + " ερωτήσεις από τις κατηγορίες που θα επιλέξεις.");
 			if(isTimerForClassic()) s.append(" Έχεις 10 δευτερόλεπτα για να απαντήσεις σε κάθε ερώτηση.");
@@ -3010,7 +3010,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		StringBuilder s = new StringBuilder();
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			s.append("Έχεις " + getDurationInMinutesForTimeAttack());
 			
@@ -3035,7 +3035,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		StringBuilder s = new StringBuilder();
 		
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			s.append("Πρέπει να απαντήσεις σωστά σε όσες περισσότερες ερωτήσεις μπορείς. Έχεις " + getLivesForEndless());
 			

@@ -51,14 +51,14 @@ public class Population
 	
 	public String getPopulationDensityBasedOnLocaleToString()
 	{
-		if(getCurrentLanguage() == LANGUAGE_GREEK)
+		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " κάτ./km\u00B2";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " κάτ./ sq mi";
 		}
 		else
 		{
-			if(getCurrentPlayer().getUnitSystem() == METRIC_SYSTEM) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
+			if(getCurrentPlayer().getUnitSystem() == UNIT_SYSTEM.METRIC) return numberFormatForUI.format(populationDensityPerSquareKilometer) + " inh./km²";
 			else return numberFormatForUI.format(populationDensityPerSquareMile) + " inh./ sq mi";
 		}
 	}

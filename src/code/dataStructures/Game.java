@@ -1,5 +1,6 @@
 package code.dataStructures;
 
+import code.core.GlobalVariables;
 import javafx.beans.property.*;
 
 import java.time.*;
@@ -52,16 +53,16 @@ public class Game
 		return gameDurationInSeconds;
 	}
 	
-	private ObjectProperty<Integer> gameMode;
-	public void setGameMode(int mode)
+	private ObjectProperty<GlobalVariables.GAMEMODE> gameMode;
+	public void setGameMode(GlobalVariables.GAMEMODE mode)
 	{
 		gameModeProperty().set(mode);
 	}
-	public int getGameMode()
+	public GlobalVariables.GAMEMODE getGameMode()
 	{
 		return gameModeProperty().get();
 	}
-	public ObjectProperty<Integer> gameModeProperty()
+	public ObjectProperty<GlobalVariables.GAMEMODE> gameModeProperty()
 	{
 		return gameMode;
 	}
