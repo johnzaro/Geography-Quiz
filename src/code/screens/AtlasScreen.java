@@ -1377,10 +1377,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				rectangleForBigImage, bigImage, labelForBigImage, previousInBigImageButton, nextInBigImageButton,
 				exitBigImage, zoomInBigImage, zoomOutBigImage, rectangleToShowInfo, textAreaForInfo);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			setupLimitedAnimations();
-			if(animationsUsed == ALL_ANIMATIONS) setupAdvancedAnimations();
+			if(animationsUsed == ANIMATIONS.ALL) setupAdvancedAnimations();
 		}
 		
 		setupListeners();
@@ -1408,7 +1408,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if (getCategoryCurrentlyViewing() == 1)
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						if(oldValue == USAToggleButton)
 						{
@@ -1517,7 +1517,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				}
 				else if (getCategoryCurrentlyViewing() == 2)
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						if (oldValue == continentsAndCountriesToggleButton)
 						{
@@ -1626,7 +1626,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				}
 				else if (getCategoryCurrentlyViewing() == 3)
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						if (oldValue == continentsAndCountriesToggleButton)
 						{
@@ -1735,7 +1735,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				}
 				else if(getCategoryCurrentlyViewing() == 4)
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						if(oldValue == continentsAndCountriesToggleButton)
 						{
@@ -1860,7 +1860,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if(oldValue != null && newValue != null)
 			{
 				setIndexInOptionsForCountriesAndContinents(optionsForCountriesAndContinentsComboBox.getSelectionModel().getSelectedIndex());
-				if (animationsUsed != NO_ANIMATIONS)
+				if (animationsUsed != ANIMATIONS.NO)
 				{
 					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
@@ -1901,7 +1901,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setIndexInOptionsForUSA(optionsForUSAComboBox.getSelectionModel().getSelectedIndex());
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
@@ -1942,7 +1942,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setIndexInOptionsForGreece(optionsForGreeceComboBox.getSelectionModel().getSelectedIndex());
 				
-				if (animationsUsed != NO_ANIMATIONS)
+				if (animationsUsed != ANIMATIONS.NO)
 				{
 					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
@@ -1984,7 +1984,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if(oldValue != null && newValue != null)
 			{
 				setIndexInOptionsForAttractions(optionsForAttractionsComboBox.getSelectionModel().getSelectedIndex());
-				if (animationsUsed != NO_ANIMATIONS)
+				if (animationsUsed != ANIMATIONS.NO)
 				{
 					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
@@ -3173,7 +3173,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			playButtonClickSound();
 			
-			if(animationsUsed != NO_ANIMATIONS) timeLineToHideAllStuff.playFromStart();
+			if(animationsUsed != ANIMATIONS.NO) timeLineToHideAllStuff.playFromStart();
 			else
 			{
 				welcomeScreen.showScreen(false);
@@ -3193,7 +3193,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setSoundIcon(soundIcon, true);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToShowSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
 					if(OS == OsCheck.OSType.Windows)
@@ -3214,7 +3214,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setSoundIcon(soundIcon, false);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToHideSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 				else
 				{
 					vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
@@ -3240,7 +3240,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		movingEarthImage.setOnMouseClicked(e ->
 		{
-			if (animationsUsed == ALL_ANIMATIONS)
+			if (animationsUsed == ANIMATIONS.ALL)
 			{
 				if (earthTransitionStatus == 1)
 				{
@@ -3386,7 +3386,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
              scaleTransitionForAttractionsToggleButton.setToX(1);
              scaleTransitionForAttractionsToggleButton.setToY(1);
 
-             if(animationsUsed == ALL_ANIMATIONS)
+             if(animationsUsed == ANIMATIONS.ALL)
              {
                  scaleTransitionForTitleLabel.setOnFinished(ev ->
                  {
@@ -3555,7 +3555,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
          }),
          new KeyFrame(Duration.millis(1500), e ->
          {
-             if(animationsUsed == ALL_ANIMATIONS) pauseEarthAnimation();
+             if(animationsUsed == ANIMATIONS.ALL) pauseEarthAnimation();
              welcomeScreen.showScreen(false);
 	
 	         backButton.setDisable(false);
@@ -3636,7 +3636,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		mainScene.setRoot(anchorPane);
 		
-		if(animationsUsed != NO_ANIMATIONS) timeLineToShowAllStuff.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timeLineToShowAllStuff.playFromStart();
 	}
 	
 	private void setInitialStateForAllNodes()
@@ -4079,7 +4079,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 		}
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			movingEarthImage.setOpacity(0);
 			
@@ -4130,7 +4130,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			titleLabel.setScaleX(0);
 			titleLabel.setScaleY(0);
 			
-			if(animationsUsed == ALL_ANIMATIONS) playEarthAnimation();
+			if(animationsUsed == ANIMATIONS.ALL) playEarthAnimation();
 		}
 		else
 		{
@@ -4190,7 +4190,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			fullScreenIcon.setDisable(false);
 		}
 		
-		if(animationsUsed == ALL_ANIMATIONS) movingEarthImage.setCursor(Cursor.HAND);
+		if(animationsUsed == ANIMATIONS.ALL) movingEarthImage.setCursor(Cursor.HAND);
 		else movingEarthImage.setCursor(Cursor.DEFAULT);
 		
 		vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
@@ -4641,7 +4641,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		isInfoOpen = true;
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForRectangleForInfo.setToX(1);
 			scaleTransitionForRectangleForInfo.setToY(1);
@@ -4663,7 +4663,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 	private void closeMoreInfo()
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForRectangleForInfo.setToX(0);
 			scaleTransitionForRectangleForInfo.setToY(0);
@@ -5006,7 +5006,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	private void setupBigImageNormal(BigImageType type, int index)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			if (rectangleForBigImage.getScaleX() != 0 && bigImageStatus != 2)
 			{
@@ -5206,7 +5206,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	private void setupBigImagePreview(BigImageType type, int index)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			if (rectangleForBigImage.getScaleX() != 0 || bigImage.getScaleX() != 0)
 			{
@@ -5258,7 +5258,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 	private void closeBigImage()
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForRectangleForBigImage.setToX(0);
 			scaleTransitionForRectangleForBigImage.setToY(0);

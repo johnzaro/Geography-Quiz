@@ -122,7 +122,7 @@ public class PowerOn
 		{
 			if (stage.isFocused())
 			{
-				if (animationsUsed == ALL_ANIMATIONS)
+				if (animationsUsed == ANIMATIONS.ALL)
 				{
 //							if it has no focus and gains it back and animations are enabled -> play them
 					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
@@ -165,7 +165,7 @@ public class PowerOn
 			}
 			else
 			{
-				if (animationsUsed == ALL_ANIMATIONS)
+				if (animationsUsed == ANIMATIONS.ALL)
 				{
 //							if it has focus and loses it and uses animations -> pause them
 					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
@@ -623,7 +623,7 @@ public class PowerOn
 	
 	public static void powerOnAnimatedGlobeImages()
 	{
-		if(animationsUsed == ALL_ANIMATIONS)
+		if(animationsUsed == ANIMATIONS.ALL)
 		{
 			animatedGlobe = new Image[80];
 			

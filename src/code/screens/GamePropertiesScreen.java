@@ -1259,10 +1259,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				rectangleForDifficultyLevel, vBoxForDifficultyLevel, rectangleForQuestionCategories, gridPaneForQuestionsCategories,
 				extendedQuestionCategories, rectangleForExtendedQuestionCategories, scrollPaneForExtendedCategoryQuestionsGridPane, exitExtendedCategoryQuestions);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			setupLimitedAnimations();
-			if(animationsUsed == ALL_ANIMATIONS) setupAdvancedAnimations();
+			if(animationsUsed == ANIMATIONS.ALL) setupAdvancedAnimations();
 		}
 		
 		setupListeners();
@@ -1287,8 +1287,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				if(mainScene.getRoot() == anchorPane) playRadioButtonSelectedSound();
 				
-				if(new_toggle == easyLevelRadioButton) setDifficultyLevel(DIFFICULTY_EASY);
-				else setDifficultyLevel(DIFFICULTY_DIFFICULT);
+				if(new_toggle == easyLevelRadioButton) setDifficultyLevel(DIFFICULTY.EASY);
+				else setDifficultyLevel(DIFFICULTY.DIFFICULT);
 				
 				handler.updateCheckboxesState(false);
 			});
@@ -1419,7 +1419,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}
 				else
 				{
-					if(animationsUsed != NO_ANIMATIONS) timeLineFromScreen2ToScreen1.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timeLineFromScreen2ToScreen1.playFromStart();
 					else
 					{
 						if(vBoxForSound.isVisible())
@@ -1462,7 +1462,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					playButtonClickSound();
 					
-					if(animationsUsed != NO_ANIMATIONS) timeLineFromScreen1ToScreen2.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timeLineFromScreen1ToScreen2.playFromStart();
 					else
 					{
 						if(vBoxForSound.isVisible())
@@ -1500,7 +1500,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					setSoundIcon(soundIcon, true);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToShowSoundOptions.play();
+					if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 					else
 					{
 						if(screen1) vBoxForSound.setTranslateX(0);
@@ -1525,7 +1525,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					setSoundIcon(soundIcon, false);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToHideSoundOptions.play();
+					if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 					else
 					{
 						if(screen1)
@@ -1559,7 +1559,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 		movingEarthImage.setOnMouseClicked(e ->
 			{
-				if (animationsUsed == ALL_ANIMATIONS)
+				if (animationsUsed == ANIMATIONS.ALL)
 				{
 					if (earthTransitionStatus == 1)
 					{
@@ -1720,7 +1720,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToX(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToY(1);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel1.setOnFinished(ev ->
 						{
@@ -1830,7 +1830,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}),
 				new KeyFrame(Duration.millis(1300), e ->
 				{
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						pauseEarthAnimation();
 						pauseTextAnimation();
@@ -1917,7 +1917,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			}),
 			new KeyFrame(Duration.millis(1900), e ->
 			{
-				if(animationsUsed == ALL_ANIMATIONS)
+				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					pauseEarthAnimation();
 					pauseTextAnimation();
@@ -2050,7 +2050,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	                scaleTransitionForBackButton.setToX(1);
 	                scaleTransitionForBackButton.setToY(1);
 	
-	                if(animationsUsed == ALL_ANIMATIONS)
+	                if(animationsUsed == ANIMATIONS.ALL)
 	                {
 		                scaleTransitionForTitleLabel1.setOnFinished(ev ->
 		                {
@@ -2222,7 +2222,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToX(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToY(1);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel1.setOnFinished(ev ->
 						{
@@ -2369,7 +2369,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 		mainScene.setRoot(anchorPane);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			movingEarthImage.setOpacity(0);
 			timeLineToShowAllStuff.playFromStart();
@@ -2429,7 +2429,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		exitExtendedCategoryQuestions.setScaleX(0);
 		exitExtendedCategoryQuestions.setScaleY(0);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			titleImage1.setTranslateY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
 			titleImage2.setTranslateY(-1.0 * (0.231) * stage.getHeight());
@@ -2525,7 +2525,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		}
 		
 //		--------------- SET VARIABLES AND TEXT ---------------
-		if (getDifficultyLevel() == DIFFICULTY_EASY) easyLevelRadioButton.setSelected(true);
+		if (getDifficultyLevel() == DIFFICULTY.EASY) easyLevelRadioButton.setSelected(true);
 		else difficultLevelRadioButton.setSelected(true);
 
 		for(int i = 0; i < NUM_ALL_CATEGORIES; i++)
@@ -2545,7 +2545,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 		setViewPortProperties();
 		
-		if (animationsUsed == ALL_ANIMATIONS)
+		if (animationsUsed == ANIMATIONS.ALL)
 		{
 			movingEarthImage.setCursor(Cursor.HAND);
 			playEarthAnimation();
@@ -2576,7 +2576,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		setExtendedQuestionCategoriesStrings();
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForTitleLabel1.setDuration(Duration.millis(300));
 			scaleTransitionForTitleLabel1.setAutoReverse(false);
@@ -2599,7 +2599,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				scaleTransitionForTitleLabel1.setToX(titleLabel2.getScaleX());
 				scaleTransitionForTitleLabel1.setToY(titleLabel2.getScaleY());
 				
-				if(animationsUsed == ALL_ANIMATIONS)
+				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					scaleTransitionForTitleLabel1.setOnFinished(ev ->
 					{
@@ -2656,7 +2656,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	
 	private void closeExtendedQuestionCategories()
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForTitleLabel1.setDuration(Duration.millis(300));
 			scaleTransitionForTitleLabel1.setAutoReverse(false);
@@ -2679,7 +2679,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				scaleTransitionForTitleLabel1.setToX(titleLabel2.getScaleX());
 				scaleTransitionForTitleLabel1.setToY(titleLabel2.getScaleY());
 				
-				if(animationsUsed == ALL_ANIMATIONS)
+				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					scaleTransitionForTitleLabel1.setOnFinished(ev ->
 					{
@@ -2953,7 +2953,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		FilesIO.writePlayersFile();
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			previousImage.setImage(WORLD_MAP);
 			previousImage.setLayoutX(getWorldMapLayoutX() * stage.getWidth());
@@ -2971,7 +2971,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	{
 		FilesIO.writePlayersFile();
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			previousImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
 			previousImage.setLayoutX(0);
@@ -3219,7 +3219,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 		private void updateCheckboxesState(boolean checkboxChanged)
 		{
-			if(getDifficultyLevel() == DIFFICULTY_EASY)
+			if(getDifficultyLevel() == DIFFICULTY.EASY)
 			{
 				extQCCountries[2].setSelected(false);
 				extQCCountries[2].setDisable(true);
@@ -3311,7 +3311,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 //						break;
 //				}
 			}
-			else if(getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+			else if(getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 			{
 				extQCCountries[2].setDisable(false);
 				extQCCountries[7].setDisable(false);

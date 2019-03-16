@@ -57,15 +57,17 @@ public class GlobalVariables
 	
 	public enum GAMEMODE { CLASSIC_GAMEMODE, TIME_ATTACK_GAMEMODE, ENDLESS_GAMEMODE }
 	
-	public static final double TEXT_SCALE_ANIMATION_TIME = 4000.0;
-	public static final int NO_ANIMATIONS = 0, LIMITED_ANIMATIONS = 1, ALL_ANIMATIONS = 2;
+	public enum ANIMATIONS { NO, LIMITED, ALL }
+	public static ANIMATIONS animationsUsed;
 	
-	public static final byte DIFFICULTY_EASY = 0, DIFFICULTY_DIFFICULT = 1;
+	public enum DIFFICULTY { EASY, DIFFICULT }
+	
+	public static final double TEXT_SCALE_ANIMATION_TIME = 4000.0;
+	
 	public static final int NUM_OF_QUESTIONS_FOR_CLASSIC_10 = 10, NUM_OF_QUESTIONS_FOR_CLASSIC_20 = 20, NUM_OF_QUESTIONS_FOR_CLASSIC_50 = 50, NUM_OF_QUESTIONS_FOR_CLASSIC_100 = 100;
 	public static final int TIME_ATTACK_DURATION_1_MINUTE = 1, TIME_ATTACK_DURATION_2_MINUTES = 2, TIME_ATTACK_DURATION_5_MINUTES = 5, TIME_ATTACK_DURATION_10_MINUTES = 10;
 	public static final int ENDLESS_LIVES_1 = 1, ENDLESS_LIVES_3 = 3, ENDLESS_LIVES_5 = 5;
 	
-	public static int animationsUsed;
 	public static boolean fullScreenMode, startAtFullScreen, minimizedMode, hasNotInitializedWindowedMode;
 	
 	public static final int MAX_WIDTH_FOR_X250_IMAGES = 280, MAX_WIDTH_FOR_X500_IMAGES = 550, MAX_WIDTH_FOR_X1000_IMAGES = 1200;
@@ -76,11 +78,11 @@ public class GlobalVariables
 		else return LANGUAGE.ENGLISH;
 	}
 	
-	public static int getDifficultyLevel()
+	public static DIFFICULTY getDifficultyLevel()
 	{
 		return getCurrentPlayer().getDifficultyLevel();
 	}
-	public static void setDifficultyLevel(int difficultyLevel)
+	public static void setDifficultyLevel(DIFFICULTY difficultyLevel)
 	{
 		getCurrentPlayer().setDifficultyLevel(difficultyLevel);
 	}
@@ -256,7 +258,7 @@ public class GlobalVariables
 	public static void minimizeGame(Pane anchorPane)
 	{
 		playMinimizeSound();
-		if(OS == OsCheck.OSType.Windows && animationsUsed != NO_ANIMATIONS)
+		if(OS == OsCheck.OSType.Windows && animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForAnchorPane.setNode(anchorPane);
 			scaleTransitionForAnchorPane.setToX(0);
@@ -283,7 +285,7 @@ public class GlobalVariables
 	{
 		playMaximizeSound();
 		stage.setIconified(false);
-		if(OS == OsCheck.OSType.Windows && animationsUsed != NO_ANIMATIONS)
+		if(OS == OsCheck.OSType.Windows && animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForAnchorPane.setNode(anchorPane);
 			scaleTransitionForAnchorPane.setToX(1);
@@ -305,7 +307,7 @@ public class GlobalVariables
 
 	public static void exitGame(Pane anchorPane)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForAnchorPane.setNode(anchorPane);
 			scaleTransitionForAnchorPane.setToX(0);

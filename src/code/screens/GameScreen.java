@@ -1041,7 +1041,7 @@ public class GameScreen extends CoreScreen
 		timelineToShowPopUpMessage = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						scaleTransitionForPopUpMessage.setToX(1);
 						scaleTransitionForPopUpMessage.setToY(1);
@@ -1057,7 +1057,7 @@ public class GameScreen extends CoreScreen
 				}),
 				new KeyFrame(Duration.seconds(2.5), e ->
 				{
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						scaleTransitionForPopUpMessage.setToX(0);
 						scaleTransitionForPopUpMessage.setToY(0);
@@ -1074,7 +1074,7 @@ public class GameScreen extends CoreScreen
 		
 		setupListeners();
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			setupLimitedAnimations();
 		}
@@ -1112,7 +1112,7 @@ public class GameScreen extends CoreScreen
 		{
 			vBoxForPausedGame.setDisable(true);
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				playButtonClickSound();
 				
@@ -1155,7 +1155,7 @@ public class GameScreen extends CoreScreen
 			playButtonClickSound();
 			playRewindSound();
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				translateTransitionFoVBoxForPausedGame.setToY(-1.0 * (vBoxForPausedGame.getLayoutY() + vBoxForPausedGame.getPrefHeight() + 20));
 				
@@ -1190,7 +1190,7 @@ public class GameScreen extends CoreScreen
 			
 			stopAllTimers();
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				timelineToHideAllStuffFromGameScreen.setOnFinished(ev -> gamePropertiesScreen.showScreen(false));
 				timelineToHideAllStuffFromGameScreen.playFromStart();
@@ -1207,7 +1207,7 @@ public class GameScreen extends CoreScreen
 			
 			stopAllTimers();
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				timelineToHideAllStuffFromGameScreen.setOnFinished(ev -> {});
 				timelineToHideAllStuffFromGameScreen.playFromStart();
@@ -1225,7 +1225,7 @@ public class GameScreen extends CoreScreen
 			playButtonClickSound();
 			
 			nextQuestionButton.setDisable(true);
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForVBoxForNextQuestion.setToX(0);
 				scaleTransitionForVBoxForNextQuestion.setToY(0);
@@ -1258,7 +1258,7 @@ public class GameScreen extends CoreScreen
 			
 			setInitialStateForAllNodes();
 			
-			if(animationsUsed != NO_ANIMATIONS) timelineToShowAllStuff.playFromStart();
+			if(animationsUsed != ANIMATIONS.NO) timelineToShowAllStuff.playFromStart();
 		});
 		
 		returnToWelcomeScreenFromFinishedGameScreenButton.setOnMouseEntered(e -> playHoverSound());
@@ -1274,7 +1274,7 @@ public class GameScreen extends CoreScreen
 			
 			removeBlurEffect();
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				timelineToHideAllStuffFromFinishedGameScreen.setOnFinished(ev -> {});
 				timelineToHideAllStuffFromFinishedGameScreen.playFromStart();
@@ -1492,7 +1492,7 @@ public class GameScreen extends CoreScreen
 			{
 				setSoundIcon(soundIcon, true);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToShowSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
 					if(OS == OsCheck.OSType.Windows)
@@ -1509,7 +1509,7 @@ public class GameScreen extends CoreScreen
 			{
 				setSoundIcon(soundIcon, false);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToHideSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 				else
 				{
 					if (OS == OsCheck.OSType.Windows) vBoxForSound.setTranslateX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
@@ -1542,7 +1542,7 @@ public class GameScreen extends CoreScreen
 	
 	private void hideAnimations()
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			timelineForScoreAnimated.stop();
 			timelineForScoreAnimated.playFrom(Duration.millis(2100));
@@ -1572,7 +1572,7 @@ public class GameScreen extends CoreScreen
 				new KeyFrame(Duration.millis(10), e -> setMillisecondsPassed(getMillisecondsPassed() + 10)));
 		timelineToCountMilliseconds.setCycleCount(Animation.INDEFINITE);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			timelineToShowNumberOfQuestion = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
@@ -1813,7 +1813,7 @@ public class GameScreen extends CoreScreen
 				
 				imageViewForLargeHeart.setImage(HEART_ICON_BIG);
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					scaleTransitionForImageViewForLargeHeart.setToX(10);
 					scaleTransitionForImageViewForLargeHeart.setToY(10);
@@ -1835,7 +1835,7 @@ public class GameScreen extends CoreScreen
 			{
 				removeBlurEffect();
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					scaleTransitionForImageViewForLargeHeart.setToX(1);
 					scaleTransitionForImageViewForLargeHeart.setToY(1);
@@ -1853,7 +1853,7 @@ public class GameScreen extends CoreScreen
 			}),
 			new KeyFrame(Duration.millis(1300), e ->
 			{
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					imageViewForLives[getRemainingLivesForEndless()].setImage(HEART_ICON_LOST_SMALL);
 					
@@ -1984,7 +1984,7 @@ public class GameScreen extends CoreScreen
 					   (getDurationInMinutesForTimeAttack() == 5 || getDurationInMinutesForTimeAttack() == 10) && getRemainingSecondsForTimeAttack() == 30)
 							playClockTickingSound();
 					
-					if (animationsUsed != NO_ANIMATIONS)
+					if (animationsUsed != ANIMATIONS.NO)
 					{
 						scaleTransitionForTextForCountdown.setToX(1.5);
 						scaleTransitionForTextForCountdown.setToY(1.5);
@@ -1994,7 +1994,7 @@ public class GameScreen extends CoreScreen
 				}
 			}), new KeyFrame(Duration.millis(500), e ->
 			{
-				if (animationsUsed != NO_ANIMATIONS && ((getDurationInMinutesForTimeAttack() == 1 || getDurationInMinutesForTimeAttack() == 2) && getRemainingSecondsForTimeAttack() <= 16 ||
+				if (animationsUsed != ANIMATIONS.NO && ((getDurationInMinutesForTimeAttack() == 1 || getDurationInMinutesForTimeAttack() == 2) && getRemainingSecondsForTimeAttack() <= 16 ||
 				                                        (getDurationInMinutesForTimeAttack() == 5 || getDurationInMinutesForTimeAttack() == 10) && getRemainingSecondsForTimeAttack() <= 31))
 				{
 					scaleTransitionForTextForCountdown.setToX(0);
@@ -2002,7 +2002,7 @@ public class GameScreen extends CoreScreen
 					
 					scaleTransitionForTextForCountdown.playFromStart();
 				}
-				else if (animationsUsed == NO_ANIMATIONS && getRemainingSecondsForTimeAttack() == 0)
+				else if (animationsUsed == ANIMATIONS.NO && getRemainingSecondsForTimeAttack() == 0)
 				{
 					textForCountdown.setScaleX(0);
 					textForCountdown.setScaleY(0);
@@ -2037,7 +2037,7 @@ public class GameScreen extends CoreScreen
 				
 				if (currentSecond <= 3) playPopUpSound();
 				
-				if (animationsUsed != NO_ANIMATIONS)
+				if (animationsUsed != ANIMATIONS.NO)
 				{
 					if (currentSecond <= 3)
 					{
@@ -2054,14 +2054,14 @@ public class GameScreen extends CoreScreen
 				}
 			}), new KeyFrame(Duration.millis(500), e ->
 			{
-				if (animationsUsed != NO_ANIMATIONS)
+				if (animationsUsed != ANIMATIONS.NO)
 				{
 					scaleTransitionForTextForCountdown.setToX(0);
 					scaleTransitionForTextForCountdown.setToY(0);
 					
 					scaleTransitionForTextForCountdown.playFromStart();
 				}
-				else if (animationsUsed == NO_ANIMATIONS && textForCountdown.getText().equals("0"))
+				else if (animationsUsed == ANIMATIONS.NO && textForCountdown.getText().equals("0"))
 				{
 					textForCountdown.setScaleX(0);
 					textForCountdown.setScaleY(0);
@@ -2108,7 +2108,7 @@ public class GameScreen extends CoreScreen
 					
 					if(getCombo() > 1)
 					{
-						if(animationsUsed != NO_ANIMATIONS)
+						if(animationsUsed != ANIMATIONS.NO)
 						{
 							scaleTransitionForTextForCombo.setDuration(Duration.millis(300));
 							scaleTransitionForTextForCombo.setCycleCount(1);
@@ -2756,7 +2756,7 @@ public class GameScreen extends CoreScreen
 					scaleTransitionForTitleLabelForFinishedGame.setToX(0.95);
 					scaleTransitionForTitleLabelForFinishedGame.setToY(0.95);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev ->
 						{
@@ -2948,7 +2948,7 @@ public class GameScreen extends CoreScreen
 		
 		mainScene.setRoot(anchorPane);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 			timelineToShowAllStuff.playFromStart();
 	}
 	
@@ -3062,7 +3062,7 @@ public class GameScreen extends CoreScreen
 		setupTimers();
 		
 		//SETUP POSITIONS BASED ON ANIMATIONS-------------------------------------------------------------
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			woodPanelFor5IconsImage.setTranslateY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
 			
@@ -3394,7 +3394,7 @@ public class GameScreen extends CoreScreen
 		
 		updateStrings();
 		
-		if(animationsUsed == NO_ANIMATIONS) questionMaker.decideNextQuestion();
+		if(animationsUsed == ANIMATIONS.NO) questionMaker.decideNextQuestion();
 	}
 	
 	private void updateStrings()
@@ -3565,7 +3565,7 @@ public class GameScreen extends CoreScreen
 		
 		comboAnimated.setLayoutX(stage.getWidth() / 2.0 - comboAnimated.getBoundsInLocal().getWidth() / 2.0);
 		
-		if(animationsUsed != NO_ANIMATIONS) timelineForComboAnimated.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timelineForComboAnimated.playFromStart();
 		else timelineForComboNoAnimated.playFromStart();
 	}
 	
@@ -3749,7 +3749,7 @@ public class GameScreen extends CoreScreen
 		progressBarForCountdown.setId("normal");
 		progressBarForCountdown.setProgress(1);
 		
-		if(animationsUsed == NO_ANIMATIONS)
+		if(animationsUsed == ANIMATIONS.NO)
 		{
 			textForCountdown.setScaleX(1);
 			textForCountdown.setScaleY(1);
@@ -3770,7 +3770,7 @@ public class GameScreen extends CoreScreen
 		
 		stopClockTickingSound();
 		
-		if(animationsUsed != NO_ANIMATIONS) timelineToCloseTextForCountdown.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timelineToCloseTextForCountdown.playFromStart();
 		else
 		{
 			textForCountdown.setScaleX(0);
@@ -3780,7 +3780,7 @@ public class GameScreen extends CoreScreen
 	
 	private void startTimeAttackCountdown()
 	{
-		if(animationsUsed == NO_ANIMATIONS)
+		if(animationsUsed == ANIMATIONS.NO)
 		{
 			textForCountdown.setScaleX(1);
 			textForCountdown.setScaleY(1);
@@ -3823,7 +3823,7 @@ public class GameScreen extends CoreScreen
 			
 			vBoxForNextQuestionButtonAndProgressBar.setVisible(true);
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForVBoxForNextQuestion.setToX(1);
 				scaleTransitionForVBoxForNextQuestion.setToY(1);
@@ -3958,7 +3958,7 @@ public class GameScreen extends CoreScreen
 		
 		if(!imageViewForQuestionImage.isVisible())
 		{
-			if (animationsUsed != NO_ANIMATIONS)
+			if (animationsUsed != ANIMATIONS.NO)
 			{
 				imageViewForQuestionImage.setVisible(true);
 				
@@ -3975,7 +3975,7 @@ public class GameScreen extends CoreScreen
 	{
 		if(imageViewForQuestionImage.isVisible())
 		{
-			if (animationsUsed != NO_ANIMATIONS)
+			if (animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForQuestionImage.setToX(0);
 				scaleTransitionForQuestionImage.setToY(0);
@@ -3996,7 +3996,7 @@ public class GameScreen extends CoreScreen
 	{
 		if(!gridPaneFor2TextAnswers.isVisible())
 		{
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				if(gridPaneFor4TextAnswers.isVisible())
 				{
@@ -4082,7 +4082,7 @@ public class GameScreen extends CoreScreen
 				pauseGameIcon.setDisable(false);
 			}
 		}
-		else if(animationsUsed != NO_ANIMATIONS) timelineToShow2TextAnswers.playFromStart();
+		else if(animationsUsed != ANIMATIONS.NO) timelineToShow2TextAnswers.playFromStart();
 		else
 		{
 			startTimers();
@@ -4094,7 +4094,7 @@ public class GameScreen extends CoreScreen
 	{
 		if(!gridPaneFor4TextAnswers.isVisible())
 		{
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				if(gridPaneFor2TextAnswers.isVisible())
 				{
@@ -4180,7 +4180,7 @@ public class GameScreen extends CoreScreen
 				pauseGameIcon.setDisable(false);
 			}
 		}
-		else if(animationsUsed != NO_ANIMATIONS) timelineToShow4TextAnswers.playFromStart();
+		else if(animationsUsed != ANIMATIONS.NO) timelineToShow4TextAnswers.playFromStart();
 		else
 		{
 			startTimers();
@@ -4192,7 +4192,7 @@ public class GameScreen extends CoreScreen
 	{
 		if(!stackPaneFor4ImageAnswers.isVisible())
 		{
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				if(gridPaneFor2TextAnswers.isVisible())
 				{
@@ -4278,7 +4278,7 @@ public class GameScreen extends CoreScreen
 				pauseGameIcon.setDisable(false);
 			}
 		}
-		else if(animationsUsed != NO_ANIMATIONS) timelineToShow4ImageAnswers.playFromStart();
+		else if(animationsUsed != ANIMATIONS.NO) timelineToShow4ImageAnswers.playFromStart();
 		else
 		{
 			startTimers();
@@ -4293,7 +4293,7 @@ public class GameScreen extends CoreScreen
 		addBlurEffect();
 		
 		vBoxForPausedGame.setVisible(true);
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForTextForCombo.pause();
 			
@@ -4370,7 +4370,7 @@ public class GameScreen extends CoreScreen
 		textForResults.setText(getResultsMessage());
 		textForResults2.setText(getResults2Message());
 		
-		if(animationsUsed != NO_ANIMATIONS) timelineToFinishGame.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timelineToFinishGame.playFromStart();
 		else
 		{
 			pauseGameIcon.setVisible(false);
@@ -4430,23 +4430,23 @@ public class GameScreen extends CoreScreen
 		}
 		else if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
-			return !(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 8 ||
-					getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 4 ||
-					getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 16 ||
-					getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 8 ||
-					getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 35 ||
-					getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 25 ||
-					getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 60 ||
-					getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 40);
+			return !(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 8 ||
+					getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 4 ||
+					getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 16 ||
+					getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 8 ||
+					getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 35 ||
+					getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 25 ||
+					getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 60 ||
+					getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 40);
 		}
 		else
 		{
-			return !(getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 10 ||
-					getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 5 ||
-					getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 30 ||
-					getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 15 ||
-					getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 45 ||
-					getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 25);
+			return !(getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 10 ||
+					getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 5 ||
+					getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 30 ||
+					getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 15 ||
+					getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 45 ||
+					getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 25);
 		}
 	}
 	
@@ -4577,27 +4577,27 @@ public class GameScreen extends CoreScreen
 		}
 		else if(gameMode == GAMEMODE.TIME_ATTACK_GAMEMODE)
 		{
-			if(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 8 ||
-			   getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 4 ||
-			   getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 16 ||
-			   getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 8 ||
-			   getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 35 ||
-			   getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 25 ||
-			   getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 60 ||
-			   getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 40)
+			if(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 8 ||
+			   getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 4 ||
+			   getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 16 ||
+			   getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 8 ||
+			   getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 35 ||
+			   getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 25 ||
+			   getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 60 ||
+			   getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 40)
 			{
 				if(getCorrectAnswers() == 0) return languageResourceBundle.getString("finishedTimeAttack0");
 				else if(getCorrectAnswers() == 1) return String.format(languageResourceBundle.getString("finishedTimeAttack1"), getScorePoints());
 				else return String.format(languageResourceBundle.getString("finishedTimeAttack2"), getCorrectAnswers(), getScorePoints());
 			}
-			else if(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 12 ||
-			        getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 8 ||
-			        getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 24 ||
-			        getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 15 ||
-			        getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 50 ||
-			        getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 30 ||
-			        getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 100 ||
-			        getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 60)
+			else if(getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 12 ||
+			        getDurationInMinutesForTimeAttack() == 1 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 8 ||
+			        getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 24 ||
+			        getDurationInMinutesForTimeAttack() == 2 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 15 ||
+			        getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 50 ||
+			        getDurationInMinutesForTimeAttack() == 5 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 30 ||
+			        getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 100 ||
+			        getDurationInMinutesForTimeAttack() == 10 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 60)
 				return String.format(languageResourceBundle.getString("finishedTimeAttack3"), getCorrectAnswers(), getScorePoints());
 			else return String.format(languageResourceBundle.getString("finishedTimeAttack4"), getCorrectAnswers(), getScorePoints());
 		}
@@ -4611,12 +4611,12 @@ public class GameScreen extends CoreScreen
 			else if(getCorrectAnswers() == 1) return String.format(languageResourceBundle.getString("finishedEndless2"), getCurrentQuestionNumber(), getScorePoints());
 			else
 			{
-				if(getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 10 ||
-				   getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 5 ||
-				   getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 30 ||
-				   getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 15 ||
-				   getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY_EASY && getCorrectAnswers() < 45 ||
-				   getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY_DIFFICULT && getCorrectAnswers() < 25)
+				if(getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 10 ||
+				   getLivesForEndless() == 1 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 5 ||
+				   getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 30 ||
+				   getLivesForEndless() == 3 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 15 ||
+				   getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY.EASY && getCorrectAnswers() < 45 ||
+				   getLivesForEndless() == 5 && getDifficultyLevel() == DIFFICULTY.DIFFICULT && getCorrectAnswers() < 25)
 						return String.format(languageResourceBundle.getString("finishedEndless3"), getCorrectAnswers(), getCurrentQuestionNumber(), getScorePoints());
 				else return String.format(languageResourceBundle.getString("finishedEndless4"), getCorrectAnswers(), getCurrentQuestionNumber(), getScorePoints());
 			}
@@ -4674,7 +4674,7 @@ public class GameScreen extends CoreScreen
 		
 		timelineForLifeLostAnimation.playFromStart();
 		
-		if(animationsUsed == NO_ANIMATIONS) imageViewForLives[getRemainingLivesForEndless()].setImage(HEART_ICON_LOST_SMALL);
+		if(animationsUsed == ANIMATIONS.NO) imageViewForLives[getRemainingLivesForEndless()].setImage(HEART_ICON_LOST_SMALL);
 	}
 	
 	private void prepareForNextQuestion()
@@ -4682,10 +4682,10 @@ public class GameScreen extends CoreScreen
 		setCurrentQuestionNumber(getCurrentQuestionNumber() + 1);
 		updateScoreText();
 		
-		if(animationsUsed != NO_ANIMATIONS) timelineToShowNumberOfQuestion.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timelineToShowNumberOfQuestion.playFromStart();
 		else updateQuestionNumberText();
 		
-		if (animationsUsed != NO_ANIMATIONS)
+		if (animationsUsed != ANIMATIONS.NO)
 		{
 			if (gridPaneFor2TextAnswers.isVisible())
 			{
@@ -4831,13 +4831,13 @@ public class GameScreen extends CoreScreen
 		
 		scoreAnimated.setLayoutX(stage.getWidth() / 2.0 - scoreAnimated.getLayoutBounds().getWidth() / 2.0);
 		
-		if(animationsUsed != NO_ANIMATIONS) timelineForScoreAnimated.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timelineForScoreAnimated.playFromStart();
 		else timelineForScoreNoAnimated.playFromStart();
 	}
 	
 	private void showNextQuestionNodes(boolean showQuestionImage, int answers)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForTextForQuestion.setToX(1);
 			scaleTransitionForTextForQuestion.setToY(1);
@@ -4860,7 +4860,7 @@ public class GameScreen extends CoreScreen
 	{
 		if(getCombo() > 1)
 		{
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForTextForCombo.stop();
 				
@@ -4934,7 +4934,7 @@ public class GameScreen extends CoreScreen
 				{
 					correctAnswerReaction();
 					
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						imageViewForLargeAnswerIcon.setImage(CORRECT_ICON_BIG);
 						
@@ -4987,7 +4987,7 @@ public class GameScreen extends CoreScreen
 						
 						hintToCorrectAnswer();
 						
-						if (animationsUsed != NO_ANIMATIONS)
+						if (animationsUsed != ANIMATIONS.NO)
 						{
 							scaleTransitionForAnswerIconsFor2TextAnswers[1 - corPos].setToX(1);
 							scaleTransitionForAnswerIconsFor2TextAnswers[1 - corPos].setToY(1);
@@ -5005,7 +5005,7 @@ public class GameScreen extends CoreScreen
 					{
 						wrongAnswerReaction();
 						
-						if(animationsUsed != NO_ANIMATIONS)
+						if(animationsUsed != ANIMATIONS.NO)
 						{
 							imageViewForLargeAnswerIcon.setImage(INCORRECT_ICON_BIG);
 							
@@ -5060,7 +5060,7 @@ public class GameScreen extends CoreScreen
 				{
 					correctAnswerReaction();
 					
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						imageViewForLargeAnswerIcon.setImage(CORRECT_ICON_BIG);
 						
@@ -5119,7 +5119,7 @@ public class GameScreen extends CoreScreen
 						
 						hintToCorrectAnswer();
 						
-						if (animationsUsed != NO_ANIMATIONS)
+						if (animationsUsed != ANIMATIONS.NO)
 						{
 							scaleTransitionForAnswerIconsFor4TextAnswers[index].setToX(1);
 							scaleTransitionForAnswerIconsFor4TextAnswers[index].setToY(1);
@@ -5137,7 +5137,7 @@ public class GameScreen extends CoreScreen
 					{
 						wrongAnswerReaction();
 						
-						if(animationsUsed != NO_ANIMATIONS)
+						if(animationsUsed != ANIMATIONS.NO)
 						{
 							imageViewForLargeAnswerIcon.setImage(INCORRECT_ICON_BIG);
 							
@@ -5193,7 +5193,7 @@ public class GameScreen extends CoreScreen
 					
 					answerIconsFor4ImageAnswers[corPos].setImage(CORRECT_ICON_BIG);
 					
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						scaleTransitionForAnswerIconsFor4ImageAnswers[corPos].setToX(1);
 						scaleTransitionForAnswerIconsFor4ImageAnswers[corPos].setToY(1);
@@ -5216,7 +5216,7 @@ public class GameScreen extends CoreScreen
 					
 					answerIconsFor4ImageAnswers[index].setImage(INCORRECT_ICON_BIG);
 					
-					if(animationsUsed != NO_ANIMATIONS)
+					if(animationsUsed != ANIMATIONS.NO)
 					{
 						scaleTransitionForAnswerIconsFor4ImageAnswers[index].setToX(1);
 						scaleTransitionForAnswerIconsFor4ImageAnswers[index].setToY(1);
@@ -5266,7 +5266,7 @@ public class GameScreen extends CoreScreen
 			{
 				answerIconsFor4ImageAnswers[questionMaker.getPositionOfCorrectAnswer()].setImage(CORRECT_ICON_BIG);
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					scaleTransitionForAnswerIconsFor4ImageAnswers[questionMaker.getPositionOfCorrectAnswer()].setToX(1);
 					scaleTransitionForAnswerIconsFor4ImageAnswers[questionMaker.getPositionOfCorrectAnswer()].setToY(1);
@@ -5341,11 +5341,11 @@ public class GameScreen extends CoreScreen
 					{
 						if (availableQuestionsArray[COUNTRIES_CAPITALS] == null) availableQuestionsArray[COUNTRIES_CAPITALS] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askCapital() == 1) availableQuestionsArray[COUNTRIES_CAPITALS].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askCapital() == 2) availableQuestionsArray[COUNTRIES_CAPITALS].add(y);
 						}
@@ -5356,11 +5356,11 @@ public class GameScreen extends CoreScreen
 						
 						if (availableQuestionsArray[CONTINENTS_CITIES] == null) availableQuestionsArray[CONTINENTS_CITIES] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askLargestCity() == 1) availableQuestionsArray[COUNTRIES_CITIES].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askLargestCity() == 2) availableQuestionsArray[COUNTRIES_CITIES].add(y);
 						}
@@ -5377,11 +5377,11 @@ public class GameScreen extends CoreScreen
 					{
 						if (availableQuestionsArray[COUNTRIES_CURRENCY] == null) availableQuestionsArray[COUNTRIES_CURRENCY] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askCurrency() == 1) availableQuestionsArray[COUNTRIES_CURRENCY].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askCurrency() == 2) availableQuestionsArray[COUNTRIES_CURRENCY].add(y);
 						}
@@ -5392,21 +5392,21 @@ public class GameScreen extends CoreScreen
 						
 						if (availableQuestionsArray[CONTINENTS_POPULATION] == null) availableQuestionsArray[CONTINENTS_POPULATION] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_POPULATION].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (!countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_POPULATION].add(y);
 						}
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							availableQuestionsArray[CONTINENTS_POPULATION].add(1);
 							availableQuestionsArray[CONTINENTS_POPULATION].add(2);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							availableQuestionsArray[CONTINENTS_POPULATION].add(3);
 							availableQuestionsArray[CONTINENTS_POPULATION].add(4);
@@ -5420,21 +5420,21 @@ public class GameScreen extends CoreScreen
 						
 						if (availableQuestionsArray[CONTINENTS_AREA] == null) availableQuestionsArray[CONTINENTS_AREA] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_AREA].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (!countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_AREA].add(y);
 						}
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							availableQuestionsArray[CONTINENTS_AREA].add(1);
 							availableQuestionsArray[CONTINENTS_AREA].add(2);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							availableQuestionsArray[CONTINENTS_AREA].add(0);
 							availableQuestionsArray[CONTINENTS_AREA].add(3);
@@ -5449,11 +5449,11 @@ public class GameScreen extends CoreScreen
 						
 						if (availableQuestionsArray[CONTINENTS_LARGEST_COUNTRIES] == null) availableQuestionsArray[CONTINENTS_LARGEST_COUNTRIES] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askContinent() == 1) availableQuestionsArray[CONTINENTS_COUNTRIES].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askContinent() == 2) availableQuestionsArray[CONTINENTS_COUNTRIES].add(y);
 						}
@@ -5477,12 +5477,12 @@ public class GameScreen extends CoreScreen
 					{
 						if (availableQuestionsArray[COUNTRIES_FLAGS] == null) availableQuestionsArray[COUNTRIES_FLAGS] = new ArrayList<>();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++)
 							{ if (countries[y].hasEasyFlag()) availableQuestionsArray[COUNTRIES_FLAGS].add(y); }
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++)
 							{ if (!countries[y].hasEasyFlag()) availableQuestionsArray[COUNTRIES_FLAGS].add(y); }
@@ -5505,12 +5505,12 @@ public class GameScreen extends CoreScreen
 						if (availableQuestionsArray[CONTINENTS_LOCATION] == null) availableQuestionsArray[CONTINENTS_LOCATION] = new ArrayList<>();
 						else availableQuestionsArray[CONTINENTS_LOCATION].clear();
 						
-						if (getDifficultyLevel() == DIFFICULTY_EASY)
+						if (getDifficultyLevel() == DIFFICULTY.EASY)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_LOCATION].add(y);
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askGeographicalCharacteristics() == 1) availableQuestionsArray[COUNTRIES_LOCATION_ALTERNATIVE].add(y);
 						}
-						else if (getDifficultyLevel() == DIFFICULTY_DIFFICULT)
+						else if (getDifficultyLevel() == DIFFICULTY.DIFFICULT)
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (!countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_LOCATION].add(y);
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askGeographicalCharacteristics() == 2) availableQuestionsArray[COUNTRIES_LOCATION_ALTERNATIVE].add(y);
@@ -5532,8 +5532,8 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getDifficultyLevel() == DIFFICULTY_EASY) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaEasy.data"), "UTF-8");
-						else if(getDifficultyLevel() == DIFFICULTY_DIFFICULT) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaDifficult.data"), "UTF-8");
+						if(getDifficultyLevel() == DIFFICULTY.EASY) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaEasy.data"), "UTF-8");
+						else if(getDifficultyLevel() == DIFFICULTY.DIFFICULT) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaDifficult.data"), "UTF-8");
 						
 						while(input.hasNext())
 						{
@@ -5728,7 +5728,7 @@ public class GameScreen extends CoreScreen
 			else if(index == CAT_CONTINENT_COUNTRY_LOCATION)
 			{
 				int y;
-				if(getDifficultyLevel() != DIFFICULTY_DIFFICULT)
+				if(getDifficultyLevel() != DIFFICULTY.DIFFICULT)
 				{
 					y = random.nextInt(10);
 					if ((y > 3 || availableQuestionsArray[COUNTRIES_LOCATION_ALTERNATIVE].isEmpty() && availableQuestionsArray[CONTINENTS_LOCATION].isEmpty()) &&
@@ -5866,7 +5866,7 @@ public class GameScreen extends CoreScreen
 			availableQuestionsArray[COUNTRIES_CITIES].remove(0);
 			
 			int y;
-			if(getDifficultyLevel() == DIFFICULTY_EASY) y = 0;
+			if(getDifficultyLevel() == DIFFICULTY.EASY) y = 0;
 			else y = random.nextInt(3); // decide to ask largest, or 2nd largest, or 3rd
 			
 			easyQuestion = countries[correctIndex].askLargestCity() == 1 || y == 0;

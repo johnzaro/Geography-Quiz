@@ -178,10 +178,18 @@ public class FilesIO
 						if(unitSystem == 0) unS = UNIT_SYSTEM.METRIC;
 						else unS = UNIT_SYSTEM.IMPERIAL;
 						
-						tempPlayer.setPlayerSettings(locale, localeIndex, lan, unS, difficulty, numForClassic, timerClassic,
-								duration, lives, timerEndless, masterSliderVolume, musicSliderVolume, soundEffectsSliderVolume, windowWidth, animationsUsed, startAtFullScreen);
+						ANIMATIONS an;
+						if(animationsUsed == 0) an = ANIMATIONS.NO;
+						else if(animationsUsed == 1) an = ANIMATIONS.LIMITED;
+						else an = ANIMATIONS.ALL;
+						
+						DIFFICULTY df;
+						if(difficulty == 0) df = DIFFICULTY.EASY;
+						else df = DIFFICULTY.DIFFICULT;
+						
+						tempPlayer.setPlayerSettings(locale, localeIndex, lan, unS, df, numForClassic, timerClassic,
+								duration, lives, timerEndless, masterSliderVolume, musicSliderVolume, soundEffectsSliderVolume, windowWidth, an, startAtFullScreen);
 					}
-					
 					playersArrayList.add(tempPlayer);
 				}
 			}
@@ -251,7 +259,12 @@ public class FilesIO
 						case IMPERIAL: player.addContent(new Element("unitSystem").setText("1")); break;
 					}
 					
-					player.addContent(new Element("difficultyLevel").setText(String.valueOf(newPlayer.getDifficultyLevel())));
+					switch(newPlayer.getDifficultyLevel())
+					{
+						case EASY: player.addContent(new Element("difficultyLevel").setText("0")); break;
+						case DIFFICULT: player.addContent(new Element("difficultyLevel").setText("1")); break;
+					}
+					
 					player.addContent(new Element("numOfQuestionsInClassicMode").setText(String.valueOf(newPlayer.getNumberOfQuestionsInClassicalMode())));
 					player.addContent(new Element("durationForTimeAttackMode").setText(String.valueOf(newPlayer.getDurationForTimeAttackMode())));
 					player.addContent(new Element("livesForEndlessMode").setText(String.valueOf(newPlayer.getLivesForEndlessMode())));
@@ -269,7 +282,13 @@ public class FilesIO
 					settingsElement.addContent(new Element("soundEffectsVolume").setText(String.valueOf((int) newPlayer.getSoundEffectsSliderVolume())));
 					settingsElement.addContent(new Element("windowWidth").setText(String.valueOf((int) newPlayer.getWindowWidth())));
 					settingsElement.addContent(new Element("startAtFullScreen").setText(String.valueOf(newPlayer.getStartAtFullScreen())));
-					settingsElement.addContent(new Element("animationsUsed").setText(String.valueOf(newPlayer.getAnimationsUsed())));
+					
+					switch(newPlayer.getAnimationsUsed())
+					{
+						case NO: settingsElement.addContent(new Element("animationsUsed").setText("0")); break;
+						case LIMITED: settingsElement.addContent(new Element("animationsUsed").setText("1")); break;
+						case ALL: settingsElement.addContent(new Element("animationsUsed").setText("2")); break;
+					}
 					player.addContent(settingsElement);
 					
 					namesElement.addContent(player);
@@ -328,7 +347,12 @@ public class FilesIO
 				
 				game.setIsCountdownEnabled(Boolean.parseBoolean(gameElement.getChildText("isCountdownEnabled")));
 				
-				game.setDifficultyLevel(Integer.parseInt(gameElement.getChildText("difficultyLevel")));
+				switch(Integer.parseInt(gameElement.getChildText("difficultyLevel")))
+				{
+					case 0: game.setDifficultyLevel(DIFFICULTY.EASY);break;
+					case 1: game.setDifficultyLevel(DIFFICULTY.DIFFICULT);break;
+				}
+				
 				game.setNumberOfAllQuestions(Integer.parseInt(gameElement.getChildText("numberOfAllQuestions")));
 				game.setNumberOfCorrectQuestions(Integer.parseInt(gameElement.getChildText("numberOfCorrectQuestions")));
 				game.setScorePoints(Integer.parseInt(gameElement.getChildText("scorePoints")));
@@ -389,8 +413,11 @@ public class FilesIO
 				gameElement.addContent(new Element("isCountdownEnabled").setText(
 							String.valueOf(game.isCountdownEnabled())));
 				
-				gameElement.addContent(new Element("difficultyLevel").setText(
-						String.valueOf(game.getDifficultyLevel())));
+				switch(game.getDifficultyLevel())
+				{
+					case EASY: gameElement.addContent(new Element("difficultyLevel").setText("0")); break;
+					case DIFFICULT: gameElement.addContent(new Element("difficultyLevel").setText("1")); break;
+				}
 				
 				gameElement.addContent(new Element("numberOfAllQuestions").setText(
 						String.valueOf(game.getNumberOfAllQuestions())));

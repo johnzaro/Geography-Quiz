@@ -1131,7 +1131,7 @@ public class WelcomeScreen extends CoreScreen
 		timelineToShowPopUpMessage = new Timeline(
           new KeyFrame(Duration.millis(0), e ->
           {
-              if(animationsUsed != NO_ANIMATIONS)
+              if(animationsUsed != ANIMATIONS.NO)
               {
                   scaleTransitionMessageAllDataDeleted.setToX(1);
                   scaleTransitionMessageAllDataDeleted.setToY(1);
@@ -1147,7 +1147,7 @@ public class WelcomeScreen extends CoreScreen
           }),
           new KeyFrame(Duration.seconds(2.5), e ->
           {
-              if(animationsUsed != NO_ANIMATIONS)
+              if(animationsUsed != ANIMATIONS.NO)
               {
                   scaleTransitionMessageAllDataDeleted.setToX(0);
                   scaleTransitionMessageAllDataDeleted.setToY(0);
@@ -1165,7 +1165,7 @@ public class WelcomeScreen extends CoreScreen
 		fadeInTransition = new FadeTransition(Duration.millis(800), anchorPane);
 		fadeInTransition.setToValue(1.0);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			setupLimitedAnimations();
 			
@@ -1182,7 +1182,7 @@ public class WelcomeScreen extends CoreScreen
 		if(firstTime)
 		{
 			hasNotInitializedWindowedMode = true;
-			if(animationsUsed != NO_ANIMATIONS) anchorPane.setOpacity(0);
+			if(animationsUsed != ANIMATIONS.NO) anchorPane.setOpacity(0);
 		}
 		
 		if (fullScreenMode) setFullScreenMode();
@@ -1267,7 +1267,7 @@ public class WelcomeScreen extends CoreScreen
 		popUpMessage.setScaleX(0);
 		popUpMessage.setScaleY(0);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			woodPanelFor4IconsImage.setTranslateY(-1.0 * (woodPanelFor4IconsImage.getLayoutY() + woodPanelFor4IconsImage.getBoundsInParent().getHeight()));
 			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
@@ -1390,13 +1390,13 @@ public class WelcomeScreen extends CoreScreen
 			if(newValue == null) toggleGroupForSegmentedButton.selectToggle(oldValue);
 			else
 			{
-				if(toggleGroupForSegmentedButton.getSelectedToggle() == noAnimationsToggleButton) animationsUsed = NO_ANIMATIONS;
-				else if(toggleGroupForSegmentedButton.getSelectedToggle() == limitedAnimationsToggleButton) animationsUsed = LIMITED_ANIMATIONS;
-				else animationsUsed = ALL_ANIMATIONS;
+				if(toggleGroupForSegmentedButton.getSelectedToggle() == noAnimationsToggleButton) animationsUsed = ANIMATIONS.NO;
+				else if(toggleGroupForSegmentedButton.getSelectedToggle() == limitedAnimationsToggleButton) animationsUsed = ANIMATIONS.LIMITED;
+				else animationsUsed = ANIMATIONS.ALL;
 				
 				getCurrentPlayer().setAnimationsUsed(animationsUsed);
 				
-				if (animationsUsed == ALL_ANIMATIONS)
+				if (animationsUsed == ANIMATIONS.ALL)
 				{
 					Thread globeThread = null;
 					if(animatedGlobe.length == 1)
@@ -1450,7 +1450,7 @@ public class WelcomeScreen extends CoreScreen
 				}
 				else
 				{
-					if(animationsUsed == LIMITED_ANIMATIONS && timelineToShowAllStuff == null)
+					if(animationsUsed == ANIMATIONS.LIMITED && timelineToShowAllStuff == null)
 					{
 						setupLimitedAnimations();
 						gamePropertiesScreen.setupLimitedAnimations();
@@ -1481,7 +1481,7 @@ public class WelcomeScreen extends CoreScreen
 			
 			savedNamesComboBox.getSelectionModel().select(0);
 			
-			if(animationsUsed != NO_ANIMATIONS) timelineToHideButtonsBoxAndShowNewNameBox.playFromStart();
+			if(animationsUsed != ANIMATIONS.NO) timelineToHideButtonsBoxAndShowNewNameBox.playFromStart();
 			else
 			{
 				vBoxForMainButtons.setVisible(false);
@@ -1531,7 +1531,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				getCurrentPlayer().setLanguage(LANGUAGE.ENGLISH);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToChangeLanguage.playFromStart();
+				if(animationsUsed != ANIMATIONS.NO) timelineToChangeLanguage.playFromStart();
 				else changeLanguage();
 			}
 		});
@@ -1547,7 +1547,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					getCurrentPlayer().setLanguage(LANGUAGE.GREEK);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToChangeLanguage.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToChangeLanguage.playFromStart();
 					else changeLanguage();
 				}
 			});
@@ -1567,7 +1567,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				playButtonClickSound();
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToHideNewNameBoxAndShowButtonsBox.playFromStart();
+				if(animationsUsed != ANIMATIONS.NO) timelineToHideNewNameBoxAndShowButtonsBox.playFromStart();
 				else hideNewNameBoxAndShowButtonsBoxNoAnimations();
 			});
 		
@@ -1588,7 +1588,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					setSoundIcon(soundIcon, true);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToShowSoundOptions.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.playFromStart();
 					else
 					{
 						vBoxForSound.setVisible(true);
@@ -1600,7 +1600,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					setSoundIcon(soundIcon, false);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToHideSoundOptions.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.playFromStart();
 					else
 					{
 						if(OS == OSType.Windows) vBoxForSound.setTranslateX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
@@ -1631,7 +1631,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					settingsIcon.setImage(SETTINGS_ICON_CLICKED);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToShowSettings.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToShowSettings.playFromStart();
 					else
 					{
 						welcomeLabel.setScaleX(0);
@@ -1665,7 +1665,7 @@ public class WelcomeScreen extends CoreScreen
 					
 					FilesIO.writePlayersFile();
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToHideSettings.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToHideSettings.playFromStart();
 					else
 					{
 						vBoxForSettings.setVisible(false);
@@ -1733,7 +1733,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					infoIcon.setImage(INFO_ICON_CLICKED);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToShowInformationAboutGame.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToShowInformationAboutGame.playFromStart();
 					else
 					{
 						welcomeLabel.setScaleX(0);
@@ -1762,7 +1762,7 @@ public class WelcomeScreen extends CoreScreen
 				{
 					infoIcon.setImage(INFO_ICON);
 					
-					if(animationsUsed != NO_ANIMATIONS) timelineToHideInformationAboutGame.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineToHideInformationAboutGame.playFromStart();
 					else
 					{
 						rectangleForInformationAboutGame.setVisible(false);
@@ -1797,7 +1797,7 @@ public class WelcomeScreen extends CoreScreen
 
 		leftGlobeImage.setOnMouseClicked(e ->
 			{
-				if (animationsUsed == ALL_ANIMATIONS)
+				if (animationsUsed == ANIMATIONS.ALL)
 				{
 					if (leftGlobeStatus == 1)
 					{
@@ -1822,7 +1822,7 @@ public class WelcomeScreen extends CoreScreen
 
 		rightGlobeImage.setOnMouseClicked(e ->
 			{
-				 if (animationsUsed == ALL_ANIMATIONS)
+				 if (animationsUsed == ANIMATIONS.ALL)
 				 {
 					 if (rightGlobeStatus == 1)
 					 {
@@ -1849,7 +1849,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				playButtonClickSound();
 
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					timelineToHideAllStuff.setOnFinished(ev -> gamePropertiesScreen.showScreen(true));
 					timelineToHideAllStuff.playFromStart();
@@ -1870,7 +1870,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				playButtonClickSound();
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					timelineToHideAllStuff.setOnFinished(ev -> atlasScreen.showScreen());
 					timelineToHideAllStuff.playFromStart();
@@ -1884,7 +1884,7 @@ public class WelcomeScreen extends CoreScreen
 			{
 				playButtonClickSound();
 				
-				if(animationsUsed != NO_ANIMATIONS)
+				if(animationsUsed != ANIMATIONS.NO)
 				{
 					timelineToHideAllStuff.setOnFinished(ev -> scoreBoardScreen.showScreen());
 					timelineToHideAllStuff.playFromStart();
@@ -2026,7 +2026,7 @@ public class WelcomeScreen extends CoreScreen
 				translateTransitionForRightGlobeStand.setToX(0);
 				translateTransitionForRightGlobeImage.setToX(0);
 				
-				if(animationsUsed == ALL_ANIMATIONS) playGlobeAnimation();
+				if(animationsUsed == ANIMATIONS.ALL) playGlobeAnimation();
 				
 				playSlideSound();
 				parallelTransitionForWelcomeImage.playFromStart();
@@ -2052,7 +2052,7 @@ public class WelcomeScreen extends CoreScreen
 				scaleTransitionForEditIcon.setToX(1);
 				scaleTransitionForEditIcon.setToY(1);
 
-				if(animationsUsed == ALL_ANIMATIONS)
+				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					scaleTransitionForWelcomeLabel.setOnFinished(ev ->
 							{
@@ -2163,7 +2163,7 @@ public class WelcomeScreen extends CoreScreen
 			}),
 			new KeyFrame(Duration.millis(900), e ->
 			{
-				if(animationsUsed == ALL_ANIMATIONS) stopGlobeAnimation();
+				if(animationsUsed == ANIMATIONS.ALL) stopGlobeAnimation();
 				
 				vBoxForMainButtons.setDisable(false);
 				infoIcon.setDisable(false);
@@ -2427,7 +2427,7 @@ public class WelcomeScreen extends CoreScreen
 					scaleTransitionForWelcomeLabel.setToX(0.95);
 					scaleTransitionForWelcomeLabel.setToY(0.95);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForWelcomeLabel.setOnFinished(ev ->
 						{
@@ -2613,7 +2613,7 @@ public class WelcomeScreen extends CoreScreen
 				 scaleTransitionForWelcomeLabel.setToX(0.95);
 				 scaleTransitionForWelcomeLabel.setToY(0.95);
 
-				 if(animationsUsed == ALL_ANIMATIONS)
+				 if(animationsUsed == ANIMATIONS.ALL)
 				 {
 					 scaleTransitionForWelcomeLabel.setOnFinished(ev ->
 							 {
@@ -2722,8 +2722,8 @@ public class WelcomeScreen extends CoreScreen
 		
 		if(getCurrentPlayer().getLocaleIndex() != -1) countriesComboBox.getSelectionModel().select(countriesLocalesSortList.get(getCurrentPlayer().getLocaleIndex()));
 		
-		if(animationsUsed == NO_ANIMATIONS) noAnimationsToggleButton.setSelected(true);
-		else if(animationsUsed == LIMITED_ANIMATIONS) limitedAnimationsToggleButton.setSelected(true);
+		if(animationsUsed == ANIMATIONS.NO) noAnimationsToggleButton.setSelected(true);
+		else if(animationsUsed == ANIMATIONS.LIMITED) limitedAnimationsToggleButton.setSelected(true);
 		else allAnimationsToggleButton.setSelected(true);
 	}
 	
@@ -2760,7 +2760,7 @@ public class WelcomeScreen extends CoreScreen
 			
 			recalculateWelcomeLabelText(editedName.length());
 			
-			if (animationsUsed != NO_ANIMATIONS)
+			if (animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForWelcomeLabel.setDuration(Duration.millis(300));
 				scaleTransitionForWelcomeLabel.setFromX(welcomeLabel.getScaleX());
@@ -2782,7 +2782,7 @@ public class WelcomeScreen extends CoreScreen
 					scaleTransitionForWelcomeLabel.setCycleCount(1);
 					scaleTransitionForWelcomeLabel.setAutoReverse(false);
 					
-					if (animationsUsed == ALL_ANIMATIONS)
+					if (animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForWelcomeLabel.setOnFinished(ev ->
 						{
@@ -3100,7 +3100,7 @@ public class WelcomeScreen extends CoreScreen
 		LANGUAGE prevLan = getCurrentLanguage();
 		changeCurrentPlayer(textFieldForNewName.getText(), getEditedOriginalName(textFieldForNewName.getText()));
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			if(prevLan != getCurrentLanguage()) timelineToChangeLanguageByPlayer.playFromStart();
 			else timelineToHideNewNameBoxAndShowButtonsBox.playFromStart();

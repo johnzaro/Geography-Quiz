@@ -703,10 +703,10 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		nodesPane.getChildren().addAll(previousChalkboardImage, movingEarthImage, titleImage, titleLabel,
 				woodPanelFor5IconsImage, vBoxForSound, backButton, tableView, vBoxForPlayerStatistics, deleteButton, vBoxForControlButton, hBoxFor5Icons);
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			setupLimitedAnimations();
-			if(animationsUsed == ALL_ANIMATIONS) setupAdvancedAnimations();
+			if(animationsUsed == ANIMATIONS.ALL) setupAdvancedAnimations();
 		}
 		
 		setupListeners();
@@ -816,7 +816,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		{
 			vBoxForControlButton.setDisable(true);
 			
-			if(animationsUsed != NO_ANIMATIONS)
+			if(animationsUsed != ANIMATIONS.NO)
 			{
 				scaleTransitionForTitleLabel.stop();
 				
@@ -893,7 +893,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel.setToX(0.9);
 					scaleTransitionForTitleLabel.setToY(0.9);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel.setOnFinished(eve ->
 						{
@@ -986,7 +986,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		{
 			playButtonClickSound();
 			
-			if(animationsUsed != NO_ANIMATIONS) timeLineToHideAllStuff.playFromStart();
+			if(animationsUsed != ANIMATIONS.NO) timeLineToHideAllStuff.playFromStart();
 			else welcomeScreen.showScreen(false);
 		});
 		backButton.setOnMouseEntered(e -> playHoverSound());
@@ -999,7 +999,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			{
 				setSoundIcon(soundIcon, true);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToShowSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
 					if(OS == OsCheck.OSType.Windows)
@@ -1020,7 +1020,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			{
 				setSoundIcon(soundIcon, false);
 				
-				if(animationsUsed != NO_ANIMATIONS) timelineToHideSoundOptions.play();
+				if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 				else
 				{
 					vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
@@ -1046,7 +1046,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		movingEarthImage.setOnMouseClicked(e ->
 		{
-			if (animationsUsed == ALL_ANIMATIONS)
+			if (animationsUsed == ANIMATIONS.ALL)
 			{
 				if (earthTransitionStatus == 1)
 				{
@@ -1144,7 +1144,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForBackButton.setToX(1);
 					scaleTransitionForBackButton.setToY(1);
 					
-					if(animationsUsed == ALL_ANIMATIONS)
+					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel.setOnFinished(ev ->
 						{
@@ -1262,7 +1262,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				}),
 				new KeyFrame(Duration.millis(1500), e ->
 				{
-					if(animationsUsed == ALL_ANIMATIONS) pauseEarthAnimation();
+					if(animationsUsed == ANIMATIONS.ALL) pauseEarthAnimation();
 					welcomeScreen.showScreen(false);
 					
 					backButton.setDisable(false);
@@ -1338,7 +1338,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		mainScene.setRoot(anchorPane);
 		
-		if(animationsUsed != NO_ANIMATIONS) timeLineToShowAllStuff.playFromStart();
+		if(animationsUsed != ANIMATIONS.NO) timeLineToShowAllStuff.playFromStart();
 	}
 	
 	private void setInitialStateForAllNodes()
@@ -1354,7 +1354,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			controlImage.setImage(BACK_ARROW);
 		}
 		
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			movingEarthImage.setOpacity(0);
 			
@@ -1392,7 +1392,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				tableView.setScaleY(0);
 			}
 			
-			if(animationsUsed == ALL_ANIMATIONS) playEarthAnimation();
+			if(animationsUsed == ANIMATIONS.ALL) playEarthAnimation();
 		}
 		else
 		{
@@ -1438,7 +1438,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			fullScreenIcon.setDisable(false);
 		}
 		
-		if(animationsUsed == ALL_ANIMATIONS) movingEarthImage.setCursor(Cursor.HAND);
+		if(animationsUsed == ANIMATIONS.ALL) movingEarthImage.setCursor(Cursor.HAND);
 		else movingEarthImage.setCursor(Cursor.DEFAULT);
 		
 		if(playerStatisticsScreen)
@@ -1477,7 +1477,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	
 	private void repaintPlayerStatistics(int index, boolean playSound)
 	{
-		if(animationsUsed != NO_ANIMATIONS)
+		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForGridPane.setToX(0);
 			scaleTransitionForGridPane.setToY(0);

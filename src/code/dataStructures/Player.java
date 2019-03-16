@@ -134,12 +134,12 @@ public class Player
 		this.unitSystem = unitSystem;
 	}
 	
-	private int difficultyLevel;
-	public int getDifficultyLevel()
+	private DIFFICULTY difficultyLevel;
+	public DIFFICULTY getDifficultyLevel()
 	{
 		return difficultyLevel;
 	}
-	public void setDifficultyLevel(int difficultyLevel)
+	public void setDifficultyLevel(DIFFICULTY difficultyLevel)
 	{
 		this.difficultyLevel = difficultyLevel;
 	}
@@ -244,12 +244,12 @@ public class Player
 		return windowWidth;
 	}
 	
-	private int animationsUsed;
-	public int getAnimationsUsed()
+	private ANIMATIONS animationsUsed;
+	public ANIMATIONS getAnimationsUsed()
 	{
 		return animationsUsed;
 	}
-	public void setAnimationsUsed(int animationsUsed)
+	public void setAnimationsUsed(ANIMATIONS animationsUsed)
 	{
 		this.animationsUsed = animationsUsed;
 	}
@@ -279,9 +279,9 @@ public class Player
 		setDefaultQuestionCategories();
 	}
 	
-	public void setPlayerSettings(Locale locale, int localeIndex, LANGUAGE language, UNIT_SYSTEM unitSystem, int difficultyLevel, int numberOfQuestionsInClassicalMode, boolean timerForClassicMode,
+	public void setPlayerSettings(Locale locale, int localeIndex, LANGUAGE language, UNIT_SYSTEM unitSystem, DIFFICULTY difficultyLevel, int numberOfQuestionsInClassicalMode, boolean timerForClassicMode,
 								  int durationForTimeAttackMode, int livesForEndlessMode, boolean timerForEndlessMode, double masterSliderVolume, double musicSliderVolume, double soundEffectsSliderVolume,
-								  double windowWidth, int animationsUsed, boolean startAtFullScreen)
+								  double windowWidth, ANIMATIONS animationsUsed, boolean startAtFullScreen)
 	{
 		setLocale(locale);
 		setLocaleIndex(localeIndex);
@@ -323,7 +323,7 @@ public class Player
 			default: setUnitSystem(UNIT_SYSTEM.METRIC);break;
 		}
 		
-		setDifficultyLevel(DIFFICULTY_EASY);
+		setDifficultyLevel(DIFFICULTY.EASY);
 		
 		setNumberOfQuestionsInClassicalMode(NUM_OF_QUESTIONS_FOR_CLASSIC_20);
 		setTimerForClassicMode(true);
@@ -337,7 +337,7 @@ public class Player
 		
 		setWindowWidth(0.75 * primaryScreenWidth);
 		
-		setAnimationsUsed(ALL_ANIMATIONS);
+		setAnimationsUsed(ANIMATIONS.ALL);
 		setStartAtFullScreen(false);
 	}
 	

@@ -91,16 +91,16 @@ public class Game
 		return isCountdownEnabled;
 	}
 	
-	private ObjectProperty<Integer> difficultyLevel;
-	public void setDifficultyLevel(int difficulty)
+	private ObjectProperty<GlobalVariables.DIFFICULTY> difficultyLevel;
+	public void setDifficultyLevel(GlobalVariables.DIFFICULTY difficulty)
 	{
 		difficultyLevelProperty().set(difficulty);
 	}
-	public int getDifficultyLevel()
+	public GlobalVariables.DIFFICULTY getDifficultyLevel()
 	{
 		return difficultyLevelProperty().get();
 	}
-	public ObjectProperty<Integer> difficultyLevelProperty()
+	public ObjectProperty<GlobalVariables.DIFFICULTY> difficultyLevelProperty()
 	{
 		return difficultyLevel;
 	}
