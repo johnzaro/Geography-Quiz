@@ -1231,11 +1231,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		updateStrings();
 		
-		if(countriesLocalesObservableList == null)
-		{
-			loadCountriesLocalesObservableList();
-			countriesComboBox.setItems(countriesLocalesObservableList);
-		}
+		if(countriesLocalesObservableList == null) loadCountriesLocalesObservableList();
 		
 		setUIToggleValuesBasedOnSettings();
 		
@@ -3095,6 +3091,8 @@ public class WelcomeScreen extends CoreScreen
 		countriesLocalesObservableList = FXCollections.observableArrayList();
 		countriesLocalesSortList = FXCollections.observableArrayList();
 		
+		countriesComboBox.setItems(countriesLocalesObservableList);
+		
 		if(getCurrentLanguage() == LANGUAGE.ENGLISH)
 		{
 			for(short i = 0; i < countries.length; i++)
@@ -3127,6 +3125,11 @@ public class WelcomeScreen extends CoreScreen
 						countriesLocalesObservableList.set(y + 1, temp);
 						countriesLocalesSortList.set(y + 1, s);
 					}
+			
+			for(short i = 0; i < countriesLocalesObservableList.size() - 1; i++)
+			{
+				countriesLocalesObservableList.set(i, i+countriesLocalesObservableList.get(i));
+			}
 		}
 		else
 		{
@@ -3148,16 +3151,20 @@ public class WelcomeScreen extends CoreScreen
 			}
 		}
 		
-		for(int i = 0; i < countries.length; i++)
+		if(getCurrentPlayer().getLocaleIndex() == -1)
 		{
-			if(!countries[i].getLocaleCountryCode().equals("-"))
+			getCurrentPlayer().setLocaleIndex(getLocaleIndexBasedOnLocale(getCurrentPlayer().getLocale()));
+		}
+		
+		System.out.println("locale\t" + getCurrentPlayer().getLocale().getDisplayCountry());
+		System.out.println("index\t" + getCurrentPlayer().getLocaleIndex());
+		
+		for(int i = 0; i < countriesLocalesSortList.size(); i++)
+		{
+			if(countriesLocalesSortList.get(i) == getCurrentPlayer().getLocaleIndex())
 			{
-				if(countries[i].getLocaleCountryCode().equals(getCurrentPlayer().getLocale().getCountry()))
-				{
-					System.out.println(countries[i].getNameInEnglish() + "\t" + i + "\t" + countriesLocalesSortList.get(i));
-					getCurrentPlayer().setLocaleIndex(i);
-					break;
-				}
+				countriesComboBox.getSelectionModel().select(i);
+				break;
 			}
 		}
 	}

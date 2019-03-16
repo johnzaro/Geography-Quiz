@@ -24,6 +24,7 @@ import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class GlobalVariables
@@ -767,6 +768,17 @@ public class GlobalVariables
 		return editedName;
 	}
 	
+	public static int getLocaleIndexBasedOnLocale(Locale locale)
+	{
+		for(int i = 0; i < countries.length; i++)
+		{
+			if(countries[i].getLocaleCountryCode().equals(locale.getCountry()))
+			{
+				return i;
+			}
+		}
+		return -1;
+	}
 	
 	// ------------  ROTATING GLOBE  ------------
 	public static Image[] animatedGlobe;
