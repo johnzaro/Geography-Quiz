@@ -2771,7 +2771,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		startInFullScreenCheckBox.setSelected(startAtFullScreen);
 		
-		if(getCurrentPlayer().getLocaleIndex() != -1) countriesComboBox.getSelectionModel().select(countriesLocalesSortList.get(getCurrentPlayer().getLocaleIndex()));
+		if(getCurrentPlayer().getLocaleIndex() != -1) selectCountryInComboBoxBasedOnLocale();
 		
 		if(animationsUsed == ANIMATIONS.NO) noAnimationsToggleButton.setSelected(true);
 		else if(animationsUsed == ANIMATIONS.LIMITED) limitedAnimationsToggleButton.setSelected(true);
@@ -3125,11 +3125,6 @@ public class WelcomeScreen extends CoreScreen
 						countriesLocalesObservableList.set(y + 1, temp);
 						countriesLocalesSortList.set(y + 1, s);
 					}
-			
-			for(short i = 0; i < countriesLocalesObservableList.size() - 1; i++)
-			{
-				countriesLocalesObservableList.set(i, i+countriesLocalesObservableList.get(i));
-			}
 		}
 		else
 		{
@@ -3156,9 +3151,11 @@ public class WelcomeScreen extends CoreScreen
 			getCurrentPlayer().setLocaleIndex(getLocaleIndexBasedOnLocale(getCurrentPlayer().getLocale()));
 		}
 		
-		System.out.println("locale\t" + getCurrentPlayer().getLocale().getDisplayCountry());
-		System.out.println("index\t" + getCurrentPlayer().getLocaleIndex());
-		
+		selectCountryInComboBoxBasedOnLocale();
+	}
+	
+	private void selectCountryInComboBoxBasedOnLocale()
+	{
 		for(int i = 0; i < countriesLocalesSortList.size(); i++)
 		{
 			if(countriesLocalesSortList.get(i) == getCurrentPlayer().getLocaleIndex())

@@ -193,7 +193,7 @@ public class FilesIO
 					playersArrayList.add(tempPlayer);
 				}
 			}
-			System.out.println(playersArrayList.size());
+			
 			if(playersArrayList.size() == 0) setDefaultPlayerName();
 			else if(list.size() != playersArrayList.size()) writePlayersFile();
 		}

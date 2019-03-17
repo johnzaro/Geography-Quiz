@@ -9,7 +9,6 @@
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/FilesIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,19 +18,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="3155" column="107" lean-forward="true" selection-start-line="3155" selection-start-column="107" selection-end-line="3155" selection-end-column="107" />
-              <folding>
-                <element signature="e#68499#99263#0" />
-                <element signature="e#99266#100521#0" />
-                <element signature="e#102825#105434#0" />
-                <element signature="e#105844#107649#0" />
-                <element signature="e#108470#112876#0" />
-              </folding>
+            <state relative-caret-position="495">
+              <caret line="3126" column="21" selection-start-line="3126" selection-start-column="21" selection-end-line="3126" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -39,12 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="878">
-              <caret line="793" column="58" lean-forward="true" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
-              <folding>
-                <element signature="e#17740#17741#0" expanded="true" />
-                <element signature="e#17777#17778#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="627">
+              <caret line="793" column="58" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -52,17 +40,15 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="244" selection-start-line="244" selection-end-line="244" />
+            <state relative-caret-position="385">
+              <caret line="748" column="25" selection-start-line="748" selection-start-column="16" selection-end-line="748" selection-end-column="25" />
               <folding>
-                <element signature="method#setupGameVariables#0;class#PowerOn#0" />
                 <element signature="method#loadFonts#0;class#PowerOn#0" />
                 <element signature="e#2536#2634#0" />
                 <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
                 <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
                 <element signature="e#2914#3171#0" />
                 <element signature="e#3196#3346#0" />
-                <element signature="method#setupStage#0;class#PowerOn#0" />
                 <element signature="e#4312#5343#1" />
                 <element signature="e#4492#4592#1" />
                 <element signature="e#4704#4811#1" />
@@ -96,7 +82,6 @@
                 <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
               </folding>
             </state>
           </provider>
@@ -105,8 +90,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="85" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="413">
+              <caret line="195" column="12" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="12" />
               <folding>
                 <element signature="method#setupFiles#0;class#FilesIO#0" />
                 <element signature="method#deleteAllData#0;class#FilesIO#0" />
@@ -118,8 +103,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="60" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="242">
+              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+              <folding>
+                <element signature="e#564#565#0" expanded="true" />
+                <element signature="e#583#584#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +116,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/dataStructures/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
+            <state relative-caret-position="3454">
               <caret line="314" column="23" selection-start-line="314" selection-start-column="23" selection-end-line="314" selection-end-column="23" />
             </state>
           </provider>
@@ -137,9 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>info</find>
-      <find>hboxfors</find>
-      <find>new</find>
       <find>playpop</find>
       <find>fadeTransitionForVBoxWithButtons</find>
       <find>vBoxForSound.setTranslateY</find>
@@ -167,6 +153,9 @@
       <find>welcomelabel.settext(</find>
       <find>DIFFICULTY_DIFFICULT</find>
       <find>countriesComboBox</find>
+      <find>countriesComboBox.getSelectionModel()</find>
+      <find>system</find>
+      <find>System.ou</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -188,7 +177,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
         <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
         <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
@@ -211,9 +199,10 @@
         <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/Game.java" />
         <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/code/core/FilesIO.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/Player.java" />
+        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
+        <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
+        <option value="$PROJECT_DIR$/src/code/core/FilesIO.java" />
         <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
       </list>
     </option>
@@ -230,66 +219,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="code" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="dataFiles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552765683464" />
@@ -370,7 +300,7 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290008" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49980307" weight="0.39448053" />
+      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49980307" visible="true" weight="0.39448053" />
       <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -680,26 +610,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/dataStructures/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3454">
+          <caret line="314" column="23" selection-start-line="314" selection-start-column="23" selection-end-line="314" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="242">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+          <folding>
+            <element signature="e#564#565#0" expanded="true" />
+            <element signature="e#583#584#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="793" column="58" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="244" selection-start-line="244" selection-end-line="244" />
+        <state relative-caret-position="385">
+          <caret line="748" column="25" selection-start-line="748" selection-start-column="16" selection-end-line="748" selection-end-column="25" />
           <folding>
-            <element signature="method#setupGameVariables#0;class#PowerOn#0" />
             <element signature="method#loadFonts#0;class#PowerOn#0" />
             <element signature="e#2536#2634#0" />
             <element signature="method#setupPrimaryScreenBounds#0;class#PowerOn#0" />
             <element signature="method#setDefaultLanguage#0;class#PowerOn#0" />
             <element signature="e#2914#3171#0" />
             <element signature="e#3196#3346#0" />
-            <element signature="method#setupStage#0;class#PowerOn#0" />
             <element signature="e#4312#5343#1" />
             <element signature="e#4492#4592#1" />
             <element signature="e#4704#4811#1" />
@@ -733,15 +679,14 @@
             <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="85" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="413">
+          <caret line="195" column="12" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="12" />
           <folding>
             <element signature="method#setupFiles#0;class#FilesIO#0" />
             <element signature="method#deleteAllData#0;class#FilesIO#0" />
@@ -749,35 +694,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/dataStructures/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="314" column="23" selection-start-line="314" selection-start-column="23" selection-end-line="314" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="878">
-          <caret line="793" column="58" lean-forward="true" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
-          <folding>
-            <element signature="e#17740#17741#0" expanded="true" />
-            <element signature="e#17777#17778#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
-          <caret line="3155" column="107" lean-forward="true" selection-start-line="3155" selection-start-column="107" selection-end-line="3155" selection-end-column="107" />
-          <folding>
-            <element signature="e#68499#99263#0" />
-            <element signature="e#99266#100521#0" />
-            <element signature="e#102825#105434#0" />
-            <element signature="e#105844#107649#0" />
-            <element signature="e#108470#112876#0" />
-          </folding>
+        <state relative-caret-position="495">
+          <caret line="3126" column="21" selection-start-line="3126" selection-start-column="21" selection-end-line="3126" selection-end-column="21" />
         </state>
       </provider>
     </entry>
