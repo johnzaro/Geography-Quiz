@@ -10,5 +10,7 @@ public class CustomTooltip extends Tooltip
 		setShowDelay(Duration.millis(100));
 		setShowDuration(Duration.INDEFINITE);
 		setHideDelay(Duration.ZERO);
+		setWrapText(true);
+		setHideOnEscape(false);
 	}
 }

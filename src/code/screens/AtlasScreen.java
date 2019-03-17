@@ -1390,11 +1390,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	{
 		toggleGroupForToggleButtons.selectedToggleProperty().addListener((observable, oldValue, newValue) ->
 		{
-			if(newValue == null) Platform.runLater(() ->
-			{
-				playButtonClickSound();
-				toggleGroupForToggleButtons.selectToggle(oldValue);
-			});
+			if(newValue == null)
+				Platform.runLater(() ->
+				{
+					playButtonClickSound();
+					toggleGroupForToggleButtons.selectToggle(oldValue);
+				});
 			else
 			{
 				if(oldValue != null)

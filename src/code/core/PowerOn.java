@@ -465,8 +465,14 @@ public class PowerOn
 		ZOOM_IN_ICON_CLICKED = new Image("/resources/images/icons/zoomInClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
 		ZOOM_OUT_ICON = new Image("/resources/images/icons/zoomOut.png", 0.05 * primaryScreenWidth, 0, true, true);
 		ZOOM_OUT_ICON_CLICKED = new Image("/resources/images/icons/zoomOutClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EDIT_ICON = new Image("/resources/images/icons/editName.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EDIT_ICON_DISABLED = new Image("/resources/images/icons/editNameDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PENCIL_ICON = new Image("/resources/images/icons/pencil.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PENCIL_ICON_DISABLED = new Image("/resources/images/icons/pencilDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
+		EDIT_USERNAME_ICON = new Image("/resources/images/icons/editUsername.png", 0.05 * primaryScreenWidth, 0, true, true);
+		EDIT_USERNAME_ICON_CLICKED = new Image("/resources/images/icons/editUsernameClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SWITCH_USER_ICON = new Image("/resources/images/icons/switchUser.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SWITCH_USER_ICON_CLICKED = new Image("/resources/images/icons/switchUserClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		NEW_USER_ICON = new Image("/resources/images/icons/newUser.png", 0.05 * primaryScreenWidth, 0, true, true);
+		NEW_USER_ICON_CLICKED = new Image("/resources/images/icons/newUserClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
 		INFO_ICON = new Image("/resources/images/icons/info.png", 0.05 * primaryScreenWidth, 0, true, true);
 		INFO_ICON_CLICKED = new Image("/resources/images/icons/infoClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
 		SINGLE_PLAYER_ICON = new Image("/resources/images/icons/singlePlayer.png", 0.05 * primaryScreenWidth, 0, true, true);

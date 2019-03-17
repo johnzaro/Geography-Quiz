@@ -8,8 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/FilesIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/CustomTooltip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/CustomTooltip.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/core/PowerOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/images/icons/editName.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/images/icons/editNameDisabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,17 +30,65 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="3126" column="21" selection-start-line="3126" selection-start-column="21" selection-end-line="3126" selection-end-column="21" />
+            <state relative-caret-position="-440">
+              <caret line="1642" column="50" selection-start-line="1642" selection-start-column="20" selection-end-line="1642" selection-end-column="50" />
+              <folding>
+                <element signature="e#28562#46647#0" />
+                <element signature="e#46977#51202#0" />
+                <element signature="e#57342#57432#0" />
+                <element signature="e#68425#99189#0" />
+                <element signature="e#99192#100447#0" />
+                <element signature="e#100451#101960#0" />
+                <element signature="e#101964#102747#0" />
+                <element signature="e#102751#105360#0" />
+                <element signature="e#105363#105568#0" />
+                <element signature="e#105571#105766#0" />
+                <element signature="e#119208#121013#0" />
+                <element signature="e#122083#122084#0" expanded="true" />
+                <element signature="e#122174#122175#0" expanded="true" />
+                <element signature="e#121199#121830#0" />
+                <element signature="e#127206#128204#0" />
+                <element signature="e#128769#131188#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="46" selection-start-line="46" selection-end-line="46" selection-end-column="34" />
+            </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="46" selection-start-line="46" selection-end-line="46" selection-end-column="38" />
+            </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="46" column="14" selection-start-line="46" selection-end-line="46" selection-end-column="14" />
+            </state>
+          </provider>
+          <provider editor-type-id="ResourceBundle" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="793" column="58" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
+            <state relative-caret-position="260">
+              <caret line="221" column="123" selection-start-line="221" selection-start-column="123" selection-end-line="221" selection-end-column="123" />
             </state>
           </provider>
         </entry>
@@ -40,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="748" column="25" selection-start-line="748" selection-start-column="16" selection-end-line="748" selection-end-column="25" />
+            <state relative-caret-position="462">
+              <caret line="469" column="76" selection-start-line="469" selection-start-column="76" selection-end-line="469" selection-end-column="76" />
               <folding>
                 <element signature="method#loadFonts#0;class#PowerOn#0" />
                 <element signature="e#2536#2634#0" />
@@ -73,28 +129,17 @@
                 <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
                 <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
                 <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
+                <element signature="method#powerOnMedia#0;class#PowerOn#0" />
                 <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-                <element signature="method#powerOnImages#0;class#PowerOn#0" />
                 <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
+                <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
                 <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
                 <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="195" column="12" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="12" />
-              <folding>
-                <element signature="method#setupFiles#0;class#FilesIO#0" />
-                <element signature="method#deleteAllData#0;class#FilesIO#0" />
+                <element signature="method#powerOnStringData#0;class#PowerOn#0" />
               </folding>
             </state>
           </provider>
@@ -103,21 +148,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+            <state relative-caret-position="220">
+              <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
               <folding>
-                <element signature="e#564#565#0" expanded="true" />
                 <element signature="e#583#584#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/dataStructures/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3454">
-              <caret line="314" column="23" selection-start-line="314" selection-start-column="23" selection-end-line="314" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -126,36 +161,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>playpop</find>
-      <find>fadeTransitionForVBoxWithButtons</find>
-      <find>vBoxForSound.setTranslateY</find>
-      <find>vBoxForSound.setTranslate</find>
-      <find>setTranslate</find>
-      <find>vbox</find>
-      <find>vboxfors</find>
-      <find>vBoxForSound.setLayoutX</find>
-      <find>screen1</find>
-      <find>vBoxForSound.settra</find>
-      <find>vboxfornewname.seto</find>
-      <find>hBoxForSoundButtons</find>
-      <find>woodPanelFor1IconImage</find>
-      <find>soundicon.setlayouty</find>
-      <find>== LANGUAGE_GREEK</find>
-      <find>== ENDLESS_GAMEMODE</find>
-      <find>windoww</find>
-      <find>all_a</find>
-      <find>master</find>
-      <find>soundicon</find>
-      <find>englishLanguageLabel.set</find>
-      <find>= All_ANIMATIONS</find>
-      <find>= ALL_ANIMATIONS</find>
-      <find>= NO_ANIMATIONS</find>
-      <find>welcomelabel.settext(</find>
-      <find>DIFFICULTY_DIFFICULT</find>
-      <find>countriesComboBox</find>
       <find>countriesComboBox.getSelectionModel()</find>
       <find>system</find>
+      <find>edit</find>
       <find>System.ou</find>
+      <find>editnameicon.setf</find>
+      <find>editnameicon.sete</find>
+      <find>animationsUsedSegmentedButton</find>
+      <find>togglebutton</find>
+      <find>segmen</find>
+      <find>toggleb</find>
+      <find>toggle</find>
+      <find>vBoxForEditUsername</find>
+      <find>segment</find>
+      <find>add=</find>
+      <find>vboxforedit</find>
+      <find>vboxforeditusername.settra</find>
+      <find>vboxformainbuttons.setsca</find>
+      <find>vboxforswitchuser.settra</find>
+      <find>vboxforadduser.sett</find>
+      <find>vBoxForMainButtons.setTranslateY</find>
+      <find>cancel</find>
+      <find>deleteSingleNameLabel</find>
+      <find>usersComboBox</find>
+      <find>tex</find>
+      <find>text</find>
+      <find>textfield</find>
+      <find>setWrapText(true);</find>
+      <find>textf</find>
+      <find>πληκτρο</find>
+      <find>textfieldforeditusername.sette</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -177,13 +212,8 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
         <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
         <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
         <option value="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
-        <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/GreekRegionalUnit.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/GreekRegion.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/GreekDecentralizedAdministration.java" />
@@ -193,21 +223,27 @@
         <option value="$PROJECT_DIR$/src/code/dataStructures/Area.java" />
         <option value="$PROJECT_DIR$/src/code/core/ShutdownHook.java" />
         <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/GameScreen.java" />
         <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/Game.java" />
-        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/dataStructures/Player.java" />
+        <option value="$PROJECT_DIR$/src/code/core/FilesIO.java" />
         <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
         <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
-        <option value="$PROJECT_DIR$/src/code/core/FilesIO.java" />
+        <option value="$PROJECT_DIR$/src/resources/css/textField.css" />
+        <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
+        <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
+        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
         <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1324" />
@@ -219,15 +255,67 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="code" type="462c0819:PsiDirectoryNode" />
+              <item name="screens" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552765683464" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552858312331" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -289,18 +377,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15202835" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15202835" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3290008" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49980307" visible="true" weight="0.39448053" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32873377" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" sideWeight="0.49980307" weight="0.39448053" />
       <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -317,32 +405,6 @@
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24543288" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.25641027" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.4832347" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
-      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-    </layout-to-restore>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -416,30 +478,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="54" selection-start-line="3" selection-start-column="54" selection-end-line="3" selection-end-column="54" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="38" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
-        </state>
-      </provider>
-      <provider editor-type-id="ResourceBundle" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-291">
@@ -454,23 +492,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="36" lean-forward="true" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2692">
-          <caret line="144" column="49" selection-start-line="144" selection-start-column="49" selection-end-line="144" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -549,13 +570,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-310">
-          <caret line="5260" selection-start-line="5260" selection-end-line="5260" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16344">
@@ -617,28 +631,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
+    <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="413">
+          <caret line="195" column="12" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="12" />
           <folding>
-            <element signature="e#564#565#0" expanded="true" />
-            <element signature="e#583#584#0" expanded="true" />
+            <element signature="method#setupFiles#0;class#FilesIO#0" />
+            <element signature="method#deleteAllData#0;class#FilesIO#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="793" column="58" selection-start-line="793" selection-start-column="58" selection-end-line="793" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="748" column="25" selection-start-line="748" selection-start-column="16" selection-end-line="748" selection-end-column="25" />
+        <state relative-caret-position="462">
+          <caret line="469" column="76" selection-start-line="469" selection-start-column="76" selection-end-line="469" selection-end-column="76" />
           <folding>
             <element signature="method#loadFonts#0;class#PowerOn#0" />
             <element signature="e#2536#2634#0" />
@@ -670,34 +677,123 @@
             <element signature="method#setNumberAndDateFormats#0;class#PowerOn#0" />
             <element signature="method#setWindowedModeValues#0;class#PowerOn#0" />
             <element signature="method#powerOnMessageGameIsAlreadyRunning#0;class#PowerOn#0" />
+            <element signature="method#powerOnMedia#0;class#PowerOn#0" />
             <element signature="method#powerOnAudio#0;class#PowerOn#0" />
-            <element signature="method#powerOnImages#0;class#PowerOn#0" />
             <element signature="method#powerOnScreenDependentImages#0;class#PowerOn#0" />
+            <element signature="method#powerOnAnimatedGlobeImages#0;class#PowerOn#0" />
             <element signature="method#powerOnSplashScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnWelcomeScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnGamePropertiesScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnGameScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnAtlasScreen#0;class#PowerOn#0" />
             <element signature="method#powerOnScoreBoardScreen#0;class#PowerOn#0" />
+            <element signature="method#powerOnStringData#0;class#PowerOn#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java">
+    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="195" column="12" selection-start-line="195" selection-start-column="12" selection-end-line="195" selection-end-column="12" />
+        <state relative-caret-position="220">
+          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding>
-            <element signature="method#setupFiles#0;class#FilesIO#0" />
-            <element signature="method#deleteAllData#0;class#FilesIO#0" />
+            <element signature="e#583#584#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/popOver.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/textField.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="34" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="221" column="123" selection-start-line="221" selection-start-column="123" selection-end-line="221" selection-end-column="123" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="170" column="53" selection-start-line="170" selection-start-column="53" selection-end-line="170" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="1400" column="35" selection-start-line="1400" selection-start-column="19" selection-end-line="1400" selection-end-column="35" />
+          <folding>
+            <element signature="e#9059#36729#0" />
+            <element signature="e#36733#37908#0" />
+            <element signature="e#38088#65299#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="46" selection-start-line="46" selection-end-line="46" selection-end-column="34" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="46" selection-start-line="46" selection-end-line="46" selection-end-column="38" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="46" column="14" selection-start-line="46" selection-end-line="46" selection-end-column="14" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="3126" column="21" selection-start-line="3126" selection-start-column="21" selection-end-line="3126" selection-end-column="21" />
+        <state relative-caret-position="-440">
+          <caret line="1642" column="50" selection-start-line="1642" selection-start-column="20" selection-end-line="1642" selection-end-column="50" />
+          <folding>
+            <element signature="e#28562#46647#0" />
+            <element signature="e#46977#51202#0" />
+            <element signature="e#57342#57432#0" />
+            <element signature="e#68425#99189#0" />
+            <element signature="e#99192#100447#0" />
+            <element signature="e#100451#101960#0" />
+            <element signature="e#101964#102747#0" />
+            <element signature="e#102751#105360#0" />
+            <element signature="e#105363#105568#0" />
+            <element signature="e#105571#105766#0" />
+            <element signature="e#119208#121013#0" />
+            <element signature="e#122083#122084#0" expanded="true" />
+            <element signature="e#122174#122175#0" expanded="true" />
+            <element signature="e#121199#121830#0" />
+            <element signature="e#127206#128204#0" />
+            <element signature="e#128769#131188#0" />
+          </folding>
         </state>
       </provider>
     </entry>

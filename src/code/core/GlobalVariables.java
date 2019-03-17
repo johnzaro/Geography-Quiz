@@ -51,6 +51,10 @@ public class GlobalVariables
 	static DecimalFormat decimalFormatForSaving;
 	static DateTimeFormatter dateTimeFormatForSaving, dateFormatForSaving;
 	
+	public static final String NORMAL_COLOR = "derive(#ececec, 80%)";
+	public static final String GREEN_COLOR = "#2ecc71";
+	public static final String RED_COLOR = "#e74c3c";
+	
 	//  --------------------- OTHER GAME VARIABLES ---------------------
 	public enum LANGUAGE { ENGLISH, GREEK }
 	
@@ -502,8 +506,14 @@ public class GlobalVariables
 	public static Image ZOOM_IN_ICON_CLICKED;
 	public static Image ZOOM_OUT_ICON;
 	public static Image ZOOM_OUT_ICON_CLICKED;
-	public static Image EDIT_ICON;
-	public static Image EDIT_ICON_DISABLED;
+	public static Image PENCIL_ICON;
+	public static Image PENCIL_ICON_DISABLED;
+	public static Image EDIT_USERNAME_ICON;
+	public static Image EDIT_USERNAME_ICON_CLICKED;
+	public static Image SWITCH_USER_ICON;
+	public static Image SWITCH_USER_ICON_CLICKED;
+	public static Image NEW_USER_ICON;
+	public static Image NEW_USER_ICON_CLICKED;
 	public static Image INFO_ICON;
 	public static Image INFO_ICON_CLICKED;
 	public static Image SINGLE_PLAYER_ICON;
@@ -708,7 +718,7 @@ public class GlobalVariables
 	}
 	
 	//PLAYER NAMES
-	private static String getStringWithoutTones(String a)
+	public static String getStringWithoutTones(String a)
 	{
 		char[] temp = a.toCharArray();
 		
