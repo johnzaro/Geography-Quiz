@@ -50,7 +50,7 @@ public class WelcomeScreen extends CoreScreen
 			cancelEditUsernameButton, cancelSwitchUserButton, cancelAddUserButton, confirmEditUsernameButton, confirmSwitchUserButton, confirmAddUserButton, 
 			deleteAllDataButton, cancelPopUpActionButton, confirmPopUpActionButton;
 	private CustomTooltip settingsTooltip, editNameTooltip, infoIconTooltip;
-	private CustomCheckBox startInFullScreenCheckBox;
+	private CustomCheckBox startInFullScreenCheckBox, confirmDeleteCheckBox;
 	private ComboBox<String> usersComboBox, countriesComboBox;
 	private Rectangle rectangleForInformationAboutGame;
 	private ToggleButton noAnimationsToggleButton, limitedAnimationsToggleButton, allAnimationsToggleButton, editUsernameToggleButton, switchUserToggleButton, addUserToggleButton;
@@ -690,14 +690,14 @@ public class WelcomeScreen extends CoreScreen
 				String.format("-fx-background-color: #000000ce; -fx-border-color: black;-fx-background-radius:%spx;-fx-border-radius:%spx;-fx-border-width:%spx;-fx-padding:%spx;",
 				0.0208 * width, 0.0208 * width, 0.0050 * width, 0.0052 * width));
 		
-		vBoxForPopUpAskConfirmation.setPrefSize(0.4948 * width, 0.3889 * height);
+		vBoxForPopUpAskConfirmation.setPrefSize(0.5200 * width, 0.4400 * height);
 		vBoxForPopUpAskConfirmation.setLayoutX(width / 2.0 - vBoxForPopUpAskConfirmation.getPrefWidth() / 2.0);
 		vBoxForPopUpAskConfirmation.setLayoutY(height / 2.0 - vBoxForPopUpAskConfirmation.getPrefHeight() / 2.0);
 		vBoxForPopUpAskConfirmation.setStyle(
 				String.format("-fx-background-color: #000000ce; -fx-border-color: black;-fx-background-radius:%spx;-fx-border-radius:%spx;-fx-border-width:%spx;-fx-padding:0 %spx %spx %spx;",
 				0.0208 * width, 0.0208 * width, 0.0050 * width, 0.0156 * width, 0.0156 * width, 0.0156 * width));
 		
-		popUpAskConfirmationLabel.setStyle("-fx-padding:" + 0.0463 * height + " 0;");
+		confirmDeleteCheckBox.setStyle("-fx-padding:" + 0.0463 * height + "px 0 " + 0.0463 * height + "px 0;");
 		
 		hBoxForPopUpConfirmationButtons.setPrefWidth(vBoxForPopUpAskConfirmation.getPrefWidth());
 		hBoxForPopUpConfirmationButtons.setSpacing(0.0130 * width);
@@ -765,6 +765,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		popUpMessageLabel.setFont(Font.font("Comic Sans MS", 0.02 * width));
 		popUpAskConfirmationLabel.setFont(Font.font("Comic Sans MS", 0.02 * width));
+		confirmDeleteCheckBox.setFont(Font.font("Comic Sans MS", 0.02 * width));
 		
 		welcomeLabel.getTooltip().setFont(fontForTooltips);
 		singlePlayerGameButton.getTooltip().setFont(fontForTooltips);
@@ -1193,6 +1194,8 @@ public class WelcomeScreen extends CoreScreen
 		popUpMessageLabel.setTextFill(Color.WHITE);
 		popUpMessageLabel.setWrapText(true);
 		
+		confirmDeleteCheckBox = new CustomCheckBox();
+		
 		popUpAskConfirmationLabel = new Label();
 		popUpAskConfirmationLabel.setTextAlignment(TextAlignment.CENTER);
 		popUpAskConfirmationLabel.setTextFill(Color.WHITE);
@@ -1208,7 +1211,7 @@ public class WelcomeScreen extends CoreScreen
 		
 		vBoxForPopUpAskConfirmation = new VBox();
 		vBoxForPopUpAskConfirmation.setAlignment(Pos.CENTER);
-		vBoxForPopUpAskConfirmation.getChildren().addAll(popUpAskConfirmationLabel, hBoxForPopUpConfirmationButtons);
+		vBoxForPopUpAskConfirmation.getChildren().addAll(popUpAskConfirmationLabel, confirmDeleteCheckBox, hBoxForPopUpConfirmationButtons);
 		vBoxForPopUpAskConfirmation.setCache(true);
 		vBoxForPopUpAskConfirmation.setCacheHint(CacheHint.SCALE);
 		
@@ -1484,6 +1487,22 @@ public class WelcomeScreen extends CoreScreen
 	
 	protected void setupListeners()
 	{
+		confirmDeleteCheckBox.setOnAction(e ->
+		{
+			if (confirmDeleteCheckBox.isSelected())
+			{
+				playCheckBoxSelectedSound();
+				
+				confirmPopUpActionButton.setDisable(false);
+			}
+			else
+			{
+				playCheckBoxDeselectedSound();
+				
+				confirmPopUpActionButton.setDisable(true);
+			}
+		});
+		
 		cancelPopUpActionButton.setOnMouseEntered(e -> playHoverSound());
 		confirmPopUpActionButton.setOnMouseEntered(e -> playHoverSound());
 		
@@ -3487,6 +3506,7 @@ public class WelcomeScreen extends CoreScreen
 		deleteAllUsersLabel.setText(languageResourceBundle.getString("deleteAllLabel"));
 		deleteAllUsersLabel.getTooltip().setText(languageResourceBundle.getString("deleteAllUsersTooltip"));
 		cancelPopUpActionButton.setText(languageResourceBundle.getString("cancel"));
+		confirmDeleteCheckBox.setText(languageResourceBundle.getString("confirmDeleteCheckBox"));
 	}
 	
 	private void changeLanguage()
@@ -3755,6 +3775,8 @@ public class WelcomeScreen extends CoreScreen
 				disableUI();
 				addBlurEffect();
 				
+				confirmDeleteCheckBox.setSelected(false);
+				confirmPopUpActionButton.setDisable(true);
 				hBoxForPopUpConfirmationButtons.setDisable(true);
 				
 				vBoxForPopUpAskConfirmation.setVisible(true);
