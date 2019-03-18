@@ -348,29 +348,6 @@ public class PowerOn
 			t2.join();
 			t3.join();
 			t4.join();
-			
-			HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			SWITCH_BUTTON_OFF_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			CHECKBOX_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			CHECKBOX_DESELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			RADIOBUTTON_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			POPUP_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			SLIDE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			MINIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			MAXIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			REWIND_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			CORRECT_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			WRONG_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			GAME_WON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			GAME_LOST_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			HEART_BREAKING_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			TIME_OVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-			CLOCK_TICKING_30S_PLAYER.volumeProperty().bind(soundEffectsCalculatedVolume);
-			
-			introductionMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
-			welcomeLoopMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
 		}
 		catch(Exception e)
 		{
@@ -418,6 +395,29 @@ public class PowerOn
 			playWelcomeLoopSoundSound();
 			introductionMediaPlayer.dispose();
 		});
+		
+		HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		SWITCH_BUTTON_OFF_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		CHECKBOX_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		CHECKBOX_DESELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		RADIOBUTTON_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		POPUP_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		SLIDE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		MINIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		MAXIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		REWIND_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		CORRECT_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		WRONG_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		GAME_WON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		GAME_LOST_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		HEART_BREAKING_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		TIME_OVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+		CLOCK_TICKING_30S_PLAYER.volumeProperty().bind(soundEffectsCalculatedVolume);
+		
+		introductionMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
+		welcomeLoopMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
 	}
 	
 	private static void powerOnImages()
@@ -469,11 +469,8 @@ public class PowerOn
 		PENCIL_ICON = new Image("/resources/images/icons/pencil.png", 0.05 * primaryScreenWidth, 0, true, true);
 		PENCIL_ICON_DISABLED = new Image("/resources/images/icons/pencilDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
 		EDIT_USERNAME_ICON = new Image("/resources/images/icons/editUsername.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EDIT_USERNAME_ICON_CLICKED = new Image("/resources/images/icons/editUsernameClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
 		SWITCH_USER_ICON = new Image("/resources/images/icons/switchUser.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SWITCH_USER_ICON_CLICKED = new Image("/resources/images/icons/switchUserClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		NEW_USER_ICON = new Image("/resources/images/icons/newUser.png", 0.05 * primaryScreenWidth, 0, true, true);
-		NEW_USER_ICON_CLICKED = new Image("/resources/images/icons/newUserClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ADD_USER_ICON = new Image("/resources/images/icons/addUser.png", 0.05 * primaryScreenWidth, 0, true, true);
 		INFO_ICON = new Image("/resources/images/icons/info.png", 0.05 * primaryScreenWidth, 0, true, true);
 		INFO_ICON_CLICKED = new Image("/resources/images/icons/infoClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
 		SINGLE_PLAYER_ICON = new Image("/resources/images/icons/singlePlayer.png", 0.05 * primaryScreenWidth, 0, true, true);

@@ -14,7 +14,6 @@ import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -45,8 +44,8 @@ public class WelcomeScreen extends CoreScreen
 	private TextField textFieldForEditUsername, textFieldForAddUser;
 	private CustomImageView chalkboardBackgroundImage, gameNameWoodenImage, welcomeImage,
 			leftGlobeStand, rightGlobeStand, leftGlobeImage, rightGlobeImage, woodPanelFor4IconsImage,
-			woodPanelFor1IconImage, greekLanguageFlag, englishLanguageFlag;
-	private ImageView settingsIcon, editNameIcon, singlePlayerIcon, multiPlayerIcon, atlasIcon, scoresIcon, infoIcon;
+			woodPanelFor1IconImage, greekLanguageFlag, englishLanguageFlag, editUserIcon, switchUserIcon, addUserIcon, settingsIcon,
+			editNameIcon, singlePlayerIcon, multiPlayerIcon, atlasIcon, scoresIcon, infoIcon;
 	private CustomButton singlePlayerGameButton, multiPlayerGameButton, atlasButton, scoreBoardButton, greekLanguageButton, englishLanguageButton,
 			cancelEditUsernameButton, cancelSwitchUserButton, cancelAddUserButton, confirmEditUsernameButton, confirmSwitchUserButton, confirmAddUserButton, 
 			deleteAllDataButton, cancelPopUpActionButton, confirmPopUpActionButton;
@@ -599,6 +598,10 @@ public class WelcomeScreen extends CoreScreen
 
 		vBoxForMainButtons.setLayoutX(width / 2.0 - vBoxForMainButtons.getPrefWidth() / 2.0);
 
+		editUserIcon.setFitHeight(0.8 * iconSize);
+		switchUserIcon.setFitHeight(0.8 * iconSize);
+		addUserIcon.setFitHeight(0.8 * iconSize);
+		
 		singlePlayerIcon.setFitHeight(iconSize);
 		multiPlayerIcon.setFitHeight(iconSize);
 		atlasIcon.setFitHeight(iconSize);
@@ -1055,6 +1058,10 @@ public class WelcomeScreen extends CoreScreen
 		vBoxForMainButtons.getChildren().addAll(singlePlayerGameButton, multiPlayerGameButton, atlasButton, scoreBoardButton);
 
 		//NEW NAME BOX AND STUFF
+		editUserIcon = new CustomImageView(true, true, false, true, CacheHint.SCALE);
+		switchUserIcon = new CustomImageView(true, true, false, true, CacheHint.SCALE);
+		addUserIcon = new CustomImageView(true, true, false, true, CacheHint.SCALE);
+		
 		editUsernameLabel = new Label();
 		editUsernameLabel.setAlignment(Pos.CENTER);
 		editUsernameLabel.setTextFill(Color.WHITE);
@@ -1069,14 +1076,26 @@ public class WelcomeScreen extends CoreScreen
 		
 		editUsernameToggleButton = new ToggleButton();
 		editUsernameToggleButton.setCursor(Cursor.HAND);
+		editUsernameToggleButton.setGraphic(editUserIcon);
+		editUsernameToggleButton.setGraphicTextGap(10);
+		editUsernameToggleButton.setCache(true);
+		editUsernameToggleButton.setCacheHint(CacheHint.SCALE);
 		editUsernameToggleButton.getStyleClass().addAll("segmentedToggleButton", "first");
 		
 		switchUserToggleButton = new ToggleButton();
 		switchUserToggleButton.setCursor(Cursor.HAND);
+		switchUserToggleButton.setGraphic(switchUserIcon);
+		switchUserToggleButton.setGraphicTextGap(10);
+		switchUserToggleButton.setCache(true);
+		switchUserToggleButton.setCacheHint(CacheHint.SCALE);
 		switchUserToggleButton.getStyleClass().add("segmentedToggleButton");
 		
 		addUserToggleButton = new ToggleButton();
 		addUserToggleButton.setCursor(Cursor.HAND);
+		addUserToggleButton.setGraphic(addUserIcon);
+		addUserToggleButton.setGraphicTextGap(10);
+		addUserToggleButton.setCache(true);
+		addUserToggleButton.setCacheHint(CacheHint.SCALE);
 		addUserToggleButton.getStyleClass().addAll("segmentedToggleButton", "last");
 		
 		toggleGroupForUsersEditSegmentedButton = new ToggleGroup();
@@ -1335,6 +1354,10 @@ public class WelcomeScreen extends CoreScreen
 			
 			leftGlobeStand.setImage(LEFT_GLOBE_STAND_IMAGE);
 			rightGlobeStand.setImage(RIGHT_GLOBE_STAND_IMAGE);
+			
+			editUserIcon.setImage(EDIT_USERNAME_ICON);
+			switchUserIcon.setImage(SWITCH_USER_ICON);
+			addUserIcon.setImage(ADD_USER_ICON);
 			
 			settingsIcon.setImage(SETTINGS_ICON);
 			minimizeIcon.setImage(MINIMIZE_ICON);

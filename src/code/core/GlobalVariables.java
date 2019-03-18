@@ -509,11 +509,8 @@ public class GlobalVariables
 	public static Image PENCIL_ICON;
 	public static Image PENCIL_ICON_DISABLED;
 	public static Image EDIT_USERNAME_ICON;
-	public static Image EDIT_USERNAME_ICON_CLICKED;
 	public static Image SWITCH_USER_ICON;
-	public static Image SWITCH_USER_ICON_CLICKED;
-	public static Image NEW_USER_ICON;
-	public static Image NEW_USER_ICON_CLICKED;
+	public static Image ADD_USER_ICON;
 	public static Image INFO_ICON;
 	public static Image INFO_ICON_CLICKED;
 	public static Image SINGLE_PLAYER_ICON;
