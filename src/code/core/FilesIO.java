@@ -14,11 +14,13 @@ import org.jdom2.output.XMLOutputter;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
 import static code.core.GlobalVariables.*;
+import static code.core.PowerOn.loadPlayersDataAndSettings;
 
 public class FilesIO
 {
@@ -69,6 +71,13 @@ public class FilesIO
 		try
 		{
 			if(gameFolder.exists()) FileUtils.forceDelete(gameFolder);
+			
+			playersArrayList = new ArrayList<>();
+			games = new ArrayList<>();
+			
+			FilesIO.setupFiles();
+
+			loadPlayersDataAndSettings();
 			
 			return true;
 		}

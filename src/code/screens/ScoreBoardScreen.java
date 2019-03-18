@@ -41,14 +41,14 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	ObservableList<Game> gamesObservableList;
 	ObservableList<String> playerNamesObservableList;
 	
-	private ImageView previousChalkboardImage, woodPanelFor5IconsImage, titleImage, backArrowImage, controlImage;
+	private CustomImageView previousChalkboardImage, woodPanelFor5IconsImage, titleImage, backArrowImage, controlImage;
 	private Label titleLabel, controlLabel;
 	private InnerShadow innerShadow;
 	private DropShadow dropShadow;
 	private HBox hBoxFor5Icons;
 	private VBox vBoxForControlButton, vBoxForPlayerStatistics;
 	private ComboBox<String> comboBoxForPlayerNames;
-	private Button backButton, deleteButton;
+	private CustomButton backButton, deleteButton;
 	private GridPane gridPaneForPlayerStatistics;
 	private TableView<Game> tableView;
 	private TableColumn<Game, String> playerNameColumn, selectedCategoriesColumn;
@@ -373,23 +373,13 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	public ScoreBoardScreen()
 	{
 		//FUNDAMENTAL STUFF-------------------------------------------------------------------------------------
-		previousChalkboardImage = new ImageView();
-		previousChalkboardImage.setPreserveRatio(false);
+		previousChalkboardImage = new CustomImageView(false, false, false, true, CacheHint.SPEED);
 		previousChalkboardImage.setLayoutX(0);
 		previousChalkboardImage.setLayoutY(0);
-		previousChalkboardImage.setSmooth(true);
-		previousChalkboardImage.setCache(true);
-		previousChalkboardImage.setCacheHint(CacheHint.SPEED);
 		
-		movingEarthImage = new ImageView();
-		movingEarthImage.setSmooth(true);
-		movingEarthImage.setPreserveRatio(true);
+		movingEarthImage = new CustomImageView(false, true, false, false, null);
 		
-		woodPanelFor5IconsImage = new ImageView();
-		woodPanelFor5IconsImage.setSmooth(true);
-		woodPanelFor5IconsImage.setPreserveRatio(true);
-		woodPanelFor5IconsImage.setCache(true);
-		woodPanelFor5IconsImage.setCacheHint(CacheHint.SPEED);
+		woodPanelFor5IconsImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		hBoxFor5Icons = new HBox();
 		hBoxFor5Icons.setAlignment(Pos.CENTER);
@@ -399,11 +389,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
 		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
 		
-		titleImage = new ImageView();
-		titleImage.setSmooth(true);
-		titleImage.setPreserveRatio(true);
-		titleImage.setCache(true);
-		titleImage.setCacheHint(CacheHint.SPEED);
+		titleImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		innerShadow = new InnerShadow();
 		
@@ -566,12 +552,11 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				numberOfAllQuestionsColumn, numberOfCorrectQuestionsColumn, scorePointsColumn,
 				maxComboColumn, averageAnswerTimeColumn, gameStartedTimeColumn, gameDurationColumn);
 		
-		deleteButton = new Button();
+		deleteButton = new CustomButton();
 		deleteButton.setStyle("-fx-background-color: transparent");
 		deleteButton.setTextFill(Color.valueOf("#7A301B"));
 		deleteButton.setUnderline(true);
 		deleteButton.setTextAlignment(TextAlignment.CENTER);
-		deleteButton.setCursor(Cursor.HAND);
 		deleteButton.setCache(true);
 		deleteButton.setCacheHint(CacheHint.SCALE);
 		
@@ -658,14 +643,9 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		vBoxForPlayerStatistics.getChildren().addAll(comboBoxForPlayerNames, gridPaneForPlayerStatistics);
 		
 		//CONTROL BUTTON
-		controlImage = new ImageView();
+		controlImage = new CustomImageView(true, true, true, true, CacheHint.ROTATE);
 		controlImage.setRotate(180);
-		controlImage.setPreserveRatio(true);
-		controlImage.setSmooth(true);
-		controlImage.setPickOnBounds(true);
 		controlImage.setCursor(Cursor.HAND);
-		controlImage.setCache(true);
-		controlImage.setCacheHint(CacheHint.ROTATE);
 		
 		controlLabel = new Label();
 		controlLabel.setTextAlignment(TextAlignment.CENTER);
@@ -685,18 +665,14 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		woodPanelFor5IconsImage.setEffect(dropShadow);
 		
 		//BACK ARROW-------------------------------------------------------------------------------------
-		backArrowImage = new ImageView(BACK_ARROW);
-		backArrowImage.setPreserveRatio(true);
-		backArrowImage.setSmooth(true);
-		backArrowImage.setPickOnBounds(true);
+		backArrowImage = new CustomImageView(BACK_ARROW, true, true, true, false, null);
 		
-		backButton = new Button();
+		backButton = new CustomButton();
 		backButton.setStyle("-fx-background-color: transparent");
 		backButton.setGraphic(backArrowImage);
 		backButton.setContentDisplay(ContentDisplay.TOP);
 		backButton.setTextAlignment(TextAlignment.CENTER);
 		backButton.setTextFill(Color.valueOf("#7A301B"));
-		backButton.setCursor(Cursor.HAND);
 		backButton.setCache(true);
 		backButton.setCacheHint(CacheHint.SCALE);
 		

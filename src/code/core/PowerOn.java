@@ -264,10 +264,11 @@ public class PowerOn
 		masterSliderVolume.set(getCurrentPlayer().getMasterSliderVolume());
 		musicSliderVolume.set(getCurrentPlayer().getMusicSliderVolume());
 		soundEffectsSliderVolume.set(getCurrentPlayer().getSoundEffectsSliderVolume());
-		windowWidth = getCurrentPlayer().getWindowWidth();
-		windowHeight = getHeightBasedOnWidth(windowWidth);
 		startAtFullScreen = getCurrentPlayer().getStartAtFullScreen();
 		animationsUsed = getCurrentPlayer().getAnimationsUsed();
+		
+		windowWidth = getCurrentPlayer().getWindowWidth();
+		windowHeight = getHeightBasedOnWidth(windowWidth);
 	}
 	
 	public static void setNumberAndDateFormats(Locale locale)

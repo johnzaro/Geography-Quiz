@@ -49,7 +49,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			capitalsOfStatesSortList, greekDecentralizedAdministrationsSortList, greekRegionsSortList, greekRegionalUnitsSortList,
 			attractionsSortList, emptyObservableList;
 	
-	private ImageView previousChalkboardImage, woodPanelFor5IconsImage,
+	private CustomImageView previousChalkboardImage, woodPanelFor5IconsImage,
 			titleImage, backArrowImage, flagForCountriesAndContinentsImageSmall, flagForUSAImageSmall, coatOfArmsForCountriesAndContinentsImageSmall,
 			sealForUSAImageSmall, locationForCountriesAndContinentsImageSmall, locationForUSAImageSmall, logoForGreeceImageSmall, locationForGreeceSmall,
 			attractionImageSmall, attractionLocationImageSmall, bigImage, previousInBigImageButton, nextInBigImageButton, exitBigImage, zoomInBigImage, zoomOutBigImage;
@@ -65,7 +65,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			vBoxForListViewForGreece, vBoxForListViewForAttractions, vBoxForGridPaneForAttractions;
 	private ToggleButton continentsAndCountriesToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton;
 	private ToggleGroup toggleGroupForToggleButtons;
-	private Button backButton;
+	private CustomButton backButton;
 	private Rectangle rectangleForBigImage, rectangleToShowInfo;
 	private TextArea textAreaForInfo;
 	
@@ -777,23 +777,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	public AtlasScreen()
 	{
 		//FUNDAMENTAL STUFF-------------------------------------------------------------------------------------
-		previousChalkboardImage = new ImageView();
-		previousChalkboardImage.setPreserveRatio(false);
+		previousChalkboardImage = new CustomImageView(true, false, false, true, CacheHint.SPEED);
 		previousChalkboardImage.setLayoutX(0);
 		previousChalkboardImage.setLayoutY(0);
-		previousChalkboardImage.setSmooth(true);
-		previousChalkboardImage.setCache(true);
-		previousChalkboardImage.setCacheHint(CacheHint.SPEED);
 
-		movingEarthImage = new ImageView();
-		movingEarthImage.setSmooth(true);
-		movingEarthImage.setPreserveRatio(true);
+		movingEarthImage = new CustomImageView(true, true, false, false, null);
 
-		woodPanelFor5IconsImage = new ImageView();
-		woodPanelFor5IconsImage.setSmooth(true);
-		woodPanelFor5IconsImage.setPreserveRatio(true);
-		woodPanelFor5IconsImage.setCache(true);
-		woodPanelFor5IconsImage.setCacheHint(CacheHint.SPEED);
+		woodPanelFor5IconsImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 
 		hBoxFor5Icons = new HBox();
 		hBoxFor5Icons.setAlignment(Pos.CENTER);
@@ -803,11 +793,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
 		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
 
-		titleImage = new ImageView();
-		titleImage.setSmooth(true);
-		titleImage.setPreserveRatio(true);
-		titleImage.setCache(true);
-		titleImage.setCacheHint(CacheHint.SPEED);
+		titleImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 
 		innerShadow = new InnerShadow();
 
@@ -827,16 +813,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		//TOGGLE BUTTONS-------------------------------------------------------------------------------------
 		countriesToggleButtonTooltip = new CustomTooltip();
-		countriesToggleButtonTooltip.setWrapText(true);
 
 		USAToggleButtonTooltip = new CustomTooltip();
-		USAToggleButtonTooltip.setWrapText(true);
 
 		greekCountiesToggleButtonTooltip = new CustomTooltip();
-		greekCountiesToggleButtonTooltip.setWrapText(true);
 
 		attractionsToggleButtonTooltip = new CustomTooltip();
-		attractionsToggleButtonTooltip.setWrapText(true);
 
 		continentsAndCountriesToggleButton = new ToggleButton();
 		continentsAndCountriesToggleButton.setCursor(Cursor.HAND);
@@ -904,8 +886,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			gridPaneTooltipsForCountriesAndContinents[i] = new CustomTooltip();
 			
-			gridPaneTooltipsForCountriesAndContinents[i].setWrapText(true);
-			
 			gridPaneLabelsForCountriesAndContinents[i][1].setTooltip(gridPaneTooltipsForCountriesAndContinents[i]);
 			
 			if(i < 15)
@@ -922,10 +902,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		scrollPaneForGridPaneForCountriesAndContinents.setCache(true);
 		scrollPaneForGridPaneForCountriesAndContinents.setCacheHint(CacheHint.SCALE);
 		
-		flagForCountriesAndContinentsImageSmall = new ImageView();
-		flagForCountriesAndContinentsImageSmall.setSmooth(false);
-		flagForCountriesAndContinentsImageSmall.setPreserveRatio(true);
-		flagForCountriesAndContinentsImageSmall.setPickOnBounds(true);
+		flagForCountriesAndContinentsImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		flagLabelForCountriesAndContinents = new Label();
 		flagLabelForCountriesAndContinents.setGraphic(flagForCountriesAndContinentsImageSmall);
@@ -935,10 +912,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		flagLabelForCountriesAndContinents.setTextFill(Color.valueOf("#7A301B"));
 		flagLabelForCountriesAndContinents.setCursor(Cursor.HAND);
 		
-		coatOfArmsForCountriesAndContinentsImageSmall = new ImageView();
-		coatOfArmsForCountriesAndContinentsImageSmall.setSmooth(false);
-		coatOfArmsForCountriesAndContinentsImageSmall.setPreserveRatio(true);
-		coatOfArmsForCountriesAndContinentsImageSmall.setPickOnBounds(true);
+		coatOfArmsForCountriesAndContinentsImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		coatOfArmsLabelForCountriesAndContinents = new Label();
 		coatOfArmsLabelForCountriesAndContinents.setGraphic(coatOfArmsForCountriesAndContinentsImageSmall);
@@ -948,10 +922,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		coatOfArmsLabelForCountriesAndContinents.setTextFill(Color.valueOf("#7A301B"));
 		coatOfArmsLabelForCountriesAndContinents.setCursor(Cursor.HAND);
 		
-		locationForCountriesAndContinentsImageSmall = new ImageView();
-		locationForCountriesAndContinentsImageSmall.setSmooth(false);
-		locationForCountriesAndContinentsImageSmall.setPreserveRatio(true);
-		locationForCountriesAndContinentsImageSmall.setPickOnBounds(true);
+		locationForCountriesAndContinentsImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		locationLabelForCountriesAndContinents = new Label();
 		locationLabelForCountriesAndContinents.setGraphic(locationForCountriesAndContinentsImageSmall);
@@ -1019,8 +990,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			gridPaneTooltipsForUSA[i] = new CustomTooltip();
 			
-			gridPaneTooltipsForUSA[i].setWrapText(true);
-			
 			gridPaneLabelsForUSA[i][1].setTooltip(gridPaneTooltipsForUSA[i]);
 			
 			gridPaneForLabelsForUSA.add(gridPaneLabelsForUSA[i][0], 0, i);
@@ -1035,10 +1004,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		scrollPaneForGridPaneForUSA.setPannable(true);
 		scrollPaneForGridPaneForUSA.setContent(gridPaneForLabelsForUSA);
 		
-		flagForUSAImageSmall = new ImageView();
-		flagForUSAImageSmall.setSmooth(false);
-		flagForUSAImageSmall.setPreserveRatio(true);
-		flagForUSAImageSmall.setPickOnBounds(true);
+		flagForUSAImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		flagLabelForUSA = new Label();
 		flagLabelForUSA.setGraphic(flagForUSAImageSmall);
@@ -1048,10 +1014,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		flagLabelForUSA.setTextFill(Color.valueOf("#7A301B"));
 		flagLabelForUSA.setCursor(Cursor.HAND);
 		
-		sealForUSAImageSmall = new ImageView();
-		sealForUSAImageSmall.setSmooth(false);
-		sealForUSAImageSmall.setPreserveRatio(true);
-		sealForUSAImageSmall.setPickOnBounds(true);
+		sealForUSAImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		sealLabelForUSA = new Label();
 		sealLabelForUSA.setGraphic(sealForUSAImageSmall);
@@ -1061,10 +1024,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		sealLabelForUSA.setTextFill(Color.valueOf("#7A301B"));
 		sealLabelForUSA.setCursor(Cursor.HAND);
 		
-		locationForUSAImageSmall = new ImageView();
-		locationForUSAImageSmall.setSmooth(false);
-		locationForUSAImageSmall.setPreserveRatio(true);
-		locationForUSAImageSmall.setPickOnBounds(true);
+		locationForUSAImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		locationLabelForUSA = new Label();
 		locationLabelForUSA.setGraphic(locationForUSAImageSmall);
@@ -1136,18 +1096,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			gridPaneTooltipsForGreece[i] = new CustomTooltip();
 			
-			gridPaneTooltipsForGreece[i].setWrapText(true);
-			
 			gridPaneLabelsForGreece[i][1].setTooltip(gridPaneTooltipsForGreece[i]);
 			
 			gridPaneForGreece.add(gridPaneLabelsForGreece[i][0], 0, i);
 			gridPaneForGreece.add(gridPaneLabelsForGreece[i][1], 1, i);
 		}
 		
-		logoForGreeceImageSmall = new ImageView();
-		logoForGreeceImageSmall.setSmooth(false);
-		logoForGreeceImageSmall.setPreserveRatio(true);
-		logoForGreeceImageSmall.setPickOnBounds(true);
+		logoForGreeceImageSmall = new CustomImageView(false, true, true, false, null);
 
 		logoLabelForGreece = new Label();
 		logoLabelForGreece.setGraphic(logoForGreeceImageSmall);
@@ -1156,10 +1111,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		logoLabelForGreece.setAlignment(Pos.BASELINE_CENTER);
 		logoLabelForGreece.setTextFill(Color.valueOf("#7A301B"));
 
-		locationForGreeceSmall = new ImageView();
-		locationForGreeceSmall.setSmooth(false);
-		locationForGreeceSmall.setPreserveRatio(true);
-		locationForGreeceSmall.setPickOnBounds(true);
+		locationForGreeceSmall = new CustomImageView(false, true, true, false, null);
 
 		locationLabelForGreece = new Label();
 		locationLabelForGreece.setGraphic(locationForGreeceSmall);
@@ -1220,8 +1172,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			gridPaneTooltipsForAttractions[i] = new CustomTooltip();
 			
-			gridPaneTooltipsForAttractions[i].setWrapText(true);
-			
 			gridPaneLabelsForAttractions[i][1].setTooltip(gridPaneTooltipsForAttractions[i]);
 			
 			gridPaneForAttractions.add(gridPaneLabelsForAttractions[i][0], 0, i);
@@ -1236,10 +1186,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		vBoxForGridPaneForAttractions.setFillWidth(true);
 		vBoxForGridPaneForAttractions.getChildren().addAll(gridPaneForAttractions, attractionBasicInfoLabel);
 		
-		attractionImageSmall = new ImageView();
-		attractionImageSmall.setSmooth(false);
-		attractionImageSmall.setPreserveRatio(true);
-		attractionImageSmall.setPickOnBounds(true);
+		attractionImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		attractionLabel = new Label();
 		attractionLabel.setGraphic(attractionImageSmall);
@@ -1248,10 +1195,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		attractionLabel.setAlignment(Pos.BASELINE_CENTER);
 		attractionLabel.setTextFill(Color.valueOf("#7A301B"));
 		
-		attractionLocationImageSmall = new ImageView();
-		attractionLocationImageSmall.setSmooth(false);
-		attractionLocationImageSmall.setPreserveRatio(true);
-		attractionLocationImageSmall.setPickOnBounds(true);
+		attractionLocationImageSmall = new CustomImageView(false, true, true, false, null);
 		
 		attractionLocationLabel = new Label();
 		attractionLocationLabel.setGraphic(attractionLocationImageSmall);
@@ -1298,12 +1242,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		rectangleForBigImage.setCache(true);
 		rectangleForBigImage.setCacheHint(CacheHint.SCALE);
 		
-		bigImage = new ImageView();
-		bigImage.setSmooth(false);
-		bigImage.setPreserveRatio(true);
-		bigImage.setPickOnBounds(true);
-		bigImage.setCache(true);
-		bigImage.setCacheHint(CacheHint.SCALE);
+		bigImage = new CustomImageView(false, true, true, true, CacheHint.SCALE);
 		
 		labelForBigImage = new Label();
 		labelForBigImage.setAlignment(Pos.CENTER);
@@ -1311,59 +1250,31 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		labelForBigImage.setCache(true);
 		labelForBigImage.setCacheHint(CacheHint.SCALE);
 		
-		previousInBigImageButton = new ImageView(BACK_ARROW);
-		previousInBigImageButton.setPreserveRatio(true);
-		previousInBigImageButton.setSmooth(true);
-		previousInBigImageButton.setPickOnBounds(true);
+		previousInBigImageButton = new CustomImageView(BACK_ARROW, true, true, true, true, CacheHint.SCALE);
 		previousInBigImageButton.setCursor(Cursor.HAND);
-		previousInBigImageButton.setCache(true);
-		previousInBigImageButton.setCacheHint(CacheHint.SCALE);
 		
-		nextInBigImageButton = new ImageView(BACK_ARROW);
+		nextInBigImageButton = new CustomImageView(BACK_ARROW, true, true, true, true, CacheHint.SCALE);
 		nextInBigImageButton.setRotate(180);
-		nextInBigImageButton.setPreserveRatio(true);
-		nextInBigImageButton.setSmooth(true);
-		nextInBigImageButton.setPickOnBounds(true);
 		nextInBigImageButton.setCursor(Cursor.HAND);
-		nextInBigImageButton.setCache(true);
-		nextInBigImageButton.setCacheHint(CacheHint.SCALE);
 		
-		exitBigImage = new ImageView(X_ICON);
-		exitBigImage.setPreserveRatio(true);
-		exitBigImage.setSmooth(true);
+		exitBigImage = new CustomImageView(X_ICON, true, true, false, true, CacheHint.SCALE);
 		exitBigImage.setCursor(Cursor.HAND);
-		exitBigImage.setCache(true);
-		exitBigImage.setCacheHint(CacheHint.SCALE);
 		
-		zoomInBigImage = new ImageView(ZOOM_IN_ICON);
-		zoomInBigImage.setPreserveRatio(true);
-		zoomInBigImage.setSmooth(true);
-		zoomInBigImage.setPickOnBounds(true);
+		zoomInBigImage = new CustomImageView(ZOOM_IN_ICON, true, true, true, true, CacheHint.SCALE);
 		zoomInBigImage.setCursor(Cursor.HAND);
-		zoomInBigImage.setCache(true);
-		zoomInBigImage.setCacheHint(CacheHint.SCALE);
 		
-		zoomOutBigImage = new ImageView(ZOOM_OUT_ICON);
-		zoomOutBigImage.setPreserveRatio(true);
-		zoomOutBigImage.setSmooth(true);
-		zoomOutBigImage.setPickOnBounds(true);
+		zoomOutBigImage = new CustomImageView(ZOOM_OUT_ICON, true, true, true, true, CacheHint.SCALE);
 		zoomOutBigImage.setCursor(Cursor.HAND);
-		zoomOutBigImage.setCache(true);
-		zoomOutBigImage.setCacheHint(CacheHint.SCALE);
 		
 		//BACK ARROW-------------------------------------------------------------------------------------
-		backArrowImage = new ImageView(BACK_ARROW);
-		backArrowImage.setPreserveRatio(true);
-		backArrowImage.setSmooth(true);
-		backArrowImage.setPickOnBounds(true);
+		backArrowImage = new CustomImageView(BACK_ARROW, true, true, true, false, null);
 
-		backButton = new Button();
+		backButton = new CustomButton();
 		backButton.setStyle("-fx-background-color: transparent");
 		backButton.setGraphic(backArrowImage);
 		backButton.setContentDisplay(ContentDisplay.TOP);
 		backButton.setTextAlignment(TextAlignment.CENTER);
 		backButton.setTextFill(Color.valueOf("#7A301B"));
-		backButton.setCursor(Cursor.HAND);
 		backButton.setCache(true);
 		backButton.setCacheHint(CacheHint.SCALE);
 		
@@ -5656,7 +5567,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		LabelGridCell()
 		{
-			imageView = new ImageView();
+			imageView = new CustomImageView(false, true, false, false, null);
 			imageView.setSmooth(false);
 			imageView.setPreserveRatio(true);
 			
@@ -5769,7 +5680,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				if (imageName != null && imageName.length() > 25)
 				{
 					Tooltip tooltip = new CustomTooltip();
-					tooltip.setWrapText(true);
 					tooltip.setText(imageName);
 					tooltip.setFont(fontForTooltips);
 					tooltip.setMaxWidth(0.3646 * stage.getWidth());

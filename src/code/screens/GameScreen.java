@@ -50,14 +50,12 @@ public class GameScreen extends CoreScreen
 	private GridPane gridPaneFor4TextAnswers, gridPaneFor2TextAnswers, gridPaneFor4ImageAnswers, gridPaneForAnswerIconsFor4ImageAnswers;
 	private StackPane stackPaneFor4ImageAnswers, stackPaneForBigImage;
 	
-	private ImageView welcomeScreenImage, worldMapBackground, titleImageForFinishedGame, woodPanelFor5IconsImage, pauseGameIcon,
-			nextQuestionArrowImage, imageViewForLargeHeart, imageViewForLargeAnswerIcon;
-	private CustomImageView imageViewForQuestionImage, imageViewForBigImage;
-	private ImageView[] answerIconsFor2TextAnswers, answerIconsFor4TextAnswers, answerIconsFor4ImageAnswers, imageViewForLives;
-	private CustomImageView[] imageViewFor4ImageAnswers;
+	private CustomImageView welcomeScreenImage, worldMapBackground, titleImageForFinishedGame, woodPanelFor5IconsImage, pauseGameIcon,
+			nextQuestionArrowImage, imageViewForLargeHeart, imageViewForLargeAnswerIcon, imageViewForQuestionImage, imageViewForBigImage;
+	private CustomImageView[] answerIconsFor2TextAnswers, answerIconsFor4TextAnswers, answerIconsFor4ImageAnswers, imageViewForLives, imageViewFor4ImageAnswers;
 	
 	private Label titleLabelForFinishedGame, popUpMessage;
-	private Button returnToGameButton, restartGameButton, returnToGamePropertiesButton, returnToWelcomeScreenButton, nextQuestionButton,
+	private CustomButton returnToGameButton, restartGameButton, returnToGamePropertiesButton, returnToWelcomeScreenButton, nextQuestionButton,
 			restartGameFromFinishedScreenButton, returnToWelcomeScreenFromFinishedGameScreenButton;
 	private ProgressBar progressBarForCountdown, progressBarFor2_5SecondsWaitForNextQuestion;
 	private Text textForQuestionNumber, textForCountdown, textForScore, textForQuestion, textForTimePassed, textForResultsDuration, textForResults, textForResults2, textForCombo;
@@ -682,19 +680,19 @@ public class GameScreen extends CoreScreen
 		pr = PROGRESS_BAR_COLOR.getPixelReader();
 		random = new Random();
 		
-		welcomeScreenImage = new ImageView();
+		welcomeScreenImage = new CustomImageView(false, false, false, true, CacheHint.SPEED);
 		welcomeScreenImage.setSmooth(false);
 		welcomeScreenImage.setPreserveRatio(false);
 		welcomeScreenImage.setCache(true);
 		welcomeScreenImage.setCacheHint(CacheHint.SPEED);
 		
-		worldMapBackground = new ImageView();
+		worldMapBackground = new CustomImageView(false, false, false, true, CacheHint.SPEED);
 		worldMapBackground.setSmooth(false);
 		worldMapBackground.setPreserveRatio(false);
 		worldMapBackground.setCache(true);
 		worldMapBackground.setCacheHint(CacheHint.SPEED);
 		
-		woodPanelFor5IconsImage = new ImageView();
+		woodPanelFor5IconsImage = new CustomImageView(false, true, false, true, CacheHint.SPEED);
 		woodPanelFor5IconsImage.setSmooth(false);
 		woodPanelFor5IconsImage.setPreserveRatio(true);
 		woodPanelFor5IconsImage.setCache(true);
@@ -730,17 +728,10 @@ public class GameScreen extends CoreScreen
 		hBoxForLives = new HBox();
 		hBoxForLives.setAlignment(Pos.CENTER_LEFT);
 		
-		imageViewForLives = new ImageView[5];
-		for(int i = 0; i < 5; i++)
-		{
-			imageViewForLives[i] = new ImageView();
-			imageViewForLives[i].setPreserveRatio(true);
-			imageViewForLives[i].setSmooth(true);
-		}
+		imageViewForLives = new CustomImageView[5];
+		for(int i = 0; i < 5; i++) imageViewForLives[i] = new CustomImageView(true, true, false, false, null);
 		
-		imageViewForLargeHeart = new ImageView();
-		imageViewForLargeHeart.setPreserveRatio(true);
-		imageViewForLargeHeart.setSmooth(true);
+		imageViewForLargeHeart = new CustomImageView(true, true, false, false, null);
 		
 		//10 SECONDS COUNTDOWN
 		progressBarForCountdown = new ProgressBar();
@@ -777,15 +768,10 @@ public class GameScreen extends CoreScreen
 		textForQuestion.setCacheHint(CacheHint.SCALE);
 		
 		//QUESTION IMAGE
-		imageViewForQuestionImage = new CustomImageView();
-		imageViewForQuestionImage.setPreserveRatio(true);
-		imageViewForQuestionImage.setSmooth(true);
-		imageViewForQuestionImage.setPickOnBounds(true);
+		imageViewForQuestionImage = new CustomImageView(true, true, true, false, null);
 		
 		//IMAGE VIEW FOR LARGE ANSWER ICON
-		imageViewForLargeAnswerIcon = new ImageView();
-		imageViewForLargeAnswerIcon.setPreserveRatio(true);
-		imageViewForLargeAnswerIcon.setSmooth(true);
+		imageViewForLargeAnswerIcon = new CustomImageView(true, true, false, false, null);
 		
 		//GRID PANE FOR 2 TEXT ANSWERS
 		gridPaneFor2TextAnswers = new GridPane();
@@ -805,14 +791,9 @@ public class GameScreen extends CoreScreen
 		toggleGroupFor2PossibleAnswers = new ToggleGroup();
 		toggleGroupFor2PossibleAnswers.getToggles().addAll(radioButtonsFor2TextAnswers[0], radioButtonsFor2TextAnswers[1]);
 		
-		answerIconsFor2TextAnswers = new ImageView[2];
-		answerIconsFor2TextAnswers[0] = new ImageView();
-		answerIconsFor2TextAnswers[0].setPreserveRatio(true);
-		answerIconsFor2TextAnswers[0].setSmooth(true);
-		
-		answerIconsFor2TextAnswers[1] = new ImageView();
-		answerIconsFor2TextAnswers[1].setPreserveRatio(true);
-		answerIconsFor2TextAnswers[1].setSmooth(true);
+		answerIconsFor2TextAnswers = new CustomImageView[2];
+		answerIconsFor2TextAnswers[0] = new CustomImageView(true, true, false, false, null);
+		answerIconsFor2TextAnswers[1] = new CustomImageView(true, true, false, false, null);
 		
 		gridPaneFor2TextAnswers.add(answerIconsFor2TextAnswers[0], 0, 0);
 		gridPaneFor2TextAnswers.add(answerIconsFor2TextAnswers[1], 0, 1);
@@ -825,7 +806,7 @@ public class GameScreen extends CoreScreen
 		gridPaneFor4TextAnswers.setCache(true);
 		gridPaneFor4TextAnswers.setCacheHint(CacheHint.SCALE);
 		
-		answerIconsFor4TextAnswers = new ImageView[4];
+		answerIconsFor4TextAnswers = new CustomImageView[4];
 		radioButtonsFor4TextAnswers = new RadioButton[4];
 		tooltipsForRadioButtonsFor4TextAnswers = new CustomTooltip[4];
 		
@@ -833,9 +814,7 @@ public class GameScreen extends CoreScreen
 		
 		for(int i = 0; i < 4; i++)
 		{
-			answerIconsFor4TextAnswers[i] = new ImageView();
-			answerIconsFor4TextAnswers[i].setPreserveRatio(true);
-			answerIconsFor4TextAnswers[i].setSmooth(true);
+			answerIconsFor4TextAnswers[i] = new CustomImageView(true, true, false, false, null);
 			
 			radioButtonsFor4TextAnswers[i] = new RadioButton();
 			radioButtonsFor4TextAnswers[i].setTextFill(Color.WHITE);
@@ -843,7 +822,6 @@ public class GameScreen extends CoreScreen
 			toggleGroupFor4PossibleAnswers.getToggles().add(radioButtonsFor4TextAnswers[i]);
 			
 			tooltipsForRadioButtonsFor4TextAnswers[i] = new CustomTooltip();
-			tooltipsForRadioButtonsFor4TextAnswers[i].setWrapText(true);
 			
 			gridPaneFor4TextAnswers.add(answerIconsFor4TextAnswers[i], 0, i);
 			gridPaneFor4TextAnswers.add(radioButtonsFor4TextAnswers[i], 1, i);
@@ -857,20 +835,15 @@ public class GameScreen extends CoreScreen
 		gridPaneForAnswerIconsFor4ImageAnswers.setAlignment(Pos.CENTER);
 		gridPaneForAnswerIconsFor4ImageAnswers.setPickOnBounds(false);
 		
-		answerIconsFor4ImageAnswers = new ImageView[4];
+		answerIconsFor4ImageAnswers = new CustomImageView[4];
 		imageViewFor4ImageAnswers = new CustomImageView[4];
 		
 		for(int i = 0; i < 4; i++)
 		{
-			answerIconsFor4ImageAnswers[i] = new ImageView();
-			answerIconsFor4ImageAnswers[i].setPreserveRatio(true);
-			answerIconsFor4ImageAnswers[i].setSmooth(true);
+			answerIconsFor4ImageAnswers[i] = new CustomImageView(true, true, false, false, null);
 			
-			imageViewFor4ImageAnswers[i] = new CustomImageView();
-			imageViewFor4ImageAnswers[i].setPreserveRatio(true);
+			imageViewFor4ImageAnswers[i] = new CustomImageView(true, true, true, false, null);
 			imageViewFor4ImageAnswers[i].setCursor(Cursor.HAND);
-			imageViewFor4ImageAnswers[i].setSmooth(true);
-			imageViewFor4ImageAnswers[i].setPickOnBounds(true);
 			
 			gridPaneFor4ImageAnswers.add(imageViewFor4ImageAnswers[i], i % 2, i / 2);
 			gridPaneForAnswerIconsFor4ImageAnswers.add(answerIconsFor4ImageAnswers[i], i % 2, i / 2);
@@ -883,21 +856,16 @@ public class GameScreen extends CoreScreen
 		stackPaneFor4ImageAnswers.setCacheHint(CacheHint.SCALE);
 		
 		//BIG IMAGE
-		imageViewForBigImage = new CustomImageView();
-		imageViewForBigImage.setPreserveRatio(true);
-		imageViewForBigImage.setSmooth(true);
+		imageViewForBigImage = new CustomImageView(true, true, false, false, null);
 		
 		stackPaneForBigImage = new StackPane();
 		stackPaneForBigImage.getChildren().add(imageViewForBigImage);
 		
 		//NEXT BUTTON + PROGRESS BAR FOR NEXT BUTTON
-		nextQuestionArrowImage = new ImageView();
+		nextQuestionArrowImage = new CustomImageView(true, true, true, false, null);
 		nextQuestionArrowImage.setRotate(180);
-		nextQuestionArrowImage.setPreserveRatio(true);
-		nextQuestionArrowImage.setSmooth(true);
-		nextQuestionArrowImage.setPickOnBounds(true);
 		
-		nextQuestionButton = new Button();
+		nextQuestionButton = new CustomButton();
 		nextQuestionButton.setStyle("-fx-background-color: transparent");
 		nextQuestionButton.setGraphic(nextQuestionArrowImage);
 		nextQuestionButton.setContentDisplay(ContentDisplay.TOP);
@@ -917,11 +885,10 @@ public class GameScreen extends CoreScreen
 		vBoxForNextQuestionButtonAndProgressBar.setCacheHint(CacheHint.SCALE);
 		
 		//PAUSED GAME STUFF-------------------------------------------------------------------------------------
-		pauseGameIcon = new ImageView();
+		pauseGameIcon = new CustomImageView(false, true, false, false, null);
 		pauseGameIcon.setCursor(Cursor.HAND);
-		pauseGameIcon.setPreserveRatio(true);
+		
 		pauseGameTooltip = new CustomTooltip();
-		pauseGameTooltip.setWrapText(true);
 		Tooltip.install(pauseGameIcon, pauseGameTooltip);
 		
 		popUpMessage = new Label();
@@ -929,25 +896,17 @@ public class GameScreen extends CoreScreen
 		popUpMessage.setTextFill(Color.WHITE);
 		popUpMessage.setWrapText(true);
 		
-		returnToGameButton = new Button();
-		returnToGameButton.setCursor(Cursor.HAND);
+		returnToGameButton = new CustomButton();
 		returnToGameButton.setTooltip(new CustomTooltip());
-		returnToGameButton.getTooltip().setWrapText(true);
 		
-		restartGameButton = new Button();
-		restartGameButton.setCursor(Cursor.HAND);
+		restartGameButton = new CustomButton();
 		restartGameButton.setTooltip(new CustomTooltip());
-		restartGameButton.getTooltip().setWrapText(true);
 		
-		returnToGamePropertiesButton = new Button();
-		returnToGamePropertiesButton.setCursor(Cursor.HAND);
+		returnToGamePropertiesButton = new CustomButton();
 		returnToGamePropertiesButton.setTooltip(new CustomTooltip());
-		returnToGamePropertiesButton.getTooltip().setWrapText(true);
 		
-		returnToWelcomeScreenButton = new Button();
-		returnToWelcomeScreenButton.setCursor(Cursor.HAND);
+		returnToWelcomeScreenButton = new CustomButton();
 		returnToWelcomeScreenButton.setTooltip(new CustomTooltip());
-		returnToWelcomeScreenButton.getTooltip().setWrapText(true);
 		
 		vBoxForPausedGame = new VBox();
 		vBoxForPausedGame.setAlignment(Pos.CENTER);
@@ -956,11 +915,7 @@ public class GameScreen extends CoreScreen
 		vBoxForPausedGame.setCacheHint(CacheHint.SPEED);
 		
 		//RESULTS SCREEN
-		titleImageForFinishedGame = new ImageView();
-		titleImageForFinishedGame.setSmooth(true);
-		titleImageForFinishedGame.setPreserveRatio(true);
-		titleImageForFinishedGame.setCache(true);
-		titleImageForFinishedGame.setCacheHint(CacheHint.SPEED);
+		titleImageForFinishedGame = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		titleLabelForFinishedGame = new Label();
 		titleLabelForFinishedGame.setTextFill(Color.valueOf("#602000"));
@@ -987,17 +942,13 @@ public class GameScreen extends CoreScreen
 		textForResults2.setCache(true);
 		textForResults2.setCacheHint(CacheHint.SCALE);
 		
-		restartGameFromFinishedScreenButton = new Button();
-		restartGameFromFinishedScreenButton.setCursor(Cursor.HAND);
+		restartGameFromFinishedScreenButton = new CustomButton();
 		restartGameFromFinishedScreenButton.setTextAlignment(TextAlignment.CENTER);
 		restartGameFromFinishedScreenButton.setTooltip(new CustomTooltip());
-		restartGameFromFinishedScreenButton.getTooltip().setWrapText(true);
 		
-		returnToWelcomeScreenFromFinishedGameScreenButton = new Button();
-		returnToWelcomeScreenFromFinishedGameScreenButton.setCursor(Cursor.HAND);
+		returnToWelcomeScreenFromFinishedGameScreenButton = new CustomButton();
 		returnToWelcomeScreenFromFinishedGameScreenButton.setTextAlignment(TextAlignment.CENTER);
 		returnToWelcomeScreenFromFinishedGameScreenButton.setTooltip(new CustomTooltip());
-		returnToWelcomeScreenFromFinishedGameScreenButton.getTooltip().setWrapText(true);
 		
 		//EFFECTS-------------------------------------------------------------------------------------
 		innerShadow = new InnerShadow();

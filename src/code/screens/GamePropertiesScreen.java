@@ -37,9 +37,9 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	private CustomCheckBox[] extQCCategories, extQCCountries, extQCUSA, extQCGreece;
 	private CustomCheckBox continentsAndCountriesCheckBox, USACheckBox, greeceCheckBox, attractionsCheckBox;
 	
-	private ImageView previousImage, titleImage1, titleImage2,  woodPanelFor5IconsImage,
+	private CustomImageView previousImage, titleImage1, titleImage2,  woodPanelFor5IconsImage,
 			backArrowImage, nextArrowImage, exitExtendedCategoryQuestions;
-	private Button classicGameButton, timeAttackGameButton, endlessGameButton, backButton, nextButton;
+	private CustomButton classicGameButton, timeAttackGameButton, endlessGameButton, backButton, nextButton;
 	private SwitchButton countDownToggleForClassicGameLabel, countDownToggleForEndlessGameLabel;
 	private Label titleLabel1, titleLabel2, extendedQuestionCategories, numberOfQuestionsForClassicGameLabel, countDownForClassicGameLabel, descriptionForClassicGameLabel,
 			gameDurationForTimeAttackGameLabel, descriptionForTimeAttackGameLabel, livesForEndlessGameLabel, countDownForEndlessGameLabel, descriptionForEndlessGameLabel;
@@ -859,23 +859,13 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	
 	public GamePropertiesScreen()
 	{
-		previousImage = new ImageView();
-		previousImage.setPreserveRatio(false);
+		previousImage = new CustomImageView(false, false, false, true, CacheHint.SPEED);
 		previousImage.setLayoutX(0);
 		previousImage.setLayoutY(0);
-		previousImage.setSmooth(false);
-		previousImage.setCache(true);
-		previousImage.setCacheHint(CacheHint.SPEED);
 		
-		movingEarthImage = new ImageView();
-		movingEarthImage.setSmooth(false);
-		movingEarthImage.setPreserveRatio(true);
+		movingEarthImage = new CustomImageView(false, true, false, false, null);
 		
-		woodPanelFor5IconsImage = new ImageView();
-		woodPanelFor5IconsImage.setSmooth(true);
-		woodPanelFor5IconsImage.setPreserveRatio(true);
-		woodPanelFor5IconsImage.setCache(true);
-		woodPanelFor5IconsImage.setCacheHint(CacheHint.SPEED);
+		woodPanelFor5IconsImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		hBoxFor5Icons = new HBox();
 		hBoxFor5Icons.setAlignment(Pos.CENTER);
@@ -885,53 +875,35 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
 		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
 		
-		backArrowImage = new ImageView();
-		backArrowImage.setPreserveRatio(true);
-		backArrowImage.setSmooth(true);
-		backArrowImage.setPickOnBounds(true);
+		backArrowImage = new CustomImageView(true, true, true, false, null);
 		
-		backButton = new Button();
+		backButton = new CustomButton();
 		backButton.setStyle("-fx-background-color: transparent");
 		backButton.setGraphic(backArrowImage);
 		backButton.setContentDisplay(ContentDisplay.TOP);
 		backButton.setTextAlignment(TextAlignment.CENTER);
 		backButton.setTextFill(Color.valueOf("#7A301B"));
-		backButton.setCursor(Cursor.HAND);
 		backButton.setTooltip(new CustomTooltip());
-		backButton.getTooltip().setWrapText(true);
 		backButton.setCache(true);
 		backButton.setCacheHint(CacheHint.SCALE);
 		
 //		Difficulty and categories selection screen
-		nextArrowImage = new ImageView();
+		nextArrowImage = new CustomImageView(true, true, true, false, null);
 		nextArrowImage.setRotate(180);
-		nextArrowImage.setPreserveRatio(true);
-		nextArrowImage.setSmooth(true);
-		nextArrowImage.setPickOnBounds(true);
 		
-		nextButton = new Button();
+		nextButton = new CustomButton();
 		nextButton.setStyle("-fx-background-color: transparent");
 		nextButton.setGraphic(nextArrowImage);
 		nextButton.setContentDisplay(ContentDisplay.TOP);
 		nextButton.setTextAlignment(TextAlignment.CENTER);
 		nextButton.setTextFill(Color.valueOf("#7A301B"));
-		nextButton.setCursor(Cursor.HAND);
 		nextButton.setTooltip(new CustomTooltip());
-		nextButton.getTooltip().setWrapText(true);
 		nextButton.setCache(true);
 		nextButton.setCacheHint(CacheHint.SCALE);
 		
-		titleImage1 = new ImageView();
-		titleImage1.setSmooth(true);
-		titleImage1.setPreserveRatio(true);
-		titleImage1.setCache(true);
-		titleImage1.setCacheHint(CacheHint.SPEED);
+		titleImage1 = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
-		titleImage2 = new ImageView();
-		titleImage2.setSmooth(true);
-		titleImage2.setPreserveRatio(true);
-		titleImage2.setCache(true);
-		titleImage2.setCacheHint(CacheHint.SCALE);
+		titleImage2 = new CustomImageView(true, true, false, true, CacheHint.SCALE);
 		
 		innerShadow = new InnerShadow();
 		
@@ -984,19 +956,15 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		continentsAndCountriesCheckBox.setCursor(Cursor.HAND);
 		continentsAndCountriesCheckBox.setTextFill(Color.WHITE);
 		continentsAndCountriesCheckBox.setTooltip(new CustomTooltip());
-		continentsAndCountriesCheckBox.getTooltip().setWrapText(true);
 		
 		USACheckBox = new CustomCheckBox();
 		USACheckBox.setTooltip(new CustomTooltip());
-		USACheckBox.getTooltip().setWrapText(true);
 		
 		greeceCheckBox = new CustomCheckBox();
 		greeceCheckBox.setTooltip(new CustomTooltip());
-		greeceCheckBox.getTooltip().setWrapText(true);
 		
 		attractionsCheckBox = new CustomCheckBox();
 		attractionsCheckBox.setTooltip(new CustomTooltip());
-		attractionsCheckBox.getTooltip().setWrapText(true);
 		
 		gridPaneForQuestionsCategories = new GridPane();
 		gridPaneForQuestionsCategories.setAlignment(Pos.CENTER);
@@ -1034,9 +1002,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		rectangleForExtendedQuestionCategories.setCache(true);
 		rectangleForExtendedQuestionCategories.setCacheHint(CacheHint.SCALE);
 		
-		exitExtendedCategoryQuestions = new ImageView();
-		exitExtendedCategoryQuestions.setPreserveRatio(true);
-		exitExtendedCategoryQuestions.setSmooth(true);
+		exitExtendedCategoryQuestions = new CustomImageView(true, true, false, false, null);
 		exitExtendedCategoryQuestions.setCursor(Cursor.HAND);
 		
 		extQCCategories = new CustomCheckBox[4];
@@ -1065,14 +1031,11 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		
 //		Game mode selection screen
 		
-		classicGameButton = new Button("Classic");
-		classicGameButton.setCursor(Cursor.HAND);
+		classicGameButton = new CustomButton("Classic");
 		
-		timeAttackGameButton = new Button("Time attack");
-		timeAttackGameButton.setCursor(Cursor.HAND);
+		timeAttackGameButton = new CustomButton("Time attack");
 		
-		endlessGameButton = new Button("Endless");
-		endlessGameButton.setCursor(Cursor.HAND);
+		endlessGameButton = new CustomButton("Endless");
 		
 		numberOfQuestionsForClassicGameLabel = new Label();
 		numberOfQuestionsForClassicGameLabel.setUnderline(true);

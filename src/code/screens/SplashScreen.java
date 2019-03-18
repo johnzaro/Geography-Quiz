@@ -1,12 +1,14 @@
 package code.screens;
 
 import code.core.BaseClass;
+import code.core.CustomImageView;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
+import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -28,7 +30,7 @@ public class SplashScreen
 
 	private AnchorPane anchorPane;
 	private VBox progressBox;
-	private ImageView splashImage, splashImageName;
+	private CustomImageView splashImage, splashImageName;
 	private ProgressBar progressBar;
 	private Label progressText;
 	private Thread progressThread;
@@ -91,16 +93,12 @@ public class SplashScreen
 		anchorPane.setPrefHeight(splashHeight);
 		anchorPane.setStyle("-fx-background-color: transparent;");
 
-		splashImage = new ImageView(SPLASH_BACKGROUND_IMAGE);
+		splashImage = new CustomImageView(SPLASH_BACKGROUND_IMAGE, true, true, false, false, null);
 		splashImage.setX(0);
 		splashImage.setY(0);
 		splashImage.setFitWidth(splashWidth);
-		splashImage.setPreserveRatio(true);
-		splashImage.setSmooth(true);
 
-		splashImageName = new ImageView(SPLASH_TEXT_IMAGE);
-		splashImageName.setSmooth(true);
-		splashImageName.setPreserveRatio(true);
+		splashImageName = new CustomImageView(SPLASH_TEXT_IMAGE, true, true, false, false, null);
 
 		progressBox = new VBox();
 		progressBox.setStyle("-fx-background-color: transparent;");

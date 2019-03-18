@@ -3,6 +3,7 @@ package code.screens;
 import code.core.*;
 import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
+import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -22,7 +23,7 @@ abstract class CoreScreen
 	AnchorPane anchorPane, nodesPane;
 	Label masterVolumeLabel, musicVolumeLabel, soundEffectsVolumeLabel;
 	Slider masterVolumeSlider, musicVolumeSlider, soundEffectsVolumeSlider;
-	ImageView woodenFrameImage, soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon;
+	CustomImageView woodenFrameImage, soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon;
 	VBox vBoxForSound;
 	CustomTooltip soundOptionsToolTip, minimizeTooltip, moveTooltip, fullScreenTooltip, exitTooltip;
 
@@ -43,11 +44,9 @@ abstract class CoreScreen
 		nodesPane.setCursor(Cursor.DEFAULT);
 		nodesPane.setStyle("-fx-background-color: transparent");
 		
-		woodenFrameImage = new ImageView();
+		woodenFrameImage = new CustomImageView(false, false, false, false, null);
 		woodenFrameImage.setX(0);
 		woodenFrameImage.setY(0);
-		woodenFrameImage.setSmooth(false);
-		woodenFrameImage.setPreserveRatio(false);
 		
 		anchorPane.getChildren().addAll(nodesPane, woodenFrameImage);
 		
@@ -56,12 +55,10 @@ abstract class CoreScreen
 		boxBlur.setHeight(30);
 		boxBlur.setIterations(2);
 		
-		soundIcon = new ImageView();
+		soundIcon = new CustomImageView(false, true, false, true, CacheHint.SCALE);
 		soundIcon.setCursor(Cursor.HAND);
-		soundIcon.setPreserveRatio(true);
-		soundIcon.setStyle("-fx-background-color: transparent");
+		
 		soundOptionsToolTip = new CustomTooltip();
-		soundOptionsToolTip.setWrapText(true);
 		Tooltip.install(soundIcon, soundOptionsToolTip);
 
 		masterVolumeLabel = new Label();
@@ -85,34 +82,30 @@ abstract class CoreScreen
 		soundEffectsVolumeSlider.setCursor(Cursor.HAND);
 		soundEffectsVolumeSlider.setFocusTraversable(false);
 
-		minimizeIcon = new ImageView(MINIMIZE_ICON);
-		minimizeIcon.setPreserveRatio(true);
+		minimizeIcon = new CustomImageView(MINIMIZE_ICON, false, true, false, true, CacheHint.SCALE);
 		minimizeIcon.setCursor(Cursor.HAND);
+		
 		minimizeTooltip = new CustomTooltip();
-		minimizeTooltip.setWrapText(true);
 		Tooltip.install(minimizeIcon, minimizeTooltip);
 
-		moveIcon = new ImageView(MOVE_ICON);
-		moveIcon.setPreserveRatio(true);
+		moveIcon = new CustomImageView(MOVE_ICON, false, true, false, true, CacheHint.SCALE);
 		moveIcon.setCursor(Cursor.HAND);
+		
 		moveTooltip = new CustomTooltip();
-		moveTooltip.setWrapText(true);
 		Tooltip.install(moveIcon, moveTooltip);
 
-		fullScreenIcon = new ImageView(FULL_SCREEN_ICON);
-		fullScreenIcon.setPreserveRatio(true);
+		fullScreenIcon = new CustomImageView(FULL_SCREEN_ICON, false, true, false, true, CacheHint.SCALE);
 		fullScreenIcon.setCursor(Cursor.HAND);
+		
 		fullScreenTooltip = new CustomTooltip();
-		fullScreenTooltip.setWrapText(true);
 		Tooltip.install(fullScreenIcon, fullScreenTooltip);
 
 		if(!isCurrentScreenRatioSupported()) fullScreenIcon.setDisable(true);
 		
-		exitIcon = new ImageView(EXIT_ICON);
-		exitIcon.setPreserveRatio(true);
+		exitIcon = new CustomImageView(EXIT_ICON, false, true, false, true, CacheHint.SCALE);
 		exitIcon.setCursor(Cursor.HAND);
+		
 		exitTooltip = new CustomTooltip();
-		exitTooltip.setWrapText(true);
 		Tooltip.install(exitIcon, exitTooltip);
 
 		vBoxForSound = new VBox();
