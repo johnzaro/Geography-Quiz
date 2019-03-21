@@ -3,7 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/Geography_Quiz</output-path>
     <properties id="javafx-properties">
       <options>
-        <option name="appClass" value="code.core.BaseClass" />
+        <option name="appClass" value="core.BaseClass" />
         <option name="description" value="" />
         <option name="htmlPlaceholderId" value="" />
         <option name="title" value="" />
@@ -14,11 +14,6 @@
     <root id="root">
       <element id="archive" name="Geography_Quiz.jar">
         <element id="module-output" name="Geography-Quiz" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/controlsfx-9.0.0.jar" path-in-jar="/" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/jdom-2.0.6.jar" path-in-jar="/" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/reactfx-2.0-M5.jar" path-in-jar="/" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/junique-1.0.4.jar" path-in-jar="/" />
-        <element id="extracted-dir" path="$PROJECT_DIR$/src/resources/libs/commons-io-2.6.jar" path-in-jar="/" />
       </element>
     </root>
   </artifact>
