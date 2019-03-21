@@ -4,7 +4,7 @@ package core;
  * Created by John on 14/3/2017.
  */
 
-import code.screens.ErrorScreen;
+import screens.ErrorScreen;
 import javafx.application.Platform;
 import javafx.collections.ListChangeListener;
 import javafx.scene.control.TableColumn;

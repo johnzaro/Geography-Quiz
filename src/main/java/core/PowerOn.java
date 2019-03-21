@@ -67,8 +67,8 @@ public class PowerOn
 	{
 		try
 		{
-			Font.loadFont(PowerOn.class.getResourceAsStream("/resources/fonts/comicSansMSRegular.ttf"), 100);
-			Font.loadFont(PowerOn.class.getResourceAsStream("/resources/fonts/comicSansMSBold.ttf"), 100);
+			Font.loadFont(PowerOn.class.getResourceAsStream("/fonts/comicSansMSRegular.ttf"), 100);
+			Font.loadFont(PowerOn.class.getResourceAsStream("/fonts/comicSansMSBold.ttf"), 100);
 		}
 		catch(Exception e)
 		{
@@ -87,8 +87,8 @@ public class PowerOn
 	{
 		try
 		{
-			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
-			else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
+			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
+			else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
 		}
 		catch (Exception e)
 		{
@@ -108,8 +108,8 @@ public class PowerOn
 		stage.setResizable(false);
 		
 //		add all icon sizes to program
-		stage.getIcons().addAll(new Image("/resources/images/icons/icon@16x16.png"), new Image("/resources/images/icons/icon@32x32.png"),
-				new Image("/resources/images/icons/icon@64x64.png"), new Image("/resources/images/icons/icon@128x128.png"));
+		stage.getIcons().addAll(new Image("/images/icons/icon@16x16.png"), new Image("/images/icons/icon@32x32.png"),
+				new Image("/images/icons/icon@64x64.png"), new Image("/images/icons/icon@128x128.png"));
 		
 //		disable exit key working as "exit full screen"
 		stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
@@ -208,25 +208,25 @@ public class PowerOn
 		{
 			if(primaryScreenWidth <= 1920)
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@1920x1080.png", 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", 0.85 * primaryScreenWidth, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@1920x1080.png", 0.85 * primaryScreenWidth, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", 0.85 * primaryScreenWidth, 0, true, false);
 			}
 			else if(primaryScreenWidth <= 2560)
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@2560x1440.png", 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", 0.85 * primaryScreenWidth, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@2560x1440.png", 0.85 * primaryScreenWidth, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", 0.85 * primaryScreenWidth, 0, true, false);
 			}
 			else
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@5120x2880.png", 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", 0.85 * primaryScreenWidth, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@5120x2880.png", 0.85 * primaryScreenWidth, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", 0.85 * primaryScreenWidth, 0, true, false);
 			}
 			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
-			else GAME_NAME_IMAGE  = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+			else GAME_NAME_IMAGE  = new Image("/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 			
-			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.mp3").toExternalForm());
-			MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/minimize.mp3").toExternalForm());
+			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/buttonClick.mp3").toExternalForm());
+			MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/minimize.mp3").toExternalForm());
 			
 			BUTTON_CLICK_SOUND.setVolume(0.7);
 			MINIMIZE_SOUND.setVolume(0.7);
@@ -253,8 +253,8 @@ public class PowerOn
 	
 	public static void loadLanguageResourceBundle()
 	{
-		if (getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
-		else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
+		if (getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
+		else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
 	}
 	
 	public static void setSettingsBasedOnCurrentPlayer()
@@ -304,23 +304,23 @@ public class PowerOn
 			
 			if(primaryScreenWidth <= 1920)
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@1920x1080.png", width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", width, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@1920x1080.png", width, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", width, 0, true, false);
 			} else if(primaryScreenWidth <= 2560)
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@2560x1440.png", width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", width, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@2560x1440.png", width, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", width, 0, true, false);
 			} else
 			{
-				FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@5120x2880.png", width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", width, 0, true, false);
+				FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@5120x2880.png", width, 0, true, false);
+				CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", width, 0, true, false);
 			}
 			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
-			else GAME_NAME_IMAGE  = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+			else GAME_NAME_IMAGE  = new Image("/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 			
-			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.mp3").toExternalForm());
-			MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/minimize.mp3").toExternalForm());
+			BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/buttonClick.mp3").toExternalForm());
+			MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/minimize.mp3").toExternalForm());
 			
 			messageGameIsAlreadyRunningScreen = new MessageGameIsAlreadyRunningScreen();
 		}
@@ -357,34 +357,34 @@ public class PowerOn
 	
 	private static void powerOnAudio()
 	{
-		HOVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/hover.wav").toExternalForm());
-		BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/buttonClick.wav").toExternalForm());
-		SWITCH_BUTTON_ON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOn.wav").toExternalForm());
-		SWITCH_BUTTON_OFF_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/switchButtonOff.wav").toExternalForm());
-		CHECKBOX_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxSelected.wav").toExternalForm());
-		CHECKBOX_DESELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/checkboxDeselected.wav").toExternalForm());
-		RADIOBUTTON_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/radioButtonSelected.wav").toExternalForm());
+		HOVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/hover.wav").toExternalForm());
+		BUTTON_CLICK_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/buttonClick.wav").toExternalForm());
+		SWITCH_BUTTON_ON_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/switchButtonOn.wav").toExternalForm());
+		SWITCH_BUTTON_OFF_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/switchButtonOff.wav").toExternalForm());
+		CHECKBOX_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/checkboxSelected.wav").toExternalForm());
+		CHECKBOX_DESELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/checkboxDeselected.wav").toExternalForm());
+		RADIOBUTTON_SELECTED_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/radioButtonSelected.wav").toExternalForm());
 		
-		POPUP_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/popUp.wav").toExternalForm());
-		SLIDE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/slide.wav").toExternalForm());
+		POPUP_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/popUp.wav").toExternalForm());
+		SLIDE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/slide.wav").toExternalForm());
 		
-		MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/minimize.wav").toExternalForm());
-		MAXIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/maximize.wav").toExternalForm());
+		MINIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/minimize.wav").toExternalForm());
+		MAXIMIZE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/maximize.wav").toExternalForm());
 		
-		REWIND_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/rewind.wav").toExternalForm());
-		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/correctAnswerSimple.wav").toExternalForm());
-		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/wrongAnswerSimple.wav").toExternalForm());
-		GAME_WON_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameWon.wav").toExternalForm());
-		GAME_LOST_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/gameLost.wav").toExternalForm());
-		HEART_BREAKING_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/heartBreaking.wav").toExternalForm());
-		TIME_OVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/resources/audio/timeOver.wav").toExternalForm());
+		REWIND_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/rewind.wav").toExternalForm());
+		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/correctAnswerSimple.wav").toExternalForm());
+		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/wrongAnswerSimple.wav").toExternalForm());
+		GAME_WON_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/gameWon.wav").toExternalForm());
+		GAME_LOST_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/gameLost.wav").toExternalForm());
+		HEART_BREAKING_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/heartBreaking.wav").toExternalForm());
+		TIME_OVER_SOUND = new AudioClip(GlobalVariables.class.getResource("/audio/timeOver.wav").toExternalForm());
 		
-		CLOCK_TICKING_30S_SOUND = new Media(GlobalVariables.class.getResource("/resources/audio/clockTicking30S.mp3").toExternalForm());
+		CLOCK_TICKING_30S_SOUND = new Media(GlobalVariables.class.getResource("/audio/clockTicking30S.mp3").toExternalForm());
 		CLOCK_TICKING_30S_PLAYER = new MediaPlayer(CLOCK_TICKING_30S_SOUND);
 		CLOCK_TICKING_30S_PLAYER.setCycleCount(MediaPlayer.INDEFINITE);
 		
-		introductionSound = new Media(GlobalVariables.class.getResource("/resources/audio/introductionSound.mp3").toExternalForm());
-		welcomeLoopSound = new Media(GlobalVariables.class.getResource("/resources/audio/welcomeLoopSound.mp3").toExternalForm());
+		introductionSound = new Media(GlobalVariables.class.getResource("/audio/introductionSound.mp3").toExternalForm());
+		welcomeLoopSound = new Media(GlobalVariables.class.getResource("/audio/welcomeLoopSound.mp3").toExternalForm());
 		introductionMediaPlayer = new MediaPlayer(introductionSound);
 		welcomeLoopMediaPlayer = new MediaPlayer(welcomeLoopSound);
 		
@@ -422,83 +422,83 @@ public class PowerOn
 	
 	private static void powerOnImages()
 	{
-		if (getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
-		else GAME_NAME_IMAGE = new Image("/resources/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
+		if (getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image("/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+		else GAME_NAME_IMAGE = new Image("/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
 		
-		EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE = new Image("/resources/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png", 0.7 * primaryScreenWidth, 0, true, true);
-		EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE = new Image("/resources/images/backgrounds/emptyWoodBackgroundPanelBigRope.png", 0.7 * primaryScreenWidth, 0, true, true);
+		EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE = new Image("/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png", 0.7 * primaryScreenWidth, 0, true, true);
+		EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE = new Image("/images/backgrounds/emptyWoodBackgroundPanelBigRope.png", 0.7 * primaryScreenWidth, 0, true, true);
 		
-		WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON = new Image("/resources/images/backgrounds/backgroundFor1Icon.png", 0.15 * primaryScreenWidth, 0, true, true);
-//		WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor2Icons.png", 0.2 * primaryScreenWidth, 0, true, true);
-		WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor4Icons.png", 0.3 * primaryScreenWidth, 0, true, true);
-		WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS = new Image("/resources/images/backgrounds/backgroundFor5Icons.png", 0.4 * primaryScreenWidth, 0, true, true);
+		WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON = new Image("/images/backgrounds/backgroundFor1Icon.png", 0.15 * primaryScreenWidth, 0, true, true);
+//		WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS = new Image("/images/backgrounds/backgroundFor2Icons.png", 0.2 * primaryScreenWidth, 0, true, true);
+		WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS = new Image("/images/backgrounds/backgroundFor4Icons.png", 0.3 * primaryScreenWidth, 0, true, true);
+		WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS = new Image("/images/backgrounds/backgroundFor5Icons.png", 0.4 * primaryScreenWidth, 0, true, true);
 		
-		LEFT_GLOBE_STAND_IMAGE = new Image("/resources/images/backgrounds/leftGlobeStand.png", 0.2 * primaryScreenWidth, 0, true, true);
-		RIGHT_GLOBE_STAND_IMAGE = new Image("/resources/images/backgrounds/rightGlobeStand.png", 0.2 * primaryScreenWidth, 0, true, true);
+		LEFT_GLOBE_STAND_IMAGE = new Image("/images/backgrounds/leftGlobeStand.png", 0.2 * primaryScreenWidth, 0, true, true);
+		RIGHT_GLOBE_STAND_IMAGE = new Image("/images/backgrounds/rightGlobeStand.png", 0.2 * primaryScreenWidth, 0, true, true);
 		
-		BACK_ARROW = new Image("/resources/images/icons/backArrow.png", 0.15 * primaryScreenWidth, 0, true, false);
+		BACK_ARROW = new Image("/images/icons/backArrow.png", 0.15 * primaryScreenWidth, 0, true, false);
 		
-		GREEK_FLAG_ICON = new Image("/resources/images/icons/el.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ENGLISH_FLAG_ICON = new Image("/resources/images/icons/en.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_3_BARS_ICON = new Image("/resources/images/icons/soundOn_3bars.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_3_BARS_ICON_CLICKED = new Image("/resources/images/icons/soundOnClicked_3bars.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_2_BARS_ICON = new Image("/resources/images/icons/soundOn_2bars.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_2_BARS_ICON_CLICKED = new Image("/resources/images/icons/soundOnClicked_2bars.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_1_BAR_ICON = new Image("/resources/images/icons/soundOn_1bar.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_1_BAR_ICON_CLICKED = new Image("/resources/images/icons/soundOnClicked_1bar.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_OFF_ICON = new Image("/resources/images/icons/soundOff.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_OFF_ICON_CLICKED = new Image("/resources/images/icons/soundOffClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SETTINGS_ICON = new Image("/resources/images/icons/settings.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SETTINGS_ICON_CLICKED = new Image("/resources/images/icons/settingsClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MINIMIZE_ICON = new Image("/resources/images/icons/minimize.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MINIMIZE_ICON_CLICKED = new Image("/resources/images/icons/minimizeClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON = new Image("/resources/images/icons/move.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_CLICKED = new Image("/resources/images/icons/moveClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_DISABLED = new Image("/resources/images/icons/moveDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_DISABLED_CLICKED = new Image("/resources/images/icons/moveDisabledClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		FULL_SCREEN_ICON = new Image("/resources/images/icons/fullScreen.png", 0.05 * primaryScreenWidth, 0, true, true);
-		FULL_SCREEN_ICON_CLICKED = new Image("/resources/images/icons/fullScreenClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EXIT_ICON = new Image("/resources/images/icons/exit.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EXIT_ICON_CLICKED = new Image("/resources/images/icons/exitClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		X_ICON = new Image("/resources/images/icons/x.png", 0.05 * primaryScreenWidth, 0, true, true);
-		X_ICON_CLICKED = new Image("/resources/images/icons/xClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_IN_ICON = new Image("/resources/images/icons/zoomIn.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_IN_ICON_CLICKED = new Image("/resources/images/icons/zoomInClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_OUT_ICON = new Image("/resources/images/icons/zoomOut.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_OUT_ICON_CLICKED = new Image("/resources/images/icons/zoomOutClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		PENCIL_ICON = new Image("/resources/images/icons/pencil.png", 0.05 * primaryScreenWidth, 0, true, true);
-		PENCIL_ICON_DISABLED = new Image("/resources/images/icons/pencilDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
-		EDIT_USERNAME_ICON = new Image("/resources/images/icons/editUsername.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SWITCH_USER_ICON = new Image("/resources/images/icons/switchUser.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ADD_USER_ICON = new Image("/resources/images/icons/addUser.png", 0.05 * primaryScreenWidth, 0, true, true);
-		INFO_ICON = new Image("/resources/images/icons/info.png", 0.05 * primaryScreenWidth, 0, true, true);
-		INFO_ICON_CLICKED = new Image("/resources/images/icons/infoClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SINGLE_PLAYER_ICON = new Image("/resources/images/icons/singlePlayer.png", 0.05 * primaryScreenWidth, 0, true, true);
-		MULTI_PLAYER_ICON = new Image("/resources/images/icons/multiPlayer.png", 0.05 * primaryScreenWidth, 0, true, true);
-		ATLAS_ICON = new Image("/resources/images/icons/globe.png", 0.05 * primaryScreenWidth, 0, true, true);
-		SCORES_ICON = new Image("/resources/images/icons/scores.png", 0.05 * primaryScreenWidth, 0, true, true);
-		PAUSE_ICON = new Image("/resources/images/icons/pause.png", 0.05 * primaryScreenWidth, 0, true, true);
-		PAUSE_ICON_CLICKED = new Image("/resources/images/icons/pauseClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
-		CORRECT_ICON_SMALL = new Image("/resources/images/icons/correctSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
-		INCORRECT_ICON_SMALL = new Image("/resources/images/icons/incorrectSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
-		HEART_ICON_SMALL = new Image("/resources/images/icons/heartSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
-		HEART_ICON_LOST_SMALL = new Image("/resources/images/icons/heartLostSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
+		GREEK_FLAG_ICON = new Image("/images/icons/el.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ENGLISH_FLAG_ICON = new Image("/images/icons/en.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_3_BARS_ICON = new Image("/images/icons/soundOn_3bars.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_3_BARS_ICON_CLICKED = new Image("/images/icons/soundOnClicked_3bars.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_2_BARS_ICON = new Image("/images/icons/soundOn_2bars.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_2_BARS_ICON_CLICKED = new Image("/images/icons/soundOnClicked_2bars.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_1_BAR_ICON = new Image("/images/icons/soundOn_1bar.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_ON_1_BAR_ICON_CLICKED = new Image("/images/icons/soundOnClicked_1bar.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_OFF_ICON = new Image("/images/icons/soundOff.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SOUND_OFF_ICON_CLICKED = new Image("/images/icons/soundOffClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SETTINGS_ICON = new Image("/images/icons/settings.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SETTINGS_ICON_CLICKED = new Image("/images/icons/settingsClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MINIMIZE_ICON = new Image("/images/icons/minimize.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MINIMIZE_ICON_CLICKED = new Image("/images/icons/minimizeClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MOVE_ICON = new Image("/images/icons/move.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MOVE_ICON_CLICKED = new Image("/images/icons/moveClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MOVE_ICON_DISABLED = new Image("/images/icons/moveDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MOVE_ICON_DISABLED_CLICKED = new Image("/images/icons/moveDisabledClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		FULL_SCREEN_ICON = new Image("/images/icons/fullScreen.png", 0.05 * primaryScreenWidth, 0, true, true);
+		FULL_SCREEN_ICON_CLICKED = new Image("/images/icons/fullScreenClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		EXIT_ICON = new Image("/images/icons/exit.png", 0.05 * primaryScreenWidth, 0, true, true);
+		EXIT_ICON_CLICKED = new Image("/images/icons/exitClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		X_ICON = new Image("/images/icons/x.png", 0.05 * primaryScreenWidth, 0, true, true);
+		X_ICON_CLICKED = new Image("/images/icons/xClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ZOOM_IN_ICON = new Image("/images/icons/zoomIn.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ZOOM_IN_ICON_CLICKED = new Image("/images/icons/zoomInClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ZOOM_OUT_ICON = new Image("/images/icons/zoomOut.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ZOOM_OUT_ICON_CLICKED = new Image("/images/icons/zoomOutClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PENCIL_ICON = new Image("/images/icons/pencil.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PENCIL_ICON_DISABLED = new Image("/images/icons/pencilDisabled.png", 0.05 * primaryScreenWidth, 0, true, true);
+		EDIT_USERNAME_ICON = new Image("/images/icons/editUsername.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SWITCH_USER_ICON = new Image("/images/icons/switchUser.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ADD_USER_ICON = new Image("/images/icons/addUser.png", 0.05 * primaryScreenWidth, 0, true, true);
+		INFO_ICON = new Image("/images/icons/info.png", 0.05 * primaryScreenWidth, 0, true, true);
+		INFO_ICON_CLICKED = new Image("/images/icons/infoClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SINGLE_PLAYER_ICON = new Image("/images/icons/singlePlayer.png", 0.05 * primaryScreenWidth, 0, true, true);
+		MULTI_PLAYER_ICON = new Image("/images/icons/multiPlayer.png", 0.05 * primaryScreenWidth, 0, true, true);
+		ATLAS_ICON = new Image("/images/icons/globe.png", 0.05 * primaryScreenWidth, 0, true, true);
+		SCORES_ICON = new Image("/images/icons/scores.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PAUSE_ICON = new Image("/images/icons/pause.png", 0.05 * primaryScreenWidth, 0, true, true);
+		PAUSE_ICON_CLICKED = new Image("/images/icons/pauseClicked.png", 0.05 * primaryScreenWidth, 0, true, true);
+		CORRECT_ICON_SMALL = new Image("/images/icons/correctSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
+		INCORRECT_ICON_SMALL = new Image("/images/icons/incorrectSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
+		HEART_ICON_SMALL = new Image("/images/icons/heartSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
+		HEART_ICON_LOST_SMALL = new Image("/images/icons/heartLostSmall.png", 0.05 * primaryScreenWidth, 0, true, true);
 		
-		PROGRESS_BAR_COLOR = new Image("/resources/images/icons/progressBarColor.jpg");
+		PROGRESS_BAR_COLOR = new Image("/images/icons/progressBarColor.jpg");
 		
 		if(primaryScreenHeight < 2800)
 		{
-			CORRECT_ICON_BIG = new Image("/resources/images/icons/correctBig.png", 0.7 * primaryScreenHeight, 0, true, true);
-			INCORRECT_ICON_BIG = new Image("/resources/images/icons/incorrectBig.png", 0.7 * primaryScreenHeight, 0, true, true);
-			HEART_ICON_BIG = new Image("/resources/images/icons/heartBig.png", 0.7 * primaryScreenHeight, 0, true, true);
-			HEART_ICON_BROKEN_BIG = new Image("/resources/images/icons/heartBrokenBig.png", 0.7 * primaryScreenHeight, 0, true, true);
+			CORRECT_ICON_BIG = new Image("/images/icons/correctBig.png", 0.7 * primaryScreenHeight, 0, true, true);
+			INCORRECT_ICON_BIG = new Image("/images/icons/incorrectBig.png", 0.7 * primaryScreenHeight, 0, true, true);
+			HEART_ICON_BIG = new Image("/images/icons/heartBig.png", 0.7 * primaryScreenHeight, 0, true, true);
+			HEART_ICON_BROKEN_BIG = new Image("/images/icons/heartBrokenBig.png", 0.7 * primaryScreenHeight, 0, true, true);
 		}
 		else
 		{
-			CORRECT_ICON_BIG = new Image("/resources/images/icons/correctBig.png");
-			INCORRECT_ICON_BIG = new Image("/resources/images/icons/incorrectBig.png");
-			HEART_ICON_BIG = new Image("/resources/images/icons/heartBig.png");
-			HEART_ICON_BROKEN_BIG = new Image("/resources/images/icons/heartBrokenBig.png");
+			CORRECT_ICON_BIG = new Image("/images/icons/correctBig.png");
+			INCORRECT_ICON_BIG = new Image("/images/icons/incorrectBig.png");
+			HEART_ICON_BIG = new Image("/images/icons/heartBig.png");
+			HEART_ICON_BROKEN_BIG = new Image("/images/icons/heartBrokenBig.png");
 		}
 	}
 	
@@ -510,23 +510,23 @@ public class PowerOn
 			{
 				if(primaryScreenWidth <= 1920)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@1920x1080.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-9@1920x1080.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@1920x1080.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-9@1920x1080.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0271; worldMapLayoutY = 0.0481; worldMapFitWidth = 0.9469; worldMapFitHeight = 0.9037;
 				}
 				else if(primaryScreenWidth <= 2560)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@2560x1440.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-9@2560x1440.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@2560x1440.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-9@2560x1440.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0266; worldMapLayoutY = 0.0444; worldMapFitWidth = 0.9510; worldMapFitHeight = 0.9120;
 				}
 				else
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-9@5120x2880.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-9@5120x2880.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-9@5120x2880.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-9@5120x2880.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0444; worldMapFitWidth = 0.9505; worldMapFitHeight = 0.9167;
 				}
 			}
@@ -534,23 +534,23 @@ public class PowerOn
 			{
 				if(primaryScreenWidth <= 1440)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-10@1440x900.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-10@1440x900.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-10@1440x900.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-10@1440x900.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-10@1440x900.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-10@1440x900.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0281; worldMapLayoutY = 0.0508; worldMapFitWidth = 0.9458; worldMapFitHeight = 0.9000;
 				}
 				else if(primaryScreenWidth <= 1920)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-10@1920x1200.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-10@1920x1200.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-10@1920x1200.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-10@1920x1200.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-10@1920x1200.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-10@1920x1200.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0271; worldMapLayoutY = 0.0500; worldMapFitWidth = 0.9479; worldMapFitHeight = 0.9025;
 				}
 				else
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_16-10@2880x1800.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_16-10@2880x1800.jpg", width, 0, true, false);
-					WORLD_MAP = new Image("/resources/images/backgrounds/worldMap_16-10@2880x1800.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_16-10@2880x1800.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_16-10@2880x1800.jpg", width, 0, true, false);
+					WORLD_MAP = new Image("/images/backgrounds/worldMap_16-10@2880x1800.jpg", width, 0, true, false);
 					worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0442; worldMapFitWidth = 0.9531; worldMapFitHeight = 0.9150;
 				}
 			}
@@ -558,46 +558,46 @@ public class PowerOn
 			{
 				if(primaryScreenWidth <= 1400)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_4-3@1400x1050.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_4-3@1400x1050.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_4-3@1400x1050.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_4-3@1400x1050.jpg", width, 0, true, false);
 					if(new Random().nextBoolean())
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap1_4-3@1400x1050.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap1_4-3@1400x1050.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
 					}
 					else
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap2_4-3@1400x1050.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap2_4-3@1400x1050.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
 					}
 				}
 				else if(primaryScreenWidth <= 2048)
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_4-3@2048x1536.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_4-3@2048x1536.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_4-3@2048x1536.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_4-3@2048x1536.jpg", width, 0, true, false);
 					if(new Random().nextBoolean())
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap1_4-3@2048x1536.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap1_4-3@2048x1536.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
 					}
 					else
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap2_4-3@2048x1536.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap2_4-3@2048x1536.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
 					}
 				}
 				else
 				{
-					FRAME_IMAGE = new Image("/resources/images/backgrounds/frame_4-3@4000x3000.png", width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/chalkboardBackground_4-3@4000x3000.jpg", width, 0, true, false);
+					FRAME_IMAGE = new Image("/images/backgrounds/frame_4-3@4000x3000.png", width, 0, true, false);
+					CHALKBOARD_BACKGROUND_IMAGE = new Image("/images/backgrounds/chalkboardBackground_4-3@4000x3000.jpg", width, 0, true, false);
 					if(new Random().nextBoolean())
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap1_4-3@4000x3000.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap1_4-3@4000x3000.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
 					}
 					else
 					{
-						WORLD_MAP = new Image("/resources/images/backgrounds/worldMap2_4-3@4000x3000.jpg", width, 0, true, false);
+						WORLD_MAP = new Image("/images/backgrounds/worldMap2_4-3@4000x3000.jpg", width, 0, true, false);
 						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
 					}
 				}
@@ -605,18 +605,18 @@ public class PowerOn
 			
 			if(primaryScreenHeight <= 950)
 			{
-				MOVING_EARTH_IMAGE_1 = new Image("/resources/images/backgrounds/doubleEarthMap1@3461x900.jpg", 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image("/resources/images/backgrounds/doubleEarthMap2@3461x900.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_1 = new Image("/images/backgrounds/doubleEarthMap1@3461x900.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_2 = new Image("/images/backgrounds/doubleEarthMap2@3461x900.jpg", 0, primaryScreenHeight, true, false);
 			}
 			else if(primaryScreenHeight <= 1500)
 			{
-				MOVING_EARTH_IMAGE_1 = new Image("/resources/images/backgrounds/doubleEarthMap1@5538x1440.jpg", 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image("/resources/images/backgrounds/doubleEarthMap2@5538x1440.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_1 = new Image("/images/backgrounds/doubleEarthMap1@5538x1440.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_2 = new Image("/images/backgrounds/doubleEarthMap2@5538x1440.jpg", 0, primaryScreenHeight, true, false);
 			}
 			else
 			{
-				MOVING_EARTH_IMAGE_1 = new Image("/resources/images/backgrounds/doubleEarthMap1@10000x2600.jpg", 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image("/resources/images/backgrounds/doubleEarthMap2@10000x2600.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_1 = new Image("/images/backgrounds/doubleEarthMap1@10000x2600.jpg", 0, primaryScreenHeight, true, false);
+				MOVING_EARTH_IMAGE_2 = new Image("/images/backgrounds/doubleEarthMap2@10000x2600.jpg", 0, primaryScreenHeight, true, false);
 			}
 		}
 		catch(Exception e)
@@ -631,14 +631,14 @@ public class PowerOn
 		{
 			animatedGlobe = new Image[80];
 			
-			if(primaryScreenWidth < 2250) for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image("/resources/images/globes/x400/" + i + ".png", 0.18 * primaryScreenWidth, 0, true, false);
-			else for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image("/resources/images/globes/x850/" + i + ".png", 0.18 * primaryScreenWidth, 0, true, false);
+			if(primaryScreenWidth < 2250) for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image("/images/globes/x400/" + i + ".png", 0.18 * primaryScreenWidth, 0, true, false);
+			else for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image("/images/globes/x850/" + i + ".png", 0.18 * primaryScreenWidth, 0, true, false);
 		}
 		else
 		{
 			animatedGlobe = new Image[1];
-			if(primaryScreenWidth < 2250) animatedGlobe[0] = new Image("/resources/images/globes/x400/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
-			else animatedGlobe[0] = new Image("/resources/images/globes/x850/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
+			if(primaryScreenWidth < 2250) animatedGlobe[0] = new Image("/images/globes/x400/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
+			else animatedGlobe[0] = new Image("/images/globes/x850/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
 		}
 	}
 	
@@ -654,12 +654,12 @@ public class PowerOn
 				width = 0.9 * primaryScreenWidth;
 			else width = 0.85 * primaryScreenWidth;
 			
-			if(primaryScreenWidth <= 1920) SPLASH_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/splashImage@1920x1080.png", width, 0, true, false);
-			else if(primaryScreenWidth <= 2560) SPLASH_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/splashImage@2560x1440.png", width, 0, true, false);
-			else SPLASH_BACKGROUND_IMAGE = new Image("/resources/images/backgrounds/splashImage@3072x1728.png", width, 0, true, false);
+			if(primaryScreenWidth <= 1920) SPLASH_BACKGROUND_IMAGE = new Image("/images/backgrounds/splashImage@1920x1080.png", width, 0, true, false);
+			else if(primaryScreenWidth <= 2560) SPLASH_BACKGROUND_IMAGE = new Image("/images/backgrounds/splashImage@2560x1440.png", width, 0, true, false);
+			else SPLASH_BACKGROUND_IMAGE = new Image("/images/backgrounds/splashImage@3072x1728.png", width, 0, true, false);
 			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) SPLASH_TEXT_IMAGE = new Image("/resources/images/backgrounds/splashImageGreekName.png", 0.7 * width, 0, true, false);
-			else SPLASH_TEXT_IMAGE = new Image("/resources/images/backgrounds/splashImageEnglishName.png", 0.7 * width, 0, true, false);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) SPLASH_TEXT_IMAGE = new Image("/images/backgrounds/splashImageGreekName.png", 0.7 * width, 0, true, false);
+			else SPLASH_TEXT_IMAGE = new Image("/images/backgrounds/splashImageEnglishName.png", 0.7 * width, 0, true, false);
 			
 			splashScreen = new SplashScreen();
 		}
@@ -805,7 +805,7 @@ public class PowerOn
 //			String[] attr = new String[attractions.length];
 //			try
 //			{
-//				input = new Scanner(PowerOn.class.getResourceAsStream("/resources/dataFiles/temp.txt"), "UTF-8");
+//				input = new Scanner(PowerOn.class.getResourceAsStream("/dataFiles/temp.txt"), "UTF-8");
 //
 //				while(input.hasNext())
 //				{
@@ -824,7 +824,7 @@ public class PowerOn
 //			try
 //			{
 //				SAXBuilder b   = new SAXBuilder();
-//				Document doc = b.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/countries.xml"));
+//				Document doc = b.build(FilesIO.class.getResourceAsStream("/dataFiles/countries.xml"));
 //
 //				Element root = doc.getRootElement();
 //
@@ -871,7 +871,7 @@ public class PowerOn
 //			try
 //			{
 //				SAXBuilder b   = new SAXBuilder();
-//				Document   doc = b.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/statesOfUSA.xml"));
+//				Document   doc = b.build(FilesIO.class.getResourceAsStream("/dataFiles/statesOfUSA.xml"));
 //
 //				Element root = doc.getRootElement();
 //

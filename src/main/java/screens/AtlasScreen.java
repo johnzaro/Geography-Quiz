@@ -2911,13 +2911,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					logoForGreeceImageSmall.setImage(null);
 					locationForGreeceSmall.setImage(null);
 					
-					//							logoForGreeceImageSmall.setImage(new Image("/resources/images/greece/regions/logos/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
+					//							logoForGreeceImageSmall.setImage(new Image("/images/greece/regions/logos/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
 					//
 					//							if (locationLabelForGreece.getPrefWidth() <= 600)
-					//								locationForGreeceSmall.setImage(new Image("/resources/images/greece/regions/inMap/x500/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
+					//								locationForGreeceSmall.setImage(new Image("/images/greece/regions/inMap/x500/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
 					//							else if (locationLabelForGreece.getPrefWidth() <= 1100)
-					//								locationForGreeceSmall.setImage(new Image("/resources/images/greece/regions/inMap/x1000/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
-					//							else locationForGreeceSmall.setImage(new Image("/resources/images/greece/regions/inMap/x2000/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
+					//								locationForGreeceSmall.setImage(new Image("/images/greece/regions/inMap/x1000/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
+					//							else locationForGreeceSmall.setImage(new Image("/images/greece/regions/inMap/x2000/" + greekRegionalUnits[index].getNameInGreek() + ".jpg"));
 					
 					//Tooltips
 					for(int i = 0; i < 10; i++) gridPaneTooltipsForGreece[i].setText(gridPaneLabelsForGreece[i][1].getText());
@@ -2953,13 +2953,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					
 					//Images
 					
-//					logoForGreeceImageSmall.setImage(new Image("/resources/images/greece/decentralizedAdministrations/logos/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
+//					logoForGreeceImageSmall.setImage(new Image("/images/greece/decentralizedAdministrations/logos/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
 //
 //					if (locationLabelForGreece.getPrefWidth() <= 600)
-//						locationForGreeceSmall.setImage(new Image("/resources/images/greece/decentralizedAdministrations/inMap/x500/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
+//						locationForGreeceSmall.setImage(new Image("/images/greece/decentralizedAdministrations/inMap/x500/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
 //					else if (locationLabelForGreece.getPrefWidth() <= 1100)
-//						locationForGreeceSmall.setImage(new Image("/resources/images/greece/decentralizedAdministrations/inMap/x1000/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
-//					else locationForGreeceSmall.setImage(new Image("/resources/images/greece/decentralizedAdministrations/inMap/x2000/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
+//						locationForGreeceSmall.setImage(new Image("/images/greece/decentralizedAdministrations/inMap/x1000/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
+//					else locationForGreeceSmall.setImage(new Image("/images/greece/decentralizedAdministrations/inMap/x2000/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
 					
 					//Tooltips
 					for(int i = 0; i < 5; i++) gridPaneTooltipsForAttractions[i].setText(gridPaneLabelsForAttractions[i][1].getText());

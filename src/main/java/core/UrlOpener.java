@@ -1,6 +1,6 @@
 package core;
 
-import code.screens.ErrorScreen;
+import screens.ErrorScreen;
 import javafx.application.Platform;
 
 import java.io.IOException;

@@ -44,7 +44,7 @@ public class MessageGameIsAlreadyRunningScreen
 
 		scene = new Scene(anchorPane);
 		scene.setFill(Color.TRANSPARENT);
-		scene.getStylesheets().add("/resources/css/button.css");
+		scene.getStylesheets().add("/css/button.css");
 
 		frameImage = new ImageView(FRAME_IMAGE);
 		frameImage.setSmooth(true);

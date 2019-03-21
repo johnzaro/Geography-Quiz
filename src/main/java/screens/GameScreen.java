@@ -5442,8 +5442,8 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getDifficultyLevel() == DIFFICULTY.EASY) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaEasy.data"), "UTF-8");
-						else if(getDifficultyLevel() == DIFFICULTY.DIFFICULT) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/countriesByAreaDifficult.data"), "UTF-8");
+						if(getDifficultyLevel() == DIFFICULTY.EASY) input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/countriesByAreaEasy.data"), "UTF-8");
+						else if(getDifficultyLevel() == DIFFICULTY.DIFFICULT) input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/countriesByAreaDifficult.data"), "UTF-8");
 						
 						while(input.hasNext())
 						{
@@ -5468,7 +5468,7 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/dependentStates.data"), "UTF-8");
+						input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/dependentStates.data"), "UTF-8");
 						
 						while(input.hasNext())
 						{
@@ -5493,8 +5493,8 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/languagesGreek.data"), "UTF-8");
-						else input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/languagesEnglish.data"), "UTF-8");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/languagesGreek.data"), "UTF-8");
+						else input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/languagesEnglish.data"), "UTF-8");
 						
 						while(input.hasNext())
 						{
@@ -5540,8 +5540,8 @@ public class GameScreen extends CoreScreen
 					
 					try
 					{
-						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/currenciesGreek.data"), "UTF-8");
-						else input = new Scanner(this.getClass().getResourceAsStream("/resources/dataFiles/currenciesEnglish.data"), "UTF-8");
+						if(getCurrentLanguage() == LANGUAGE.GREEK) input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/currenciesGreek.data"), "UTF-8");
+						else input = new Scanner(this.getClass().getResourceAsStream("/dataFiles/currenciesEnglish.data"), "UTF-8");
 						
 						while(input.hasNext())
 						{

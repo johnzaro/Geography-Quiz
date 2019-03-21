@@ -467,7 +467,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/ratioProperties.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/ratioProperties.xml"));
 			
 			List<Element> screens = doc.getRootElement().getChildren();
 			
@@ -616,7 +616,7 @@ public class FilesIO
 		try
 		{
 			//			next we create a document object and pass the result of builder.build with the correct file as parameter
-			Document doc = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/countries.xml"));
+			Document doc = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/countries.xml"));
 			//			we get the root element of the file from doc object which holds all the information inside the file
 			Element root = doc.getRootElement();
 			
@@ -804,7 +804,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/continents.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/continents.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
@@ -960,7 +960,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/statesOfUSA.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/statesOfUSA.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
@@ -1051,7 +1051,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/Greece/decentralizedAdministrations.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/decentralizedAdministrations.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
@@ -1163,7 +1163,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/Greece/regions.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regions.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
@@ -1265,7 +1265,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/Greece/regionalUnits.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regionalUnits.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
@@ -1348,7 +1348,7 @@ public class FilesIO
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/attractions.xml"));
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/attractions.xml"));
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();

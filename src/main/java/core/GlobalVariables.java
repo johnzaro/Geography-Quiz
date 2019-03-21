@@ -219,19 +219,19 @@ public class GlobalVariables
 //	public static final int NUMBER_OF_GENERAL_QUESTIONS = 672;
 
 //	--------------------- CSS ---------------------
-	public static final String buttonCSS = GlobalVariables.class.getResource("/resources/css/button.css").toExternalForm();
-	public static final String checkboxCSS = GlobalVariables.class.getResource("/resources/css/checkbox.css").toExternalForm();
-	public static final String radioButtonCSS = GlobalVariables.class.getResource("/resources/css/radioButton.css").toExternalForm();
-	public static final String toggleButtonCSS = GlobalVariables.class.getResource("/resources/css/toggleButton.css").toExternalForm();
-	public static final String listViewCSS = GlobalVariables.class.getResource("/resources/css/listView.css").toExternalForm();
-	public static final String labelCSS = GlobalVariables.class.getResource("/resources/css/label.css").toExternalForm();
-	public static final String scrollPaneCSS = GlobalVariables.class.getResource("/resources/css/scrollPane.css").toExternalForm();
-	public static final String comboBoxCSS = GlobalVariables.class.getResource("/resources/css/comboBox.css").toExternalForm();
-	public static final String textAreaCSS = GlobalVariables.class.getResource("/resources/css/textArea.css").toExternalForm();
-	public static final String progressBarCSS = GlobalVariables.class.getResource("/resources/css/progressBar.css").toExternalForm();
-	public static final String sliderCSS = GlobalVariables.class.getResource("/resources/css/slider.css").toExternalForm();
-	public static final String tableViewCSS = GlobalVariables.class.getResource("/resources/css/tableView.css").toExternalForm();
-	public static final String popOverCSS = GlobalVariables.class.getResource("/resources/css/popOver.css").toExternalForm();
+	public static final String buttonCSS = "/css/button.css";
+	public static final String checkboxCSS = "/css/checkbox.css";
+	public static final String radioButtonCSS = "/css/radioButton.css";
+	public static final String toggleButtonCSS = "/css/toggleButton.css";
+	public static final String listViewCSS = "/css/listView.css";
+	public static final String labelCSS = "/css/label.css";
+	public static final String scrollPaneCSS = "/css/scrollPane.css";
+	public static final String comboBoxCSS = "/css/comboBox.css";
+	public static final String textAreaCSS = "/css/textArea.css";
+	public static final String progressBarCSS = "/css/progressBar.css";
+	public static final String sliderCSS = "/css/slider.css";
+	public static final String tableViewCSS = "/css/tableView.css";
+	public static final String popOverCSS = "/css/popOver.css";
 
 //  --------------------- WINDOW OBJECTS ---------------------
 	public static Stage stage;
@@ -844,7 +844,7 @@ public class GlobalVariables
 		
 		if(!size.equals("")) size = size + "/";
 		
-		return new Image("/resources/images/" + type + "/" + size + imageName + extension, backgroundLoading);
+		return new Image("/images/" + type + "/" + size + imageName + extension, backgroundLoading);
 	}
 	
 	public static String getImagePath(ImageType imageType, String size, String imageName)
@@ -880,6 +880,6 @@ public class GlobalVariables
 		
 		if(!size.equals("")) size = size + "/";
 		
-		return "/resources/images/" + type + "/" + size + imageName + extension;
+		return "/images/" + type + "/" + size + imageName + extension;
 	}
 }
