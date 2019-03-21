@@ -461,6 +461,119 @@ public class FilesIO
 		}
 	}
 	
+	public static void loadRatioProperties()
+	{
+		SAXBuilder builder = new SAXBuilder();
+		
+		try
+		{
+			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/resources/dataFiles/ratioProperties.xml"));
+			
+			List<Element> screens = doc.getRootElement().getChildren();
+			
+			String ratioName;
+			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9) ratioName = "ratio_16_9";
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10) ratioName = "ratio_16_10";
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16) ratioName = "ratio_25_16";
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) ratioName = "ratio_3_2";
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3) ratioName = "ratio_4_3";
+			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) ratioName = "ratio_5_4";
+			else ratioName = null;
+			
+			Element ratio;
+			
+			for (Element screen: screens)
+			{
+				ratio = screen.getChild(ratioName);
+				
+				if(screen.getChildText("name").equals("atlas"))
+				{
+					ratioProperties.getAtlas().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
+					ratioProperties.getAtlas().sethBoxForToggleButtonsLayoutY(Double.parseDouble(ratio.getChildText("hBoxForToggleButtonsLayoutY")));
+					ratioProperties.getAtlas().setTitleImageSetY(Double.parseDouble(ratio.getChildText("titleImageSetY")));
+					ratioProperties.getAtlas().setTitleLabelSetX(Double.parseDouble(ratio.getChildText("titleLabelSetX")));
+					ratioProperties.getAtlas().setTitleLabelSetY(Double.parseDouble(ratio.getChildText("titleLabelSetY")));
+					ratioProperties.getAtlas().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
+					ratioProperties.getAtlas().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
+					ratioProperties.getAtlas().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
+					ratioProperties.getAtlas().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
+				}
+				else if(screen.getChildText("name").equals("gameProperties"))
+				{
+					ratioProperties.getGameProperties().setBackButtonLayoutY(Double.parseDouble(ratio.getChildText("backButtonLayoutY")));
+					ratioProperties.getGameProperties().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
+					ratioProperties.getGameProperties().setNextButtonLayoutY(Double.parseDouble(ratio.getChildText("nextButtonLayoutY")));
+					ratioProperties.getGameProperties().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
+				}
+				else if(screen.getChildText("name").equals("game"))
+				{
+					ratioProperties.getGame().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
+					ratioProperties.getGame().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
+					ratioProperties.getGame().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
+					ratioProperties.getGame().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
+					ratioProperties.getGame().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
+				}
+				else if(screen.getChildText("name").equals("scoreBoard"))
+				{
+					ratioProperties.getScoreBoard().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
+					ratioProperties.getScoreBoard().setTitleImageSetY(Double.parseDouble(ratio.getChildText("titleImageSetY")));
+					ratioProperties.getScoreBoard().setTitleLabelSetX(Double.parseDouble(ratio.getChildText("titleLabelSetX")));
+					ratioProperties.getScoreBoard().setTitleLabelSetY(Double.parseDouble(ratio.getChildText("titleLabelSetY")));
+					ratioProperties.getScoreBoard().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
+					ratioProperties.getScoreBoard().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
+					ratioProperties.getScoreBoard().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
+					ratioProperties.getScoreBoard().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
+				}
+				else if(screen.getChildText("name").equals("welcome"))
+				{
+					ratioProperties.getWelcome().setEditNameIconLayoutY(Double.parseDouble(ratio.getChildText("editNameIconLayoutY")));
+					ratioProperties.getWelcome().setGameNameImageLayoutY(Double.parseDouble(ratio.getChildText("gameNameImageLayoutY")));
+					ratioProperties.getWelcome().setGlobeImageFitWidth(Double.parseDouble(ratio.getChildText("globeImageFitWidth")));
+					ratioProperties.getWelcome().setGlobeImageLayoutY(Double.parseDouble(ratio.getChildText("globeImageLayoutY")));
+					ratioProperties.getWelcome().setGlobeStandFitWidth(Double.parseDouble(ratio.getChildText("globeStandFitWidth")));
+					ratioProperties.getWelcome().setGlobeStandLayoutY(Double.parseDouble(ratio.getChildText("globeStandLayoutY")));
+					ratioProperties.getWelcome().sethBoxFor4SettingsButtonsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor4SettingsButtonsLayoutY")));
+					ratioProperties.getWelcome().sethBoxForSettingsAndInfoIconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxForSettingsAndInfoIconsLayoutY")));
+					ratioProperties.getWelcome().setLeftGlobeImageLayoutX(Double.parseDouble(ratio.getChildText("leftGlobeImageLayoutX")));
+					ratioProperties.getWelcome().setLeftGlobeStandLayoutX(Double.parseDouble(ratio.getChildText("leftGlobeStandLayoutX")));
+					ratioProperties.getWelcome().setRectangleForInfoAboutGameLayoutY(Double.parseDouble(ratio.getChildText("rectangleForInfoAboutGameLayoutY")));
+					ratioProperties.getWelcome().setRightGlobeImageLayoutX(Double.parseDouble(ratio.getChildText("rightGlobeImageLayoutX")));
+					ratioProperties.getWelcome().setSoundIconLayoutY(Double.parseDouble(ratio.getChildText("soundIconLayoutY")));
+					ratioProperties.getWelcome().setUsersEditSegmentedButtonLayoutY(Double.parseDouble(ratio.getChildText("usersEditSegmentedButtonLayoutY")));
+					ratioProperties.getWelcome().setvBoxesForEditUsersLayoutY(Double.parseDouble(ratio.getChildText("vBoxesForEditUsersLayoutY")));
+					ratioProperties.getWelcome().setvBoxForMainButtonsLayoutY(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsLayoutY")));
+					ratioProperties.getWelcome().setvBoxForMainButtonsPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsPrefHeight")));
+					ratioProperties.getWelcome().setvBoxForMainButtonsPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsPrefWidth")));
+					ratioProperties.getWelcome().setvBoxForMainButtonsSpacing(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsSpacing")));
+					ratioProperties.getWelcome().setvBoxForSettingsLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSettingsLayoutY")));
+					ratioProperties.getWelcome().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
+					ratioProperties.getWelcome().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
+					ratioProperties.getWelcome().setWelcomeImageLayoutY(Double.parseDouble(ratio.getChildText("welcomeImageLayoutY")));
+					ratioProperties.getWelcome().setWelcomeLabelLayoutY(Double.parseDouble(ratio.getChildText("welcomeLabelLayoutY")));
+					ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutY")));
+					ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutY")));
+					
+					if(OS == OSType.Windows)
+					{
+						ratioProperties.getWelcome().setvBoxForSoundLayoutX(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutXWindows")));
+						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutXWindows")));
+						ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutXWindows")));
+					}
+					else
+					{
+						ratioProperties.getWelcome().setvBoxForSoundLayoutX(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutXOther")));
+						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutXOther")));
+						ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutXOther")));
+					}
+				}
+			}
+		}
+		catch (Exception e)
+		{
+			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load ratio properties", e));
+		}
+	}
+	
 	//	helper method to check if a file exists and has content inside
 	static boolean isEmpty(File file)
 	{

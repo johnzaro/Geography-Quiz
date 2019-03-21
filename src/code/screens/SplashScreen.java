@@ -58,7 +58,7 @@ public class SplashScreen
 				{
 					updateProgress(i, max);
 
-					if ((i == 1 || i % 50 == 0) && i != 400)
+					if ((i == 1 || i % 40 == 0) && i != 400)
 					{
 						Platform.runLater(() ->
 								{
@@ -67,7 +67,7 @@ public class SplashScreen
 									if(counter == 4) counter = 0;
 								});
 					}
-//					progressThread.sleep(10);
+//					progressThread.sleep(5);
 				}
 				return null;
 			}
@@ -75,15 +75,15 @@ public class SplashScreen
 		
 		task.setOnSucceeded(e ->
 		{
-			try
-			{
-				BaseClass.t1.join();
-				BaseClass.t2.join();
-				BaseClass.t3.join();
-				BaseClass.t4.join();
-				BaseClass.t5.join();
-			}
-			catch(Exception ex){}
+//			try
+//			{
+//				BaseClass.t1.join();
+//				BaseClass.t2.join();
+//				BaseClass.t3.join();
+//				BaseClass.t4.join();
+//				BaseClass.t5.join();
+//			}
+//			catch(Exception ex){}
 			
 			fadeOutTransition.play();
 		});

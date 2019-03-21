@@ -330,7 +330,7 @@ public class PowerOn
 		}
 	}
 	
-	static void powerOnMedia()
+	static void loadMedia()
 	{
 		try
 		{
@@ -637,8 +637,8 @@ public class PowerOn
 		else
 		{
 			animatedGlobe = new Image[1];
-			if(primaryScreenWidth < 2250) animatedGlobe[0] = new Image("/resources/images/globes/x400/1.png", 0.18 * primaryScreenWidth, 0, true, false);
-			else animatedGlobe[0] = new Image("/resources/images/globes/x850/1.png", 0.18 * primaryScreenWidth, 0, true, false);
+			if(primaryScreenWidth < 2250) animatedGlobe[0] = new Image("/resources/images/globes/x400/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
+			else animatedGlobe[0] = new Image("/resources/images/globes/x850/" + (new Random().nextInt(80) + 1) + ".png", 0.18 * primaryScreenWidth, 0, true, false);
 		}
 	}
 	

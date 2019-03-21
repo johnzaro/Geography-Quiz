@@ -661,51 +661,11 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			descriptionForEndlessGameLabel.setFont(fontForLabels);
 		}
 		
-		if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-		{
-			woodPanelFor5IconsImage.setLayoutY(0.0454 * height);
-			hBoxFor5Icons.setLayoutY(0.1009 * height);
-			
-			backButton.setLayoutY(0.8056 * height);
-			nextButton.setLayoutY(0.8056 * height);
-		}
-		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-		{
-			woodPanelFor5IconsImage.setLayoutY(0.0467 * height);
-			hBoxFor5Icons.setLayoutY(0.0952 * height);
-			
-			backButton.setLayoutY(0.8120 * height);
-			nextButton.setLayoutY(0.8120 * height);
-		}
-		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-		{
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16) woodPanelFor5IconsImage.setLayoutY(0.0461 * height);
-			else woodPanelFor5IconsImage.setLayoutY(0.0478 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0908 * height);
-			
-			backButton.setLayoutY(0.8200 * height);
-			nextButton.setLayoutY(0.8200 * height);
-		}
-		else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-		{
-			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
-			{
-				hBoxFor5Icons.setLayoutY(0.0638 * height);
-				
-				backButton.setLayoutY(0.8429 * height);
-				nextButton.setLayoutY(0.8429 * height);
-			}
-			else if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-			{
-				hBoxFor5Icons.setLayoutY(0.0600 * height);
-				
-				backButton.setLayoutY(0.8516 * height);
-				nextButton.setLayoutY(0.8516 * height);
-			}
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0286 * height);
-		}
+		woodPanelFor5IconsImage.setLayoutY(ratioProperties.getGameProperties().getWoodPanelFor5IconsImageLayoutY() * height);
+		hBoxFor5Icons.setLayoutY(ratioProperties.getGameProperties().gethBoxFor5IconsLayoutY() * height);
+		
+		backButton.setLayoutY(ratioProperties.getGameProperties().getBackButtonLayoutY() * height);
+		nextButton.setLayoutY(ratioProperties.getGameProperties().getNextButtonLayoutY() * height);
 		
 		vBoxForSound.setPrefSize(0.1400 * width, 0.1389 * height);
 		

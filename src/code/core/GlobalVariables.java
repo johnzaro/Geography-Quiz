@@ -236,6 +236,8 @@ public class GlobalVariables
 //  --------------------- WINDOW OBJECTS ---------------------
 	public static Stage stage;
 	public static Scene mainScene;
+	
+	public static RatioProperties ratioProperties;
 
 	public static SplashScreen splashScreen;
 	static MessageDisplayResolutionNotSupportedScreen messageDisplayResolutionNotSupportedScreen;

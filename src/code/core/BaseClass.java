@@ -1,5 +1,6 @@
 package code.core;
 
+import code.dataStructures.RatioProperties;
 import it.sauronsoftware.junique.AlreadyLockedException;
 import it.sauronsoftware.junique.JUnique;
 import javafx.application.Application;
@@ -12,7 +13,7 @@ public class BaseClass extends Application
 {
 //	Boolean to store weather the game is already running
 	private boolean isAlreadyRunning = false;
-	public static Thread t1, t2, t3, t4, t5;
+//	public static Thread t1, t2, t3, t4, t5;
 
 //	main method: first method that runs, only used to call start method
 	public static void main(String[] args)
@@ -77,7 +78,10 @@ public class BaseClass extends Application
 				Runtime.getRuntime().addShutdownHook(shutdownHook);
 
 //				load basic images and sounds
-				powerOnMedia();
+				loadMedia();
+				
+				ratioProperties = new RatioProperties();
+				FilesIO.loadRatioProperties();
 				
 				powerOnWelcomeScreen();
 				powerOnGamePropertiesScreen();

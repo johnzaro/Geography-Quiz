@@ -3757,21 +3757,21 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				greekRegionalUnitsSortList.add(i);
 			}
 			
-			attractionsObservableNamesList.clear();
-			attractionsSortList.clear();
-			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
-			{
-				String s = attractions[i].getNameInGreek();
-				
-				switch (s)
-				{
-					case "Βασιλικό Αστεροσκοπείο του Γκρήνουιτς":s = "Βασιλικό Αστεροσκοπείο του\nΓκρήνουιτς";break;
-					case "Καθεδρικός Ναός του Σωτήρος Χριστού":s = "Καθεδρικός Ναός του Σωτήρος\nΧριστού";break;
-				}
-				
-				attractionsObservableNamesList.add(s);
-				attractionsSortList.add(i);
-			}
+//			attractionsObservableNamesList.clear();
+//			attractionsSortList.clear();
+//			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
+//			{
+//				String s = attractions[i].getNameInGreek();
+//
+//				switch (s)
+//				{
+//					case "Βασιλικό Αστεροσκοπείο του Γκρήνουιτς":s = "Βασιλικό Αστεροσκοπείο του\nΓκρήνουιτς";break;
+//					case "Καθεδρικός Ναός του Σωτήρος Χριστού":s = "Καθεδρικός Ναός του Σωτήρος\nΧριστού";break;
+//				}
+//
+//				attractionsObservableNamesList.add(s);
+//				attractionsSortList.add(i);
+//			}
 		}
 		else if (getCurrentLanguage() == LANGUAGE.ENGLISH && !countriesObservableNamesList.get(0).equals(countries[0].getNameInEnglish()))
 		{

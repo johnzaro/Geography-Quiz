@@ -118,72 +118,17 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		Font fontForSound = Font.font("Comic Sans MS", 0.0094 * width);
 		
 		//SCREEN DEPENDENT STUFF
-		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-		{
-			titleImage.setLayoutY(0.0509 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0641 * height);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0361 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0917 * height);
-			
-			vBoxForSound.setLayoutY(0.0648 * height);
-			vBoxForSound.setPrefSize(0.1146 * width, 0.1296 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-		{
-			titleImage.setLayoutY(0.0574 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0593 * height);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0438 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0914 * height);
-			
-			vBoxForSound.setLayoutY(0.0722 * height);
-			vBoxForSound.setPrefSize(0.1149 * width, 0.1389 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-		{
-			titleImage.setLayoutY(0.0574 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0586 * height);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0459 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0901 * height);
-			
-			vBoxForSound.setLayoutY(0.0722 * height);
-			vBoxForSound.setPrefSize(0.1156 * width, 0.1389 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-		{
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
-			{
-				titleLabel.setLayoutY(0.0333 * height);
-				
-				hBoxFor5Icons.setLayoutY(0.0667 * height);
-			}
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-			{
-				titleLabel.setLayoutY(0.0313 * height);
-				
-				hBoxFor5Icons.setLayoutY(0.0625 * height);
-			}
-			
-			titleImage.setLayoutY(0.0428 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0324 * height);
-			
-			vBoxForSound.setLayoutY(0.0560 * height);
-			vBoxForSound.setPrefSize(0.1150 * width, 0.1095 * height);
-		}
+		titleImage.setLayoutY(ratioProperties.getScoreBoard().getTitleImageSetY() * height);
+		
+		titleLabel.setLayoutX(ratioProperties.getScoreBoard().getTitleLabelSetX() * width);
+		titleLabel.setLayoutY(ratioProperties.getScoreBoard().getTitleLabelSetY() * height);
+		
+		woodPanelFor5IconsImage.setLayoutY(ratioProperties.getScoreBoard().getWoodPanelFor5IconsImageLayoutY() * height);
+		
+		hBoxFor5Icons.setLayoutY(ratioProperties.getScoreBoard().gethBoxFor5IconsLayoutY() * height);
+		
+		vBoxForSound.setLayoutY(ratioProperties.getScoreBoard().getvBoxForSoundLayoutY() * height);
+		vBoxForSound.setPrefSize(ratioProperties.getScoreBoard().getvBoxForSoundPrefWidth() * width, ratioProperties.getScoreBoard().getvBoxForSoundPrefHeight() * height);
 		
 		dropShadow.setRadius(0.0104 * width);
 		dropShadow.setOffsetX(-0.0052 * width);

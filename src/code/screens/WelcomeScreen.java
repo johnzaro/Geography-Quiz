@@ -91,342 +91,63 @@ public class WelcomeScreen extends CoreScreen
 		super.recalculateUI(width, height);
 		
 		hBoxFor4SettingsButtons.setPrefSize(0.1276 * width, 0.0787 * height);
-
-		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-		{
-			leftGlobeImage.setFitWidth(0.1614 * width);
-			rightGlobeImage.setFitWidth(0.1614 * width);
-			
-			leftGlobeStand.setFitWidth(0.1578 * width);
-			leftGlobeStand.setLayoutX(0.0334 * width);
-			leftGlobeStand.setLayoutY(0.5213 * height);
-			
-			rightGlobeStand.setFitWidth(0.1578 * width);
-			rightGlobeStand.setLayoutX(width - leftGlobeStand.getLayoutX() - rightGlobeStand.getFitWidth());
-			rightGlobeStand.setLayoutY(0.5213 * height);
-
-			gameNameWoodenImage.setLayoutY(0.0305 * height);
-			welcomeImage.setLayoutY(0.2540 * height);
-			
-			welcomeLabel.setLayoutY(0.2735 * height);
-
-			leftGlobeImage.setLayoutX(0.0495 * width);
-			leftGlobeImage.setLayoutY(0.5480 * height);
-			rightGlobeImage.setLayoutX(0.7885 * width);
-			rightGlobeImage.setLayoutY(0.5480 * height);
-
-			woodPanelFor1IconImage.setLayoutY(0.0574 * height);
-			soundIcon.setLayoutY(0.1140 * height);
-
-			vBoxForSound.setLayoutY(0.2000 * height);
-			
-			vBoxForSound.setPrefHeight(0.1759 * height);
-			
-			editNameIcon.setLayoutY(0.3250 * height);
-
-			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
-			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
-
-			woodPanelFor4IconsImage.setLayoutY(0.0574 * height);
-			hBoxFor4SettingsButtons.setLayoutY(0.1000 * height);
-
-			vBoxForMainButtons.setPrefWidth(0.3906 * width);
-			vBoxForMainButtons.setLayoutY(0.4490 * height);
-			vBoxForMainButtons.setPrefHeight(0.4630 * height);
-			vBoxForMainButtons.setSpacing(0.0185 * height);
-
-			vBoxForEditUsername.setLayoutY(0.5185 * height);
-			vBoxForSwitchUser.setLayoutY(0.5185 * height);
-			vBoxForAddUser.setLayoutY(0.5185 * height);
-			
-			usersEditSegmentedButton.setLayoutY(0.4352 * height);
-			
-			vBoxForSettings.setLayoutY(0.2843 * height);
-			
-			rectangleForInformationAboutGame.setLayoutY(0.2963 * height);
-
-			if (OS == OSType.Windows)
-			{
-				woodPanelFor1IconImage.setLayoutX(0.0667 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.8214 * width);
-				
-				vBoxForSound.setLayoutX(0.0420 * width);
-			}
-			else
-			{
-				woodPanelFor1IconImage.setLayoutX(0.8665 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.0427 * width);
-				
-				vBoxForSound.setLayoutX(0.8230 * width);
-			}
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-		{
-			leftGlobeImage.setFitWidth(0.1625 * width);
-			rightGlobeImage.setFitWidth(0.1625 * width);
-			
-			leftGlobeStand.setFitWidth(0.1577 * width);
-			leftGlobeStand.setLayoutX(0.0335 * width);
-			leftGlobeStand.setLayoutY(0.5638 * height);
-			
-			rightGlobeStand.setFitWidth(0.1577 * width);
-			rightGlobeStand.setLayoutX(width - leftGlobeStand.getLayoutX() - rightGlobeStand.getFitWidth());
-			rightGlobeStand.setLayoutY(0.5638 * height);
-
-			gameNameWoodenImage.setLayoutY(0.0306 * height);
-			welcomeImage.setLayoutY(0.2286 * height);
-			
-			welcomeLabel.setLayoutY(0.2400 * height);
-
-			leftGlobeImage.setLayoutX(0.0506 * width);
-			leftGlobeImage.setLayoutY(0.5857 * height);
-			rightGlobeImage.setLayoutX(0.7875 * width);
-			rightGlobeImage.setLayoutY(0.5857 * height);
-
-			woodPanelFor1IconImage.setLayoutY(0.0552 * height);
-			soundIcon.setLayoutY(0.1050 * height);
-
-			vBoxForSound.setLayoutY(0.1824 * height);
-			
-			vBoxForSound.setPrefHeight(0.1714 * height);
-
-			editNameIcon.setLayoutY(0.2915 * height);
-			
-			usersEditSegmentedButton.setLayoutY(0.3970 * height);
-			
-			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
-			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
-
-			woodPanelFor4IconsImage.setLayoutY(0.0552 * height);
-			hBoxFor4SettingsButtons.setLayoutY(0.0885 * height);
-
-			vBoxForMainButtons.setPrefWidth(0.4167 * width);
-			vBoxForMainButtons.setLayoutY(0.4238 * height);
-			vBoxForMainButtons.setPrefHeight(0.4630 * height);
-			vBoxForMainButtons.setSpacing(0.0185 * height);
-			
-			vBoxForSettings.setLayoutY(0.2923 * height);
-
-			vBoxForEditUsername.setLayoutY(0.4830 * height);
-			vBoxForSwitchUser.setLayoutY(0.4830 * height);
-			vBoxForAddUser.setLayoutY(0.4830 * height);
-			
-			rectangleForInformationAboutGame.setLayoutY(0.2857 * height);
-
-			if (OS == OSType.Windows)
-			{
-				woodPanelFor1IconImage.setLayoutX(0.0667 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.8232 * width);
-				
-				vBoxForSound.setLayoutX(0.0421 * width);
-			}
-			else
-			{
-				woodPanelFor1IconImage.setLayoutX(0.8454 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.0429 * width);
-				
-				vBoxForSound.setLayoutX(0.8226 * width);
-			}
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
-				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-		{
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16)
-			{
-				woodPanelFor1IconImage.setLayoutY(0.0556 * height);
-				soundIcon.setLayoutY(0.0898 * height);
-				
-				woodPanelFor4IconsImage.setLayoutY(0.0557 * height);
-				hBoxFor4SettingsButtons.setLayoutY(0.0879 * height);
-				
-				leftGlobeStand.setLayoutY(0.5723 * height);
-				rightGlobeStand.setLayoutY(0.5723 * height);
-				
-				leftGlobeImage.setLayoutY(0.5928 * height);
-				rightGlobeImage.setLayoutY(0.5928 * height);
-				
-				welcomeImage.setLayoutY(0.2266 * height);
-				welcomeLabel.setLayoutY(0.2393 * height);
-				
-				editNameIcon.setLayoutY(0.2881 * height);
-			}
-			else
-			{
-				woodPanelFor1IconImage.setLayoutY(0.0541 * height);
-				soundIcon.setLayoutY(0.0836 * height);
-				
-				woodPanelFor4IconsImage.setLayoutY(0.0541 * height);
-				hBoxFor4SettingsButtons.setLayoutY(0.0840 * height);
-				
-				leftGlobeStand.setLayoutY(0.5877 * height);
-				rightGlobeStand.setLayoutY(0.5877 * height);
-				
-				leftGlobeImage.setLayoutY(0.6082 * height);
-				rightGlobeImage.setLayoutY(0.6082 * height);
-				
-				welcomeImage.setLayoutY(0.2189 * height);
-				welcomeLabel.setLayoutY(0.2316 * height);
-				
-				editNameIcon.setLayoutY(0.2777 * height);
-			}
-			
-			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
-			hBoxForSettingsAndInfoIcons.setLayoutY(0.8287 * height);
-			
-			leftGlobeImage.setFitWidth(0.1625 * width);
-			rightGlobeImage.setFitWidth(0.1625 * width);
-			
-			leftGlobeStand.setFitWidth(0.1575 * width);
-			leftGlobeStand.setLayoutX(0.0331 * width);
-			
-			rightGlobeStand.setFitWidth(0.1575 * width);
-			rightGlobeStand.setLayoutX(width - leftGlobeStand.getLayoutX() - rightGlobeStand.getFitWidth());
-
-			gameNameWoodenImage.setLayoutY(0.0306 * height);
-			
-			leftGlobeImage.setLayoutX(0.0506 * width);
-			rightGlobeImage.setLayoutX(0.7875 * width);
-
-			vBoxForSound.setLayoutY(0.1787 * height);
-			vBoxForSettings.setLayoutY(0.2923 * height);
-			
-			vBoxForSound.setPrefHeight(0.1714 * height);
-
-			infoIcon.setLayoutX(0.7604 * width);
-			infoIcon.setLayoutY(0.8048 * height);
-
-			vBoxForMainButtons.setPrefWidth(0.4395 * width);
-			vBoxForMainButtons.setLayoutY(0.4297 * height);
-			vBoxForMainButtons.setPrefHeight(0.4492 * height);
-			vBoxForMainButtons.setSpacing(0.0185 * height);
-
-			vBoxForEditUsername.setLayoutY(0.4329 * height);
-			
-			rectangleForInformationAboutGame.setLayoutY(0.2832 * height);
-
-			if (OS == OSType.Windows)
-			{
-				woodPanelFor1IconImage.setLayoutX(0.0663 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.8219 * width);
-				
-				vBoxForSound.setLayoutX(0.0431 * width);
-			}
-			else
-			{
-				woodPanelFor1IconImage.setLayoutX(0.8454 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.0419 * width);
-				
-				vBoxForSound.setLayoutX(0.8220 * width);
-			}
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3
-				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-		{
-			leftGlobeImage.setFitWidth(0.1757 * width);
-			rightGlobeImage.setFitWidth(0.1757 * width);
-
-			if (getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-			{
-				gameNameWoodenImage.setLayoutY(0.0225 * height);
-				welcomeImage.setLayoutY(0.1797 * height);
-				
-				welcomeLabel.setLayoutY(0.1760 * height);
-				
-				hBoxFor4SettingsButtons.setLayoutY(0.0615 * height);
-				soundIcon.setLayoutY(0.0820 * height);
-				
-				usersEditSegmentedButton.setLayoutY(0.3187 * height);
-				
-				vBoxForSound.setLayoutY(0.1416 * height);
-			
-				leftGlobeImage.setLayoutY(0.6573 * height);
-				rightGlobeImage.setLayoutY(0.6573 * height);
-				
-				leftGlobeStand.setLayoutY(0.6367 * height);
-				rightGlobeStand.setLayoutY(0.6367 * height);
-				
-				vBoxForSettings.setLayoutY(0.3033 * height);
-				
-				editNameIcon.setLayoutY(0.2295 * height);
-				
-				vBoxForEditUsername.setLayoutY(0.4100 * height);
-				vBoxForSwitchUser.setLayoutY(0.4100 * height);
-				vBoxForAddUser.setLayoutY(0.4100 * height);
-				
-				hBoxForSettingsAndInfoIcons.setLayoutY(0.8850 * height);
-			}
-			else
-			{
-				gameNameWoodenImage.setLayoutY(0.0219 * height);
-				welcomeImage.setLayoutY(0.1886 * height);
-				
-				welcomeLabel.setLayoutY(0.1880 * height);
-				
-				hBoxFor4SettingsButtons.setLayoutY(0.0638 * height);
-				soundIcon.setLayoutY(0.0850 * height);
-				
-				vBoxForSound.setLayoutY(0.1505 * height);
-				
-				usersEditSegmentedButton.setLayoutY(0.3375 * height);
-				
-				leftGlobeImage.setLayoutY(0.6371 * height);
-				rightGlobeImage.setLayoutY(0.6371 * height);
-				
-				leftGlobeStand.setLayoutY(0.6152 * height);
-				rightGlobeStand.setLayoutY(0.6152 * height);
-				
-				vBoxForSettings.setLayoutY(0.3005 * height);
-				
-				editNameIcon.setLayoutY(0.2419 * height);
-				
-				vBoxForEditUsername.setLayoutY(0.4312 * height);
-				vBoxForSwitchUser.setLayoutY(0.4312 * height);
-				vBoxForAddUser.setLayoutY(0.4312 * height);
-				
-				hBoxForSettingsAndInfoIcons.setLayoutY(0.8800 * height);
-			}
-			
-			hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
-			
-			leftGlobeStand.setFitWidth(0.1714 * width);
-			leftGlobeStand.setLayoutX(0.0329 * width);
-			
-			rightGlobeStand.setFitWidth(0.1714 * width);
-			rightGlobeStand.setLayoutX(width - leftGlobeStand.getLayoutX() - rightGlobeStand.getFitWidth());
-
-			leftGlobeImage.setLayoutX(0.0493 * width);
-			rightGlobeImage.setLayoutX(0.7729 * width);
-
-			woodPanelFor1IconImage.setLayoutY(0.0419 * height);
-			woodPanelFor4IconsImage.setLayoutY(0.0428 * height);
-			
-			vBoxForSound.setPrefHeight(0.1476 * height);
-			
-			infoIcon.setLayoutX(0.7571 * width);
-			infoIcon.setLayoutY(0.8810 * height);
-
-			vBoxForMainButtons.setPrefWidth(0.4395 * width);
-			vBoxForMainButtons.setLayoutY(0.3824 * height);
-			vBoxForMainButtons.setPrefHeight(0.5042 * height);
-			vBoxForMainButtons.setSpacing(0.0252 * height);
-			
-			rectangleForInformationAboutGame.setLayoutY(0.2715 * height);
-
-			if (OS == OSType.Windows)
-			{
-				woodPanelFor1IconImage.setLayoutX(0.0657 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.8214 * width);
-				
-				vBoxForSound.setLayoutX(0.0414 * width);
-			}
-			else
-			{
-				woodPanelFor1IconImage.setLayoutX(0.8459 * width);
-				woodPanelFor4IconsImage.setLayoutX(0.0429 * width);
-				
-				vBoxForSound.setLayoutX(0.8228 * width);
-			}
-		}
+		
+		leftGlobeImage.setFitWidth(ratioProperties.getWelcome().getGlobeImageFitWidth() * width);
+		rightGlobeImage.setFitWidth(ratioProperties.getWelcome().getGlobeImageFitWidth() * width);
+		
+		leftGlobeStand.setFitWidth(ratioProperties.getWelcome().getGlobeStandFitWidth() * width);
+		leftGlobeStand.setLayoutX(ratioProperties.getWelcome().getLeftGlobeStandLayoutX() * width);
+		leftGlobeStand.setLayoutY(ratioProperties.getWelcome().getGlobeStandLayoutY() * height);
+		
+		rightGlobeStand.setFitWidth(ratioProperties.getWelcome().getGlobeStandFitWidth() * width);
+		rightGlobeStand.setLayoutX(width - leftGlobeStand.getLayoutX() - rightGlobeStand.getFitWidth());
+		rightGlobeStand.setLayoutY(ratioProperties.getWelcome().getGlobeStandLayoutY() * height);
+		
+		gameNameWoodenImage.setLayoutY(ratioProperties.getWelcome().getGameNameImageLayoutY() * height);
+		welcomeImage.setLayoutY(ratioProperties.getWelcome().getWelcomeImageLayoutY() * height);
+		
+		welcomeLabel.setLayoutY(ratioProperties.getWelcome().getWelcomeLabelLayoutY() * height);
+		
+		leftGlobeImage.setLayoutX(ratioProperties.getWelcome().getLeftGlobeImageLayoutX() * width);
+		leftGlobeImage.setLayoutY(ratioProperties.getWelcome().getGlobeImageLayoutY() * height);
+		rightGlobeImage.setLayoutX(ratioProperties.getWelcome().getRightGlobeImageLayoutX() * width);
+		rightGlobeImage.setLayoutY(ratioProperties.getWelcome().getGlobeImageLayoutY() * height);
+		
+		woodPanelFor1IconImage.setLayoutY(ratioProperties.getWelcome().getWoodPanelFor1IconImageLayoutY() * height);
+		soundIcon.setLayoutY(ratioProperties.getWelcome().getSoundIconLayoutY() * height);
+		
+		vBoxForSound.setLayoutY(ratioProperties.getWelcome().getvBoxForSoundLayoutY() * height);
+		
+		vBoxForSound.setPrefHeight(ratioProperties.getWelcome().getvBoxForSoundPrefHeight() * height);
+		
+		editNameIcon.setLayoutY(ratioProperties.getWelcome().getEditNameIconLayoutY() * height);
+		
+		hBoxForSettingsAndInfoIcons.setLayoutY(ratioProperties.getWelcome().gethBoxForSettingsAndInfoIconsLayoutY() * height);
+		
+		woodPanelFor4IconsImage.setLayoutY(ratioProperties.getWelcome().getWoodPanelFor4IconsImageLayoutY() * height);
+		hBoxFor4SettingsButtons.setLayoutY(ratioProperties.getWelcome().gethBoxFor4SettingsButtonsLayoutY() * height);
+		
+		vBoxForMainButtons.setPrefWidth(ratioProperties.getWelcome().getvBoxForMainButtonsPrefWidth() * width);
+		vBoxForMainButtons.setLayoutY(ratioProperties.getWelcome().getvBoxForMainButtonsLayoutY() * height);
+		vBoxForMainButtons.setPrefHeight(ratioProperties.getWelcome().getvBoxForMainButtonsPrefHeight() * height);
+		vBoxForMainButtons.setSpacing(ratioProperties.getWelcome().getvBoxForMainButtonsSpacing() * height);
+		
+		vBoxForEditUsername.setLayoutY(ratioProperties.getWelcome().getvBoxesForEditUsersLayoutY() * height);
+		vBoxForSwitchUser.setLayoutY(ratioProperties.getWelcome().getvBoxesForEditUsersLayoutY() * height);
+		vBoxForAddUser.setLayoutY(ratioProperties.getWelcome().getvBoxesForEditUsersLayoutY() * height);
+		
+		usersEditSegmentedButton.setLayoutY(ratioProperties.getWelcome().getUsersEditSegmentedButtonLayoutY() * height);
+		
+		vBoxForSettings.setLayoutY(ratioProperties.getWelcome().getvBoxForSettingsLayoutY() * height);
+		
+		rectangleForInformationAboutGame.setLayoutY(ratioProperties.getWelcome().getRectangleForInfoAboutGameLayoutY() * height);
+		
+		woodPanelFor1IconImage.setLayoutX(ratioProperties.getWelcome().getWoodPanelFor1IconImageLayoutX() * width);
+		woodPanelFor4IconsImage.setLayoutX(ratioProperties.getWelcome().getWoodPanelFor4IconsImageLayoutX() * width);
+		
+		vBoxForSound.setLayoutX(ratioProperties.getWelcome().getvBoxForSoundLayoutX() * width);
+		
+		hBoxForSettingsAndInfoIcons.setLayoutX(0.7296 * width);
 
 		double iconSize  = (0.0260) * width;
 		
