@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Geography_Quiz.iml" filepath="$PROJECT_DIR$/.idea/modules/Geography_Quiz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Geography_Quiz.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Geography_Quiz.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/main.iml" filepath="$PROJECT_DIR$/.idea/modules/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geographyquiz.iml" filepath="$PROJECT_DIR$/geographyquiz.iml" />
     </modules>
   </component>
 </project>

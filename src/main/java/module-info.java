@@ -1,17 +1,18 @@
-module main {
-
+module geographyquiz {
+	
+	requires java.desktop;
+	
 	requires javafx.controls;
 	requires javafx.graphics;
 	requires javafx.media;
 	
-	requires java.desktop;
+	requires org.apache.commons.ios;
+	requires org.controlsfx.controls;
+	requires it.sauronsoftware.juniques;
+	requires org.jdom2s;
+	requires org.reactfxs;
 	
-	requires reactfx;
-	requires controlsfx;
-	requires jdom2;
-	requires org.apache.commons.io;
-	
-	exports core;
-	exports dataStructures;
-	exports screens;
+	exports com.johnzaro.geographyquiz.core;
+	exports com.johnzaro.geographyquiz.dataStructures;
+	exports com.johnzaro.geographyquiz.screens;
 }
