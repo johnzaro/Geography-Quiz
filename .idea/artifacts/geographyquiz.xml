@@ -1,0 +1,37 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="geographyquiz">
+    <output-path>$PROJECT_DIR$/out/artifacts/geographyquiz</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="com.johnzaro.geographyquiz.core.BaseClass" />
+        <option name="customManifestAttributes">
+          <list>
+            <JavaFxManifestAttribute>
+              <option name="name" value="Manifest-Version" />
+              <option name="value" value="1.0" />
+            </JavaFxManifestAttribute>
+            <JavaFxManifestAttribute>
+              <option name="name" value="Main-Class" />
+              <option name="value" value="com.johnzaro.geographyquiz.BaseClass" />
+            </JavaFxManifestAttribute>
+          </list>
+        </option>
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="geographyquiz.jar">
+        <element id="module-output" name="geographyquiz" />
+      </element>
+      <element id="library" level="project" name="commons-io-2.6" />
+      <element id="library" level="project" name="jdom2-2.0.6" />
+      <element id="library" level="project" name="junique-1.0.4" />
+      <element id="library" level="project" name="reactfx-2.0-M5" />
+      <element id="library" level="project" name="controlsfx-9.0.0" />
+    </root>
+  </artifact>
+</component>
