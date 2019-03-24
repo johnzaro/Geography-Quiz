@@ -252,10 +252,11 @@
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="3" />
     <option name="y" value="23" />
-    <option name="width" value="1280" />
-    <option name="height" value="1324" />
+    <option name="width" value="2548" />
+    <option name="height" value="1325" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
