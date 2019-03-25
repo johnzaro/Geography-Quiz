@@ -573,147 +573,152 @@ public class GlobalVariables
 
 	public static void playIntroductionSound()
 	{
-		new Thread(new Task<Void>() { protected Void call() throws Exception { introductionMediaPlayer.play(); return null; }}).start();
+//		new Thread(new Task<Void>() { protected Void call() throws Exception { introductionMediaPlayer.play(); return null; }}).start();
 	}
 	
 	public static void pauseIntroductionSound()
 	{
-		introductionMediaPlayer.pause();
+//		introductionMediaPlayer.pause();
 	}
 	
 	public static boolean isIntroductionSoundPlaying()
 	{
-		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.PLAYING;
+//		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.PLAYING;
+		return false;
 	}
 	
 	public static boolean isIntroductionSoundPaused()
 	{
-		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.PAUSED;
+//		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.PAUSED;
+		return false;
 	}
 	
 	public static boolean isIntroductionSoundReady()
 	{
-		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.READY;
+//		return introductionMediaPlayer.getStatus() == MediaPlayer.Status.READY;
+		return false;
 	}
 	
 	public static void playWelcomeLoopSoundSound()
 	{
-		new Thread(new Task<Void>() { protected Void call() throws Exception { welcomeLoopMediaPlayer.play(); return null; }}).start();
+//		new Thread(new Task<Void>() { protected Void call() throws Exception { welcomeLoopMediaPlayer.play(); return null; }}).start();
 	}
 	
 	public static void pauseWelcomeLoopSound()
 	{
-		welcomeLoopMediaPlayer.pause();
+//		welcomeLoopMediaPlayer.pause();
 	}
 	
 	public static boolean isWelcomeLoopSoundPlaying()
 	{
-		return welcomeLoopMediaPlayer.getStatus() == MediaPlayer.Status.PLAYING;
+//		return welcomeLoopMediaPlayer.getStatus() == MediaPlayer.Status.PLAYING;
+		return false;
 	}
 	
 	public static boolean isWelcomeLoopSoundPaused()
 	{
-		return welcomeLoopMediaPlayer.getStatus() == MediaPlayer.Status.PAUSED;
+//		return welcomeLoopMediaPlayer.getStatus() == MediaPlayer.Status.PAUSED;
+		return false;
 	}
 	
 	public static void playHoverSound()
 	{
-		HOVER_SOUND.play();
+//		HOVER_SOUND.play();
 	}
 	
 	public static void playButtonClickSound()
 	{
-		BUTTON_CLICK_SOUND.play();
+//		BUTTON_CLICK_SOUND.play();
 	}
 	
 	public static void playSwitchButtonOnSound()
 	{
-		SWITCH_BUTTON_ON_SOUND.play();
+//		SWITCH_BUTTON_ON_SOUND.play();
 	}
 	
 	public static void playSwitchButtonOffSound()
 	{
-		SWITCH_BUTTON_OFF_SOUND.play();
+//		SWITCH_BUTTON_OFF_SOUND.play();
 	}
 	
 	public static void playCheckBoxSelectedSound()
 	{
-		CHECKBOX_SELECTED_SOUND.play();
+//		CHECKBOX_SELECTED_SOUND.play();
 	}
 	
 	public static void playCheckBoxDeselectedSound()
 	{
-		CHECKBOX_DESELECTED_SOUND.play();
+//		CHECKBOX_DESELECTED_SOUND.play();
 	}
 	
 	public static void playRadioButtonSelectedSound()
 	{
-		RADIOBUTTON_SELECTED_SOUND.play();
+//		RADIOBUTTON_SELECTED_SOUND.play();
 	}
 	
 	public static void playPopUpSound()
 	{
-		POPUP_SOUND.play();
+//		POPUP_SOUND.play();
 	}
 	
 	public static void playSlideSound()
 	{
-		SLIDE_SOUND.play();
+//		SLIDE_SOUND.play();
 	}
 	
 	public static void playMinimizeSound()
 	{
-		MINIMIZE_SOUND.play();
+//		MINIMIZE_SOUND.play();
 	}
 
 	public static void playMaximizeSound()
 	{
-		MAXIMIZE_SOUND.play();
+//		MAXIMIZE_SOUND.play();
 	}
 	
 	public static void playRewindSound()
 	{
-		REWIND_SOUND.play();
+//		REWIND_SOUND.play();
 	}
 	
 	public static void playCorrectAnswerSimpleSound()
 	{
-		CORRECT_ANSWER_SIMPLE_SOUND.play();
+//		CORRECT_ANSWER_SIMPLE_SOUND.play();
 	}
 	
 	public static void playWrongAnswerSimpleSound()
 	{
-		WRONG_ANSWER_SIMPLE_SOUND.play();
+//		WRONG_ANSWER_SIMPLE_SOUND.play();
 	}
 	
 	public static void playGameWonSound()
 	{
-		GAME_WON_SOUND.play();
+//		GAME_WON_SOUND.play();
 	}
 	
 	public static void playGameLostSound()
 	{
-		GAME_LOST_SOUND.play();
+//		GAME_LOST_SOUND.play();
 	}
 	
 	public static void playHeartBreakingSound()
 	{
-		HEART_BREAKING_SOUND.play();
+//		HEART_BREAKING_SOUND.play();
 	}
 	
 	public static void playTimeOverSound()
 	{
-		TIME_OVER_SOUND.play();
+//		TIME_OVER_SOUND.play();
 	}
 	
 	public static void playClockTickingSound()
 	{
-		CLOCK_TICKING_30S_PLAYER.play();
+//		CLOCK_TICKING_30S_PLAYER.play();
 	}
 	
 	public static void stopClockTickingSound()
 	{
-		CLOCK_TICKING_30S_PLAYER.stop();
+//		CLOCK_TICKING_30S_PLAYER.stop();
 	}
 	
 	//PLAYER NAMES
@@ -799,7 +804,6 @@ public class GlobalVariables
 	public static GreekDecentralizedAdministration[] greekDecAdm;
 	public static GreekRegion[] greekRegions;
 	public static GreekRegionalUnit[] greekRegionalUnits;
-//	public static GreekRegionalUnit[] greekRegionalUnits;
 //	public static GreekMunicipality[] greekMunicipalities;
 	public static Attraction[] attractions;
 	
@@ -819,8 +823,8 @@ public class GlobalVariables
 		{
 			type = "countries/coatOfArms";
 			
-			if(imageName.equals("Αγγλία") || imageName.equals("Ουαλία") || imageName.equals("Σκωτία") || imageName.equals("Βόρεια Ιρλανδία"))
-				imageName = "Ηνωμένο Βασίλειο";
+			if(imageName.equals("England") || imageName.equals("Wales") || imageName.equals("Scotland") || imageName.equals("Northern Ireland"))
+				imageName = "United Kingdom";
 		}
 		else if(imageType == ImageType.COUNTRY_LOCATION) type = "countries/location";
 		else if(imageType == ImageType.CONTINENT_LOCATION) type = "continents";
@@ -855,8 +859,8 @@ public class GlobalVariables
 		{
 			type = "countries/coatOfArms";
 			
-			if(imageName.equals("Αγγλία") || imageName.equals("Ουαλία") || imageName.equals("Σκωτία") || imageName.equals("Βόρεια Ιρλανδία"))
-				imageName = "Ηνωμένο Βασίλειο";
+			if(imageName.equals("England") || imageName.equals("Wales") || imageName.equals("Scotland") || imageName.equals("Northern Ireland"))
+				imageName = "United Kingdom";
 		}
 		else if(imageType == ImageType.COUNTRY_LOCATION) type = "countries/location";
 		else if(imageType == ImageType.CONTINENT_LOCATION) type = "continents";

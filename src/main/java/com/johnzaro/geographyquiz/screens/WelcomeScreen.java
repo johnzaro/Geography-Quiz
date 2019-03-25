@@ -3237,9 +3237,9 @@ public class WelcomeScreen extends CoreScreen
 		updateStrings();
 		
 		if (getCurrentLanguage() == LANGUAGE.GREEK)
-			GAME_NAME_IMAGE = new Image("/images/backgrounds/gameNameGreek.png", 0.7 * primaryScreenWidth, 0, true, false);
+			GAME_NAME_IMAGE = new Image(WelcomeScreen.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 		else
-			GAME_NAME_IMAGE  = new Image("/images/backgrounds/gameNameEnglish.png", 0.7 * primaryScreenWidth, 0, true, false);
+			GAME_NAME_IMAGE  = new Image(WelcomeScreen.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 		
 		gameNameWoodenImage.setImage(GAME_NAME_IMAGE);
 		

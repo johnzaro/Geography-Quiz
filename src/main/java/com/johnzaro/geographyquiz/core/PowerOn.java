@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
@@ -224,11 +225,11 @@ public class PowerOn
 			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 			else GAME_NAME_IMAGE  = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 			
-			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
-			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
+//			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
+//			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
 			
-			BUTTON_CLICK_SOUND.setVolume(0.7);
-			MINIMIZE_SOUND.setVolume(0.7);
+//			BUTTON_CLICK_SOUND.setVolume(0.7);
+//			MINIMIZE_SOUND.setVolume(0.7);
 			
 			messageDisplayResolutionNotSupportedScreen = new MessageDisplayResolutionNotSupportedScreen(r);
 		}
@@ -318,8 +319,8 @@ public class PowerOn
 			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 			else GAME_NAME_IMAGE  = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
 			
-			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
-			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
+//			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
+//			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
 			
 			messageGameIsAlreadyRunningScreen = new MessageGameIsAlreadyRunningScreen();
 		}
@@ -333,9 +334,9 @@ public class PowerOn
 	{
 		try
 		{
-			Thread t1 = new Thread(() -> powerOnAudio());
-			Thread t2 = new Thread(() -> powerOnImages());
-			Thread t3 = new Thread(() -> powerOnAnimatedGlobeImages());
+			Thread t1 = new Thread(PowerOn::powerOnAudio);
+			Thread t2 = new Thread(PowerOn::powerOnImages);
+			Thread t3 = new Thread(PowerOn::powerOnAnimatedGlobeImages);
 			Thread t4 = new Thread(() -> powerOnScreenDependentImages(primaryScreenWidth));
 			
 			t1.start();
@@ -356,67 +357,67 @@ public class PowerOn
 	
 	private static void powerOnAudio()
 	{
-		HOVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/hover.wav").toExternalForm());
-		BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.wav").toExternalForm());
-		SWITCH_BUTTON_ON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOn.wav").toExternalForm());
-		SWITCH_BUTTON_OFF_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOff.wav").toExternalForm());
-		CHECKBOX_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxSelected.wav").toExternalForm());
-		CHECKBOX_DESELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxDeselected.wav").toExternalForm());
-		RADIOBUTTON_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/radioButtonSelected.wav").toExternalForm());
-		
-		POPUP_SOUND = new AudioClip(PowerOn.class.getResource("/audio/popUp.wav").toExternalForm());
-		SLIDE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/slide.wav").toExternalForm());
-		
-		MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.wav").toExternalForm());
-		MAXIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/maximize.wav").toExternalForm());
-		
-		REWIND_SOUND = new AudioClip(PowerOn.class.getResource("/audio/rewind.wav").toExternalForm());
-		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/correctAnswerSimple.wav").toExternalForm());
-		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/wrongAnswerSimple.wav").toExternalForm());
-		GAME_WON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameWon.wav").toExternalForm());
-		GAME_LOST_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameLost.wav").toExternalForm());
-		HEART_BREAKING_SOUND = new AudioClip(PowerOn.class.getResource("/audio/heartBreaking.wav").toExternalForm());
-		TIME_OVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/timeOver.wav").toExternalForm());
-		
-		CLOCK_TICKING_30S_SOUND = new Media(PowerOn.class.getResource("/audio/clockTicking30S.mp3").toExternalForm());
-		CLOCK_TICKING_30S_PLAYER = new MediaPlayer(CLOCK_TICKING_30S_SOUND);
-		CLOCK_TICKING_30S_PLAYER.setCycleCount(MediaPlayer.INDEFINITE);
-		
-		introductionSound = new Media(PowerOn.class.getResource("/audio/introductionSound.mp3").toExternalForm());
-		welcomeLoopSound = new Media(PowerOn.class.getResource("/audio/welcomeLoopSound.mp3").toExternalForm());
-		introductionMediaPlayer = new MediaPlayer(introductionSound);
-		welcomeLoopMediaPlayer = new MediaPlayer(welcomeLoopSound);
-		
-		welcomeLoopMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-		
-		introductionMediaPlayer.setOnEndOfMedia(() ->
-		{
-			playWelcomeLoopSoundSound();
-			introductionMediaPlayer.dispose();
-		});
-		
-		HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SWITCH_BUTTON_OFF_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CHECKBOX_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CHECKBOX_DESELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		RADIOBUTTON_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		POPUP_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SLIDE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		MINIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		MAXIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		REWIND_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CORRECT_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		WRONG_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		GAME_WON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		GAME_LOST_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		HEART_BREAKING_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		TIME_OVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CLOCK_TICKING_30S_PLAYER.volumeProperty().bind(soundEffectsCalculatedVolume);
-		
-		introductionMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
-		welcomeLoopMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
+//		HOVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/hover.wav").toExternalForm());
+//		BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.wav").toExternalForm());
+//		SWITCH_BUTTON_ON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOn.wav").toExternalForm());
+//		SWITCH_BUTTON_OFF_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOff.wav").toExternalForm());
+//		CHECKBOX_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxSelected.wav").toExternalForm());
+//		CHECKBOX_DESELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxDeselected.wav").toExternalForm());
+//		RADIOBUTTON_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/radioButtonSelected.wav").toExternalForm());
+//
+//		POPUP_SOUND = new AudioClip(PowerOn.class.getResource("/audio/popUp.wav").toExternalForm());
+//		SLIDE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/slide.wav").toExternalForm());
+//
+//		MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.wav").toExternalForm());
+//		MAXIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/maximize.wav").toExternalForm());
+//
+//		REWIND_SOUND = new AudioClip(PowerOn.class.getResource("/audio/rewind.wav").toExternalForm());
+//		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/correctAnswerSimple.wav").toExternalForm());
+//		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/wrongAnswerSimple.wav").toExternalForm());
+//		GAME_WON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameWon.wav").toExternalForm());
+//		GAME_LOST_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameLost.wav").toExternalForm());
+//		HEART_BREAKING_SOUND = new AudioClip(PowerOn.class.getResource("/audio/heartBreaking.wav").toExternalForm());
+//		TIME_OVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/timeOver.wav").toExternalForm());
+//
+//		CLOCK_TICKING_30S_SOUND = new Media(PowerOn.class.getResource("/audio/clockTicking30S.mp3").toExternalForm());
+//		CLOCK_TICKING_30S_PLAYER = new MediaPlayer(CLOCK_TICKING_30S_SOUND);
+//		CLOCK_TICKING_30S_PLAYER.setCycleCount(MediaPlayer.INDEFINITE);
+//
+//		introductionSound = new Media(PowerOn.class.getResource("/audio/introductionSound.mp3").toExternalForm());
+//		welcomeLoopSound = new Media(PowerOn.class.getResource("/audio/welcomeLoopSound.mp3").toExternalForm());
+//		introductionMediaPlayer = new MediaPlayer(introductionSound);
+//		welcomeLoopMediaPlayer = new MediaPlayer(welcomeLoopSound);
+//
+//		welcomeLoopMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+//
+//		introductionMediaPlayer.setOnEndOfMedia(() ->
+//		{
+//			playWelcomeLoopSoundSound();
+//			introductionMediaPlayer.dispose();
+//		});
+//
+//		HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		SWITCH_BUTTON_OFF_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		CHECKBOX_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		CHECKBOX_DESELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		RADIOBUTTON_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		POPUP_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		SLIDE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		MINIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		MAXIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		REWIND_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		CORRECT_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		WRONG_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		GAME_WON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		GAME_LOST_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		HEART_BREAKING_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		TIME_OVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
+//		CLOCK_TICKING_30S_PLAYER.volumeProperty().bind(soundEffectsCalculatedVolume);
+//
+//		introductionMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
+//		welcomeLoopMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
 	}
 	
 	private static void powerOnImages()

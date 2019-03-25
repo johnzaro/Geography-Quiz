@@ -2087,7 +2087,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					else gridPaneLabelsForCountriesAndContinents[9][1].setText(countries[index].getArea().getCoastlineBasedOnLocaleToString());
 					
 					if (countries[index].getArea().getPercentOfWater() == 0) gridPaneLabelsForCountriesAndContinents[10][1].setText("0%");
-					else gridPaneLabelsForCountriesAndContinents[10][1].setText(String.valueOf(countries[index].getArea().getPercentOfWater()) + "%");
+					else gridPaneLabelsForCountriesAndContinents[10][1].setText(countries[index].getArea().getPercentOfWater() + "%");
 					
 					gridPaneLabelsForCountriesAndContinents[12][1].setText(countries[index].getPopulation().getPopulationDensityBasedOnLocaleToString());
 					
@@ -2107,12 +2107,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						else if (countries[index].hasSea()) gridPaneLabelsForCountriesAndContinents[6][1].setText("Βρέχεται από θάλασσα");
 						else gridPaneLabelsForCountriesAndContinents[6][1].setText("Δε βρέχεται από θάλασσα");
 						
-						if (countries[index].getArea().getGlobalRanking() != 0) sb.append(" (" + String.valueOf(countries[index].getArea().getGlobalRanking()) + "η)");
+						if (countries[index].getArea().getGlobalRanking() != 0) sb.append(" (" + countries[index].getArea().getGlobalRanking() + "η)");
 						gridPaneLabelsForCountriesAndContinents[7][1].setText(sb.toString());
 						
 						sb = new StringBuilder();
 						sb.append(numberFormatForUI.format(countries[index].getPopulation().getPopulation())).append(" κάτοικοι");
-						if (countries[index].getPopulation().getGlobalRanking() != 0) sb.append(" (" + String.valueOf(countries[index].getPopulation().getGlobalRanking()) + "η)");
+						if (countries[index].getPopulation().getGlobalRanking() != 0) sb.append(" (" + countries[index].getPopulation().getGlobalRanking() + "η)");
 						gridPaneLabelsForCountriesAndContinents[11][1].setText(sb.toString());
 						
 						sb = new StringBuilder();
@@ -2133,7 +2133,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						
 						if (countries[index].getArea().getGlobalRanking() != 0)
 						{
-							sb.append(" (").append(String.valueOf(countries[index].getArea().getGlobalRanking()));
+							sb.append(" (").append(countries[index].getArea().getGlobalRanking());
 							if (countries[index].getArea().getGlobalRanking() % 10 == 1) sb.append("st)");
 							else if (countries[index].getArea().getGlobalRanking() % 10 == 2) sb.append("nd)");
 							else if (countries[index].getArea().getGlobalRanking() % 10 == 3) sb.append("rd)");
@@ -2145,7 +2145,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						sb.append(numberFormatForUI.format(countries[index].getPopulation().getPopulation())).append(" inhabitants");
 						if (countries[index].getPopulation().getGlobalRanking() != 0)
 						{
-							sb.append(" (").append(String.valueOf(countries[index].getPopulation().getGlobalRanking()));
+							sb.append(" (").append(countries[index].getPopulation().getGlobalRanking());
 							if (countries[index].getPopulation().getGlobalRanking() % 10 == 1) sb.append("st)");
 							else if (countries[index].getPopulation().getGlobalRanking() % 10 == 2) sb.append("nd)");
 							else if (countries[index].getPopulation().getGlobalRanking() % 10 == 3) sb.append("rd)");
@@ -2163,19 +2163,19 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					//SET IMAGES
 					if(flagForCountriesAndContinentsImageSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
 					{
-						flagForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_FLAG, "x250", countries[index].getNameInGreek(), true));
-						coatOfArmsForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x250", countries[index].getNameInGreek(), true));
+						flagForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_FLAG, "x250", countries[index].getNameInEnglish(), true));
+						coatOfArmsForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x250", countries[index].getNameInEnglish(), true));
 					}
 					else
 					{
-						flagForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_FLAG, "x500", countries[index].getNameInGreek(), true));
-						coatOfArmsForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x500", countries[index].getNameInGreek(), true));
+						flagForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_FLAG, "x500", countries[index].getNameInEnglish(), true));
+						coatOfArmsForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x500", countries[index].getNameInEnglish(), true));
 					}
 					if(locationForCountriesAndContinentsImageSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
-						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x250", countries[index].getNameInGreek(), true));
+						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x250", countries[index].getNameInEnglish(), true));
 					else if(locationForCountriesAndContinentsImageSmall.getFitWidth() <= MAX_WIDTH_FOR_X500_IMAGES)
-						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x500", countries[index].getNameInGreek(), true));
-					else locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x1000", countries[index].getNameInGreek(), true));
+						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x500", countries[index].getNameInEnglish(), true));
+					else locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x1000", countries[index].getNameInEnglish(), true));
 				}
 				else if(getIndexInOptionsForCountriesAndContinents() == 5 && newValue.intValue() < NUM_ALL_CONTINENTS)
 				{
@@ -2197,12 +2197,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						gridPaneLabelsForCountriesAndContinents[5][1].setText("-");
 						gridPaneLabelsForCountriesAndContinents[6][1].setText(continents[index].getPopulationString());
 						gridPaneLabelsForCountriesAndContinents[7][1].setText("-");
-						gridPaneLabelsForCountriesAndContinents[8][1].setText(continents[index].getAreaBasedOnLocaleToString() + " (" + String.valueOf(continents[index].getGlobalAreaRanking()) + "η)");
+						gridPaneLabelsForCountriesAndContinents[8][1].setText(continents[index].getAreaBasedOnLocaleToString() + " (" + continents[index].getGlobalAreaRanking() + "η)");
 						
 						gridPaneLabelsForCountriesAndContinents[9][1].setText(continents[index].getCoastlineBasedOnLocaleToString());
 						
-						gridPaneLabelsForCountriesAndContinents[10][1].setText(String.valueOf(continents[index].getPercentOfEarth()) + "%");
-						gridPaneLabelsForCountriesAndContinents[11][1].setText(String.valueOf(continents[index].getPercentOfLandOfEarth()) + "%");
+						gridPaneLabelsForCountriesAndContinents[10][1].setText(continents[index].getPercentOfEarth() + "%");
+						gridPaneLabelsForCountriesAndContinents[11][1].setText(continents[index].getPercentOfLandOfEarth() + "%");
 						
 						gridPaneLabelsForCountriesAndContinents[12][1].setText(continents[index].getHighestPoint());
 						gridPaneLabelsForCountriesAndContinents[13][1].setText(continents[index].getLowestPoint());
@@ -2231,8 +2231,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						
 						gridPaneLabelsForCountriesAndContinents[9][1].setText(continents[index].getCoastlineBasedOnLocaleToString());
 						
-						gridPaneLabelsForCountriesAndContinents[10][1].setText(String.valueOf(continents[index].getPercentOfEarth()) + "%");
-						gridPaneLabelsForCountriesAndContinents[11][1].setText(String.valueOf(continents[index].getPercentOfLandOfEarth()) + "%");
+						gridPaneLabelsForCountriesAndContinents[10][1].setText(continents[index].getPercentOfEarth() + "%");
+						gridPaneLabelsForCountriesAndContinents[11][1].setText(continents[index].getPercentOfLandOfEarth() + "%");
 						
 						gridPaneLabelsForCountriesAndContinents[12][1].setText(continents[index].getHighestPoint());
 						gridPaneLabelsForCountriesAndContinents[13][1].setText(continents[index].getLowestPoint());
@@ -2248,11 +2248,9 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
                             gridPaneLabelsForCountriesAndContinents[3][1].setText("Κάνε κλικ για να τις δεις");
                             gridPaneLabelsForCountriesAndContinents[4][1].setText("Κάνε κλικ για να τις δεις");
 
-							gridPaneLabelsForCountriesAndContinents[6][1].setText(String.valueOf(numberFormatForUI.format(continents[index].getPopulation())) + " κάτοικοι (" +
-							                                                      String.valueOf(continents[index].getGlobalPopulationRanking()) + "η)");
+							gridPaneLabelsForCountriesAndContinents[6][1].setText(numberFormatForUI.format(continents[index].getPopulation()) + " κάτοικοι (" + continents[index].getGlobalPopulationRanking() + "η)");
 							
-							gridPaneLabelsForCountriesAndContinents[8][1].setText(continents[index].getAreaBasedOnLocaleToString() + " (" +
-									String.valueOf(continents[index].getGlobalAreaRanking()) + "η)");
+							gridPaneLabelsForCountriesAndContinents[8][1].setText(continents[index].getAreaBasedOnLocaleToString() + " (" + continents[index].getGlobalAreaRanking() + "η)");
 						}
 						else
 						{
@@ -2265,8 +2263,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
                             StringBuilder sb;
 
 							sb = new StringBuilder();
-							sb.append(String.valueOf(numberFormatForUI.format(continents[index].getPopulation())) + " inhabitants (" +
-							          String.valueOf(continents[index].getGlobalPopulationRanking()));
+							sb.append(numberFormatForUI.format(continents[index].getPopulation()) + " inhabitants (" + continents[index].getGlobalPopulationRanking());
 							if (continents[index].getGlobalPopulationRanking() == 1) sb.append("st)");
 							else if (continents[index].getGlobalPopulationRanking() == 2) sb.append("nd)");
 							else if (continents[index].getGlobalPopulationRanking() == 3) sb.append("rd)");
@@ -2274,7 +2271,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 							gridPaneLabelsForCountriesAndContinents[6][1].setText(sb.toString());
 							
 							sb = new StringBuilder();
-							sb.append(continents[index].getAreaBasedOnLocaleToString() + " (" + String.valueOf(continents[index].getGlobalAreaRanking()));
+							sb.append(continents[index].getAreaBasedOnLocaleToString() + " (" + continents[index].getGlobalAreaRanking());
 							if (continents[index].getGlobalAreaRanking() == 1) sb.append("st)");
 							else if (continents[index].getGlobalAreaRanking() == 2) sb.append("nd)");
 							else if (continents[index].getGlobalAreaRanking() == 3) sb.append("rd)");
@@ -2286,10 +2283,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 
 					if (locationLabelForCountriesAndContinents.getPrefWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
-						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x250", continents[index].getNameInGreek(), true));
+						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x250", continents[index].getNameInEnglish(), true));
 					else if (locationLabelForCountriesAndContinents.getPrefWidth() <= MAX_WIDTH_FOR_X500_IMAGES)
-						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x500", continents[index].getNameInGreek(), true));
-					else locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x1000", continents[index].getNameInGreek(), true));
+						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x500", continents[index].getNameInEnglish(), true));
+					else locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.CONTINENT_LOCATION, "x1000", continents[index].getNameInEnglish(), true));
 				}
 			}
 		});
@@ -2453,8 +2450,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					
 					gridPaneLabelsForUSA[8][1].setText(statesOfUSA[index].getPopulationDensityBasedOnLocaleToString());
 					
-					gridPaneLabelsForUSA[10][1].setText(statesOfUSA[index].getLandAreaBasedOnLocaleToString() + " (" + String.valueOf(statesOfUSA[index].getLandPercent()) + "%)");
-					gridPaneLabelsForUSA[11][1].setText(statesOfUSA[index].getWaterAreaBasedOnLocaleToString() + " (" + String.valueOf(statesOfUSA[index].getWaterPercent()) + "%)");
+					gridPaneLabelsForUSA[10][1].setText(statesOfUSA[index].getLandAreaBasedOnLocaleToString() + " (" + statesOfUSA[index].getLandPercent() + "%)");
+					gridPaneLabelsForUSA[11][1].setText(statesOfUSA[index].getWaterAreaBasedOnLocaleToString() + " (" + statesOfUSA[index].getWaterPercent() + "%)");
 					
 					if(statesOfUSA[index].getCoastlineLengthInKilometers() == 0) gridPaneLabelsForUSA[12][1].setText("-");
 					else gridPaneLabelsForUSA[12][1].setText(statesOfUSA[index].getCoastlineBasedOnLocaleToString());
@@ -2470,10 +2467,9 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						
 						gridPaneLabelsForUSA[2][1].setText("Κάνε κλικ για να τις δεις");
 						
-						gridPaneLabelsForUSA[7][1].setText(String.valueOf(numberFormatForUI.format(statesOfUSA[index].getPopulation())) + " κάτοικοι (" +
-						                                   String.valueOf(statesOfUSA[index].getPopulationRank()) + "η)");
+						gridPaneLabelsForUSA[7][1].setText(numberFormatForUI.format(statesOfUSA[index].getPopulation()) + " κάτοικοι (" + statesOfUSA[index].getPopulationRank() + "η)");
 						
-						gridPaneLabelsForUSA[9][1].setText(statesOfUSA[index].getTotalAreaBasedOnLocaleToString() + " (" + String.valueOf(statesOfUSA[index].getAreaRanking()) + "η)");
+						gridPaneLabelsForUSA[9][1].setText(statesOfUSA[index].getTotalAreaBasedOnLocaleToString() + " (" + statesOfUSA[index].getAreaRanking() + "η)");
 						
 						if(statesOfUSA[index].hasAccessToTheOcean()) gridPaneLabelsForUSA[13][1].setText("Ναι");
 						else gridPaneLabelsForUSA[13][1].setText("Όχι");
@@ -2485,7 +2481,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						gridPaneLabelsForUSA[2][1].setText("Click here to see them");
 						
 						StringBuilder sb = new StringBuilder();
-						sb.append(String.valueOf(numberFormatForUI.format(statesOfUSA[index].getPopulation()))).append(" inhabitants (").append(String.valueOf(statesOfUSA[index].getPopulationRank()));
+						sb.append(numberFormatForUI.format(statesOfUSA[index].getPopulation())).append(" inhabitants (").append(statesOfUSA[index].getPopulationRank());
 						if (statesOfUSA[index].getPopulationRank() == 1) sb.append("st)");
 						else if (statesOfUSA[index].getPopulationRank() == 2) sb.append("nd)");
 						else if (statesOfUSA[index].getPopulationRank() == 3) sb.append("rd)");
@@ -2493,7 +2489,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						gridPaneLabelsForUSA[7][1].setText(sb.toString());
 						
 						sb = new StringBuilder();
-						sb.append(statesOfUSA[index].getTotalAreaBasedOnLocaleToString() + " (" + String.valueOf(statesOfUSA[index].getAreaRanking()));
+						sb.append(statesOfUSA[index].getTotalAreaBasedOnLocaleToString() + " (" + statesOfUSA[index].getAreaRanking());
 						if (statesOfUSA[index].getAreaRanking() == 1) sb.append("st)");
 						else if (statesOfUSA[index].getAreaRanking() == 2) sb.append("nd)");
 						else if (statesOfUSA[index].getAreaRanking() == 3) sb.append("rd)");
@@ -2506,20 +2502,20 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					//SET IMAGES
 					if(flagForUSAImageSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
 					{
-						flagForUSAImageSmall.setImage(getImage(ImageType.USA_FLAG, "x250", statesOfUSA[index].getNameInGreek(), true));
-						sealForUSAImageSmall.setImage(getImage(ImageType.USA_SEAL, "x250", statesOfUSA[index].getNameInGreek(), true));
+						flagForUSAImageSmall.setImage(getImage(ImageType.USA_FLAG, "x250", statesOfUSA[index].getNameInEnglish(), true));
+						sealForUSAImageSmall.setImage(getImage(ImageType.USA_SEAL, "x250", statesOfUSA[index].getNameInEnglish(), true));
 					}
 					else
 					{
-						flagForUSAImageSmall.setImage(getImage(ImageType.USA_FLAG, "x500", statesOfUSA[index].getNameInGreek(), true));
-						sealForUSAImageSmall.setImage(getImage(ImageType.USA_SEAL, "x500", statesOfUSA[index].getNameInGreek(), true));
+						flagForUSAImageSmall.setImage(getImage(ImageType.USA_FLAG, "x500", statesOfUSA[index].getNameInEnglish(), true));
+						sealForUSAImageSmall.setImage(getImage(ImageType.USA_SEAL, "x500", statesOfUSA[index].getNameInEnglish(), true));
 					}
 					if(locationForUSAImageSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
-						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x250", statesOfUSA[index].getNameInGreek(), true));
+						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x250", statesOfUSA[index].getNameInEnglish(), true));
 					else if(locationForUSAImageSmall.getFitHeight() <= MAX_WIDTH_FOR_X500_IMAGES)
-						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x500", statesOfUSA[index].getNameInGreek(), true));
+						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x500", statesOfUSA[index].getNameInEnglish(), true));
 					else
-						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x1000", statesOfUSA[index].getNameInGreek(), true));
+						locationForUSAImageSmall.setImage(getImage(ImageType.USA_LOCATION, "x1000", statesOfUSA[index].getNameInEnglish(), true));
 				}
 				
 				for(int i = 0; i < gridPaneLabelsForUSA.length; i++) gridPaneTooltipsForUSA[i].setText(gridPaneLabelsForUSA[i][1].getText());
@@ -2751,7 +2747,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekDecAdm[index].getNameInGreek());
 						
-						gridPaneLabelsForGreece[3][1].setText(String.valueOf(numberFormatForUI.format(greekDecAdm[index].getPopulation()) + " κάτοικοι"));
+						gridPaneLabelsForGreece[3][1].setText(numberFormatForUI.format(greekDecAdm[index].getPopulation()) + " κάτοικοι");
 						
 						gridPaneLabelsForGreece[7][1].setText("(" + greekDecAdm[index].getNumberOfRegions() + ") Κάνε κλικ για να τις δεις");
 						gridPaneLabelsForGreece[8][1].setText("(" + greekDecAdm[index].getNumberOfRegionalUnits() + ") Κάνε κλικ για να τις δεις");
@@ -2761,7 +2757,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekDecAdm[index].getNameInEnglish());
 						
-						gridPaneLabelsForGreece[3][1].setText(String.valueOf(numberFormatForUI.format(greekDecAdm[index].getPopulation()) + " inhabitants"));
+						gridPaneLabelsForGreece[3][1].setText(numberFormatForUI.format(greekDecAdm[index].getPopulation()) + " inhabitants");
 						
 						gridPaneLabelsForGreece[7][1].setText("(" + greekDecAdm[index].getNumberOfRegions() + ") Click here to see them");
 						gridPaneLabelsForGreece[8][1].setText("(" + greekDecAdm[index].getNumberOfRegionalUnits() + ") Click here to see them");
@@ -2770,13 +2766,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					
 					//Images
 					
-					logoForGreeceImageSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOGO, "", greekDecAdm[index].getNameInGreek(), true));
+					logoForGreeceImageSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOGO, "", greekDecAdm[index].getNameInEnglish(), true));
 					
 					if (locationForGreeceSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
-						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x250", greekDecAdm[index].getNameInGreek(), true));
+						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x250", greekDecAdm[index].getNameInEnglish(), true));
 					else if (locationForGreeceSmall.getFitWidth() <= MAX_WIDTH_FOR_X500_IMAGES)
-						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x500", greekDecAdm[index].getNameInGreek(), true));
-					else locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x1000", greekDecAdm[index].getNameInGreek(), true));
+						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x500", greekDecAdm[index].getNameInEnglish(), true));
+					else locationForGreeceSmall.setImage(getImage(ImageType.GREECE_DEC_ADM_LOCATION, "x1000", greekDecAdm[index].getNameInEnglish(), true));
 					
 					//Tooltips
 					for(int i = 0; i < 5; i++) gridPaneTooltipsForGreece[i].setText(gridPaneLabelsForGreece[i][1].getText());
@@ -2797,13 +2793,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekRegions[index].getNameInGreek());
 						
-						gridPaneLabelsForGreece[5][1].setText(String.valueOf(numberFormatForUI.format(greekRegions[index].getPopulation()) + " κάτοικοι (" +
-						                                                     String.valueOf(greekRegions[index].getPopulationRanking()) + "η)"));
+						gridPaneLabelsForGreece[5][1].setText(numberFormatForUI.format(greekRegions[index].getPopulation()) + " κάτοικοι (" + greekRegions[index].getPopulationRanking() + "η)");
 						
-						gridPaneLabelsForGreece[6][1].setText(String.valueOf(greekRegions[index].getPopulationDensityPerSquareKilometer()) + " κατ./km\u00B2, "
-						                                      + String.valueOf(greekRegions[index].getPopulationDensityPerSquareMile()) + " κατ./ sq mi");
+						gridPaneLabelsForGreece[6][1].setText(greekRegions[index].getPopulationDensityPerSquareKilometer() + " κατ./km\u00B2, " + greekRegions[index].getPopulationDensityPerSquareMile() + " κατ./ sq mi");
 						
-						gridPaneLabelsForGreece[7][1].setText(greekRegions[index].getAreaBasedOnLocaleToString() + " (" + String.valueOf(greekRegions[index].getAreaRanking()) + "η)");
+						gridPaneLabelsForGreece[7][1].setText(greekRegions[index].getAreaBasedOnLocaleToString() + " (" + greekRegions[index].getAreaRanking() + "η)");
 						
 						gridPaneLabelsForGreece[11][1].setText("(" + greekRegions[index].getNumberOfRegionalUnits() + ") Κάνε κλικ για να τις δεις");
 						gridPaneLabelsForGreece[12][1].setText("(" + greekRegions[index].getNumberOfMunicipalities() + ") Κάνε κλικ για να τους δεις");
@@ -2815,19 +2809,18 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						StringBuilder sb;
 						
 						sb = new StringBuilder();
-						sb.append(String.valueOf(numberFormatForUI.format(greekRegions[index].getPopulation()) + " inhabitants (" + String.valueOf(greekRegions[index].getPopulationRanking())));
+						sb.append(numberFormatForUI.format(greekRegions[index].getPopulation()) + " inhabitants (" + greekRegions[index].getPopulationRanking());
 						if (greekRegions[index].getPopulationRanking() % 10 == 1) sb.append("st)");
 						else if (greekRegions[index].getPopulationRanking() % 10 == 2) sb.append("nd)");
 						else if (greekRegions[index].getPopulationRanking() % 10 == 3) sb.append("rd)");
 						else sb.append("th)");
 						gridPaneLabelsForGreece[5][1].setText(sb.toString());
 						
-						gridPaneLabelsForGreece[6][1].setText(String.valueOf(greekRegions[index].getPopulationDensityPerSquareKilometer()) + " inh./km\u00B2, "
-						                                      + String.valueOf(greekRegions[index].getPopulationDensityPerSquareMile()) + " inh./ sq mi");
+						gridPaneLabelsForGreece[6][1].setText(greekRegions[index].getPopulationDensityPerSquareKilometer() + " inh./km\u00B2, " + greekRegions[index].getPopulationDensityPerSquareMile() + " inh./ sq mi");
 						
 						sb = new StringBuilder();
 						sb.append(greekRegions[index].getAreaBasedOnLocaleToString());
-						sb.append(" (").append(String.valueOf(greekRegions[index].getAreaRanking()));
+						sb.append(" (").append(greekRegions[index].getAreaRanking());
 						if (greekRegions[index].getAreaRanking() % 10 == 1) sb.append("st)");
 						else if (greekRegions[index].getAreaRanking() % 10 == 2) sb.append("nd)");
 						else if (greekRegions[index].getAreaRanking() % 10 == 3) sb.append("rd)");
@@ -2839,13 +2832,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 					
 					//Images
-					logoForGreeceImageSmall.setImage(getImage(ImageType.GREECE_REGION_LOGO, "", greekRegions[index].getNameInGreek(), true));
+					logoForGreeceImageSmall.setImage(getImage(ImageType.GREECE_REGION_LOGO, "", greekRegions[index].getNameInEnglish(), true));
 					
 					if (locationForGreeceSmall.getFitWidth() <= MAX_WIDTH_FOR_X250_IMAGES)
-						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x250", greekRegions[index].getNameInGreek(), true));
+						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x250", greekRegions[index].getNameInEnglish(), true));
 					else if (locationForGreeceSmall.getFitWidth() <= MAX_WIDTH_FOR_X500_IMAGES)
-						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x500", greekRegions[index].getNameInGreek(), true));
-					else locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x1000", greekRegions[index].getNameInGreek(), true));
+						locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x500", greekRegions[index].getNameInEnglish(), true));
+					else locationForGreeceSmall.setImage(getImage(ImageType.GREECE_REGION_LOCATION, "x1000", greekRegions[index].getNameInEnglish(), true));
 					
 					//Tooltips
 					for(int i = 0; i < 9; i++) gridPaneTooltipsForGreece[i].setText(gridPaneLabelsForGreece[i][1].getText());
@@ -2867,13 +2860,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					{
 						gridPaneLabelsForGreece[0][1].setText(greekRegionalUnits[index].getNameInGreek());
 						
-						gridPaneLabelsForGreece[6][1].setText(String.valueOf(numberFormatForUI.format(greekRegionalUnits[index].getPopulation()) + " κάτοικοι (" +
-						                                                     String.valueOf(greekRegionalUnits[index].getPopulationRanking()) + "η)"));
+						gridPaneLabelsForGreece[6][1].setText(numberFormatForUI.format(greekRegionalUnits[index].getPopulation()) + " κάτοικοι (" + greekRegionalUnits[index].getPopulationRanking() + "η)");
 						
-						gridPaneLabelsForGreece[7][1].setText(String.valueOf(greekRegionalUnits[index].getPopulationDensityPerSquareKilometer()) + " κατ./km\u00B2, "
-						                                      + String.valueOf(greekRegionalUnits[index].getPopulationDensityPerSquareMile()) + " κατ./ sq mi");
+						gridPaneLabelsForGreece[7][1].setText(greekRegionalUnits[index].getPopulationDensityPerSquareKilometer() + " κατ./km\u00B2, " + greekRegionalUnits[index].getPopulationDensityPerSquareMile() + " κατ./ sq mi");
 						
-						gridPaneLabelsForGreece[8][1].setText(String.valueOf(greekRegionalUnits[index].getAreaBasedOnLocaleToString() + " (" + String.valueOf(greekRegionalUnits[index].getAreaRanking()) + "η)"));
+						gridPaneLabelsForGreece[8][1].setText(greekRegionalUnits[index].getAreaBasedOnLocaleToString() + " (" + greekRegionalUnits[index].getAreaRanking() + "η)");
 						
 						gridPaneLabelsForGreece[12][1].setText("(" + greekRegionalUnits[index].getNumberOfMunicipalities() + ") Κάνε κλικ για να τους δεις");
 					}
@@ -2884,19 +2875,18 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						StringBuilder sb;
 						
 						sb = new StringBuilder();
-						sb.append(String.valueOf(numberFormatForUI.format(greekRegionalUnits[index].getPopulation()) + " inhabitants (" + String.valueOf(greekRegionalUnits[index].getPopulationRanking())));
+						sb.append(numberFormatForUI.format(greekRegionalUnits[index].getPopulation()) + " inhabitants (" + greekRegionalUnits[index].getPopulationRanking());
 						if (greekRegionalUnits[index].getPopulationRanking() % 10 == 1) sb.append("st)");
 						else if (greekRegionalUnits[index].getPopulationRanking() % 10 == 2) sb.append("nd)");
 						else if (greekRegionalUnits[index].getPopulationRanking() % 10 == 3) sb.append("rd)");
 						else sb.append("th)");
 						gridPaneLabelsForGreece[6][1].setText(sb.toString());
 						
-						gridPaneLabelsForGreece[7][1].setText(String.valueOf(greekRegionalUnits[index].getPopulationDensityPerSquareKilometer()) + " inh./km\u00B2, "
-						                                      + String.valueOf(greekRegionalUnits[index].getPopulationDensityPerSquareMile()) + " inh./ sq mi");
+						gridPaneLabelsForGreece[7][1].setText(greekRegionalUnits[index].getPopulationDensityPerSquareKilometer() + " inh./km\u00B2, " + greekRegionalUnits[index].getPopulationDensityPerSquareMile() + " inh./ sq mi");
 						
 						sb = new StringBuilder();
-						sb.append(String.valueOf(greekRegionalUnits[index].getAreaBasedOnLocaleToString()));
-						sb.append(" (" + String.valueOf(greekRegionalUnits[index].getAreaRanking()));
+						sb.append(greekRegionalUnits[index].getAreaBasedOnLocaleToString());
+						sb.append(" (" + greekRegionalUnits[index].getAreaRanking());
 						if (greekRegionalUnits[index].getAreaRanking() % 10 == 1) sb.append("st)");
 						else if (greekRegionalUnits[index].getAreaRanking() % 10 == 2) sb.append("nd)");
 						else if (greekRegionalUnits[index].getAreaRanking() % 10 == 3) sb.append("rd)");
@@ -3970,24 +3960,24 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			attractionsObservableNamesList.clear();
 			attractionsSortList.clear();
-			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
-			{
-				attractionsObservableNamesList.add(attractions[i].getNameInEnglish());
-				attractionsSortList.add(i);
-			}
-			for (short i = 0; i < NUM_ALL_ATTRACTIONS - 1; i++)
-				for (short y = 0; y < NUM_ALL_ATTRACTIONS - i - 1; y++)
-					if (attractionsObservableNamesList.get(y).compareTo(attractionsObservableNamesList.get(y + 1)) > 0)
-					{
-						String temp = attractionsObservableNamesList.get(y);
-						short s = attractionsSortList.get(y);
-						
-						attractionsObservableNamesList.set(y, attractionsObservableNamesList.get(y + 1));
-						attractionsSortList.set(y, attractionsSortList.get(y + 1));
-						
-						attractionsObservableNamesList.set(y + 1, temp);
-						attractionsSortList.set(y + 1, s);
-					}
+//			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
+//			{
+//				attractionsObservableNamesList.add(attractions[i].getNameInEnglish());
+//				attractionsSortList.add(i);
+//			}
+//			for (short i = 0; i < NUM_ALL_ATTRACTIONS - 1; i++)
+//				for (short y = 0; y < NUM_ALL_ATTRACTIONS - i - 1; y++)
+//					if (attractionsObservableNamesList.get(y).compareTo(attractionsObservableNamesList.get(y + 1)) > 0)
+//					{
+//						String temp = attractionsObservableNamesList.get(y);
+//						short s = attractionsSortList.get(y);
+//
+//						attractionsObservableNamesList.set(y, attractionsObservableNamesList.get(y + 1));
+//						attractionsSortList.set(y, attractionsSortList.get(y + 1));
+//
+//						attractionsObservableNamesList.set(y + 1, temp);
+//						attractionsSortList.set(y + 1, s);
+//					}
 		}
 		
 		if(animationsUsed != ANIMATIONS.NO)
@@ -4625,29 +4615,29 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if(getCategoryCurrentlyViewing() == 1)
 			{
 				if (getIndexInOptionsForCountriesAndContinents() == 0)
-					name = countries[countriesSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInGreek();
+					name = countries[countriesSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInEnglish();
 				else if (getIndexInOptionsForCountriesAndContinents() == 1)
-					name = countries[capitalsOfCountriesSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInGreek();
+					name = countries[capitalsOfCountriesSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInEnglish();
 				else if (getIndexInOptionsForCountriesAndContinents() == 5)
-					name = continents[continentsSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInGreek();
+					name = continents[continentsSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInEnglish();
 				else
-					name = countries[countriesSortList.get(getIndexInBigImageNormal())].getNameInGreek();
+					name = countries[countriesSortList.get(getIndexInBigImageNormal())].getNameInEnglish();
 			}
 			else if(getCategoryCurrentlyViewing() == 2)
 			{
 				if (getIndexInOptionsForUSA() == 0)
-					name = statesOfUSA[statesOfUSASortList.get(getIndexInListViewForUSA())].getNameInGreek();
+					name = statesOfUSA[statesOfUSASortList.get(getIndexInListViewForUSA())].getNameInEnglish();
 				else if (getIndexInOptionsForUSA() == 1)
-					name = statesOfUSA[capitalsOfStatesSortList.get(getIndexInListViewForUSA())].getNameInGreek();
+					name = statesOfUSA[capitalsOfStatesSortList.get(getIndexInListViewForUSA())].getNameInEnglish();
 				else
-					name = statesOfUSA[statesOfUSASortList.get(getIndexInBigImageNormal())].getNameInGreek();
+					name = statesOfUSA[statesOfUSASortList.get(getIndexInBigImageNormal())].getNameInEnglish();
 			}
 			else if(getCategoryCurrentlyViewing() == 3)
 			{
 				if(getIndexInOptionsForGreece() == 0)
-					name = greekDecAdm[greekDecentralizedAdministrationsSortList.get(getIndexInListViewForGreece())].getNameInGreek();
+					name = greekDecAdm[greekDecentralizedAdministrationsSortList.get(getIndexInListViewForGreece())].getNameInEnglish();
 				else if(getIndexInOptionsForGreece() == 1)
-					name = greekRegions[greekRegionsSortList.get(getIndexInListViewForGreece())].getNameInGreek();
+					name = greekRegions[greekRegionsSortList.get(getIndexInListViewForGreece())].getNameInEnglish();
 			}
 
 			if (typeOfNormalBigImage == BigImageType.FLAG_FOR_COUNTRIES) newBigImagePath = getImagePath(ImageType.COUNTRY_FLAG, "x2000", name);
@@ -4788,13 +4778,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			if (getIndexInOptionsForCountriesAndContinents() != 5)
 			{
-				name = countries[index].getNameInGreek();
+				name = countries[index].getNameInEnglish();
 				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(countries[index].getNameInEnglish());
 			}
 			else
 			{
-				name = continents[index].getNameInGreek();
+				name = continents[index].getNameInEnglish();
 				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(continents[index].getNameInEnglish());
 			}
@@ -4809,7 +4799,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 		else if(getCategoryCurrentlyViewing() == 2)
 		{
-			name = statesOfUSA[index].getNameInGreek();
+			name = statesOfUSA[index].getNameInEnglish();
 			if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 			else labelForBigImage.setText(statesOfUSA[index].getNameInEnglish());
 			
@@ -4824,7 +4814,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			if (getIndexInOptionsForGreece() == 0)
 			{
-				name = greekDecAdm[index].getNameInGreek();
+				name = greekDecAdm[index].getNameInEnglish();
 				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(greekDecAdm[index].getNameInEnglish());
 				
@@ -4833,7 +4823,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			}
 			else if (getIndexInOptionsForGreece() == 1)
 			{
-				name = greekRegions[index].getNameInGreek();
+				name = greekRegions[index].getNameInEnglish();
 				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(greekRegions[index].getNameInEnglish());
 			}
@@ -4864,8 +4854,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			switch (name)
 			{
-				case "Ινδία":case "Αμερικανική Σαμόα":case "Αυστρία":case "Ιράν":case "Καμερούν":case "Κένυα":case "Κομόρες":case "Κύπρος":
-				case "Λεσότο":case "Λετονία":case "Νέα Καληδονία":case "Πακιστάν":case "Παλάου":case "Σουαζιλάνδη":case "Σουδάν":case "Νότια Αφρική":
+				case "India":case "American Samoa":case "Austria":case "Iran":case "Cameroon":case "Kenya":case "Comoros":case "Cyprus":
+				case "Lesotho":case "Latvia":case "New Caledonia":case "Pakistan":case "Palau":case "Swaziland":case "Sudan":case "South Africa":
 					rectangleForBigImage.setFill(Color.valueOf("ffffffc7"));
 					labelForBigImage.setTextFill(Color.BLACK);
 					break;
@@ -5043,15 +5033,15 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			if (getIndexInOptionsForCountriesAndContinents() == 0 ||
 			    getIndexInOptionsForCountriesAndContinents() == 1)
-				name = countries[index].getNameInGreek();
+				name = countries[index].getNameInEnglish();
 			else if (getIndexInOptionsForCountriesAndContinents() == 5)
-				name = continents[index].getNameInGreek();
+				name = continents[index].getNameInEnglish();
 		}
-		else if(getCategoryCurrentlyViewing() == 2) name = statesOfUSA[index].getNameInGreek();
+		else if(getCategoryCurrentlyViewing() == 2) name = statesOfUSA[index].getNameInEnglish();
 		else if(getCategoryCurrentlyViewing() == 3)
 		{
-			if (getIndexInOptionsForGreece() == 0) name = greekDecAdm[index].getNameInGreek();
-			else if (getIndexInOptionsForGreece() == 1) name = greekRegions[index].getNameInGreek();
+			if (getIndexInOptionsForGreece() == 0) name = greekDecAdm[index].getNameInEnglish();
+			else if (getIndexInOptionsForGreece() == 1) name = greekRegions[index].getNameInEnglish();
 		}
 		
 		if(type == BigImageType.LOGOS_FOR_GREEK_REGIONS) bigImageSize = "";
@@ -5064,17 +5054,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			newBigImagePath = getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, bigImageSize, name);
 			
-			if (name.equals("Ινδία") || name.equals("Αμερικανική Σαμόα") || name.equals("Αυστρία") || name.equals("Ιράν") || name.equals("Καμερούν") ||
-			    name.equals("Κένυα") || name.equals("Κομόρες") || name.equals("Κύπρος") || name.equals("Λεσότο") || name.equals("Λετονία") || name.equals("Νέα Καληδονία") ||
-			    name.equals("Πακιστάν") || name.equals("Παλάου") || name.equals("Σουαζιλάνδη") || name.equals("Σουδάν") || name.equals("Νότια Αφρική"))
+			switch (name)
 			{
-				rectangleForBigImage.setFill(Color.valueOf("ffffffc7"));
-				labelForBigImage.setTextFill(Color.BLACK);
-			}
-			else
-			{
-				rectangleForBigImage.setFill(Color.valueOf("00000099"));
-				labelForBigImage.setTextFill(Color.WHITE);
+				case "India":case "American Samoa":case "Austria":case "Iran":case "Cameroon":case "Kenya":case "Comoros":case "Cyprus":
+				case "Lesotho":case "Latvia":case "New Caledonia":case "Pakistan":case "Palau":case "Swaziland":case "Sudan":case "South Africa":
+					rectangleForBigImage.setFill(Color.valueOf("ffffffc7"));
+					labelForBigImage.setTextFill(Color.BLACK);
+					break;
+				default:
+					rectangleForBigImage.setFill(Color.valueOf("00000099"));
+					labelForBigImage.setTextFill(Color.WHITE);
+					break;
 			}
 		}
 		else if (type == BigImageType.LOCATION_FOR_COUNTRIES) newBigImagePath = getImagePath(ImageType.COUNTRY_LOCATION, bigImageSize, name);
@@ -5594,7 +5584,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if(getCategoryCurrentlyViewing() == 1)
 				{
-					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = countries[item].getNameInGreek();
+					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = countries[item].getNameInEnglish();
 					else imageName = countries[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForCountriesAndContinents == GridViewImagesForCountriesAndContinentsType.FLAG)
@@ -5633,7 +5623,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				}
 				else if(getCategoryCurrentlyViewing() == 2)
 				{
-					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = statesOfUSA[item].getNameInGreek();
+					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = statesOfUSA[item].getNameInEnglish();
 					else imageName = statesOfUSA[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForUSA == GridViewImagesForUSAType.FLAG)

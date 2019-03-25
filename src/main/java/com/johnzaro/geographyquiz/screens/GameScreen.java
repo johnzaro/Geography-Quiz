@@ -1198,14 +1198,14 @@ public class GameScreen extends CoreScreen
 			stackPaneForBigImage.setLayoutY(e.getSceneY() - imageViewForBigImage.getFitWidth() / 2.0);
 			
 			if(imageViewForQuestionImage.getImagePath().contains("coatOfArms") &&
-			   (imageViewForQuestionImage.getImagePath().contains("Ινδία") || imageViewForQuestionImage.getImagePath().contains("Αμερικανική Σαμόα") ||
-			    imageViewForQuestionImage.getImagePath().contains("Αυστρία") || imageViewForQuestionImage.getImagePath().contains("Ιράν") ||
-			    imageViewForQuestionImage.getImagePath().contains("Καμερούν") || imageViewForQuestionImage.getImagePath().contains("Κένυα") ||
-			    imageViewForQuestionImage.getImagePath().contains("Κομόρες") || imageViewForQuestionImage.getImagePath().contains("Κύπρος") ||
-			    imageViewForQuestionImage.getImagePath().contains("Λεσότο") || imageViewForQuestionImage.getImagePath().contains("Λετονία") ||
-			    imageViewForQuestionImage.getImagePath().contains("Νέα Καληδονία") || imageViewForQuestionImage.getImagePath().contains("Πακιστάν") ||
-			    imageViewForQuestionImage.getImagePath().contains("Παλάου") || imageViewForQuestionImage.getImagePath().contains("Σουαζιλάνδη") ||
-			    imageViewForQuestionImage.getImagePath().contains("Σουδάν") || imageViewForQuestionImage.getImagePath().contains("Νότια Αφρική")))
+			   (imageViewForQuestionImage.getImagePath().contains("India") || imageViewForQuestionImage.getImagePath().contains("American Samoa") ||
+			    imageViewForQuestionImage.getImagePath().contains("Austria") || imageViewForQuestionImage.getImagePath().contains("Iran") ||
+			    imageViewForQuestionImage.getImagePath().contains("Cameroon") || imageViewForQuestionImage.getImagePath().contains("Kenya") ||
+			    imageViewForQuestionImage.getImagePath().contains("Comoros") || imageViewForQuestionImage.getImagePath().contains("Cyprus") ||
+			    imageViewForQuestionImage.getImagePath().contains("Lesotho") || imageViewForQuestionImage.getImagePath().contains("Latvia") ||
+			    imageViewForQuestionImage.getImagePath().contains("New Caledonia") || imageViewForQuestionImage.getImagePath().contains("Pakistan") ||
+			    imageViewForQuestionImage.getImagePath().contains("Palau") || imageViewForQuestionImage.getImagePath().contains("Swaziland") ||
+			    imageViewForQuestionImage.getImagePath().contains("Sudan") || imageViewForQuestionImage.getImagePath().contains("South Africa")))
 			{
 				stackPaneForBigImage.setStyle(
 						"-fx-background-color: #ffffffc7; -fx-border-color: black;" +
@@ -1268,14 +1268,14 @@ public class GameScreen extends CoreScreen
 					stackPaneForBigImage.setLayoutY(e.getSceneY() - imageViewForBigImage.getFitWidth() / 2.0);
 					
 					if(imageViewForQuestionImage.getImagePath().contains("coatOfArms") &&
-					   (imageViewForQuestionImage.getImagePath().contains("Ινδία") || imageViewForQuestionImage.getImagePath().contains("Αμερικανική Σαμόα") ||
-					    imageViewForQuestionImage.getImagePath().contains("Αυστρία") || imageViewForQuestionImage.getImagePath().contains("Ιράν") ||
-					    imageViewForQuestionImage.getImagePath().contains("Καμερούν") || imageViewForQuestionImage.getImagePath().contains("Κένυα") ||
-					    imageViewForQuestionImage.getImagePath().contains("Κομόρες") || imageViewForQuestionImage.getImagePath().contains("Κύπρος") ||
-					    imageViewForQuestionImage.getImagePath().contains("Λεσότο") || imageViewForQuestionImage.getImagePath().contains("Λετονία") ||
-					    imageViewForQuestionImage.getImagePath().contains("Νέα Καληδονία") || imageViewForQuestionImage.getImagePath().contains("Πακιστάν") ||
-					    imageViewForQuestionImage.getImagePath().contains("Παλάου") || imageViewForQuestionImage.getImagePath().contains("Σουαζιλάνδη") ||
-					    imageViewForQuestionImage.getImagePath().contains("Σουδάν") || imageViewForQuestionImage.getImagePath().contains("Νότια Αφρική")))
+					   (imageViewForQuestionImage.getImagePath().contains("India") || imageViewForQuestionImage.getImagePath().contains("American Samoa") ||
+							   imageViewForQuestionImage.getImagePath().contains("Austria") || imageViewForQuestionImage.getImagePath().contains("Iran") ||
+							   imageViewForQuestionImage.getImagePath().contains("Cameroon") || imageViewForQuestionImage.getImagePath().contains("Kenya") ||
+							   imageViewForQuestionImage.getImagePath().contains("Comoros") || imageViewForQuestionImage.getImagePath().contains("Cyprus") ||
+							   imageViewForQuestionImage.getImagePath().contains("Lesotho") || imageViewForQuestionImage.getImagePath().contains("Latvia") ||
+							   imageViewForQuestionImage.getImagePath().contains("New Caledonia") || imageViewForQuestionImage.getImagePath().contains("Pakistan") ||
+							   imageViewForQuestionImage.getImagePath().contains("Palau") || imageViewForQuestionImage.getImagePath().contains("Swaziland") ||
+							   imageViewForQuestionImage.getImagePath().contains("Sudan") || imageViewForQuestionImage.getImagePath().contains("South Africa")))
 					{
 						stackPaneForBigImage.setStyle(
 								"-fx-background-color: #ffffffc7; -fx-border-color: black;" +
@@ -1333,14 +1333,14 @@ public class GameScreen extends CoreScreen
 					stackPaneForBigImage.setLayoutY(e.getSceneY() - imageViewForBigImage.getFitWidth() - 30);
 					
 					if(imageViewForQuestionImage.getImagePath().contains("coatOfArms") &&
-					   (imageViewForQuestionImage.getImagePath().contains("Ινδία") || imageViewForQuestionImage.getImagePath().contains("Αμερικανική Σαμόα") ||
-					    imageViewForQuestionImage.getImagePath().contains("Αυστρία") || imageViewForQuestionImage.getImagePath().contains("Ιράν") ||
-					    imageViewForQuestionImage.getImagePath().contains("Καμερούν") || imageViewForQuestionImage.getImagePath().contains("Κένυα") ||
-					    imageViewForQuestionImage.getImagePath().contains("Κομόρες") || imageViewForQuestionImage.getImagePath().contains("Κύπρος") ||
-					    imageViewForQuestionImage.getImagePath().contains("Λεσότο") || imageViewForQuestionImage.getImagePath().contains("Λετονία") ||
-					    imageViewForQuestionImage.getImagePath().contains("Νέα Καληδονία") || imageViewForQuestionImage.getImagePath().contains("Πακιστάν") ||
-					    imageViewForQuestionImage.getImagePath().contains("Παλάου") || imageViewForQuestionImage.getImagePath().contains("Σουαζιλάνδη") ||
-					    imageViewForQuestionImage.getImagePath().contains("Σουδάν") || imageViewForQuestionImage.getImagePath().contains("Νότια Αφρική")))
+					   (imageViewForQuestionImage.getImagePath().contains("India") || imageViewForQuestionImage.getImagePath().contains("American Samoa") ||
+					   imageViewForQuestionImage.getImagePath().contains("Austria") || imageViewForQuestionImage.getImagePath().contains("Iran") ||
+					   imageViewForQuestionImage.getImagePath().contains("Cameroon") || imageViewForQuestionImage.getImagePath().contains("Kenya") ||
+					   imageViewForQuestionImage.getImagePath().contains("Comoros") || imageViewForQuestionImage.getImagePath().contains("Cyprus") ||
+					   imageViewForQuestionImage.getImagePath().contains("Lesotho") || imageViewForQuestionImage.getImagePath().contains("Latvia") ||
+					   imageViewForQuestionImage.getImagePath().contains("New Caledonia") || imageViewForQuestionImage.getImagePath().contains("Pakistan") ||
+					   imageViewForQuestionImage.getImagePath().contains("Palau") || imageViewForQuestionImage.getImagePath().contains("Swaziland") ||
+					   imageViewForQuestionImage.getImagePath().contains("Sudan") || imageViewForQuestionImage.getImagePath().contains("South Africa")))
 					{
 						stackPaneForBigImage.setStyle(
 								"-fx-background-color: #ffffffc7; -fx-border-color: black;" +
@@ -7475,8 +7475,8 @@ public class GameScreen extends CoreScreen
 					for(int i = 0; i < 3; i++)
 						randomStringForMultipleChoice[i] = countries[randomIndexForMultipleChoice[i]].getNameInEnglish();
 				}
-				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInGreek()));
+				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInEnglish()));
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
@@ -7485,9 +7485,9 @@ public class GameScreen extends CoreScreen
 				else textForQuestion.setText("Which is the flag of " + countries[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
-					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_FLAG, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInGreek());
+					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_FLAG, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInEnglish());
 				
-				correctAnswerString = getImagePath(ImageType.COUNTRY_FLAG, answerImageSize, countries[correctIndex].getNameInGreek());
+				correctAnswerString = getImagePath(ImageType.COUNTRY_FLAG, answerImageSize, countries[correctIndex].getNameInEnglish());
 			}
 			else
 			{
@@ -7506,8 +7506,8 @@ public class GameScreen extends CoreScreen
 					}
 					else textForQuestion.setText("The flag of " + countries[correctIndex].getNameInEnglish() + " is the following:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[correctIndex].getNameInEnglish()));
 				}
 				else
 				{
@@ -7529,8 +7529,8 @@ public class GameScreen extends CoreScreen
 					}
 					else textForQuestion.setText("The flag of " + countries[correctIndex].getNameInEnglish() + " is the following:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[index].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[index].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_FLAG, questionImageSize, countries[index].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_FLAG, questionImageSize, countries[index].getNameInEnglish()));
 				}
 			}
 			
@@ -7614,8 +7614,8 @@ public class GameScreen extends CoreScreen
 					for(int i = 0; i < 3; i++)
 						randomStringForMultipleChoice[i] = countries[randomIndexForMultipleChoice[i]].getNameInEnglish();
 				}
-				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInGreek()));
+				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInEnglish()));
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
@@ -7624,9 +7624,9 @@ public class GameScreen extends CoreScreen
 				else textForQuestion.setText("Which of the following is the coat of arms of " + countries[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
-					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInGreek());
+					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInEnglish());
 				
-				correctAnswerString = getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, answerImageSize, countries[correctIndex].getNameInGreek());
+				correctAnswerString = getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, answerImageSize, countries[correctIndex].getNameInEnglish());
 			}
 			else
 			{
@@ -7646,8 +7646,8 @@ public class GameScreen extends CoreScreen
 					}
 					else textForQuestion.setText("The coat of arms of " + countries[correctIndex].getNameInEnglish() + " is the following:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[correctIndex].getNameInEnglish()));
 				}
 				else
 				{
@@ -7673,8 +7673,8 @@ public class GameScreen extends CoreScreen
 					}
 					else textForQuestion.setText("The coat of arms of " + countries[correctIndex].getNameInEnglish() + " is the following:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[index].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[index].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[index].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_COAT_OF_ARMS, questionImageSize, countries[index].getNameInEnglish()));
 				}
 			}
 			
@@ -7743,8 +7743,8 @@ public class GameScreen extends CoreScreen
 					for(int i = 0; i < 3; i++)
 						randomStringForMultipleChoice[i] = countries[randomIndexForMultipleChoice[i]].getNameInEnglish();
 				}
-				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInGreek()));
+				imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInEnglish()));
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
@@ -7752,9 +7752,9 @@ public class GameScreen extends CoreScreen
 				else textForQuestion.setText("What is the location of " + countries[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
-					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_LOCATION, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInGreek());
+					randomStringForMultipleChoice[i] = getImagePath(ImageType.COUNTRY_LOCATION, answerImageSize, countries[randomIndexForMultipleChoice[i]].getNameInEnglish());
 				
-				correctAnswerString = getImagePath(ImageType.COUNTRY_LOCATION, answerImageSize, countries[correctIndex].getNameInGreek());
+				correctAnswerString = getImagePath(ImageType.COUNTRY_LOCATION, answerImageSize, countries[correctIndex].getNameInEnglish());
 			}
 			else
 			{
@@ -7766,8 +7766,8 @@ public class GameScreen extends CoreScreen
 					                                                    " " + countries[correctIndex].getGenitiveCaseOfCountry() + " είναι αυτή:");
 					else textForQuestion.setText(countries[correctIndex].getNameInEnglish() + " is located here:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[correctIndex].getNameInEnglish()));
 				}
 				else
 				{
@@ -7781,8 +7781,8 @@ public class GameScreen extends CoreScreen
 					                                                    " " + countries[correctIndex].getGenitiveCaseOfCountry() + " είναι αυτή:");
 					else textForQuestion.setText(countries[correctIndex].getNameInEnglish() + " is located here:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[index].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[index].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.COUNTRY_LOCATION, questionImageSize, countries[index].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.COUNTRY_LOCATION, questionImageSize, countries[index].getNameInEnglish()));
 				}
 			}
 			
@@ -8037,8 +8037,8 @@ public class GameScreen extends CoreScreen
 					for(int i = 0; i < 3; i++)
 						randomStringForMultipleChoice[i] = continents[randomIndexForMultipleChoice[i]].getNameInEnglish();
 				}
-				imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInGreek(), true));
-				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInGreek()));
+				imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInEnglish(), true));
+				imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInEnglish()));
 			}
 			else if(wayOfAskingCurrentQuestion == 2)
 			{
@@ -8046,9 +8046,9 @@ public class GameScreen extends CoreScreen
 				else textForQuestion.setText("Which of the following is the continent " + continents[correctIndex].getNameInEnglish() + "?");
 				
 				for(int i = 0; i < 3; i++)
-					randomStringForMultipleChoice[i] = getImagePath(ImageType.CONTINENT_LOCATION, answerImageSize, continents[randomIndexForMultipleChoice[i]].getNameInGreek());
+					randomStringForMultipleChoice[i] = getImagePath(ImageType.CONTINENT_LOCATION, answerImageSize, continents[randomIndexForMultipleChoice[i]].getNameInEnglish());
 				
-				correctAnswerString = getImagePath(ImageType.CONTINENT_LOCATION, answerImageSize, continents[correctIndex].getNameInGreek());
+				correctAnswerString = getImagePath(ImageType.CONTINENT_LOCATION, answerImageSize, continents[correctIndex].getNameInEnglish());
 			}
 			else
 			{
@@ -8059,8 +8059,8 @@ public class GameScreen extends CoreScreen
 					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
 					else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is located here:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[correctIndex].getNameInEnglish()));
 				}
 				else
 				{
@@ -8071,8 +8071,8 @@ public class GameScreen extends CoreScreen
 					if(getCurrentLanguage() == LANGUAGE.GREEK) textForQuestion.setText("Η ήπειρος " + continents[correctIndex].getNameInGreek() + " είναι αυτή:");
 					else textForQuestion.setText(continents[correctIndex].getNameInEnglish() + " is located here:");
 					
-					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[index].getNameInGreek(), true));
-					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[index].getNameInGreek()));
+					imageViewForQuestionImage.setImage(getImage(ImageType.CONTINENT_LOCATION, questionImageSize, continents[index].getNameInEnglish(), true));
+					imageViewForQuestionImage.setImagePath(getImagePath(ImageType.CONTINENT_LOCATION, questionImageSize, continents[index].getNameInEnglish()));
 				}
 			}
 			

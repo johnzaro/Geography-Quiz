@@ -4,7 +4,7 @@ module geographyquiz {
 	
 	requires javafx.controls;
 	requires javafx.graphics;
-	requires javafx.media;
+//	requires javafx.media;
 	
 	requires org.apache.commons.ios;
 	requires org.controlsfx.controls;

@@ -658,9 +658,11 @@ public class FilesIO
 				if (node.getChild("isIslandCountry") != null) countries[i].setIsIslandCountry(Boolean.parseBoolean(node.getChildText("isIslandCountry")));
 				else countries[i].setIsIslandCountry(false);
 				
+				countries[i].setNameInGreek(node.getChildText("greekName"));
+				countries[i].setNameInEnglish(node.getChildText("englishName"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					countries[i].setNameInEnglish("");
 					countries[i].setCapitalName(node.getChildText("greekCapital"));
 					countries[i].setContinent(node.getChildText("continentInGreek"));
 					
@@ -711,7 +713,6 @@ public class FilesIO
 				}
 				else
 				{
-					countries[i].setNameInEnglish(node.getChildText("englishName"));
 					countries[i].setCapitalName(node.getChildText("englishCapital"));
 					countries[i].setContinent(node.getChildText("continentInEnglish"));
 					
@@ -755,7 +756,6 @@ public class FilesIO
 						countries[i].setSovereignState(node.getChildText("sovereignStateInEnglish"));
 					}
 				}
-				countries[i].setNameInGreek(node.getChildText("greekName"));
 				
 				Area area = new Area();
 				area.setAreaInKilometers(Float.parseFloat(node.getChild("areaData").getChildText("areaInKilometers")));
@@ -813,6 +813,10 @@ public class FilesIO
 			Element node = (Element) list.get(0);
 			
 			if (continents[0] == null) continents[0] = new Continent();
+			
+			continents[0].setNameInGreek(node.getChildText("greekName"));
+			continents[0].setNameInEnglish(node.getChildText("englishName"));
+			
 			if (getCurrentLanguage() == LANGUAGE.GREEK)
 			{
 				continents[0].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
@@ -822,12 +826,10 @@ public class FilesIO
 			}
 			else
 			{
-				continents[0].setNameInEnglish(node.getChildText("englishName"));
 				continents[0].setHighestPoint(node.getChildText("highestPointInEnglish"));
 				continents[0].setLowestPoint(node.getChildText("lowestPointInEnglish"));
 				continents[0].setPopulationString(node.getChild("populationData").getChildText("populationInEnglish"));
 			}
-			continents[0].setNameInGreek(node.getChildText("greekName"));
 			continents[0].setTimeZones(node.getChildText("timeZones"));
 			continents[0].setAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("areaInKilometers")));
 			continents[0].setAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("areaInMiles")));
@@ -848,10 +850,12 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
+				continents[i].setNameInGreek(node.getChildText("greekName"));
+				continents[i].setNameInEnglish(node.getChildText("englishName"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					continents[i].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
-					continents[i].setNameInEnglish("");
 					continents[i].setNumberOfCountries(node.getChildText("numberOfCountriesInGreek"));
 					
 					l2 = node.getChild("largestCountriesByAreaInGreek").getChildren();
@@ -892,7 +896,6 @@ public class FilesIO
 				}
 				else
 				{
-					continents[i].setNameInEnglish(node.getChildText("englishName"));
 					continents[i].setNumberOfCountries(node.getChildText("numberOfCountriesInEnglish"));
 					
 					l2 = node.getChild("largestCountriesByAreaInEnglish").getChildren();
@@ -931,7 +934,6 @@ public class FilesIO
 					continents[i].setLongestRiver(node.getChildText("longestRiverInEnglish"));
 					continents[i].setLargestLake(node.getChildText("largestLakeInEnglish"));
 				}
-				continents[i].setNameInGreek(node.getChildText("greekName"));
 				continents[i].setTimeZones(node.getChildText("timeZones"));
 				
 				continents[i].setAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("areaInKilometers")));
@@ -974,6 +976,9 @@ public class FilesIO
 				
 				if (statesOfUSA[i] == null) statesOfUSA[i] = new StateOfUSA();
 				
+				statesOfUSA[i].setNameInGreek(node.getChildText("nameInGreek"));
+				statesOfUSA[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					statesOfUSA[i].setArticleForState(node.getChildText("articleForState"));
@@ -994,7 +999,6 @@ public class FilesIO
 				}
 				else
 				{
-					statesOfUSA[i].setNameInEnglish(node.getChildText("nameInEnglish"));
 					statesOfUSA[i].setCapitalName(node.getChildText("capitalInEnglish"));
 					statesOfUSA[i].setSpokenLanguages(node.getChildText("spokenLanguagesInEnglish"));
 					statesOfUSA[i].setHighestPoint(node.getChild("areaData").getChildText("highestPointInEnglish"));
@@ -1010,7 +1014,6 @@ public class FilesIO
 					statesOfUSA[i].setLargestCities(array);
 				}
 				
-				statesOfUSA[i].setNameInGreek(node.getChildText("nameInGreek"));
 				statesOfUSA[i].setAbbreviation(node.getChildText("abbreviation"));
 				statesOfUSA[i].setDateEnteredUnion(LocalDate.parse(node.getChildText("dateEnteredUnion"), dateFormatForSaving));
 				statesOfUSA[i].setNumberOfCounties(Short.parseShort(node.getChildText("numberOfCounties")));
@@ -1065,6 +1068,9 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
+				greekDecAdm[i].setNameInGreek(node.getChildText("nameInGreek"));
+				greekDecAdm[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekDecAdm[i].setHeadquarters(node.getChildText("headquartersInGreek"));
@@ -1102,7 +1108,6 @@ public class FilesIO
 				}
 				else
 				{
-					greekDecAdm[i].setNameInEnglish(node.getChildText("nameInEnglish"));
 					greekDecAdm[i].setHeadquarters(node.getChildText("headquartersInEnglish"));
 					greekDecAdm[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
 					
@@ -1137,7 +1142,6 @@ public class FilesIO
 					l2.clear();
 				}
 				
-				greekDecAdm[i].setNameInGreek(node.getChildText("nameInGreek"));
 				greekDecAdm[i].setYearFormed(node.getChildText("yearFormed"));
 				greekDecAdm[i].setWebsite(node.getChildText("website"));
 				
@@ -1177,6 +1181,9 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
+				greekRegions[i].setNameInGreek(node.getChildText("nameInGreek"));
+				greekRegions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekRegions[i].setSeat(node.getChildText("seatInGreek"));
@@ -1208,7 +1215,6 @@ public class FilesIO
 				}
 				else
 				{
-					greekRegions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
 					greekRegions[i].setSeat(node.getChildText("seatInEnglish"));
 					greekRegions[i].setLargestCity(node.getChildText("largestCityInEnglish"));
 					greekRegions[i].setLargestMunicipality(node.getChildText("largestMunicipalityInEnglish"));
@@ -1237,7 +1243,6 @@ public class FilesIO
 					l2.clear();
 				}
 				
-				greekRegions[i].setNameInGreek(node.getChildText("nameInGreek"));
 				greekRegions[i].setWebsite(node.getChildText("website"));
 				
 				greekRegions[i].setAreaInKilometers(Integer.parseInt(node.getChildText("areaInKilometers")));
@@ -1279,6 +1284,9 @@ public class FilesIO
 				List     l2;
 				String[] array;
 				
+				greekRegionalUnits[i].setNameInGreek(node.getChildText("nameInGreek"));
+				greekRegionalUnits[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					greekRegionalUnits[i].setCapital(node.getChildText("capitalInGreek"));
@@ -1301,7 +1309,6 @@ public class FilesIO
 				}
 				else
 				{
-					greekRegionalUnits[i].setNameInEnglish(node.getChildText("nameInEnglish"));
 					greekRegionalUnits[i].setCapital(node.getChildText("capitalInEnglish"));
 					greekRegionalUnits[i].setLargestCity(node.getChildText("largestCityInEnglish"));
 					greekRegionalUnits[i].setLargestMunicipality(node.getChildText("largestMunicipalityInEnglish"));
@@ -1321,7 +1328,6 @@ public class FilesIO
 					l2.clear();
 				}
 				
-				greekRegionalUnits[i].setNameInGreek(node.getChildText("nameInGreek"));
 				greekRegionalUnits[i].setWebsite(node.getChildText("website"));
 				
 				greekRegionalUnits[i].setAreaInKilometers(Integer.parseInt(node.getChildText("areaInKilometers")));
@@ -1359,6 +1365,9 @@ public class FilesIO
 				
 				if (attractions[i] == null) attractions[i] = new Attraction();
 				
+				attractions[i].setNameInGreek(node.getChildText("nameInGreek"));
+				attractions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				
 				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
 					attractions[i].setCountry(node.getChildText("countryInGreek"));
@@ -1369,15 +1378,11 @@ public class FilesIO
 				}
 				else
 				{
-					attractions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
-					
 					attractions[i].setCountry(node.getChildText("countryInEnglish"));
 					attractions[i].setCity(node.getChildText("cityInEnglish"));
 					attractions[i].setBasicInfo(node.getChildText("basicInfoInEnglish"));
 					attractions[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
 				}
-				
-				attractions[i].setNameInGreek(node.getChildText("nameInGreek"));
 				
 				attractions[i].setYearBuilt(node.getChildText("yearBuilt"));
 				attractions[i].setCoordinates(node.getChildText("coordinates"));
