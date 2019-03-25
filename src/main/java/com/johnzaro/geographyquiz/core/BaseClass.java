@@ -1,7 +1,7 @@
 package com.johnzaro.geographyquiz.core;
 
-//import it.sauronsoftware.junique.AlreadyLockedException;
-//import it.sauronsoftware.junique.JUnique;
+import it.sauronsoftware.junique.AlreadyLockedException;
+import it.sauronsoftware.junique.JUnique;
 import com.johnzaro.geographyquiz.dataStructures.RatioProperties;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -24,6 +24,8 @@ public class BaseClass extends Application
 //	first method that starts the game
 	public void start(Stage coreStage)
 	{
+		coreStage.getProperties().put("hostServices", this.getHostServices());
+		
 //		setup basic game variables and objects
 		setupGameVariables();
 		
@@ -53,7 +55,7 @@ public class BaseClass extends Application
 //			enter here only if display resolution is supported
 
 //			try to create .lock files to check if the game is already running
-//			tryToLockGameInstance();
+			tryToLockGameInstance();
 			
 //			setup the correct paths for all the files used by the game
 			FilesIO.setupFiles();
@@ -108,17 +110,17 @@ public class BaseClass extends Application
 		}
 	}
 
-//	private void tryToLockGameInstance()
-//	{
-////		try to create lock file and check if one is already there
-//		try
-//		{
-//			JUnique.acquireLock("com.johnzaro.geographyquiz.core.BaseClass");
-//			isAlreadyRunning = false;
-//		}
-//		catch(AlreadyLockedException e)
-//		{
-//			isAlreadyRunning = true;
-//		}
-//	}
+	private void tryToLockGameInstance()
+	{
+//		try to create lock file and check if one is already there
+		try
+		{
+			JUnique.acquireLock("com.johnzaro.geographyquiz.core.BaseClass");
+			isAlreadyRunning = false;
+		}
+		catch(AlreadyLockedException e)
+		{
+			isAlreadyRunning = true;
+		}
+	}
 }

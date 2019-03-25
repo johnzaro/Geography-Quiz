@@ -623,7 +623,7 @@ public class GlobalVariables
 	
 	public static void playHoverSound()
 	{
-//		HOVER_SOUND.play();
+		HOVER_SOUND.play();
 	}
 	
 	public static void playButtonClickSound()

@@ -20,6 +20,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
@@ -357,7 +358,11 @@ public class PowerOn
 	
 	private static void powerOnAudio()
 	{
-//		HOVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/hover.wav").toExternalForm());
+		System.out.println(PowerOn.class.getResource("/audio/hover.wav").toString());
+		System.out.println(PowerOn.class.getResourceAsStream("/audio/hover.wav").toString());
+		System.out.println(PowerOn.class.getResource("/audio/hover.wav").toExternalForm());
+		
+//		HOVER_SOUND = new AudioClip(PowerOn.class.getResourceAsStream("/audio/hover.wav"));
 //		BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.wav").toExternalForm());
 //		SWITCH_BUTTON_ON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOn.wav").toExternalForm());
 //		SWITCH_BUTTON_OFF_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOff.wav").toExternalForm());
