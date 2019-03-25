@@ -848,6 +848,8 @@ public class GlobalVariables
 		
 		if(!size.equals("")) size = size + "/";
 		
+		imageName = imageName.replaceAll(" ", "_");
+		
 		return new Image(GlobalVariables.class.getResource("/images/" + type + "/" + size + imageName + extension).toExternalForm(), backgroundLoading);
 	}
 	
@@ -883,6 +885,8 @@ public class GlobalVariables
 		else extension = ".png";
 		
 		if(!size.equals("")) size = size + "/";
+		
+		imageName = imageName.replaceAll(" ", "_");
 		
 		return GlobalVariables.class.getResource("/images/" + type + "/" + size + imageName + extension).toExternalForm();
 	}
