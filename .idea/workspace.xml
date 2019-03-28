@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Geography-Quiz" />
+      <artifact name="geographyquiz" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_11_0_0_RC2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_11_0_0_20190311_060242_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_11_0_0_RC2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javaFX12.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geographyquiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/geographyquiz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,18 +27,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="956">
+              <caret line="2973" column="20" selection-start-line="2973" selection-start-column="20" selection-end-line="2973" selection-end-column="20" />
+              <folding>
+                <element signature="e#9101#36771#0" />
+                <element signature="e#36775#37950#0" />
+                <element signature="e#38130#62231#0" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tooltip</find>
-      <find>tool</find>
       <find>enum</find>
       <find>RATIO_</find>
       <find>fontforto</find>
@@ -60,6 +74,8 @@
       <find>hBoxForSoundButtons</find>
       <find>woodPanelFor1IconImage</find>
       <find>soundicon.setlayouty</find>
+      <find>url</find>
+      <find>openurl</find>
     </findStrings>
     <replaceStrings>
       <replace>new CustomTooltip()</replace>
@@ -92,10 +108,14 @@
         <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
         <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
         <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1324" />
@@ -173,9 +193,9 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553501791314" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553797345583" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -211,7 +231,7 @@
     <configuration name="Geography Quiz" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.johnzaro.geographyquiz.core.BaseClass" />
       <module name="geographyquiz" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;/Library/Java/JavaVirtualMachines/javafx-sdk-12/lib:out/production:libraries&quot; --add-opens javafx.controls/javafx.scene.control.skin=geographyquiz" />
+      <option name="VM_PARAMETERS" value="--add-opens=javafx.controls/javafx.scene.control.skin=geographyquiz,org.controlsfx.controls --add-exports=javafx.base/com.sun.javafx.runtime=org.controlsfx.controls" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -240,18 +260,18 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="6" />
+    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24543288" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18030183" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="IvyIDEA" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info active="true" anchor="bottom" auto_hide="true" id="Run" order="2" visible="true" weight="0.2556818" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
       <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -261,16 +281,17 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
       <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
-      <window_info anchor="right" id="Maven" />
+      <window_info anchor="bottom" id="IvyIDEA" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24543288" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18030183" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -278,8 +299,8 @@
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.25641027" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.4832347" />
+      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
+      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
@@ -288,12 +309,14 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
       <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
+      <window_info anchor="bottom" id="IvyIDEA" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
     </layout-to-restore>
   </component>
   <component name="debuggerHistoryManager">
@@ -349,8 +372,113 @@
     <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java" />
     <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
     <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="947">
+          <caret line="624" column="119" lean-forward="true" selection-start-line="624" selection-start-column="12" selection-end-line="624" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="32" column="108" selection-start-line="32" selection-start-column="108" selection-end-line="32" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#441#442#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="908">
+          <caret line="575" selection-start-line="575" selection-end-line="575" />
+          <folding>
+            <element signature="e#22454#22561#0" expanded="true" />
+            <element signature="e#22560#22561#0" expanded="true" />
+            <element signature="e#22573#22574#0" expanded="true" />
+            <element signature="e#22625#22626#0" expanded="true" />
+            <element signature="e#22663#22664#0" expanded="true" />
+            <element signature="e#22722#22723#0" expanded="true" />
+            <element signature="e#22801#22802#0" expanded="true" />
+            <element signature="e#22875#22876#0" expanded="true" />
+            <element signature="e#22953#22954#0" expanded="true" />
+            <element signature="e#23008#23009#0" expanded="true" />
+            <element signature="e#23085#23086#0" expanded="true" />
+            <element signature="e#23138#23139#0" expanded="true" />
+            <element signature="e#23153#23259#0" expanded="true" />
+            <element signature="e#23258#23259#0" expanded="true" />
+            <element signature="e#23271#23272#0" expanded="true" />
+            <element signature="e#23320#23321#0" expanded="true" />
+            <element signature="e#23357#23358#0" expanded="true" />
+            <element signature="e#23413#23414#0" expanded="true" />
+            <element signature="e#23491#23492#0" expanded="true" />
+            <element signature="e#23546#23547#0" expanded="true" />
+            <element signature="e#23623#23624#0" expanded="true" />
+            <element signature="e#23741#23742#0" expanded="true" />
+            <element signature="e#23766#23767#0" expanded="true" />
+            <element signature="e#23814#23815#0" expanded="true" />
+            <element signature="e#23846#23847#0" expanded="true" />
+            <element signature="e#23897#23898#0" expanded="true" />
+            <element signature="e#23933#23934#0" expanded="true" />
+            <element signature="e#23985#23986#0" expanded="true" />
+            <element signature="e#24022#24023#0" expanded="true" />
+            <element signature="e#24075#24076#0" expanded="true" />
+            <element signature="e#24112#24113#0" expanded="true" />
+            <element signature="e#24167#24168#0" expanded="true" />
+            <element signature="e#24206#24207#0" expanded="true" />
+            <element signature="e#24262#24263#0" expanded="true" />
+            <element signature="e#24302#24303#0" expanded="true" />
+            <element signature="e#24344#24345#0" expanded="true" />
+            <element signature="e#24369#24370#0" expanded="true" />
+            <element signature="e#24411#24412#0" expanded="true" />
+            <element signature="e#24436#24437#0" expanded="true" />
+            <element signature="e#24481#24482#0" expanded="true" />
+            <element signature="e#24509#24510#0" expanded="true" />
+            <element signature="e#24553#24554#0" expanded="true" />
+            <element signature="e#24581#24582#0" expanded="true" />
+            <element signature="e#24624#24625#0" expanded="true" />
+            <element signature="e#24650#24651#0" expanded="true" />
+            <element signature="e#24706#24707#0" expanded="true" />
+            <element signature="e#24747#24748#0" expanded="true" />
+            <element signature="e#24801#24802#0" expanded="true" />
+            <element signature="e#24840#24841#0" expanded="true" />
+            <element signature="e#24884#24885#0" expanded="true" />
+            <element signature="e#24912#24913#0" expanded="true" />
+            <element signature="e#24957#24958#0" expanded="true" />
+            <element signature="e#24986#24987#0" expanded="true" />
+            <element signature="e#25036#25037#0" expanded="true" />
+            <element signature="e#25070#25071#0" expanded="true" />
+            <element signature="e#25115#25116#0" expanded="true" />
+            <element signature="e#25144#25145#0" expanded="true" />
+            <element signature="e#25193#25194#0" expanded="true" />
+            <element signature="e#25231#25232#0" expanded="true" />
+            <element signature="e#25280#25281#0" expanded="true" />
+            <element signature="e#25318#25319#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="956">
+          <caret line="2973" column="20" selection-start-line="2973" selection-start-column="20" selection-end-line="2973" selection-end-column="20" />
+          <folding>
+            <element signature="e#9101#36771#0" />
+            <element signature="e#36775#37950#0" />
+            <element signature="e#38130#62231#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
@@ -394,7 +522,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>12</last-edited>
+          <last-edited>13</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -418,7 +546,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>javaFX12</last-edited>
+          <last-edited>commons-io-2.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

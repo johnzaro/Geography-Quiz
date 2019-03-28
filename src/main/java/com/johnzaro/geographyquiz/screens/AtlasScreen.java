@@ -2623,7 +2623,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			if(getIndexInOptionsForGreece() == 0)
 			{
-				if (e.isPrimaryButtonDown()) UrlOpener.openURL(gridPaneLabelsForGreece[6][1].getText());
+				if (e.isPrimaryButtonDown())
+				{
+					if(getCurrentLanguage() == LANGUAGE.GREEK) UrlOpener.openGreekWikiURL(gridPaneLabelsForGreece[6][1].getText());
+					else UrlOpener.openURL(gridPaneLabelsForGreece[6][1].getText());
+				}
 				else if (e.isSecondaryButtonDown())
 				{
 					clipboardContent.putString(gridPaneLabelsForGreece[6][1].getText());
@@ -2677,7 +2681,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				if(!gridPaneLabelsForGreece[10][1].getText().equals("-"))
 				{
-					if(e.isPrimaryButtonDown()) UrlOpener.openURL(gridPaneLabelsForGreece[10][1].getText());
+					if(e.isPrimaryButtonDown())
+					{
+						if(getCurrentLanguage() == LANGUAGE.GREEK && getIndexInOptionsForGreece() == 1) UrlOpener.openGreekWikiURL(gridPaneLabelsForGreece[10][1].getText());
+						else UrlOpener.openURL(gridPaneLabelsForGreece[10][1].getText());
+					}
 					else if(e.isSecondaryButtonDown())
 					{
 						clipboardContent.putString(gridPaneLabelsForGreece[10][1].getText());
@@ -2694,7 +2702,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				if(!gridPaneLabelsForGreece[11][1].getText().equals("-"))
 				{
-					if (e.isPrimaryButtonDown()) UrlOpener.openURL(gridPaneLabelsForGreece[11][1].getText());
+					if (e.isPrimaryButtonDown())
+					{
+						if(getCurrentLanguage() == LANGUAGE.GREEK) UrlOpener.openGreekWikiURL(gridPaneLabelsForGreece[11][1].getText());
+						else UrlOpener.openURL(gridPaneLabelsForGreece[11][1].getText());
+					}
 					else if (e.isSecondaryButtonDown())
 					{
 						clipboardContent.putString(gridPaneLabelsForGreece[11][1].getText());

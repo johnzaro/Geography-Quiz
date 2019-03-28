@@ -13,8 +13,7 @@
     <orderEntry type="library" name="commons-io-2.6" level="project" />
     <orderEntry type="library" name="junique-1.0.4" level="project" />
     <orderEntry type="library" name="reactfx-2.0-M5" level="project" />
-    <orderEntry type="library" name="javaFX12" level="project" />
     <orderEntry type="library" name="jdom2-2.0.6" level="project" />
-    <orderEntry type="library" name="controlsfx-11.0.0-RC2" level="project" />
+    <orderEntry type="library" name="controlsfx-9.0.0" level="project" />
   </component>
 </module>
