@@ -2,6 +2,8 @@ package com.johnzaro.geographyquiz.dataStructures;
 
 public class Attraction
 {
+	private static int numberOfAttractions;
+	
 	//STRINGS
 	private String nameInGreek;
 	private String nameInEnglish;
@@ -19,6 +21,16 @@ public class Attraction
 
 	//BOOLEANS
 	private boolean isEasy;
+	
+	public static int getNumberOfAttractions()
+	{
+		return numberOfAttractions;
+	}
+	
+	public static void setNumberOfAttractions(int numberOfAttractions)
+	{
+		Attraction.numberOfAttractions = numberOfAttractions;
+	}
 	
 	public String getNameInGreek()
 	{

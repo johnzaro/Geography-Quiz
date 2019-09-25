@@ -338,147 +338,115 @@
 		<greekArticle>Η</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Διεθνές Οικονομικό Κέντρο</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>Κίνα</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
-		<isEasy>false</isEasy>
-		<greekArticle>Το</greekArticle>
-	</attraction>
-	<attraction>
-		<nameInGreek>Εθνικό Μνημείο Μάουντ Ράσμορ</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInGreek>Εθνικό Μνημείο του Όρους Ράσμορ</nameInGreek>
+		<nameInEnglish>Mount Rushmore National Memorial</nameInEnglish>
 		<countryInGreek>ΗΠΑ</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
-		<isEasy>false</isEasy>
-		<greekArticle>Το</greekArticle>
-	</attraction>
-	<attraction>
-		<nameInGreek>Εθνικό Πάρκο Γέλοουστοουν</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>ΗΠΑ</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>USA</countryInEnglish>
+		<cityInGreek>Κίστοουν</cityInGreek>
+		<cityInEnglish>Keystone</cityInEnglish>
+		<yearBuilt>1941</yearBuilt>
+		<basicInfoInGreek>Το Εθνικό Μνημείο του Όρους Ράσμορ βρίσκεται στην Νότια Ντακότα των Η.Π.Α. Πρόκειται για τις μορφές τεσσάρων προέδρων των Η.Π.Α., ύψους 18 μέτρων, τις οποίες σκάλισαν σε μια γρανιτένια πλαγιά του όρους Ράσμορ ο γλύπτης Gutzon Borglum και ο γιος του Λίνκολν. Οι τέσσερις πρόεδροι είναι, από αριστερά προς τα δεξιά: ο Τζωρτζ Ουάσινγκτον (1732–1799), ο Τόμας Τζέφερσον (1743–1826), ο Θεόδωρος Ρούζβελτ (1858–1919) και ο Αβραάμ Λίνκολν (1809–1865). Η ιδέα για την κατασκευή του μνημείου αποδίδεται στον ιστορικό Ντόαν Ρόμπινσον (Doane Robinson). Το μνημείο επισκέπτονται κάθε χρόνο δύο εκατομμύρια άνθρωποι.</basicInfoInGreek>
+		<basicInfoInEnglish>Mount Rushmore National Memorial is centered around a sculpture carved into the granite face of Mount Rushmore in the Black Hills in Keystone, South Dakota. Sculptor Gutzon Borglum created the sculpture's design and oversaw the project's execution from 1927 to 1941 with the help of his son Lincoln Borglum. The sculpture features the 60-foot (18 m) heads of Presidents George Washington (1732–1799), Thomas Jefferson (1743–1826), Theodore Roosevelt (1858–1919), and Abraham Lincoln (1809–1865). The four presidents were chosen, respectively, to represent the birth, the growth, the development, and the preservation of the United States. The memorial park covers 1,278.45 acres (2.00 sq mi; 5.17 km²) and is 5,725 feet (1,745 m) above sea level.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Όρος_Ράσμορ</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>http://en.wikipedia.org/wiki/Mount_Rushmore</wikipediaLinkInEnglish>
+		<coordinates>43.878889°N 103.459722°W</coordinates>
 		<isEasy>true</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Εθνικό πάρκο Γκόρεμε</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInGreek>Εθνικό Πάρκο Γέλοουστοουν</nameInGreek>
+		<nameInEnglish>Yellowstone National Park</nameInEnglish>
+		<countryInGreek>ΗΠΑ</countryInGreek>
+		<countryInEnglish>USA</countryInEnglish>
+		<cityInGreek>-</cityInGreek>
+		<cityInEnglish>-</cityInEnglish>
+		<yearBuilt>-</yearBuilt>
+		<basicInfoInGreek>Το Εθνικό πάρκο Γιέλοουστοουν, που χαρακτηρίστηκε από το Κογκρέσο των Ηνωμένων Πολιτειών ως εθνικό πάρκο στις 1 Μαρτίου 1872, βρίσκεται κυρίως στην πολιτεία του Ουαϊόμινγκ, αν και επεκτείνεται και στη Μοντάνα και στο Άινταχο. Το πάρκο ήταν το πρώτο του είδους του και είναι γνωστό για την άγρια ζωή που φιλοξενεί και τα πολλά γεωθερμικά χαρακτηριστικά του, ειδικά το γκέιζερ Όλντ Φέιθφουλ, ένα από τα πιο δημοφιλή θεάματα του πάρκου. Το πάρκο έχει πολλά είδη οικοσυστημάτων, αλλά το κυρίαρχο είναι το υποαλπικό δάσος.</basicInfoInGreek>
+		<basicInfoInEnglish>Yellowstone National Park is an American national park located in Wyoming, Montana, and Idaho. It was established by the U.S. Congress and signed into law by President Ulysses S. Grant on March 1, 1872. Yellowstone was the first national park in the U.S. and is also widely held to be the first national park in the world. The park is known for its wildlife and its many geothermal features, especially Old Faithful geyser, one of its most popular features. It has many types of ecosystems, but the subalpine forest is the most abundant. It is part of the South Central Rockies forests ecoregion.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Εθνικό_Πάρκο_Γιέλοουστοουν</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Yellowstone_National_Park</wikipediaLinkInEnglish>
+		<coordinates>44.6°N 110.5°W</coordinates>
+		<isEasy>true</isEasy>
+		<greekArticle>Το</greekArticle>
+	</attraction>
+	<attraction>
+		<nameInGreek>Εθνικό πάρκο Γκιόρεμε</nameInGreek>
+		<nameInEnglish>Göreme National Park</nameInEnglish>
 		<countryInGreek>Τουρκία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>Turkey</countryInEnglish>
+		<cityInGreek>Γκιόρεμε</cityInGreek>
+		<cityInEnglish>Göreme</cityInEnglish>
+		<yearBuilt>-</yearBuilt>
+		<basicInfoInGreek>Το Γκιόρεμε είναι περιοχή στην Καππαδοκία της τουρκικής επαρχίας Νεφσεχίρ. Η περιοχή ονομαζόταν τη Βυζαντινή περίοδο Ματιανή ή Ματιανά και μετονομάστηκε το 1928 σε Γκιόρεμε, μια παραφθορά της αρχαιοελληνικής ονομασίας Κόραμα. Η περιοχή είναι το κέντρο του εθνικού πάρκου Γκιόρεμε, το οποίο σε συνδυασμό με τις μονολιθικές εκκλησίες της Καππαδοκίας έχουν ανακηρυχθεί μνημείο παγκόσμιας κληρονομιάς από την UNESCO από το 1985. Το τοπίο στο Γκιόρεμε χαρακτηρίζεται από εντυπωσιακούς σχηματισμούς βράχων, μερικώς διαβρωμένων, όπως οι περίφημοι παράξενοι λίθοι που αποτελούν και μια από τις μεγάλες τουριστικές ατραξιόν της περιοχής.</basicInfoInGreek>
+		<basicInfoInEnglish>Göreme located among the "fairy chimney" rock formations, is a town in Cappadocia, a historical region of Turkey. It is in the Nevşehir Province in Central Anatolia and has a population of around 2,000 people. Former names of the town have been Korama, Matiana, Maccan or Machan, and Avcilar. When Göreme Valley nearby was designated an important tourist destination, a "center" for all tourism in Cappadocia, the name of the town was changed to Göreme for practical reasons. Among Göreme's historically important sites are Ortahane, Durmus Kadir, Yusuf Koc and Bezirhane churches, in addition to the richly decorated Tokali Kilise, the Apple Church, and a number of homes and pigeon houses carved straight into the rock formations in the town. The Göreme National Park was added to the UNESCO World Heritage List in 1985.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Γκιόρεμε</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Göreme#National_Park</wikipediaLinkInEnglish>
+		<coordinates>38.666667°N 34.85°E</coordinates>
 		<isEasy>false</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Εθνικό πάρκο Ιγκουαζού</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInGreek>Εθνικό πάρκο Ιγκουασού</nameInGreek>
+		<nameInEnglish>Iguaçu National Park</nameInEnglish>
 		<countryInGreek>Βραζιλία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>Brazil</countryInEnglish>
+		<cityInGreek>-</cityInGreek>
+		<cityInEnglish>-</cityInEnglish>
+		<yearBuilt>-</yearBuilt>
+		<basicInfoInGreek>Το Εθνικό Πάρκο Ιγκουασού είναι εθνικό πάρκο της Βραζιλίας. Είναι γνωστό για τους καταρράκτες του, μέρος των οποίων βρίσκεται και στην Αργεντινή, καθώς και την άγρια πανίδα του και ειδικότερα τα πτηνά του, όπου περιλαμβάνονται πολλά σπάνια και υπό εξαφάνιση είδη. Το πάρκο αποτελεί ένα μοναδικό μέρος στον κόσμο όπου πέντε είδη δασών και οικολογικών συστημάτων συναντούνται σε μία τοποθεσία. Το πάρκο χαρακτηρίστηκε Μνημείο Παγκόσμιας Κληρονομιάς από UNESCO το 1986.</basicInfoInGreek>
+		<basicInfoInEnglish>Iguaçu National Park is a national park in Paraná State, Brazil. It comprises a total area of 185,262.5 hectares (457,794 acres) and a length of about 420 kilometres (260 mi), 300 kilometres (190 mi) of which are natural borders by bodies of water and the Argentine and Brazilian sides together comprise around 260,000 hectares (640,000 acres). Iguaçu National Park was created by federal decree nr. 1035 of January 10, 1939, and became a UNESCO World Heritage Site in 1986. The park is managed by Chico Mendes Institute for Biodiversity Conservation (ICMBio). The park shares with Iguazú National Park in Argentina one of the world's largest waterfalls, extending over some 2,700 metres (8,900 ft). It is home to many rare and endangered species of flora and fauna, among them the giant otter and the giant anteater. The clouds of spray produced by the waterfall are conducive to the growth of lush vegetation.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Εθνικό_Πάρκο_Ιγκουασού</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Iguaçu_National_Park</wikipediaLinkInEnglish>
+		<coordinates>25.683333°S 54.433333°W</coordinates>
 		<isEasy>false</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Εθνικό πάρκο των Παγετώνων</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>Αργεντινή</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<nameInGreek>Εθνικό Πάρκο Γκλέισιερ</nameInGreek>
+		<nameInEnglish>Glacier National Park</nameInEnglish>
+		<countryInGreek>ΗΠΑ</countryInGreek>
+		<countryInEnglish>USA</countryInEnglish>
+		<cityInGreek>Κολούμπια Φολς</cityInGreek>
+		<cityInEnglish>Columbia Falls</cityInEnglish>
+		<yearBuilt>-</yearBuilt>
+		<basicInfoInGreek>Το Εθνικό Πάρκο Γκλέισιερ είναι εθνικός δρυμός των Η.Π.Α. Ανήκει στην πολιτεία Μοντάνα και βρίσκεται κοντά στα σύνορα με τον Καναδά, στο ύψος των πολιτειών Αλμπέρτα και Βρετανική Κολομβία. Έχει έκταση 4.000 χμ², περίπου, και περιλαμβάνει τμήματα δύο οροσειρών (υπο-οροσειρές των Βραχωδών Ορέων), πάνω από 130 επώνυμες λίμνες, περισσότερα από 1.000 διαφορετικά είδη φυτών και εκατοντάδες είδη ζώων. Αυτό το τεράστιο, παρθένο οικοσύστημα είναι το επίκεντρο αυτού που έχει αναφερθεί ως «Κορώνα του Ηπειρωτικού Οικοσυστήματος», μια περιοχή προστατευόμενης γης, με ολική έκταση 41.000 χμ².</basicInfoInGreek>
+		<basicInfoInEnglish>Glacier National Park is an American national park located in northwestern Montana, on the Canada–United States border, adjacent to the Canadian provinces of Alberta and British Columbia. The park encompasses over 1 million acres (4,000 km2) and includes parts of two mountain ranges (sub-ranges of the Rocky Mountains), over 130 named lakes, more than 1,000 different species of plants, and hundreds of species of animals. This vast pristine ecosystem is the centerpiece of what has been referred to as the "Crown of the Continent Ecosystem", a region of protected land encompassing 16,000 square miles (41,000 km2).</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Εθνικό_Πάρκο_Γκλέισιερ_(ΗΠΑ)</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Glacier_National_Park_(U.S.)</wikipediaLinkInEnglish>
+		<coordinates>48.696667°N 113.718333°W</coordinates>
 		<isEasy>false</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
 		<nameInGreek>Εμπάιρ Στέιτ Μπίλντινγκ</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInEnglish>Empire State Building</nameInEnglish>
 		<countryInGreek>ΗΠΑ</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>USA</countryInEnglish>
+		<cityInGreek>Νέα Υόρκη</cityInGreek>
+		<cityInEnglish>New York</cityInEnglish>
+		<yearBuilt>1931</yearBuilt>
+		<basicInfoInGreek>Το Εμπάιρ Στέιτ Μπίλντινγκ είναι ένας από τους υψηλότερους και ιστορικότερους ουρανοξύστες στον κόσμο. Βρίσκεται στην πόλη της Νέας Υόρκης (στη διασταύρωση της 5ης Λεωφόρου, νο. 350, και της 34ης δυτικής οδού) και έχει 102 ορόφους. Υπήρξε ο υψηλότερος ουρανοξύστης στη Γη για 41 χρόνια, από την ολοκλήρωσή του το 1931 ως το χτίσιμο του Βόρειου Πύργου του Παγκόσμιου Εμπορικού Κέντρου το 1972. Μετά την καταστροφή των πύργων του Κέντρου αυτού από τις τρομοκρατικές επιθέσεις της 11ης Σεπτεμβρίου 2001, το Εμπάιαρ Στέιτ ξανάγινε και παρέμεινε το υψηλότερο κτήριο σε ολόκληρη τη Νέα Υόρκη μέχρι τις 30 Απριλίου 2012, όταν το ξεπέρασε το υπό κατασκευή Παγκόσμιο Κέντρο Εμπορίου 1. Ο αρχιτεκτονικός ρυθμός του είναι Αρ Ντεκό.</basicInfoInGreek>
+		<basicInfoInEnglish>The Empire State Building is a 102-story Art Deco skyscraper in Midtown Manhattan, New York City. Designed by Shreve, Lamb and Harmon and completed in 1931, the building has a roof height of 1,250 feet (380 m) and stands a total of 1,454 feet (443.2 m) tall, including its antenna. Its name is derived from "Empire State", the nickname of New York, which is of unknown origin. As of 2019 the building is the 5th-tallest completed skyscraper in the United States and the 28th-tallest in the world. It is also the 6th-tallest freestanding structure in the Americas. The Empire State Building stood as the world's tallest building for nearly 40 years until the completion of the World Trade Center's North Tower in Lower Manhattan in late 1970. Following the September 11 attacks in 2001, it was again the tallest building in New York until the new One World Trade Center was completed in April 2012.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Εμπάιρ_Στέιτ_Μπίλντινγκ</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Empire_State_Building</wikipediaLinkInEnglish>
+		<coordinates>40.748433°N 73.985656°W</coordinates>
 		<isEasy>true</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Ζαρντάν Μαζογέλ</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>Μαρόκο</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
-		<isEasy>false</isEasy>
-		<greekArticle>Το</greekArticle>
-	</attraction>
-	<attraction>
 		<nameInGreek>Καζίνο του Μόντε Κάρλο</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>Γαλλία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
-		<isEasy>false</isEasy>
+		<nameInEnglish>Monte Carlo Casino</nameInEnglish>
+		<countryInGreek>Μονακό</countryInGreek>
+		<countryInEnglish>Monaco</countryInEnglish>
+		<cityInGreek>Μόντε Κάρλο</cityInGreek>
+		<cityInEnglish>Monte Carlo</cityInEnglish>
+		<yearBuilt>1863</yearBuilt>
+		<basicInfoInGreek>Το καζίνο του Μόντε Κάρλο στο Μονακό είναι το πιο θρυλικό καζίνο στην Ευρώπη και σε ολόκληρο τον κόσμο. Το κτίριο στο οποίο στεγάζεται το καζίνο του Μόντε Κάρλο είναι ένα μοναδικής τέχνης οίκημα που το σχεδίασε ο αρχιτέκτονας Charles Garnier, αρχιτέκτονας και της όπερας στο Παρίσι. Το καζίνο του Μόντε Κάρλο χτίστηκε το 1863 σε μια ευνοϊκή για το ίδιο συγκυρία. Ήταν η εποχή που ο τζόγος στις γειτονικές ευρωπαϊκές χώρες δεν περνούσε τις καλύτερες στιγμές του και έτσι ο πρίγκιπας Κάρολος με μεγάλη διορατικότητα προσκάλεσε τον Francois Blanc να του φτιάξει ένα καζίνο. Το ίδιο το κτίριο είναι ένα μοναδικό έργο τέχνης αφιερωμένο στον τζόγο. Ο Francois Blanc και αργότερα ο γίος του Camille κατάφεραν να προσδώσουν στο καζίνο του Μόντε Κάρλο μεγάλη αίγλη και να γίνει πόλος έλξης για τους απανταχού αριστοκράτες και ισχυρούς του χρήματος που συνέρεαν από όλη την Ευρώπη για να διασκεδάσουν την πλήξη τους στα κοσμικά σαλόνια του καζίνο.</basicInfoInGreek>
+		<basicInfoInEnglish>The Monte Carlo Casino is a gambling and entertainment complex located in Monaco. It includes a casino, the Grand Théâtre de Monte Carlo and the office of Les Ballets de Monte Carlo.	The Casino de Monte-Carlo is owned and operated by the Société des bains de mer de Monaco, a public company in which the Monaco government and the ruling royal family have a majority interest. The company also owns the principal hotels, sports clubs, foodservice establishments, and nightclubs throughout Monaco.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://en.wikipedia.org/wiki/Monte_Carlo_Casino</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Monte_Carlo_Casino</wikipediaLinkInEnglish>
+		<coordinates>43.739444°N 7.428889°E</coordinates>
+		<isEasy>true</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
 	<attraction>
@@ -493,39 +461,23 @@
 		<basicInfoInEnglish>The Milan Cathedral is the cathedral church of Milan, Italy. Dedicated to St Mary of the Nativity, it is the seat of the Archbishop of Milan. The Gothic cathedral took nearly six centuries to complete. It is the largest church in Italy and the fifth largest in the world.</basicInfoInEnglish>
 		<wikipediaLinkInGreek>https://en.wikipedia.org/wiki/Milan_Cathedral</wikipediaLinkInGreek>
 		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Milan_Cathedral</wikipediaLinkInEnglish>
-		<coordinates>45°27′51″N 9°11′29″E</coordinates>
+		<coordinates>45.464167°N 9.191389°E</coordinates>
 		<isEasy>true</isEasy>
 		<greekArticle>Ο</greekArticle>
 	</attraction>
 	<attraction>
-		<nameInGreek>Καθεδρικός Ναός του Σωτήρος Χριστού</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
-		<countryInGreek>Ρωσία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
-		<isEasy>false</isEasy>
-		<greekArticle>Ο</greekArticle>
-	</attraction>
-	<attraction>
 		<nameInGreek>Κάστρο Βούδα</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInEnglish>Buda Castle</nameInEnglish>
 		<countryInGreek>Ουγγαρία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>Hungary</countryInEnglish>
+		<cityInGreek>Βουδαπέστη</cityInGreek>
+		<cityInEnglish>Budapest</cityInEnglish>
+		<yearBuilt>1769</yearBuilt>
+		<basicInfoInGreek>Το Κάστρο Βούδα βρίσκεται στην περιοχή Várhegy και υψώνεται 48 μέτρα πάνω από το Δούναβη. Σε αυτό το λόφο ιδρύθηκε η πόλη της Βουδαπέστης. Τα θεμέλια του κάστρου τέθηκαν τον 13ο αιώνα μετά τις εισβολές των μογγολικών φυλών στην Ουγγαρία. Το φρούριο έχει πολιορκηθεί 31 φορές στην ιστορία του. Ο βασιλιάς Μπέλα έχτισε τα τείχη το 1243 σε αυτή την τοποθεσία και γύρω από το φρούριο δημιουργήθηκε μία μικρή κοινότητα που ονομάστηκε Βούδα. Κατά τη διάρκεια της βασιλείας του Λάγιου του Μέγα κτίστηκε και ένα παλάτι. Αργότερα, κατά τη διάρκεια της βασιλείας του Σιγμούνδου του Λουξεμβούργου (1387-1437), το κάστρο επεκτάθηκε και πάλι με αποτέλεσμα να γίνει ένα από τα μεγαλύτερα παλάτια της Ευρώπης. Ένα νέο παλάτι κτίστηκε μεταξύ 1714 και 1723 από τον βασιλιά Κάρολο Γ΄ των Αψβούργων. Είχε σχεδιαστεί σε στυλ μπαρόκ από τον Fortunato de Prati και εποπτευόταν από τον Johann Hölbling. Το παλάτι επεκτάθηκε από την κόρη του Βασιλιά Καρόλου, την αυτοκράτειρα Μαρία Τερέζα, αλλά η μεγάλη πυρκαγιά του 1810 και η επίθεση κατά του κάστρου επι της ουγγρικής επανάστασης κατέστρεψαν μεγάλο μέρος του νέου ανακτόρου. Το Κάστρο διαθέτει 203 δωμάτια και σήμερα στεγάζει διάφορα μουσεία, μεταξύ των οποίων και το Ιστορικό Μουσείο της Βουδαπέστης και την Εθνική Πινακοθήκη.</basicInfoInGreek>
+		<basicInfoInEnglish>Buda Castle is the historical castle and palace complex of the Hungarian kings in Budapest. It was first completed in 1265, but the massive Baroque palace today occupying most of the site was built between 1749 and 1769. The complex in the past was referred to as either the Royal Palace or the Royal Castle. The castle now houses the Hungarian National Gallery and The Budapest History Museum. Buda Castle sits on the south tip of Castle Hill, bounded on the north by what is known as the Castle District, which is famous for medieval, Baroque and Neoclassical houses, churches and public buildings. The hill is linked to Clark Ádám Square and the Széchenyi Chain Bridge by the Castle Hill Funicular. The castle is a part of the Budapest World Heritage Site, so declared in 1987.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://en.wikipedia.org/wiki/Buda_Castle</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Buda_Castle</wikipediaLinkInEnglish>
+		<coordinates>47.496111°N 19.039722°E</coordinates>
 		<isEasy>false</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>
@@ -1459,17 +1411,17 @@
 	</attraction>
 	<attraction>
 		<nameInGreek>Τέρνινγκ Τόρσο</nameInGreek>
-		<nameInEnglish>0</nameInEnglish>
+		<nameInEnglish>Turning Torso</nameInEnglish>
 		<countryInGreek>Σουηδία</countryInGreek>
-		<countryInEnglish>0</countryInEnglish>
-		<cityInGreek>0</cityInGreek>
-		<cityInEnglish>0</cityInEnglish>
-		<yearBuilt>0</yearBuilt>
-		<basicInfoInGreek>0</basicInfoInGreek>
-		<basicInfoInEnglish>0</basicInfoInEnglish>
-		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/</wikipediaLinkInGreek>
-		<wikipediaLinkInEnglish>0</wikipediaLinkInEnglish>
-		<coordinates>0</coordinates>
+		<countryInEnglish>Sweden</countryInEnglish>
+		<cityInGreek>Μάλμε</cityInGreek>
+		<cityInEnglish>Malmö</cityInEnglish>
+		<yearBuilt>2005</yearBuilt>
+		<basicInfoInGreek>Το Τέρνινγκ Τόρσο είναι το ψηλότερο κτίριο της Σουηδίας και της Σκανδιναβίας, χτισμένο στο Μάλμε. Το κύριο χαρακτηριστικό του είναι η περιστροφή του κατά 90 μοίρες. Στην Ευρώπη είναι το 3ο πιο ψηλό κτίριο κατοικιών. Έχει ύψος 190 μέτρα και 54 ορόφους. Άρχισε να χτίζεται το καλοκαίρι του 2001. Η κατασκευή του διήρκησε 4 χρόνια και άνοιξε επίσημα τις 27 Αυγούστου 2005. Το κτίριο είναι ιδιωτικό και έτσι δεν μπορεί ο οποιοσδήποτε να το επισκεφτεί. Το κτίριο σχεδίασε ο ισπανός αρχιτέκτονας Σαντιάγο Καλατράβα.</basicInfoInGreek>
+		<basicInfoInEnglish>Turning Torso is a neo-futurist residential skyscraper in Sweden and the tallest building in Scandinavia. Located in Malmö on the Swedish side of the Öresund strait, it was built and is owned by Swedish cooperative association HSB. It is regarded as the first twisted skyscraper in the world. The project was designed by Spanish architect, structural engineer, sculptor and painter Santiago Calatrava and officially opened on 27 August 2005. The tower reaches a height of 190 metres (623 ft) with 54 storeys and 147 apartments.</basicInfoInEnglish>
+		<wikipediaLinkInGreek>https://el.wikipedia.org/wiki/Turning_Torso</wikipediaLinkInGreek>
+		<wikipediaLinkInEnglish>https://en.wikipedia.org/wiki/Turning_Torso</wikipediaLinkInEnglish>
+		<coordinates>55.613333°N 12.976389°E</coordinates>
 		<isEasy>false</isEasy>
 		<greekArticle>Το</greekArticle>
 	</attraction>

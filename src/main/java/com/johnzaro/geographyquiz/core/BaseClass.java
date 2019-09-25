@@ -42,7 +42,7 @@ public class BaseClass extends Application
 		{
 //			follow steps to show the "display not supported" screen
 //			use helping resourceBundle to get the system language
-			setDefaultLanguage();
+			loadLanguageResourceBundle(true);
 			
 //			setup the stage
 			setupStage(coreStage);

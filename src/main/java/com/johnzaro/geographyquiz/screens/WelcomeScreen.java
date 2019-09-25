@@ -3232,7 +3232,7 @@ public class WelcomeScreen extends CoreScreen
 	
 	private void changeLanguage()
 	{
-		PowerOn.loadLanguageResourceBundle();
+		PowerOn.loadLanguageResourceBundle(false);
 		
 		updateStrings();
 		

@@ -85,26 +85,13 @@ public class PowerOn
 		primaryScreenHeight = primaryScreenResolution.getHeight();
 	}
 	
-	static void setDefaultLanguage()
-	{
-		try
-		{
-			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
-			else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
-		}
-		catch (Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load " + Locale.getDefault().getLanguage() + " resource bundle", e));
-		}
-	}
-	
 	static void setupStage(Stage coreStage)
 	{
 //		set global variable "stage" = javafx stage
 		stage = coreStage;
 		
 //		set background of stage to transparent
-		stage.initStyle(StageStyle.TRANSPARENT);
+//		stage.initStyle(StageStyle.TRANSPARENT);
 		
 //		disable default resize function
 		stage.setResizable(false);
@@ -245,17 +232,25 @@ public class PowerOn
 		if(!isEmpty(playersFile)) readPlayersFile();
 		else setDefaultPlayerName();
 		
-		loadLanguageResourceBundle();
+		loadLanguageResourceBundle(false);
 		
 		setSettingsBasedOnCurrentPlayer();
 		
 		if(!isEmpty(gamesScoresFile)) readGamesScores();
 	}
 	
-	public static void loadLanguageResourceBundle()
+	public static void loadLanguageResourceBundle(boolean loadDefault)
 	{
-		if (getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
-		else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
+		if(loadDefault)
+		{
+			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
+			else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
+		}
+		else
+		{
+			if(getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
+			else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
+		}
 	}
 	
 	public static void setSettingsBasedOnCurrentPlayer()
@@ -740,7 +735,6 @@ public class PowerOn
 			continents = new Continent[NUM_ALL_CONTINENTS];
 			readContinentsXMLDataFile();
 			
-			attractions = new Attraction[GlobalVariables.NUM_ALL_ATTRACTIONS];
 			readAttractionsXMLDataFile();
 
 //			int c= 0;

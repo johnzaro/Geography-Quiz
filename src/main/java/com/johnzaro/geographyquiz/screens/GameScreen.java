@@ -2874,8 +2874,7 @@ public class GameScreen extends CoreScreen
 		for (int i = 0; i < NUM_ALL_CATEGORIES; i++)
 			if (isCategorySelected(i)) availableCategories.add(i);
 		
-		int[] categories = new int[availableCategories.size()];
-		for(int i = 0; i < availableCategories.size(); i++) categories[i] = availableCategories.get(i);
+		Integer[] categories = availableCategories.toArray(new Integer[0]);
 		currentGame.setQuestionCategories(categories);
 		
 		questionMaker.setAvailableQuestions();

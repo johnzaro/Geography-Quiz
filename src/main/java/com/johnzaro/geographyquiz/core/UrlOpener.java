@@ -33,4 +33,17 @@ public class UrlOpener
 			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to open greek wikipedia URL", e));
 		}
 	}
+	
+	public static void openGoogleMapsLink(String coordinates)
+	{
+		String[] latLong = coordinates.split(" ");
+		
+		if(latLong[0].endsWith("S")) latLong[0] = "-" + latLong[0];
+		if(latLong[1].endsWith("W")) latLong[1] = "-" + latLong[1];
+		
+		latLong[0] = latLong[0].substring(0, latLong[0].length() - 3);
+		latLong[1] = latLong[1].substring(0, latLong[1].length() - 3);
+		
+		((HostServices)GlobalVariables.stage.getProperties().get("hostServices")).showDocument(String.format("http://www.google.com/maps/search/?api=1&query=%s,%s", latLong[0], latLong[1]));
+	}
 }

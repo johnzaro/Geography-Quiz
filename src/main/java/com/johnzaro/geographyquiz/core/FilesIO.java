@@ -369,7 +369,7 @@ public class FilesIO
 				game.setAverageAnswerTime(Double.parseDouble(gameElement.getChildText("averageAnswerTime")));
 				
 				String[] questionCategories = gameElement.getChildText("questionCategories").split(" ");
-				int[] categories = new int[questionCategories.length];
+				Integer[] categories = new Integer[questionCategories.length];
 				for(int j = 0; j < questionCategories.length; j++) categories[j] = Integer.parseInt(questionCategories[j]);
 				game.setQuestionCategories(categories);
 				
@@ -1358,6 +1358,9 @@ public class FilesIO
 			Element  root = doc.getRootElement();
 			
 			List list = root.getChildren();
+			
+			Attraction.setNumberOfAttractions(list.size());
+			attractions = new Attraction[Attraction.getNumberOfAttractions()];
 			
 			for (int i = 0; i < list.size(); i++)
 			{

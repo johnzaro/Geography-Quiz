@@ -175,12 +175,12 @@ public class Game
 		return averageAnswerTime;
 	}
 	
-	private int[] questionCategories;
-	public void setQuestionCategories(int[] categories)
+	private Integer[] questionCategories;
+	public void setQuestionCategories(Integer[] categories)
 	{
 		questionCategories = categories;
 	}
-	public int[] getQuestionCategories()
+	public Integer[] getQuestionCategories()
 	{
 		return questionCategories;
 	}

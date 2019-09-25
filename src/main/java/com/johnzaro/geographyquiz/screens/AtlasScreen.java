@@ -1,6 +1,7 @@
 package com.johnzaro.geographyquiz.screens;
 
 import com.johnzaro.geographyquiz.core.*;
+import com.johnzaro.geographyquiz.dataStructures.Attraction;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -55,7 +56,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	private CustomTooltip countriesToggleButtonTooltip, USAToggleButtonTooltip, greekCountiesToggleButtonTooltip, attractionsToggleButtonTooltip;
 	private ComboBox<String> optionsForCountriesAndContinentsComboBox, optionsForUSAComboBox, optionsForGreeceComboBox, optionsForAttractionsComboBox;
 	private Label titleLabel, flagLabelForCountriesAndContinents, flagLabelForUSA, coatOfArmsLabelForCountriesAndContinents, sealLabelForUSA,
-			locationLabelForCountriesAndContinents, locationLabelForUSA, logoLabelForGreece, locationLabelForGreece, attractionLabel, attractionLocationLabel, attractionBasicInfoLabel, labelForBigImage;
+			locationLabelForCountriesAndContinents, locationLabelForUSA, logoLabelForGreece, locationLabelForGreece, attractionLabel, attractionLocationLabel, labelForBigImage;
 	private InnerShadow innerShadow;
 	private DropShadow dropShadow;
 	private HBox hBoxForToggleButtons, hBoxFor5Icons, hBoxMainForCountriesAndContinents, hBoxMainForUSA, hBoxMainForGreece, hBoxMainForAttractions, hBoxForFlagAndCoatOfArmsForCountriesAndContinents,
@@ -66,10 +67,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	private ToggleGroup toggleGroupForToggleButtons;
 	private CustomButton backButton;
 	private Rectangle rectangleForBigImage, rectangleToShowInfo;
-	private TextArea textAreaForInfo;
+	private TextArea textAreaForInfo, attractionBasicInfoLabel;
 	
 	private GridPane gridPaneForLabelsForCountriesAndContinents, gridPaneForLabelsForUSA, gridPaneForGreece, gridPaneForAttractions;
-	private CustomScrollPane scrollPaneForGridPaneForCountriesAndContinents, scrollPaneForGridPaneForUSA;
+	private CustomScrollPane scrollPaneForGridPaneForCountriesAndContinents, scrollPaneForGridPaneForUSA, scrollPaneForAttractionsBasicInfo;
 	private GridView<Short> gridViewForImagesForCountriesAndContinents, gridViewForImagesForUSA, gridViewForImagesForAttractions;
 
 	private Label[][] gridPaneLabelsForCountriesAndContinents, gridPaneLabelsForUSA, gridPaneLabelsForGreece, gridPaneLabelsForAttractions;
@@ -634,12 +635,15 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneTooltipsForAttractions[i].setMaxWidth(0.3646 * width);
 			}
 			
-			attractionBasicInfoLabel.setPrefWidth(gridPaneForAttractions.getPrefWidth());
 			attractionBasicInfoLabel.setFont(fontBig);
-			attractionBasicInfoLabel.setStyle("-fx-background-color: #FFEBCD; -fx-text-fill: #323232;" +
-			                                  "-fx-border-color: #AB5C3D; " +
-			                                  "-fx-border-width:" + 0.0031 * width + "; " +
-			                                  "-fx-padding:" + 0.0021 * width + " " + 0.0042 * width + " " + 0.0021 * width + " " + 0.0042 * width + ";");
+			attractionBasicInfoLabel.setStyle("-fx-text-fill: #323232;");
+			
+			scrollPaneForAttractionsBasicInfo.setPrefWidth(gridPaneForAttractions.getPrefWidth());
+			scrollPaneForAttractionsBasicInfo.setMaxHeight(0.3333 * height);
+			scrollPaneForAttractionsBasicInfo.setPrefHeight(1.25 * attractionBasicInfoLabel.lookup(".text").getLayoutBounds().getHeight());
+			scrollPaneForAttractionsBasicInfo.setStyle("-fx-background-color: #FFEBCD; -fx-border-color: #AB5C3D; " +
+					"-fx-border-width:" + 0.0031 * width + "; " +
+					"-fx-padding:" + 0.0021 * width + " " + 0.0042 * width + " " + 0.0021 * width + " " + 0.0042 * width + ";");
 			
 			vBoxFor2ImagesForAttractions.setPrefSize(0.2344 * width, hBoxMainForAttractions.getPrefHeight());
 			
@@ -1177,13 +1181,28 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			gridPaneForAttractions.add(gridPaneLabelsForAttractions[i][1], 1, i);
 		}
 		
-		attractionBasicInfoLabel = new Label();
+		gridPaneLabelsForAttractions[4][1].setCursor(Cursor.HAND);
+		gridPaneLabelsForAttractions[5][1].setCursor(Cursor.HAND);
+		
+		gridPaneTooltipsForAttractions[4].setText(languageResourceBundle.getString("mapsTooltip"));
+		gridPaneTooltipsForAttractions[5].setText(languageResourceBundle.getString("websiteTooltip"));
+		
+		attractionBasicInfoLabel = new TextArea();
 		attractionBasicInfoLabel.setWrapText(true);
+		attractionBasicInfoLabel.setEditable(false);
+		
+		scrollPaneForAttractionsBasicInfo = new CustomScrollPane();
+		scrollPaneForAttractionsBasicInfo.setFitToWidth(true);
+		scrollPaneForAttractionsBasicInfo.setFitToHeight(true);
+		scrollPaneForAttractionsBasicInfo.setPannable(true);
+		scrollPaneForAttractionsBasicInfo.setContent(attractionBasicInfoLabel);
+		scrollPaneForAttractionsBasicInfo.setCache(true);
+		scrollPaneForAttractionsBasicInfo.setCacheHint(CacheHint.SCALE);
 		
 		vBoxForGridPaneForAttractions = new VBox();
 		vBoxForGridPaneForAttractions.setAlignment(Pos.TOP_CENTER);
 		vBoxForGridPaneForAttractions.setFillWidth(true);
-		vBoxForGridPaneForAttractions.getChildren().addAll(gridPaneForAttractions, attractionBasicInfoLabel);
+		vBoxForGridPaneForAttractions.getChildren().addAll(gridPaneForAttractions, scrollPaneForAttractionsBasicInfo);
 		
 		attractionImageSmall = new CustomImageView(false, true, true, false, null);
 		
@@ -2937,7 +2956,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setIndexInListViewForAttractions(newValue.intValue());
 				
-				if (getIndexInOptionsForAttractions() == 0 && newValue.intValue() < NUM_ALL_ATTRACTIONS)
+				if (getIndexInOptionsForAttractions() == 0 && newValue.intValue() < Attraction.getNumberOfAttractions())
 				{
 					int index = attractionsSortList.get(newValue.intValue());
 					
@@ -2952,6 +2971,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					
 					attractionBasicInfoLabel.setText(attractions[index].getBasicInfo());
 					
+					scrollPaneForAttractionsBasicInfo.setPrefHeight(1.25 * attractionBasicInfoLabel.lookup(".text").getBoundsInLocal().getHeight());
+					
 					//Images
 					
 //					logoForGreeceImageSmall.setImage(new Image("/images/greece/decentralizedAdministrations/logos/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
@@ -2963,8 +2984,37 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 //					else locationForGreeceSmall.setImage(new Image("/images/greece/decentralizedAdministrations/inMap/x2000/" + greekDecAdm[index].getNameInGreek() + ".jpg"));
 					
 					//Tooltips
-					for(int i = 0; i < 5; i++) gridPaneTooltipsForAttractions[i].setText(gridPaneLabelsForAttractions[i][1].getText());
+					for(int i = 0; i < 4; i++) gridPaneTooltipsForAttractions[i].setText(gridPaneLabelsForAttractions[i][1].getText());
 				}
+			}
+		});
+		
+		gridPaneLabelsForAttractions[4][1].setOnMousePressed(e ->
+		{
+			if(e.isPrimaryButtonDown())
+			{
+				UrlOpener.openGoogleMapsLink(gridPaneLabelsForAttractions[4][1].getText());
+			}
+			else if(e.isSecondaryButtonDown())
+			{
+				clipboardContent.putString(gridPaneLabelsForAttractions[4][1].getText());
+				clipboard.setContent(clipboardContent);
+				clipboardContent.clear();
+			}
+		});
+		
+		gridPaneLabelsForAttractions[5][1].setOnMousePressed(e ->
+		{
+			if(e.isPrimaryButtonDown())
+			{
+				if(getCurrentLanguage() == LANGUAGE.GREEK) UrlOpener.openGreekWikiURL(gridPaneLabelsForAttractions[5][1].getText());
+				else UrlOpener.openURL(gridPaneLabelsForAttractions[5][1].getText());
+			}
+			else if(e.isSecondaryButtonDown())
+			{
+				clipboardContent.putString(gridPaneLabelsForAttractions[5][1].getText());
+				clipboard.setContent(clipboardContent);
+				clipboardContent.clear();
 			}
 		});
 		
@@ -3758,21 +3808,21 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				greekRegionalUnitsSortList.add(i);
 			}
 			
-//			attractionsObservableNamesList.clear();
-//			attractionsSortList.clear();
-//			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
-//			{
-//				String s = attractions[i].getNameInGreek();
-//
-//				switch (s)
-//				{
-//					case "Βασιλικό Αστεροσκοπείο του Γκρήνουιτς":s = "Βασιλικό Αστεροσκοπείο του\nΓκρήνουιτς";break;
-//					case "Καθεδρικός Ναός του Σωτήρος Χριστού":s = "Καθεδρικός Ναός του Σωτήρος\nΧριστού";break;
-//				}
-//
-//				attractionsObservableNamesList.add(s);
-//				attractionsSortList.add(i);
-//			}
+			attractionsObservableNamesList.clear();
+			attractionsSortList.clear();
+			for (short i = 0; i < Attraction.getNumberOfAttractions(); i++)
+			{
+				String s = attractions[i].getNameInGreek();
+
+				switch (s)
+				{
+					case "Βασιλικό Αστεροσκοπείο του Γκρήνουιτς":s = "Βασιλικό Αστεροσκοπείο του\nΓκρήνουιτς";break;
+					case "Καθεδρικός Ναός του Σωτήρος Χριστού":s = "Καθεδρικός Ναός του Σωτήρος\nΧριστού";break;
+				}
+
+				attractionsObservableNamesList.add(s);
+				attractionsSortList.add(i);
+			}
 		}
 		else if (getCurrentLanguage() == LANGUAGE.ENGLISH && !countriesObservableNamesList.get(0).equals(countries[0].getNameInEnglish()))
 		{
@@ -3972,24 +4022,24 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			attractionsObservableNamesList.clear();
 			attractionsSortList.clear();
-//			for (short i = 0; i < NUM_ALL_ATTRACTIONS; i++)
-//			{
-//				attractionsObservableNamesList.add(attractions[i].getNameInEnglish());
-//				attractionsSortList.add(i);
-//			}
-//			for (short i = 0; i < NUM_ALL_ATTRACTIONS - 1; i++)
-//				for (short y = 0; y < NUM_ALL_ATTRACTIONS - i - 1; y++)
-//					if (attractionsObservableNamesList.get(y).compareTo(attractionsObservableNamesList.get(y + 1)) > 0)
-//					{
-//						String temp = attractionsObservableNamesList.get(y);
-//						short s = attractionsSortList.get(y);
-//
-//						attractionsObservableNamesList.set(y, attractionsObservableNamesList.get(y + 1));
-//						attractionsSortList.set(y, attractionsSortList.get(y + 1));
-//
-//						attractionsObservableNamesList.set(y + 1, temp);
-//						attractionsSortList.set(y + 1, s);
-//					}
+			for (short i = 0; i < Attraction.getNumberOfAttractions(); i++)
+			{
+				attractionsObservableNamesList.add(attractions[i].getNameInEnglish());
+				attractionsSortList.add(i);
+			}
+			for (short i = 0; i < Attraction.getNumberOfAttractions() - 1; i++)
+				for (short y = 0; y < Attraction.getNumberOfAttractions() - i - 1; y++)
+					if (attractionsObservableNamesList.get(y).compareTo(attractionsObservableNamesList.get(y + 1)) > 0)
+					{
+						String temp = attractionsObservableNamesList.get(y);
+						short s = attractionsSortList.get(y);
+
+						attractionsObservableNamesList.set(y, attractionsObservableNamesList.get(y + 1));
+						attractionsSortList.set(y, attractionsSortList.get(y + 1));
+
+						attractionsObservableNamesList.set(y + 1, temp);
+						attractionsSortList.set(y + 1, s);
+					}
 		}
 		
 		if(animationsUsed != ANIMATIONS.NO)

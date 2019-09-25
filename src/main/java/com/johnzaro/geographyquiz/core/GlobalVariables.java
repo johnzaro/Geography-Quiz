@@ -214,8 +214,7 @@ public class GlobalVariables
 	public static final short NUM_ALL_GREEK_REGIONS = 13;
 	public static final short NUM_ALL_GREEK_REGIONAL_UNITS = 74;
 	public static final short NUM_ALL_GREEK_MUNICIPALITIES = 325;
-
-	public static final int NUM_ALL_ATTRACTIONS = 94;
+	
 //	public static final int NUMBER_OF_GENERAL_QUESTIONS = 672;
 
 //	--------------------- CSS ---------------------
