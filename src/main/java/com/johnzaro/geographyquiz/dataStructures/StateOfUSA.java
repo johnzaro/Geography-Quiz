@@ -6,6 +6,8 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 
 public class StateOfUSA
 {
+	public static final int NUMBER_OF_USA_STATES = 50;
+	
 //	------- GREEK NAME -------
 	private String   nameInGreek;
 	private String   nameInEnglish;
@@ -16,25 +18,25 @@ public class StateOfUSA
 	private String[] largestCities;
 	private String   spokenLanguages;
 	private String   timeZones;
-	private short    numberOfCounties;
-	private byte     houseSeats;
+	private int    numberOfCounties;
+	private int     houseSeats;
 	
 	private LocalDate dateEnteredUnion;
 	
 	private int population;
-	private byte populationRank;
-	private float populationDensityPerSquareKilometer;
-	private float populationDensityPerSquareMile;
+	private int populationRank;
+	private double populationDensityPerSquareKilometer;
+	private double populationDensityPerSquareMile;
 
 	private int totalAreaInKilometers;
 	private int totalAreaInMiles;
-	private byte areaRanking;
+	private int areaRanking;
 	private int landAreaInKilometers;
 	private int landAreaInMiles;
-	private float landPercent;
+	private double landPercent;
 	private int waterAreaInKilometers;
 	private int waterAreaInMiles;
-	private float waterPercent;
+	private double waterPercent;
 	private int coastlineLengthInKilometers;
 	private int coastlineLengthInMiles;
 	private boolean hasAccessToTheOcean;
@@ -42,7 +44,7 @@ public class StateOfUSA
 	private String meanPoint;
 	private String lowestPoint;
 	
-	private short positionInCapitals;
+	private int positionInCapitals;
 	
 	public String getArticleForState()
 	{
@@ -64,12 +66,12 @@ public class StateOfUSA
 		this.articleForCapital = articleForCapital;
 	}
 	
-	public short getPositionInCapitals()
+	public int getPositionInCapitals()
 	{
 		return positionInCapitals;
 	}
 	
-	public void setPositionInCapitals(short positionInCapitals)
+	public void setPositionInCapitals(int positionInCapitals)
 	{
 		this.positionInCapitals = positionInCapitals;
 	}
@@ -108,12 +110,12 @@ public class StateOfUSA
 		else return numberFormatForUI.format(totalAreaInMiles) + " sq mi";
 	}
 	
-	public byte getAreaRanking()
+	public int getAreaRanking()
 	{
 		return areaRanking;
 	}
 
-	public void setAreaRanking(byte areaRanking)
+	public void setAreaRanking(int areaRanking)
 	{
 		this.areaRanking = areaRanking;
 	}
@@ -158,17 +160,17 @@ public class StateOfUSA
 		this.dateEnteredUnion = dateEnteredUnion;
 	}
 
-	public float getPopulationDensityPerSquareKilometer()
+	public double getPopulationDensityPerSquareKilometer()
 	{
 		return populationDensityPerSquareKilometer;
 	}
 
-	public void setPopulationDensityPerSquareKilometer(float densityPerSquareKilometer)
+	public void setPopulationDensityPerSquareKilometer(double densityPerSquareKilometer)
 	{
 		this.populationDensityPerSquareKilometer = densityPerSquareKilometer;
 	}
 
-	public float getPopulationDensityPerSquareMile()
+	public double getPopulationDensityPerSquareMile()
 	{
 		return populationDensityPerSquareMile;
 	}
@@ -187,7 +189,7 @@ public class StateOfUSA
 		}
 	}
 	
-	public void setPopulationDensityPerSquareMile(float populationDensityPerSquareMile)
+	public void setPopulationDensityPerSquareMile(double populationDensityPerSquareMile)
 	{
 		this.populationDensityPerSquareMile = populationDensityPerSquareMile;
 	}
@@ -212,12 +214,12 @@ public class StateOfUSA
 		this.highestPoint = highestPoint;
 	}
 
-	public byte getHouseSeats()
+	public int getHouseSeats()
 	{
 		return houseSeats;
 	}
 
-	public void setHouseSeats(byte houseSeats)
+	public void setHouseSeats(int houseSeats)
 	{
 		this.houseSeats = houseSeats;
 	}
@@ -242,12 +244,12 @@ public class StateOfUSA
 		this.landAreaInMiles = landAreaInMiles;
 	}
 
-	public float getLandPercent()
+	public double getLandPercent()
 	{
 		return landPercent;
 	}
 
-	public void setLandPercent(float landPercent)
+	public void setLandPercent(double landPercent)
 	{
 		this.landPercent = landPercent;
 	}
@@ -282,12 +284,12 @@ public class StateOfUSA
 		this.meanPoint = meanPoint;
 	}
 
-	public short getNumberOfCounties()
+	public int getNumberOfCounties()
 	{
 		return numberOfCounties;
 	}
 
-	public void setNumberOfCounties(short numberOfCounties)
+	public void setNumberOfCounties(int numberOfCounties)
 	{
 		this.numberOfCounties = numberOfCounties;
 	}
@@ -302,12 +304,12 @@ public class StateOfUSA
 		this.population = population;
 	}
 
-	public byte getPopulationRank()
+	public int getPopulationRank()
 	{
 		return populationRank;
 	}
 
-	public void setPopulationRank(byte populationRank)
+	public void setPopulationRank(int populationRank)
 	{
 		this.populationRank = populationRank;
 	}
@@ -392,12 +394,12 @@ public class StateOfUSA
 		this.waterAreaInMiles = waterAreaInMiles;
 	}
 
-	public float getWaterPercent()
+	public double getWaterPercent()
 	{
 		return waterPercent;
 	}
 
-	public void setWaterPercent(float waterPercent)
+	public void setWaterPercent(double waterPercent)
 	{
 		this.waterPercent = waterPercent;
 	}

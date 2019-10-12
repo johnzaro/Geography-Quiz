@@ -11,6 +11,13 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }
 
+#veryBig.slider:hover *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
 #big.slider *.track
 {
     -fx-base: #9C3E23;
@@ -20,6 +27,13 @@
 #big.slider *.thumb
 {
     -fx-background-color: #9C3E23;
+    -fx-padding: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
+#big.slider:hover *.thumb
+{
+    -fx-background-color: #DD6944;
     -fx-padding: 14px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }
@@ -37,6 +51,13 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }
 
+#medium.slider:hover *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
 #small.slider *.track
 {
     -fx-base: #9C3E23;
@@ -46,6 +67,13 @@
 #small.slider *.thumb
 {
     -fx-background-color: #9C3E23;
+    -fx-padding: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
+#small.slider:hover *.thumb
+{
+    -fx-background-color: #DD6944;
     -fx-padding: 6px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }

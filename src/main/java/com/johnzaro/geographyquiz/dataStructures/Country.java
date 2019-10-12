@@ -18,13 +18,13 @@ public class Country
 	private Population population;
 
 	//OTHER VALUES
-	private short   positionInCapitals;
-	private byte    askCapital;
-	private byte    askCurrency;
-	private byte    askLargestCity;
-	private byte    askLanguage;
-	private byte    askGeographicalCharacteristics;
-	private byte    askContinent;
+	private int   positionInCapitals;
+	private int    askCapital;
+	private int    askCurrency;
+	private int    askLargestCity;
+	private int    askLanguage;
+	private int    askGeographicalCharacteristics;
+	private int    askContinent;
 	private boolean isSovereignState;
 	private boolean hasEasyLocation;
 	private boolean hasSea;
@@ -84,22 +84,22 @@ public class Country
 		this.articleForCountry = articleForCountry;
 	}
 	
-	public short getPositionInCapitals()
+	public int getPositionInCapitals()
 	{
 		return positionInCapitals;
 	}
 	
-	public void setPositionInCapitals(short positionInCapitals)
+	public void setPositionInCapitals(int positionInCapitals)
 	{
 		this.positionInCapitals = positionInCapitals;
 	}
 	
-	public byte askLargestCity()
+	public int askLargestCity()
 	{
 		return askLargestCity;
 	}
 	
-	public void setAskLargestCity(byte askLargestCity)
+	public void setAskLargestCity(int askLargestCity)
 	{
 		this.askLargestCity = askLargestCity;
 	}
@@ -124,32 +124,32 @@ public class Country
 		this.languagesString = languagesString;
 	}
 	
-	public byte askLanguage()
+	public int askLanguage()
 	{
 		return askLanguage;
 	}
 
-	public void setAskLanguage(byte askLanguage)
+	public void setAskLanguage(int askLanguage)
 	{
 		this.askLanguage = askLanguage;
 	}
 	
-	public byte askGeographicalCharacteristics()
+	public int askGeographicalCharacteristics()
 	{
 		return askGeographicalCharacteristics;
 	}
 	
-	public void setAskGeographicalCharacteristics(byte askGeographicalCharacteristics)
+	public void setAskGeographicalCharacteristics(int askGeographicalCharacteristics)
 	{
 		this.askGeographicalCharacteristics = askGeographicalCharacteristics;
 	}
 	
-	public byte askContinent()
+	public int askContinent()
 	{
 		return askContinent;
 	}
 	
-	public void setAskContinent(byte askContinent)
+	public void setAskContinent(int askContinent)
 	{
 		this.askContinent = askContinent;
 	}
@@ -184,12 +184,12 @@ public class Country
 		this.currency = currency;
 	}
 
-	public byte askCapital()
+	public int askCapital()
 	{
 		return askCapital;
 	}
 
-	public void setAskCapital(byte askCapital)
+	public void setAskCapital(int askCapital)
 	{
 		this.askCapital = askCapital;
 	}
@@ -294,12 +294,12 @@ public class Country
 		this.sovereignState = sovereignState;
 	}
 	
-	public byte askCurrency()
+	public int askCurrency()
 	{
 		return askCurrency;
 	}
 	
-	public void setAskCurrency(byte askCurrency)
+	public void setAskCurrency(int askCurrency)
 	{
 		this.askCurrency = askCurrency;
 	}

@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Class-Path: javafx-swt.jar javafx.base.jar javafx.controls.jar javafx.
+ fxml.jar javafx.graphics.jar javafx.media.jar javafx.swing.jar javafx
+ .web.jar reactfx-2.0-M5.jar controlsfx-11.0.0.jar commons-io-2.6.jar 
+ jdom2-2.0.6.jar junique-1.0.4.jar
+Main-Class: com.johnzaro.geographyquiz.core.BaseClass
+

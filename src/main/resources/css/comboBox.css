@@ -3,6 +3,11 @@
     -fx-background-color: #EDD1A6;
 }
 
+.combo-box:hover .list-cell
+{
+    -fx-background-color: #FFE8BE;
+}
+
 .combo-box-popup .list-view .list-cell:odd
 {
 	-fx-background-color: #FFEBCD;

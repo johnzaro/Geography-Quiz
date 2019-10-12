@@ -8,8 +8,11 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.numberFormatForUI;
 /**
  * Created by John on 25/6/2016.
  */
+
 public class GreekDecentralizedAdministration
 {
+	public static final int NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS = 7;
+	
 	private String nameInGreek;
 	private String nameInEnglish;
 	private String headquarters;

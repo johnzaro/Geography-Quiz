@@ -7,8 +7,10 @@ module geographyquiz {
 	requires org.apache.commons.ios;
 	requires org.controlsfx.controls;
 	requires it.sauronsoftware.juniques;
-	requires org.jdom2s;
 	requires org.reactfxs;
+	requires com.fasterxml.jackson.core;
+	requires com.fasterxml.jackson.databind;
+	requires com.fasterxml.jackson.datatype.jsr310;
 	
 	exports com.johnzaro.geographyquiz.core;
 	exports com.johnzaro.geographyquiz.dataStructures;

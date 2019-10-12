@@ -3,7 +3,6 @@ package com.johnzaro.geographyquiz.screens;
 import com.johnzaro.geographyquiz.core.CustomButton;
 import com.johnzaro.geographyquiz.core.CustomImageView;
 import com.johnzaro.geographyquiz.core.FilesIO;
-import com.johnzaro.geographyquiz.core.OsCheck;
 import com.johnzaro.geographyquiz.dataStructures.Game;
 import com.johnzaro.geographyquiz.dataStructures.Player;
 import javafx.animation.*;
@@ -11,17 +10,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.CacheHint;
-import javafx.scene.Cursor;
-import javafx.scene.Node;
-import javafx.scene.Parent;
+import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -43,11 +36,10 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	ObservableList<Game> gamesObservableList;
 	ObservableList<String> playerNamesObservableList;
 	
-	private CustomImageView previousChalkboardImage, woodPanelFor5IconsImage, titleImage, backArrowImage, controlImage;
+	private CustomImageView previousChalkboardImage, titleImage, woodPanelFor1IconImage, backArrowImage, controlImage;
 	private Label titleLabel, controlLabel;
 	private InnerShadow innerShadow;
 	private DropShadow dropShadow;
-	private HBox hBoxFor5Icons;
 	private VBox vBoxForControlButton, vBoxForPlayerStatistics;
 	private ComboBox<String> comboBoxForPlayerNames;
 	private CustomButton backButton, deleteButton;
@@ -68,46 +60,21 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	private Label[][] gridPaneLabels;
 	
 	private RotateTransition rotateTransitionForControlImage;
-	private TranslateTransition translateTransitionForTableView, translateTransitionForVBoxForPlayerStatistics,
-			translateTransitionForTitleImage, translateTransitionForTitleLabel, translateTransitionForVBoxForSound, translateTransitionForWoodImageFor5Icons;
+	private TranslateTransition translateTransitionForWoodPanelFor1IconImage, translateTransitionForTableView, translateTransitionForVBoxForPlayerStatistics,
+			translateTransitionForTitleImage, translateTransitionForTitleLabel, translateTransitionForVBoxForSound;
 	private FadeTransition fadeTransitionForMovingEarthImage;
-	private ScaleTransition scaleTransitionForDeleteButton, scaleTransitionForGridPane, scaleTransitionForTableView,
-			scaleTransitionForVBoxForPlayerStatistics, scaleTransitionForTitleLabel, scaleTransitionForHBoxFor5Icons,
+	private ScaleTransition scaleTransitionForSoundIcon, scaleTransitionForDeleteButton, scaleTransitionForGridPane, scaleTransitionForTableView,
+			scaleTransitionForVBoxForPlayerStatistics, scaleTransitionForTitleLabel,
 			scaleTransitionForBackButton, scaleTransitionForVBoxForControlButton, scaleTransitionForControlLabel;
 	private Timeline timeLineToShowAllStuff, timeLineToHideAllStuff, timelineToShowSoundOptions, timelineToHideSoundOptions;
 	
-	private Font fontBig, fontForTooltips;
+	private Font fontBig;
 	
 	private boolean playerStatisticsScreen = false;
 	
 	protected void recalculateUI(double width, double height)
 	{
 		super.recalculateUI(width, height);
-		
-		if (width < 1850)
-		{
-			masterVolumeSlider.setId("small");
-			musicVolumeSlider.setId("small");
-			soundEffectsVolumeSlider.setId("small");
-		}
-		else if (width < 2200)
-		{
-			masterVolumeSlider.setId("medium");
-			musicVolumeSlider.setId("medium");
-			soundEffectsVolumeSlider.setId("medium");
-		}
-		else if (width < 3000)
-		{
-			masterVolumeSlider.setId("big");
-			musicVolumeSlider.setId("big");
-			soundEffectsVolumeSlider.setId("big");
-		}
-		else
-		{
-			masterVolumeSlider.setId("veryBig");
-			musicVolumeSlider.setId("veryBig");
-			soundEffectsVolumeSlider.setId("veryBig");
-		}
 		
 		//VARIABLES SET
 		double iconSize  = 0.0260 * width;
@@ -117,7 +84,6 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		Font fontForButtons  = Font.font("Comic Sans MS", 0.0156 * width);
 		Font fontForLabels= Font.font("Comic Sans MS", FontWeight.BOLD, 0.0146 * width); // 26 -> 1920
 		fontBig = Font.font("Comic Sans MS", 0.0125 * width); // 26 -> 1920
-		Font fontForSound = Font.font("Comic Sans MS", 0.0094 * width);
 		
 		//SCREEN DEPENDENT STUFF
 		titleImage.setLayoutY(ratioProperties.getScoreBoard().getTitleImageSetY() * height);
@@ -125,62 +91,22 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		titleLabel.setLayoutX(ratioProperties.getScoreBoard().getTitleLabelSetX() * width);
 		titleLabel.setLayoutY(ratioProperties.getScoreBoard().getTitleLabelSetY() * height);
 		
-		woodPanelFor5IconsImage.setLayoutY(ratioProperties.getScoreBoard().getWoodPanelFor5IconsImageLayoutY() * height);
-		
-		hBoxFor5Icons.setLayoutY(ratioProperties.getScoreBoard().gethBoxFor5IconsLayoutY() * height);
-		
+		vBoxForSound.setLayoutX(0.7031 * width);
 		vBoxForSound.setLayoutY(ratioProperties.getScoreBoard().getvBoxForSoundLayoutY() * height);
-		vBoxForSound.setPrefSize(ratioProperties.getScoreBoard().getvBoxForSoundPrefWidth() * width, ratioProperties.getScoreBoard().getvBoxForSoundPrefHeight() * height);
 		
 		dropShadow.setRadius(0.0104 * width);
 		dropShadow.setOffsetX(-0.0052 * width);
 		dropShadow.setOffsetY(-0.0052 * width);
 		
-		//5 ICONS WOODEN PANEL AND SOUND VBOX ------------------------------------------------------
-		woodPanelFor5IconsImage.setFitWidth(0.1667 * width);
-		
-		if (OS == OsCheck.OSType.Windows)
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.7672 * width);
-			vBoxForSound.setLayoutX(0.6396 * width);
-		}
-		else
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.0656 * width);
-			vBoxForSound.setLayoutX(0.2448 * width);
-		}
-		
-		hBoxFor5Icons.setPrefSize(0.1667 * width, 0.0509 * height);
-		hBoxFor5Icons.setSpacing(0.0052 * width);
-		hBoxFor5Icons.setLayoutX(woodPanelFor5IconsImage.getLayoutX());
-		
-		vBoxForSound.setStyle("-fx-background-color: #00000099; " +
-				"-fx-border-color: black; " +
-				"-fx-background-radius:" + 0.0078 * width + "; " +
-				"-fx-border-radius:" + 0.0078 * width + "; " +
-				"-fx-border-width:" + 0.0026 * width + "; " +
-				"-fx-padding:" + 0.0052 * width + ";");
-		
-		soundIcon.setFitWidth(iconSize);
-		minimizeIcon.setFitWidth(iconSize);
-		moveIcon.setFitWidth(iconSize);
-		fullScreenIcon.setFitWidth(iconSize);
-		exitIcon.setFitWidth(iconSize);
-		
-		minimizeTooltip.setMaxWidth(tooltipMaxWidth);
-		moveTooltip.setMaxWidth(tooltipMaxWidth);
-		fullScreenTooltip.setMaxWidth(tooltipMaxWidth);
-		exitTooltip.setMaxWidth(tooltipMaxWidth);
-		
-		masterVolumeLabel.setFont(fontForSound);
-		musicVolumeLabel.setFont(fontForSound);
-		soundEffectsVolumeLabel.setFont(fontForSound);
-		
 		soundOptionsToolTip.setFont(fontForTooltips);
-		minimizeTooltip.setFont(fontForTooltips);
-		moveTooltip.setFont(fontForTooltips);
-		fullScreenTooltip.setFont(fontForTooltips);
-		exitTooltip.setFont(fontForTooltips);
+		
+		woodPanelFor1IconImage.setFitWidth(0.0482 * width);
+		woodPanelFor1IconImage.setLayoutX(ratioProperties.getScoreBoard().getWoodPanelFor1IconImageLayoutX() * width - woodPanelFor1IconImage.getFitWidth() / 2.0);
+		woodPanelFor1IconImage.setLayoutY(ratioProperties.getScoreBoard().getWoodPanelFor1IconImageLayoutY() * height);
+		
+		soundIcon.setFitWidth(1.2 * iconSize);
+		soundIcon.setLayoutX(woodPanelFor1IconImage.getLayoutX() + woodPanelFor1IconImage.getFitWidth() / 2.0 - soundIcon.getFitWidth() / 2.0);
+		soundIcon.setLayoutY(ratioProperties.getScoreBoard().getSoundIconLayoutY() * height - soundIcon.getFitWidth() / 2.0);
 		
 		//TITLE IMAGE ------------------------------------------------------
 		titleImage.setFitWidth(0.4688 * width);
@@ -188,16 +114,8 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		if(titleImage.getTranslateX() != 0)
 		{
-			if (OS == OsCheck.OSType.Windows)
-			{
-				titleImage.setTranslateX(-0.1068 * width);
-				titleLabel.setTranslateX(-0.1068 * width);
-			}
-			else
-			{
-				titleImage.setTranslateX(0.1068 * width);
-				titleLabel.setTranslateX(0.1068 * width);
-			}
+			titleImage.setTranslateX(-0.0416 * width);
+			titleLabel.setTranslateX(-0.0416 * width);
 		}
 		
 		//TITLE LABEL ------------------------------------------------------
@@ -319,6 +237,8 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 	
 	public ScoreBoardScreen()
 	{
+		createScene();
+		
 		//FUNDAMENTAL STUFF-------------------------------------------------------------------------------------
 		previousChalkboardImage = new CustomImageView(false, false, false, true, CacheHint.SPEED);
 		previousChalkboardImage.setLayoutX(0);
@@ -326,19 +246,11 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		movingEarthImage = new CustomImageView(false, true, false, false, null);
 		
-		woodPanelFor5IconsImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
-		
-		hBoxFor5Icons = new HBox();
-		hBoxFor5Icons.setAlignment(Pos.CENTER);
-		hBoxFor5Icons.setCache(true);
-		hBoxFor5Icons.setCacheHint(CacheHint.SCALE);
-		
-		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
-		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
-		
 		titleImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		innerShadow = new InnerShadow();
+		
+		woodPanelFor1IconImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		titleLabel = new Label();
 		titleLabel.setTextFill(Color.valueOf("#602000"));
@@ -523,7 +435,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		gridPaneForSelectedCategories = new GridPane();
 		
-		Insets pos1 = new Insets(0, 0, 0, 0.0198 * stage.getWidth());
+		Insets pos1 = new Insets(0, 0, 0, 0.0198 * scoreBoardScene.getWidth());
 		
 		gridPaneForSelectedCategories.add(continentsAndCountriesCheckBox, 0, 0);
 		for(int i = 0; i < continentsAndCountriesCheckBoxes.length; i++)
@@ -609,7 +521,6 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		dropShadow = new DropShadow();
 		woodenFrameImage.setEffect(dropShadow);
 		titleImage.setEffect(dropShadow);
-		woodPanelFor5IconsImage.setEffect(dropShadow);
 		
 		//BACK ARROW-------------------------------------------------------------------------------------
 		backArrowImage = new CustomImageView(BACK_ARROW, true, true, true, false, null);
@@ -623,8 +534,10 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		backButton.setCache(true);
 		backButton.setCacheHint(CacheHint.SCALE);
 		
-		nodesPane.getChildren().addAll(previousChalkboardImage, movingEarthImage, titleImage, titleLabel,
-				woodPanelFor5IconsImage, vBoxForSound, backButton, tableView, vBoxForPlayerStatistics, deleteButton, vBoxForControlButton, hBoxFor5Icons);
+		nodesPane.getChildren().addAll(previousChalkboardImage, movingEarthImage,
+				titleImage, titleLabel, woodPanelFor1IconImage, vBoxForSound,
+				soundIcon, backButton, tableView, vBoxForPlayerStatistics,
+				deleteButton, vBoxForControlButton);
 		
 		if(animationsUsed != ANIMATIONS.NO)
 		{
@@ -763,7 +676,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					
 					rotateTransitionForControlImage.setToAngle(180);
 					
-					translateTransitionForVBoxForPlayerStatistics.setToX(stage.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
+					translateTransitionForVBoxForPlayerStatistics.setToX(scoreBoardScene.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
 					translateTransitionForVBoxForPlayerStatistics.setOnFinished(ev ->
 					{
 						translateTransitionForVBoxForPlayerStatistics.setOnFinished(eve -> {});
@@ -803,12 +716,12 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					if(playerStatisticsScreen)
 					{
 						titleLabel.setText(languageResourceBundle.getString("playerStatistics"));
-						titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0443 * stage.getWidth()));
+						titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0443 * scoreBoardScene.getWidth()));
 					}
 					else
 					{
 						titleLabel.setText(languageResourceBundle.getString("scoreBoard"));
-						titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * stage.getWidth()));
+						titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * scoreBoardScene.getWidth()));
 					}
 					
 					scaleTransitionForTitleLabel.setFromX(0);
@@ -873,9 +786,9 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					controlImage.setRotate(180);
 					controlLabel.setText(languageResourceBundle.getString("playerStatistics"));
 					titleLabel.setText(languageResourceBundle.getString("scoreBoard"));
-					titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * stage.getWidth()));
+					titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0495 * scoreBoardScene.getWidth()));
 					
-					vBoxForPlayerStatistics.setTranslateX(stage.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
+					vBoxForPlayerStatistics.setTranslateX(scoreBoardScene.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
 					vBoxForPlayerStatistics.setVisible(false);
 					
 					deleteButton.setText(languageResourceBundle.getString("deleteAllGameDataButton"));
@@ -890,7 +803,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					controlImage.setRotate(0);
 					controlLabel.setText(languageResourceBundle.getString("scoreBoard"));
 					titleLabel.setText(languageResourceBundle.getString("playerStatistics"));
-					titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0443 * stage.getWidth()));
+					titleLabel.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0443 * scoreBoardScene.getWidth()));
 					
 					tableView.setTranslateX(-1.0 * (tableView.getLayoutX() + tableView.getPrefWidth() + 20));
 					tableView.setVisible(false);
@@ -925,16 +838,9 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
-					if(OS == OsCheck.OSType.Windows)
-					{
-						titleImage.setTranslateX(-0.1068 * stage.getWidth());
-						titleLabel.setTranslateX(-0.1068 * stage.getWidth());
-					}
-					else
-					{
-						titleImage.setTranslateX(0.1068 * stage.getWidth());
-						titleLabel.setTranslateX(0.1068 * stage.getWidth());
-					}
+					titleImage.setTranslateX(-0.0416 * scoreBoardScene.getWidth());
+					titleLabel.setTranslateX(-0.0416 * scoreBoardScene.getWidth());
+					
 					vBoxForSound.setTranslateY(0);
 					vBoxForSound.setVisible(true);
 				}
@@ -991,70 +897,66 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				}
 			}
 		});
-		
-		anchorPane.addEventFilter(KeyEvent.KEY_RELEASED, e ->
-		{
-			if(e.getCode() == KeyCode.ESCAPE)
-			{
-				if(fullScreenMode) setWindowedMode();
-			}
-		});
 	}
 	
 	protected void setupLimitedAnimations()
 	{
-		translateTransitionForTitleImage = new TranslateTransition(Duration.millis(300), titleImage);
+		translateTransitionForTitleImage = new TranslateTransition(Duration.millis(200), titleImage);
 		
 		scaleTransitionForTitleLabel = new ScaleTransition();
 		scaleTransitionForTitleLabel.setNode(titleLabel);
 		
-		translateTransitionForTitleLabel = new TranslateTransition(Duration.millis(300), titleLabel);
+		translateTransitionForTitleLabel = new TranslateTransition(Duration.millis(200), titleLabel);
 		
-		translateTransitionForWoodImageFor5Icons = new TranslateTransition(Duration.millis(300), woodPanelFor5IconsImage);
-		scaleTransitionForHBoxFor5Icons = new ScaleTransition(Duration.millis(300), hBoxFor5Icons);
+		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(200), vBoxForSound);
 		
-		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(300), vBoxForSound);
-		
-		scaleTransitionForBackButton = new ScaleTransition(Duration.millis(300), backButton);
+		scaleTransitionForBackButton = new ScaleTransition(Duration.millis(200), backButton);
 		
 		translateTransitionForTableView = new TranslateTransition(Duration.millis(400), tableView);
 		translateTransitionForVBoxForPlayerStatistics = new TranslateTransition(Duration.millis(400), vBoxForPlayerStatistics);
 		
-		scaleTransitionForTableView = new ScaleTransition(Duration.millis(300), tableView);
-		scaleTransitionForVBoxForPlayerStatistics = new ScaleTransition(Duration.millis(300), vBoxForPlayerStatistics);
+		scaleTransitionForTableView = new ScaleTransition(Duration.millis(200), tableView);
+		scaleTransitionForVBoxForPlayerStatistics = new ScaleTransition(Duration.millis(200), vBoxForPlayerStatistics);
 		
-		scaleTransitionForGridPane = new ScaleTransition(Duration.millis(300), gridPaneForPlayerStatistics);
+		scaleTransitionForGridPane = new ScaleTransition(Duration.millis(200), gridPaneForPlayerStatistics);
 		
 		scaleTransitionForDeleteButton = new ScaleTransition(Duration.millis(200), deleteButton);
 		
 		rotateTransitionForControlImage = new RotateTransition(Duration.millis(400), controlImage);
 		scaleTransitionForControlLabel = new ScaleTransition(Duration.millis(200), controlLabel);
-		scaleTransitionForVBoxForControlButton = new ScaleTransition(Duration.millis(300), vBoxForControlButton);
+		scaleTransitionForVBoxForControlButton = new ScaleTransition(Duration.millis(200), vBoxForControlButton);
 		
-		fadeTransitionForMovingEarthImage = new FadeTransition(Duration.millis(400), movingEarthImage);
+		fadeTransitionForMovingEarthImage = new FadeTransition(Duration.millis(300), movingEarthImage);
+		
+		translateTransitionForWoodPanelFor1IconImage = new TranslateTransition(Duration.millis(200), woodPanelFor1IconImage);
+		
+		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(200), soundIcon);
 		
 		timeLineToShowAllStuff = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
 					backButton.setDisable(true);
-					hBoxFor5Icons.setDisable(true);
 					
 					fadeTransitionForMovingEarthImage.setToValue(1);
 					fadeTransitionForMovingEarthImage.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(400), e ->
+				new KeyFrame(Duration.millis(300), e ->
 				{
 					translateTransitionForTitleImage.setToX(0);
 					translateTransitionForTitleImage.setToY(0);
-					translateTransitionForWoodImageFor5Icons.setToY(0);
+					
+					translateTransitionForWoodPanelFor1IconImage.setToY(0);
 					
 					playSlideSound();
 					translateTransitionForTitleImage.playFromStart();
-					translateTransitionForWoodImageFor5Icons.playFromStart();
+					translateTransitionForWoodPanelFor1IconImage.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(700), e ->
+				new KeyFrame(Duration.millis(500), e ->
 				{
-					scaleTransitionForTitleLabel.setDuration(Duration.millis(300));
+					scaleTransitionForSoundIcon.setToX(1);
+					scaleTransitionForSoundIcon.setToY(1);
+					
+					scaleTransitionForTitleLabel.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel.setCycleCount(1);
 					scaleTransitionForTitleLabel.setAutoReverse(false);
 					scaleTransitionForTitleLabel.setFromX(0);
@@ -1062,8 +964,6 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel.setToX(0.90);
 					scaleTransitionForTitleLabel.setToY(0.90);
 					
-					scaleTransitionForHBoxFor5Icons.setToX(1);
-					scaleTransitionForHBoxFor5Icons.setToY(1);
 					scaleTransitionForBackButton.setToX(1);
 					scaleTransitionForBackButton.setToY(1);
 					
@@ -1078,10 +978,10 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					
 					playPopUpSound();
 					scaleTransitionForTitleLabel.playFromStart();
-					scaleTransitionForHBoxFor5Icons.playFromStart();
 					scaleTransitionForBackButton.playFromStart();
+					scaleTransitionForSoundIcon.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(1000), e ->
+				new KeyFrame(Duration.millis(700), e ->
 				{
 					if(playerStatisticsScreen)
 					{
@@ -1101,21 +1001,17 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					
 					scaleTransitionForVBoxForControlButton.setToX(1);
 					scaleTransitionForVBoxForControlButton.setToY(1);
+					
 					playPopUpSound();
 					scaleTransitionForVBoxForControlButton.playFromStart();
 					scaleTransitionForDeleteButton.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(1300), e ->
-				{
-					backButton.setDisable(false);
-					hBoxFor5Icons.setDisable(false);
-				}));
+				new KeyFrame(Duration.millis(900), e -> backButton.setDisable(false)));
 		
 		timeLineToHideAllStuff = new Timeline(
 				new KeyFrame(Duration.millis(200), e ->
 				{
 					backButton.setDisable(true);
-					hBoxFor5Icons.setDisable(true);
 					
 					if(playerStatisticsScreen)
 					{
@@ -1139,9 +1035,12 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForVBoxForControlButton.playFromStart();
 					scaleTransitionForDeleteButton.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(500), e ->
+				new KeyFrame(Duration.millis(400), e ->
 				{
-					scaleTransitionForTitleLabel.setDuration(Duration.millis(300));
+					scaleTransitionForSoundIcon.setToX(0);
+					scaleTransitionForSoundIcon.setToY(0);
+					
+					scaleTransitionForTitleLabel.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel.setFromX(titleLabel.getScaleX());
 					scaleTransitionForTitleLabel.setFromY(titleLabel.getScaleY());
 					scaleTransitionForTitleLabel.setToX(0);
@@ -1151,45 +1050,44 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					
 					scaleTransitionForTitleLabel.setOnFinished(ev -> {});
 					
-					scaleTransitionForHBoxFor5Icons.setToX(0);
-					scaleTransitionForHBoxFor5Icons.setToY(0);
 					scaleTransitionForBackButton.setToX(0);
 					scaleTransitionForBackButton.setToY(0);
 					
 					playMinimizeSound();
 					scaleTransitionForTitleLabel.playFromStart();
-					scaleTransitionForHBoxFor5Icons.playFromStart();
 					scaleTransitionForBackButton.playFromStart();
+					scaleTransitionForSoundIcon.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(800), e ->
+				new KeyFrame(Duration.millis(600), e ->
 				{
 					translateTransitionForTitleImage.setToY(-1.0 * (titleImage.getLayoutY() + titleImage.getBoundsInParent().getHeight() + 20));
-					translateTransitionForWoodImageFor5Icons.setToY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
+					translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
 					
 					playSlideSound();
 					translateTransitionForTitleImage.playFromStart();
-					translateTransitionForWoodImageFor5Icons.playFromStart();
+					translateTransitionForWoodPanelFor1IconImage.playFromStart();
 					
 					if(vBoxForSound.isVisible())
 					{
+						setSoundIcon(soundIcon, false);
+						
 						translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 						translateTransitionForVBoxForSound.playFromStart();
 					}
 				}),
-				new KeyFrame(Duration.millis(1100), e ->
+				new KeyFrame(Duration.millis(800), e ->
 				{
-					setSoundIcon(soundIcon, false);
+					vBoxForSound.setVisible(false);
 					
 					fadeTransitionForMovingEarthImage.setToValue(0);
 					fadeTransitionForMovingEarthImage.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(1500), e ->
+				new KeyFrame(Duration.millis(1000), e ->
 				{
 					if(animationsUsed == ANIMATIONS.ALL) pauseEarthAnimation();
 					welcomeScreen.showScreen(false);
 					
 					backButton.setDisable(false);
-					hBoxFor5Icons.setDisable(false);
 				}));
 		
 		timelineToShowSoundOptions = new Timeline(
@@ -1197,16 +1095,9 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 				{
 					soundIcon.setDisable(true);
 					
-					if(OS == OsCheck.OSType.Windows)
-					{
-						translateTransitionForTitleImage.setToX(-0.1068 * stage.getWidth());
-						translateTransitionForTitleLabel.setToX(-0.1068 * stage.getWidth());
-					}
-					else
-					{
-						translateTransitionForTitleImage.setToX(0.1068 * stage.getWidth());
-						translateTransitionForTitleLabel.setToX(0.1068 * stage.getWidth());
-					}
+					translateTransitionForTitleImage.setToX(-0.0416 * scoreBoardScene.getWidth());
+					translateTransitionForTitleLabel.setToX(-0.0416 * scoreBoardScene.getWidth());
+					
 					translateTransitionForTitleImage.setToY(0);
 					translateTransitionForTitleLabel.setToY(0);
 					
@@ -1214,15 +1105,14 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					translateTransitionForTitleImage.playFromStart();
 					translateTransitionForTitleLabel.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(150), e ->
+				new KeyFrame(Duration.millis(100), e ->
 				{
 					vBoxForSound.setVisible(true);
 					translateTransitionForVBoxForSound.setToY(0);
 					
-					playSlideSound();
 					translateTransitionForVBoxForSound.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(450), e -> soundIcon.setDisable(false)));
+				new KeyFrame(Duration.millis(300), e -> soundIcon.setDisable(false)));
 		
 		timelineToHideSoundOptions = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
@@ -1234,32 +1124,53 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 					playSlideSound();
 					translateTransitionForVBoxForSound.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(150), e ->
+				new KeyFrame(Duration.millis(100), e ->
 				{
 					translateTransitionForTitleImage.setToY(0);
 					translateTransitionForTitleImage.setToX(0);
 					translateTransitionForTitleLabel.setToY(0);
 					translateTransitionForTitleLabel.setToX(0);
 					
-					playSlideSound();
 					translateTransitionForTitleImage.playFromStart();
 					translateTransitionForTitleLabel.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(450), e ->
+				new KeyFrame(Duration.millis(300), e ->
 				{
 					soundIcon.setDisable(false);
 					vBoxForSound.setVisible(false);
 				}));
 	}
 	
+	private void createScene()
+	{
+		scoreBoardScene = new Scene(anchorPane);
+		scoreBoardScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
+				comboBoxCSS, toggleButtonCSS, listViewCSS, labelCSS, scrollPaneCSS, textAreaCSS,
+				progressBarCSS, tableViewCSS);
+		
+		scoreBoardScene.widthProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowWidth = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+			getCurrentPlayer().setWindowWidth(windowWidth);
+		});
+		
+		scoreBoardScene.heightProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowHeight = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+		});
+	}
+	
 	void showScreen()
 	{
-		if (fullScreenMode) setFullScreenMode();
-		else setWindowedMode();
+		stage.setScene(scoreBoardScene);
 		
 		setInitialStateForAllNodes();
-		
-		mainScene.setRoot(anchorPane);
 		
 		if(animationsUsed != ANIMATIONS.NO) timeLineToShowAllStuff.playFromStart();
 	}
@@ -1271,7 +1182,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			previousChalkboardImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
 			woodenFrameImage.setImage(FRAME_IMAGE);
 			movingEarthImage.setImage(MOVING_EARTH_IMAGE_1);
-			woodPanelFor5IconsImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS);
+			woodPanelFor1IconImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON);
 			titleImage.setImage(EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE);
 			backArrowImage.setImage(BACK_ARROW);
 			controlImage.setImage(BACK_ARROW);
@@ -1279,6 +1190,8 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		if(animationsUsed != ANIMATIONS.NO)
 		{
+			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
+			
 			movingEarthImage.setOpacity(0);
 			
 			titleImage.setTranslateX(0);
@@ -1287,13 +1200,11 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			titleLabel.setTranslateX(0);
 			titleLabel.setTranslateY(0);
 			
-			woodPanelFor5IconsImage.setTranslateY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
-			
 			backButton.setScaleX(0);
 			backButton.setScaleY(0);
 			
-			hBoxFor5Icons.setScaleX(0);
-			hBoxFor5Icons.setScaleY(0);
+			soundIcon.setScaleX(0);
+			soundIcon.setScaleY(0);
 			
 			titleLabel.setScaleX(0);
 			titleLabel.setScaleY(0);
@@ -1319,21 +1230,21 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		}
 		else
 		{
+			woodPanelFor1IconImage.setTranslateY(0);
+			
+			soundIcon.setScaleX(1);
+			soundIcon.setScaleY(1);
+			
 			titleImage.setTranslateX(0);
 			titleImage.setTranslateY(0);
 			
 			titleLabel.setTranslateX(0);
 			titleLabel.setTranslateY(0);
 			
-			woodPanelFor5IconsImage.setTranslateY(0);
-			
 			movingEarthImage.setOpacity(1);
 			
 			backButton.setScaleX(1);
 			backButton.setScaleY(1);
-			
-			hBoxFor5Icons.setScaleX(1);
-			hBoxFor5Icons.setScaleY(1);
 			
 			titleLabel.setScaleX(1);
 			titleLabel.setScaleY(1);
@@ -1357,8 +1268,6 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 			
 			backButton.setDisable(false);
 			soundIcon.setDisable(false);
-			minimizeIcon.setDisable(false);
-			fullScreenIcon.setDisable(false);
 		}
 		
 		if(animationsUsed == ANIMATIONS.ALL) movingEarthImage.setCursor(Cursor.HAND);
@@ -1374,7 +1283,7 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		}
 		else
 		{
-			vBoxForPlayerStatistics.setTranslateX(stage.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
+			vBoxForPlayerStatistics.setTranslateX(scoreBoardScene.getWidth() - vBoxForPlayerStatistics.getLayoutX() + 20);
 			vBoxForPlayerStatistics.setVisible(false);
 			
 			tableView.setTranslateX(0);
@@ -1393,6 +1302,8 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		setViewPortProperties();
 		updateStrings();
+		
+		setSoundIcon(soundIcon, false);
 		
 		vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 		vBoxForSound.setVisible(false);
@@ -1455,8 +1366,6 @@ public class ScoreBoardScreen extends CoreScreenWithMovingBackground
 		
 		//ICON TOOLTIPS
 		soundOptionsToolTip.setText(languageResourceBundle.getString("soundOptionsTooltip"));
-		minimizeTooltip.setText(languageResourceBundle.getString("minimizeTooltip"));
-		exitTooltip.setText(languageResourceBundle.getString("exitTooltip"));
 		
 		//TABLE VIEW
 		tableView.setPlaceholder(new Label(languageResourceBundle.getString("scoreboardEmpty")));

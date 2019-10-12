@@ -8,8 +8,11 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.numberFormatForUI;
 /**
  * Created by John on 25/6/2016.
  */
+
 public class GreekRegion
 {
+	public static final int NUMBER_OF_GREEK_REGIONS = 13;
+	
 	private String nameInGreek;
 	private String nameInEnglish;
 	private String seat;

@@ -1,23 +1,27 @@
 package com.johnzaro.geographyquiz.core;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.johnzaro.geographyquiz.core.OsCheck.OSType;
 import com.johnzaro.geographyquiz.dataStructures.*;
 import com.johnzaro.geographyquiz.screens.ErrorScreen;
 import javafx.application.Platform;
 import org.apache.commons.io.FileUtils;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.stream.StreamSupport;
 
 import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 import static com.johnzaro.geographyquiz.core.PowerOn.loadPlayersDataAndSettings;
@@ -26,6 +30,9 @@ public class FilesIO
 {
 	static File gamesScoresFile, playersFile;
 	private static File gameFolder;
+	
+	private final static String PLAYERS_FILE_PATH = "players.json";
+	private final static String GAMES_SCORES_FILE_PATH = "gamesScores.json";
 	
 	//	SET GAME DATA PATH FOR EACH OPERATING SYSTEM
 	static String getGameDataPath(OSType ostype)
@@ -102,21 +109,16 @@ public class FilesIO
 		
 		try
 		{
-			SAXBuilder builder = new SAXBuilder();
-			Document doc = builder.build(playersFile);
-			
-			Element root = doc.getRootElement();
-			
-			List list = root.getChildren();
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode root = mapper.readTree(playersFile);
 			
 			String original, edited;
 			boolean exists;
 			
-			for(Object aList : list)
+			for(JsonNode playerNode : root)
 			{
-				Element player = (Element) aList;
-				original = player.getChildText("originalName");
-				edited = player.getChildText("editedName");
+				original = playerNode.path("originalName").asText();
+				edited = playerNode.path("editedName").asText();
 				exists = false;
 				
 				for(Player originalName: playersArrayList)
@@ -131,40 +133,43 @@ public class FilesIO
 				if(!exists)
 				{
 					tempPlayer = new Player(original, edited);
-					tempPlayer.setHighestScorePoints(Integer.parseInt(player.getChildText("highestScore")));
-					tempPlayer.setTotalCorrectAnswers(Integer.parseInt(player.getChildText("totalCorrectAnswers")));
-					tempPlayer.setTotalQuestionsAnswered(Integer.parseInt(player.getChildText("totalQuestionsAnswered")));
-					tempPlayer.setTotalTimePlayed(Integer.parseInt(player.getChildText("totalTimePlayed")));
-					tempPlayer.setAverageAnswerTime(Double.parseDouble(player.getChildText("averageAnswerTime")));
-					tempPlayer.setMaxCombo(Integer.parseInt(player.getChildText("maxCombo")));
+					tempPlayer.setHighestScorePoints(playerNode.path("highestScorePoints").asInt());
+					tempPlayer.setTotalCorrectAnswers(playerNode.path("totalCorrectAnswers").asInt());
+					tempPlayer.setTotalQuestionsAnswered(playerNode.path("totalQuestionsAnswered").asInt());
+					tempPlayer.setTotalTimePlayed(playerNode.path("totalTimePlayed").asInt());
+					tempPlayer.setAverageAnswerTime(playerNode.path("averageAnswerTime").asDouble());
+					tempPlayer.setMaxCombo(playerNode.path("maxCombo").asInt());
 					
-					Locale locale = Locale.forLanguageTag(player.getChildText("locale"));
-					int localeIndex = Integer.parseInt(player.getChildText("localeIndex"));
-					int language = Integer.parseInt(player.getChildText("language"));
-					int unitSystem = Integer.parseInt(player.getChildText("unitSystem"));
-					int difficulty = Integer.parseInt(player.getChildText("difficultyLevel"));
-					int numForClassic = Integer.parseInt(player.getChildText("numOfQuestionsInClassicMode"));
-					int duration = Integer.parseInt(player.getChildText("durationForTimeAttackMode"));
-					int lives = Integer.parseInt(player.getChildText("livesForEndlessMode"));
-					boolean timerClassic = Boolean.parseBoolean(player.getChildText("timerForClassicMode"));
-					boolean timerEndless = Boolean.parseBoolean(player.getChildText("timerForEndlessMode"));
+					Locale locale = Locale.forLanguageTag(playerNode.path("locale").asText());
+					int localeIndex = playerNode.path("localeIndex").asInt();
+					int language = playerNode.path("language").asText().equals("ENGLISH")? 0 : 1;
+					int unitSystem = playerNode.path("unitSystem").asText().equals("METRIC")? 0 : 1;
+					int difficulty = playerNode.path("difficultyLevel").asText().equals("EASY")? 0 : 1;
+					int numForClassic = playerNode.path("numberOfQuestionsInClassicalMode").asInt();
+					int duration = playerNode.path("durationForTimeAttackMode").asInt();
+					int lives = playerNode.path("livesForEndlessMode").asInt();
+					boolean timerClassic = playerNode.path("timerForClassicMode").asBoolean();
+					boolean timerEndless = playerNode.path("timerForEndlessMode").asBoolean();
 					
-					String[] categories = player.getChildText("questionCategories").split(" ");
-					boolean[] selectedCategories = new boolean[NUM_ALL_CATEGORIES];
-					for(int i = 0; i < categories.length; i++) selectedCategories[Integer.parseInt(categories[i])] = true;
-					tempPlayer.setQuestionCategories(selectedCategories);
+					tempPlayer.setQuestionCategories(StreamSupport.stream(playerNode.path("questionCategories").spliterator(), false).map(JsonNode::asBoolean).toArray(Boolean[]::new));
 					
-					double masterSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("masterVolume"));
-					double musicSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("musicVolume"));
-					double soundEffectsSliderVolume = Double.parseDouble(player.getChild("settings").getChildText("soundEffectsVolume"));
+					double masterSliderVolume = playerNode.path("masterSliderVolume").asDouble();
+					double musicSliderVolume = playerNode.path("musicSliderVolume").asDouble();
+					double soundEffectsSliderVolume = playerNode.path("soundEffectsSliderVolume").asDouble();
 					
-					double windowWidth = Double.parseDouble(player.getChild("settings").getChildText("windowWidth"));
+					double windowWidth = playerNode.path("windowWidth").asDouble();
 					//check if width got is valid for current screen resolution
 					if (!isWidthValid(windowWidth)) windowWidth = 0.75 * primaryScreenWidth;
 					
-					boolean startAtFullScreen = Boolean.parseBoolean(player.getChild("settings").getChildText("startAtFullScreen"));
+					boolean startAtFullScreen = playerNode.path("startAtFullScreen").asBoolean();
 					
-					int animationsUsed = Integer.parseInt(player.getChild("settings").getChildText("animationsUsed"));
+					int animationsUsed = 0;
+					switch(playerNode.path("animationsUsed").asText())
+					{
+						case "NO": animationsUsed = 0;break;
+						case "LIMITED": animationsUsed = 1; break;
+						case "ALL": animationsUsed = 2; break;
+					}
 					
 					if((localeIndex < 0 || localeIndex > NUM_ALL_COUNTRIES) || (language < 0 || language > 1) || (unitSystem < 0 || unitSystem > 1) || (difficulty < 0 || difficulty > 1) ||
 						(numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_10  && numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_20  &&
@@ -172,9 +177,9 @@ public class FilesIO
 						(duration != TIME_ATTACK_DURATION_1_MINUTE && duration != TIME_ATTACK_DURATION_2_MINUTES &&
 						 duration != TIME_ATTACK_DURATION_5_MINUTES && duration != TIME_ATTACK_DURATION_10_MINUTES) ||
 						(lives != ENDLESS_LIVES_1 && lives != ENDLESS_LIVES_3 && lives != ENDLESS_LIVES_5) ||
-						(masterSliderVolume < 0 || masterSliderVolume > 100 ||
-						 musicSliderVolume < 0 || musicSliderVolume > 100 ||
-						 soundEffectsSliderVolume < 0 || soundEffectsSliderVolume > 100) ||
+						(masterSliderVolume < 0.0 || masterSliderVolume > 100.0 ||
+						 musicSliderVolume < 0.0 || musicSliderVolume > 100.0 ||
+						 soundEffectsSliderVolume < 0.0 || soundEffectsSliderVolume > 100.0) ||
 						 animationsUsed < 0 || animationsUsed > 2)
 							tempPlayer.setDefaultPlayerSettings();
 					else
@@ -204,7 +209,7 @@ public class FilesIO
 			}
 			
 			if(playersArrayList.size() == 0) setDefaultPlayerName();
-			else if(list.size() != playersArrayList.size()) writePlayersFile();
+			else if(root.size() != playersArrayList.size()) writePlayersFile();
 		}
 		catch (Exception e)
 		{
@@ -222,109 +227,15 @@ public class FilesIO
 	//	method to write user name in playersFile
 	public static void writePlayersFile()
 	{
+		ObjectMapper mapper = new ObjectMapper();
+		
 		try
 		{
-			Element  namesElement = new Element("playersArrayList");
-			Document doc = new Document(namesElement);
-			if(playersArrayList.size() == 0)
-				playersArrayList.add(new Player(System.getProperty("user.name"), getEditedOriginalName(System.getProperty("user.name"))));
-			
-			boolean exists;
-			for(Player newPlayer : playersArrayList)
-			{
-				exists = false;
-				for(Player existingPlayer: playersArrayList)
-				{
-					if(existingPlayer != newPlayer && existingPlayer.getOriginalName().equals(newPlayer.getOriginalName()))
-					{
-						exists = true;
-						break;
-					}
-				}
-				
-				if(!exists)
-				{
-					Element player = new Element("player");
-					player.addContent(new Element("originalName").setText(newPlayer.getOriginalName()));
-					player.addContent(new Element("editedName").setText(newPlayer.getEditedName()));
-					player.addContent(new Element("highestScore").setText(String.valueOf(newPlayer.getHighestScorePoints())));
-					player.addContent(new Element("totalCorrectAnswers").setText(String.valueOf(newPlayer.getTotalCorrectAnswers())));
-					player.addContent(new Element("totalQuestionsAnswered").setText(String.valueOf(newPlayer.getTotalQuestionsAnswered())));
-					player.addContent(new Element("totalTimePlayed").setText(String.valueOf(newPlayer.getTotalTimePlayed())));
-					player.addContent(new Element("averageAnswerTime").setText(decimalFormatForSaving.format(newPlayer.getAverageAnswerTime())));
-					player.addContent(new Element("maxCombo").setText(String.valueOf(newPlayer.getMaxCombo())));
-					
-					player.addContent(new Element("locale").setText(newPlayer.getLocale().toLanguageTag()));
-					player.addContent(new Element("localeIndex").setText(String.valueOf(newPlayer.getLocaleIndex())));
-					
-					switch(newPlayer.getLanguage())
-					{
-						case ENGLISH: player.addContent(new Element("language").setText("0")); break;
-						case GREEK: player.addContent(new Element("language").setText("1")); break;
-					}
-					switch(newPlayer.getUnitSystem())
-					{
-						case METRIC: player.addContent(new Element("unitSystem").setText("0")); break;
-						case IMPERIAL: player.addContent(new Element("unitSystem").setText("1")); break;
-					}
-					
-					switch(newPlayer.getDifficultyLevel())
-					{
-						case EASY: player.addContent(new Element("difficultyLevel").setText("0")); break;
-						case DIFFICULT: player.addContent(new Element("difficultyLevel").setText("1")); break;
-					}
-					
-					player.addContent(new Element("numOfQuestionsInClassicMode").setText(String.valueOf(newPlayer.getNumberOfQuestionsInClassicalMode())));
-					player.addContent(new Element("durationForTimeAttackMode").setText(String.valueOf(newPlayer.getDurationForTimeAttackMode())));
-					player.addContent(new Element("livesForEndlessMode").setText(String.valueOf(newPlayer.getLivesForEndlessMode())));
-					player.addContent(new Element("timerForClassicMode").setText(String.valueOf(newPlayer.isTimerForClassicMode())));
-					player.addContent(new Element("timerForEndlessMode").setText(String.valueOf(newPlayer.isTimerForEndlessMode())));
-					
-					StringBuilder sb = new StringBuilder();
-					for(int i = 0; i < newPlayer.getQuestionCategories().length; i++) if(newPlayer.getQuestionCategories()[i]) sb.append(i).append(" ");
-					if(sb.length() > 0) sb.deleteCharAt(sb.length() - 1);
-					player.addContent(new Element("questionCategories").setText(sb.toString()));
-					
-					Element settingsElement = new Element("settings");
-					settingsElement.addContent(new Element("masterVolume").setText(String.valueOf((int) newPlayer.getMasterSliderVolume())));
-					settingsElement.addContent(new Element("musicVolume").setText(String.valueOf((int) newPlayer.getMusicSliderVolume())));
-					settingsElement.addContent(new Element("soundEffectsVolume").setText(String.valueOf((int) newPlayer.getSoundEffectsSliderVolume())));
-					settingsElement.addContent(new Element("windowWidth").setText(String.valueOf((int) newPlayer.getWindowWidth())));
-					settingsElement.addContent(new Element("startAtFullScreen").setText(String.valueOf(newPlayer.getStartAtFullScreen())));
-					
-					switch(newPlayer.getAnimationsUsed())
-					{
-						case NO: settingsElement.addContent(new Element("animationsUsed").setText("0")); break;
-						case LIMITED: settingsElement.addContent(new Element("animationsUsed").setText("1")); break;
-						case ALL: settingsElement.addContent(new Element("animationsUsed").setText("2")); break;
-					}
-					player.addContent(settingsElement);
-					
-					namesElement.addContent(player);
-				}
-			}
-			
-			XMLOutputter xmlOutput = new XMLOutputter();
-			xmlOutput.setFormat(Format.getPrettyFormat().setIndent("\t"));
-			xmlOutput.output(doc, new OutputStreamWriter(new FileOutputStream(playersFile, false), "UTF-8"));
+			mapper.writerWithDefaultPrettyPrinter().writeValue(playersFile, playersArrayList);
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
 			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to save player names", e));
-		}
-	}
-	
-	//	small method to empty a file
-	private static void emptyTheFile(File file)
-	{
-		try
-		{
-			//opens the file with a printWriter that first empties the file by default and closes the stream immediately then
-			new PrintWriter(file).close();
-		}
-		catch (FileNotFoundException e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to empty a file", e));
 		}
 	}
 	
@@ -332,46 +243,40 @@ public class FilesIO
 	{
 		try
 		{
-			SAXBuilder builder = new SAXBuilder();
-			Document doc = builder.build(gamesScoresFile);
+			ObjectMapper mapper = new ObjectMapper();
+			mapper.registerModule(new JavaTimeModule().addDeserializer(LocalDateTime.class, new LocalDateTimeDeserializer(dateTimeFormatForSaving)));
+			mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+			JsonNode root = mapper.readTree(gamesScoresFile);
 			
-			Element gamesElement = doc.getRootElement();
-			List gamesList = gamesElement.getChildren();
-			
-			for(Object aGamesList : gamesList)
+			for(JsonNode gameScoreNode : root)
 			{
-				Element gameElement = (Element) aGamesList;
-				
 				Game game = new Game();
-				game.setPlayerName(gameElement.getChildText("playerName"));
-				game.setGameStartedTime(LocalDateTime.parse(gameElement.getChildText("gameStartedTime"), dateTimeFormatForSaving));
-				game.setGameDurationInSeconds(Integer.parseInt(gameElement.getChildText("gameDurationInSeconds")));
+				game.setPlayerName(gameScoreNode.path("playerName").asText());
+				game.setGameStartedTime(LocalDateTime.parse(gameScoreNode.path("gameStartedTime").asText(), dateTimeFormatForSaving));
+				game.setGameDurationInSeconds(gameScoreNode.path("gameDurationInSeconds").asInt());
 				
-				switch(Integer.parseInt(gameElement.getChildText("gameMode")))
+				switch(gameScoreNode.path("gameMode").asText())
 				{
-					case 0: game.setGameMode(GAMEMODE.CLASSIC_GAMEMODE);break;
-					case 1: game.setGameMode(GAMEMODE.TIME_ATTACK_GAMEMODE);break;
-					case 2: game.setGameMode(GAMEMODE.ENDLESS_GAMEMODE); game.setLivesForEndless(Integer.parseInt(gameElement.getChildText("livesForEndless")));break;
+					case "CLASSIC_GAMEMODE": game.setGameMode(GAMEMODE.CLASSIC_GAMEMODE);break;
+					case "TIME_ATTACK_GAMEMODE": game.setGameMode(GAMEMODE.TIME_ATTACK_GAMEMODE);break;
+					case "ENDLESS_GAMEMODE": game.setGameMode(GAMEMODE.ENDLESS_GAMEMODE); game.setLivesForEndless(gameScoreNode.path("livesForEndless").asInt());break;
 				}
 				
-				game.setIsCountdownEnabled(Boolean.parseBoolean(gameElement.getChildText("isCountdownEnabled")));
+				game.setIsCountdownEnabled(gameScoreNode.path("isCountdownEnabled").asBoolean());
 				
-				switch(Integer.parseInt(gameElement.getChildText("difficultyLevel")))
+				switch(gameScoreNode.path("difficultyLevel").asText())
 				{
-					case 0: game.setDifficultyLevel(DIFFICULTY.EASY);break;
-					case 1: game.setDifficultyLevel(DIFFICULTY.DIFFICULT);break;
+					case "EASY": game.setDifficultyLevel(DIFFICULTY.EASY);break;
+					case "DIFFICULT": game.setDifficultyLevel(DIFFICULTY.DIFFICULT);break;
 				}
 				
-				game.setNumberOfAllQuestions(Integer.parseInt(gameElement.getChildText("numberOfAllQuestions")));
-				game.setNumberOfCorrectQuestions(Integer.parseInt(gameElement.getChildText("numberOfCorrectQuestions")));
-				game.setScorePoints(Integer.parseInt(gameElement.getChildText("scorePoints")));
-				game.setMaxCombo(Integer.parseInt(gameElement.getChildText("maxCombo")));
-				game.setAverageAnswerTime(Double.parseDouble(gameElement.getChildText("averageAnswerTime")));
+				game.setNumberOfAllQuestions(gameScoreNode.path("numberOfAllQuestions").asInt());
+				game.setNumberOfCorrectQuestions(gameScoreNode.path("numberOfCorrectQuestions").asInt());
+				game.setScorePoints(gameScoreNode.path("scorePoints").asInt());
+				game.setMaxCombo(gameScoreNode.path("maxCombo").asInt());
+				game.setAverageAnswerTime(gameScoreNode.path("averageAnswerTime").asDouble());
 				
-				String[] questionCategories = gameElement.getChildText("questionCategories").split(" ");
-				Integer[] categories = new Integer[questionCategories.length];
-				for(int j = 0; j < questionCategories.length; j++) categories[j] = Integer.parseInt(questionCategories[j]);
-				game.setQuestionCategories(categories);
+				game.setQuestionCategories(StreamSupport.stream(gameScoreNode.path("questionCategories").spliterator(), false).map(JsonNode::asInt).toArray(Integer[]::new));
 				
 				games.add(game);
 			}
@@ -393,83 +298,82 @@ public class FilesIO
 	
 	public static void writeGameScores()
 	{
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.registerModule(new JavaTimeModule().addSerializer(LocalDateTime.class, new LocalDateTimeSerializer(dateTimeFormatForSaving)));
+		mapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
+		
 		try
 		{
-			Element  gamesElement = new Element("games");
-			Document doc = new Document(gamesElement);
-			
-			for(Game game : games)
-			{
-				Element gameElement = new Element("game");
-				
-				gameElement.addContent(new Element("playerName").setText(game.getPlayerName()));
-				gameElement.addContent(new Element("gameStartedTime").setText(
-						game.getGameStartedTime().format(dateTimeFormatForSaving)));
-				gameElement.addContent(new Element("gameDurationInSeconds").setText(
-						String.valueOf(game.getGameDurationInSeconds())));
-				
-				switch(game.getGameMode())
-				{
-					case CLASSIC_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("0")); break;
-					case TIME_ATTACK_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("1")); break;
-					case ENDLESS_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("2")); break;
-				}
-				
-				if(game.getGameMode() == GAMEMODE.ENDLESS_GAMEMODE)
-					gameElement.addContent(new Element("livesForEndless").setText(
-							String.valueOf(game.getLivesForEndless())));
-				
-				gameElement.addContent(new Element("isCountdownEnabled").setText(
-							String.valueOf(game.isCountdownEnabled())));
-				
-				switch(game.getDifficultyLevel())
-				{
-					case EASY: gameElement.addContent(new Element("difficultyLevel").setText("0")); break;
-					case DIFFICULT: gameElement.addContent(new Element("difficultyLevel").setText("1")); break;
-				}
-				
-				gameElement.addContent(new Element("numberOfAllQuestions").setText(
-						String.valueOf(game.getNumberOfAllQuestions())));
-				
-				gameElement.addContent(new Element("numberOfCorrectQuestions").setText(
-						String.valueOf(game.getNumberOfCorrectQuestions())));
-				
-				gameElement.addContent(new Element("scorePoints").setText(
-						String.valueOf(game.getScorePoints())));
-				
-				gameElement.addContent(new Element("maxCombo").setText(
-						String.valueOf(game.getMaxCombo())));
-				
-				gameElement.addContent(new Element("averageAnswerTime").setText(
-						String.valueOf(game.getAverageAnswerTime())));
-				
-				StringBuilder sb = new StringBuilder();
-				for(int j = 0; j < game.getQuestionCategories().length; j++) sb.append(game.getQuestionCategories()[j]).append(" ");
-				sb.deleteCharAt(sb.length() - 1);
-				gameElement.addContent(new Element("questionCategories").setText(sb.toString()));
-				
-				gamesElement.addContent(gameElement);
-			}
-			
-			XMLOutputter xmlOutput = new XMLOutputter();
-			xmlOutput.setFormat(Format.getPrettyFormat().setIndent("\t"));
-			xmlOutput.output(doc, new OutputStreamWriter(new FileOutputStream(gamesScoresFile, false), "UTF-8"));
+			mapper.writerWithDefaultPrettyPrinter().writeValue(gamesScoresFile, games);
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
 			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to save game scores", e));
 		}
+		
+//		try
+//		{
+//			Element  gamesElement = new Element("games");
+//			Document doc = new Document(gamesElement);
+//
+//			for(Game game : games)
+//			{
+//				Element gameElement = new Element("game");
+//
+//				gameElement.addContent(new Element("playerName").setText(game.getPlayerName()));
+//				gameElement.addContent(new Element("gameStartedTime").setText(game.getGameStartedTime().format(dateTimeFormatForSaving)));
+//				gameElement.addContent(new Element("gameDurationInSeconds").setText(String.valueOf(game.getGameDurationInSeconds())));
+//
+//				switch(game.getGameMode())
+//				{
+//					case CLASSIC_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("0")); break;
+//					case TIME_ATTACK_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("1")); break;
+//					case ENDLESS_GAMEMODE: gameElement.addContent(new Element("gameMode").setText("2")); break;
+//				}
+//
+//				if(game.getGameMode() == GAMEMODE.ENDLESS_GAMEMODE)
+//					gameElement.addContent(new Element("livesForEndless").setText(String.valueOf(game.getLivesForEndless())));
+//
+//				gameElement.addContent(new Element("isCountdownEnabled").setText(String.valueOf(game.isCountdownEnabled())));
+//
+//				switch(game.getDifficultyLevel())
+//				{
+//					case EASY: gameElement.addContent(new Element("difficultyLevel").setText("0")); break;
+//					case DIFFICULT: gameElement.addContent(new Element("difficultyLevel").setText("1")); break;
+//				}
+//
+//				gameElement.addContent(new Element("numberOfAllQuestions").setText(String.valueOf(game.getNumberOfAllQuestions())));
+//				gameElement.addContent(new Element("numberOfCorrectQuestions").setText(String.valueOf(game.getNumberOfCorrectQuestions())));
+//				gameElement.addContent(new Element("scorePoints").setText(String.valueOf(game.getScorePoints())));
+//				gameElement.addContent(new Element("maxCombo").setText(String.valueOf(game.getMaxCombo())));
+//				gameElement.addContent(new Element("averageAnswerTime").setText(String.valueOf(game.getAverageAnswerTime())));
+//
+//				StringBuilder sb = new StringBuilder();
+//				for(int j = 0; j < game.getQuestionCategories().length; j++) sb.append(game.getQuestionCategories()[j]).append(" ");
+//				sb.deleteCharAt(sb.length() - 1);
+//				gameElement.addContent(new Element("questionCategories").setText(sb.toString()));
+//
+//				gamesElement.addContent(gameElement);
+//			}
+//
+//			XMLOutputter xmlOutput = new XMLOutputter();
+//			xmlOutput.setFormat(Format.getPrettyFormat().setIndent("\t"));
+//			xmlOutput.output(doc, new OutputStreamWriter(new FileOutputStream(gamesScoresFile, false), "UTF-8"));
+//		}
+//		catch (Exception e)
+//		{
+//			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to save game scores", e));
+//		}
 	}
 	
 	public static void loadRatioProperties()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/ratioProperties.xml"));
-			
-			List<Element> screens = doc.getRootElement().getChildren();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/ratioProperties.json"));
+			JsonNode screensNode = root.path("ratioProperties");
 			
 			String ratioName;
 			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9) ratioName = "ratio_16_9";
@@ -480,91 +384,102 @@ public class FilesIO
 			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) ratioName = "ratio_5_4";
 			else ratioName = null;
 			
-			Element ratio;
-			
-			for (Element screen: screens)
+			for (JsonNode screenNode: screensNode)
 			{
-				ratio = screen.getChild(ratioName);
+				JsonNode ratio = screenNode.path(ratioName);
 				
-				if(screen.getChildText("name").equals("atlas"))
+				switch(screenNode.path("name").asText())
 				{
-					ratioProperties.getAtlas().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
-					ratioProperties.getAtlas().sethBoxForToggleButtonsLayoutY(Double.parseDouble(ratio.getChildText("hBoxForToggleButtonsLayoutY")));
-					ratioProperties.getAtlas().setTitleImageSetY(Double.parseDouble(ratio.getChildText("titleImageSetY")));
-					ratioProperties.getAtlas().setTitleLabelSetX(Double.parseDouble(ratio.getChildText("titleLabelSetX")));
-					ratioProperties.getAtlas().setTitleLabelSetY(Double.parseDouble(ratio.getChildText("titleLabelSetY")));
-					ratioProperties.getAtlas().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
-					ratioProperties.getAtlas().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
-					ratioProperties.getAtlas().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
-					ratioProperties.getAtlas().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
-				}
-				else if(screen.getChildText("name").equals("gameProperties"))
-				{
-					ratioProperties.getGameProperties().setBackButtonLayoutY(Double.parseDouble(ratio.getChildText("backButtonLayoutY")));
-					ratioProperties.getGameProperties().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
-					ratioProperties.getGameProperties().setNextButtonLayoutY(Double.parseDouble(ratio.getChildText("nextButtonLayoutY")));
-					ratioProperties.getGameProperties().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
-				}
-				else if(screen.getChildText("name").equals("game"))
-				{
-					ratioProperties.getGame().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
-					ratioProperties.getGame().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
-					ratioProperties.getGame().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
-					ratioProperties.getGame().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
-					ratioProperties.getGame().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
-				}
-				else if(screen.getChildText("name").equals("scoreBoard"))
-				{
-					ratioProperties.getScoreBoard().sethBoxFor5IconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor5IconsLayoutY")));
-					ratioProperties.getScoreBoard().setTitleImageSetY(Double.parseDouble(ratio.getChildText("titleImageSetY")));
-					ratioProperties.getScoreBoard().setTitleLabelSetX(Double.parseDouble(ratio.getChildText("titleLabelSetX")));
-					ratioProperties.getScoreBoard().setTitleLabelSetY(Double.parseDouble(ratio.getChildText("titleLabelSetY")));
-					ratioProperties.getScoreBoard().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
-					ratioProperties.getScoreBoard().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
-					ratioProperties.getScoreBoard().setvBoxForSoundPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefWidth")));
-					ratioProperties.getScoreBoard().setWoodPanelFor5IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor5IconsImageLayoutY")));
-				}
-				else if(screen.getChildText("name").equals("welcome"))
-				{
-					ratioProperties.getWelcome().setEditNameIconLayoutY(Double.parseDouble(ratio.getChildText("editNameIconLayoutY")));
-					ratioProperties.getWelcome().setGameNameImageLayoutY(Double.parseDouble(ratio.getChildText("gameNameImageLayoutY")));
-					ratioProperties.getWelcome().setGlobeImageFitWidth(Double.parseDouble(ratio.getChildText("globeImageFitWidth")));
-					ratioProperties.getWelcome().setGlobeImageLayoutY(Double.parseDouble(ratio.getChildText("globeImageLayoutY")));
-					ratioProperties.getWelcome().setGlobeStandFitWidth(Double.parseDouble(ratio.getChildText("globeStandFitWidth")));
-					ratioProperties.getWelcome().setGlobeStandLayoutY(Double.parseDouble(ratio.getChildText("globeStandLayoutY")));
-					ratioProperties.getWelcome().sethBoxFor4SettingsButtonsLayoutY(Double.parseDouble(ratio.getChildText("hBoxFor4SettingsButtonsLayoutY")));
-					ratioProperties.getWelcome().sethBoxForSettingsAndInfoIconsLayoutY(Double.parseDouble(ratio.getChildText("hBoxForSettingsAndInfoIconsLayoutY")));
-					ratioProperties.getWelcome().setLeftGlobeImageLayoutX(Double.parseDouble(ratio.getChildText("leftGlobeImageLayoutX")));
-					ratioProperties.getWelcome().setLeftGlobeStandLayoutX(Double.parseDouble(ratio.getChildText("leftGlobeStandLayoutX")));
-					ratioProperties.getWelcome().setRectangleForInfoAboutGameLayoutY(Double.parseDouble(ratio.getChildText("rectangleForInfoAboutGameLayoutY")));
-					ratioProperties.getWelcome().setRightGlobeImageLayoutX(Double.parseDouble(ratio.getChildText("rightGlobeImageLayoutX")));
-					ratioProperties.getWelcome().setSoundIconLayoutY(Double.parseDouble(ratio.getChildText("soundIconLayoutY")));
-					ratioProperties.getWelcome().setUsersEditSegmentedButtonLayoutY(Double.parseDouble(ratio.getChildText("usersEditSegmentedButtonLayoutY")));
-					ratioProperties.getWelcome().setvBoxesForEditUsersLayoutY(Double.parseDouble(ratio.getChildText("vBoxesForEditUsersLayoutY")));
-					ratioProperties.getWelcome().setvBoxForMainButtonsLayoutY(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsLayoutY")));
-					ratioProperties.getWelcome().setvBoxForMainButtonsPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsPrefHeight")));
-					ratioProperties.getWelcome().setvBoxForMainButtonsPrefWidth(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsPrefWidth")));
-					ratioProperties.getWelcome().setvBoxForMainButtonsSpacing(Double.parseDouble(ratio.getChildText("vBoxForMainButtonsSpacing")));
-					ratioProperties.getWelcome().setvBoxForSettingsLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSettingsLayoutY")));
-					ratioProperties.getWelcome().setvBoxForSoundLayoutY(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutY")));
-					ratioProperties.getWelcome().setvBoxForSoundPrefHeight(Double.parseDouble(ratio.getChildText("vBoxForSoundPrefHeight")));
-					ratioProperties.getWelcome().setWelcomeImageLayoutY(Double.parseDouble(ratio.getChildText("welcomeImageLayoutY")));
-					ratioProperties.getWelcome().setWelcomeLabelLayoutY(Double.parseDouble(ratio.getChildText("welcomeLabelLayoutY")));
-					ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutY")));
-					ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutY(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutY")));
-					
-					if(OS == OSType.Windows)
-					{
-						ratioProperties.getWelcome().setvBoxForSoundLayoutX(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutXWindows")));
-						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutXWindows")));
-						ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutXWindows")));
-					}
-					else
-					{
-						ratioProperties.getWelcome().setvBoxForSoundLayoutX(Double.parseDouble(ratio.getChildText("vBoxForSoundLayoutXOther")));
-						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor1IconImageLayoutXOther")));
-						ratioProperties.getWelcome().setWoodPanelFor4IconsImageLayoutX(Double.parseDouble(ratio.getChildText("woodPanelFor4IconsImageLayoutXOther")));
-					}
+					case "core":
+						ratioProperties.getCore().setvBoxForSoundPrefHeight(ratio.path("vBoxForSoundPrefHeight").asDouble());
+						ratioProperties.getCore().setvBoxForSoundPrefWidth(ratio.path("vBoxForSoundPrefWidth").asDouble());
+						break;
+					case "atlas":
+						ratioProperties.getAtlas().sethBoxForToggleButtonsLayoutY(ratio.path("hBoxForToggleButtonsLayoutY").asDouble());
+						ratioProperties.getAtlas().setTitleImageSetY(ratio.path("titleImageSetY").asDouble());
+						ratioProperties.getAtlas().setTitleLabelSetX(ratio.path("titleLabelSetX").asDouble());
+						ratioProperties.getAtlas().setTitleLabelSetY(ratio.path("titleLabelSetY").asDouble());
+						ratioProperties.getAtlas().setvBoxForSoundLayoutY(ratio.path("vBoxForSoundLayoutY").asDouble());
+						ratioProperties.getAtlas().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
+						ratioProperties.getAtlas().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
+						ratioProperties.getAtlas().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
+						break;
+					case "gameProperties":
+						ratioProperties.getGameProperties().setTitleImage1LayoutY_1(ratio.path("titleImage1LayoutY_1").asDouble());
+						ratioProperties.getGameProperties().setTitleImage1LayoutY_2(ratio.path("titleImage1LayoutY_2").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel1LayoutX_1(ratio.path("titleLabel1LayoutX_1").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel1LayoutX_2(ratio.path("titleLabel1LayoutX_2").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel1LayoutY_1(ratio.path("titleLabel1LayoutY_1").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel1LayoutY_2(ratio.path("titleLabel1LayoutY_2").asDouble());
+						ratioProperties.getGameProperties().setTitleImage2LayoutY(ratio.path("titleImage2LayoutY").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel2LayoutX(ratio.path("titleLabel2LayoutX").asDouble());
+						ratioProperties.getGameProperties().setTitleLabel2LayoutY(ratio.path("titleLabel2LayoutY").asDouble());
+						ratioProperties.getGameProperties().setRectangleForDifficultyLevelWidth(ratio.path("rectangleForDifficultyLevelWidth").asDouble());
+						ratioProperties.getGameProperties().setRectangleForDifficultyLevelHeight(ratio.path("rectangleForDifficultyLevelHeight").asDouble());
+						ratioProperties.getGameProperties().setRectangleForDifficultyLevelLayoutY(ratio.path("rectangleForDifficultyLevelLayoutY").asDouble());
+						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesWidth(ratio.path("rectangleForQuestionCategoriesWidth").asDouble());
+						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesHeight(ratio.path("rectangleForQuestionCategoriesHeight").asDouble());
+						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesLayoutY(ratio.path("rectangleForQuestionCategoriesLayoutY").asDouble());
+						ratioProperties.getGameProperties().setvBoxForDifficultyLevelWidth(ratio.path("vBoxForDifficultyLevelWidth").asDouble());
+						ratioProperties.getGameProperties().setvBoxForDifficultyLevelHeight(ratio.path("vBoxForDifficultyLevelHeight").asDouble());
+						ratioProperties.getGameProperties().setvBoxForDifficultyLevelLayoutY(ratio.path("vBoxForDifficultyLevelLayoutY").asDouble());
+						ratioProperties.getGameProperties().setExtendedQuestionCategoriesWidth(ratio.path("extendedQuestionCategoriesWidth").asDouble());
+						ratioProperties.getGameProperties().setExtendedQuestionCategoriesHeight(ratio.path("extendedQuestionCategoriesHeight").asDouble());
+						ratioProperties.getGameProperties().setRectangleForExtendedQuestionCategoriesHeight(ratio.path("rectangleForExtendedQuestionCategoriesHeight").asDouble());
+						ratioProperties.getGameProperties().sethBoxForGameModesWidth(ratio.path("hBoxForGameModesWidth").asDouble());
+						ratioProperties.getGameProperties().sethBoxForGameModesHeight(ratio.path("hBoxForGameModesHeight").asDouble());
+						ratioProperties.getGameProperties().sethBoxForGameModesLayoutY(ratio.path("hBoxForGameModesLayoutY").asDouble());
+						ratioProperties.getGameProperties().setButtonHeight(ratio.path("buttonHeight").asDouble());
+						ratioProperties.getGameProperties().setHeightOfDescriptions(ratio.path("heightOfDescriptions").asDouble());
+						ratioProperties.getGameProperties().setBackButtonLayoutY(ratio.path("backButtonLayoutY").asDouble());
+						ratioProperties.getGameProperties().setNextButtonLayoutY(ratio.path("nextButtonLayoutY").asDouble());
+						ratioProperties.getGameProperties().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
+						ratioProperties.getGameProperties().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
+						ratioProperties.getGameProperties().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
+						ratioProperties.getGameProperties().setvBoxForSoundLayoutY(ratio.path("vBoxForSoundLayoutY").asDouble());
+						break;
+					case "game":
+						ratioProperties.getGame().setvBoxForSoundLayoutY(ratio.path("vBoxForSoundLayoutY").asDouble());
+						ratioProperties.getGame().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
+						ratioProperties.getGame().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
+						ratioProperties.getGame().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
+						break;
+					case "scoreBoard":
+						ratioProperties.getScoreBoard().setTitleImageSetY(ratio.path("titleImageSetY").asDouble());
+						ratioProperties.getScoreBoard().setTitleLabelSetX(ratio.path("titleLabelSetX").asDouble());
+						ratioProperties.getScoreBoard().setTitleLabelSetY(ratio.path("titleLabelSetY").asDouble());
+						ratioProperties.getScoreBoard().setvBoxForSoundLayoutY(ratio.path("vBoxForSoundLayoutY").asDouble());
+						ratioProperties.getScoreBoard().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
+						ratioProperties.getScoreBoard().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
+						ratioProperties.getScoreBoard().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
+						break;
+					case "welcome":
+						ratioProperties.getWelcome().setEditNameIconLayoutY(ratio.path("editNameIconLayoutY").asDouble());
+						ratioProperties.getWelcome().setGameNameImageLayoutY(ratio.path("gameNameImageLayoutY").asDouble());
+						ratioProperties.getWelcome().setGlobeImageFitWidth(ratio.path("globeImageFitWidth").asDouble());
+						ratioProperties.getWelcome().setGlobeImageLayoutY(ratio.path("globeImageLayoutY").asDouble());
+						ratioProperties.getWelcome().setGlobeStandFitWidth(ratio.path("globeStandFitWidth").asDouble());
+						ratioProperties.getWelcome().setGlobeStandLayoutY(ratio.path("globeStandLayoutY").asDouble());
+						ratioProperties.getWelcome().sethBoxForSettingsAndInfoIconsLayoutY(ratio.path("hBoxForSettingsAndInfoIconsLayoutY").asDouble());
+						ratioProperties.getWelcome().setLeftGlobeImageLayoutX(ratio.path("leftGlobeImageLayoutX").asDouble());
+						ratioProperties.getWelcome().setLeftGlobeStandLayoutX(ratio.path("leftGlobeStandLayoutX").asDouble());
+						ratioProperties.getWelcome().setRectangleForInfoAboutGameLayoutY(ratio.path("rectangleForInfoAboutGameLayoutY").asDouble());
+						ratioProperties.getWelcome().setRightGlobeImageLayoutX(ratio.path("rightGlobeImageLayoutX").asDouble());
+						ratioProperties.getWelcome().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
+						ratioProperties.getWelcome().setUsersEditSegmentedButtonLayoutY(ratio.path("usersEditSegmentedButtonLayoutY").asDouble());
+						ratioProperties.getWelcome().setvBoxesForEditUsersLayoutY(ratio.path("vBoxesForEditUsersLayoutY").asDouble());
+						ratioProperties.getWelcome().setvBoxForMainButtonsLayoutY(ratio.path("vBoxForMainButtonsLayoutY").asDouble());
+						ratioProperties.getWelcome().setvBoxForMainButtonsPrefHeight(ratio.path("vBoxForMainButtonsPrefHeight").asDouble());
+						ratioProperties.getWelcome().setvBoxForMainButtonsPrefWidth(ratio.path("vBoxForMainButtonsPrefWidth").asDouble());
+						ratioProperties.getWelcome().setvBoxForMainButtonsSpacing(ratio.path("vBoxForMainButtonsSpacing").asDouble());
+						ratioProperties.getWelcome().setvBoxForSettingsLayoutY(ratio.path("vBoxForSettingsLayoutY").asDouble());
+						ratioProperties.getWelcome().setWelcomeImageLayoutY(ratio.path("welcomeImageLayoutY").asDouble());
+						ratioProperties.getWelcome().setWelcomeLabelLayoutY(ratio.path("welcomeLabelLayoutY").asDouble());
+						ratioProperties.getWelcome().setvBoxForSoundLayoutX(ratio.path("vBoxForSoundLayoutX").asDouble());
+						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
+						ratioProperties.getWelcome().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
+						ratioProperties.getWelcome().setvBoxForSoundLayoutY(ratio.path("vBoxForSoundLayoutY").asDouble());
+						break;
 				}
 			}
 		}
@@ -607,175 +522,115 @@ public class FilesIO
 		return true;
 	}
 	
-	//	method to read the countries data file
-	public static void readCountriesXMLDataFile()
+	public static void readCountriesDataFile()
 	{
-		//		a SAXBuilder object is needed
-		SAXBuilder builder = new SAXBuilder();
-		
+		ObjectMapper mapper = new ObjectMapper();
+
 		try
 		{
-			//			next we create a document object and pass the result of builder.build with the correct file as parameter
-			Document doc = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/countries.xml"));
-			//			we get the root element of the file from doc object which holds all the information inside the file
-			Element root = doc.getRootElement();
-			
-			//			we create a list of all the children inside the file
-			List list = root.getChildren();
-			
-			//			helper list l2 and array that is needed later
-			List     l2;
-			String[] array;
-			
-			//			loop through the children of root element
-			for (int i = 0; i < list.size(); i++)
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/countries.json"));
+			JsonNode countriesNode = root.path("countries");
+
+			countries = new Country[NUM_ALL_COUNTRIES];
+
+			int i = 0;
+			for(JsonNode countryNode : countriesNode)
 			{
-				//				asign each child in node object
-				Element node = (Element) list.get(i);
-				
-				//				if the method is run for the first time then the countries array has null elements inside so
-				//				it is needed to create a country object for each one, if the language is changed later in the game
-				//				and the method is run again this procedure is not executed again
-				if (countries[i] == null) countries[i] = new Country();
-				
-				countries[i].setPositionInCapitals(Short.parseShort(node.getChild("otherValues").getChildText("positionInCapitals")));
-				countries[i].setAskCapital(Byte.parseByte(node.getChild("otherValues").getChildText("askCapital")));
-				countries[i].setAskLargestCity(Byte.parseByte(node.getChild("otherValues").getChildText("askLargestCity")));
-				countries[i].setHasEasyLocation(Boolean.parseBoolean(node.getChild("otherValues").getChildText("hasEasyLocation")));
-				countries[i].setAskGeographicalCharacteristics(Byte.parseByte(node.getChild("otherValues").getChildText("askGeoChar")));
-				countries[i].setAskCurrency(Byte.parseByte(node.getChild("otherValues").getChildText("askCurrency")));
-				countries[i].setHasEasyFlag(Boolean.parseBoolean(node.getChild("otherValues").getChildText("hasEasyFlag")));
-				countries[i].setAskForCoatOfArms(Boolean.parseBoolean(node.getChild("otherValues").getChildText("askCoatOfArms")));
-				countries[i].setAskLanguage(Byte.parseByte(node.getChild("otherValues").getChildText("askLanguage")));
-				countries[i].setAskContinent(Byte.parseByte(node.getChild("otherValues").getChildText("askContinent")));
-				countries[i].setHasSea(Boolean.parseBoolean(node.getChildText("hasSea")));
-				countries[i].setLocaleCountryCode(node.getChild("otherValues").getChildText("localeCountryCode"));
-				
-				String temp = node.getChild("otherValues").getChildText("localeLanguageCode");
+				if(countries[i] == null) countries[i] = new Country();
+
+				countries[i].setPositionInCapitals(countryNode.path("otherValues").path("positionInCapitals").asInt());
+				countries[i].setAskCapital(countryNode.path("otherValues").path("askCapital").asInt());
+				countries[i].setAskLargestCity(countryNode.path("otherValues").path("askLargestCity").asInt());
+				countries[i].setHasEasyLocation(countryNode.path("otherValues").path("hasEasyLocation").asBoolean());
+				countries[i].setAskGeographicalCharacteristics(countryNode.path("otherValues").path("askGeoChar").asInt());
+				countries[i].setAskCurrency(countryNode.path("otherValues").path("askCurrency").asInt());
+				countries[i].setHasEasyFlag(countryNode.path("otherValues").path("hasEasyFlag").asBoolean());
+				countries[i].setAskForCoatOfArms(countryNode.path("otherValues").path("askCoatOfArms").asBoolean());
+				countries[i].setAskLanguage(countryNode.path("otherValues").path("askLanguage").asInt());
+				countries[i].setAskContinent(countryNode.path("otherValues").path("askContinent").asInt());
+				countries[i].setHasSea(countryNode.path("hasSea").asBoolean());
+				countries[i].setLocaleCountryCode(countryNode.path("otherValues").path("localeCountryCode").asText());
+
+				String temp = countryNode.path("otherValues").path("localeLanguageCode").asText();
 				if(temp.equals("-")) countries[i].setLocaleLanguageCode("");
 				else countries[i].setLocaleLanguageCode(temp);
-				
-				if (node.getChild("isIslandCountry") != null) countries[i].setIsIslandCountry(Boolean.parseBoolean(node.getChildText("isIslandCountry")));
+
+				if(countryNode.path("isIslandCountry") != null) countries[i].setIsIslandCountry(countryNode.path("isIslandCountry").asBoolean());
 				else countries[i].setIsIslandCountry(false);
+
+				countries[i].setNameInGreek(countryNode.path("greekName").asText());
+				countries[i].setNameInEnglish(countryNode.path("englishName").asText());
 				
-				countries[i].setNameInGreek(node.getChildText("greekName"));
-				countries[i].setNameInEnglish(node.getChildText("englishName"));
-				
-				if (getCurrentLanguage() == LANGUAGE.GREEK)
+				countries[i].setIsSovereignState(countryNode.path("isSovereignState").asBoolean());
+
+				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					countries[i].setCapitalName(node.getChildText("greekCapital"));
-					countries[i].setContinent(node.getChildText("continentInGreek"));
-					
-					countries[i].setArticleForCountry(node.getChildText("articleForCountry"));
-					countries[i].setGenitiveCaseOfCountry(node.getChildText("genitiveCaseOfCountry"));
-					countries[i].setArticleForCapital(node.getChildText("articleForCapital"));
-					
-					l2 = node.getChild("largestCitiesInGreek").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element city = (Element) l2.get(j);
-						array[j] = city.getValue();
-					}
-					countries[i].setLargestCities(array);
-					l2.clear();
-					
-					countries[i].setLanguagesString(node.getChildText("languagesStringInGreek"));
-					
+					countries[i].setCapitalName(countryNode.path("greekCapital").asText());
+					countries[i].setContinent(countryNode.path("continentInGreek").asText());
+
+					countries[i].setArticleForCountry(countryNode.path("articleForCountry").asText());
+					countries[i].setGenitiveCaseOfCountry(countryNode.path("genitiveCaseOfCountry").asText());
+					countries[i].setArticleForCapital(countryNode.path("articleForCapital").asText());
+
+					countries[i].setLargestCities(StreamSupport.stream(countryNode.path("largestCitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+
+					countries[i].setLanguagesString(countryNode.path("languagesStringInGreek").asText());
+
 					if(countries[i].askLanguage() != 0)
-					{
-						l2 = node.getChild("languagesToAskInGreek").getChildren("language");
-						array = new String[l2.size()];
-						for (int j = 0; j < l2.size(); j++)
-						{
-							//for each child get it from l2 and assign it to lang and the value of lang to array
-							Element lang = (Element) l2.get(j);
-							array[j] = lang.getValue();
-						}
-						countries[i].setLanguagesToAsk(array);
-						l2.clear();
-					}
-					
+						countries[i].setLanguagesToAsk(StreamSupport.stream(countryNode.path("languagesToAskInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+
 					Currency currency = new Currency();
-					currency.setName(node.getChild("currency").getChildText("nameInGreek"));
-					currency.setSymbol(node.getChild("currency").getChildText("symbol"));
-					currency.setISOCode(node.getChild("currency").getChildText("ISOCode"));
-					currency.setSubdivision(node.getChild("currency").getChildText("subdivisionInGreek"));
-					currency.setNumberOfSubDivisions(node.getChild("currency").getChildText("numberOfSubdivisions"));
+					currency.setName(countryNode.path("currency").path("nameInGreek").asText());
+					currency.setSymbol(countryNode.path("currency").path("symbol").asText());
+					currency.setISOCode(countryNode.path("currency").path("ISOCode").asText());
+					currency.setSubdivision(countryNode.path("currency").path("subdivisionInGreek").asText());
+					currency.setNumberOfSubDivisions(countryNode.path("currency").path("numberOfSubdivisions").asText());
 					countries[i].setCurrency(currency);
 					
-					if (node.getName().equals("sovereignState")) countries[i].setIsSovereignState(true);
-					else
-					{
-						countries[i].setIsSovereignState(false);
-						countries[i].setSovereignState(node.getChildText("sovereignStateInGreek"));
-					}
+					if(!countries[i].isSovereignState()) countries[i].setSovereignState(countryNode.path("sovereignStateInGreek").asText());
 				}
 				else
 				{
-					countries[i].setCapitalName(node.getChildText("englishCapital"));
-					countries[i].setContinent(node.getChildText("continentInEnglish"));
-					
-					l2 = node.getChild("largestCitiesInEnglish").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element city = (Element) l2.get(j);
-						array[j] = city.getValue();
-					}
-					countries[i].setLargestCities(array);
-					l2.clear();
-					
-					countries[i].setLanguagesString(node.getChildText("languagesStringInEnglish"));
-					
+					countries[i].setCapitalName(countryNode.path("englishCapital").asText());
+					countries[i].setContinent(countryNode.path("continentInEnglish").asText());
+
+					countries[i].setLargestCities(StreamSupport.stream(countryNode.path("largestCitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+
+					countries[i].setLanguagesString(countryNode.path("languagesStringInEnglish").asText());
+
 					if(countries[i].askLanguage() != 0)
-					{
-						l2 = node.getChild("languagesToAskInEnglish").getChildren("language");
-						array = new String[l2.size()];
-						for (int j = 0; j < l2.size(); j++)
-						{
-							Element lang = (Element) l2.get(j);
-							array[j] = lang.getValue();
-						}
-						countries[i].setLanguagesToAsk(array);
-						l2.clear();
-					}
-					
+						countries[i].setLanguagesToAsk(StreamSupport.stream(countryNode.path("languagesToAskInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+
 					Currency currency = new Currency();
-					currency.setName(node.getChild("currency").getChildText("nameInEnglish"));
-					currency.setSymbol(node.getChild("currency").getChildText("symbol"));
-					currency.setISOCode(node.getChild("currency").getChildText("ISOCode"));
-					currency.setSubdivision(node.getChild("currency").getChildText("subdivisionInEnglish"));
-					currency.setNumberOfSubDivisions(node.getChild("currency").getChildText("numberOfSubdivisions"));
+					currency.setName(countryNode.path("currency").path("nameInEnglish").asText());
+					currency.setSymbol(countryNode.path("currency").path("symbol").asText());
+					currency.setISOCode(countryNode.path("currency").path("ISOCode").asText());
+					currency.setSubdivision(countryNode.path("currency").path("subdivisionInEnglish").asText());
+					currency.setNumberOfSubDivisions(countryNode.path("currency").path("numberOfSubdivisions").asText());
 					countries[i].setCurrency(currency);
 					
-					if (node.getName().equals("sovereignState")) countries[i].setIsSovereignState(true);
-					else
-					{
-						countries[i].setIsSovereignState(false);
-						countries[i].setSovereignState(node.getChildText("sovereignStateInEnglish"));
-					}
+					if(!countries[i].isSovereignState()) countries[i].setSovereignState(countryNode.path("sovereignStateInEnglish").asText());
 				}
-				
+
 				Area area = new Area();
-				area.setAreaInKilometers(Float.parseFloat(node.getChild("areaData").getChildText("areaInKilometers")));
-				area.setAreaInMiles(Float.parseFloat(node.getChild("areaData").getChildText("areaInMiles")));
-				area.setGlobalRanking(Integer.parseInt(node.getChild("areaData").getChildText("globalRanking")));
-				area.setPercentOfWater(Float.parseFloat(node.getChild("areaData").getChildText("percentOfWater")));
-				if (node.getChild("areaData").getChild("coastlineInKilometers") != null)
+				area.setAreaInKilometers(countryNode.path("areaData").path("areaInKilometers").asDouble());
+				area.setAreaInMiles(countryNode.path("areaData").path("areaInMiles").asDouble());
+				area.setGlobalRanking(countryNode.path("areaData").path("globalRanking").asInt());
+				area.setPercentOfWater(countryNode.path("areaData").path("percentOfWater").asDouble());
+				if(countryNode.path("areaData").path("coastlineInKilometers") != null)
 				{
-					area.setCoastlineInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInKilometers")));
-					area.setCoastlineInMiles(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInMiles")));
+					area.setCoastlineInKilometers(countryNode.path("areaData").path("coastlineInKilometers").asInt());
+					area.setCoastlineInMiles(countryNode.path("areaData").path("coastlineInMiles").asInt());
 				}
 				else
 				{
 					area.setCoastlineInKilometers(0);
 					area.setCoastlineInMiles(0);
 				}
-				if (node.getChild("areaData").getChild("bordersInKilometers") != null)
+				if(countryNode.path("areaData").path("bordersInKilometers") != null)
 				{
-					area.setBordersInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("bordersInKilometers")));
-					area.setBordersInMiles(Integer.parseInt(node.getChild("areaData").getChildText("bordersInMiles")));
+					area.setBordersInKilometers(countryNode.path("areaData").path("bordersInKilometers").asInt());
+					area.setBordersInMiles(countryNode.path("areaData").path("bordersInMiles").asInt());
 				}
 				else
 				{
@@ -783,13 +638,15 @@ public class FilesIO
 					area.setBordersInMiles(0);
 				}
 				countries[i].setArea(area);
-				
+
 				Population population = new Population();
-				population.setPopulation(Integer.parseInt(node.getChild("populationData").getChildText("population")));
-				population.setPopulationDensityPerSquareKilometer(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareKilometer")));
-				population.setPopulationDensityPerSquareMile(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareMile")));
-				population.setGlobalRanking(Integer.parseInt(node.getChild("populationData").getChildText("globalRanking")));
+				population.setPopulation(countryNode.path("populationData").path("population").asInt());
+				population.setPopulationDensityPerSquareKilometer(countryNode.path("populationData").path("populationDensityPerSquareKilometer").asDouble());
+				population.setPopulationDensityPerSquareMile(countryNode.path("populationData").path("populationDensityPerSquareMile").asDouble());
+				population.setGlobalRanking(countryNode.path("populationData").path("globalRanking").asInt());
 				countries[i].setPopulation(population);
+
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -798,156 +655,74 @@ public class FilesIO
 		}
 	}
 	
-	public static void readContinentsXMLDataFile()
+	public static void readContinentsDataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/continents.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/continents.json"));
+			JsonNode continentsNode = root.path("continents");
 			
-			List list = root.getChildren();
+			continents = new Continent[Continent.NUMBER_OF_CONTINENTS];
 			
-			//SPECIAL CASE: ANTARCTICA
-			Element node = (Element) list.get(0);
-			
-			if (continents[0] == null) continents[0] = new Continent();
-			
-			continents[0].setNameInGreek(node.getChildText("greekName"));
-			continents[0].setNameInEnglish(node.getChildText("englishName"));
-			
-			if (getCurrentLanguage() == LANGUAGE.GREEK)
+			int i = 0;
+			for(JsonNode continentNode : continentsNode)
 			{
-				continents[0].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
-				continents[0].setHighestPoint(node.getChildText("highestPointInGreek"));
-				continents[0].setLowestPoint(node.getChildText("lowestPointInGreek"));
-				continents[0].setPopulationString(node.getChild("populationData").getChildText("populationInGreek"));
-			}
-			else
-			{
-				continents[0].setHighestPoint(node.getChildText("highestPointInEnglish"));
-				continents[0].setLowestPoint(node.getChildText("lowestPointInEnglish"));
-				continents[0].setPopulationString(node.getChild("populationData").getChildText("populationInEnglish"));
-			}
-			continents[0].setTimeZones(node.getChildText("timeZones"));
-			continents[0].setAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("areaInKilometers")));
-			continents[0].setAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("areaInMiles")));
-			continents[0].setGlobalAreaRanking(Byte.parseByte(node.getChild("areaData").getChildText("globalRanking")));
-			continents[0].setPercentOfEarth(Float.parseFloat(node.getChild("areaData").getChildText("percentOfTheEarth")));
-			continents[0].setPercentOfLandOfEarth(Float.parseFloat(node.getChild("areaData").getChildText("percentOfLandOfTheEarth")));
-			continents[0].setCoastlineInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInKilometers")));
-			continents[0].setCoastlineInMiles(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInMiles")));
-			continents[0].setGlobalPopulationRanking(Byte.parseByte(node.getChild("populationData").getChildText("globalRanking")));
-			
-			//THE OTHER 6 CONTINENTS
-			for (int i = 1; i < list.size(); i++)
-			{
-				node = (Element) list.get(i);
-				
 				if (continents[i] == null) continents[i] = new Continent();
 				
-				List     l2;
-				String[] array;
-				
-				continents[i].setNameInGreek(node.getChildText("greekName"));
-				continents[i].setNameInEnglish(node.getChildText("englishName"));
+				continents[i].setNameInGreek(continentNode.path("greekName").asText());
+				continents[i].setNameInEnglish(continentNode.path("englishName").asText());
 				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					continents[i].setGenitiveCaseOfContinent(node.getChildText("genitiveCaseOfContinent"));
-					continents[i].setNumberOfCountries(node.getChildText("numberOfCountriesInGreek"));
+					continents[i].setGenitiveCaseOfContinent(continentNode.path("genitiveCaseOfContinent").asText());
+					continents[i].setNumberOfCountries(continentNode.path("numberOfCountriesInGreek").asText());
 					
-					l2 = node.getChild("largestCountriesByAreaInGreek").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCountriesByArea(array);
-					l2.clear();
+					continents[i].setLargestCountriesByArea(StreamSupport.stream(continentNode.path("largestCountriesByAreaInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					continents[i].setLargestCountriesByPopulation(StreamSupport.stream(continentNode.path("largestCountriesByPopulationInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					continents[i].setLargestCities(StreamSupport.stream(continentNode.path("largestCitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 					
-					l2 = node.getChild("largestCountriesByPopulationInGreek").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCountriesByPopulation(array);
-					l2.clear();
+					continents[i].setLanguages(continentNode.path("languagesInGreek").asText());
+					continents[i].setHighestPoint(continentNode.path("highestPointInGreek").asText());
+					continents[i].setLowestPoint(continentNode.path("lowestPointInGreek").asText());
+					continents[i].setLongestRiver(continentNode.path("longestRiverInGreek").asText());
+					continents[i].setLargestLake(continentNode.path("largestLakeInGreek").asText());
 					
-					l2 = node.getChild("largestCitiesInGreek").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCities(array);
-					l2.clear();
-					
-					continents[i].setLanguages(node.getChildText("languagesInGreek"));
-					continents[i].setHighestPoint(node.getChildText("highestPointInGreek"));
-					continents[i].setLowestPoint(node.getChildText("lowestPointInGreek"));
-					continents[i].setLongestRiver(node.getChildText("longestRiverInGreek"));
-					continents[i].setLargestLake(node.getChildText("largestLakeInGreek"));
+					continents[i].setPopulationString(continentNode.path("populationData").path("populationInGreek").asText());
 				}
 				else
 				{
-					continents[i].setNumberOfCountries(node.getChildText("numberOfCountriesInEnglish"));
+					continents[i].setNumberOfCountries(continentNode.path("numberOfCountriesInEnglish").asText());
 					
-					l2 = node.getChild("largestCountriesByAreaInEnglish").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCountriesByArea(array);
-					l2.clear();
+					continents[i].setLargestCountriesByArea(StreamSupport.stream(continentNode.path("largestCountriesByAreaInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					continents[i].setLargestCountriesByPopulation(StreamSupport.stream(continentNode.path("largestCountriesByPopulationInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					continents[i].setLargestCities(StreamSupport.stream(continentNode.path("largestCitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 					
-					l2 = node.getChild("largestCountriesByPopulationInEnglish").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCountriesByPopulation(array);
-					l2.clear();
+					continents[i].setLanguages(continentNode.path("languagesInEnglish").asText());
+					continents[i].setHighestPoint(continentNode.path("highestPointInEnglish").asText());
+					continents[i].setLowestPoint(continentNode.path("lowestPointInEnglish").asText());
+					continents[i].setLongestRiver(continentNode.path("longestRiverInEnglish").asText());
+					continents[i].setLargestLake(continentNode.path("largestLakeInEnglish").asText());
 					
-					l2 = node.getChild("largestCitiesInEnglish").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					continents[i].setLargestCities(array);
-					l2.clear();
-					
-					continents[i].setLanguages(node.getChildText("languagesInEnglish"));
-					continents[i].setHighestPoint(node.getChildText("highestPointInEnglish"));
-					continents[i].setLowestPoint(node.getChildText("lowestPointInEnglish"));
-					continents[i].setLongestRiver(node.getChildText("longestRiverInEnglish"));
-					continents[i].setLargestLake(node.getChildText("largestLakeInEnglish"));
+					continents[i].setPopulationString(continentNode.path("populationData").path("populationInEnglish").asText());
 				}
-				continents[i].setTimeZones(node.getChildText("timeZones"));
+				continents[i].setTimeZones(continentNode.path("timeZones").asText());
 				
-				continents[i].setAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("areaInKilometers")));
-				continents[i].setAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("areaInMiles")));
-				continents[i].setGlobalAreaRanking(Byte.parseByte(node.getChild("areaData").getChildText("globalRanking")));
-				continents[i].setPercentOfEarth(Float.parseFloat(node.getChild("areaData").getChildText("percentOfTheEarth")));
-				continents[i].setPercentOfLandOfEarth(Float.parseFloat(node.getChild("areaData").getChildText("percentOfLandOfTheEarth")));
-				continents[i].setCoastlineInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInKilometers")));
-				continents[i].setCoastlineInMiles(Integer.parseInt(node.getChild("areaData").getChildText("coastlineInMiles")));
+				continents[i].setAreaInKilometers(continentNode.path("areaData").path("areaInKilometers").asInt());
+				continents[i].setAreaInMiles(continentNode.path("areaData").path("areaInMiles").asInt());
+				continents[i].setGlobalAreaRanking(continentNode.path("areaData").path("globalRanking").asInt());
+				continents[i].setPercentOfEarth(continentNode.path("areaData").path("percentOfTheEarth").asInt());
+				continents[i].setPercentOfLandOfEarth(continentNode.path("areaData").path("percentOfLandOfTheEarth").asInt());
+				continents[i].setCoastlineInKilometers(continentNode.path("areaData").path("coastlineInKilometers").asInt());
+				continents[i].setCoastlineInMiles(continentNode.path("areaData").path("coastlineInMiles").asInt());
 				
-				continents[i].setPopulation(Long.parseLong(node.getChild("populationData").getChildText("population")));
-				continents[i].setPopulationDensityPerSquareKilometer(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareKilometer")));
-				continents[i].setPopulationDensityPerSquareMile(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareMile")));
-				continents[i].setGlobalPopulationRanking(Byte.parseByte(node.getChild("populationData").getChildText("globalRanking")));
+				continents[i].setPopulation(continentNode.path("populationData").path("population").asLong());
+				continents[i].setPopulationDensityPerSquareKilometer(continentNode.path("populationData").path("populationDensityPerSquareKilometer").asInt());
+				continents[i].setPopulationDensityPerSquareMile(continentNode.path("populationData").path("populationDensityPerSquareMile").asDouble());
+				continents[i].setGlobalPopulationRanking(continentNode.path("populationData").path("globalRanking").asInt());
+				
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -956,90 +731,74 @@ public class FilesIO
 		}
 	}
 	
-	public static void readStatesOfUSAXMLDataFile()
+	public static void readStatesOfUSADataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/statesOfUSA.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/statesOfUSA.json"));
+			JsonNode statesOfUSANode = root.path("statesOfUSA");
 			
-			List list = root.getChildren();
+			statesOfUSA = new StateOfUSA[StateOfUSA.NUMBER_OF_USA_STATES];
 			
-			List l2;
-			String[] array;
-			
-			for (int i = 0; i < list.size(); i++)
+			int i = 0;
+			for (JsonNode stateOfUSANode : statesOfUSANode)
 			{
-				Element node = (Element) list.get(i);
+				if(statesOfUSA[i] == null) statesOfUSA[i] = new StateOfUSA();
 				
-				if (statesOfUSA[i] == null) statesOfUSA[i] = new StateOfUSA();
-				
-				statesOfUSA[i].setNameInGreek(node.getChildText("nameInGreek"));
-				statesOfUSA[i].setNameInEnglish(node.getChildText("nameInEnglish"));
-				
+				statesOfUSA[i].setNameInGreek(stateOfUSANode.path("nameInGreek").asText());
+				statesOfUSA[i].setNameInEnglish(stateOfUSANode.path("nameInEnglish").asText());
+			
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					statesOfUSA[i].setArticleForState(node.getChildText("articleForState"));
-					statesOfUSA[i].setArticleForCapital(node.getChildText("articleForCapital"));
-					statesOfUSA[i].setCapitalName(node.getChildText("capitalInGreek"));
-					statesOfUSA[i].setSpokenLanguages(node.getChildText("spokenLanguagesInGreek"));
-					statesOfUSA[i].setHighestPoint(node.getChild("areaData").getChildText("highestPointInGreek"));
-					statesOfUSA[i].setLowestPoint(node.getChild("areaData").getChildText("lowestPointInGreek"));
+					statesOfUSA[i].setArticleForState(stateOfUSANode.path("articleForState").asText());
+					statesOfUSA[i].setArticleForCapital(stateOfUSANode.path("articleForCapital").asText());
+					statesOfUSA[i].setCapitalName(stateOfUSANode.path("capitalInGreek").asText());
+					statesOfUSA[i].setSpokenLanguages(stateOfUSANode.path("spokenLanguagesInGreek").asText());
+					statesOfUSA[i].setHighestPoint(stateOfUSANode.path("areaData").path("highestPointInGreek").asText());
+					statesOfUSA[i].setLowestPoint(stateOfUSANode.path("areaData").path("lowestPointInGreek").asText());
 					
-					l2 = node.getChild("largestCitiesInGreek").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element city = (Element) l2.get(j);
-						array[j] = city.getValue();
-					}
-					statesOfUSA[i].setLargestCities(array);
+					statesOfUSA[i].setLargestCities(StreamSupport.stream(stateOfUSANode.path("largestCitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				else
 				{
-					statesOfUSA[i].setCapitalName(node.getChildText("capitalInEnglish"));
-					statesOfUSA[i].setSpokenLanguages(node.getChildText("spokenLanguagesInEnglish"));
-					statesOfUSA[i].setHighestPoint(node.getChild("areaData").getChildText("highestPointInEnglish"));
-					statesOfUSA[i].setLowestPoint(node.getChild("areaData").getChildText("lowestPointInEnglish"));
+					statesOfUSA[i].setCapitalName(stateOfUSANode.path("capitalInEnglish").asText());
+					statesOfUSA[i].setSpokenLanguages(stateOfUSANode.path("spokenLanguagesInEnglish").asText());
+					statesOfUSA[i].setHighestPoint(stateOfUSANode.path("areaData").path("highestPointInEnglish").asText());
+					statesOfUSA[i].setLowestPoint(stateOfUSANode.path("areaData").path("lowestPointInEnglish").asText());
 					
-					l2 = node.getChild("largestCitiesInEnglish").getChildren();
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element city = (Element) l2.get(j);
-						array[j] = city.getValue();
-					}
-					statesOfUSA[i].setLargestCities(array);
+					statesOfUSA[i].setLargestCities(StreamSupport.stream(stateOfUSANode.path("largestCitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				
-				statesOfUSA[i].setAbbreviation(node.getChildText("abbreviation"));
-				statesOfUSA[i].setDateEnteredUnion(LocalDate.parse(node.getChildText("dateEnteredUnion"), dateFormatForSaving));
-				statesOfUSA[i].setNumberOfCounties(Short.parseShort(node.getChildText("numberOfCounties")));
-				statesOfUSA[i].setHouseSeats(Byte.parseByte(node.getChildText("houseSeats")));
-				statesOfUSA[i].setTimeZones(node.getChildText("timeZones"));
+				statesOfUSA[i].setAbbreviation(stateOfUSANode.path("abbreviation").asText());
+				statesOfUSA[i].setDateEnteredUnion(LocalDate.parse(stateOfUSANode.path("dateEnteredUnion").asText(), dateFormatForSaving));
+				statesOfUSA[i].setNumberOfCounties(stateOfUSANode.path("numberOfCounties").asInt());
+				statesOfUSA[i].setHouseSeats(stateOfUSANode.path("houseSeats").asInt());
+				statesOfUSA[i].setTimeZones(stateOfUSANode.path("timeZones").asText());
 				
-				statesOfUSA[i].setPopulation(Integer.parseInt(node.getChild("populationData").getChildText("population")));
-				statesOfUSA[i].setPopulationRank(Byte.parseByte(node.getChild("populationData").getChildText("populationRank")));
-				statesOfUSA[i].setPopulationDensityPerSquareKilometer(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareKilometer")));
-				statesOfUSA[i].setPopulationDensityPerSquareMile(Float.parseFloat(node.getChild("populationData").getChildText("populationDensityPerSquareMile")));
+				statesOfUSA[i].setPopulation(stateOfUSANode.path("populationData").path("population").asInt());
+				statesOfUSA[i].setPopulationRank(stateOfUSANode.path("populationData").path("populationRank").asInt());
+				statesOfUSA[i].setPopulationDensityPerSquareKilometer(stateOfUSANode.path("populationData").path("populationDensityPerSquareKilometer").asDouble());
+				statesOfUSA[i].setPopulationDensityPerSquareMile(stateOfUSANode.path("populationData").path("populationDensityPerSquareMile").asDouble());
 				
-				statesOfUSA[i].setTotalAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("totalAreaInKilometers")));
-				statesOfUSA[i].setTotalAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("totalAreaInMiles")));
-				statesOfUSA[i].setAreaRanking(Byte.parseByte(node.getChild("areaData").getChildText("areaRank")));
-				statesOfUSA[i].setLandAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("landAreaInKilometers")));
-				statesOfUSA[i].setLandAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("landAreaInMiles")));
-				statesOfUSA[i].setLandPercent(Float.parseFloat(node.getChild("areaData").getChildText("landPercent")));
-				statesOfUSA[i].setWaterAreaInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("waterAreaInKilometers")));
-				statesOfUSA[i].setWaterAreaInMiles(Integer.parseInt(node.getChild("areaData").getChildText("waterAreaInMiles")));
-				statesOfUSA[i].setWaterPercent(Float.parseFloat(node.getChild("areaData").getChildText("waterPercent")));
-				statesOfUSA[i].setCoastlineLengthInKilometers(Integer.parseInt(node.getChild("areaData").getChildText("coastlineLengthInKilometers")));
-				statesOfUSA[i].setCoastlineLengthInMiles(Integer.parseInt(node.getChild("areaData").getChildText("coastlineLengthInMiles")));
-				statesOfUSA[i].setHasAccessToTheOcean(Boolean.parseBoolean(node.getChild("areaData").getChildText("hasAccessToTheOcean")));
-				statesOfUSA[i].setMeanPoint(node.getChild("areaData").getChildText("meanPoint"));
+				statesOfUSA[i].setTotalAreaInKilometers(stateOfUSANode.path("areaData").path("totalAreaInKilometers").asInt());
+				statesOfUSA[i].setTotalAreaInMiles(stateOfUSANode.path("areaData").path("totalAreaInMiles").asInt());
+				statesOfUSA[i].setAreaRanking(stateOfUSANode.path("areaData").path("areaRank").asInt());
+				statesOfUSA[i].setLandAreaInKilometers(stateOfUSANode.path("areaData").path("landAreaInKilometers").asInt());
+				statesOfUSA[i].setLandAreaInMiles(stateOfUSANode.path("areaData").path("landAreaInMiles").asInt());
+				statesOfUSA[i].setLandPercent(stateOfUSANode.path("areaData").path("landPercent").asDouble());
+				statesOfUSA[i].setWaterAreaInKilometers(stateOfUSANode.path("areaData").path("waterAreaInKilometers").asInt());
+				statesOfUSA[i].setWaterAreaInMiles(stateOfUSANode.path("areaData").path("waterAreaInMiles").asInt());
+				statesOfUSA[i].setWaterPercent(stateOfUSANode.path("areaData").path("waterPercent").asDouble());
+				statesOfUSA[i].setCoastlineLengthInKilometers(stateOfUSANode.path("areaData").path("coastlineLengthInKilometers").asInt());
+				statesOfUSA[i].setCoastlineLengthInMiles(stateOfUSANode.path("areaData").path("coastlineLengthInMiles").asInt());
+				statesOfUSA[i].setHasAccessToTheOcean(stateOfUSANode.path("areaData").path("hasAccessToTheOcean").asBoolean());
+				statesOfUSA[i].setMeanPoint(stateOfUSANode.path("areaData").path("meanPoint").asText());
 				
-				statesOfUSA[i].setPositionInCapitals(Short.parseShort(node.getChild("otherValues").getChildText("positionInCapitals")));
+				statesOfUSA[i].setPositionInCapitals(stateOfUSANode.path("otherValues").path("positionInCapitals").asInt());
+				
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -1048,111 +807,57 @@ public class FilesIO
 		}
 	}
 	
-	public static void readGreekDecentralizedAdministrationsXMLDataFile()
+	public static void readGreekDecentralizedAdministrationsDataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/decentralizedAdministrations.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/Greece/decentralizedAdministrations.json"));
+			JsonNode decAdminsNode = root.path("decentralizedAdministrations");
 			
-			List list = root.getChildren();
+			greekDecAdm = new GreekDecentralizedAdministration[GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS];
 			
-			for (int i = 0; i < list.size(); i++)
+			int i = 0;
+			for (JsonNode decAdminNode : decAdminsNode)
 			{
-				Element node = (Element) list.get(i);
-				
 				if (greekDecAdm[i] == null) greekDecAdm[i] = new GreekDecentralizedAdministration();
 				
-				List     l2;
-				String[] array;
-				
-				greekDecAdm[i].setNameInGreek(node.getChildText("nameInGreek"));
-				greekDecAdm[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				greekDecAdm[i].setNameInGreek(decAdminNode.path("nameInGreek").asText());
+				greekDecAdm[i].setNameInEnglish(decAdminNode.path("nameInEnglish").asText());
 				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					greekDecAdm[i].setHeadquarters(node.getChildText("headquartersInGreek"));
-					greekDecAdm[i].setWikipediaLink(node.getChildText("wikipediaLinkInGreek"));
+					greekDecAdm[i].setHeadquarters(decAdminNode.path("headquartersInGreek").asText());
+					greekDecAdm[i].setWikipediaLink(decAdminNode.path("wikipediaLinkInGreek").asText());
 					
-					l2 = node.getChild("regionsInGreek").getChildren("regionInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setRegions(array);
-					l2.clear();
-					
-					l2 = node.getChild("regionalUnitsInGreek").getChildren("regionalUnitInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setRegionalUnits(array);
-					l2.clear();
-					
-					l2 = node.getChild("municipalitiesInGreek").getChildren("municipalityInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setMunicipalities(array);
-					l2.clear();
+					greekDecAdm[i].setRegions(StreamSupport.stream(decAdminNode.path("regionsInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekDecAdm[i].setRegionalUnits(StreamSupport.stream(decAdminNode.path("regionalUnitsInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekDecAdm[i].setMunicipalities(StreamSupport.stream(decAdminNode.path("municipalitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				else
 				{
-					greekDecAdm[i].setHeadquarters(node.getChildText("headquartersInEnglish"));
-					greekDecAdm[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
+					greekDecAdm[i].setHeadquarters(decAdminNode.path("headquartersInEnglish").asText());
+					greekDecAdm[i].setWikipediaLink(decAdminNode.path("wikipediaLinkInEnglish").asText());
 					
-					l2 = node.getChild("regionsInEnglish").getChildren("regionInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setRegions(array);
-					l2.clear();
-					
-					l2 = node.getChild("regionalUnitsInEnglish").getChildren("regionalUnitInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setRegionalUnits(array);
-					l2.clear();
-					
-					l2 = node.getChild("municipalitiesInEnglish").getChildren("municipalityInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekDecAdm[i].setMunicipalities(array);
-					l2.clear();
+					greekDecAdm[i].setRegions(StreamSupport.stream(decAdminNode.path("regionsInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekDecAdm[i].setRegionalUnits(StreamSupport.stream(decAdminNode.path("regionalUnitsInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekDecAdm[i].setMunicipalities(StreamSupport.stream(decAdminNode.path("municipalitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				
-				greekDecAdm[i].setYearFormed(node.getChildText("yearFormed"));
-				greekDecAdm[i].setWebsite(node.getChildText("website"));
+				greekDecAdm[i].setYearFormed(decAdminNode.path("yearFormed").asText());
+				greekDecAdm[i].setWebsite(decAdminNode.path("website").asText());
 				
-				greekDecAdm[i].setAreaInKilometers(Integer.parseInt(node.getChildText("areaInKilometers")));
-				greekDecAdm[i].setAreaInMiles(Integer.parseInt(node.getChildText("areaInMiles")));
+				greekDecAdm[i].setAreaInKilometers(decAdminNode.path("areaInKilometers").asInt());
+				greekDecAdm[i].setAreaInMiles(decAdminNode.path("areaInMiles").asInt());
 				
-				greekDecAdm[i].setPopulation(Integer.parseInt(node.getChildText("population")));
+				greekDecAdm[i].setPopulation(decAdminNode.path("population").asInt());
 				
-				greekDecAdm[i].setNumberOfRegions(Integer.parseInt(node.getChildText("numberOfRegions")));
-				greekDecAdm[i].setNumberOfRegionalUnits(Integer.parseInt(node.getChildText("numberOfRegionalUnits")));
-				greekDecAdm[i].setNumberOfMunicipalities(Integer.parseInt(node.getChildText("numberOfMunicipalities")));
+				greekDecAdm[i].setNumberOfRegions(decAdminNode.path("numberOfRegions").asInt());
+				greekDecAdm[i].setNumberOfRegionalUnits(decAdminNode.path("numberOfRegionalUnits").asInt());
+				greekDecAdm[i].setNumberOfMunicipalities(decAdminNode.path("numberOfMunicipalities").asInt());
+				
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -1161,101 +866,65 @@ public class FilesIO
 		}
 	}
 	
-	public static void readGreekRegionsXMLDataFile()
+	public static void readGreekRegionsDataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regions.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regions.json"));
+			JsonNode regionsNode = root.path("regions");
 			
-			List list = root.getChildren();
+			greekRegions = new GreekRegion[GreekRegion.NUMBER_OF_GREEK_REGIONS];
 			
-			for (int i = 0; i < list.size(); i++)
+			int i = 0;
+			for(JsonNode regionNode : regionsNode)
 			{
-				Element node = (Element) list.get(i);
-				
 				if (greekRegions[i] == null) greekRegions[i] = new GreekRegion();
 				
-				List     l2;
-				String[] array;
-				
-				greekRegions[i].setNameInGreek(node.getChildText("nameInGreek"));
-				greekRegions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				greekRegions[i].setNameInGreek(regionNode.path("nameInGreek").asText());
+				greekRegions[i].setNameInEnglish(regionNode.path("nameInEnglish").asText());
 				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					greekRegions[i].setSeat(node.getChildText("seatInGreek"));
-					greekRegions[i].setLargestCity(node.getChildText("largestCityInGreek"));
-					greekRegions[i].setLargestMunicipality(node.getChildText("largestMunicipalityInGreek"));
-					greekRegions[i].setHighestPoint(node.getChildText("highestPointInGreek"));
-					greekRegions[i].setWikipediaLink(node.getChildText("wikipediaLinkInGreek"));
-					greekRegions[i].setDecentralizedAdministration(node.getChildText("decentralizedAdministrationInGreek"));
+					greekRegions[i].setSeat(regionNode.path("seatInGreek").asText());
+					greekRegions[i].setLargestCity(regionNode.path("largestCityInGreek").asText());
+					greekRegions[i].setLargestMunicipality(regionNode.path("largestMunicipalityInGreek").asText());
+					greekRegions[i].setHighestPoint(regionNode.path("highestPointInGreek").asText());
+					greekRegions[i].setWikipediaLink(regionNode.path("wikipediaLinkInGreek").asText());
+					greekRegions[i].setDecentralizedAdministration(regionNode.path("decentralizedAdministrationInGreek").asText());
 					
-					l2 = node.getChild("regionalUnitsInGreek").getChildren("regionalUnitInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegions[i].setRegionalUnits(array);
-					l2.clear();
-					
-					l2 = node.getChild("municipalitiesInGreek").getChildren("municipalityInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegions[i].setMunicipalities(array);
-					l2.clear();
+					greekRegions[i].setRegionalUnits(StreamSupport.stream(regionNode.path("regionalUnitsInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekRegions[i].setMunicipalities(StreamSupport.stream(regionNode.path("municipalitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				else
 				{
-					greekRegions[i].setSeat(node.getChildText("seatInEnglish"));
-					greekRegions[i].setLargestCity(node.getChildText("largestCityInEnglish"));
-					greekRegions[i].setLargestMunicipality(node.getChildText("largestMunicipalityInEnglish"));
-					greekRegions[i].setHighestPoint(node.getChildText("highestPointInEnglish"));
-					greekRegions[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
-					greekRegions[i].setDecentralizedAdministration(node.getChildText("decentralizedAdministrationInEnglish"));
+					greekRegions[i].setSeat(regionNode.path("seatInEnglish").asText());
+					greekRegions[i].setLargestCity(regionNode.path("largestCityInEnglish").asText());
+					greekRegions[i].setLargestMunicipality(regionNode.path("largestMunicipalityInEnglish").asText());
+					greekRegions[i].setHighestPoint(regionNode.path("highestPointInEnglish").asText());
+					greekRegions[i].setWikipediaLink(regionNode.path("wikipediaLinkInEnglish").asText());
+					greekRegions[i].setDecentralizedAdministration(regionNode.path("decentralizedAdministrationInEnglish").asText());
 					
-					l2 = node.getChild("regionalUnitsInEnglish").getChildren("regionalUnitInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegions[i].setRegionalUnits(array);
-					l2.clear();
-					
-					l2 = node.getChild("municipalitiesInEnglish").getChildren("municipalityInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegions[i].setMunicipalities(array);
-					l2.clear();
+					greekRegions[i].setRegionalUnits(StreamSupport.stream(regionNode.path("regionalUnitsInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
+					greekRegions[i].setMunicipalities(StreamSupport.stream(regionNode.path("municipalitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				
-				greekRegions[i].setWebsite(node.getChildText("website"));
+				greekRegions[i].setWebsite(regionNode.path("website").asText());
 				
-				greekRegions[i].setAreaInKilometers(Integer.parseInt(node.getChildText("areaInKilometers")));
-				greekRegions[i].setAreaInMiles(Integer.parseInt(node.getChildText("areaInMiles")));
-				greekRegions[i].setAreaRanking(Integer.parseInt(node.getChildText("areaRanking")));
+				greekRegions[i].setAreaInKilometers(regionNode.path("areaInKilometers").asInt());
+				greekRegions[i].setAreaInMiles(regionNode.path("areaInMiles").asInt());
+				greekRegions[i].setAreaRanking(regionNode.path("areaRanking").asInt());
 				
-				greekRegions[i].setPopulation(Integer.parseInt(node.getChildText("population")));
-				greekRegions[i].setPopulationDensityPerSquareKilometer(Integer.parseInt(node.getChildText("populationDensityPerSquareKilometer")));
-				greekRegions[i].setPopulationDensityPerSquareMile(Integer.parseInt(node.getChildText("populationDensityPerSquareMile")));
-				greekRegions[i].setPopulationRanking(Integer.parseInt(node.getChildText("populationRanking")));
+				greekRegions[i].setPopulation(regionNode.path("population").asInt());
+				greekRegions[i].setPopulationDensityPerSquareKilometer(regionNode.path("populationDensityPerSquareKilometer").asInt());
+				greekRegions[i].setPopulationDensityPerSquareMile(regionNode.path("populationDensityPerSquareMile").asInt());
+				greekRegions[i].setPopulationRanking(regionNode.path("populationRanking").asInt());
 				
-				greekRegions[i].setNumberOfRegionalUnits(Integer.parseInt(node.getChildText("numberOfRegionalUnits")));
-				greekRegions[i].setNumberOfMunicipalities(Integer.parseInt(node.getChildText("numberOfMunicipalities")));
+				greekRegions[i].setNumberOfRegionalUnits(regionNode.path("numberOfRegionalUnits").asInt());
+				greekRegions[i].setNumberOfMunicipalities(regionNode.path("numberOfMunicipalities").asInt());
+				
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -1264,82 +933,64 @@ public class FilesIO
 		}
 	}
 	
-	public static void readGreekRegionalUnitsXMLDataFile()
+	public static void readGreekRegionalUnitsDataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regionalUnits.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/Greece/regionalUnits.json"));
+			JsonNode regionalUnitsNode = root.path("regionalUnits");
 			
-			List list = root.getChildren();
+			greekRegionalUnits = new GreekRegionalUnit[GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS];
 			
-			for (int i = 0; i < list.size(); i++)
+			int i = 0;
+			for(JsonNode regionalUnitNode : regionalUnitsNode)
 			{
-				Element node = (Element) list.get(i);
-				
 				if (greekRegionalUnits[i] == null) greekRegionalUnits[i] = new GreekRegionalUnit();
 				
-				List     l2;
-				String[] array;
-				
-				greekRegionalUnits[i].setNameInGreek(node.getChildText("nameInGreek"));
-				greekRegionalUnits[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				greekRegionalUnits[i].setNameInGreek(regionalUnitNode.path("nameInGreek").asText());
+				greekRegionalUnits[i].setNameInEnglish(regionalUnitNode.path("nameInEnglish").asText());
 				
 				if (getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					greekRegionalUnits[i].setCapital(node.getChildText("capitalInGreek"));
-					greekRegionalUnits[i].setLargestCity(node.getChildText("largestCityInGreek"));
-					greekRegionalUnits[i].setLargestMunicipality(node.getChildText("largestMunicipalityInGreek"));
-					greekRegionalUnits[i].setHighestPoint(node.getChildText("highestPointInGreek"));
-					greekRegionalUnits[i].setWikipediaLink(node.getChildText("wikipediaLinkInGreek"));
-					greekRegionalUnits[i].setDecentralizedAdministration(node.getChildText("decentralizedAdministrationInGreek"));
-					greekRegionalUnits[i].setRegion(node.getChildText("regionInGreek"));
+					greekRegionalUnits[i].setCapital(regionalUnitNode.path("capitalInGreek").asText());
+					greekRegionalUnits[i].setLargestCity(regionalUnitNode.path("largestCityInGreek").asText());
+					greekRegionalUnits[i].setLargestMunicipality(regionalUnitNode.path("largestMunicipalityInGreek").asText());
+					greekRegionalUnits[i].setHighestPoint(regionalUnitNode.path("highestPointInGreek").asText());
+					greekRegionalUnits[i].setWikipediaLink(regionalUnitNode.path("wikipediaLinkInGreek").asText());
+					greekRegionalUnits[i].setDecentralizedAdministration(regionalUnitNode.path("decentralizedAdministrationInGreek").asText());
+					greekRegionalUnits[i].setRegion(regionalUnitNode.path("regionInGreek").asText());
 					
-					l2 = node.getChild("municipalitiesInGreek").getChildren("municipalityInGreek");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegionalUnits[i].setMunicipalities(array);
-					l2.clear();
+					greekRegionalUnits[i].setMunicipalities(StreamSupport.stream(regionalUnitNode.path("municipalitiesInGreek").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				else
 				{
-					greekRegionalUnits[i].setCapital(node.getChildText("capitalInEnglish"));
-					greekRegionalUnits[i].setLargestCity(node.getChildText("largestCityInEnglish"));
-					greekRegionalUnits[i].setLargestMunicipality(node.getChildText("largestMunicipalityInEnglish"));
-					greekRegionalUnits[i].setHighestPoint(node.getChildText("highestPointInEnglish"));
-					greekRegionalUnits[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
-					greekRegionalUnits[i].setDecentralizedAdministration(node.getChildText("decentralizedAdministrationInEnglish"));
-					greekRegionalUnits[i].setRegion(node.getChildText("regionInEnglish"));
+					greekRegionalUnits[i].setCapital(regionalUnitNode.path("capitalInEnglish").asText());
+					greekRegionalUnits[i].setLargestCity(regionalUnitNode.path("largestCityInEnglish").asText());
+					greekRegionalUnits[i].setLargestMunicipality(regionalUnitNode.path("largestMunicipalityInEnglish").asText());
+					greekRegionalUnits[i].setHighestPoint(regionalUnitNode.path("highestPointInEnglish").asText());
+					greekRegionalUnits[i].setWikipediaLink(regionalUnitNode.path("wikipediaLinkInEnglish").asText());
+					greekRegionalUnits[i].setDecentralizedAdministration(regionalUnitNode.path("decentralizedAdministrationInEnglish").asText());
+					greekRegionalUnits[i].setRegion(regionalUnitNode.path("regionInEnglish").asText());
 					
-					l2 = node.getChild("municipalitiesInEnglish").getChildren("municipalityInEnglish");
-					array = new String[l2.size()];
-					for (int j = 0; j < l2.size(); j++)
-					{
-						Element lang = (Element) l2.get(j);
-						array[j] = lang.getValue();
-					}
-					greekRegionalUnits[i].setMunicipalities(array);
-					l2.clear();
+					greekRegionalUnits[i].setMunicipalities(StreamSupport.stream(regionalUnitNode.path("municipalitiesInEnglish").spliterator(), false).map(JsonNode::asText).toArray(String[]::new));
 				}
 				
-				greekRegionalUnits[i].setWebsite(node.getChildText("website"));
+				greekRegionalUnits[i].setWebsite(regionalUnitNode.path("website").asText());
 				
-				greekRegionalUnits[i].setAreaInKilometers(Integer.parseInt(node.getChildText("areaInKilometers")));
-				greekRegionalUnits[i].setAreaInMiles(Integer.parseInt(node.getChildText("areaInMiles")));
-				greekRegionalUnits[i].setAreaRanking(Integer.parseInt(node.getChildText("areaRanking")));
+				greekRegionalUnits[i].setAreaInKilometers(regionalUnitNode.path("areaInKilometers").asInt());
+				greekRegionalUnits[i].setAreaInMiles(regionalUnitNode.path("areaInMiles").asInt());
+				greekRegionalUnits[i].setAreaRanking(regionalUnitNode.path("areaRanking").asInt());
 				
-				greekRegionalUnits[i].setPopulation(Integer.parseInt(node.getChildText("population")));
-				greekRegionalUnits[i].setPopulationDensityPerSquareKilometer(Integer.parseInt(node.getChildText("populationDensityPerSquareKilometer")));
-				greekRegionalUnits[i].setPopulationDensityPerSquareMile(Integer.parseInt(node.getChildText("populationDensityPerSquareMile")));
-				greekRegionalUnits[i].setPopulationRanking(Integer.parseInt(node.getChildText("populationRanking")));
+				greekRegionalUnits[i].setPopulation(regionalUnitNode.path("population").asInt());
+				greekRegionalUnits[i].setPopulationDensityPerSquareKilometer(regionalUnitNode.path("populationDensityPerSquareKilometer").asInt());
+				greekRegionalUnits[i].setPopulationDensityPerSquareMile(regionalUnitNode.path("populationDensityPerSquareMile").asInt());
+				greekRegionalUnits[i].setPopulationRanking(regionalUnitNode.path("populationRanking").asInt());
 				
-				greekRegionalUnits[i].setNumberOfMunicipalities(Integer.parseInt(node.getChildText("numberOfMunicipalities")));
+				greekRegionalUnits[i].setNumberOfMunicipalities(regionalUnitNode.path("numberOfMunicipalities").asInt());
+				
+				i++;
 			}
 		}
 		catch (Exception e)
@@ -1348,48 +999,47 @@ public class FilesIO
 		}
 	}
 	
-	public static void readAttractionsXMLDataFile()
+	public static void readAttractionsDataFile()
 	{
-		SAXBuilder builder = new SAXBuilder();
+		ObjectMapper mapper = new ObjectMapper();
 		
 		try
 		{
-			Document doc  = builder.build(FilesIO.class.getResourceAsStream("/dataFiles/attractions.xml"));
-			Element  root = doc.getRootElement();
+			JsonNode root = mapper.readTree(FilesIO.class.getResourceAsStream("/dataFiles/attractions.json"));
+			JsonNode attractionsNode = root.path("attractions");
 			
-			List list = root.getChildren();
-			
-			Attraction.setNumberOfAttractions(list.size());
+			Attraction.setNumberOfAttractions(attractionsNode.size());
 			attractions = new Attraction[Attraction.getNumberOfAttractions()];
 			
-			for (int i = 0; i < list.size(); i++)
+			int i = 0;
+			for (JsonNode attractionNode : attractionsNode)
 			{
-				Element node = (Element) list.get(i);
-				
 				if (attractions[i] == null) attractions[i] = new Attraction();
 				
-				attractions[i].setNameInGreek(node.getChildText("nameInGreek"));
-				attractions[i].setNameInEnglish(node.getChildText("nameInEnglish"));
+				attractions[i].setNameInGreek(attractionNode.path("nameInGreek").asText());
+				attractions[i].setNameInEnglish(attractionNode.path("nameInEnglish").asText());
 				
 				if(getCurrentLanguage() == LANGUAGE.GREEK)
 				{
-					attractions[i].setCountry(node.getChildText("countryInGreek"));
-					attractions[i].setCity(node.getChildText("cityInGreek"));
-					attractions[i].setBasicInfo(node.getChildText("basicInfoInGreek"));
-					attractions[i].setWikipediaLink(node.getChildText("wikipediaLinkInGreek"));
-					attractions[i].setGreekArticle(node.getChildText("greekArticle"));
+					attractions[i].setCountry(attractionNode.path("countryInGreek").asText());
+					attractions[i].setCity(attractionNode.path("cityInGreek").asText());
+					attractions[i].setBasicInfo(attractionNode.path("basicInfoInGreek").asText());
+					attractions[i].setWikipediaLink(attractionNode.path("wikipediaLinkInGreek").asText());
+					attractions[i].setGreekArticle(attractionNode.path("greekArticle").asText());
 				}
 				else
 				{
-					attractions[i].setCountry(node.getChildText("countryInEnglish"));
-					attractions[i].setCity(node.getChildText("cityInEnglish"));
-					attractions[i].setBasicInfo(node.getChildText("basicInfoInEnglish"));
-					attractions[i].setWikipediaLink(node.getChildText("wikipediaLinkInEnglish"));
+					attractions[i].setCountry(attractionNode.path("countryInEnglish").asText());
+					attractions[i].setCity(attractionNode.path("cityInEnglish").asText());
+					attractions[i].setBasicInfo(attractionNode.path("basicInfoInEnglish").asText());
+					attractions[i].setWikipediaLink(attractionNode.path("wikipediaLinkInEnglish").asText());
 				}
 				
-				attractions[i].setYearBuilt(node.getChildText("yearBuilt"));
-				attractions[i].setCoordinates(node.getChildText("coordinates"));
-				attractions[i].setEasy(Boolean.parseBoolean(node.getChildText("isEasy")));
+				attractions[i].setYearBuilt(attractionNode.path("yearBuilt").asText());
+				attractions[i].setCoordinates(attractionNode.path("coordinates").asText());
+				attractions[i].setEasy(attractionNode.path("isEasy").asBoolean());
+				
+				i++;
 			}
 		}
 		catch (Exception e)

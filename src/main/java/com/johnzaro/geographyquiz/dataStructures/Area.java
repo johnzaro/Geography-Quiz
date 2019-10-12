@@ -4,12 +4,12 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 
 public class Area
 {
-	private float areaInKilometers;
-	private float areaInMiles;
+	private double areaInKilometers;
+	private double areaInMiles;
 
 	private int globalRanking;
 
-	private float percentOfWater;
+	private double percentOfWater;
 
 	private int coastlineInKilometers;
 	private int coastlineInMiles;
@@ -35,22 +35,22 @@ public class Area
 		else return numberFormatForUI.format(areaInMiles) + " sq mi";
 	}
 
-	public float getAreaInKilometers()
+	public double getAreaInKilometers()
 	{
 		return areaInKilometers;
 	}
 
-	public void setAreaInKilometers(float areaInKilometers)
+	public void setAreaInKilometers(double areaInKilometers)
 	{
 		this.areaInKilometers = areaInKilometers;
 	}
 
-	public float getAreaInMiles()
+	public double getAreaInMiles()
 	{
 		return areaInMiles;
 	}
 
-	public void setAreaInMiles(float areaInMiles)
+	public void setAreaInMiles(double areaInMiles)
 	{
 		this.areaInMiles = areaInMiles;
 	}
@@ -65,12 +65,12 @@ public class Area
 		this.globalRanking = globalRanking;
 	}
 
-	public float getPercentOfWater()
+	public double getPercentOfWater()
 	{
 		return percentOfWater;
 	}
 
-	public void setPercentOfWater(float percentOfWater)
+	public void setPercentOfWater(double percentOfWater)
 	{
 		this.percentOfWater = percentOfWater;
 	}

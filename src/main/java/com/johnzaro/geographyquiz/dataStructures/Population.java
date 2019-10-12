@@ -5,8 +5,8 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 public class Population
 {
 	private int population;
-	private float populationDensityPerSquareKilometer;
-	private float populationDensityPerSquareMile;
+	private double populationDensityPerSquareKilometer;
+	private double populationDensityPerSquareMile;
 	private int globalRanking;
 
 	public int getGlobalRanking()
@@ -29,22 +29,22 @@ public class Population
 		this.population = population;
 	}
 
-	public float getPopulationDensityPerSquareKilometer()
+	public double getPopulationDensityPerSquareKilometer()
 	{
 		return populationDensityPerSquareKilometer;
 	}
 
-	public void setPopulationDensityPerSquareKilometer(float populationDensityPerSquareKilometer)
+	public void setPopulationDensityPerSquareKilometer(double populationDensityPerSquareKilometer)
 	{
 		this.populationDensityPerSquareKilometer = populationDensityPerSquareKilometer;
 	}
 
-	public float getPopulationDensityPerSquareMile()
+	public double getPopulationDensityPerSquareMile()
 	{
 		return populationDensityPerSquareMile;
 	}
 
-	public void setPopulationDensityPerSquareMile(float populationDensityPerSquareMile)
+	public void setPopulationDensityPerSquareMile(double populationDensityPerSquareMile)
 	{
 		this.populationDensityPerSquareMile = populationDensityPerSquareMile;
 	}

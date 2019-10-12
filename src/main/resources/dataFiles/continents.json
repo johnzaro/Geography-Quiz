@@ -1,0 +1,737 @@
+{ "continents":
+[
+	{
+		"greekName": "Ανταρκτική",
+		"englishName": "Antarctica",
+		"genitiveCaseOfContinent": "Ανταρκτικής",
+		"numberOfCountriesInGreek": "0",
+		"numberOfCountriesInEnglish": "0",
+		"largestCountriesByAreaInGreek":  null,
+		"largestCountriesByAreaInEnglish": null,
+		"largestCountriesByPopulationInGreek": null,
+		"largestCountriesByPopulationInEnglish": null,
+		"largestCitiesInGreek": null,
+		"largestCitiesInEnglish": null,
+		"languagesInGreek": null,
+		"languagesInEnglish": null,
+		"highestPointInGreek": "Vinson Massif: 4.892 m / 16,050ft",
+		"highestPointInEnglish": "Vinson Massif: 4.892 m / 16,050ft",
+		"lowestPointInGreek": "Bentley Subglacial Trench: -2.555m / -8,382ft",
+		"lowestPointInEnglish": "Bentley Subglacial Trench: -2.555m / -8,382ft",
+		"longestRiverInGreek": null,
+		"longestRiverInEnglish": null,
+		"largestLakeInGreek": null,
+		"largestLakeInEnglish": null,
+		"timeZones": "(11) UTC-6, UTC-4, UTC-3, UTC+0, UTC+3, UTC+6, UTC+7, UTC+8, UTC+10, UTC+12, UTC+13",
+		"areaData":
+		{
+			"areaInKilometers": "14000000",
+			"areaInMiles": "5400000",
+			"globalRanking": "5",
+			"percentOfTheEarth": "2.7",
+			"percentOfLandOfTheEarth": "9",
+			"coastlineInKilometers": "18000",
+			"coastlineInMiles": "11250"
+		},
+		"populationData":
+		{
+			"population": null,
+			"populationInGreek": "Μόνιμος Πληθυσμός: 0, περιοδικός: 1.000 - 5.000",
+			"populationInEnglish": "Permanent residents: 0, temporary: 1.000 - 5.000",
+			"globalRanking": "7",
+			"populationDensityPerSquareKilometer": "0.00008",
+			"populationDensityPerSquareMile": "0.0002"
+		}
+	},
+	{
+		"greekName": "Ασία",
+		"englishName": "Asia",
+		"genitiveCaseOfContinent": "Ασίας",
+		"numberOfCountriesInGreek": "48 μέλη του Ο.Η.Ε. και 6 άλλες χώρες",
+		"numberOfCountriesInEnglish": "48 UN members 6 other states",
+		"largestCountriesByAreaInGreek":
+		[
+			"Ρωσία",
+			"Λαϊκή Δημοκρατία της Κίνας",
+			"Ινδία",
+			"Καζακστάν",
+			"Σαουδική Αραβία",
+			"Ιράν",
+			"Μογγολία",
+			"Ινδονησία",
+			"Πακιστάν",
+			"Τουρκία"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Russia",
+			"People's Republic of China",
+			"India",
+			"Kazakhstan",
+			"Saudi Arabia",
+			"Iran",
+			"Mongolia",
+			"Indonesia",
+			"Pakistan",
+			"Turkey"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Λαϊκή Δημοκρατία της Κίνας",
+			"Ινδία",
+			"Ινδονησία",
+			"Πακιστάν",
+			"Μπαγκλαντές",
+			"Ρωσία",
+			"Ιαπωνία",
+			"Φιλιππίνες",
+			"Βιετνάμ",
+			"Ιράν"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"People's Republic of China",
+			"India",
+			"Indonesia",
+			"Pakistan",
+			"Bangladesh",
+			"Russia",
+			"Japan",
+			"Philippines",
+			"Vietnam",
+			"Iran"
+		],
+		"largestCitiesInGreek":
+		[
+			"Τόκιο",
+			"Σεούλ",
+			"Μουμπάι",
+			"Ντάκα",
+			"Δελχί",
+			"Καράτσι",
+			"Τζακάρτα",
+			"Οσάκα",
+			"Σαγκάη",
+			"Μανίλα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Tokyo",
+			"Seoul",
+			"Mumbai",
+			"Dhaka",
+			"Delhi",
+			"Karachi",
+			"Jakarta",
+			"Osaka",
+			"Shanghai",
+			"Manila"
+		],
+		"languagesInGreek": "Περίπου 2.269 γλώσσες",
+		"languagesInEnglish": "Approximately 2.269 languages",
+		"highestPointInGreek": "Έβερεστ: 8.848m / 29,029ft",
+		"highestPointInEnglish": "Everest: 8.848m / 29,029ft",
+		"lowestPointInGreek": "Νεκρά Θάλασσα: -417.5m / -1369ft",
+		"lowestPointInEnglish": "Dead Sea shore: -417.5m / -1369ft",
+		"longestRiverInGreek": "Γιανγκτσέ: 6.418km / 3,988mi",
+		"longestRiverInEnglish": "Yangtze: 6.418km / 3,988mi",
+		"largestLakeInGreek": "Κασπία: 371.000km² / 143,244 sq mi",
+		"largestLakeInEnglish": "Caspian: 371.000km² / 143,244 sq mi",
+		"timeZones": "(11) UTC+2 - UTC+12",
+		"areaData":
+		{
+			"areaInKilometers": "44579000",
+			"areaInMiles": "17212000",
+			"globalRanking": "1",
+			"percentOfTheEarth": "8.7",
+			"percentOfLandOfTheEarth": "30",
+			"coastlineInKilometers": "230300",
+			"coastlineInMiles": "143101"
+		},
+		"populationData":
+		{
+			"population": "4164252000",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "1",
+			"populationDensityPerSquareKilometer": "87",
+			"populationDensityPerSquareMile": "225"
+		}
+	},
+	{
+		"greekName": "Αφρική",
+		"englishName": "Africa",
+		"genitiveCaseOfContinent": "Αφρικής",
+		"numberOfCountriesInGreek": "54 (και 2 αμφισβητούνται)",
+		"numberOfCountriesInEnglish": "54 (and 2 disputed)",
+		"largestCountriesByAreaInGreek":
+		[
+			"Αλγερία",
+			"Λαϊκή Δημοκρατία του Κονγκό",
+			"Σουδάν",
+			"Λιβύη",
+			"Τσαντ",
+			"Νίγηρας",
+			"Ανγκόλα",
+			"Μάλι",
+			"Νότια Αφρική",
+			"Αιθιοπία"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Algeria",
+			"Democratic Republic of the Congo",
+			"Sudan",
+			"Libya",
+			"Chad",
+			"Niger",
+			"Angola",
+			"Mali",
+			"South Africa",
+			"Ethiopia"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Νιγηρία",
+			"Αιθιοπία",
+			"Αίγυπτος",
+			"Λαϊκή Δημοκρατία του Κονγκό",
+			"Νότια Αφρική",
+			"Τανζανία",
+			"Κενύα",
+			"Σουδάν",
+			"Αλγερία",
+			"Ουγκάντα"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"Nigeria",
+			"Ethiopia",
+			"Egypt",
+			"Democratic Republic of the Congo",
+			"South Africa",
+			"Tanzania",
+			"Kenya",
+			"Sudan",
+			"Algeria",
+			"Uganda"
+		],
+		"largestCitiesInGreek":
+		[
+			"Λάγος",
+			"Κάιρο",
+			"Κινσάσα",
+			"Μπραζαβίλ",
+			"Γκρέιτερ Γιοχάνεσμπουργκ",
+			"Μογκαντίσου",
+			"Χαρτούμ",
+			"Ομντουρμάν",
+			"Νταρ Ες Σαλάμ",
+			"Αλεξάνδρεια"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Lagos",
+			"Cairo",
+			"Kinshasa",
+			"Brazzaville",
+			"Greater Johannesburg",
+			"Mogadishu",
+			"Khartoum",
+			"Omdurman",
+			"Dar es Salaam",
+			"Alexandria"
+		],
+		"languagesInGreek": "1.250 - 3.000 γλώσσες",
+		"languagesInEnglish": "1.250 - 3.000 languages",
+		"highestPointInGreek": "Κιλιμάντζαρο: 5.895m / 19,341ft",
+		"highestPointInEnglish": "Kilimanjaro: 5.895m / 19,341ft",
+		"lowestPointInGreek": "Λίμνη Ασσάλ: -156m / -512ft",
+		"lowestPointInEnglish": "Lake Assal: -156m / -512ft",
+		"longestRiverInGreek": "Νείλος: 6853km / 4258mi",
+		"longestRiverInEnglish": "Nile: 6853km / 4258mi",
+		"largestLakeInGreek": "Λίμνη Βικτώρια: 184.000km² / 71040 sq mi",
+		"largestLakeInEnglish": "Lake Victoria: 184.000km² / 71040 sq mi",
+		"timeZones": "(6) UTC-1 - UTC+4",
+		"areaData":
+		{
+			"areaInKilometers": "30221532",
+			"areaInMiles": "11668599",
+			"globalRanking": "2",
+			"percentOfTheEarth": "6",
+			"percentOfLandOfTheEarth": "20.4",
+			"coastlineInKilometers": "26000",
+			"coastlineInMiles": "16155"
+		},
+		"populationData":
+		{
+			"population": "1100000000",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "2",
+			"populationDensityPerSquareKilometer": "36.4",
+			"populationDensityPerSquareMile": "94"
+		}
+	},
+	{
+		"greekName": "Βόρεια Αμερική",
+		"englishName": "North America",
+		"genitiveCaseOfContinent": "Βόρειας Αμερικής",
+		"numberOfCountriesInGreek": "23",
+		"numberOfCountriesInEnglish": "23",
+		"largestCountriesByAreaInGreek":
+		[
+			"Καναδάς",
+			"Ηνωμένες Πολιτείες Αμερικής",
+			"Μεξικό",
+			"Γροιλανδία",
+			"Νικαράγουα",
+			"Ονδούρα",
+			"Κούβα",
+			"Γουατεμάλα",
+			"Παναμάς",
+			"Κόστα Ρίκα"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Canada",
+			"United States of America",
+			"Mexico",
+			"Greenland",
+			"Nicaragua",
+			"Honduras",
+			"Cuba",
+			"Guatemala",
+			"Panama",
+			"Costa Rica"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Ηνωμένες Πολιτείες Αμερικής",
+			"Μεξικό",
+			"Καναδάς",
+			"Γουατεμάλα",
+			"Κούβα",
+			"Αϊτή",
+			"Δομινικανή Δημοκρατία",
+			"Ονδούρα",
+			"Νικαράγουα",
+			"Ελ Σαλβαδόρ"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"United States of America",
+			"Mexico",
+			"Canada",
+			"Guatemala",
+			"Cuba",
+			"Haiti",
+			"Dominican Republic",
+			"Honduras",
+			"Nicaragua",
+			"El Salvador"
+		],
+		"largestCitiesInGreek":
+		[
+			"Πόλη του Μεξικού",
+			"Νέα Υόρκη",
+			"Λος Άντζελες",
+			"Σικάγο",
+			"Τορόντο",
+			"Ντάλλας - Φορτ Γουόρθ",
+			"Σαν Φρανσίσκο",
+			"Χιούστον",
+			"Μαϊάμι",
+			"Φιλαδέλφεια"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Mexico City",
+			"New York City",
+			"Los Angeles",
+			"Chicago",
+			"Toronto",
+			"Dallas – Fort Worth",
+			"San Francisco",
+			"Houston",
+			"Miami",
+			"Philadelphia"
+		],
+		"languagesInGreek": "Αγγλικά, Ισπανικά, Γαλλικά και πολλές ακόμα γλώσσες",
+		"languagesInEnglish": "English, Spanish, French and many others",
+		"highestPointInGreek": "Όρος ΜακΚίνλεϋ: 6.194m / 20,322ft",
+		"highestPointInEnglish": "Mount McKinley: 6.194m / 20,322ft",
+		"lowestPointInGreek": "Κοιλάδα του θανάτου: -86m / -282ft",
+		"lowestPointInEnglish": "Death Valley: -86m / -282ft",
+		"longestRiverInGreek": "Ποταμός του Μισσούρι: 3.767km / 2,341mi",
+		"longestRiverInEnglish": "Missouri River: 3.767km / 2,341mi",
+		"largestLakeInGreek": "Λίμνη Superior: 82.100km² / 31,700 sq mi",
+		"largestLakeInEnglish": "Lake Superior: 82.100km² / 31,700 sq mi",
+		"timeZones": "(11) UTC-10 - UTC+0",
+		"areaData":
+		{
+			"areaInKilometers": "24709000",
+			"areaInMiles": "9540000",
+			"globalRanking": "3",
+			"percentOfTheEarth": "4.8",
+			"percentOfLandOfTheEarth": "16.5",
+			"coastlineInKilometers": "295300",
+			"coastlineInMiles": "18349"
+		},
+		"populationData":
+		{
+			"population": "565265000",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "4",
+			"populationDensityPerSquareKilometer": "22.9",
+			"populationDensityPerSquareMile": "59.3"
+		}
+	},
+	{
+		"greekName": "Ευρώπη",
+		"englishName": "Europe",
+		"genitiveCaseOfContinent": "Ευρώπης",
+		"numberOfCountriesInGreek": "50 και 5 με περιορισμένη αναγνώριση",
+		"numberOfCountriesInEnglish": "50 and 5 with limited recognition",
+		"largestCountriesByAreaInGreek":
+		[
+			"Ρωσία",
+			"Ουκρανία",
+			"Γαλλία",
+			"Ισπανία",
+			"Σουηδία",
+			"Νορβηγία",
+			"Γερμανία",
+			"Φινλανδία",
+			"Πολωνία",
+			"Ιταλία"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Russia",
+			"Ukraine",
+			"France",
+			"Spain",
+			"Sweden",
+			"Norway",
+			"Germany",
+			"Finland",
+			"Poland",
+			"Italy"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Ρωσία",
+			"Γερμανία",
+			"Τουρκία",
+			"Γαλλία",
+			"Ηνωμένο Βασίλειο",
+			"Ιταλία",
+			"Ισπανία",
+			"Ουκρανία",
+			"Πολωνία",
+			"Ρουμανία"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"Russia",
+			"Germany",
+			"Turkey",
+			"France",
+			"United Kingdom",
+			"Italy",
+			"Spain",
+			"Ukraine",
+			"Poland",
+			"Romania"
+		],
+		"largestCitiesInGreek":
+		[
+			"Κωσταντινούπολη",
+			"Μόσχα",
+			"Λονδίνο",
+			"Αγία Πετρούπολη",
+			"Βερολίνο",
+			"Μαδρίτη",
+			"Ρώμη",
+			"Κίεβο",
+			"Παρίσι",
+			"Μινσκ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Istanbul",
+			"Moscow",
+			"London",
+			"Saint Petersburg",
+			"Berlin",
+			"Madrid",
+			"Rome",
+			"Kiev",
+			"Paris",
+			"Minsk"
+		],
+		"languagesInGreek": "Περίπου 225 γλώσσες",
+		"languagesInEnglish": "Approximately 225 languages",
+		"highestPointInGreek": "Mont Blanc: 4.810m / 15,781ft",
+		"highestPointInEnglish": "Mont Blanc: 4.810m / 15,781ft",
+		"lowestPointInGreek": "Lammefjord: -7m / -23ft",
+		"lowestPointInEnglish": "Lammefjord: -7m / -23ft",
+		"longestRiverInGreek": "Δούναβης: 2.860km / 1,777mi",
+		"longestRiverInEnglish": "Danube: 2.860km / 1,777mi",
+		"largestLakeInGreek": "Vänern: 5.650km² / 2,181 sq mi",
+		"largestLakeInEnglish": "Vänern: 5.650km² / 2,181 sq mi",
+		"timeZones": "(6) UTC+0 - UTC+5",
+		"areaData":
+		{
+			"areaInKilometers": "10180000",
+			"areaInMiles": "3930000",
+			"globalRanking": "6",
+			"percentOfTheEarth": "2",
+			"percentOfLandOfTheEarth": "6.8",
+			"coastlineInKilometers": "65993",
+			"coastlineInMiles": "41006"
+		},
+		"populationData":
+		{
+			"population": "742452000",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "3",
+			"populationDensityPerSquareKilometer": "72.9",
+			"populationDensityPerSquareMile": "188"
+		}
+	},
+	{
+		"greekName": "Νότια Αμερική",
+		"englishName": "South America",
+		"genitiveCaseOfContinent": "Νότιας Αμερικής",
+		"numberOfCountriesInGreek": "12",
+		"numberOfCountriesInEnglish": "12",
+		"largestCountriesByAreaInGreek":
+		[
+			"Βραζιλία",
+			"Αργεντίνη",
+			"Περού",
+			"Κολομβία",
+			"Βολιβία",
+			"Βενεζουέλα",
+			"Χιλή",
+			"Παραγουάη",
+			"Ισημερινός (Εκουαδόρ)",
+			"Γουιάνα"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Brazil",
+			"Argentina",
+			"Peru",
+			"Colombia",
+			"Bolivia",
+			"Venezuela",
+			"Chile",
+			"Paraguay",
+			"Ecuador",
+			"Guyana"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Βραζιλία",
+			"Κολομβία",
+			"Αργεντινή",
+			"Περού",
+			"Βενεζουέλα",
+			"Χιλή",
+			"Ισημερινός (Εκουαδόρ)",
+			"Βολιβία",
+			"Παραγουάη",
+			"Ουρουγουάη"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"Brazil",
+			"Colombia",
+			"Argentina",
+			"Peru",
+			"Venezuela",
+			"Chile",
+			"Ecuador",
+			"Bolivia",
+			"Paraguay",
+			"Uruguay"
+		],
+		"largestCitiesInGreek":
+		[
+			"Σάο Πάολο",
+			"Λίμα",
+			"Μπογκοτά",
+			"Ρίο ντε Ζανέιρο",
+			"Σαντιάγκο",
+			"Καράκας",
+			"Μπουένος Άιρες",
+			"Σαλβαδόρ",
+			"Brasília",
+			"Φορταλέζα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"São Paulo",
+			"Lima",
+			"Bogotá",
+			"Rio de Janeiro",
+			"Santiago",
+			"Caracas",
+			"Buenos Aires",
+			"Salvador",
+			"Brasília",
+			"Fortaleza"
+		],
+		"languagesInGreek": "Ισπανικά, Πορτογαλικά, Κέτσουα και πολλές ακόμα γλώσσες",
+		"languagesInEnglish": "Spanish, Portuguese, Quechua and many others",
+		"highestPointInGreek": "Όρος Ακονκάγκουα: 6.960m / 22,835ft",
+		"highestPointInEnglish": "Mount Aconcagua: 6.960m / 22,835ft",
+		"lowestPointInGreek": "Λιμνοθάλασσα του Άνθρακα: -105m / -345ft",
+		"lowestPointInEnglish": "Laguna del Carbón: -105m / -345ft",
+		"longestRiverInGreek": "Αμαζόνιος ποταμός: 6.992km / 4,345mi",
+		"longestRiverInEnglish": "Amazon River: 6.992km / 4,345mi",
+		"largestLakeInGreek": "Λίμνη Τιτικάκα: 8.372km² / 3,232 sq mi",
+		"largestLakeInEnglish": "Lake Titicaca: 8.372km² / 3,232 sq mi",
+		"timeZones": "(4) UTC-5 - UTC-2",
+		"areaData":
+		{
+			"areaInKilometers": "17840000",
+			"areaInMiles": "6890000",
+			"globalRanking": "4",
+			"percentOfTheEarth": "4.8",
+			"percentOfLandOfTheEarth": "16.5",
+			"coastlineInKilometers": "32700",
+			"coastlineInMiles": "20318"
+		},
+		"populationData":
+		{
+			"population": "385742554",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "5",
+			"populationDensityPerSquareKilometer": "21.4",
+			"populationDensityPerSquareMile": "56"
+		}
+	},
+	{
+		"greekName": "Ωκεανία",
+		"englishName": "Oceania",
+		"genitiveCaseOfContinent": "Ωκεανίας",
+		"numberOfCountriesInGreek": "14",
+		"numberOfCountriesInEnglish": "14",
+		"largestCountriesByAreaInGreek":
+		[
+			"Αυστραλία",
+			"Παπούα Νέα Γουινέα",
+			"Ινδονησία",
+			"Νέα Ζηλανδία",
+			"Νήσοι Σολομώντα",
+			"Φίτζι",
+			"Βανουάτου",
+			"Σαμόα",
+			"Κιριμπάτι",
+			"Τόνγκα"
+		],
+		"largestCountriesByAreaInEnglish":
+		[
+			"Australia",
+			"Papua New Guinea",
+			"Indonesia",
+			"New Zealand",
+			"Solomon Islands",
+			"Fiji",
+			"Vanuatu",
+			"Samoa",
+			"Kiribati",
+			"Tonga"
+		],
+		"largestCountriesByPopulationInGreek":
+		[
+			"Αυστραλία",
+			"Παπούα Νέα Γουινέα",
+			"Νέα Ζηλανδία",
+			"Φίτζι",
+			"Νήσοι Σολομώντα",
+			"Βανουάτου",
+			"Νέα Καληδονία",
+			"Γαλλική Πολυνησία",
+			"Σαμόα",
+			"Γκουάμ"
+		],
+		"largestCountriesByPopulationInEnglish":
+		[
+			"Australia",
+			"Papua New Guinea",
+			"New Zealand",
+			"Fiji",
+			"Solomon Islands",
+			"Vanuatu",
+			"New Caledonia",
+			"French Polynesia",
+			"Samoa",
+			"Guam"
+		],
+		"largestCitiesInGreek":
+		[
+			"Σίδνεϊ",
+			"Μελβούρνη",
+			"Μπρίσμπεϊν",
+			"Περθ",
+			"Αδελαΐδα",
+			"Γκολντ Κόουστ - Τουίντ",
+			"Νιούκαστλ",
+			"Καμπέρα - Queanbeyan",
+			"Wollongong",
+			"Πορτ Μόρεσμπι"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Sydney",
+			"Melbourne",
+			"Brisbane",
+			"Perth",
+			"Adelaide",
+			"Gold Coast - Tweed",
+			"Newcastle",
+			"Canberra - Queanbeyan",
+			"Wollongong",
+			"Port Moresby"
+		],
+		"languagesInGreek": "Αγγλικά, Ινδονησιακά, Τοκ Πισίν, Hiri Motu, 269 διάλεκτοι των γλωσσών Παπούα και Austronesian, Κινέζικα, Ιταλικά, Αραβικά, Ελληνικά, καντονέζικα και περίπου 70 τοπικές γλώσσες των ιθαγενών της Αυστραλίας",
+		"languagesInEnglish": "English, Indonesian, Tok Pisin, Hiri Motu, 269 indigenous Papuan and Austronesian languages, Mandarin Chinese, Italian, Arabic, Greek, Cantonese and about 70 Indigenous Australian languages",
+		"highestPointInGreek": "Όρος Κουκ: 3.754m / 12,316ft",
+		"highestPointInEnglish": "Mount Cook: 3.754m / 12,316ft",
+		"lowestPointInGreek": "Λίμνη Έιρε: -12m / -39ft",
+		"lowestPointInEnglish": "Lake Eyre: -12m / -39ft",
+		"longestRiverInGreek": "Μάρεϊ ποταμός: 6.992km / 4,345mi",
+		"longestRiverInEnglish": "Murray River: 2.375km / 1,4765mi",
+		"largestLakeInGreek": "Λίμνη Έιρε: 9.500km² / 3,668 sq mi",
+		"largestLakeInEnglish": "Lake Eyre: 9.500km² / 3,668 sq mi",
+		"timeZones": "(8) UTC+8 - UTC+14, UTC-11",
+		"areaData":
+		{
+			"areaInKilometers": "8112000",
+			"areaInMiles": "3132060",
+			"globalRanking": "7",
+			"percentOfTheEarth": "1.5",
+			"percentOfLandOfTheEarth": "5.2",
+			"coastlineInKilometers": "71200",
+			"coastlineInMiles": "44242"
+		},
+		"populationData":
+		{
+			"population": "385742554",
+			"populationInGreek": null,
+			"populationInEnglish": null,
+			"globalRanking": "6",
+			"populationDensityPerSquareKilometer": "4.2",
+			"populationDensityPerSquareMile": "11"
+		}
+	}
+]
+}

@@ -1,6 +1,7 @@
 package com.johnzaro.geographyquiz.dataStructures;
 
-import javafx.beans.property.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 
 import java.util.Locale;
 
@@ -194,12 +195,12 @@ public class Player
 		this.timerForEndlessMode.set(timerForEndlessMode);
 	}
 	
-	private boolean[] questionCategories;
-	public void setQuestionCategories(boolean[] categories)
+	private Boolean[] questionCategories;
+	public void setQuestionCategories(Boolean[] categories)
 	{
 		questionCategories = categories;
 	}
-	public boolean[] getQuestionCategories()
+	public Boolean[] getQuestionCategories()
 	{
 		return questionCategories;
 	}
@@ -257,7 +258,7 @@ public class Player
 	private boolean startAtFullScreen;
 	public void setStartAtFullScreen(boolean startAtFullScreen)
 	{
-		startAtFullScreen = startAtFullScreen;
+		this.startAtFullScreen = startAtFullScreen;
 	}
 	public boolean getStartAtFullScreen()
 	{
@@ -268,7 +269,7 @@ public class Player
 	{
 		timerForClassicMode = new SimpleBooleanProperty();
 		timerForEndlessMode = new SimpleBooleanProperty();
-		questionCategories = new boolean[NUM_ALL_CATEGORIES];
+		questionCategories = new Boolean[NUM_ALL_CATEGORIES];
 		
 		setOriginalName(originalName);
 		setEditedName(editedName);
@@ -307,6 +308,7 @@ public class Player
 	public void setDefaultQuestionCategories()
 	{
 		for(int i = 0; i < NUM_CAT_COUNTRIES_ALL; i++) questionCategories[i] = true;
+		for(int i = NUM_CAT_COUNTRIES_ALL; i < NUM_ALL_CATEGORIES; i++) questionCategories[i] = false;
 	}
 	
 	public void setDefaultPlayerSettings()

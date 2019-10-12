@@ -10,7 +10,6 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.Tooltip;
-import javafx.scene.effect.BoxBlur;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -24,14 +23,9 @@ public abstract class CoreScreen
 	AnchorPane anchorPane, nodesPane;
 	Label masterVolumeLabel, musicVolumeLabel, soundEffectsVolumeLabel;
 	Slider masterVolumeSlider, musicVolumeSlider, soundEffectsVolumeSlider;
-	CustomImageView woodenFrameImage, soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon;
+	CustomImageView woodenFrameImage, soundIcon;
 	VBox vBoxForSound;
-	CustomTooltip soundOptionsToolTip, minimizeTooltip, moveTooltip, fullScreenTooltip, exitTooltip;
-
-	private BoxBlur boxBlur;
-	
-	private double xOffset = 0, yOffset = 0, dx = 0, dy = 0;
-	private int positionOfResizing = 0;
+	CustomTooltip soundOptionsToolTip;
 	
 	Font fontForTooltips;
 	
@@ -50,11 +44,6 @@ public abstract class CoreScreen
 		woodenFrameImage.setY(0);
 		
 		anchorPane.getChildren().addAll(nodesPane, woodenFrameImage);
-		
-		boxBlur = new BoxBlur();
-		boxBlur.setWidth(30);
-		boxBlur.setHeight(30);
-		boxBlur.setIterations(2);
 		
 		soundIcon = new CustomImageView(false, true, false, true, CacheHint.SCALE);
 		soundIcon.setCursor(Cursor.HAND);
@@ -82,32 +71,6 @@ public abstract class CoreScreen
 		soundEffectsVolumeSlider = new Slider();
 		soundEffectsVolumeSlider.setCursor(Cursor.HAND);
 		soundEffectsVolumeSlider.setFocusTraversable(false);
-
-		minimizeIcon = new CustomImageView(MINIMIZE_ICON, false, true, false, true, CacheHint.SCALE);
-		minimizeIcon.setCursor(Cursor.HAND);
-		
-		minimizeTooltip = new CustomTooltip();
-		Tooltip.install(minimizeIcon, minimizeTooltip);
-
-		moveIcon = new CustomImageView(MOVE_ICON, false, true, false, true, CacheHint.SCALE);
-		moveIcon.setCursor(Cursor.HAND);
-		
-		moveTooltip = new CustomTooltip();
-		Tooltip.install(moveIcon, moveTooltip);
-
-		fullScreenIcon = new CustomImageView(FULL_SCREEN_ICON, false, true, false, true, CacheHint.SCALE);
-		fullScreenIcon.setCursor(Cursor.HAND);
-		
-		fullScreenTooltip = new CustomTooltip();
-		Tooltip.install(fullScreenIcon, fullScreenTooltip);
-
-		if(!isCurrentScreenRatioSupported()) fullScreenIcon.setDisable(true);
-		
-		exitIcon = new CustomImageView(EXIT_ICON, false, true, false, true, CacheHint.SCALE);
-		exitIcon.setCursor(Cursor.HAND);
-		
-		exitTooltip = new CustomTooltip();
-		Tooltip.install(exitIcon, exitTooltip);
 
 		vBoxForSound = new VBox();
 		vBoxForSound.setAlignment(Pos.CENTER);
@@ -206,188 +169,11 @@ public abstract class CoreScreen
 				});
 
 		soundEffectsVolumeSlider.valueProperty().addListener((observable, oldValue, newValue) -> updateOtherVolumeText());
-
-		minimizeIcon.setOnMousePressed(e -> minimizeIcon.setImage(MINIMIZE_ICON_CLICKED));
-
-		minimizeIcon.setOnMouseClicked(e ->
-				{
-					minimizedMode = true;
-					minimizeGame(anchorPane);
-				});
-
-		minimizeIcon.setOnMouseReleased(e -> minimizeIcon.setImage(MINIMIZE_ICON));
-
-		fullScreenIcon.setOnMousePressed(e ->
-				{
-					if(fullScreenMode) fullScreenIcon.setImage(FULL_SCREEN_ICON);
-					else fullScreenIcon.setImage(FULL_SCREEN_ICON_CLICKED);
-				});
-
-		fullScreenIcon.setOnMouseClicked(e ->
-				{
-					if (fullScreenMode) setWindowedMode();
-					else setFullScreenMode();
-				});
-
-		fullScreenIcon.setOnMouseReleased(e ->
-				{
-					if(fullScreenMode) fullScreenIcon.setImage(FULL_SCREEN_ICON_CLICKED);
-					else fullScreenIcon.setImage(FULL_SCREEN_ICON);
-				});
-
-		exitIcon.setOnMousePressed(e -> exitIcon.setImage(EXIT_ICON_CLICKED));
-
-		exitIcon.setOnMouseReleased(e -> exitIcon.setImage(EXIT_ICON));
-
-		moveIcon.setOnMousePressed(e ->
-				{
-					if (!stage.isFullScreen())
-					{
-						xOffset = e.getSceneX();
-						yOffset = e.getSceneY();
-
-						moveIcon.setImage(MOVE_ICON_CLICKED);
-					}
-					else { moveIcon.setImage(MOVE_ICON_DISABLED_CLICKED); }
-				});
-
-		moveIcon.setOnMouseReleased(e ->
-				{
-					if (stage.isFullScreen()) { moveIcon.setImage(MOVE_ICON_DISABLED); }
-					else moveIcon.setImage(MOVE_ICON);
-				});
-
-		moveIcon.setOnMouseDragged(e ->
-				{
-					if (!stage.isFullScreen())
-					{
-						stage.setX(e.getScreenX() - xOffset);
-						stage.setY(e.getScreenY() - yOffset);
-					}
-				});
-
-		anchorPane.setOnMouseMoved(e ->
-				{
-					if (!stage.isFullScreen())
-					{
-						double resizeArea = 0.0052 * windowWidth;
-
-						if ((e.getY() < resizeArea || e.getY() > stage.getHeight() - resizeArea) && e.getX() > resizeArea * 3 &&
-						    e.getX() < stage.getWidth() - resizeArea * 3) { anchorPane.setCursor(Cursor.V_RESIZE); }
-						else if ((e.getX() > stage.getWidth() - resizeArea || e.getX() < resizeArea) && e.getY() > resizeArea * 3 &&
-						         e.getY() < stage.getHeight() - resizeArea * 3) { anchorPane.setCursor(Cursor.H_RESIZE); }
-						else { anchorPane.setCursor(Cursor.DEFAULT); }
-					}
-				});
-
-		anchorPane.setOnMousePressed(e ->
-			{
-				if (!stage.isFullScreen())
-				{
-					double resizeArea = 0.0052 * windowWidth;
-				
-					if (e.getY() < resizeArea && e.getX() > resizeArea * 3 && e.getX() < stage.getWidth() - resizeArea * 3)
-					{
-						dy = e.getY();
-						positionOfResizing = 1;
-						
-						nodesPane.setEffect(boxBlur);
-					}
-					else if (e.getX() > stage.getWidth() - resizeArea && e.getY() > resizeArea * 3 && e.getY() < stage.getHeight() - resizeArea * 3)
-					{
-						dx = stage.getWidth() - e.getX();
-						positionOfResizing = 2;
-						nodesPane.setEffect(boxBlur);
-					}
-					else if (e.getY() > stage.getHeight() - resizeArea && e.getX() > resizeArea * 3 && e.getX() < stage.getWidth() - resizeArea * 3)
-					{
-						dy = stage.getHeight() - e.getY();
-						positionOfResizing = 3;
-						nodesPane.setEffect(boxBlur);
-					}
-					else if (e.getX() < resizeArea && e.getY() > resizeArea * 3 && e.getY() < stage.getHeight() - resizeArea * 3)
-					{
-						dx = e.getX();
-						positionOfResizing = 4;
-						nodesPane.setEffect(boxBlur);
-					}
-					else positionOfResizing = 0;
-				}
-			});
 		
-		anchorPane.setOnMouseDragged(e ->
-			{
-				if (!stage.isFullScreen())
-				{
-					if (positionOfResizing == 1 && windowHeight - e.getScreenY() + stage.getY() + dy > minStageHeight)
-					{
-						windowHeight = windowHeight - e.getScreenY() + stage.getY() + dy;
-						double prevWidth = windowWidth;
-						
-						windowWidth = windowHeight * getCurrentScreenRatioValue();
-						
-						recalculateBackground(windowWidth, windowHeight);
-						
-						stage.setHeight(windowHeight);
-						stage.setWidth(windowWidth);
-						stage.setY(e.getScreenY() - dy);
-						stage.setX(stage.getX() - (windowWidth - prevWidth));
-					}
-					else if (positionOfResizing == 2 && e.getX() + dx > minStageWidth)
-					{
-						windowWidth = e.getX() + dx;
-						
-						windowHeight = windowWidth / getCurrentScreenRatioValue();
-						
-						recalculateBackground(windowWidth, windowHeight);
-						
-						stage.setWidth(windowWidth);
-						stage.setHeight(windowHeight);
-					}
-					else if (positionOfResizing == 3 && e.getY() + dy > minStageHeight)
-					{
-						windowHeight = e.getY() + dy;
-						
-						windowWidth = windowHeight * getCurrentScreenRatioValue();
-						
-						recalculateBackground(windowWidth, windowHeight);
-						
-						stage.setHeight(windowHeight);
-						stage.setWidth(windowWidth);
-					}
-					else if (positionOfResizing == 4 && windowWidth - e.getScreenX() + stage.getX() + dx > minStageWidth)
-					{
-						windowWidth = windowWidth - e.getScreenX() + stage.getX() + dx;
-						double prevHeight = windowHeight;
-						
-						windowHeight = windowWidth / getCurrentScreenRatioValue();
-						
-						recalculateBackground(windowWidth, windowHeight);
-						
-						stage.setWidth(windowWidth);
-						stage.setHeight(windowHeight);
-						
-						stage.setX(e.getScreenX() - dx);
-						stage.setY(stage.getY() - (windowHeight - prevHeight));
-					}
-				}
-			});
-		
-		anchorPane.setOnMouseReleased(e ->
+		stage.fullScreenProperty().addListener((observable, oldValue, newValue) ->
 		{
-			if (!stage.isFullScreen())
-			{
-				if(anchorPane.getCursor().equals(Cursor.H_RESIZE) || anchorPane.getCursor().equals(Cursor.V_RESIZE))
-				{
-					recalculateBackground(windowWidth, windowHeight);
-					recalculateUI(windowWidth, windowHeight);
-					nodesPane.setEffect(null);
-					getCurrentPlayer().setWindowWidth(windowWidth);
-				}
-			}
+			if(newValue != oldValue && newValue) checkIfScreenRatioChanged();
 		});
-		
-		exitIcon.setOnMouseClicked(e -> exitGame(anchorPane));
 	}
 
 	public AnchorPane getAnchorPane()
@@ -395,7 +181,7 @@ public abstract class CoreScreen
 		return anchorPane;
 	}
 	
-	void setFullScreenMode()
+	private void checkIfScreenRatioChanged()
 	{
 		double newWidth, newHeight;
 		SUPPORTED_SCREEN_RATIOS previousScreenRatio;
@@ -417,38 +203,6 @@ public abstract class CoreScreen
 		
 		recalculateBackground(primaryScreenWidth, primaryScreenHeight);
 		recalculateUI(primaryScreenWidth, primaryScreenHeight);
-		
-		fullScreenMode = true;
-		if(!stage.isFullScreen())
-		{
-			playMaximizeSound();
-			stage.setFullScreen(true);
-		}
-		
-		if(moveIcon.getImage() != MOVE_ICON_DISABLED) moveIcon.setImage(MOVE_ICON_DISABLED);
-		if(fullScreenIcon.getImage() != FULL_SCREEN_ICON_CLICKED) fullScreenIcon.setImage(FULL_SCREEN_ICON_CLICKED);
-		
-		moveTooltip.setText(languageResourceBundle.getString("moveDisabledTooltip"));
-		fullScreenTooltip.setText(languageResourceBundle.getString("exitFullScreenTooltip"));
-	}
-
-	void setWindowedMode()
-	{
-		fullScreenMode = false;
-		if (stage.isFullScreen())
-		{
-			playMinimizeSound();
-			stage.setFullScreen(false);
-		}
-		
-		if(moveIcon.getImage() != MOVE_ICON) moveIcon.setImage(MOVE_ICON);
-		if(fullScreenIcon.getImage() != FULL_SCREEN_ICON) fullScreenIcon.setImage(FULL_SCREEN_ICON);
-		
-		moveTooltip.setText(languageResourceBundle.getString("moveTooltip"));
-		fullScreenTooltip.setText(languageResourceBundle.getString("enterFullScreenTooltip"));
-		
-		recalculateBackground(windowWidth, windowHeight);
-		recalculateUI(windowWidth, windowHeight);
 	}
 	
 	protected abstract void setScreenRatioDependentImages();
@@ -456,6 +210,45 @@ public abstract class CoreScreen
 	protected void recalculateUI(double width, double height)
 	{
 		fontForTooltips = Font.font("Comic Sans MS", 0.013 * width); // 30 -> 1920
+		
+		if (width < 1500)
+		{
+			masterVolumeSlider.setId("small");
+			musicVolumeSlider.setId("small");
+			soundEffectsVolumeSlider.setId("small");
+		}
+		else if (width < 2000)
+		{
+			masterVolumeSlider.setId("medium");
+			musicVolumeSlider.setId("medium");
+			soundEffectsVolumeSlider.setId("medium");
+		}
+		else if (width < 3000)
+		{
+			masterVolumeSlider.setId("big");
+			musicVolumeSlider.setId("big");
+			soundEffectsVolumeSlider.setId("big");
+		}
+		else
+		{
+			masterVolumeSlider.setId("veryBig");
+			musicVolumeSlider.setId("veryBig");
+			soundEffectsVolumeSlider.setId("veryBig");
+		}
+		
+		Font fontForSound = Font.font("Comic Sans MS", 0.0104 * width);
+		masterVolumeLabel.setFont(fontForSound);
+		musicVolumeLabel.setFont(fontForSound);
+		soundEffectsVolumeLabel.setFont(fontForSound);
+		
+		vBoxForSound.setPrefSize(ratioProperties.getCore().getvBoxForSoundPrefWidth() * width, ratioProperties.getCore().getvBoxForSoundPrefHeight() * height);
+		
+		vBoxForSound.setStyle(
+				"-fx-background-color: #00000099; -fx-border-color: black;" +
+				"-fx-background-radius:" + 0.0078 * width + ";" +
+				"-fx-border-radius:" + 0.0078 * width + ";" +
+				"-fx-border-width:" + 0.0026 * width + ";" +
+				"-fx-padding:" + 0.0052 * width + ";");
 	}
 	
 	protected void recalculateBackground(double width, double height)

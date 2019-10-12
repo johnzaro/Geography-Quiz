@@ -2,7 +2,6 @@ package com.johnzaro.geographyquiz.core;
 
 import com.johnzaro.geographyquiz.dataStructures.*;
 import com.johnzaro.geographyquiz.screens.*;
-import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.beans.binding.DoubleBinding;
 import javafx.beans.property.DoubleProperty;
@@ -13,7 +12,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -33,9 +31,6 @@ public class GlobalVariables
 	public static OsCheck.OSType OS;
 	
 	static String GAME_DATA_PATH;
-	static String GAME_SETTINGS_FILE_PATH;
-	static String PLAYERS_FILE_PATH;
-	static String GAMES_SCORES_FILE_PATH;
 	
 	public static Clipboard clipboard;
 	public static ClipboardContent clipboardContent;
@@ -73,7 +68,7 @@ public class GlobalVariables
 	public static final int TIME_ATTACK_DURATION_1_MINUTE = 1, TIME_ATTACK_DURATION_2_MINUTES = 2, TIME_ATTACK_DURATION_5_MINUTES = 5, TIME_ATTACK_DURATION_10_MINUTES = 10;
 	public static final int ENDLESS_LIVES_1 = 1, ENDLESS_LIVES_3 = 3, ENDLESS_LIVES_5 = 5;
 	
-	public static boolean fullScreenMode, startAtFullScreen, minimizedMode, hasNotInitializedWindowedMode;
+	public static boolean startAtFullScreen, minimizedMode, hasNotInitializedWindowedMode;
 	
 	public static final int MAX_WIDTH_FOR_X250_IMAGES = 280, MAX_WIDTH_FOR_X500_IMAGES = 550, MAX_WIDTH_FOR_X1000_IMAGES = 1200;
 	
@@ -206,13 +201,6 @@ public class GlobalVariables
 	public static final short NUM_COUNTRIES_EASY_LOCATION = 58;
 	public static final short NUM_COUNTRIES_DIFFICULT_LOCATION = NUM_ALL_COUNTRIES - NUM_COUNTRIES_EASY_LOCATION;
 	
-	public static final short NUM_ALL_CONTINENTS = 7;
-	
-	public static final short NUM_ALL_USA_STATES = 50;
-
-	public static final short NUM_ALL_GREEK_DEC_ADMIN = 7;
-	public static final short NUM_ALL_GREEK_REGIONS = 13;
-	public static final short NUM_ALL_GREEK_REGIONAL_UNITS = 74;
 	public static final short NUM_ALL_GREEK_MUNICIPALITIES = 325;
 	
 //	public static final int NUMBER_OF_GENERAL_QUESTIONS = 672;
@@ -234,7 +222,7 @@ public class GlobalVariables
 
 //  --------------------- WINDOW OBJECTS ---------------------
 	public static Stage stage;
-	public static Scene mainScene;
+	public static Scene welcomeScene, atlasScene, gameScene, gamePropertiesScene, scoreBoardScene;
 	
 	public static RatioProperties ratioProperties;
 
@@ -248,8 +236,7 @@ public class GlobalVariables
 	public static ScoreBoardScreen scoreBoardScreen;
 
 	public static double windowWidth, windowHeight;
-
-	public static ScaleTransition scaleTransitionForAnchorPane;
+	public static double stageSceneHeightDifference;
 	
 	public static double getHeightBasedOnWidth(double width)
 	{
@@ -261,68 +248,25 @@ public class GlobalVariables
 		return width <= primaryScreenWidth && width >= minStageWidth;
 	}
 
-	public static void minimizeGame(Pane anchorPane)
+	public static void minimizeGame()
 	{
-		playMinimizeSound();
-		if(OS == OsCheck.OSType.Windows && animationsUsed != ANIMATIONS.NO)
-		{
-			scaleTransitionForAnchorPane.setNode(anchorPane);
-			scaleTransitionForAnchorPane.setToX(0);
-			scaleTransitionForAnchorPane.setToY(0);
-			scaleTransitionForAnchorPane.setOnFinished(e ->
-			{
-				stage.setIconified(true);
-				
-				if(isIntroductionSoundPlaying()) pauseIntroductionSound();
-				else if(isWelcomeLoopSoundPlaying()) pauseWelcomeLoopSound();
-			});
-			scaleTransitionForAnchorPane.playFromStart();
-		}
-		else
-		{
-			stage.setIconified(true);
-
-			if(isIntroductionSoundPlaying()) pauseIntroductionSound();
-			else if(isWelcomeLoopSoundPlaying()) pauseWelcomeLoopSound();
-		}
+		if(isIntroductionSoundPlaying()) pauseIntroductionSound();
+		else if(isWelcomeLoopSoundPlaying()) pauseWelcomeLoopSound();
+		
+		stage.setIconified(true);
 	}
 
-	static void restoreMinimizedWindow(Pane anchorPane)
+	static void restoreMinimizedWindow()
 	{
-		playMaximizeSound();
 		stage.setIconified(false);
-		if(OS == OsCheck.OSType.Windows && animationsUsed != ANIMATIONS.NO)
-		{
-			scaleTransitionForAnchorPane.setNode(anchorPane);
-			scaleTransitionForAnchorPane.setToX(1);
-			scaleTransitionForAnchorPane.setToY(1);
-			scaleTransitionForAnchorPane.setOnFinished(e ->
-			{
-				if(isIntroductionSoundPaused()) playIntroductionSound();
-				else if(isWelcomeLoopSoundPaused()) playWelcomeLoopSoundSound();
-			});
-			scaleTransitionForAnchorPane.playFromStart();
-		}
-		else
-		{
-			if(isIntroductionSoundPaused()) playIntroductionSound();
-			else if(isWelcomeLoopSoundPaused()) playWelcomeLoopSoundSound();
-		}
+		
+		if(isIntroductionSoundPaused()) playIntroductionSound();
+		else if(isWelcomeLoopSoundPaused()) playWelcomeLoopSoundSound();
 	}
 
-	public static void exitGame(Pane anchorPane)
+	public static void exitGame()
 	{
-		if(animationsUsed != ANIMATIONS.NO)
-		{
-			scaleTransitionForAnchorPane.setNode(anchorPane);
-			scaleTransitionForAnchorPane.setToX(0);
-			scaleTransitionForAnchorPane.setToY(0);
-			scaleTransitionForAnchorPane.setOnFinished(e -> Platform.exit());
-			
-			playMinimizeSound();
-			scaleTransitionForAnchorPane.play();
-		}
-		else Platform.exit();
+		Platform.exit();
 	}
 	
 	public static double getWorldMapLayoutX()
@@ -466,15 +410,11 @@ public class GlobalVariables
 
 	public static Image CHALKBOARD_BACKGROUND_IMAGE;
 	public static Image WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON;
-//	public static Image WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS;
-	public static Image WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS;
-	public static Image LEFT_GLOBE_STAND_IMAGE;
-	public static Image RIGHT_GLOBE_STAND_IMAGE;
+	public static Image GLOBE_STAND_IMAGE;
 	public static Image GAME_NAME_IMAGE;
 
 	public static Image MOVING_EARTH_IMAGE_1;
 	public static Image MOVING_EARTH_IMAGE_2;
-	public static Image WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS;
 	
 	public static Image WORLD_MAP;
 
@@ -491,16 +431,6 @@ public class GlobalVariables
 	public static Image SOUND_OFF_ICON_CLICKED;
 	public static Image SETTINGS_ICON;
 	public static Image SETTINGS_ICON_CLICKED;
-	public static Image MINIMIZE_ICON;
-	public static Image MINIMIZE_ICON_CLICKED;
-	public static Image MOVE_ICON;
-	public static Image MOVE_ICON_CLICKED;
-	public static Image MOVE_ICON_DISABLED;
-	public static Image MOVE_ICON_DISABLED_CLICKED;
-	public static Image FULL_SCREEN_ICON;
-	public static Image FULL_SCREEN_ICON_CLICKED;
-	public static Image EXIT_ICON;
-	public static Image EXIT_ICON_CLICKED;
 	public static Image X_ICON;
 	public static Image X_ICON_CLICKED;
 	public static Image ZOOM_IN_ICON;
@@ -617,7 +547,7 @@ public class GlobalVariables
 	
 	public static void playHoverSound()
 	{
-		HOVER_SOUND.play();
+//		HOVER_SOUND.play();
 	}
 	
 	public static void playButtonClickSound()

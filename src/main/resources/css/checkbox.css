@@ -3,6 +3,11 @@
 	-fx-background-color: #CF9788;
 }
 
+.check-box:hover .box
+{
+	-fx-background-color: #FFC4B3;
+}
+
 .check-box:selected .mark
 {
 	-fx-background-color:#903b12;

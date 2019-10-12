@@ -1,8 +1,8 @@
 package com.johnzaro.geographyquiz.core;
 
+import com.johnzaro.geographyquiz.dataStructures.RatioProperties;
 import it.sauronsoftware.junique.AlreadyLockedException;
 import it.sauronsoftware.junique.JUnique;
-import com.johnzaro.geographyquiz.dataStructures.RatioProperties;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -62,7 +62,7 @@ public class BaseClass extends Application
 
 //			use the files to load the settings or set default settings if not any
 			loadPlayersDataAndSettings();
-
+			
 //			setup the stage
 			setupStage(coreStage);
 			
@@ -73,11 +73,11 @@ public class BaseClass extends Application
 			}
 			else
 			{
-//				power on and show splash screen
-				powerOnSplashScreen();
-				
 //				add shutdown hook that writes game settings before exiting game
 				Runtime.getRuntime().addShutdownHook(shutdownHook);
+				
+//				load all data files
+				powerOnStringData();
 
 //				load basic images and sounds
 				loadMedia();
@@ -85,27 +85,16 @@ public class BaseClass extends Application
 				ratioProperties = new RatioProperties();
 				FilesIO.loadRatioProperties();
 				
+				setWindowedModeValues();
+				
 				powerOnWelcomeScreen();
+				
+				if(welcomeScreen != null) welcomeScreen.showScreen(true);
+				
 				powerOnGamePropertiesScreen();
 				powerOnGameScreen();
 				powerOnAtlasScreen();
 				powerOnScoreBoardScreen();
-
-////				setup various com.com.johnzaro.com.johnzaro.geographyquiz.screens
-//				t1 = new Thread(() -> powerOnWelcomeScreen());
-//				t2 = new Thread(() -> powerOnGamePropertiesScreen());
-//				t3 = new Thread(() -> powerOnGameScreen());
-//				t4 = new Thread(() -> powerOnAtlasScreen());
-//				t5 = new Thread(() -> powerOnScoreBoardScreen());
-//
-//				t1.start();
-//				t2.start();
-//				t3.start();
-//				t4.start();
-//				t5.start();
-				
-//				load all data files
-				powerOnStringData();
 			}
 		}
 	}

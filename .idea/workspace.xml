@@ -1,24 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="geographyquiz" />
+      <artifact name="geographyquiz:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_11_0_0_RC2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javaFX12.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_12_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_datatype_jsr310_2_10_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/globeStand.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x1000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x2000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x250/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x3000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x500/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x1000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x2000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x250/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x500/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x1000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x2000/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x250/North_Macedonia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x500/North_Macedonia.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jdom2_2_0_6.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/geographyquiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/geographyquiz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/RatioProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/RatioProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/StateOfUSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/StateOfUSA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/slider.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/municipalities.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor2Icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor4Icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor5Icons.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/leftGlobeStand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/rightGlobeStand.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x3000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/exitClicked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/fullScreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/fullScreenClicked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@128x128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@16x16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@32x32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@64x64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/mac.icns" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/minimize.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/minimizeClicked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/move.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveClicked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveDisabled.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveDisabledClicked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/refresh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/refreshAn.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/windows.ico" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,179 +128,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="956">
-              <caret line="2973" column="20" selection-start-line="2973" selection-start-column="20" selection-end-line="2973" selection-end-column="20" />
-              <folding>
-                <element signature="e#9101#36771#0" />
-                <element signature="e#36775#37950#0" />
-                <element signature="e#38130#62231#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>enum</find>
-      <find>RATIO_</find>
-      <find>fontforto</find>
-      <find>toolt</find>
-      <find>settingsicon.set</find>
-      <find>settingsicon.</find>
-      <find>hBoxForSettingsAndInfoIcons</find>
-      <find>sett</find>
-      <find>settingsi</find>
-      <find>vBoxWithBasicButtons</find>
-      <find>.setOpacity(0);</find>
-      <find>info</find>
-      <find>hboxfors</find>
-      <find>new</find>
-      <find>playpop</find>
-      <find>fadeTransitionForVBoxWithButtons</find>
-      <find>vBoxForSound.setTranslateY</find>
-      <find>vBoxForSound.setTranslate</find>
-      <find>setTranslate</find>
-      <find>vbox</find>
-      <find>vboxfors</find>
-      <find>vBoxForSound.setLayoutX</find>
-      <find>screen1</find>
-      <find>vBoxForSound.settra</find>
-      <find>vboxfornewname.seto</find>
-      <find>hBoxForSoundButtons</find>
-      <find>woodPanelFor1IconImage</find>
-      <find>soundicon.setlayouty</find>
-      <find>url</find>
-      <find>openurl</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>new CustomTooltip()</replace>
-      <replace>SUPPORTED_SCREEN_RATIOS.RATIO_</replace>
-      <replace>.setVisible(false);</replace>
-    </replaceStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/GameScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/core/BaseClass.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
-        <option value="$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
-        <option value="$PROJECT_DIR$/src/code/core/GUIUtils.java" />
-        <option value="$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
-        <option value="$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
-        <option value="$PROJECT_DIR$/src/code/core/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="y" value="23" />
-    <option name="width" value="2560" />
-    <option name="height" value="1324" />
-  </component>
+  <component name="ProjectId" id="1OYV9JQa2x7NzuVWc8AWTB2W0Oj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="libraries" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="geographyquiz" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="geographyquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Geography-Quiz" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Geography-Quiz" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="geographyquiz" type="462c0819:PsiDirectoryNode" />
-              <item name="screens" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553797345583" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554291334783" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libraries/controlsfx-12.0.0.jar!/" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -231,7 +182,7 @@
     <configuration name="Geography Quiz" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.johnzaro.geographyquiz.core.BaseClass" />
       <module name="geographyquiz" />
-      <option name="VM_PARAMETERS" value="--add-opens=javafx.controls/javafx.scene.control.skin=geographyquiz,org.controlsfx.controls --add-exports=javafx.base/com.sun.javafx.runtime=org.controlsfx.controls" />
+      <option name="VM_PARAMETERS" value="--module-path /Library/Java/JavaVirtualMachines/javafx-sdk-14/lib --add-modules=javafx.controls,javafx.graphics,javafx.media --add-opens=javafx.controls/javafx.scene.control.skin=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -259,65 +210,23 @@
       <is-autoscroll-to-source value="true" />
     </todo-panel>
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1324" extended-state="0" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18030183" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
-      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
-      <window_info anchor="bottom" id="IvyIDEA" order="12" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18030183" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32954547" />
-      <window_info anchor="bottom" auto_hide="true" id="Run" order="2" weight="0.2556818" />
-      <window_info anchor="bottom" auto_hide="true" id="Debug" order="3" weight="0.48133117" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32954547" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32954547" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32954547" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32954547" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32954547" />
-      <window_info anchor="bottom" id="Statistic" order="11" weight="0.3482143" />
-      <window_info anchor="bottom" id="IvyIDEA" order="12" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Maven" order="6" />
-    </layout-to-restore>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="added some attractions, show coordinates in google maps, some changes in languageBundle loading, dynamic reading of number of attractions" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some attractions, show coordinates in google maps, some changes in languageBundle loading, dynamic reading of number of attractions" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -338,224 +247,5 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/code/core/ShutdownHook.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPane.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/ErrorScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageDisplayResolutionNotSupportedScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/UTF8Control.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/FilesIO.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/MessageGameIsAlreadyRunningScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/SplashScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/GameScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/AtlasScreen.java" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/Geography-Quiz/resources/lang/GeoQuiz_el.properties" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreenWithMovingBackground.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/ScoreBoardScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/BaseClass.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/GamePropertiesScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz.properties" />
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_en.properties" />
-    <entry file="file://$PROJECT_DIR$/src/resources/lang/GeoQuiz_el.properties" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/GUIUtils.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomScrollPaneSkin.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/CustomTooltip.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/CoreScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/PowerOn.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/core/GlobalVariables.java" />
-    <entry file="file://$PROJECT_DIR$/src/code/screens/WelcomeScreen.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="947">
-          <caret line="624" column="119" lean-forward="true" selection-start-line="624" selection-start-column="12" selection-end-line="624" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="704">
-          <caret line="32" column="108" selection-start-line="32" selection-start-column="108" selection-end-line="32" selection-end-column="108" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#342#343#0" expanded="true" />
-            <element signature="e#441#442#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="908">
-          <caret line="575" selection-start-line="575" selection-end-line="575" />
-          <folding>
-            <element signature="e#22454#22561#0" expanded="true" />
-            <element signature="e#22560#22561#0" expanded="true" />
-            <element signature="e#22573#22574#0" expanded="true" />
-            <element signature="e#22625#22626#0" expanded="true" />
-            <element signature="e#22663#22664#0" expanded="true" />
-            <element signature="e#22722#22723#0" expanded="true" />
-            <element signature="e#22801#22802#0" expanded="true" />
-            <element signature="e#22875#22876#0" expanded="true" />
-            <element signature="e#22953#22954#0" expanded="true" />
-            <element signature="e#23008#23009#0" expanded="true" />
-            <element signature="e#23085#23086#0" expanded="true" />
-            <element signature="e#23138#23139#0" expanded="true" />
-            <element signature="e#23153#23259#0" expanded="true" />
-            <element signature="e#23258#23259#0" expanded="true" />
-            <element signature="e#23271#23272#0" expanded="true" />
-            <element signature="e#23320#23321#0" expanded="true" />
-            <element signature="e#23357#23358#0" expanded="true" />
-            <element signature="e#23413#23414#0" expanded="true" />
-            <element signature="e#23491#23492#0" expanded="true" />
-            <element signature="e#23546#23547#0" expanded="true" />
-            <element signature="e#23623#23624#0" expanded="true" />
-            <element signature="e#23741#23742#0" expanded="true" />
-            <element signature="e#23766#23767#0" expanded="true" />
-            <element signature="e#23814#23815#0" expanded="true" />
-            <element signature="e#23846#23847#0" expanded="true" />
-            <element signature="e#23897#23898#0" expanded="true" />
-            <element signature="e#23933#23934#0" expanded="true" />
-            <element signature="e#23985#23986#0" expanded="true" />
-            <element signature="e#24022#24023#0" expanded="true" />
-            <element signature="e#24075#24076#0" expanded="true" />
-            <element signature="e#24112#24113#0" expanded="true" />
-            <element signature="e#24167#24168#0" expanded="true" />
-            <element signature="e#24206#24207#0" expanded="true" />
-            <element signature="e#24262#24263#0" expanded="true" />
-            <element signature="e#24302#24303#0" expanded="true" />
-            <element signature="e#24344#24345#0" expanded="true" />
-            <element signature="e#24369#24370#0" expanded="true" />
-            <element signature="e#24411#24412#0" expanded="true" />
-            <element signature="e#24436#24437#0" expanded="true" />
-            <element signature="e#24481#24482#0" expanded="true" />
-            <element signature="e#24509#24510#0" expanded="true" />
-            <element signature="e#24553#24554#0" expanded="true" />
-            <element signature="e#24581#24582#0" expanded="true" />
-            <element signature="e#24624#24625#0" expanded="true" />
-            <element signature="e#24650#24651#0" expanded="true" />
-            <element signature="e#24706#24707#0" expanded="true" />
-            <element signature="e#24747#24748#0" expanded="true" />
-            <element signature="e#24801#24802#0" expanded="true" />
-            <element signature="e#24840#24841#0" expanded="true" />
-            <element signature="e#24884#24885#0" expanded="true" />
-            <element signature="e#24912#24913#0" expanded="true" />
-            <element signature="e#24957#24958#0" expanded="true" />
-            <element signature="e#24986#24987#0" expanded="true" />
-            <element signature="e#25036#25037#0" expanded="true" />
-            <element signature="e#25070#25071#0" expanded="true" />
-            <element signature="e#25115#25116#0" expanded="true" />
-            <element signature="e#25144#25145#0" expanded="true" />
-            <element signature="e#25193#25194#0" expanded="true" />
-            <element signature="e#25231#25232#0" expanded="true" />
-            <element signature="e#25280#25281#0" expanded="true" />
-            <element signature="e#25318#25319#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/module-info.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="956">
-          <caret line="2973" column="20" selection-start-line="2973" selection-start-column="20" selection-end-line="2973" selection-end-column="20" />
-          <folding>
-            <element signature="e#9101#36771#0" />
-            <element signature="e#36775#37950#0" />
-            <element signature="e#38130#62231#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>geographyquiz</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>13</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>geographyquiz</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>commons-io-2.6</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
 </project>

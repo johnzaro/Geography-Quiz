@@ -1,9 +1,12 @@
 package com.johnzaro.geographyquiz.dataStructures;
 
 import com.johnzaro.geographyquiz.core.GlobalVariables;
-import javafx.beans.property.*;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-import java.time.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by John on 1/2/2017.

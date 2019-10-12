@@ -1,0 +1,3104 @@
+{"statesOfUSA":
+[
+	{
+		"nameInGreek": "Αϊντάχο",
+		"nameInEnglish": "Idaho",
+		"articleForState": "Το",
+		"abbreviation": "ID",
+		"capitalInGreek": "Μπόιζι",
+		"capitalInEnglish": "Boise",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μπόιζι",
+			"Νάμπα",
+			"Μερίντιαν",
+			"Άινταχο Φολς",
+			"Ποκατέλο"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Boise",
+			"Nampa",
+			"Meridian",
+			"Idaho Falls",
+			"Pocatello"
+		],
+		"dateEnteredUnion": "03-07-1890",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "44",
+		"houseSeats": "2",
+		"timeZones": "UTC-8/-7/-6",
+		"populationData":
+		{
+			"population": "1466465",
+			"populationRank": "39",
+			"populationDensityPerSquareKilometer": "7.4",
+			"populationDensityPerSquareMile": "19.25"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "216443",
+			"totalAreaInMiles": "83569",
+			"areaRank": "14",
+			"landAreaInKilometers": "214044",
+			"landAreaInMiles": "82643",
+			"landPercent": "99.02",
+			"waterAreaInKilometers": "2398",
+			"waterAreaInMiles": "926",
+			"waterPercent": "0.98",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Κορυφή Borah: 3.861,2m / 12,668ft",
+			"highestPointInEnglish": "Borah Peak: 3.861,2m / 12,668ft",
+			"meanPoint": "1.520m / 5,000ft",
+			"lowestPointInGreek": "Συρροή των Ποταμών Σνέικ και Κλίαργουοτερ: 217m / 712ft",
+			"lowestPointInEnglish": "Confluence of Snake and Clearwater River: 217m / 712ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "17"
+		}
+	},
+	{
+		"nameInGreek": "Αϊόβα",
+		"nameInEnglish": "Iowa",
+		"articleForState": "Η",
+		"abbreviation": "IA",
+		"capitalInGreek": "Ντε Μόιν",
+		"capitalInEnglish": "Des Moines",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Ντε Μόιν",
+			"Σίνταρ Ράπιντς",
+			"Ντάβενπορτ",
+			"Σιού Σίτι",
+			"Γουατερλού"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Des Moines",
+			"Cedar Rapids",
+			"Davenport",
+			"Sioux City",
+			"Waterloo"
+		],
+		"dateEnteredUnion": "28-12-1846",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "99",
+		"houseSeats": "4",
+		"timeZones": "UTC-6/-5",
+		"populationData":
+		{
+			"population": "3090416",
+			"populationRank": "30",
+			"populationDensityPerSquareKilometer": "21.2",
+			"populationDensityPerSquareMile": "55.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "145746",
+			"totalAreaInMiles": "56273",
+			"areaRank": "26",
+			"landAreaInKilometers": "144669",
+			"landAreaInMiles": "55857",
+			"landPercent": "99.29",
+			"waterAreaInKilometers": "1077",
+			"waterAreaInMiles": "416",
+			"waterPercent": "0.71",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Hawkeye Point: 509m / 1,670ft",
+			"highestPointInEnglish": "Hawkeye Point: 509m / 1,670ft",
+			"meanPoint": "340m / 1,115ft",
+			"lowestPointInGreek": "Συρροή των ποταμών Μισσισσιππής και Des Moines: 146m / 479ft",
+			"lowestPointInEnglish": "Confluence of Mississippi river and Des Moines River: 146m / 479ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "19"
+		}
+	},
+	{
+		"nameInGreek": "Αλαμπάμα",
+		"nameInEnglish": "Alabama",
+		"articleForState": "Η",
+		"abbreviation": "AL",
+		"capitalInGreek": "Μοντγκόμερι",
+		"capitalInEnglish": "Montgomery",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μπέρμιγχαμ",
+			"Μοντγκόμερι",
+			"Μόμπαϊλ",
+			"Χάντσβιλ",
+			"Τουσκαλούσα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Birmingham",
+			"Montgomery",
+			"Mobile",
+			"Huntsville",
+			"Tuscaloosa"
+		],
+		"dateEnteredUnion": "14-12-1819",
+		"spokenLanguagesInGreek": "Αγγλικά (96,17%), Ισπανικά (2,12%)",
+		"spokenLanguagesInEnglish": "English (96,17%), Spanish (2,12%)",
+		"numberOfCounties": "67",
+		"houseSeats": "7",
+		"timeZones": "UTC-6/-5/-4",
+		"populationData":
+		{
+			"population": "4802740",
+			"populationRank": "23",
+			"populationDensityPerSquareKilometer": "36.5",
+			"populationDensityPerSquareMile": "94.95"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "135767",
+			"totalAreaInMiles": "52420",
+			"areaRank": "30",
+			"landAreaInKilometers": "131170",
+			"landAreaInMiles": "50645",
+			"landPercent": "96.8",
+			"waterAreaInKilometers": "4597",
+			"waterAreaInMiles": "1775",
+			"waterPercent": "3.2",
+			"coastlineLengthInKilometers": "977",
+			"coastlineLengthInMiles": "607",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Cheaha: 735.5m / 2,413ft",
+			"highestPointInEnglish": "Mount Cheaha: 735.5m / 2,413ft",
+			"meanPoint": "150m / 492ft",
+			"lowestPointInGreek": "Κόλπος του Μεξικού: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Gulf of Mexico: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "14"
+		}
+	},
+	{
+		"nameInGreek": "Αλάσκα",
+		"nameInEnglish": "Alaska",
+		"articleForState": "Η",
+		"abbreviation": "AK",
+		"capitalInGreek": "Τζούνο",
+		"capitalInEnglish": "Juneau",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Άνκορατζ",
+			"Τζούνο",
+			"Φέρμπανκς",
+			"Σίτκα",
+			"Κέτσικαν"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Anchorage",
+			"Juneau",
+			"Fairbanks",
+			"Sitka",
+			"Ketchikan"
+		],
+		"dateEnteredUnion": "03-01-1959",
+		"spokenLanguagesInGreek": "Αγγλικά 89.7%, τοπική γλώσσα (Eskimo–Aleut και Na-Dene) 5.2%, Ισπανικά 2.9%",
+		"spokenLanguagesInEnglish": "English 89.7%, Native (Eskimo–Aleut and Na-Dene languages) 5.2%, Spanish 2.9%",
+		"numberOfCounties": "29",
+		"houseSeats": "1",
+		"timeZones": "UTC-10/-9/-8",
+		"populationData":
+		{
+			"population": "736732",
+			"populationRank": "48",
+			"populationDensityPerSquareKilometer": "0.49",
+			"populationDensityPerSquareMile": "1.26"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "1723337",
+			"totalAreaInMiles": "665384",
+			"areaRank": "1",
+			"landAreaInKilometers": "1477950",
+			"landAreaInMiles": "570641",
+			"landPercent": "86.23",
+			"waterAreaInKilometers": "245383",
+			"waterAreaInMiles": "94743",
+			"waterPercent": "13.77",
+			"coastlineLengthInKilometers": "54563",
+			"coastlineLengthInMiles": "33904",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος ΜακΚίνλεϊ: 6.193,7m / 20,320.5ft",
+			"highestPointInEnglish": "Mount McKinley: 6.193,7m / 20,320.5ft",
+			"meanPoint": "580m / 1,903ft",
+			"lowestPointInGreek": "Ειρηνικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Pacific ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "38"
+		}
+	},
+	{
+		"nameInGreek": "Αριζόνα",
+		"nameInEnglish": "Arizona",
+		"articleForState": "Η",
+		"abbreviation": "AZ",
+		"capitalInGreek": "Φοίνιξ",
+		"capitalInEnglish": "Phoenix",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Φοίνιξ",
+			"Τούσον",
+			"Μέσα",
+			"Τσάντλερ",
+			"Γκλέντεϊλ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Phoenix",
+			"Tucson",
+			"Mesa",
+			"Chandler",
+			"Glendale"
+		],
+		"dateEnteredUnion": "14-02-1912",
+		"spokenLanguagesInGreek": "Αγγλικά 74.1%, Ισπανικά 19.5%, Ναβάχο 1.9%, Άλλες 4.5%",
+		"spokenLanguagesInEnglish": "English 74.1%, Spanish 19.5%, Navajo 1.9%, Other 4.5%",
+		"numberOfCounties": "15",
+		"houseSeats": "9",
+		"timeZones": "UTC-7/-6",
+		"populationData":
+		{
+			"population": "6731484",
+			"populationRank": "15",
+			"populationDensityPerSquareKilometer": "22",
+			"populationDensityPerSquareMile": "57"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "295233",
+			"totalAreaInMiles": "113990",
+			"areaRank": "6",
+			"landAreaInKilometers": "294207",
+			"landAreaInMiles": "113594",
+			"landPercent": "99.68",
+			"waterAreaInKilometers": "1026",
+			"waterAreaInMiles": "396",
+			"waterPercent": "0.32",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Κορυφή Χάμφρεϊς: 3.851m / 12,634.5ft",
+			"highestPointInEnglish": "Humphreys Peak: 3.851m / 12,634.5ft",
+			"meanPoint": "1.250m / 4,100ft",
+			"lowestPointInGreek": "Ποταμός Κολοράντο στα σύνορα με τη Σονόρα: 22 m / 72ft",
+			"lowestPointInEnglish": "Colorado River at the Sonora border: 22m / 72ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "43"
+		}
+	},
+	{
+		"nameInGreek": "Αρκάνσας",
+		"nameInEnglish": "Arkansas",
+		"articleForState": "Το",
+		"abbreviation": "AR",
+		"capitalInGreek": "Λιτλ Ροκ",
+		"capitalInEnglish": "Little Rock",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Λιτλ Ροκ",
+			"Φορτ Σμιθ",
+			"Φέγιετβιλ",
+			"Σπρίνγκντεϊλ",
+			"Τζόουνσμπορο"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Little Rock",
+			"Fort Smith",
+			"Fayetteville",
+			"Springdale",
+			"Jonesboro"
+		],
+		"dateEnteredUnion": "15-06-1836",
+		"spokenLanguagesInGreek": "Άγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "75",
+		"houseSeats": "4",
+		"timeZones": "UTC−6/−5",
+		"populationData":
+		{
+			"population": "2966369",
+			"populationRank": "32",
+			"populationDensityPerSquareKilometer": "21.8",
+			"populationDensityPerSquareMile": "56.4"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "137733",
+			"totalAreaInMiles": "53179",
+			"areaRank": "29",
+			"landAreaInKilometers": "134770",
+			"landAreaInMiles": "52035",
+			"landPercent": "97.91",
+			"waterAreaInKilometers": "2960",
+			"waterAreaInMiles": "1143",
+			"waterPercent": "2.09",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Magazine: 839 m / 2753ft",
+			"highestPointInEnglish": "Mount Magazine: 839 m / 2753ft",
+			"meanPoint": "200m / 656ft",
+			"lowestPointInGreek": "Ποταμός Ouachita στα σύνορα με τη Λουιζιάνα: 17 m / 55.7ft",
+			"lowestPointInEnglish": "Ouachita River at Louisiana border: 17 m / 55.7ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "11"
+		}
+	},
+	{
+		"nameInGreek": "Βερμόντ",
+		"nameInEnglish": "Vermont",
+		"articleForState": "Το",
+		"abbreviation": "VT",
+		"capitalInGreek": "Μονπελιέ",
+		"capitalInEnglish": "Montpelier",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μπέρλινγκτον",
+			"Έσεξ",
+			"Σάουθ Μπέρλινγκτον",
+			"Κόλτσεστερ",
+			"Ράτλαντ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Burlington",
+			"Essex",
+			"South Burlington",
+			"Colchester",
+			"Rutland"
+		],
+		"dateEnteredUnion": "04-03-1791",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "14",
+		"houseSeats": "1",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "626562",
+			"populationRank": "49",
+			"populationDensityPerSquareKilometer": "26.1",
+			"populationDensityPerSquareMile": "67.7"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "24905",
+			"totalAreaInMiles": "9616",
+			"areaRank": "45",
+			"landAreaInKilometers": "23872",
+			"landAreaInMiles": "9217",
+			"landPercent": "95.1",
+			"waterAreaInKilometers": "1036",
+			"waterAreaInMiles": "400",
+			"waterPercent": "4.1",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Μάνσφιλντ: 1339,69m / 4395.3ft",
+			"highestPointInEnglish": "Mount Mansfield: 1339,69m / 4395.3ft",
+			"meanPoint": "300m / 1000ft",
+			"lowestPointInGreek": "Λίμνη Σαμπλαίν: 29 ~ 30m / 95 ~ 100ft",
+			"lowestPointInEnglish": "Lake Champlain: 29 ~ 30m / 95 ~ 100ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "13"
+		}
+	},
+	{
+		"nameInGreek": "Βιρτζίνια",
+		"nameInEnglish": "Virginia",
+		"articleForState": "Η",
+		"abbreviation": "VA",
+		"capitalInGreek": "Ρίτσμοντ",
+		"capitalInEnglish": "Richmond",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Βιρτζίνια Μπιτς",
+			"Νόρφολκ",
+			"Τσέζαπικ",
+			"Άρλιγκτον",
+			"Ρίτσμοντ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Virginia Beach",
+			"Norfolk",
+			"Chesapeake",
+			"Arlington",
+			"Richmond"
+		],
+		"dateEnteredUnion": "25-06-1788",
+		"spokenLanguagesInGreek": "Αγγλικά 85.87%, Ισπανικά 6.41%, Άλλες 7.72%",
+		"spokenLanguagesInEnglish": "English 85.87%, Spanish 6.41%, Other 7.72%",
+		"numberOfCounties": "95",
+		"houseSeats": "11",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "8326289",
+			"populationRank": "12",
+			"populationDensityPerSquareKilometer": "79.8",
+			"populationDensityPerSquareMile": "206.7"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "110787",
+			"totalAreaInMiles": "42775",
+			"areaRank": "35",
+			"landAreaInKilometers": "102279",
+			"landAreaInMiles": "39490",
+			"landPercent": "92.6",
+			"waterAreaInKilometers": "8508",
+			"waterAreaInMiles": "3285",
+			"waterPercent": "7.4",
+			"coastlineLengthInKilometers": "5335",
+			"coastlineLengthInMiles": "3315",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Ρότζερς: 1.746m / 5,728ft",
+			"highestPointInEnglish": "Mount Rogers: 1.746m / 5,728ft",
+			"meanPoint": "290m / 950ft",
+			"lowestPointInGreek": "Ατλαντικός ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "28"
+		}
+	},
+	{
+		"nameInGreek": "Βόρεια Καρολίνα",
+		"nameInEnglish": "North Carolina",
+		"articleForState": "Η",
+		"abbreviation": "NC",
+		"capitalInGreek": "Ράλεϊ",
+		"capitalInEnglish": "Raleigh",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Σάρλοτ",
+			"Ράλεϊ",
+			"Γκρίνσμπορο",
+			"Ντάραμ",
+			"Γουίνστον - Σάλεμ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Charlotte",
+			"Raleigh",
+			"Greensboro",
+			"Durham",
+			"Winston - Salem"
+		],
+		"dateEnteredUnion": "21-11-1789",
+		"spokenLanguagesInGreek": "Αγγλικά 90.70%, Ισπανικά 6.18%",
+		"spokenLanguagesInEnglish": "English 90.70%, Spanish 6.18%",
+		"numberOfCounties": "100",
+		"houseSeats": "13",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "9943964",
+			"populationRank": "9",
+			"populationDensityPerSquareKilometer": "82.7",
+			"populationDensityPerSquareMile": "212.2"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "139391",
+			"totalAreaInMiles": "53819",
+			"areaRank": "28",
+			"landAreaInKilometers": "125920",
+			"landAreaInMiles": "48618",
+			"landPercent": "90.5",
+			"waterAreaInKilometers": "13471",
+			"waterAreaInMiles": "5201",
+			"waterPercent": "9.5",
+			"coastlineLengthInKilometers": "5432",
+			"coastlineLengthInMiles": "3375",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Μίτσελ: 2.037m / 6,683ft",
+			"highestPointInEnglish": "Mount Mitchell: 2.037m / 6,683ft",
+			"meanPoint": "210m / 689ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "27"
+		}
+	},
+	{
+		"nameInGreek": "Βόρεια Ντακότα",
+		"nameInEnglish": "North Dakota",
+		"articleForState": "Η",
+		"abbreviation": "ND",
+		"capitalInGreek": "Μπίσμαρκ",
+		"capitalInEnglish": "Bismarck",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Φάργκο",
+			"Βίσμαρκ",
+			"Γκραντ Φορκς",
+			"Μάινοτ",
+			"Γουέστ Φάργκο"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Fargo",
+			"Bismarck",
+			"Grand Forks",
+			"Minot",
+			"West Fargo"
+		],
+		"dateEnteredUnion": "02-11-1889",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "53",
+		"houseSeats": "1",
+		"timeZones": "UTC-7/-6/-5",
+		"populationData":
+		{
+			"population": "739482",
+			"populationRank": "47",
+			"populationDensityPerSquareKilometer": "3.83",
+			"populationDensityPerSquareMile": "11.7"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "183107",
+			"totalAreaInMiles": "70698",
+			"areaRank": "19",
+			"landAreaInKilometers": "178712",
+			"landAreaInMiles": "69001",
+			"landPercent": "97.6",
+			"waterAreaInKilometers": "4398",
+			"waterAreaInMiles": "1698",
+			"waterPercent": "2.4",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Ουάιτ Μπατ: 1.069m / 3,507ft",
+			"highestPointInEnglish": "White Butte: 1.069m / 3,507ft",
+			"meanPoint": "580m / 1,900ft",
+			"lowestPointInGreek": "Κόκκινος Ποταμός του Βορρά στα σύνορα με την Μανιτόμπα: 229m / 751ft",
+			"lowestPointInEnglish": "Red River of the North at Manitoba border: 229m / 751ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "16"
+		}
+	},
+	{
+		"nameInGreek": "Γιούτα",
+		"nameInEnglish": "Utah",
+		"articleForState": "Η",
+		"abbreviation": "UT",
+		"capitalInGreek": "Σολτ Λέικ Σίτι",
+		"capitalInEnglish": "Salt Lake City",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Σολτ Λέικ Σίτι",
+			"Γουέστ Βάλεϊ Σίτι",
+			"Πρόβο",
+			"Γουέστ Τζόρνταν",
+			"Όρεμ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Salt Lake City",
+			"West Valley City",
+			"Provo",
+			"West Jordan",
+			"Orem"
+		],
+		"dateEnteredUnion": "04-01-1896",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "29",
+		"houseSeats": "4",
+		"timeZones": "UTC−7/−6",
+		"populationData":
+		{
+			"population": "2949902",
+			"populationRank": "33",
+			"populationDensityPerSquareKilometer": "13.2",
+			"populationDensityPerSquareMile": "34.3"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "219882",
+			"totalAreaInMiles": "84897",
+			"areaRank": "13",
+			"landAreaInKilometers": "212819",
+			"landAreaInMiles": "82170",
+			"landPercent": "96.75",
+			"waterAreaInKilometers": "7063",
+			"waterAreaInMiles": "2727",
+			"waterPercent": "3.25",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Κορυφή Κινγκς: 4.120m / 13,518ft",
+			"highestPointInEnglish": "Kings Peak: 4.120m / 13,518ft",
+			"meanPoint": "1.860m / 6,100ft",
+			"lowestPointInGreek": "Μπίβερ Νταμ Γουός στα σύνορα με την Αριζόνα: 664m / 2,180ft",
+			"lowestPointInEnglish": "Beaver Dam Wash at Arizona border: 664m / 2,180ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "33"
+		}
+	},
+	{
+		"nameInGreek": "Δυτική Βιρτζίνια",
+		"nameInEnglish": "West Virginia",
+		"articleForState": "Η",
+		"abbreviation": "WV",
+		"capitalInGreek": "Τσάρλστον",
+		"capitalInEnglish": "Charleston",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Τσάρλστον",
+			"Χάντινγκτον",
+			"Πάρκερσμπεργκ",
+			"Μόργκανταουν",
+			"Γουίλινγκ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Charleston",
+			"Huntington",
+			"Parkersburg",
+			"Morgantown",
+			"Wheeling"
+		],
+		"dateEnteredUnion": "20-06-1863",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "5",
+		"houseSeats": "3",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "1850326",
+			"populationRank": "38",
+			"populationDensityPerSquareKilometer": "29.8",
+			"populationDensityPerSquareMile": "77.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "62775",
+			"totalAreaInMiles": "24230",
+			"areaRank": "41",
+			"landAreaInKilometers": "62258",
+			"landAreaInMiles": "24038",
+			"landPercent": "99.4",
+			"waterAreaInKilometers": "497",
+			"waterAreaInMiles": "192",
+			"waterPercent": "0.6",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Spruce Knob: 1482m / 4863ft",
+			"highestPointInEnglish": "Spruce Knob: 1482m / 4863ft",
+			"meanPoint": "461m / 1,513ft",
+			"lowestPointInGreek": "Ποταμός Potomac στα σύνορα με τη Βιρτζίνια: 73m / 240ft",
+			"lowestPointInEnglish": "Potomac River at Virginia border: 73m / 240ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "41"
+		}
+	},
+	{
+		"nameInGreek": "Ιλλινόι",
+		"nameInEnglish": "Illinois",
+		"articleForState": "Το",
+		"abbreviation": "IL",
+		"capitalInGreek": "Σπρίνγκφιλντ",
+		"capitalInEnglish": "Springfield",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Σικάγο",
+			"Ορόρα",
+			"Ρόκφορντ",
+			"Τζόλιετ",
+			"Νάπερβιλ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Chicago",
+			"Aurora",
+			"Rockford",
+			"Joliet",
+			"Naperville"
+		],
+		"dateEnteredUnion": "03-12-1818",
+		"spokenLanguagesInGreek": "Αγγλικά (80.8%), Ισπανικά (14.9%), Άλλες(5.1%)",
+		"spokenLanguagesInEnglish": "English (80.8%), Spanish (14.9%), Other (5.1%)",
+		"numberOfCounties": "102",
+		"houseSeats": "18",
+		"timeZones": "UTC-6/-5",
+		"populationData":
+		{
+			"population": "12880580",
+			"populationRank": "5",
+			"populationDensityPerSquareKilometer": "89.4",
+			"populationDensityPerSquareMile": "232"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "149997",
+			"totalAreaInMiles": "57914",
+			"areaRank": "25",
+			"landAreaInKilometers": "143794",
+			"landAreaInMiles": "55519",
+			"landPercent": "96.01",
+			"waterAreaInKilometers": "6203",
+			"waterAreaInMiles": "2395",
+			"waterPercent": "3.99",
+			"coastlineLengthInKilometers": "101",
+			"coastlineLengthInMiles": "63",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Ύψωμα Τσαρλς: 376,4m / 1,235ft",
+			"highestPointInEnglish": "Charles Mound: 376,4m / 1,235ft",
+			"meanPoint": "180m / 600ft",
+			"lowestPointInGreek": "Συμβολή των ποταμών Μισσισσιππής και Οχάιο: 85m / 280ft",
+			"lowestPointInEnglish": "Confluence of Mississippi River and Ohio River: 85m / 280ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "34"
+		}
+	},
+	{
+		"nameInGreek": "Ιντιάνα",
+		"nameInEnglish": "Indiana",
+		"articleForState": "Η",
+		"abbreviation": "IN",
+		"capitalInGreek": "Ιντιανάπολις",
+		"capitalInEnglish": "Indianapolis",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Ιντιανάπολις",
+			"Φορτ Γουέιν",
+			"Έβανσβιλ",
+			"Σάουθ Μπεντ",
+			"Κάρμελ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Indianapolis",
+			"Fort Wayne",
+			"Evansville",
+			"South Bend",
+			"Carmel"
+		],
+		"dateEnteredUnion": "11-12-1816",
+		"spokenLanguagesInGreek": "Αγγλικά, Iσπανικά και άλλες γλώσσες",
+		"spokenLanguagesInEnglish": "English, Spanish and other languages",
+		"numberOfCounties": "92",
+		"houseSeats": "9",
+		"timeZones": "UTC −6/−5/-4",
+		"populationData":
+		{
+			"population": "6596855",
+			"populationRank": "16",
+			"populationDensityPerSquareKilometer": "70.2",
+			"populationDensityPerSquareMile": "182"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "94327",
+			"totalAreaInMiles": "36420",
+			"areaRank": "38",
+			"landAreaInKilometers": "92789",
+			"landAreaInMiles": "35826",
+			"landPercent": "98.5",
+			"waterAreaInKilometers": "1536",
+			"waterAreaInMiles": "593",
+			"waterPercent": "1.5",
+			"coastlineLengthInKilometers": "72",
+			"coastlineLengthInMiles": "45",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Hoosier Hill: 383m / 1,257ft",
+			"highestPointInEnglish": "Hoosier Hill: 383m / 1,257ft",
+			"meanPoint": "210m / 700ft",
+			"lowestPointInGreek": "Συμβολή των ποταμών Ohio και Wabash: 97m / 320ft",
+			"lowestPointInEnglish": "Confluence of Ohio River and Wabash River: 97m / 320ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "4"
+		}
+	},
+	{
+		"nameInGreek": "Καλιφόρνια",
+		"nameInEnglish": "California",
+		"articleForState": "Η",
+		"abbreviation": "CA",
+		"capitalInGreek": "Σακραμέντο",
+		"capitalInEnglish": "Sacramento",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Λος Άντζελες",
+			"Σαν Ντιέγκο",
+			"Σαν Χοσέ",
+			"Σαν Φρανσίσκο",
+			"Φρέσνο"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Los Angeles",
+			"San Diego",
+			"San Jose",
+			"San Francisco",
+			"Fresno"
+		],
+		"dateEnteredUnion": "09-09-1850",
+		"spokenLanguagesInGreek": "Αγγλικά 57.4%, Ισπανικά 28.5%, Κινέζικα 2.8%, Ταγκαλόγκ 2.2%, Βιετναμέζικα 1.43%",
+		"spokenLanguagesInEnglish": "English 57.4%, Spanish 28.5%, Chinese 2.8%, Tagalog 2.2%, Vietnamese 1.43%",
+		"numberOfCounties": "58",
+		"houseSeats": "53",
+		"timeZones": "UTC-8/-7",
+		"populationData":
+		{
+			"population": "38802500",
+			"populationRank": "1",
+			"populationDensityPerSquareKilometer": "95",
+			"populationDensityPerSquareMile": "246"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "423968",
+			"totalAreaInMiles": "163695",
+			"areaRank": "3",
+			"landAreaInKilometers": "403466",
+			"landAreaInMiles": "155779",
+			"landPercent": "95.3",
+			"waterAreaInKilometers": "20502",
+			"waterAreaInMiles": "7916",
+			"waterPercent": "4.7",
+			"coastlineLengthInKilometers": "5515",
+			"coastlineLengthInMiles": "3427",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Κορυφή Whitney: 4.421m / 14,505ft",
+			"highestPointInEnglish": "Mount Whitney: 4.421m / 14,505ft",
+			"meanPoint": "884m / 2,900ft",
+			"lowestPointInGreek": "Κοιλάδα του Θανάτου: -86m / -279ft",
+			"lowestPointInEnglish": "Death Valley: -86m / -279ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "29"
+		}
+	},
+	{
+		"nameInGreek": "Κάνσας",
+		"nameInEnglish": "Kansas",
+		"articleForState": "Το",
+		"abbreviation": "KS",
+		"capitalInGreek": "Τοπίκα",
+		"capitalInEnglish": "Topeka",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Ουιτσίτα",
+			"Όβερλαντ Παρκ",
+			"Κάνσας Σίτι",
+			"Ολάθη",
+			"Τοπέκα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Wichita",
+			"Overland Park",
+			"Kansas City",
+			"Olathe",
+			"Topeka"
+		],
+		"dateEnteredUnion": "29-01-1861",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "105",
+		"houseSeats": "4",
+		"timeZones": "UTC−7/−6/-5",
+		"populationData":
+		{
+			"population": "2904021",
+			"populationRank": "34",
+			"populationDensityPerSquareKilometer": "13.5",
+			"populationDensityPerSquareMile": "35.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "213099",
+			"totalAreaInMiles": "82278",
+			"areaRank": "15",
+			"landAreaInKilometers": "211755",
+			"landAreaInMiles": "81759",
+			"landPercent": "99.44",
+			"waterAreaInKilometers": "1347",
+			"waterAreaInMiles": "520",
+			"waterPercent": "0.56",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Σάνφλαουερ: 1.232m / 4,041ft",
+			"highestPointInEnglish": "Mount Sunflower: 1.232m / 4,041ft",
+			"meanPoint": "610m / 2,000ft",
+			"lowestPointInGreek": "Ποταμός Βέρντιγκρις στα σύνορα με την Οκλαχόμα: 207m / 679ft",
+			"lowestPointInEnglish": "Verdigris River at Oklahoma border: 207m / 679ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "39"
+		}
+	},
+	{
+		"nameInGreek": "Κεντάκι",
+		"nameInEnglish": "Kentucky",
+		"articleForState": "Το",
+		"abbreviation": "KY",
+		"capitalInGreek": "Φράνκφορτ",
+		"capitalInEnglish": "Frankfort",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Λούισβιλ",
+			"Λέξινγκτον",
+			"Μπόουλινγκ Γκριν",
+			"Όουενσμπορο",
+			"Κόβινγκτον"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Louisville",
+			"Lexington",
+			"Bowling Green",
+			"Owensboro",
+			"Covington"
+		],
+		"dateEnteredUnion": "01-06-1792",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "120",
+		"houseSeats": "6",
+		"timeZones": "UTC−6/−5/-4",
+		"populationData":
+		{
+			"population": "4413457",
+			"populationRank": "26",
+			"populationDensityPerSquareKilometer": "42.5",
+			"populationDensityPerSquareMile": "110"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "104659",
+			"totalAreaInMiles": "40408",
+			"areaRank": "37",
+			"landAreaInKilometers": "102268",
+			"landAreaInMiles": "39486",
+			"landPercent": "98.3",
+			"waterAreaInKilometers": "2385",
+			"waterAreaInMiles": "921",
+			"waterPercent": "1.7",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Black Mountain: 1.263m / 4,145ft",
+			"highestPointInEnglish": "Black Mountain: 1.263m / 4,145ft",
+			"meanPoint": "230m / 750ft",
+			"lowestPointInGreek": "Ποταμός Μισσισσιππής στο Kentucky Bend: 78m / 257ft",
+			"lowestPointInEnglish": "Mississippi River at Kentucky Bend: 78m / 257ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "44"
+		}
+	},
+	{
+		"nameInGreek": "Κολοράντο",
+		"nameInEnglish": "Colorado",
+		"articleForState": "Το",
+		"abbreviation": "CO",
+		"capitalInGreek": "Ντένβερ",
+		"capitalInEnglish": "Denver",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Ντένβερ",
+			"Κολοράντο Σπρινγκς",
+			"Ορόρα",
+			"Φορτ Κόλινς",
+			"Λέικγουντ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Denver",
+			"Colorado Springs",
+			"Aurora",
+			"Fort Collins",
+			"Lakewood"
+		],
+		"dateEnteredUnion": "01-08-1876",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "64",
+		"houseSeats": "7",
+		"timeZones": "UTC-07/-06",
+		"populationData":
+		{
+			"population": "5355866",
+			"populationRank": "22",
+			"populationDensityPerSquareKilometer": "19.9",
+			"populationDensityPerSquareMile": "52"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "269602",
+			"totalAreaInMiles": "104094",
+			"areaRank": "8",
+			"landAreaInKilometers": "268432",
+			"landAreaInMiles": "103642",
+			"landPercent": "99.64",
+			"waterAreaInKilometers": "1171",
+			"waterAreaInMiles": "452",
+			"waterPercent": "0.36",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Έλμπερτ: 4.401,2m / 14,440ft",
+			"highestPointInEnglish": "Mount Elbert: 4.401,2m / 14,440ft",
+			"meanPoint": "2.070m / 6,800ft",
+			"lowestPointInGreek": "Ποταμός Arikaree: 1.011m / 3,317ft",
+			"lowestPointInEnglish": "Arikaree River: 1.011m / 3,317ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "20"
+		}
+	},
+	{
+		"nameInGreek": "Κονέκτικατ",
+		"nameInEnglish": "Connecticut",
+		"articleForState": "Το",
+		"abbreviation": "CT",
+		"capitalInGreek": "Χάρτφορντ",
+		"capitalInEnglish": "Hartford",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μπρίτζπορτ",
+			"Νιού Χέιβεν",
+			"Στάμφορντ",
+			"Χάρτφορντ",
+			"Γουότερμπερι"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Bridgeport",
+			"New Haven",
+			"Stamford",
+			"Hartford",
+			"Waterbury"
+		],
+		"dateEnteredUnion": "09-01-1788",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "8",
+		"houseSeats": "5",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "3596677",
+			"populationRank": "29",
+			"populationDensityPerSquareKilometer": "285",
+			"populationDensityPerSquareMile": "739"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "14356",
+			"totalAreaInMiles": "5543",
+			"areaRank": "48",
+			"landAreaInKilometers": "12541",
+			"landAreaInMiles": "4842",
+			"landPercent": "87.4",
+			"waterAreaInKilometers": "1816",
+			"waterAreaInMiles": "701",
+			"waterPercent": "12.6",
+			"coastlineLengthInKilometers": "995",
+			"coastlineLengthInMiles": "618",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Νότια πλαγιά του Όρους Φρισέλ στα σύνορα με την Μασαχουσέτη: 725m / 2,379ft",
+			"highestPointInEnglish": "Massachusetts border on south slope of Mount Frissell: 725m / 2,379ft",
+			"meanPoint": "150m / 500ft",
+			"lowestPointInGreek": "Λονγκ Άιλαντ Σάουντ: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Long Island Sound: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "46"
+		}
+	},
+	{
+		"nameInGreek": "Λουιζιάνα",
+		"nameInEnglish": "Louisiana",
+		"articleForState": "Η",
+		"abbreviation": "LA",
+		"capitalInGreek": "Μπατόν Ρουζ",
+		"capitalInEnglish": "Baton Rouge",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Νέα Ορλεάνη",
+			"Μπάτον Ρουζ",
+			"Σρίβπορτ",
+			"Λαφαγέτ",
+			"Λέικ Τσάρλς"
+		],
+		"largestCitiesInEnglish":
+		[
+			"New Orleans",
+			"Baton Rouge",
+			"Shreveport",
+			"Lafayette",
+			"Lake Charles"
+		],
+		"dateEnteredUnion": "30-04-1812",
+		"spokenLanguagesInGreek": "Αγγλικά 90.8%, Γαλλικά 7%, Ισπανικά 2.5%, Βιετναμέζικα 1.2%",
+		"spokenLanguagesInEnglish": "English 90.8%, French 7%, Spanish 2.5%, Vietnamese 1.2%",
+		"numberOfCounties": "64",
+		"houseSeats": "6",
+		"timeZones": "UTC−6/−5",
+		"populationData":
+		{
+			"population": "4649676",
+			"populationRank": "25",
+			"populationDensityPerSquareKilometer": "40.5",
+			"populationDensityPerSquareMile": "105"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "135658",
+			"totalAreaInMiles": "52378",
+			"areaRank": "31",
+			"landAreaInKilometers": "111898",
+			"landAreaInMiles": "43204",
+			"landPercent": "85",
+			"waterAreaInKilometers": "23761",
+			"waterAreaInMiles": "9174",
+			"waterPercent": "15",
+			"coastlineLengthInKilometers": "12426",
+			"coastlineLengthInMiles": "7721",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Ντρίσκιλ: 163m / 535ft",
+			"highestPointInEnglish": "Driskill Mountain: 163m / 535ft",
+			"meanPoint": "30m / 100ft",
+			"lowestPointInGreek": "Νέα Ορλεάνη: -2,5m / -8ft",
+			"lowestPointInEnglish": "New Orleans: -2,5m / -8ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "15"
+		}
+	},
+	{
+		"nameInGreek": "Μασαχουσέτη",
+		"nameInEnglish": "Massachusetts",
+		"articleForState": "Η",
+		"abbreviation": "MA",
+		"capitalInGreek": "Βοστώνη",
+		"capitalInEnglish": "Boston",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Βοστώνη",
+			"Γουόρσεστερ",
+			"Σπρίνγκφιλντ",
+			"Λόουελ",
+			"Κέιμπριτζ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Boston",
+			"Worcester",
+			"Springfield",
+			"Lowell",
+			"Cambridge"
+		],
+		"dateEnteredUnion": "06-02-1788",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "14",
+		"houseSeats": "6",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "6745408",
+			"populationRank": "14",
+			"populationDensityPerSquareKilometer": "324",
+			"populationDensityPerSquareMile": "840"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "27335",
+			"totalAreaInMiles": "10554",
+			"areaRank": "44",
+			"landAreaInKilometers": "20202",
+			"landAreaInMiles": "7800",
+			"landPercent": "74.3",
+			"waterAreaInKilometers": "7133",
+			"waterAreaInMiles": "2754",
+			"waterPercent": "25.7",
+			"coastlineLengthInKilometers": "2445",
+			"coastlineLengthInMiles": "1519",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Γκρέιλοκ: 1.063,4m / 3,489ft",
+			"highestPointInEnglish": "Mount Greylock: 1.063,4m / 3,489ft",
+			"meanPoint": "150m / 500ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "3"
+		}
+	},
+	{
+		"nameInGreek": "Μέιν",
+		"nameInEnglish": "Maine",
+		"articleForState": "Το",
+		"abbreviation": "ME",
+		"capitalInGreek": "Αουγκούστα",
+		"capitalInEnglish": "Augusta",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Πόρτλαντ",
+			"Λούιστον",
+			"Μπάνγκορ",
+			"Σάουθ Πόρτλαντ",
+			"Όμπερν"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Portland",
+			"Lewiston",
+			"Bangor",
+			"South Portland",
+			"Auburn"
+		],
+		"dateEnteredUnion": "15-03-1820",
+		"spokenLanguagesInGreek": "Αγγλικά (92%), Γαλλικά (8%)",
+		"spokenLanguagesInEnglish": "English (92%), French (8%)",
+		"numberOfCounties": "16",
+		"houseSeats": "2",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "1330089",
+			"populationRank": "41",
+			"populationDensityPerSquareKilometer": "16.6",
+			"populationDensityPerSquareMile": "43"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "91634",
+			"totalAreaInMiles": "35380",
+			"areaRank": "39",
+			"landAreaInKilometers": "79883",
+			"landAreaInMiles": "30843",
+			"landPercent": "86.5",
+			"waterAreaInKilometers": "11751",
+			"waterAreaInMiles": "4537",
+			"waterPercent": "13.5",
+			"coastlineLengthInKilometers": "5597",
+			"coastlineLengthInMiles": "3478",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Κάταντιν: 1.606,4m / 5,270ft",
+			"highestPointInEnglish": "Mount Katahdin: 1.606,4m / 5,270ft",
+			"meanPoint": "180m / 600ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "1"
+		}
+	},
+	{
+		"nameInGreek": "Μέριλαντ",
+		"nameInEnglish": "Maryland",
+		"articleForState": "Το",
+		"abbreviation": "MD",
+		"capitalInGreek": "Ανάπολις",
+		"capitalInEnglish": "Annapolis",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Βαλτιμόρη",
+			"Κολούμπια",
+			"Τζέρμανταουν",
+			"Σίλβερ Σπρινγκ",
+			"Γουόλντορφ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Baltimore",
+			"Columbia",
+			"Germantown",
+			"Silver Spring",
+			"Waldorf"
+		],
+		"dateEnteredUnion": "28-04-1788",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "23",
+		"houseSeats": "8",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "5976407",
+			"populationRank": "19",
+			"populationDensityPerSquareKilometer": "230",
+			"populationDensityPerSquareMile": "596"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "32131",
+			"totalAreaInMiles": "12406",
+			"areaRank": "42",
+			"landAreaInKilometers": "25141",
+			"landAreaInMiles": "9707",
+			"landPercent": "79",
+			"waterAreaInKilometers": "6990",
+			"waterAreaInMiles": "2699",
+			"waterPercent": "21",
+			"coastlineLengthInKilometers": "5130",
+			"coastlineLengthInMiles": "3190",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Χόι-Κρεστ: 1.024m / 3,360ft",
+			"highestPointInEnglish": "Hoye-Crest: 1.024m / 3,360ft",
+			"meanPoint": "110m / 350ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "0"
+		}
+	},
+	{
+		"nameInGreek": "Μιζούρι",
+		"nameInEnglish": "Missouri",
+		"articleForState": "Το",
+		"abbreviation": "MO",
+		"capitalInGreek": "Τζέφερσον Σίτι",
+		"capitalInEnglish": "Jefferson City",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Κάνσας Σίτι",
+			"Σεν Λούις",
+			"Σπρίνγκφιλντ",
+			"Ινντιπένντενς",
+			"Κολούμπια"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Kansas City",
+			"Saint Louis",
+			"Springfield",
+			"Independence",
+			"Columbia"
+		],
+		"dateEnteredUnion": "10-08-1821",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "114",
+		"houseSeats": "8",
+		"timeZones": "UTC−6/−5",
+		"populationData":
+		{
+			"population": "6063589",
+			"populationRank": "18",
+			"populationDensityPerSquareKilometer": "33.7",
+			"populationDensityPerSquareMile": "87.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "180540",
+			"totalAreaInMiles": "69707",
+			"areaRank": "21",
+			"landAreaInKilometers": "178041",
+			"landAreaInMiles": "68742",
+			"landPercent": "98.83",
+			"waterAreaInKilometers": "2499",
+			"waterAreaInMiles": "965",
+			"waterPercent": "1.17",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Taum Sauk: 540m / 1,772ft",
+			"highestPointInEnglish": "Taum Sauk Mountain: 540m / 1,772ft",
+			"meanPoint": "240m / 800ft",
+			"lowestPointInGreek": "Ποταμός Άγιος Φραγκίσκος στα σύνορα με το Αρκάνσας: 70 m / 230ft",
+			"lowestPointInEnglish": "Saint Francis River at southern Arkansas border: 70 m / 230ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "37"
+		}
+	},
+	{
+		"nameInGreek": "Μινεσότα",
+		"nameInEnglish": "Minnesota",
+		"articleForState": "Η",
+		"abbreviation": "MN",
+		"capitalInGreek": "Σεντ Πολ",
+		"capitalInEnglish": "Saint Paul",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μιννεάπολις",
+			"Σέν Πολ",
+			"Ρότσεστερ",
+			"Μπλούμινγκτον",
+			"Ντελούθ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Minneapolis",
+			"Saint Paul",
+			"Rochester",
+			"Bloomington",
+			"Duluth"
+		],
+		"dateEnteredUnion": "11-05-1858",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "87",
+		"houseSeats": "8",
+		"timeZones": "UTC−6/−5",
+		"populationData":
+		{
+			"population": "5458333",
+			"populationRank": "21",
+			"populationDensityPerSquareKilometer": "25.9",
+			"populationDensityPerSquareMile": "67.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "225163",
+			"totalAreaInMiles": "86936",
+			"areaRank": "12",
+			"landAreaInKilometers": "206233",
+			"landAreaInMiles": "79627",
+			"landPercent": "91.6",
+			"waterAreaInKilometers": "18930",
+			"waterAreaInMiles": "7309",
+			"waterPercent": "8.4",
+			"coastlineLengthInKilometers": "304",
+			"coastlineLengthInMiles": "189",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Ιγκλ: 701m / 2,302ft",
+			"highestPointInEnglish": "Eagle Mountain: 701m / 2,302ft",
+			"meanPoint": "370m / 1,200ft",
+			"lowestPointInGreek": "Λίμνη Σουπίριορ: 183m / 601ft",
+			"lowestPointInEnglish": "Lake Superior: 183m / 601ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "32"
+		}
+	},
+	{
+		"nameInGreek": "Μίσιγκαν",
+		"nameInEnglish": "Michigan",
+		"articleForState": "Το",
+		"abbreviation": "MI",
+		"capitalInGreek": "Λάνσινγκ",
+		"capitalInEnglish": "Lansing",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Ντιτρόιτ",
+			"Γκραντ Ράπιντς",
+			"Γουόρεν",
+			"Στέρλινγκ Χάιτς",
+			"Αν Άρμπορ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Detroit",
+			"Grand Rapids",
+			"Warren",
+			"Sterling Heights",
+			"Ann Arbor"
+		],
+		"dateEnteredUnion": "26-01-1837",
+		"spokenLanguagesInGreek": "Αγγλικά 91.11%, Ισπανικά 2.93%, Αραβικά 1.04%, Άλλες 4.92%",
+		"spokenLanguagesInEnglish": "English 91.11%, Spanish 2.93%, Arabic 1.04%, Other 4.92%",
+		"numberOfCounties": "83",
+		"houseSeats": "14",
+		"timeZones": "UTC−6/−5/-4",
+		"populationData":
+		{
+			"population": "9909877",
+			"populationRank": "10",
+			"populationDensityPerSquareKilometer": "67.1",
+			"populationDensityPerSquareMile": "174"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "250488",
+			"totalAreaInMiles": "96714",
+			"areaRank": "11",
+			"landAreaInKilometers": "146435",
+			"landAreaInMiles": "56539",
+			"landPercent": "58.5",
+			"waterAreaInKilometers": "104053",
+			"waterAreaInMiles": "40175",
+			"waterPercent": "41.5",
+			"coastlineLengthInKilometers": "5189",
+			"coastlineLengthInMiles": "3224",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Arvon: 603m / 1,979ft",
+			"highestPointInEnglish": "Mount Arvon: 603m / 1,979ft",
+			"meanPoint": "270m / 900ft",
+			"lowestPointInGreek": "Λίμνη Ήρι: 174m / 571ft",
+			"lowestPointInEnglish": "Lake Erie: 174 / 571ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "9"
+		}
+	},
+	{
+		"nameInGreek": "Μισισίπι",
+		"nameInEnglish": "Mississippi",
+		"articleForState": "Το",
+		"abbreviation": "MS",
+		"capitalInGreek": "Τζάκσον",
+		"capitalInEnglish": "Jackson",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Τζάκσον",
+			"Γκάλφπορτ",
+			"Σάουθχαβεν",
+			"Χάτισμπεργκ",
+			"Μπιλόξι"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Jackson",
+			"Gulfport",
+			"Southaven",
+			"Hattiesburg",
+			"Biloxi"
+		],
+		"dateEnteredUnion": "10-12-1817",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "82",
+		"houseSeats": "4",
+		"timeZones": "UTC−6/−5",
+		"populationData":
+		{
+			"population": "2994079",
+			"populationRank": "31",
+			"populationDensityPerSquareKilometer": "24.5",
+			"populationDensityPerSquareMile": "63.5"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "125438",
+			"totalAreaInMiles": "48432",
+			"areaRank": "32",
+			"landAreaInKilometers": "121530",
+			"landAreaInMiles": "46923",
+			"landPercent": "97",
+			"waterAreaInKilometers": "3908",
+			"waterAreaInMiles": "1509",
+			"waterPercent": "3",
+			"coastlineLengthInKilometers": "578",
+			"coastlineLengthInMiles": "359",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Woodall: 246m / 807ft",
+			"highestPointInEnglish": "Woodall Mountain: 246m / 807ft",
+			"meanPoint": "90m / 300ft",
+			"lowestPointInGreek": "Κόλπος του Μεξικό: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Gulf of Mexico: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "36"
+		}
+	},
+	{
+		"nameInGreek": "Μοντάνα",
+		"nameInEnglish": "Montana",
+		"articleForState": "Η",
+		"abbreviation": "MT",
+		"capitalInGreek": "Χέλενα",
+		"capitalInEnglish": "Helena",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Μπίλλινγκς",
+			"Μιζούλα",
+			"Γκρέιτ Φολς",
+			"Μπόουζμαν",
+			"Μπιούτ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Billings",
+			"Missoula",
+			"Great Falls",
+			"Bozeman",
+			"Butte"
+		],
+		"dateEnteredUnion": "08-11-1889",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "56",
+		"houseSeats": "1",
+		"timeZones": "UTC-7/-6",
+		"populationData":
+		{
+			"population": "1023579",
+			"populationRank": "44",
+			"populationDensityPerSquareKilometer": "2.65",
+			"populationDensityPerSquareMile": "6.86"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "380832",
+			"totalAreaInMiles": "147040",
+			"areaRank": "4",
+			"landAreaInKilometers": "376962",
+			"landAreaInMiles": "145546",
+			"landPercent": "99",
+			"waterAreaInKilometers": "3869",
+			"waterAreaInMiles": "1494",
+			"waterPercent": "1",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Γκράναϊτ Πικ: 3.903,5m / 12,807ft",
+			"highestPointInEnglish": "Granite Peak: 3.903,5m / 12,807ft",
+			"meanPoint": "1.040m / 3,400ft",
+			"lowestPointInGreek": "Ποταμός Κούτεναϊ στα σύνορα με το Αϊντάχο: 557m / 1,804ft",
+			"lowestPointInEnglish": "Kootenai River at Idaho border: 557m / 1,804ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "47"
+		}
+	},
+	{
+		"nameInGreek": "Νέα Υόρκη",
+		"nameInEnglish": "New York",
+		"articleForState": "Η",
+		"abbreviation": "NY",
+		"capitalInGreek": "Όλμπανι",
+		"capitalInEnglish": "Albany",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Νέα Υόρκη",
+			"Μπάφαλο",
+			"Ρότσεστερ",
+			"Γιόνκερς",
+			"Σίρακιους"
+		],
+		"largestCitiesInEnglish":
+		[
+			"New York",
+			"Buffalo",
+			"Rochester",
+			"Yonkers",
+			"Syracuse"
+		],
+		"dateEnteredUnion": "26-07-1788",
+		"spokenLanguagesInGreek": "Αγγλικά 72%, Ισπανικά 14%, Άλλες 14%",
+		"spokenLanguagesInEnglish": "English 72%, Spanish 14%, Others 14%",
+		"numberOfCounties": "62",
+		"houseSeats": "27",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "19746227",
+			"populationRank": "4",
+			"populationDensityPerSquareKilometer": "159",
+			"populationDensityPerSquareMile": "416.42"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "141297",
+			"totalAreaInMiles": "54555",
+			"areaRank": "27",
+			"landAreaInKilometers": "122056",
+			"landAreaInMiles": "47126",
+			"landPercent": "86.5",
+			"waterAreaInKilometers": "19241",
+			"waterAreaInMiles": "7429",
+			"waterPercent": "13.5",
+			"coastlineLengthInKilometers": "4225",
+			"coastlineLengthInMiles": "2625",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Μάρσι: 1.629m / 5344ft",
+			"highestPointInEnglish": "Mount Marcy: 1.629m / 5344ft",
+			"meanPoint": "300m / 1000ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "23"
+		}
+	},
+	{
+		"nameInGreek": "Νεβάδα",
+		"nameInEnglish": "Nevada",
+		"articleForState": "Η",
+		"abbreviation": "NV",
+		"capitalInGreek": "Κάρσον Σίτι",
+		"capitalInEnglish": "Carson City",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Λας Βέγκας",
+			"Χέντερσον",
+			"Ρίνο",
+			"Νόρθ Λας Βέγκας",
+			"Σπαρκς"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Las Vegas",
+			"Henderson",
+			"Reno",
+			"North Las Vegas",
+			"Sparks"
+		],
+		"dateEnteredUnion": "31-10-1864",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "16",
+		"houseSeats": "4",
+		"timeZones": "UTC-8/−7/−6",
+		"populationData":
+		{
+			"population": "2839099",
+			"populationRank": "35",
+			"populationDensityPerSquareKilometer": "9.57",
+			"populationDensityPerSquareMile": "24.8"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "286380",
+			"totalAreaInMiles": "110572",
+			"areaRank": "7",
+			"landAreaInKilometers": "284331",
+			"landAreaInMiles": "109781",
+			"landPercent": "99.31",
+			"waterAreaInKilometers": "2049",
+			"waterAreaInMiles": "791",
+			"waterPercent": "0.69",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Μπαουντάρι Πικ: 4.007m / 13,147ft",
+			"highestPointInEnglish": "Boundary Peak: 4.007m / 13,147ft",
+			"meanPoint": "1.680m / 5,500ft",
+			"lowestPointInGreek": "Ποταμός Κολοράντο στα σύνορα με την Καλιφόρνια: 147m / 481ft",
+			"lowestPointInEnglish": "Colorado River at California border: 147m / 481ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "5"
+		}
+	},
+	{
+		"nameInGreek": "Νεμπράσκα",
+		"nameInEnglish": "Nebraska",
+		"articleForState": "Η",
+		"abbreviation": "NE",
+		"capitalInGreek": "Λίνκολν",
+		"capitalInEnglish": "Lincoln",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Ομάχα",
+			"Λίνκολν",
+			"Μπελβιού",
+			"Γκραντ Άιλαντ",
+			"Κέρνι"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Omaha",
+			"Lincoln",
+			"Bellevue",
+			"Grand Island",
+			"Kearney"
+		],
+		"dateEnteredUnion": "01-03-1867",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "93",
+		"houseSeats": "3",
+		"timeZones": "UTC−7/−6/-5",
+		"populationData":
+		{
+			"population": "1881503",
+			"populationRank": "37",
+			"populationDensityPerSquareKilometer": "9.25",
+			"populationDensityPerSquareMile": "24"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "200330",
+			"totalAreaInMiles": "77348",
+			"areaRank": "16",
+			"landAreaInKilometers": "198973",
+			"landAreaInMiles": "76824",
+			"landPercent": "99.3",
+			"waterAreaInKilometers": "1357",
+			"waterAreaInMiles": "524",
+			"waterPercent": "0.7",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Panorama Point: 1.654m / 5,424ft",
+			"highestPointInEnglish": "Panorama Point: 1.654m / 5,424ft",
+			"meanPoint": "790m / 2,600ft",
+			"lowestPointInGreek": "Ποταμός Μιζούρι στα σύνορα με το Κάνσας: 256m / 840ft",
+			"lowestPointInEnglish": "Missouri River at Kansas border: 256m / 840ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "10"
+		}
+	},
+	{
+		"nameInGreek": "Νέο Μεξικό",
+		"nameInEnglish": "New Mexico",
+		"articleForState": "Το",
+		"abbreviation": "NM",
+		"capitalInGreek": "Σάντα Φε",
+		"capitalInEnglish": "Santa Fe",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Αλμπουκέρκι",
+			"Λας Κρούσεις",
+			"Ρίο Ράντσο",
+			"Σάντα Φε",
+			"Ρόσγουελ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Albuquerque",
+			"Las Cruces",
+			"Rio Rancho",
+			"Santa Fe",
+			"Roswell"
+		],
+		"dateEnteredUnion": "06-01-1912",
+		"spokenLanguagesInGreek": "Αγγλικά 63,96%, Ισπανικά 28,45%, Ναβάχο 3,5%, Άλλες 4,09%",
+		"spokenLanguagesInEnglish": "English 63.96%, Spanish 28.45%, Navajo 3.5%, Other 4.09%",
+		"numberOfCounties": "33",
+		"houseSeats": "3",
+		"timeZones": "UTC−7/−6",
+		"populationData":
+		{
+			"population": "2085572",
+			"populationRank": "36",
+			"populationDensityPerSquareKilometer": "6.62",
+			"populationDensityPerSquareMile": "17.2"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "314917",
+			"totalAreaInMiles": "121590",
+			"areaRank": "5",
+			"landAreaInKilometers": "314160",
+			"landAreaInMiles": "121298",
+			"landPercent": "99.8",
+			"waterAreaInKilometers": "756",
+			"waterAreaInMiles": "292",
+			"waterPercent": "0.2",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Ουΐλερ Πικ: 4.013m / 13,167ft",
+			"highestPointInEnglish": "Wheeler Peak: 4.013m / 13,167ft",
+			"meanPoint": "1.740m / 5,700ft",
+			"lowestPointInGreek": "Δεξαμενή Ρεντ Μπλαφ στα σύνορα με το Τέξας: 867m / 2,844ft",
+			"lowestPointInEnglish": "Red Bluff Reservoir on Texas border: 867m / 2,844ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "31"
+		}
+	},
+	{
+		"nameInGreek": "Νιου Τζέρσεϊ",
+		"nameInEnglish": "New Jersey",
+		"articleForState": "Το",
+		"abbreviation": "NJ",
+		"capitalInGreek": "Τρέντον",
+		"capitalInEnglish": "Trenton",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Νιούαρκ",
+			"Τζέρσεϊ Σίτι",
+			"Πάτερσον",
+			"Ελίζαμπεθ",
+			"Έντισον"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Newark",
+			"Jersey City",
+			"Paterson",
+			"Elizabeth",
+			"Edison"
+		],
+		"dateEnteredUnion": "18-12-1787",
+		"spokenLanguagesInGreek": "Αγγλικά 71.3%, Ισπανικά 14.6%, Άλλες 14.1%",
+		"spokenLanguagesInEnglish": "English 71.3%, Spanish 14.6%, Other 14.1%",
+		"numberOfCounties": "21",
+		"houseSeats": "12",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "8938175",
+			"populationRank": "11",
+			"populationDensityPerSquareKilometer": "467",
+			"populationDensityPerSquareMile": "1210.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "22592",
+			"totalAreaInMiles": "8723",
+			"areaRank": "47",
+			"landAreaInKilometers": "19047",
+			"landAreaInMiles": "7354",
+			"landPercent": "84.3",
+			"waterAreaInKilometers": "3543",
+			"waterAreaInMiles": "1368",
+			"waterPercent": "15.7",
+			"coastlineLengthInKilometers": "2884",
+			"coastlineLengthInMiles": "1792",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Χάι Πόιντ: 549,6m / 1,803ft",
+			"highestPointInEnglish": "High Point: 549,6m / 1,803ft",
+			"meanPoint": "80m / 250ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "40"
+		}
+	},
+	{
+		"nameInGreek": "Νιου Χάμσαϊρ",
+		"nameInEnglish": "New Hampshire",
+		"articleForState": "Το",
+		"abbreviation": "NH",
+		"capitalInGreek": "Κόνκορντ",
+		"capitalInEnglish": "Concord",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μάντσεστερ",
+			"Νάσουα",
+			"Κόνκορντ",
+			"Ντέρι",
+			"Ρότσεστερ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Manchester",
+			"Nashua",
+			"Concord",
+			"Derry",
+			"Rochester"
+		],
+		"dateEnteredUnion": "21-06-1788",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "10",
+		"houseSeats": "2",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "1326813",
+			"populationRank": "42",
+			"populationDensityPerSquareKilometer": "56.8",
+			"populationDensityPerSquareMile": "147"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "24214",
+			"totalAreaInMiles": "9349",
+			"areaRank": "46",
+			"landAreaInKilometers": "23188",
+			"landAreaInMiles": "8953",
+			"landPercent": "95.9",
+			"waterAreaInKilometers": "1028",
+			"waterAreaInMiles": "397",
+			"waterPercent": "4.1",
+			"coastlineLengthInKilometers": "211",
+			"coastlineLengthInMiles": "131",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Ουάσινγκτον: 1.917m / 6,288ft",
+			"highestPointInEnglish": "Mount Washington: 1.917m / 6,288ft",
+			"meanPoint": "300m / 1,000ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "8"
+		}
+	},
+	{
+		"nameInGreek": "Νότια Καρολίνα",
+		"nameInEnglish": "South Carolina",
+		"articleForState": "Η",
+		"abbreviation": "SC",
+		"capitalInGreek": "Κολούμπια",
+		"capitalInEnglish": "Columbia",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Κολούμπια",
+			"Τσάρλεστον",
+			"Βόρειο Τσάρλεστον",
+			"Μάουντ Πλέζαντ",
+			"Ροκ Χιλ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Columbia",
+			"Charleston",
+			"North Charleston",
+			"Mount Pleasant",
+			"Rock Hill"
+		],
+		"dateEnteredUnion": "23-05-1788",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "46",
+		"houseSeats": "7",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "4832482",
+			"populationRank": "24",
+			"populationDensityPerSquareKilometer": "60",
+			"populationDensityPerSquareMile": "155"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "82931",
+			"totalAreaInMiles": "32020",
+			"areaRank": "40",
+			"landAreaInKilometers": "77858",
+			"landAreaInMiles": "30061",
+			"landPercent": "94",
+			"waterAreaInKilometers": "5076",
+			"waterAreaInMiles": "1960",
+			"waterPercent": "6",
+			"coastlineLengthInKilometers": "4628",
+			"coastlineLengthInMiles": "2876",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Σάσαφρας: 1.085m / 3,560ft",
+			"highestPointInEnglish": "Sassafras Mountain: 1.085m / 3,560ft",
+			"meanPoint": "110m / 350ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "7"
+		}
+	},
+	{
+		"nameInGreek": "Νότια Ντακότα",
+		"nameInEnglish": "South Dakota",
+		"articleForState": "Η",
+		"abbreviation": "SD",
+		"capitalInGreek": "Πιερ",
+		"capitalInEnglish": "Pierre",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Σιού Φολς",
+			"Ράπιντ Σίτι",
+			"Αμπερντίν",
+			"Μπρούκινγκς",
+			"Γουότερταουν"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Sioux Falls",
+			"Rapid City",
+			"Aberdeen",
+			"Brookings",
+			"Watertown"
+		],
+		"dateEnteredUnion": "02-11-1889",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "66",
+		"houseSeats": "1",
+		"timeZones": "UTC-7/-6",
+		"populationData":
+		{
+			"population": "853175",
+			"populationRank": "46",
+			"populationDensityPerSquareKilometer": "4.27",
+			"populationDensityPerSquareMile": "11.06"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "199730",
+			"totalAreaInMiles": "77116",
+			"areaRank": "17",
+			"landAreaInKilometers": "196350",
+			"landAreaInMiles": "75811",
+			"landPercent": "98.3",
+			"waterAreaInKilometers": "3380",
+			"waterAreaInMiles": "1305",
+			"waterPercent": "1.7",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Χάρνεϊ Πικ: 2.208m / 7,244ft",
+			"highestPointInEnglish": "Harney Peak: 2.208m / 7,244ft",
+			"meanPoint": "670m / 2,200ft",
+			"lowestPointInGreek": "Λίμνη Μπιγκ Στόουν στα σύνορα με τη Μινεσότα: 295m / 968ft",
+			"lowestPointInEnglish": "Big Stone Lake on Minnesota border: 295m / 968ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "25"
+		}
+	},
+	{
+		"nameInGreek": "Ντέλαγουερ",
+		"nameInEnglish": "Delaware",
+		"articleForState": "Το",
+		"abbreviation": "DE",
+		"capitalInGreek": "Ντόβερ",
+		"capitalInEnglish": "Dover",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Ουίλμινγκτον",
+			"Ντόβερ",
+			"Νιούαρκ",
+			"Μίντλταουν",
+			"Σμύρνα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Wilmington",
+			"Dover",
+			"Newark",
+			"Middletown",
+			"Smyrna"
+		],
+		"dateEnteredUnion": "07-12-1787",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "3",
+		"houseSeats": "1",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "935614",
+			"populationRank": "45",
+			"populationDensityPerSquareKilometer": "179",
+			"populationDensityPerSquareMile": "464"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "6446",
+			"totalAreaInMiles": "2489",
+			"areaRank": "49",
+			"landAreaInKilometers": "5048",
+			"landAreaInMiles": "1949",
+			"landPercent": "78.5",
+			"waterAreaInKilometers": "1399",
+			"waterAreaInMiles": "540",
+			"waterPercent": "21.5",
+			"coastlineLengthInKilometers": "613",
+			"coastlineLengthInMiles": "381",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Κοντά στο Αζιμούθιο Έμπραϊτ: 136,2m / 447ft",
+			"highestPointInEnglish": "Near the Ebright Azimuth: 136,2m / 447ft",
+			"meanPoint": "20m / 60ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "21"
+		}
+	},
+	{
+		"nameInGreek": "Οκλαχόμα",
+		"nameInEnglish": "Oklahoma",
+		"articleForState": "Η",
+		"abbreviation": "OK",
+		"capitalInGreek": "Οκλαχόμα Σίτι",
+		"capitalInEnglish": "Oklahoma City",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Οκλαχόμα Σίτι",
+			"Τούλσα",
+			"Νόρμαν",
+			"Μπρόουκεν Άροου",
+			"Λόουτον"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Oklahoma City",
+			"Tulsa",
+			"Norman",
+			"Broken Arrow",
+			"Lawton"
+		],
+		"dateEnteredUnion": "16-11-1907",
+		"spokenLanguagesInGreek": "Αγγλικά, Τσερόκι",
+		"spokenLanguagesInEnglish": "English, Cherokee",
+		"numberOfCounties": "77",
+		"houseSeats": "5",
+		"timeZones": "UTC-7/-6",
+		"populationData":
+		{
+			"population": "3878051",
+			"populationRank": "28",
+			"populationDensityPerSquareKilometer": "21.3",
+			"populationDensityPerSquareMile": "55.2"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "181038",
+			"totalAreaInMiles": "69899",
+			"areaRank": "20",
+			"landAreaInKilometers": "177660",
+			"landAreaInMiles": "68595",
+			"landPercent": "98.2",
+			"waterAreaInKilometers": "3377",
+			"waterAreaInMiles": "1304",
+			"waterPercent": "1.8",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Μπλακ Μέσα: 1.516m / 4,975ft",
+			"highestPointInEnglish": "Black Mesa: 1.516m / 4,975ft",
+			"meanPoint": "400m / 1,300ft",
+			"lowestPointInGreek": "Λιτλ Ρίβερ στα σύνορα με το Αρκάνσας: 88m / 289ft",
+			"lowestPointInEnglish": "Little River at Arkansas border: 88m / 289ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "22"
+		}
+	},
+	{
+		"nameInGreek": "Όρεγκον",
+		"nameInEnglish": "Oregon",
+		"articleForState": "Το",
+		"abbreviation": "OR",
+		"capitalInGreek": "Σάλεμ",
+		"capitalInEnglish": "Salem",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Πόρτλαντ",
+			"Σάλεμ",
+			"Γιουτζίν",
+			"Γκρέσαμ",
+			"Χίλσμπορο"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Portland",
+			"Salem",
+			"Eugene",
+			"Gresham",
+			"Hillsboro"
+		],
+		"dateEnteredUnion": "14-02-1859",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "36",
+		"houseSeats": "5",
+		"timeZones": "UTC-8/−7/−6",
+		"populationData":
+		{
+			"population": "4013845",
+			"populationRank": "26",
+			"populationDensityPerSquareKilometer": "15",
+			"populationDensityPerSquareMile": "39.9"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "254800",
+			"totalAreaInMiles": "98379",
+			"areaRank": "9",
+			"landAreaInKilometers": "248608",
+			"landAreaInMiles": "95988",
+			"landPercent": "97.6",
+			"waterAreaInKilometers": "6193",
+			"waterAreaInMiles": "2391",
+			"waterPercent": "2.4",
+			"coastlineLengthInKilometers": "2270",
+			"coastlineLengthInMiles": "1410",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Χουντ: 3.429m / 11,249ft",
+			"highestPointInEnglish": "Mount Hood: 3.429m / 11,249ft",
+			"meanPoint": "1.000m / 3,300ft",
+			"lowestPointInGreek": "Ειρηνικός ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Pasific ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "30"
+		}
+	},
+	{
+		"nameInGreek": "Ουαϊόμινγκ",
+		"nameInEnglish": "Wyoming",
+		"articleForState": "Το",
+		"abbreviation": "WY",
+		"capitalInGreek": "Τσεγιέν",
+		"capitalInEnglish": "Cheyenne",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Τσεγιέν",
+			"Κάσπερ",
+			"Λάραμι",
+			"Τζιλέτ",
+			"Ροκ Σπρινγκς"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Cheyenne",
+			"Casper",
+			"Laramie",
+			"Gillette",
+			"Rock Springs"
+		],
+		"dateEnteredUnion": "10-07-1890",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "23",
+		"houseSeats": "1",
+		"timeZones": "UTC-7/-6",
+		"populationData":
+		{
+			"population": "584153",
+			"populationRank": "50",
+			"populationDensityPerSquareKilometer": "2.31",
+			"populationDensityPerSquareMile": "5.97"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "253335",
+			"totalAreaInMiles": "97813",
+			"areaRank": "10",
+			"landAreaInKilometers": "251470",
+			"landAreaInMiles": "97093",
+			"landPercent": "99.3",
+			"waterAreaInKilometers": "1865",
+			"waterAreaInMiles": "720",
+			"waterPercent": "0.7",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Κορυφή Gannett: 4.209m / 13,809ft",
+			"highestPointInEnglish": "Gannett Peak: 4.209m / 13,809ft",
+			"meanPoint": "2040m / 6,700ft",
+			"lowestPointInGreek": "Ποταμός Belle Fourche στα σύνορα με τη Ντακότα: 945m / 3,101ft",
+			"lowestPointInEnglish": "Belle Fourche River at South Dakota border: 945m / 3,101ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "42"
+		}
+	},
+	{
+		"nameInGreek": "Ουάσινγκτον",
+		"nameInEnglish": "Washington",
+		"articleForState": "Η",
+		"abbreviation": "WA",
+		"capitalInGreek": "Ολύμπια",
+		"capitalInEnglish": "Olympia",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Σιάτλ",
+			"Σπόκαν",
+			"Τακόμα",
+			"Βανκούβερ",
+			"Μπέλβιου"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Seattle",
+			"Spokane",
+			"Tacoma",
+			"Vancouver",
+			"Bellevue"
+		],
+		"dateEnteredUnion": "11-11-1889",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "39",
+		"houseSeats": "10",
+		"timeZones": "UTC−8/−7",
+		"populationData":
+		{
+			"population": "7061530",
+			"populationRank": "13",
+			"populationDensityPerSquareKilometer": "39.6",
+			"populationDensityPerSquareMile": "103"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "184661",
+			"totalAreaInMiles": "71298",
+			"areaRank": "18",
+			"landAreaInKilometers": "172120",
+			"landAreaInMiles": "66456",
+			"landPercent": "93.4",
+			"waterAreaInKilometers": "12541",
+			"waterAreaInMiles": "4842",
+			"waterPercent": "6.6",
+			"coastlineLengthInKilometers": "4870",
+			"coastlineLengthInMiles": "3026",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Όρος Ρενιέρ: 4.392m / 14,411ft",
+			"highestPointInEnglish": "Mount Rainier: 4.392m / 14,411ft",
+			"meanPoint": "520m / 1,700ft",
+			"lowestPointInGreek": "Ειρηνικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Pacific Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "24"
+		}
+	},
+	{
+		"nameInGreek": "Ουισκόνσιν",
+		"nameInEnglish": "Wisconsin",
+		"articleForState": "Το",
+		"abbreviation": "WI",
+		"capitalInGreek": "Μάντισον",
+		"capitalInEnglish": "Madison",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μιλγουόκι",
+			"Μάντισον",
+			"Γκριν Μπέι",
+			"Κενόσα",
+			"Ρασίν"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Milwaukee",
+			"Madison",
+			"Green Bay",
+			"Kenosha",
+			"Racine"
+		],
+		"dateEnteredUnion": "29-05-1848",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "72",
+		"houseSeats": "8",
+		"timeZones": "Milwaukee",
+		"populationData":
+		{
+			"population": "5757564",
+			"populationRank": "20",
+			"populationDensityPerSquareKilometer": "40.6",
+			"populationDensityPerSquareMile": "105"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "169634",
+			"totalAreaInMiles": "65496",
+			"areaRank": "23",
+			"landAreaInKilometers": "140269",
+			"landAreaInMiles": "54158",
+			"landPercent": "83",
+			"waterAreaInKilometers": "29368",
+			"waterAreaInMiles": "11339",
+			"waterPercent": "17",
+			"coastlineLengthInKilometers": "1320",
+			"coastlineLengthInMiles": "820",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Τιμς Χιλ: 595m / 1,951ft",
+			"highestPointInEnglish": "Timms Hill: 595m / 1,951ft",
+			"meanPoint": "320m / 1,050ft",
+			"lowestPointInGreek": "Λίμνη Μίσιγκαν: 176m / 579ft",
+			"lowestPointInEnglish": "Lake Michigan: 176m / 579ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "12"
+		}
+	},
+	{
+		"nameInGreek": "Οχάιο",
+		"nameInEnglish": "Ohio",
+		"articleForState": "Το",
+		"abbreviation": "OH",
+		"capitalInGreek": "Κολόμπους",
+		"capitalInEnglish": "Columbus",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Κολόμπους",
+			"Κλίβελαντ",
+			"Σινσινάτι",
+			"Τολέδο",
+			"Άκρον"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Columbus",
+			"Cleveland",
+			"Cincinnati",
+			"Toledo",
+			"Akron"
+		],
+		"dateEnteredUnion": "01-03-1803",
+		"spokenLanguagesInGreek": "Αγγλικά 93.3%, Ισπανικά 2.2%, Άλλες 4.5%",
+		"spokenLanguagesInEnglish": "English 93.3%, Spanish 2.2%, Other 4.5%",
+		"numberOfCounties": "88",
+		"houseSeats": "16",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "11594163",
+			"populationRank": "7",
+			"populationDensityPerSquareKilometer": "109",
+			"populationDensityPerSquareMile": "282"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "116099",
+			"totalAreaInMiles": "44826",
+			"areaRank": "34",
+			"landAreaInKilometers": "105830",
+			"landAreaInMiles": "40861",
+			"landPercent": "91.3",
+			"waterAreaInKilometers": "10269",
+			"waterAreaInMiles": "3965",
+			"waterPercent": "8.7",
+			"coastlineLengthInKilometers": "502",
+			"coastlineLengthInMiles": "312",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Κάμπελ Χιλ: 472m / 1,549ft",
+			"highestPointInEnglish": "Campbell Hill: 472m / 1,549ft",
+			"meanPoint": "260m / 850ft",
+			"lowestPointInGreek": "Ποταμός Οχάιο στα σύνορα με την Ιντιάνα: 139m / 455ft",
+			"lowestPointInEnglish": "Ohio River at Indiana border: 139m / 455ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "6"
+		}
+	},
+	{
+		"nameInGreek": "Πενσυλβάνια",
+		"nameInEnglish": "Pennsylvania",
+		"articleForState": "Η",
+		"abbreviation": "PA",
+		"capitalInGreek": "Χάρρισμπεργκ",
+		"capitalInEnglish": "Harrisburg",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Φιλαδέλφεια",
+			"Πίτσμπουργκ",
+			"Άλενταουν",
+			"Έρι",
+			"Ρέντινγκ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Philadelphia",
+			"Pittsburgh",
+			"Allentown",
+			"Erie",
+			"Reading"
+		],
+		"dateEnteredUnion": "12-12-1787",
+		"spokenLanguagesInGreek": "0",
+		"spokenLanguagesInEnglish": "0",
+		"numberOfCounties": "67",
+		"houseSeats": "18",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "12787209",
+			"populationRank": "6",
+			"populationDensityPerSquareKilometer": "110",
+			"populationDensityPerSquareMile": "284"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "119279",
+			"totalAreaInMiles": "46054",
+			"areaRank": "33",
+			"landAreaInKilometers": "115884",
+			"landAreaInMiles": "44743",
+			"landPercent": "97.3",
+			"waterAreaInKilometers": "3398",
+			"waterAreaInMiles": "1312",
+			"waterPercent": "2.7",
+			"coastlineLengthInKilometers": "230",
+			"coastlineLengthInMiles": "140",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Όρος Ντέιβις: 979m / 3,213ft",
+			"highestPointInEnglish": "Mount Davis: 979m / 3,213ft",
+			"meanPoint": "340m / 1,100ft",
+			"lowestPointInGreek": "Ποταμός Ντέλαγουερ στα σύνορα με το Ντέλαγουερ: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Delaware River at Delaware border: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "45"
+		}
+	},
+	{
+		"nameInGreek": "Ρόουντ Άιλαντ",
+		"nameInEnglish": "Rhode Island",
+		"articleForState": "Το",
+		"abbreviation": "RI",
+		"capitalInGreek": "Πρόβιντενς",
+		"capitalInEnglish": "Providence",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Πρόβιντενς",
+			"Γουόργουικ",
+			"Κράνστον",
+			"Ποτάκετ",
+			"Ιστ Πρόβιντενς"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Providence",
+			"Warwick",
+			"Cranston",
+			"Pawtucket",
+			"East Providence"
+		],
+		"dateEnteredUnion": "29-05-1790",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "5",
+		"houseSeats": "2",
+		"timeZones": "UTC-5/-4",
+		"populationData":
+		{
+			"population": "1055173",
+			"populationRank": "43",
+			"populationDensityPerSquareKilometer": "388",
+			"populationDensityPerSquareMile": "1006"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "4002",
+			"totalAreaInMiles": "1545",
+			"areaRank": "43",
+			"landAreaInKilometers": "2678",
+			"landAreaInMiles": "1034",
+			"landPercent": "86.1",
+			"waterAreaInKilometers": "1320",
+			"waterAreaInMiles": "511",
+			"waterPercent": "13.9",
+			"coastlineLengthInKilometers": "618",
+			"coastlineLengthInMiles": "384",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Λόφος Τζέριμοθ: 247m / 812ft",
+			"highestPointInEnglish": "Jerimoth Hill: 247m / 812ft",
+			"meanPoint": "60m / 200ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "26"
+		}
+	},
+	{
+		"nameInGreek": "Τενεσί",
+		"nameInEnglish": "Tennessee",
+		"articleForState": "Το",
+		"abbreviation": "TN",
+		"capitalInGreek": "Νάσβιλ",
+		"capitalInEnglish": "Nashville",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Μέμφις",
+			"Νάσβιλ",
+			"Νόξβιλ",
+			"Τσατανούγκα",
+			"Κλάρκσβιλ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Memphis",
+			"Nashville",
+			"Knoxville",
+			"Chattanooga",
+			"Clarksville"
+		],
+		"dateEnteredUnion": "01-06-1796",
+		"spokenLanguagesInGreek": "Αγγλικά",
+		"spokenLanguagesInEnglish": "English",
+		"numberOfCounties": "95",
+		"houseSeats": "9",
+		"timeZones": "UTC-6/-5/-4",
+		"populationData":
+		{
+			"population": "6549352",
+			"populationRank": "17",
+			"populationDensityPerSquareKilometer": "60.8",
+			"populationDensityPerSquareMile": "157.5"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "109152",
+			"totalAreaInMiles": "42144",
+			"areaRank": "36",
+			"landAreaInKilometers": "106798",
+			"landAreaInMiles": "41235",
+			"landPercent": "97.8",
+			"waterAreaInKilometers": "2354",
+			"waterAreaInMiles": "909",
+			"waterPercent": "2.2",
+			"coastlineLengthInKilometers": "0",
+			"coastlineLengthInMiles": "0",
+			"hasAccessToTheOcean": "false",
+			"highestPointInGreek": "Clingmans Dome: 2.025m / 6,643ft",
+			"highestPointInEnglish": "Clingmans Dome: 2.025m / 6,643ft",
+			"meanPoint": "270m / 900ft",
+			"lowestPointInGreek": "Ποταμός Μισσισσιππής στα σύνορα με το Μισισίπι: 54m / 178ft",
+			"lowestPointInEnglish": "Mississippi River at Mississippi border: 54m / 178ft"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "18"
+		}
+	},
+	{
+		"nameInGreek": "Τέξας",
+		"nameInEnglish": "Texas",
+		"articleForState": "Το",
+		"abbreviation": "TX",
+		"capitalInGreek": "Ώστιν",
+		"capitalInEnglish": "Austin",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Χιούστον",
+			"Σαν Αντόνιο",
+			"Ντάλας",
+			"Ώστιν",
+			"Φορτ Γουόρθ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Houston",
+			"San Antonio",
+			"Dallas",
+			"Austin",
+			"Fort Worth"
+		],
+		"dateEnteredUnion": "29-12-1845",
+		"spokenLanguagesInGreek": "Κυρίως Αγγλικά, τα Ισπανικά ομιλούνται από πολυπληθείς μειονότητες",
+		"spokenLanguagesInEnglish": "Predominantly English, Spanish spoken by sizable minority",
+		"numberOfCounties": "254",
+		"houseSeats": "36",
+		"timeZones": "UTC−7/−6/-5",
+		"populationData":
+		{
+			"population": "27695284",
+			"populationRank": "2",
+			"populationDensityPerSquareKilometer": "40.8",
+			"populationDensityPerSquareMile": "103.1"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "695660",
+			"totalAreaInMiles": "268596",
+			"areaRank": "2",
+			"landAreaInKilometers": "676588",
+			"landAreaInMiles": "261232",
+			"landPercent": "97.5",
+			"waterAreaInKilometers": "19075",
+			"waterAreaInMiles": "7365",
+			"waterPercent": "2.5",
+			"coastlineLengthInKilometers": "5406",
+			"coastlineLengthInMiles": "3359",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Γκουάνταλουπ Πικ: 2.667,4m / 8,751ft",
+			"highestPointInEnglish": "Guadalupe Peak: 2.667,4m / 8,751ft",
+			"meanPoint": "520m / 1,700ft",
+			"lowestPointInGreek": "Κόλπος του Μεξικού: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Gulf of Mexico: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "49"
+		}
+	},
+	{
+		"nameInGreek": "Τζόρτζια",
+		"nameInEnglish": "Georgia",
+		"articleForState": "Η",
+		"abbreviation": "GA",
+		"capitalInGreek": "Ατλάντα",
+		"capitalInEnglish": "Atlanta",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Ατλάντα",
+			"Κολόμπους",
+			"Ογκάστα",
+			"Μέικον",
+			"Σαβάνα"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Atlanta",
+			"Columbus",
+			"Augusta",
+			"Macon",
+			"Savannah"
+		],
+		"dateEnteredUnion": "02-01-1788",
+		"spokenLanguagesInGreek": "Αγγλικά, Ισπανικά (7.42%)",
+		"spokenLanguagesInEnglish": "English, Spanish (7.42%)",
+		"numberOfCounties": "159",
+		"houseSeats": "14",
+		"timeZones": "UTC−5/−4",
+		"populationData":
+		{
+			"population": "10097343",
+			"populationRank": "8",
+			"populationDensityPerSquareKilometer": "65.4",
+			"populationDensityPerSquareMile": "165"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "153910",
+			"totalAreaInMiles": "59425",
+			"areaRank": "24",
+			"landAreaInKilometers": "148958",
+			"landAreaInMiles": "57513",
+			"landPercent": "97.4",
+			"waterAreaInKilometers": "4950",
+			"waterAreaInMiles": "1912",
+			"waterPercent": "2.6",
+			"coastlineLengthInKilometers": "3772",
+			"coastlineLengthInMiles": "2344",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Brasstown Bald: 1.458m / 4,784ft",
+			"highestPointInEnglish": "Brasstown Bald: 1.458m / 4,784ft",
+			"meanPoint": "180m / 600ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "2"
+		}
+	},
+	{
+		"nameInGreek": "Φλόριντα",
+		"nameInEnglish": "Florida",
+		"articleForState": "Η",
+		"abbreviation": "FL",
+		"capitalInGreek": "Ταλαχάσι",
+		"capitalInEnglish": "Tallahassee",
+		"articleForCapital": "Το",
+		"largestCitiesInGreek":
+		[
+			"Τζάκσονβιλ",
+			"Μαϊάμι",
+			"Τάμπα",
+			"Ορλάντο",
+			"Σεν Πίτερσμπεργκ"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Jacksonville",
+			"Miami",
+			"Tampa",
+			"Orlando",
+			"St. Petersburg"
+		],
+		"dateEnteredUnion": "03-03-1845",
+		"spokenLanguagesInGreek": "Κυρίως Αγγλικά και Ισπανικά",
+		"spokenLanguagesInEnglish": "Predominantly English and Spanish",
+		"numberOfCounties": "67",
+		"houseSeats": "27",
+		"timeZones": "UTC−6/−5/-4",
+		"populationData":
+		{
+			"population": "19893297",
+			"populationRank": "3",
+			"populationDensityPerSquareKilometer": "136.4",
+			"populationDensityPerSquareMile": "353.4"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "170312",
+			"totalAreaInMiles": "65758",
+			"areaRank": "22",
+			"landAreaInKilometers": "138888",
+			"landAreaInMiles": "53625",
+			"landPercent": "82.1",
+			"waterAreaInKilometers": "31424",
+			"waterAreaInMiles": "12133",
+			"waterPercent": "17.9",
+			"coastlineLengthInKilometers": "13576",
+			"coastlineLengthInMiles": "8436",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Λόφος Μπρίτον: 105m / 345ft",
+			"highestPointInEnglish": "Britton Hill: 105m / 345ft",
+			"meanPoint": "30m / 100ft",
+			"lowestPointInGreek": "Ατλαντικός Ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Atlantic Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "35"
+		}
+	},
+	{
+		"nameInGreek": "Χαβάη",
+		"nameInEnglish": "Hawaii",
+		"articleForState": "Η",
+		"abbreviation": "HI",
+		"capitalInGreek": "Χονολουλού",
+		"capitalInEnglish": "Honolulu",
+		"articleForCapital": "Η",
+		"largestCitiesInGreek":
+		[
+			"Χονολουλού",
+			"Χίλο",
+			"Καϊλούα",
+			"Καπολάι",
+			"Κανιόχι"
+		],
+		"largestCitiesInEnglish":
+		[
+			"Honolulu",
+			"Hilo",
+			"Kailua",
+			"Kapolei",
+			"Kaneohe"
+		],
+		"dateEnteredUnion": "21-08-1959",
+		"spokenLanguagesInGreek": "Αγγλικά, Χαβανέζικα",
+		"spokenLanguagesInEnglish": "English, Hawaiian",
+		"numberOfCounties": "5",
+		"houseSeats": "2",
+		"timeZones": "UTC−10",
+		"populationData":
+		{
+			"population": "1419561",
+			"populationRank": "40",
+			"populationDensityPerSquareKilometer": "82.6",
+			"populationDensityPerSquareMile": "214"
+		},
+		"areaData":
+		{
+			"totalAreaInKilometers": "28314",
+			"totalAreaInMiles": "10932",
+			"areaRank": "43",
+			"landAreaInKilometers": "16635",
+			"landAreaInMiles": "6423",
+			"landPercent": "58.8",
+			"waterAreaInKilometers": "11678",
+			"waterAreaInMiles": "4509",
+			"waterPercent": "41.2",
+			"coastlineLengthInKilometers": "1693",
+			"coastlineLengthInMiles": "1052",
+			"hasAccessToTheOcean": "true",
+			"highestPointInGreek": "Μαούνα Κέα: 4.205m / 13,796ft",
+			"highestPointInEnglish": "Mauna Kea: 4.205m / 13,796ft",
+			"meanPoint": "920m / 3,030ft",
+			"lowestPointInGreek": "Ειρηνικός ωκεανός: επίπεδο της θάλασσας",
+			"lowestPointInEnglish": "Pacific Ocean: sea level"
+		},
+		"otherValues":
+		{
+			"positionInCapitals": "48"
+		}
+	}
+]
+}

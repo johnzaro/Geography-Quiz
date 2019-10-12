@@ -1,31 +1,26 @@
 package com.johnzaro.geographyquiz.core;
 
-import com.johnzaro.geographyquiz.dataStructures.*;
 import com.johnzaro.geographyquiz.screens.*;
-import javafx.animation.ScaleTransition;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.input.KeyCombination;
-import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
-import java.io.File;
-import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Locale;
+import java.util.Random;
+import java.util.ResourceBundle;
 
 import static com.johnzaro.geographyquiz.core.FilesIO.*;
 import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
@@ -41,9 +36,6 @@ public class PowerOn
 		System.setProperty("prism.lcdtext", "false");
 		OS = OsCheck.getOperatingSystemType();
 		GAME_DATA_PATH = getGameDataPath(OS);
-		GAME_SETTINGS_FILE_PATH = "gameSettings.xml";
-		PLAYERS_FILE_PATH = "players.xml";
-		GAMES_SCORES_FILE_PATH = "gamesScores.xml";
 		email = "johnzrgnns@gmail.com";
 		
 		decimalFormatForSaving = ((DecimalFormat) NumberFormat.getNumberInstance(Locale.US));
@@ -61,8 +53,6 @@ public class PowerOn
 		
 		playersArrayList = new ArrayList<>();
 		games = new ArrayList<>();
-		
-		scaleTransitionForAnchorPane = new ScaleTransition(Duration.millis(350));
 	}
 	
 	static void loadFonts()
@@ -90,17 +80,7 @@ public class PowerOn
 //		set global variable "stage" = javafx stage
 		stage = coreStage;
 		
-//		set background of stage to transparent
-//		stage.initStyle(StageStyle.TRANSPARENT);
-		
-//		disable default resize function
-		stage.setResizable(false);
-		
-//		add all icon sizes to program
-		stage.getIcons().addAll(new Image(PowerOn.class.getResource("/images/icons/icon@16x16.png").toExternalForm()));
-		
-//		disable exit key working as "exit full screen"
-		stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
+		stage.setMinWidth(minStageWidth);
 
 //		set game name
 		stage.setTitle(languageResourceBundle.getString("gameName"));
@@ -113,33 +93,33 @@ public class PowerOn
 				if (animationsUsed == ANIMATIONS.ALL)
 				{
 //							if it has no focus and gains it back and animations are enabled -> play them
-					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
+					if(welcomeScreen != null && welcomeScene.getRoot() == welcomeScreen.getAnchorPane())
 					{
 						welcomeScreen.playGlobeAnimation();
 						welcomeScreen.resumeWelcomeTextAnimation();
 					}
-					else if(gamePropertiesScreen != null && mainScene.getRoot() == gamePropertiesScreen.getAnchorPane())
+					else if(gamePropertiesScreen != null && welcomeScene.getRoot() == gamePropertiesScreen.getAnchorPane())
 					{
 						gamePropertiesScreen.playEarthAnimation();
 						gamePropertiesScreen.resumeTextAnimation();
 					}
-					else if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+					else if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
 					{
 						gameScreen.resumeTextAnimation();
 					}
-					else if(atlasScreen != null && mainScene.getRoot() == atlasScreen.getAnchorPane())
+					else if(atlasScreen != null && welcomeScene.getRoot() == atlasScreen.getAnchorPane())
 					{
 						atlasScreen.playEarthAnimation();
 						atlasScreen.resumeTextAnimation();
 					}
-					else if(scoreBoardScreen != null && mainScene.getRoot() == scoreBoardScreen.getAnchorPane())
+					else if(scoreBoardScreen != null && welcomeScene.getRoot() == scoreBoardScreen.getAnchorPane())
 					{
 						scoreBoardScreen.playEarthAnimation();
 						scoreBoardScreen.resumeTextAnimation();
 					}
 				}
 				
-				if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+				if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
 				{
 					gameScreen.resumeTimelineFor2_5SecondsWait();
 				}
@@ -148,7 +128,7 @@ public class PowerOn
 				{
 					//it is in minimized state and get back its focus
 					minimizedMode = false;
-					restoreMinimizedWindow((Pane) stage.getScene().getRoot());
+					restoreMinimizedWindow();
 				}
 			}
 			else
@@ -156,33 +136,33 @@ public class PowerOn
 				if (animationsUsed == ANIMATIONS.ALL)
 				{
 //							if it has focus and loses it and uses animations -> pause them
-					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
+					if(welcomeScreen != null && welcomeScene.getRoot() == welcomeScreen.getAnchorPane())
 					{
 						welcomeScreen.stopGlobeAnimation();
 						welcomeScreen.pauseWelcomeTextAnimation();
 					}
-					else if(gamePropertiesScreen != null && mainScene.getRoot() == gamePropertiesScreen.getAnchorPane())
+					else if(gamePropertiesScreen != null && welcomeScene.getRoot() == gamePropertiesScreen.getAnchorPane())
 					{
 						gamePropertiesScreen.pauseEarthAnimation();
 						gamePropertiesScreen.pauseTextAnimation();
 					}
-					else if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+					else if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
 					{
 						gameScreen.pauseTextAnimation();
 					}
-					else if(atlasScreen != null && mainScene.getRoot() == atlasScreen.getAnchorPane())
+					else if(atlasScreen != null && welcomeScene.getRoot() == atlasScreen.getAnchorPane())
 					{
 						atlasScreen.pauseEarthAnimation();
 						atlasScreen.pauseTextAnimation();
 					}
-					else if(scoreBoardScreen != null && mainScene.getRoot() == scoreBoardScreen.getAnchorPane())
+					else if(scoreBoardScreen != null && welcomeScene.getRoot() == scoreBoardScreen.getAnchorPane())
 					{
 						scoreBoardScreen.pauseEarthAnimation();
 						scoreBoardScreen.pauseTextAnimation();
 					}
 				}
 				
-				if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+				if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
 				{
 					gameScreen.pauseTimelineFor2_5SecondsWait();
 				}
@@ -284,6 +264,8 @@ public class PowerOn
 		stage.setY(primaryScreenResolution.getMinY() + primaryScreenHeight / 2.0 - windowHeight / 2.0);
 		stage.setWidth(windowWidth);
 		stage.setHeight(windowHeight);
+		
+		if(getCurrentPlayer().getStartAtFullScreen()) stage.setFullScreen(true);
 	}
 	
 	static void powerOnMessageGameIsAlreadyRunning()
@@ -330,20 +312,24 @@ public class PowerOn
 	{
 		try
 		{
-			Thread t1 = new Thread(PowerOn::powerOnAudio);
-			Thread t2 = new Thread(PowerOn::powerOnImages);
-			Thread t3 = new Thread(PowerOn::powerOnAnimatedGlobeImages);
-			Thread t4 = new Thread(() -> powerOnScreenDependentImages(primaryScreenWidth));
-			
-			t1.start();
-			t2.start();
-			t3.start();
-			t4.start();
-			
-			t1.join();
-			t2.join();
-			t3.join();
-			t4.join();
+			powerOnAudio();
+			powerOnImages();
+			powerOnAnimatedGlobeImages();
+			powerOnScreenDependentImages(primaryScreenWidth);
+//			Thread t1 = new Thread(PowerOn::powerOnAudio);
+//			Thread t2 = new Thread(PowerOn::powerOnImages);
+//			Thread t3 = new Thread(PowerOn::powerOnAnimatedGlobeImages);
+//			Thread t4 = new Thread(() -> powerOnScreenDependentImages(primaryScreenWidth));
+//
+//			t1.start();
+//			t2.start();
+//			t3.start();
+//			t4.start();
+//
+//			t1.join();
+//			t2.join();
+//			t3.join();
+//			t4.join();
 		}
 		catch(Exception e)
 		{
@@ -425,12 +411,8 @@ public class PowerOn
 		EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE = new Image(PowerOn.class.getResource("/images/backgrounds/emptyWoodBackgroundPanelBigRope.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, true);
 		
 		WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON = new Image(PowerOn.class.getResource("/images/backgrounds/backgroundFor1Icon.png").toExternalForm(), 0.15 * primaryScreenWidth, 0, true, true);
-//		WOOD_BACKGROUND_IMAGE_FOR_2_BUTTONS = new Image(PowerOn.class.getResource("/images/backgrounds/backgroundFor2Icons.png").toExternalForm(), 0.2 * primaryScreenWidth, 0, true, true);
-		WOOD_BACKGROUND_IMAGE_FOR_4_BUTTONS = new Image(PowerOn.class.getResource("/images/backgrounds/backgroundFor4Icons.png").toExternalForm(), 0.3 * primaryScreenWidth, 0, true, true);
-		WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS = new Image(PowerOn.class.getResource("/images/backgrounds/backgroundFor5Icons.png").toExternalForm(), 0.4 * primaryScreenWidth, 0, true, true);
 		
-		LEFT_GLOBE_STAND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/leftGlobeStand.png").toExternalForm(), 0.2 * primaryScreenWidth, 0, true, true);
-		RIGHT_GLOBE_STAND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/rightGlobeStand.png").toExternalForm(), 0.2 * primaryScreenWidth, 0, true, true);
+		GLOBE_STAND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/globeStand.png").toExternalForm(), 0.2 * primaryScreenWidth, 0, true, true);
 		
 		BACK_ARROW = new Image(PowerOn.class.getResource("/images/icons/backArrow.png").toExternalForm(), 0.15 * primaryScreenWidth, 0, true, false);
 		
@@ -446,16 +428,6 @@ public class PowerOn
 		SOUND_OFF_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/soundOffClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
 		SETTINGS_ICON = new Image(PowerOn.class.getResource("/images/icons/settings.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
 		SETTINGS_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/settingsClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MINIMIZE_ICON = new Image(PowerOn.class.getResource("/images/icons/minimize.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MINIMIZE_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/minimizeClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON = new Image(PowerOn.class.getResource("/images/icons/move.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/moveClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_DISABLED = new Image(PowerOn.class.getResource("/images/icons/moveDisabled.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MOVE_ICON_DISABLED_CLICKED = new Image(PowerOn.class.getResource("/images/icons/moveDisabledClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		FULL_SCREEN_ICON = new Image(PowerOn.class.getResource("/images/icons/fullScreen.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		FULL_SCREEN_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/fullScreenClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		EXIT_ICON = new Image(PowerOn.class.getResource("/images/icons/exit.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		EXIT_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/exitClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
 		X_ICON = new Image(PowerOn.class.getResource("/images/icons/x.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
 		X_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/xClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
 		ZOOM_IN_ICON = new Image(PowerOn.class.getResource("/images/icons/zoomIn.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
@@ -729,13 +701,9 @@ public class PowerOn
 	{
 		Thread t1 = new Thread(() ->
 		{
-			countries = new Country[NUM_ALL_COUNTRIES];
-			readCountriesXMLDataFile();
-			
-			continents = new Continent[NUM_ALL_CONTINENTS];
-			readContinentsXMLDataFile();
-			
-			readAttractionsXMLDataFile();
+			readCountriesDataFile();
+			readContinentsDataFile();
+			readAttractionsDataFile();
 
 //			int c= 0;
 //			ArrayList<Integer> index = new ArrayList<>();
@@ -846,17 +814,10 @@ public class PowerOn
 		
 		Thread t2 = new Thread(() ->
 		{
-			statesOfUSA = new StateOfUSA[NUM_ALL_USA_STATES];
-			readStatesOfUSAXMLDataFile();
-			
-			greekDecAdm = new GreekDecentralizedAdministration[NUM_ALL_GREEK_DEC_ADMIN];
-			readGreekDecentralizedAdministrationsXMLDataFile();
-			
-			greekRegions = new GreekRegion[NUM_ALL_GREEK_REGIONS];
-			readGreekRegionsXMLDataFile();
-			
-			greekRegionalUnits = new GreekRegionalUnit[NUM_ALL_GREEK_REGIONAL_UNITS];
-			readGreekRegionalUnitsXMLDataFile();
+			readStatesOfUSADataFile();
+			readGreekDecentralizedAdministrationsDataFile();
+			readGreekRegionsDataFile();
+			readGreekRegionalUnitsDataFile();
 
 //			for(int i = 0; i < statesOfUSA.length; i++)
 //			{

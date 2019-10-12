@@ -4,6 +4,8 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 
 public class Continent
 {
+	public final static int NUMBER_OF_CONTINENTS = 7;
+	
 	private String nameInGreek;
 	private String nameInEnglish;
 	private String genitiveCaseOfContinent;
@@ -21,16 +23,16 @@ public class Continent
 
 	private int areaInKilometers;
 	private int areaInMiles;
-	private byte globalAreaRanking;
-	private float percentOfEarth;
-	private float percentOfLandOfEarth;
+	private int globalAreaRanking;
+	private double percentOfEarth;
+	private double percentOfLandOfEarth;
 	private int coastlineInKilometers;
 	private int coastlineInMiles;
 
 	private long population;
-	private byte globalPopulationRanking;
-	private float populationDensityPerSquareKilometer;
-	private float populationDensityPerSquareMile;
+	private int globalPopulationRanking;
+	private double populationDensityPerSquareKilometer;
+	private double populationDensityPerSquareMile;
 	
 	public String getGenitiveCaseOfContinent()
 	{
@@ -114,22 +116,22 @@ public class Continent
 		this.coastlineInMiles = coastlineInMiles;
 	}
 
-	public byte getGlobalAreaRanking()
+	public int getGlobalAreaRanking()
 	{
 		return globalAreaRanking;
 	}
 
-	public void setGlobalAreaRanking(byte globalAreaRanking)
+	public void setGlobalAreaRanking(int globalAreaRanking)
 	{
 		this.globalAreaRanking = globalAreaRanking;
 	}
 
-	public byte getGlobalPopulationRanking()
+	public int getGlobalPopulationRanking()
 	{
 		return globalPopulationRanking;
 	}
 
-	public void setGlobalPopulationRanking(byte globalPopulationRanking)
+	public void setGlobalPopulationRanking(int globalPopulationRanking)
 	{
 		this.globalPopulationRanking = globalPopulationRanking;
 	}
@@ -224,22 +226,22 @@ public class Continent
 		this.languages = languages;
 	}
 
-	public float getPercentOfEarth()
+	public double getPercentOfEarth()
 	{
 		return percentOfEarth;
 	}
 
-	public void setPercentOfEarth(float percentOfEarth)
+	public void setPercentOfEarth(double percentOfEarth)
 	{
 		this.percentOfEarth = percentOfEarth;
 	}
 
-	public float getPercentOfLandOfEarth()
+	public double getPercentOfLandOfEarth()
 	{
 		return percentOfLandOfEarth;
 	}
 
-	public void setPercentOfLandOfEarth(float percentOfLandOfEarth)
+	public void setPercentOfLandOfEarth(double percentOfLandOfEarth)
 	{
 		this.percentOfLandOfEarth = percentOfLandOfEarth;
 	}
@@ -268,22 +270,22 @@ public class Continent
 		this.population = population;
 	}
 
-	public float getPopulationDensityPerSquareKilometer()
+	public double getPopulationDensityPerSquareKilometer()
 	{
 		return populationDensityPerSquareKilometer;
 	}
 
-	public void setPopulationDensityPerSquareKilometer(float populationDensityPerSquareKilometer)
+	public void setPopulationDensityPerSquareKilometer(double populationDensityPerSquareKilometer)
 	{
 		this.populationDensityPerSquareKilometer = populationDensityPerSquareKilometer;
 	}
 
-	public float getPopulationDensityPerSquareMile()
+	public double getPopulationDensityPerSquareMile()
 	{
 		return populationDensityPerSquareMile;
 	}
 
-	public void setPopulationDensityPerSquareMile(float populationDensityPerSquareMile)
+	public void setPopulationDensityPerSquareMile(double populationDensityPerSquareMile)
 	{
 		this.populationDensityPerSquareMile = populationDensityPerSquareMile;
 	}

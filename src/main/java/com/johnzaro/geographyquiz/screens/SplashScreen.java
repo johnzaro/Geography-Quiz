@@ -4,7 +4,6 @@ import com.johnzaro.geographyquiz.core.CustomImageView;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
@@ -50,22 +49,22 @@ public class SplashScreen
 
 			public Void call() throws InterruptedException
 			{
-				final int max = 400;
-				for (int i = 1; i <= max; i++)
-				{
-					updateProgress(i, max);
-
-					if ((i == 1 || i % 40 == 0) && i != 400)
-					{
-						Platform.runLater(() ->
-								{
-									progressText.setText(loadingText + loadingDots[counter]);
-									counter++;
-									if(counter == 4) counter = 0;
-								});
-					}
-//					progressThread.sleep(5);
-				}
+//				final int max = 400;
+//				for (int i = 1; i <= max; i++)
+//				{
+//					updateProgress(i, max);
+//
+//					if ((i == 1 || i % 40 == 0) && i != 400)
+//					{
+//						Platform.runLater(() ->
+//								{
+//									progressText.setText(loadingText + loadingDots[counter]);
+//									counter++;
+//									if(counter == 4) counter = 0;
+//								});
+//					}
+////					progressThread.sleep(5);
+//				}
 				return null;
 			}
 		};
@@ -128,7 +127,7 @@ public class SplashScreen
 				{
 					disposeSplashScreen();
 					setWindowedModeValues();
-					mainScene.setCursor(Cursor.DEFAULT);
+					welcomeScene.setCursor(Cursor.DEFAULT);
 					if(welcomeScreen != null) welcomeScreen.showScreen(true);
 				});
 		
@@ -155,19 +154,17 @@ public class SplashScreen
 
 		anchorPane.getChildren().addAll(splashImage, splashImageName, progressBox);
 
-		stage.setX(
-				primaryScreenResolution.getMinX() + primaryScreenWidth / 2.0 - splashWidth / 2.0);
-		stage.setY(
-				primaryScreenResolution.getMinY() + primaryScreenHeight / 2.0 - splashHeight / 2.0);
+		stage.setX(primaryScreenResolution.getMinX() + primaryScreenWidth / 2.0 - splashWidth / 2.0);
+		stage.setY(primaryScreenResolution.getMinY() + primaryScreenHeight / 2.0 - splashHeight / 2.0);
 		
-		mainScene = new Scene(anchorPane);
-		mainScene.setFill(Color.TRANSPARENT);
-		mainScene.setCursor(Cursor.WAIT);
-		mainScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
+		welcomeScene = new Scene(anchorPane);
+		welcomeScene.setFill(Color.TRANSPARENT);
+		welcomeScene.setCursor(Cursor.WAIT);
+		welcomeScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
 				comboBoxCSS, toggleButtonCSS, listViewCSS, labelCSS, scrollPaneCSS, textAreaCSS,
 				progressBarCSS, tableViewCSS);
 		
-		stage.setScene(mainScene);
+		stage.setScene(welcomeScene);
 		stage.show();
 
 		new Timeline(new KeyFrame(Duration.millis(50), e -> progressThread.start())).play();

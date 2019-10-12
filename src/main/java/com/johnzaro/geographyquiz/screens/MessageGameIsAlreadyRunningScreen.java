@@ -105,7 +105,7 @@ public class MessageGameIsAlreadyRunningScreen
 		closeButton.setOnAction(e ->
 			new Timeline(
 					            new KeyFrame(Duration.millis(0), ev -> playButtonClickSound()),
-					            new KeyFrame(Duration.millis(300), ev -> exitGame(anchorPane))
+					            new KeyFrame(Duration.millis(300), ev -> exitGame())
 		).play());
 		
 		stage.setX(primaryScreenResolution.getMinX() + primaryScreenWidth / 2.0 - width / 2.0);

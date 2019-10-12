@@ -2,6 +2,7 @@ package com.johnzaro.geographyquiz.dataStructures;
 
 public class RatioProperties
 {
+	private Core core;
 	private Atlas atlas;
 	private GameProperties gameProperties;
 	private Game game;
@@ -10,11 +11,17 @@ public class RatioProperties
 	
 	public RatioProperties()
 	{
+		core = new Core();
 		atlas = new Atlas();
 		gameProperties = new GameProperties();
 		game = new Game();
 		scoreBoard = new ScoreBoard();
 		welcome = new Welcome();
+	}
+	
+	public Core getCore()
+	{
+		return core;
 	}
 	
 	public Atlas getAtlas()
@@ -42,26 +49,51 @@ public class RatioProperties
 		return welcome;
 	}
 	
+	public class Core
+	{
+		private double vBoxForSoundPrefHeight;
+		private double vBoxForSoundPrefWidth;
+		
+		public double getvBoxForSoundPrefHeight()
+		{
+			return vBoxForSoundPrefHeight;
+		}
+		
+		public void setvBoxForSoundPrefHeight(double vBoxForSoundPrefHeight)
+		{
+			this.vBoxForSoundPrefHeight = vBoxForSoundPrefHeight;
+		}
+		
+		public double getvBoxForSoundPrefWidth()
+		{
+			return vBoxForSoundPrefWidth;
+		}
+		
+		public void setvBoxForSoundPrefWidth(double vBoxForSoundPrefWidth)
+		{
+			this.vBoxForSoundPrefWidth = vBoxForSoundPrefWidth;
+		}
+	}
+	
 	public class Atlas
 	{
-		private double hBoxFor5IconsLayoutY;
+		private double soundIconLayoutY;
 		private double hBoxForToggleButtonsLayoutY;
 		private double titleImageSetY;
 		private double titleLabelSetX;
 		private double titleLabelSetY;
 		private double vBoxForSoundLayoutY;
-		private double vBoxForSoundPrefHeight;
-		private double vBoxForSoundPrefWidth;
-		private double woodPanelFor5IconsImageLayoutY;
+		private double woodPanelFor1IconImageLayoutY;
+		private double woodPanelFor1IconImageLayoutX;
 		
-		public double gethBoxFor5IconsLayoutY()
+		public double getSoundIconLayoutY()
 		{
-			return hBoxFor5IconsLayoutY;
+			return soundIconLayoutY;
 		}
 		
-		public void sethBoxFor5IconsLayoutY(double hBoxFor5IconsLayoutY)
+		public void setSoundIconLayoutY(double soundIconLayoutY)
 		{
-			this.hBoxFor5IconsLayoutY = hBoxFor5IconsLayoutY;
+			this.soundIconLayoutY = soundIconLayoutY;
 		}
 		
 		public double gethBoxForToggleButtonsLayoutY()
@@ -114,101 +146,150 @@ public class RatioProperties
 			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
 		}
 		
-		public double getvBoxForSoundPrefHeight()
+		public double getWoodPanelFor1IconImageLayoutY()
 		{
-			return vBoxForSoundPrefHeight;
+			return woodPanelFor1IconImageLayoutY;
 		}
 		
-		public void setvBoxForSoundPrefHeight(double vBoxForSoundPrefHeight)
+		public double getWoodPanelFor1IconImageLayoutX()
 		{
-			this.vBoxForSoundPrefHeight = vBoxForSoundPrefHeight;
+			return woodPanelFor1IconImageLayoutX;
 		}
 		
-		public double getvBoxForSoundPrefWidth()
+		public void setWoodPanelFor1IconImageLayoutX(double woodPanelFor1IconImageLayoutX)
 		{
-			return vBoxForSoundPrefWidth;
+			this.woodPanelFor1IconImageLayoutX = woodPanelFor1IconImageLayoutX;
 		}
 		
-		public void setvBoxForSoundPrefWidth(double vBoxForSoundPrefWidth)
+		public void setWoodPanelFor1IconImageLayoutY(double woodPanelFor1IconImageLayoutY)
 		{
-			this.vBoxForSoundPrefWidth = vBoxForSoundPrefWidth;
-		}
-		
-		public double getWoodPanelFor5IconsImageLayoutY()
-		{
-			return woodPanelFor5IconsImageLayoutY;
-		}
-		
-		public void setWoodPanelFor5IconsImageLayoutY(double woodPanelFor5IconsImageLayoutY)
-		{
-			this.woodPanelFor5IconsImageLayoutY = woodPanelFor5IconsImageLayoutY;
+			this.woodPanelFor1IconImageLayoutY = woodPanelFor1IconImageLayoutY;
 		}
 	}
 	
 	public class GameProperties
 	{
-		private double backButtonLayoutY;
-		private double hBoxFor5IconsLayoutY;
-		private double nextButtonLayoutY;
-		private double woodPanelFor5IconsImageLayoutY;
-		
-		public double getBackButtonLayoutY()
-		{
-			return backButtonLayoutY;
-		}
-		
-		public void setBackButtonLayoutY(double backButtonLayoutY)
-		{
-			this.backButtonLayoutY = backButtonLayoutY;
-		}
-		
-		public double gethBoxFor5IconsLayoutY()
-		{
-			return hBoxFor5IconsLayoutY;
-		}
-		
-		public void sethBoxFor5IconsLayoutY(double hBoxFor5IconsLayoutY)
-		{
-			this.hBoxFor5IconsLayoutY = hBoxFor5IconsLayoutY;
-		}
-		
-		public double getNextButtonLayoutY()
-		{
-			return nextButtonLayoutY;
-		}
-		
-		public void setNextButtonLayoutY(double nextButtonLayoutY)
-		{
-			this.nextButtonLayoutY = nextButtonLayoutY;
-		}
-		
-		public double getWoodPanelFor5IconsImageLayoutY()
-		{
-			return woodPanelFor5IconsImageLayoutY;
-		}
-		
-		public void setWoodPanelFor5IconsImageLayoutY(double woodPanelFor5IconsImageLayoutY)
-		{
-			this.woodPanelFor5IconsImageLayoutY = woodPanelFor5IconsImageLayoutY;
-		}
-	}
-	
-	public class Game
-	{
-		private double hBoxFor5IconsLayoutY;
+		private double titleImage1LayoutY_1;
+		private double titleImage1LayoutY_2;
+		private double titleLabel1LayoutX_1;
+		private double titleLabel1LayoutX_2;
+		private double titleLabel1LayoutY_1;
+		private double titleLabel1LayoutY_2;
+		private double titleImage2LayoutY;
+		private double titleLabel2LayoutX;
+		private double titleLabel2LayoutY;
 		private double vBoxForSoundLayoutY;
-		private double vBoxForSoundPrefHeight;
-		private double vBoxForSoundPrefWidth;
-		private double woodPanelFor5IconsImageLayoutY;
+		private double rectangleForDifficultyLevelWidth;
+		private double rectangleForDifficultyLevelHeight;
+		private double rectangleForDifficultyLevelLayoutY;
+		private double rectangleForQuestionCategoriesWidth;
+		private double rectangleForQuestionCategoriesHeight;
+		private double rectangleForQuestionCategoriesLayoutY;
+		private double vBoxForDifficultyLevelWidth;
+		private double vBoxForDifficultyLevelHeight;
+		private double vBoxForDifficultyLevelLayoutY;
+		private double extendedQuestionCategoriesWidth;
+		private double extendedQuestionCategoriesHeight;
+		private double rectangleForExtendedQuestionCategoriesHeight;
+		private double hBoxForGameModesWidth;
+		private double hBoxForGameModesHeight;
+		private double hBoxForGameModesLayoutY;
+		private double buttonHeight;
+		private double heightOfDescriptions;
+		private double backButtonLayoutY;
+		private double soundIconLayoutY;
+		private double nextButtonLayoutY;
+		private double woodPanelFor1IconImageLayoutX;
+		private double woodPanelFor1IconImageLayoutY;
 		
-		public double gethBoxFor5IconsLayoutY()
+		public double getTitleImage1LayoutY_1()
 		{
-			return hBoxFor5IconsLayoutY;
+			return titleImage1LayoutY_1;
 		}
 		
-		public void sethBoxFor5IconsLayoutY(double hBoxFor5IconsLayoutY)
+		public void setTitleImage1LayoutY_1(double titleImage1LayoutY_1)
 		{
-			this.hBoxFor5IconsLayoutY = hBoxFor5IconsLayoutY;
+			this.titleImage1LayoutY_1 = titleImage1LayoutY_1;
+		}
+		
+		public double getTitleImage1LayoutY_2()
+		{
+			return titleImage1LayoutY_2;
+		}
+		
+		public void setTitleImage1LayoutY_2(double titleImage1LayoutY_2)
+		{
+			this.titleImage1LayoutY_2 = titleImage1LayoutY_2;
+		}
+		
+		public double getTitleLabel1LayoutX_1()
+		{
+			return titleLabel1LayoutX_1;
+		}
+		
+		public void setTitleLabel1LayoutX_1(double titleLabel1LayoutX_1)
+		{
+			this.titleLabel1LayoutX_1 = titleLabel1LayoutX_1;
+		}
+		
+		public double getTitleLabel1LayoutX_2()
+		{
+			return titleLabel1LayoutX_2;
+		}
+		
+		public void setTitleLabel1LayoutX_2(double titleLabel1LayoutX_2)
+		{
+			this.titleLabel1LayoutX_2 = titleLabel1LayoutX_2;
+		}
+		
+		public double getTitleLabel1LayoutY_1()
+		{
+			return titleLabel1LayoutY_1;
+		}
+		
+		public void setTitleLabel1LayoutY_1(double titleLabel1LayoutY_1)
+		{
+			this.titleLabel1LayoutY_1 = titleLabel1LayoutY_1;
+		}
+		
+		public double getTitleLabel1LayoutY_2()
+		{
+			return titleLabel1LayoutY_2;
+		}
+		
+		public void setTitleLabel1LayoutY_2(double titleLabel1LayoutY_2)
+		{
+			this.titleLabel1LayoutY_2 = titleLabel1LayoutY_2;
+		}
+		
+		public double getTitleImage2LayoutY()
+		{
+			return titleImage2LayoutY;
+		}
+		
+		public void setTitleImage2LayoutY(double titleImage2LayoutY)
+		{
+			this.titleImage2LayoutY = titleImage2LayoutY;
+		}
+		
+		public double getTitleLabel2LayoutX()
+		{
+			return titleLabel2LayoutX;
+		}
+		
+		public void setTitleLabel2LayoutX(double titleLabel2LayoutX)
+		{
+			this.titleLabel2LayoutX = titleLabel2LayoutX;
+		}
+		
+		public double getTitleLabel2LayoutY()
+		{
+			return titleLabel2LayoutY;
+		}
+		
+		public void setTitleLabel2LayoutY(double titleLabel2LayoutY)
+		{
+			this.titleLabel2LayoutY = titleLabel2LayoutY;
 		}
 		
 		public double getvBoxForSoundLayoutY()
@@ -221,56 +302,293 @@ public class RatioProperties
 			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
 		}
 		
-		public double getvBoxForSoundPrefHeight()
+		public double getRectangleForDifficultyLevelWidth()
 		{
-			return vBoxForSoundPrefHeight;
+			return rectangleForDifficultyLevelWidth;
 		}
 		
-		public void setvBoxForSoundPrefHeight(double vBoxForSoundPrefHeight)
+		public void setRectangleForDifficultyLevelWidth(double rectangleForDifficultyLevelWidth)
 		{
-			this.vBoxForSoundPrefHeight = vBoxForSoundPrefHeight;
+			this.rectangleForDifficultyLevelWidth = rectangleForDifficultyLevelWidth;
 		}
 		
-		public double getvBoxForSoundPrefWidth()
+		public double getRectangleForDifficultyLevelHeight()
 		{
-			return vBoxForSoundPrefWidth;
+			return rectangleForDifficultyLevelHeight;
 		}
 		
-		public void setvBoxForSoundPrefWidth(double vBoxForSoundPrefWidth)
+		public void setRectangleForDifficultyLevelHeight(double rectangleForDifficultyLevelHeight)
 		{
-			this.vBoxForSoundPrefWidth = vBoxForSoundPrefWidth;
+			this.rectangleForDifficultyLevelHeight = rectangleForDifficultyLevelHeight;
 		}
 		
-		public double getWoodPanelFor5IconsImageLayoutY()
+		public double getRectangleForDifficultyLevelLayoutY()
 		{
-			return woodPanelFor5IconsImageLayoutY;
+			return rectangleForDifficultyLevelLayoutY;
 		}
 		
-		public void setWoodPanelFor5IconsImageLayoutY(double woodPanelFor5IconsImageLayoutY)
+		public void setRectangleForDifficultyLevelLayoutY(double rectangleForDifficultyLevelLayoutY)
 		{
-			this.woodPanelFor5IconsImageLayoutY = woodPanelFor5IconsImageLayoutY;
+			this.rectangleForDifficultyLevelLayoutY = rectangleForDifficultyLevelLayoutY;
+		}
+		
+		public double getRectangleForQuestionCategoriesWidth()
+		{
+			return rectangleForQuestionCategoriesWidth;
+		}
+		
+		public void setRectangleForQuestionCategoriesWidth(double rectangleForQuestionCategoriesWidth)
+		{
+			this.rectangleForQuestionCategoriesWidth = rectangleForQuestionCategoriesWidth;
+		}
+		
+		public double getRectangleForQuestionCategoriesHeight()
+		{
+			return rectangleForQuestionCategoriesHeight;
+		}
+		
+		public void setRectangleForQuestionCategoriesHeight(double rectangleForQuestionCategoriesHeight)
+		{
+			this.rectangleForQuestionCategoriesHeight = rectangleForQuestionCategoriesHeight;
+		}
+		
+		public double getRectangleForQuestionCategoriesLayoutY()
+		{
+			return rectangleForQuestionCategoriesLayoutY;
+		}
+		
+		public void setRectangleForQuestionCategoriesLayoutY(double rectangleForQuestionCategoriesLayoutY)
+		{
+			this.rectangleForQuestionCategoriesLayoutY = rectangleForQuestionCategoriesLayoutY;
+		}
+		
+		public double getvBoxForDifficultyLevelWidth()
+		{
+			return vBoxForDifficultyLevelWidth;
+		}
+		
+		public void setvBoxForDifficultyLevelWidth(double vBoxForDifficultyLevelWidth)
+		{
+			this.vBoxForDifficultyLevelWidth = vBoxForDifficultyLevelWidth;
+		}
+		
+		public double getvBoxForDifficultyLevelHeight()
+		{
+			return vBoxForDifficultyLevelHeight;
+		}
+		
+		public void setvBoxForDifficultyLevelHeight(double vBoxForDifficultyLevelHeight)
+		{
+			this.vBoxForDifficultyLevelHeight = vBoxForDifficultyLevelHeight;
+		}
+		
+		public double getvBoxForDifficultyLevelLayoutY()
+		{
+			return vBoxForDifficultyLevelLayoutY;
+		}
+		
+		public void setvBoxForDifficultyLevelLayoutY(double vBoxForDifficultyLevelLayoutY)
+		{
+			this.vBoxForDifficultyLevelLayoutY = vBoxForDifficultyLevelLayoutY;
+		}
+		
+		public double getExtendedQuestionCategoriesWidth()
+		{
+			return extendedQuestionCategoriesWidth;
+		}
+		
+		public void setExtendedQuestionCategoriesWidth(double extendedQuestionCategoriesWidth)
+		{
+			this.extendedQuestionCategoriesWidth = extendedQuestionCategoriesWidth;
+		}
+		
+		public double getExtendedQuestionCategoriesHeight()
+		{
+			return extendedQuestionCategoriesHeight;
+		}
+		
+		public void setExtendedQuestionCategoriesHeight(double extendedQuestionCategoriesHeight)
+		{
+			this.extendedQuestionCategoriesHeight = extendedQuestionCategoriesHeight;
+		}
+		
+		public double getRectangleForExtendedQuestionCategoriesHeight()
+		{
+			return rectangleForExtendedQuestionCategoriesHeight;
+		}
+		
+		public void setRectangleForExtendedQuestionCategoriesHeight(double rectangleForExtendedQuestionCategoriesHeight)
+		{
+			this.rectangleForExtendedQuestionCategoriesHeight = rectangleForExtendedQuestionCategoriesHeight;
+		}
+		
+		public double gethBoxForGameModesWidth()
+		{
+			return hBoxForGameModesWidth;
+		}
+		
+		public void sethBoxForGameModesWidth(double hBoxForGameModesWidth)
+		{
+			this.hBoxForGameModesWidth = hBoxForGameModesWidth;
+		}
+		
+		public double gethBoxForGameModesHeight()
+		{
+			return hBoxForGameModesHeight;
+		}
+		
+		public void sethBoxForGameModesHeight(double hBoxForGameModesHeight)
+		{
+			this.hBoxForGameModesHeight = hBoxForGameModesHeight;
+		}
+		
+		public double gethBoxForGameModesLayoutY()
+		{
+			return hBoxForGameModesLayoutY;
+		}
+		
+		public void sethBoxForGameModesLayoutY(double hBoxForGameModesLayoutY)
+		{
+			this.hBoxForGameModesLayoutY = hBoxForGameModesLayoutY;
+		}
+		
+		public double getButtonHeight()
+		{
+			return buttonHeight;
+		}
+		
+		public void setButtonHeight(double buttonHeight)
+		{
+			this.buttonHeight = buttonHeight;
+		}
+		
+		public double getHeightOfDescriptions()
+		{
+			return heightOfDescriptions;
+		}
+		
+		public void setHeightOfDescriptions(double heightOfDescriptions)
+		{
+			this.heightOfDescriptions = heightOfDescriptions;
+		}
+		
+		public double getBackButtonLayoutY()
+		{
+			return backButtonLayoutY;
+		}
+		
+		public void setBackButtonLayoutY(double backButtonLayoutY)
+		{
+			this.backButtonLayoutY = backButtonLayoutY;
+		}
+		
+		public double getSoundIconLayoutY()
+		{
+			return soundIconLayoutY;
+		}
+		
+		public void setSoundIconLayoutY(double soundIconLayoutY)
+		{
+			this.soundIconLayoutY = soundIconLayoutY;
+		}
+		
+		public double getNextButtonLayoutY()
+		{
+			return nextButtonLayoutY;
+		}
+		
+		public void setNextButtonLayoutY(double nextButtonLayoutY)
+		{
+			this.nextButtonLayoutY = nextButtonLayoutY;
+		}
+		
+		public double getWoodPanelFor1IconImageLayoutX()
+		{
+			return woodPanelFor1IconImageLayoutX;
+		}
+		
+		public void setWoodPanelFor1IconImageLayoutX(double woodPanelFor1IconImageLayoutX)
+		{
+			this.woodPanelFor1IconImageLayoutX = woodPanelFor1IconImageLayoutX;
+		}
+		
+		public double getWoodPanelFor1IconImageLayoutY()
+		{
+			return woodPanelFor1IconImageLayoutY;
+		}
+		
+		public void setWoodPanelFor1IconImageLayoutY(double woodPanelFor1IconImageLayoutY)
+		{
+			this.woodPanelFor1IconImageLayoutY = woodPanelFor1IconImageLayoutY;
+		}
+	}
+	
+	public class Game
+	{
+		private double soundIconLayoutY;
+		private double vBoxForSoundLayoutY;
+		private double woodPanelFor1IconImageLayoutX;
+		private double woodPanelFor1IconImageLayoutY;
+		
+		public double getSoundIconLayoutY()
+		{
+			return soundIconLayoutY;
+		}
+		
+		public void setSoundIconLayoutY(double soundIconLayoutY)
+		{
+			this.soundIconLayoutY = soundIconLayoutY;
+		}
+		
+		public double getvBoxForSoundLayoutY()
+		{
+			return vBoxForSoundLayoutY;
+		}
+		
+		public void setvBoxForSoundLayoutY(double vBoxForSoundLayoutY)
+		{
+			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
+		}
+		
+		public double getWoodPanelFor1IconImageLayoutX()
+		{
+			return woodPanelFor1IconImageLayoutX;
+		}
+		
+		public void setWoodPanelFor1IconImageLayoutX(double woodPanelFor1IconImageLayoutX)
+		{
+			this.woodPanelFor1IconImageLayoutX = woodPanelFor1IconImageLayoutX;
+		}
+		
+		public double getWoodPanelFor1IconImageLayoutY()
+		{
+			return woodPanelFor1IconImageLayoutY;
+		}
+		
+		public void setWoodPanelFor1IconImageLayoutY(double woodPanelFor1IconImageLayoutY)
+		{
+			this.woodPanelFor1IconImageLayoutY = woodPanelFor1IconImageLayoutY;
 		}
 	}
 	
 	public class ScoreBoard
 	{
-		private double hBoxFor5IconsLayoutY;
+		private double soundIconLayoutY;
 		private double titleImageSetY;
 		private double titleLabelSetX;
 		private double titleLabelSetY;
 		private double vBoxForSoundLayoutY;
-		private double vBoxForSoundPrefHeight;
-		private double vBoxForSoundPrefWidth;
-		private double woodPanelFor5IconsImageLayoutY;
+		private double woodPanelFor1IconImageLayoutX;
+		private double woodPanelFor1IconImageLayoutY;
 		
-		public double gethBoxFor5IconsLayoutY()
+		public double getSoundIconLayoutY()
 		{
-			return hBoxFor5IconsLayoutY;
+			return soundIconLayoutY;
 		}
 		
-		public void sethBoxFor5IconsLayoutY(double hBoxFor5IconsLayoutY)
+		public void setSoundIconLayoutY(double soundIconLayoutY)
 		{
-			this.hBoxFor5IconsLayoutY = hBoxFor5IconsLayoutY;
+			this.soundIconLayoutY = soundIconLayoutY;
 		}
 		
 		public double getTitleImageSetY()
@@ -313,34 +631,24 @@ public class RatioProperties
 			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
 		}
 		
-		public double getvBoxForSoundPrefHeight()
+		public double getWoodPanelFor1IconImageLayoutX()
 		{
-			return vBoxForSoundPrefHeight;
+			return woodPanelFor1IconImageLayoutX;
 		}
 		
-		public void setvBoxForSoundPrefHeight(double vBoxForSoundPrefHeight)
+		public void setWoodPanelFor1IconImageLayoutX(double woodPanelFor1IconImageLayoutX)
 		{
-			this.vBoxForSoundPrefHeight = vBoxForSoundPrefHeight;
+			this.woodPanelFor1IconImageLayoutX = woodPanelFor1IconImageLayoutX;
 		}
 		
-		public double getvBoxForSoundPrefWidth()
+		public double getWoodPanelFor1IconImageLayoutY()
 		{
-			return vBoxForSoundPrefWidth;
+			return woodPanelFor1IconImageLayoutY;
 		}
 		
-		public void setvBoxForSoundPrefWidth(double vBoxForSoundPrefWidth)
+		public void setWoodPanelFor1IconImageLayoutY(double woodPanelFor1IconImageLayoutY)
 		{
-			this.vBoxForSoundPrefWidth = vBoxForSoundPrefWidth;
-		}
-		
-		public double getWoodPanelFor5IconsImageLayoutY()
-		{
-			return woodPanelFor5IconsImageLayoutY;
-		}
-		
-		public void setWoodPanelFor5IconsImageLayoutY(double woodPanelFor5IconsImageLayoutY)
-		{
-			this.woodPanelFor5IconsImageLayoutY = woodPanelFor5IconsImageLayoutY;
+			this.woodPanelFor1IconImageLayoutY = woodPanelFor1IconImageLayoutY;
 		}
 	}
 	
@@ -352,7 +660,6 @@ public class RatioProperties
 		private double globeImageLayoutY;
 		private double globeStandFitWidth;
 		private double globeStandLayoutY;
-		private double hBoxFor4SettingsButtonsLayoutY;
 		private double hBoxForSettingsAndInfoIconsLayoutY;
 		private double leftGlobeImageLayoutX;
 		private double leftGlobeStandLayoutX;
@@ -368,13 +675,10 @@ public class RatioProperties
 		private double vBoxForSettingsLayoutY;
 		private double vBoxForSoundLayoutX;
 		private double vBoxForSoundLayoutY;
-		private double vBoxForSoundPrefHeight;
 		private double welcomeImageLayoutY;
 		private double welcomeLabelLayoutY;
 		private double woodPanelFor1IconImageLayoutX;
 		private double woodPanelFor1IconImageLayoutY;
-		private double woodPanelFor4IconsImageLayoutX;
-		private double woodPanelFor4IconsImageLayoutY;
 		
 		public double getEditNameIconLayoutY()
 		{
@@ -434,16 +738,6 @@ public class RatioProperties
 		public void setGlobeStandLayoutY(double globeStandLayoutY)
 		{
 			this.globeStandLayoutY = globeStandLayoutY;
-		}
-		
-		public double gethBoxFor4SettingsButtonsLayoutY()
-		{
-			return hBoxFor4SettingsButtonsLayoutY;
-		}
-		
-		public void sethBoxFor4SettingsButtonsLayoutY(double hBoxFor4SettingsButtonsLayoutY)
-		{
-			this.hBoxFor4SettingsButtonsLayoutY = hBoxFor4SettingsButtonsLayoutY;
 		}
 		
 		public double gethBoxForSettingsAndInfoIconsLayoutY()
@@ -596,16 +890,6 @@ public class RatioProperties
 			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
 		}
 		
-		public double getvBoxForSoundPrefHeight()
-		{
-			return vBoxForSoundPrefHeight;
-		}
-		
-		public void setvBoxForSoundPrefHeight(double vBoxForSoundPrefHeight)
-		{
-			this.vBoxForSoundPrefHeight = vBoxForSoundPrefHeight;
-		}
-		
 		public double getWelcomeImageLayoutY()
 		{
 			return welcomeImageLayoutY;
@@ -644,26 +928,6 @@ public class RatioProperties
 		public void setWoodPanelFor1IconImageLayoutY(double woodPanelFor1IconImageLayoutY)
 		{
 			this.woodPanelFor1IconImageLayoutY = woodPanelFor1IconImageLayoutY;
-		}
-		
-		public double getWoodPanelFor4IconsImageLayoutX()
-		{
-			return woodPanelFor4IconsImageLayoutX;
-		}
-		
-		public void setWoodPanelFor4IconsImageLayoutX(double woodPanelFor4IconsImageLayoutX)
-		{
-			this.woodPanelFor4IconsImageLayoutX = woodPanelFor4IconsImageLayoutX;
-		}
-		
-		public double getWoodPanelFor4IconsImageLayoutY()
-		{
-			return woodPanelFor4IconsImageLayoutY;
-		}
-		
-		public void setWoodPanelFor4IconsImageLayoutY(double woodPanelFor4IconsImageLayoutY)
-		{
-			this.woodPanelFor4IconsImageLayoutY = woodPanelFor4IconsImageLayoutY;
 		}
 	}
 }

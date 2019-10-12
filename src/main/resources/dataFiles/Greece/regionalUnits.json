@@ -1,0 +1,2690 @@
+{"regionalUnits":
+[
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Αιτωλοακαρνανίας",
+		"nameInEnglish": "Regional unit of Aetolia - Acarnania",
+		"capitalInGreek": "Μεσολόγγι",
+		"capitalInEnglish": "Messolonghi",
+		"largestCityInGreek": "Αγρίνιο",
+		"largestCityInEnglish": "Agrinio",
+		"largestMunicipalityInGreek": "Δήμος Αγρινίου",
+		"largestMunicipalityInEnglish": "Municipality of Agrinio",
+		"areaInKilometers": "5447",
+		"areaInMiles": "2103",
+		"areaRanking": "1",
+		"population": "210802",
+		"populationDensityPerSquareKilometer": "39",
+		"populationDensityPerSquareMile": "101",
+		"populationRanking": "12",
+		"highestPointInGreek": "Όρος Παναιτωλικό: 1.924 m. / 6,312 ft.",
+		"highestPointInEnglish": "Mount Panaitoliko: 1.924 m. / 6,312 ft.",
+		"website": "http://www.aitoloakarnania.gr/",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Νομός_Αιτωλοακαρνανίας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Aetolia-Acarnania",
+		"numberOfMunicipalities": "7",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση Πελοποννήσου, Δυτικής Ελλάδας και Ιονίου",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Peloponnese, Western Greece and the Ionian",
+		"regionInGreek": "Περιφέρεια Δυτικής Ελλάδας",
+		"regionInEnglish": "Region of West Greece",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αγρινίου",
+			"Δήμος Ακτίου - Βόνιτσας",
+			"Δήμος Αμφιλοχίας",
+			"Δήμος Θέρμου",
+			"Δήμος Ναυπακτίας",
+			"Δήμος Ιεράς Πόλεως Μεσολογγίου",
+			"Δήμος Ξηρομέρου"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Agrinio",
+			"Municipality of Aktio - Vonitsa",
+			"Municipality of Amfilochia",
+			"Municipality of Messolonghi",
+			"Municipality of Nafpaktia",
+			"Municipality of Thermo",
+			"Municipality of Xiromero"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ανατολικής Αττικής",
+		"nameInEnglish": "Regional unit of East Attica",
+		"capitalInGreek": "Παλλήνη",
+		"capitalInEnglish": "Pallini",
+		"largestCityInGreek": "Αχαρνές",
+		"largestCityInEnglish": "Αχαρνές",
+		"largestMunicipalityInGreek": "Δήμος Αχαρνών",
+		"largestMunicipalityInEnglish": "Municipality of Acharnes",
+		"areaInKilometers": "1513",
+		"areaInMiles": "584",
+		"areaRanking": "0",
+		"population": "502348",
+		"populationDensityPerSquareKilometer": "330",
+		"populationDensityPerSquareMile": "858",
+		"populationRanking": "0",
+		"highestPointInGreek": "-",
+		"highestPointInEnglish": "-",
+		"website": "http://www.patt.gov.gr/site/index.php?option=com_content&view=article&id=4731&Itemid=299",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Διοικητική_διαίρεση_Περιφερειακής_Ενότητας_Ανατολικής_Αττικής",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/East_Attica",
+		"numberOfMunicipalities": "13",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση Αττικής",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Attica",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "Region of Attica",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αχαρνών",
+			"Δήμος Βάρης - Βούλας - Βουλιαγμένης",
+			"Δήμος Διονύσου",
+			"Δήμος Κρωπίας",
+			"Δήμος Λαυρεωτικής",
+			"Δήμος Μαραθώνος",
+			"Δήμος Μαρκόπουλου - Μεσογαίας",
+			"Δήμος Παιανίας",
+			"Δήμος Παλλήνης Αττικής",
+			"Δήμος Ραφήνας - Πικερμίου",
+			"Δήμος Σαρωνικού",
+			"Δήμος Σπάτων - Αρτέμιδος",
+			"Δήμος Ωρωπού"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Acharnes",
+			"Municipality of Dionysos",
+			"Municipality of Kropia",
+			"Municipality of Lavreotiki",
+			"Municipality of Marathon",
+			"Municipality of Markopoulo - Mesogaias",
+			"Municipality of Oropos",
+			"Municipality of Paiania",
+			"Municipality of Pallini",
+			"Municipality of Rafina - Pikermi",
+			"Municipality of Saronikos",
+			"Municipality of Spata - Artemida",
+			"Municipality of Vari - Voula - Vouliagmeni"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Άνδρου",
+		"nameInEnglish": "Regional unit of Andros",
+		"capitalInGreek": "Άνδρος",
+		"capitalInEnglish": "Andros",
+		"largestCityInGreek": "Άνδρος",
+		"largestCityInEnglish": "Andros",
+		"largestMunicipalityInGreek": "Δήμος Άνδρου",
+		"largestMunicipalityInEnglish": "Municipality of Andros",
+		"areaInKilometers": "380",
+		"areaInMiles": "147",
+		"areaRanking": "0",
+		"population": "9170",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "Όρος Πέταλο: 994 m. / 3,261 ft.",
+		"highestPointInEnglish": "Mount Petalo: 994 m. / 3,261 ft.",
+		"website": "http://www.andros.gr/",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Άνδρος",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Andros",
+		"numberOfMunicipalities": "1",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση\tΑιγαίου",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of the Aegean",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "Region of South Aegean",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "Δήμος Άνδρου"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "Municipality of Andros"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Αργολίδας",
+		"nameInEnglish": "Regional unit of Argolis",
+		"capitalInGreek": "Ναύπλιο",
+		"capitalInEnglish": "Nafplio",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "Δήμος Άργους - Μυκηνών",
+		"largestMunicipalityInEnglish": "Municipality of Argos - Mykines",
+		"areaInKilometers": "2214",
+		"areaInMiles": "855",
+		"areaRanking": "0",
+		"population": "97044",
+		"populationDensityPerSquareKilometer": "49",
+		"populationDensityPerSquareMile": "127",
+		"populationRanking": "0",
+		"highestPointInGreek": "-",
+		"highestPointInEnglish": "-",
+		"website": "-",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Νομός_Αργολίδας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Argolis",
+		"numberOfMunicipalities": "4",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση\tΠελοποννήσου, Δυτικής Ελλάδας και Ιονίου",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Peloponnese, Western Greece and the Ionian",
+		"regionInGreek": "Περιφέρεια Πελοποννήσου",
+		"regionInEnglish": "Region of Peloponnese",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Άργους - Μυκηνών",
+			"Δήμος Επιδαύρου",
+			"Δήμος Ερμιονίδας",
+			"Δήμος Ναυπλιέων"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Argos - Mykines",
+			"Municipality of Epidaurus",
+			"Municipality of Ermionida",
+			"Municipality of Nafplio"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Αρκαδίας",
+		"nameInEnglish": "Regional unit of Arcadia",
+		"capitalInGreek": "Τρίπολη",
+		"capitalInEnglish": "Tripoli",
+		"largestCityInGreek": "-",
+		"largestCityInEnglish": "-",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "4419",
+		"areaInMiles": "1706",
+		"areaRanking": "0",
+		"population": "86685",
+		"populationDensityPerSquareKilometer": "20",
+		"populationDensityPerSquareMile": "51",
+		"populationRanking": "0",
+		"highestPointInGreek": "-",
+		"highestPointInEnglish": "-",
+		"website": "-",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/Νομός_Αρκαδίας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Arcadia",
+		"numberOfMunicipalities": "5",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση\tΠελοποννήσου, Δυτικής Ελλάδας και Ιονίου",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Peloponnese, Western Greece and the Ionian",
+		"regionInGreek": "Περιφέρεια Πελοποννήσου",
+		"regionInEnglish": "Region of Peloponnese",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Βόρειας Κυνουρίας",
+			"Δήμος Γορτυνίας",
+			"Δήμος Μεγαλόπολης",
+			"Δήμος Νότιας Κυνουρίας",
+			"Δήμος Τρίπολης"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Gortynia",
+			"Municipality of Megalopoli",
+			"Municipality of North Kynouria",
+			"Municipality of South Kynouria",
+			"Municipality of Tripoli"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Άρτας",
+		"nameInEnglish": "Regional unit of Arta",
+		"capitalInGreek": "Άρτα",
+		"capitalInEnglish": "Arta",
+		"largestCityInGreek": "Άρτα",
+		"largestCityInEnglish": "Arta",
+		"largestMunicipalityInGreek": "Δήμος Άρτας",
+		"largestMunicipalityInEnglish": "Municipality of Arta",
+		"areaInKilometers": "1662",
+		"areaInMiles": "642",
+		"areaRanking": "0",
+		"population": "67877",
+		"populationDensityPerSquareKilometer": "41",
+		"populationDensityPerSquareMile": "110",
+		"populationRanking": "0",
+		"highestPointInGreek": "-",
+		"highestPointInEnglish": "-",
+		"website": "http://www.peartas.gov.gr/",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Νομός_Άρτας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Arta_(regional_unit)",
+		"numberOfMunicipalities": "4",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση\tΗπείρου - Δυτικής Μακεδονίας",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Epirus and Western Macedonia",
+		"regionInGreek": "Περιφέρεια Ηπείρου",
+		"regionInEnglish": "Region of Epirus",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αρταίων",
+			"Δήμος Γεωργίου Καραϊσκάκη",
+			"Δήμος Κεντρικών Τζουμέρκων",
+			"Δήμος Νικόλαου Σκουφά"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Arta",
+			"Municipality of Central Tzoumerka",
+			"Municipality of Georgios Karaiskakis",
+			"Municipality of Nikolaos Skoufas"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Αχαΐας",
+		"nameInEnglish": "Regional unit of Achaia",
+		"capitalInGreek": "Πάτρα",
+		"capitalInEnglish": "Patras",
+		"largestCityInGreek": "Πάτρα",
+		"largestCityInEnglish": "Patras",
+		"largestMunicipalityInGreek": "Δήμος Πατρέων",
+		"largestMunicipalityInEnglish": "Municipality of Patras",
+		"areaInKilometers": "3272",
+		"areaInMiles": "1263",
+		"areaRanking": "0",
+		"population": "309694",
+		"populationDensityPerSquareKilometer": "95",
+		"populationDensityPerSquareMile": "250",
+		"populationRanking": "0",
+		"highestPointInGreek": "Όρος Χελμός: 2.355 m / 7,726 ft.",
+		"highestPointInEnglish": "Mount Helmos: 2.355 m / 7,726 ft.",
+		"website": "-",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Νομός_Αχαΐας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Achaea",
+		"numberOfMunicipalities": "5",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση\tΠελοποννήσου, Δυτικής Ελλάδας και Ιονίου",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration\tPeloponnese, Western Greece and the Ionian",
+		"regionInGreek": "Περιφέρεια Δυτικής Ελλάδας",
+		"regionInEnglish": "Region of Western Greece",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αιγιαλείας",
+			"Δήμος Δυτικής Αχαΐας",
+			"Δήμος Ερυμάνθου",
+			"Δήμος Καλαβρύτων",
+			"Δήμος Πατρέων"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Aigialeia",
+			"Municipality of Erymanthos",
+			"Municipality of Kalavryta",
+			"Municipality of Patras",
+			"Municipality of West Achaea"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Βοιωτίας",
+		"nameInEnglish": "Regional unit of Boeotia",
+		"capitalInGreek": "Λιβαδειά",
+		"capitalInEnglish": "Livadeia",
+		"largestCityInGreek": "Θήβα",
+		"largestCityInEnglish": "Thebes",
+		"largestMunicipalityInGreek": "Δήμος Θηβαίων",
+		"largestMunicipalityInEnglish": "Municipality of Thebes",
+		"areaInKilometers": "3211",
+		"areaInMiles": "1240",
+		"areaRanking": "0",
+		"population": "117920",
+		"populationDensityPerSquareKilometer": "37",
+		"populationDensityPerSquareMile": "95",
+		"populationRanking": "0",
+		"highestPointInGreek": "Όρος Παρνασσός: 2.457 m / 8,061 ft",
+		"highestPointInEnglish": "Mount Parnassus: 2.457 m / 8,061 ft",
+		"website": "-",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Νομός_Βοιωτίας",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/Boeotia",
+		"numberOfMunicipalities": "6",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση Θεσσαλίας - Στερεάς Ελλάδας",
+		"decentralizedAdministrationInEnglish": "Decentralized Administration of Thessaly and Central Greece",
+		"regionInGreek": "Περιφέρεια Στερεάς Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αλιάρτου",
+			"Δήμος Διστόμου - Αράχοβας - Αντίκυρας",
+			"Δήμος Θηβαίων",
+			"Δήμος Λεβαδέων",
+			"Δήμος Ορχομενού",
+			"Δήμος Τανάγρας"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Aliartos",
+			"Municipality of Distomo - Arachova - Antikyra",
+			"Municipality of Livadeia",
+			"Municipality of Orchomenos",
+			"Municipality of Tanagra",
+			"Municipality of Thebes"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Βορείου Τομέα Αθηνών",
+		"nameInEnglish": "Regional unit of North Athens",
+		"capitalInGreek": "Κηφισιά",
+		"capitalInEnglish": "Kifisia",
+		"largestCityInGreek": "Χαλάνδρι",
+		"largestCityInEnglish": "Chalandri",
+		"largestMunicipalityInGreek": "Δήμος Χαλανδρίου",
+		"largestMunicipalityInEnglish": "Municipality of Chalandri",
+		"areaInKilometers": "140",
+		"areaInMiles": "54",
+		"areaRanking": "0",
+		"population": "591680",
+		"populationDensityPerSquareKilometer": "4200",
+		"populationDensityPerSquareMile": "11000",
+		"populationRanking": "0",
+		"highestPointInGreek": "-",
+		"highestPointInEnglish": "-",
+		"website": "http://www.patt.gov.gr/site/index.php?option=com_content&view=article&id=4684&Itemid=280",
+		"wikipediaLinkInGreek": "http://el.wikipedia.org/wiki/Περιφερειακή_Ενότητα_Βορείου_Τομέα_Αθηνών",
+		"wikipediaLinkInEnglish": "http://en.wikipedia.org/wiki/North_Athens_(regional_unit)",
+		"numberOfMunicipalities": "12",
+		"decentralizedAdministrationInGreek": "Αποκεντρωμένη Διοίκηση Αττικής",
+		"decentralizedAdministrationInEnglish": "Decentralized administration of Attica",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "Region of Attica",
+		"municipalitiesInGreek":
+		[
+			"Δήμος Αγίας Παρασκευής",
+			"Δήμος Αμαρουσίου",
+			"Δήμος Βριλησσίων",
+			"Δήμος Ηρακλείου",
+			"Δήμος Κηφισιάς",
+			"Δήμος Λυκόβρυσης - Πεύκης",
+			"Δήμος Μεταμορφώσεως",
+			"Δήμος Νέας Ιωνίας",
+			"Δήμος Παπάγου - Χολαργού",
+			"Δήμος Πεντέλης",
+			"Δήμος Φιλοθέης - Ψυχικού",
+			"Δήμος Χαλανδρίου"
+		],
+		"municipalitiesInEnglish":
+		[
+			"Municipality of Agia Paraskevi",
+			"Municipality of Amarousio",
+			"Municipality of Chalandri",
+			"Municipality of Filothei - Psychiko",
+			"Municipality of Irakleio",
+			"Municipality of Kifisia",
+			"Municipality of Lykovrysi - Pefki",
+			"Municipality of Metamorfosi",
+			"Municipality of Nea Ionia",
+			"Municipality of Papagou - Cholargos",
+			"Municipality of Penteli",
+			"Municipality of Vrilissia"
+		]
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Γρεβενών",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Δυτικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Δράμας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Δυτικής Αττικής",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Δυτικού Τομέα Αθηνών",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Έβρου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Εύβοιας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Στερεάς Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ευρυτανίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Στερεάς Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ζακύνθου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ιονίων Νήσων",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ηλείας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Δυτικής Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ημαθίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ηρακλείου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κρήτης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Θάσου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Θεσπρωτίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ηπείρου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Θεσσαλονίκης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Θήρας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ιθάκης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ιονίων Νήσων",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ικαρίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Βορείου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ιωαννίνων",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ηπείρου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Καβάλας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Καλύμνου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Καρδίτσας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Θεσσαλίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Καρπάθου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Καστοριάς",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Δυτικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κέας - Κύθνου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κεντρικού Τομέα Αθηνών",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κέρκυρας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ιονίων Νήσων",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κεφαλληνίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ιονίων Νήσων",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κιλκίς",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κοζάνης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Δυτικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κορινθίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Πελοποννήσου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Κω",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λακωνίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Πελοποννήσου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λάρισας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Θεσσαλίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λασιθίου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κρήτης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λέσβου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Βορείου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λευκάδας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ιονίων Νήσων",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Λήμνου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Βορείου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Μαγνησίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Θεσσαλίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Μεσσηνίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Πελοποννήσου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Μήλου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Μυκόνου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Νάξου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Νήσων Αττικής",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Νοτίου Τομέα Αθηνών",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ξάνθης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Πάρου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Πειραιώς",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Αττικής",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Πέλλας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Πιερίας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Πρέβεζας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ηπείρου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ρεθύμνης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κρήτης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ροδόπης",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Ανατολικής Μακεδονίας και Θράκης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Ρόδου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Σάμου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Βορείου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Σερρών",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Σποράδων",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Θεσσαλίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Σύρου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Τήνου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Νοτίου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Τρικάλων",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Θεσσαλίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Φθιώτιδας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Στερεάς Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Φλώρινας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Δυτικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Φωκίδας",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Στερεάς Ελλάδας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Χαλκιδικής",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κεντρικής Μακεδονίας",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Χανίων",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Κρήτης",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	},
+	{
+		"nameInGreek": "Περιφερειακή ενότητα Χίου",
+		"nameInEnglish": "0",
+		"capitalInGreek": "0",
+		"capitalInEnglish": "0",
+		"largestCityInGreek": "0",
+		"largestCityInEnglish": "0",
+		"largestMunicipalityInGreek": "0",
+		"largestMunicipalityInEnglish": "0",
+		"areaInKilometers": "0",
+		"areaInMiles": "0",
+		"areaRanking": "0",
+		"population": "0",
+		"populationDensityPerSquareKilometer": "0",
+		"populationDensityPerSquareMile": "0",
+		"populationRanking": "0",
+		"highestPointInGreek": "0",
+		"highestPointInEnglish": "0",
+		"website": "0",
+		"wikipediaLinkInGreek": "0",
+		"wikipediaLinkInEnglish": "0",
+		"numberOfMunicipalities": "0",
+		"decentralizedAdministrationInGreek": "0",
+		"decentralizedAdministrationInEnglish": "0",
+		"regionInGreek": "Περιφέρεια Βορείου Αιγαίου",
+		"regionInEnglish": "0",
+		"municipalitiesInGreek":
+		{
+			"municipalityInGreek": "0"
+		},
+		"municipalitiesInEnglish":
+		{
+			"municipalityInEnglish": "0"
+		}
+	}
+]
+}

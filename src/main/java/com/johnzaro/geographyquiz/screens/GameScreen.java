@@ -1,6 +1,7 @@
 package com.johnzaro.geographyquiz.screens;
 
 import com.johnzaro.geographyquiz.core.*;
+import com.johnzaro.geographyquiz.dataStructures.Continent;
 import com.johnzaro.geographyquiz.dataStructures.Game;
 import com.johnzaro.geographyquiz.dataStructures.Player;
 import javafx.animation.*;
@@ -12,6 +13,7 @@ import javafx.geometry.Bounds;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
@@ -44,20 +46,22 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 
 public class GameScreen extends CoreScreen
 {
-	private HBox hBoxFor5Icons, hBoxForLives;
+	private HBox hBoxForLives;
 	private VBox vBoxForPausedGame, vBoxForNextQuestionButtonAndProgressBar;
 	private GridPane gridPaneFor4TextAnswers, gridPaneFor2TextAnswers, gridPaneFor4ImageAnswers, gridPaneForAnswerIconsFor4ImageAnswers;
 	private StackPane stackPaneFor4ImageAnswers, stackPaneForBigImage;
 	
-	private CustomImageView welcomeScreenImage, worldMapBackground, titleImageForFinishedGame, woodPanelFor5IconsImage, pauseGameIcon,
+	private CustomImageView welcomeScreenImage, worldMapBackground, woodPanelFor1IconImage, titleImageForFinishedGame, pauseGameIcon,
 			nextQuestionArrowImage, imageViewForLargeHeart, imageViewForLargeAnswerIcon, imageViewForQuestionImage, imageViewForBigImage;
-	private CustomImageView[] answerIconsFor2TextAnswers, answerIconsFor4TextAnswers, answerIconsFor4ImageAnswers, imageViewForLives, imageViewFor4ImageAnswers;
+	private CustomImageView[] answerIconsFor2TextAnswers, answerIconsFor4TextAnswers, answerIconsFor4ImageAnswers, imageViewForLives,
+			imageViewFor4ImageAnswers;
 	
 	private Label titleLabelForFinishedGame, popUpMessage;
 	private CustomButton returnToGameButton, restartGameButton, returnToGamePropertiesButton, returnToWelcomeScreenButton, nextQuestionButton,
 			restartGameFromFinishedScreenButton, returnToWelcomeScreenFromFinishedGameScreenButton;
 	private ProgressBar progressBarForCountdown, progressBarFor2_5SecondsWaitForNextQuestion;
-	private Text textForQuestionNumber, textForCountdown, textForScore, textForQuestion, textForTimePassed, textForResultsDuration, textForResults, textForResults2, textForCombo;
+	private Text textForQuestionNumber, textForCountdown, textForScore, textForQuestion, textForTimePassed, textForResultsDuration,
+			textForResults, textForResults2, textForCombo;
 	private Text numberOfQuestionAnimated, comboAnimated, scoreAnimated;
 	private RadioButton[] radioButtonsFor2TextAnswers, radioButtonsFor4TextAnswers;
 	
@@ -67,30 +71,34 @@ public class GameScreen extends CoreScreen
 	private CustomTooltip[] tooltipsForRadioButtonsFor4TextAnswers;
 	
 	private FadeTransition fadeTransitionForWorldMapImage;
-	private ScaleTransition scaleTransitionForTitleLabelForFinishedGame, scaleTransitionForHBoxFor5Icons,
-			scaleTransitionForPauseGameIcon, scaleTransitionForTextForTimePassed, scaleTransitionForGridPaneFor2TextAnswers, scaleTransitionForProgressBarForCountdown,
-			scaleTransitionForTextForCountdown, scaleTransitionForTextForQuestionNumber, scaleTransitionForTextForScore, scaleTransitionForVBoxForNextQuestion,
-			scaleTransitionForTextForQuestion, scaleTransitionForGridPaneFor4TextAnswers, scaleTransitionForStackPaneFor4ImageAnswers, scaleTransitionForQuestionImage,
-			scaleTransitionForTextForResultsDuration, scaleTransitionForTextForResults, scaleTransitionForTextForResults2, scaleTransitionForRestartGameButton, scaleTransitionForReturnToWelcomeScreenButton,
-			scaleTransitionForHBoxForLives, scaleTransitionForNumberOfQuestionAnimated, scaleTransitionForImageViewForLargeHeart,
-			scaleTransitionForLargeAnswerIcon, scaleTransitionForTextForCombo, scaleTransitionForComboAnimated, scaleTransitionForScoreAnimated, scaleTransitionForPopUpMessage;
-	private TranslateTransition translateTransitionForTitleImageForFinishedGame, translateTransitionForVBoxForSound, translateTransitionFoVBoxForPausedGame,
-			translateTransitionForWoodPanelFor5IconsImage, translateTransitionForScoreText, translateTransitionForNumberOfQuestionAnimated,
-			translateTransitionForImageViewForLargeHeart, translateTransitionForLargeAnswerIcon, translateTransitionForComboAnimated, translateTransitionForTextForCombo,
-			translateTransitionForScoreAnimated;
-	private ParallelTransition parallelTransitionForNumberOfQuestionAnimated, parallelTransitionForLifeLostAnimation, parallelTransitionForLargeAnswerIcon,
-			parallelTransitionForComboAnimated, parallelTransitionForScoreAnimated;
+	private ScaleTransition scaleTransitionForSoundIcon, scaleTransitionForTitleLabelForFinishedGame,
+			scaleTransitionForPauseGameIcon, scaleTransitionForTextForTimePassed, scaleTransitionForGridPaneFor2TextAnswers,
+			scaleTransitionForProgressBarForCountdown, scaleTransitionForTextForCountdown, scaleTransitionForTextForQuestionNumber,
+			scaleTransitionForTextForScore, scaleTransitionForVBoxForNextQuestion, scaleTransitionForTextForQuestion,
+			scaleTransitionForGridPaneFor4TextAnswers, scaleTransitionForStackPaneFor4ImageAnswers, scaleTransitionForQuestionImage,
+			scaleTransitionForTextForResultsDuration, scaleTransitionForTextForResults, scaleTransitionForTextForResults2,
+			scaleTransitionForRestartGameButton, scaleTransitionForReturnToWelcomeScreenButton, scaleTransitionForHBoxForLives,
+			scaleTransitionForNumberOfQuestionAnimated, scaleTransitionForImageViewForLargeHeart, scaleTransitionForLargeAnswerIcon,
+			scaleTransitionForTextForCombo, scaleTransitionForComboAnimated, scaleTransitionForScoreAnimated, scaleTransitionForPopUpMessage;
+	private TranslateTransition translateTransitionForTitleImageForFinishedGame, translateTransitionForVBoxForSound,
+			translateTransitionFoVBoxForPausedGame, translateTransitionForScoreText, translateTransitionForNumberOfQuestionAnimated,
+			translateTransitionForImageViewForLargeHeart, translateTransitionForLargeAnswerIcon, translateTransitionForComboAnimated,
+			translateTransitionForTextForCombo, translateTransitionForScoreAnimated, translateTransitionForWoodPanelFor1IconImage;
+	private ParallelTransition parallelTransitionForNumberOfQuestionAnimated, parallelTransitionForLifeLostAnimation,
+			parallelTransitionForLargeAnswerIcon, parallelTransitionForComboAnimated, parallelTransitionForScoreAnimated;
 	
 	private ScaleTransition[] scaleTransitionFor2TextAnswers, scaleTransitionFor4TextAnswers, scaleTransitionFor4ImageAnswers,
-			scaleTransitionForAnswerIconsFor2TextAnswers, scaleTransitionForAnswerIconsFor4TextAnswers, scaleTransitionForAnswerIconsFor4ImageAnswers;
-	private SequentialTransition[] sequentialTransitionsFor2TextAnswers, sequentialTransitionsFor4TextAnswers, sequentialTransitionsFor4ImageAnswers;
+			scaleTransitionForAnswerIconsFor2TextAnswers, scaleTransitionForAnswerIconsFor4TextAnswers,
+			scaleTransitionForAnswerIconsFor4ImageAnswers;
+	private SequentialTransition[] sequentialTransitionsFor2TextAnswers, sequentialTransitionsFor4TextAnswers,
+			sequentialTransitionsFor4ImageAnswers;
 	private Timeline timelineToShow2TextAnswers, timelineToShow4TextAnswers, timelineToShow4ImageAnswers;
 	
 	private Timeline timelineToShowSoundOptions, timelineToHideSoundOptions, timelineToShowAllStuff, timelineToHideAllStuffFromGameScreen;
 	private Timeline timelineForTimePassedCount, timelineForQuestionCountdown, timelineFor2_5SecondsWaitForNextQuestion,
-			timelineToFinishGame, timelineToHideAllStuffFromFinishedGameScreen, timelineToCountSecondsForQuestionCountdown, timelineForLifeLostAnimation,
-			timelineForLargeAnswerIcon, timelineToCloseTextForCountdown, timelineForComboAnimated, timelineForComboNoAnimated, timelineForScoreAnimated,
-			timelineForScoreNoAnimated;
+			timelineToFinishGame, timelineToHideAllStuffFromFinishedGameScreen, timelineToCountSecondsForQuestionCountdown,
+			timelineForLifeLostAnimation, timelineForLargeAnswerIcon, timelineToCloseTextForCountdown, timelineForComboAnimated,
+			timelineForComboNoAnimated, timelineForScoreAnimated, timelineForScoreNoAnimated;
 	private Timeline timelineFor1MinuteProgressbarForTimeAttack, timelineFor2MinutesProgressbarForTimeAttack,
 			timelineFor5MinutesProgressbarForTimeAttack, timelineFor10MinutesProgressbarForTimeAttack, timelineToCountSecondsForTimeAttack,
 			timelineToShowNumberOfQuestion, timelineToCountMilliseconds, timelineToShowPopUpMessage;
@@ -135,31 +143,6 @@ public class GameScreen extends CoreScreen
 		Font fontForLabels         = Font.font("Comic Sans MS", 0.0208 * width);
 		double maxWidthForTooltips = (0.2604) * width;
 		
-		if (width < 1100)
-		{
-			masterVolumeSlider.setId("small");
-			musicVolumeSlider.setId("small");
-			soundEffectsVolumeSlider.setId("small");
-		}
-		else if (width < 1700)
-		{
-			masterVolumeSlider.setId("medium");
-			musicVolumeSlider.setId("medium");
-			soundEffectsVolumeSlider.setId("medium");
-		}
-		else if (width < 3000)
-		{
-			masterVolumeSlider.setId("big");
-			musicVolumeSlider.setId("big");
-			soundEffectsVolumeSlider.setId("big");
-		}
-		else
-		{
-			masterVolumeSlider.setId("veryBig");
-			musicVolumeSlider.setId("veryBig");
-			soundEffectsVolumeSlider.setId("veryBig");
-		}
-		
 		if (width < 1200)
 		{
 			radioButtonsFor4TextAnswers[0].setId("small");
@@ -181,15 +164,6 @@ public class GameScreen extends CoreScreen
 			radioButtonsFor2TextAnswers[1].setId("big");
 		}
 		
-		//SCREEN RATIO DEPENDENT----------------------------------------------------------------------
-		woodPanelFor5IconsImage.setLayoutY(ratioProperties.getGame().getWoodPanelFor5IconsImageLayoutY() * height);
-		hBoxFor5Icons.setLayoutY(ratioProperties.getGame().gethBoxFor5IconsLayoutY() * height);
-		
-		vBoxForSound.setLayoutY(ratioProperties.getGame().getvBoxForSoundLayoutY() * height);
-		vBoxForSound.setPrefSize(ratioProperties.getGame().getvBoxForSoundPrefWidth() * width, ratioProperties.getGame().getvBoxForSoundPrefHeight() * height);
-		
-		woodPanelFor5IconsImage.setFitWidth(0.1667 * width);
-		
 		//HBOX FOR LIVES
 		if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
 		{
@@ -203,8 +177,7 @@ public class GameScreen extends CoreScreen
 			imageViewForLargeHeart.setLayoutY(height / 2.0 - imageViewForLargeHeart.getFitWidth() / 2.0);
 		}
 		
-		textForQuestionNumber.setStyle("-fx-stroke: white;" +
-		                               "-fx-stroke-width: " + 0.0010 * width + ";");
+		textForQuestionNumber.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0010 * width + ";");
 		
 		if(progressBarForCountdown.isVisible())
 		{
@@ -219,78 +192,17 @@ public class GameScreen extends CoreScreen
 			textForQuestionNumber.setLayoutY(0.1250 * height);
 		}
 		
-		//OS DEPENDENT STUFF----------------------------------------------------------------------
-		pauseGameIcon.setFitWidth(1.4 * iconSize);
+		textForQuestionNumber.setLayoutX(0.0469 * width);
 		
-		if (OS == OsCheck.OSType.Windows)
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.7792 * width);
-			
-			pauseGameIcon.setLayoutX(woodPanelFor5IconsImage.getLayoutX() - pauseGameIcon.getFitWidth() - 0.0156 * width);
-			
-			textForQuestionNumber.setLayoutX(0.0469 * width);
-			
-			hBoxForLives.setLayoutX(0.0469 * width);
-		}
-		else
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.0542 * width);
-			
-			pauseGameIcon.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() + 0.0156 * width);
-			
-			textForQuestionNumber.setLayoutX(width - textForQuestionNumber.getBoundsInLocal().getWidth() - 0.0469 * width);
-			
-			hBoxForLives.setLayoutX(width - (hBoxForLives.getChildren().size() - 1) * hBoxForLives.getSpacing() - hBoxForLives.getChildren().size() * 1.2 * iconSize - 0.0469 * width);
-		}
-		
-		//HBOX FOR 5 BUTTONS
-		hBoxFor5Icons.setPrefSize(0.1667 * width, 0.0509 * height);
-		hBoxFor5Icons.setSpacing(0.0052 * width);
-		hBoxFor5Icons.setLayoutX(woodPanelFor5IconsImage.getLayoutX());
-		
-		soundIcon.setFitWidth(iconSize);
-		minimizeIcon.setFitWidth(iconSize);
-		moveIcon.setFitWidth(iconSize);
-		fullScreenIcon.setFitWidth(iconSize);
-		exitIcon.setFitWidth(iconSize);
+		hBoxForLives.setLayoutX(0.0469 * width);
 		
 		soundOptionsToolTip.setFont(fontForTooltips);
-		minimizeTooltip.setFont(fontForTooltips);
-		moveTooltip.setFont(fontForTooltips);
-		fullScreenTooltip.setFont(fontForTooltips);
-		exitTooltip.setFont(fontForTooltips);
-		
 		soundOptionsToolTip.setMaxWidth(maxWidthForTooltips);
-		minimizeTooltip.setMaxWidth(maxWidthForTooltips);
-		moveTooltip.setMaxWidth(maxWidthForTooltips);
-		fullScreenTooltip.setMaxWidth(maxWidthForTooltips);
-		exitTooltip.setMaxWidth(maxWidthForTooltips);
-		
-		//SOUND STUFF
-		vBoxForSound.setLayoutX(woodPanelFor5IconsImage.getLayoutX() + woodPanelFor5IconsImage.getFitWidth() / 2.0 - vBoxForSound.getPrefWidth() / 2.0);
-		vBoxForSound.setStyle("-fx-background-color: #00000099; " +
-		                      "-fx-border-color: black; " +
-		                      "-fx-background-radius:" + 0.0078 * width + "; " +
-		                      "-fx-border-radius:" + 0.0078 * width + "; " +
-		                      "-fx-border-width:" + 0.0026 * width + "; " +
-		                      "-fx-padding:" + 0.0052 * width + ";");
-		
-		if(vBoxForSound.getTranslateX() != 0)
-		{
-			if (OS == OsCheck.OSType.Windows) vBoxForSound.setTranslateX(width - vBoxForSound.getLayoutX() + 20);
-			else vBoxForSound.setTranslateX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
-		}
-		
-		Font fontForSound = Font.font("Comic Sans MS", 0.0104 * width);
-		masterVolumeLabel.setFont(fontForSound);
-		musicVolumeLabel.setFont(fontForSound);
-		soundEffectsVolumeLabel.setFont(fontForSound);
 		
 		//QUESTION NUMBER
 		numberOfQuestionAnimated.setLayoutY(height / 2.0);
 		numberOfQuestionAnimated.setLayoutX(width / 2.0 - numberOfQuestionAnimated.getLayoutBounds().getWidth() / 2.0);
-		numberOfQuestionAnimated.setStyle("-fx-stroke: white;" +
-		                                  "-fx-stroke-width: " + 0.0010 * width + ";");
+		numberOfQuestionAnimated.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0010 * width + ";");
 		
 		//COUNTDOWN
 		progressBarForCountdown.setPrefSize(0.2865 * width, 0.0463 * height);
@@ -303,38 +215,30 @@ public class GameScreen extends CoreScreen
 		
 		//TEXT FOR QUESTION
 		textForQuestion.setLayoutX(0.0521 * width);
-		textForQuestion.setWrappingWidth(0.7292 * width);
+		textForQuestion.setWrappingWidth(0.6458 * width);
 		textForQuestion.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * width));
-		textForQuestion.setStyle("-fx-stroke: white;" +
-		                      "-fx-stroke-width: " + 0.0016 * width + ";");
+		textForQuestion.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0016 * width + ";");
 		
 		if(textForQuestion.getTranslateX() != 0) textForQuestion.setTranslateX(0.1771 * width);
 		
 		//SCORE TEXT
 		textForScore.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0234 * width));
-		textForScore.setStyle("-fx-stroke: white;" +
-		                      "-fx-stroke-width: " + 0.0010 * width + ";");
+		textForScore.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0010 * width + ";");
 		textForScore.setLayoutX(0.8625 * width - textForScore.getBoundsInLocal().getWidth() / 2.0);
-		
-		if(textForScore.getTranslateY() != 0) textForScore.setTranslateY(0.2065 * height);
+		textForScore.setLayoutY(0.3194 * height);
 		
 		scoreAnimated.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0365 * width));
-		scoreAnimated.setStyle("-fx-stroke: white;" +
-		                       "-fx-stroke-width: " + 0.0016 * width + ";");
+		scoreAnimated.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0016 * width + ";");
 		
 		//COMBO STUFF
 		textForCombo.setLayoutX(textForScore.getLayoutX() + textForScore.getBoundsInLocal().getWidth() / 2.0 - textForCombo.getBoundsInLocal().getWidth() / 2.0);
-		textForCombo.setLayoutY(0.3796 * height);
+		textForCombo.setLayoutY(0.4730 * height);
 		textForCombo.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0365 * width));
-		textForCombo.setStyle("-fx-stroke: white;" +
-		                      "-fx-stroke-width: " + 0.0016 * width + ";");
-		
-		if(textForCombo.getTranslateY() != 0) textForCombo.setTranslateY(0.2065 * height);
+		textForCombo.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0016 * width + ";");
 		
 		comboAnimated.setLayoutY(0.6018 * height);
 		comboAnimated.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0365 * width));
-		comboAnimated.setStyle("-fx-stroke: white;" +
-		                       "-fx-stroke-width: " + 0.0016 * width + ";");
+		comboAnimated.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0016 * width + ";");
 		
 		//POSITION BASED ON EXISTENCE OF TIME PASSED TEXT
 		if(textForTimePassed.isVisible())
@@ -354,7 +258,6 @@ public class GameScreen extends CoreScreen
 			}
 			
 			textForQuestion.setLayoutY(0.2593 * height);
-			textForScore.setLayoutY(0.2315 * height);
 			imageViewForQuestionImage.setFitHeight(0.3056 * height);
 			
 			if(gridPaneFor2TextAnswers.isVisible()) imageViewForQuestionImage.setLayoutY(0.3750 * height);
@@ -369,34 +272,33 @@ public class GameScreen extends CoreScreen
 			}
 			
 			textForQuestion.setLayoutY(0.2407 * height);
-			textForScore.setLayoutY(0.2130 * height);
 			imageViewForQuestionImage.setFitHeight(0.3241 * height);
 			
 			if(gridPaneFor2TextAnswers.isVisible()) imageViewForQuestionImage.setLayoutY(0.3565 * height);
 			else imageViewForQuestionImage.setLayoutY(0.2639 * height);
 		}
 		
-		if(OS != OsCheck.OSType.Windows)
-		{
-			if(gameMode == GAMEMODE.ENDLESS_GAMEMODE)
-			{
-				textForScore.setLayoutY(0.2500 * height);
-				textForCombo.setLayoutY(0.3889 * height);
-			}
-			else
-			{
-				textForScore.setLayoutY(0.2037 * height);
-				textForCombo.setLayoutY(0.3426 * height);
-			}
-		}
+		vBoxForSound.setLayoutX(0.7083 * width);
+		vBoxForSound.setLayoutY(ratioProperties.getGame().getvBoxForSoundLayoutY() * height);
+		
+		woodPanelFor1IconImage.setFitWidth(0.0482 * width);
+		woodPanelFor1IconImage.setLayoutX(ratioProperties.getGame().getWoodPanelFor1IconImageLayoutX() * width);
+		woodPanelFor1IconImage.setLayoutY(ratioProperties.getGame().getWoodPanelFor1IconImageLayoutY() * height);
+		
+		soundIcon.setFitWidth(1.2 * iconSize);
+		soundIcon.setLayoutX(woodPanelFor1IconImage.getLayoutX() + woodPanelFor1IconImage.getFitWidth() / 2.0 - soundIcon.getFitWidth() / 2.0);
+		soundIcon.setLayoutY(ratioProperties.getGame().getSoundIconLayoutY() * height - soundIcon.getFitWidth() / 2.0);
+		
+		pauseGameIcon.setFitWidth(1.4 * iconSize);
+		pauseGameIcon.setLayoutX(0.9193 * width - pauseGameIcon.getFitWidth() / 2.0);
+		pauseGameIcon.setLayoutY(0.0944 * height);
 		
 		//IMAGE FOR QUESTION
 		imageViewForQuestionImage.setLayoutX(width / 2.0 - imageViewForQuestionImage.getFitHeight() / 2.0);
 		
 		//TIME PASSED
 		textForTimePassed.setLayoutX(width / 2.0 - textForTimePassed.getBoundsInLocal().getWidth() / 2.0);
-		textForTimePassed.setStyle("-fx-stroke: white;" +
-		                           "-fx-stroke-width: " + 0.0010 * width + ";");
+		textForTimePassed.setStyle("-fx-stroke: white; -fx-stroke-width: " + 0.0010 * width + ";");
 		
 		//IMAGE VIEW FOR LARGE ANSWER ICON
 		imageViewForLargeAnswerIcon.setFitWidth(1.2 * iconSize);
@@ -490,26 +392,21 @@ public class GameScreen extends CoreScreen
 		progressBarFor2_5SecondsWaitForNextQuestion.setMinHeight(0.0139 * height);
 		progressBarFor2_5SecondsWaitForNextQuestion.setMaxHeight(0.0139 * height);
 		
-		//PAUSE GAME STUFF
-		pauseGameIcon.setLayoutY(0.0944 * height);
-		
 		popUpMessage.setPrefSize(0.3333 * width, 0.1852 * height);
 		popUpMessage.setLayoutX(width / 2.0 - popUpMessage.getPrefWidth() / 2.0);
 		popUpMessage.setLayoutY(height / 2.0 - popUpMessage.getPrefHeight() / 2.0);
 		popUpMessage.setStyle(
 				"-fx-background-color: #000000ce; -fx-border-color: black;" +
-						"-fx-background-radius:" + 0.0208 * width + ";" +
-						"-fx-border-radius:" + 0.0208 * width + ";" +
-						"-fx-border-width:" + 0.0050 * width + ";" +
-						"-fx-padding:" + 0.0052 * width + ";"
-		);
+				"-fx-background-radius:" + 0.0208 * width + ";" +
+				"-fx-border-radius:" + 0.0208 * width + ";" +
+				"-fx-border-width:" + 0.0050 * width + ";" +
+				"-fx-padding:" + 0.0052 * width + ";");
 		popUpMessage.setFont(fontForTooltips);
 		
-		vBoxForPausedGame.setPrefSize(0.4688 * width, 0.6019 * height);
+		vBoxForPausedGame.setPrefSize(0.4062 * width, 0.6019 * height);
 		vBoxForPausedGame.setLayoutX(width / 2.0 - vBoxForPausedGame.getPrefWidth() / 2.0);
 		vBoxForPausedGame.setLayoutY(height / 2.0 - vBoxForPausedGame.getPrefHeight() / 2.0);
 		vBoxForPausedGame.setSpacing(0.0463 * height);
-		
 		vBoxForPausedGame.setStyle(
 				"-fx-background-color: #00000099; -fx-border-color: black;" +
 				"-fx-background-radius:" + 0.0208 * width + ";" +
@@ -651,19 +548,7 @@ public class GameScreen extends CoreScreen
 		worldMapBackground.setCache(true);
 		worldMapBackground.setCacheHint(CacheHint.SPEED);
 		
-		woodPanelFor5IconsImage = new CustomImageView(false, true, false, true, CacheHint.SPEED);
-		woodPanelFor5IconsImage.setSmooth(false);
-		woodPanelFor5IconsImage.setPreserveRatio(true);
-		woodPanelFor5IconsImage.setCache(true);
-		woodPanelFor5IconsImage.setCacheHint(CacheHint.SPEED);
-		
-		hBoxFor5Icons = new HBox();
-		hBoxFor5Icons.setAlignment(Pos.CENTER);
-		hBoxFor5Icons.setCache(true);
-		hBoxFor5Icons.setCacheHint(CacheHint.SCALE);
-		
-		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
-		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
+		woodPanelFor1IconImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 		
 		//MAIN GAME STUFF-------------------------------------------------------------------------------------
 		
@@ -919,7 +804,6 @@ public class GameScreen extends CoreScreen
 		boxBlurForNodes.setIterations(2);
 		
 		dropShadowForNodes = new DropShadow();
-		woodPanelFor5IconsImage.setEffect(dropShadowForNodes);
 		titleImageForFinishedGame.setEffect(dropShadowForNodes);
 		
 		dropShadowForText = new DropShadow();
@@ -941,7 +825,7 @@ public class GameScreen extends CoreScreen
 		comboAnimated.setEffect(dropShadowForText);
 		
 		nodesPane.getChildren().addAll(welcomeScreenImage, worldMapBackground, titleImageForFinishedGame, titleLabelForFinishedGame,
-				woodPanelFor5IconsImage, hBoxFor5Icons, pauseGameIcon, textForQuestionNumber, progressBarForCountdown,
+				pauseGameIcon, textForQuestionNumber, progressBarForCountdown, woodPanelFor1IconImage, soundIcon,
 				vBoxForNextQuestionButtonAndProgressBar, textForScore, textForQuestion, imageViewForQuestionImage, gridPaneFor4TextAnswers,
 				stackPaneFor4ImageAnswers, gridPaneFor2TextAnswers, textForTimePassed, textForCountdown, textForResultsDuration, textForCombo,
 				hBoxForLives, stackPaneForBigImage, numberOfQuestionAnimated, imageViewForLargeAnswerIcon, scoreAnimated, comboAnimated,
@@ -988,6 +872,33 @@ public class GameScreen extends CoreScreen
 		{
 			setupLimitedAnimations();
 		}
+		
+		createScene();
+	}
+	
+	private void createScene()
+	{
+		gameScene = new Scene(anchorPane);
+		gameScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
+				comboBoxCSS, toggleButtonCSS, listViewCSS, labelCSS, scrollPaneCSS, textAreaCSS,
+				progressBarCSS, tableViewCSS);
+		
+		gameScene.widthProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowWidth = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+			getCurrentPlayer().setWindowWidth(windowWidth);
+		});
+		
+		gameScene.heightProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowHeight = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+		});
 	}
 	
 	protected void setupListeners()
@@ -1405,13 +1316,7 @@ public class GameScreen extends CoreScreen
 				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
-					if(OS == OsCheck.OSType.Windows)
-					{
-						textForScore.setTranslateY(0.2065 * stage.getHeight());
-						textForCombo.setTranslateY(0.2065 * stage.getHeight());
-					}
-					
-					vBoxForSound.setTranslateX(0);
+					vBoxForSound.setTranslateY(0);
 					vBoxForSound.setVisible(true);
 				}
 			}
@@ -1422,16 +1327,8 @@ public class GameScreen extends CoreScreen
 				if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 				else
 				{
-					if (OS == OsCheck.OSType.Windows) vBoxForSound.setTranslateX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
-					else vBoxForSound.setTranslateX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
-					
+					vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 					vBoxForSound.setVisible(false);
-					
-					if(OS == OsCheck.OSType.Windows)
-					{
-						textForScore.setTranslateY(0);
-						textForCombo.setTranslateY(0);
-					}
 				}
 			}
 			soundIcon.setDisable(false);
@@ -1485,87 +1382,87 @@ public class GameScreen extends CoreScreen
 		if(animationsUsed != ANIMATIONS.NO)
 		{
 			timelineToShowNumberOfQuestion = new Timeline(
-			new KeyFrame(Duration.millis(0), e ->
-			{
-				numberOfQuestionAnimated.setText(String.valueOf(getCurrentQuestionNumber()));
-				
-				scaleTransitionForNumberOfQuestionAnimated.setToX(6);
-				scaleTransitionForNumberOfQuestionAnimated.setToY(6);
-				
-				translateTransitionForNumberOfQuestionAnimated.setToX(0);
-				translateTransitionForNumberOfQuestionAnimated.setToY(0);
-				
-				parallelTransitionForNumberOfQuestionAnimated.playFromStart();
-			}), new KeyFrame(Duration.millis(350), e ->
-			{
-				scaleTransitionForNumberOfQuestionAnimated.setToX(1);
-				scaleTransitionForNumberOfQuestionAnimated.setToY(1);
-				
-				translateTransitionForNumberOfQuestionAnimated.setToX(textForQuestionNumber.getLayoutX() - numberOfQuestionAnimated.getLayoutX());
-				translateTransitionForNumberOfQuestionAnimated.setToY(textForQuestionNumber.getLayoutY() - numberOfQuestionAnimated.getLayoutY());
-				
-				parallelTransitionForNumberOfQuestionAnimated.playFromStart();
-			}),
-			new KeyFrame(Duration.millis(700), e -> updateQuestionNumberText()),
-			new KeyFrame(Duration.millis(750), e ->
-			{
-				parallelTransitionForNumberOfQuestionAnimated.stop();
-				numberOfQuestionAnimated.setScaleX(0);
-				numberOfQuestionAnimated.setScaleY(0);
-				numberOfQuestionAnimated.setTranslateX(0);
-				numberOfQuestionAnimated.setTranslateY(0);
-			}));
+				new KeyFrame(Duration.millis(0), e ->
+				{
+					numberOfQuestionAnimated.setText(String.valueOf(getCurrentQuestionNumber()));
+					
+					scaleTransitionForNumberOfQuestionAnimated.setToX(6);
+					scaleTransitionForNumberOfQuestionAnimated.setToY(6);
+					
+					translateTransitionForNumberOfQuestionAnimated.setToX(0);
+					translateTransitionForNumberOfQuestionAnimated.setToY(0);
+					
+					parallelTransitionForNumberOfQuestionAnimated.playFromStart();
+				}), new KeyFrame(Duration.millis(350), e ->
+				{
+					scaleTransitionForNumberOfQuestionAnimated.setToX(1);
+					scaleTransitionForNumberOfQuestionAnimated.setToY(1);
+					
+					translateTransitionForNumberOfQuestionAnimated.setToX(textForQuestionNumber.getLayoutX() - numberOfQuestionAnimated.getLayoutX());
+					translateTransitionForNumberOfQuestionAnimated.setToY(textForQuestionNumber.getLayoutY() - numberOfQuestionAnimated.getLayoutY());
+					
+					parallelTransitionForNumberOfQuestionAnimated.playFromStart();
+				}),
+				new KeyFrame(Duration.millis(700), e -> updateQuestionNumberText()),
+				new KeyFrame(Duration.millis(750), e ->
+				{
+					parallelTransitionForNumberOfQuestionAnimated.stop();
+					numberOfQuestionAnimated.setScaleX(0);
+					numberOfQuestionAnimated.setScaleY(0);
+					numberOfQuestionAnimated.setTranslateX(0);
+					numberOfQuestionAnimated.setTranslateY(0);
+				}));
 			
 			timelineForLargeAnswerIcon = new Timeline(
-			new KeyFrame(Duration.millis(0), e ->
-			{
-				scaleTransitionForLargeAnswerIcon.setToX(10);
-				scaleTransitionForLargeAnswerIcon.setToY(10);
-				
-				translateTransitionForLargeAnswerIcon.setToX(0);
-				translateTransitionForLargeAnswerIcon.setToY(0);
-				
-				parallelTransitionForLargeAnswerIcon.playFromStart();
-			}),
-			new KeyFrame(Duration.millis(350), e ->
-			{
-				scaleTransitionForLargeAnswerIcon.setToX(1);
-				scaleTransitionForLargeAnswerIcon.setToY(1);
-				
-				double x = 0, y = 0;
-				if (gridPaneFor2TextAnswers.isVisible())
+				new KeyFrame(Duration.millis(0), e ->
 				{
-					int index;
-					if (imageViewForLargeAnswerIcon.getImage().equals(CORRECT_ICON_BIG)) index = questionMaker.getPositionOfCorrectAnswer();
-					else index = 1 - questionMaker.getPositionOfCorrectAnswer();
+					scaleTransitionForLargeAnswerIcon.setToX(10);
+					scaleTransitionForLargeAnswerIcon.setToY(10);
 					
-					x = answerIconsFor2TextAnswers[index].localToScene(answerIconsFor2TextAnswers[index].getBoundsInLocal()).getMinX() - imageViewForLargeAnswerIcon.getLayoutX();
-					y = answerIconsFor2TextAnswers[index].localToScene(answerIconsFor2TextAnswers[index].getBoundsInLocal()).getMinY() -
-					    answerIconsFor2TextAnswers[index].getFitWidth() / 2.0 - imageViewForLargeAnswerIcon.getLayoutY();
-				}
-				else if (gridPaneFor4TextAnswers.isVisible())
+					translateTransitionForLargeAnswerIcon.setToX(0);
+					translateTransitionForLargeAnswerIcon.setToY(0);
+					
+					parallelTransitionForLargeAnswerIcon.playFromStart();
+				}),
+				new KeyFrame(Duration.millis(350), e ->
 				{
-					int index;
-					if (imageViewForLargeAnswerIcon.getImage().equals(CORRECT_ICON_BIG)) index = questionMaker.getPositionOfCorrectAnswer();
-					else
+					scaleTransitionForLargeAnswerIcon.setToX(1);
+					scaleTransitionForLargeAnswerIcon.setToY(1);
+					
+					double x = 0, y = 0;
+					if (gridPaneFor2TextAnswers.isVisible())
 					{
-						if (radioButtonsFor4TextAnswers[0].isSelected()) index = 0;
-						else if (radioButtonsFor4TextAnswers[1].isSelected()) index = 1;
-						else if (radioButtonsFor4TextAnswers[2].isSelected()) index = 2;
-						else index = 3;
+						int index;
+						if (imageViewForLargeAnswerIcon.getImage().equals(CORRECT_ICON_BIG)) index = questionMaker.getPositionOfCorrectAnswer();
+						else index = 1 - questionMaker.getPositionOfCorrectAnswer();
+						
+						x = answerIconsFor2TextAnswers[index].localToScene(answerIconsFor2TextAnswers[index].getBoundsInLocal()).getMinX() - imageViewForLargeAnswerIcon.getLayoutX();
+						y = answerIconsFor2TextAnswers[index].localToScene(answerIconsFor2TextAnswers[index].getBoundsInLocal()).getMinY() -
+							answerIconsFor2TextAnswers[index].getFitWidth() / 2.0 - imageViewForLargeAnswerIcon.getLayoutY();
+					}
+					else if (gridPaneFor4TextAnswers.isVisible())
+					{
+						int index;
+						if (imageViewForLargeAnswerIcon.getImage().equals(CORRECT_ICON_BIG)) index = questionMaker.getPositionOfCorrectAnswer();
+						else
+						{
+							if (radioButtonsFor4TextAnswers[0].isSelected()) index = 0;
+							else if (radioButtonsFor4TextAnswers[1].isSelected()) index = 1;
+							else if (radioButtonsFor4TextAnswers[2].isSelected()) index = 2;
+							else index = 3;
+						}
+						
+						x = answerIconsFor4TextAnswers[index].localToScene(answerIconsFor4TextAnswers[index].getBoundsInLocal()).getMinX() - imageViewForLargeAnswerIcon.getLayoutX();
+						y = answerIconsFor4TextAnswers[index].localToScene(answerIconsFor4TextAnswers[index].getBoundsInLocal()).getMinY() -
+							answerIconsFor4TextAnswers[index].getFitWidth() / 2.0 - imageViewForLargeAnswerIcon.getLayoutY();
 					}
 					
-					x = answerIconsFor4TextAnswers[index].localToScene(answerIconsFor4TextAnswers[index].getBoundsInLocal()).getMinX() - imageViewForLargeAnswerIcon.getLayoutX();
-					y = answerIconsFor4TextAnswers[index].localToScene(answerIconsFor4TextAnswers[index].getBoundsInLocal()).getMinY() -
-					    answerIconsFor4TextAnswers[index].getFitWidth() / 2.0 - imageViewForLargeAnswerIcon.getLayoutY();
-				}
-				
-				translateTransitionForLargeAnswerIcon.setToX(x);
-				translateTransitionForLargeAnswerIcon.setToY(y);
-				
-				parallelTransitionForLargeAnswerIcon.playFromStart();
-			}),
-			new KeyFrame(Duration.millis(750), e -> {}));
+					translateTransitionForLargeAnswerIcon.setToX(x);
+					translateTransitionForLargeAnswerIcon.setToY(y);
+					
+					parallelTransitionForLargeAnswerIcon.playFromStart();
+				}),
+				new KeyFrame(Duration.millis(750), e -> {}));
 			
 			timelineForComboAnimated = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
@@ -1743,10 +1640,10 @@ public class GameScreen extends CoreScreen
 			}),
 			new KeyFrame(Duration.millis(900), e ->
 			{
-				removeBlurEffect();
-				
 				if(animationsUsed != ANIMATIONS.NO)
 				{
+					removeBlurEffect();
+					
 					scaleTransitionForImageViewForLargeHeart.setToX(1);
 					scaleTransitionForImageViewForLargeHeart.setToY(1);
 					
@@ -1773,7 +1670,14 @@ public class GameScreen extends CoreScreen
 					imageViewForLargeHeart.setTranslateX(0);
 					imageViewForLargeHeart.setTranslateY(0);
 				}
-				else imageViewForLargeHeart.setVisible(false);
+				else
+				{
+					removeBlurEffect();
+					
+					imageViewForLargeHeart.setVisible(false);
+				}
+				
+				if(openPauseMenu) showPauseMenu();
 			}));
 		
 		if(timelineFor2_5SecondsWaitForNextQuestion == null)
@@ -2020,7 +1924,7 @@ public class GameScreen extends CoreScreen
 					{
 						if(animationsUsed != ANIMATIONS.NO)
 						{
-							scaleTransitionForTextForCombo.setDuration(Duration.millis(300));
+							scaleTransitionForTextForCombo.setDuration(Duration.millis(200));
 							scaleTransitionForTextForCombo.setCycleCount(1);
 							scaleTransitionForTextForCombo.setAutoReverse(false);
 							scaleTransitionForTextForCombo.setFromX(textForCombo.getScaleX());
@@ -2054,31 +1958,31 @@ public class GameScreen extends CoreScreen
 		scaleTransitionForTextForCombo = new ScaleTransition();
 		scaleTransitionForTextForCombo.setNode(textForCombo);
 		
-		scaleTransitionForScoreAnimated = new ScaleTransition(Duration.millis(300), scoreAnimated);
-		translateTransitionForScoreAnimated = new TranslateTransition(Duration.millis(300), scoreAnimated);
+		scaleTransitionForScoreAnimated = new ScaleTransition(Duration.millis(200), scoreAnimated);
+		translateTransitionForScoreAnimated = new TranslateTransition(Duration.millis(200), scoreAnimated);
 		parallelTransitionForScoreAnimated = new ParallelTransition(scaleTransitionForScoreAnimated, translateTransitionForScoreAnimated);
 		
-		scaleTransitionForComboAnimated = new ScaleTransition(Duration.millis(300), comboAnimated);
-		translateTransitionForComboAnimated = new TranslateTransition(Duration.millis(300), comboAnimated);
+		scaleTransitionForComboAnimated = new ScaleTransition(Duration.millis(200), comboAnimated);
+		translateTransitionForComboAnimated = new TranslateTransition(Duration.millis(200), comboAnimated);
 		parallelTransitionForComboAnimated = new ParallelTransition(scaleTransitionForComboAnimated, translateTransitionForComboAnimated);
 		
-		scaleTransitionForLargeAnswerIcon = new ScaleTransition(Duration.millis(300), imageViewForLargeAnswerIcon);
-		translateTransitionForLargeAnswerIcon = new TranslateTransition(Duration.millis(300), imageViewForLargeAnswerIcon);
+		scaleTransitionForLargeAnswerIcon = new ScaleTransition(Duration.millis(200), imageViewForLargeAnswerIcon);
+		translateTransitionForLargeAnswerIcon = new TranslateTransition(Duration.millis(200), imageViewForLargeAnswerIcon);
 		parallelTransitionForLargeAnswerIcon = new ParallelTransition(scaleTransitionForLargeAnswerIcon, translateTransitionForLargeAnswerIcon);
 		
-		scaleTransitionForImageViewForLargeHeart = new ScaleTransition(Duration.millis(300), imageViewForLargeHeart);
-		translateTransitionForImageViewForLargeHeart = new TranslateTransition(Duration.millis(300), imageViewForLargeHeart);
+		scaleTransitionForImageViewForLargeHeart = new ScaleTransition(Duration.millis(200), imageViewForLargeHeart);
+		translateTransitionForImageViewForLargeHeart = new TranslateTransition(Duration.millis(200), imageViewForLargeHeart);
 		parallelTransitionForLifeLostAnimation = new ParallelTransition(scaleTransitionForImageViewForLargeHeart, translateTransitionForImageViewForLargeHeart);
 		
-		scaleTransitionForNumberOfQuestionAnimated = new ScaleTransition(Duration.millis(300), numberOfQuestionAnimated);
-		translateTransitionForNumberOfQuestionAnimated = new TranslateTransition(Duration.millis(300), numberOfQuestionAnimated);
+		scaleTransitionForNumberOfQuestionAnimated = new ScaleTransition(Duration.millis(200), numberOfQuestionAnimated);
+		translateTransitionForNumberOfQuestionAnimated = new TranslateTransition(Duration.millis(200), numberOfQuestionAnimated);
 		parallelTransitionForNumberOfQuestionAnimated = new ParallelTransition(scaleTransitionForNumberOfQuestionAnimated, translateTransitionForNumberOfQuestionAnimated);
 		
-		fadeTransitionForWorldMapImage = new FadeTransition(Duration.millis(400), worldMapBackground);
+		fadeTransitionForWorldMapImage = new FadeTransition(Duration.millis(300), worldMapBackground);
 		fadeTransitionForWorldMapImage.setToValue(0);
 		fadeTransitionForWorldMapImage.setOnFinished(ev -> welcomeScreen.showScreen(false));
 	
-		ScaleTransition scaleTransitionFor2TextAnswers_1_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor2TextAnswers[0]);
+		ScaleTransition scaleTransitionFor2TextAnswers_1_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor2TextAnswers[0]);
 		scaleTransitionFor2TextAnswers_1_1.setFromX(0);
 		scaleTransitionFor2TextAnswers_1_1.setFromY(0);
 		scaleTransitionFor2TextAnswers_1_1.setToX(1.2);
@@ -2090,7 +1994,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor2TextAnswers_1_2.setToX(1);
 		scaleTransitionFor2TextAnswers_1_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor2TextAnswers_2_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor2TextAnswers[1]);
+		ScaleTransition scaleTransitionFor2TextAnswers_2_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor2TextAnswers[1]);
 		scaleTransitionFor2TextAnswers_2_1.setFromX(0);
 		scaleTransitionFor2TextAnswers_2_1.setFromY(0);
 		scaleTransitionFor2TextAnswers_2_1.setToX(1.2);
@@ -2106,7 +2010,7 @@ public class GameScreen extends CoreScreen
 		sequentialTransitionsFor2TextAnswers[0] = new SequentialTransition(scaleTransitionFor2TextAnswers_1_1, scaleTransitionFor2TextAnswers_1_2);
 		sequentialTransitionsFor2TextAnswers[1] = new SequentialTransition(scaleTransitionFor2TextAnswers_2_1, scaleTransitionFor2TextAnswers_2_2);
 		
-		ScaleTransition scaleTransitionFor4TextAnswers_1_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[0]);
+		ScaleTransition scaleTransitionFor4TextAnswers_1_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor4TextAnswers[0]);
 		scaleTransitionFor4TextAnswers_1_1.setFromX(0);
 		scaleTransitionFor4TextAnswers_1_1.setFromY(0);
 		scaleTransitionFor4TextAnswers_1_1.setToX(1.2);
@@ -2118,7 +2022,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4TextAnswers_1_2.setToX(1);
 		scaleTransitionFor4TextAnswers_1_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4TextAnswers_2_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[1]);
+		ScaleTransition scaleTransitionFor4TextAnswers_2_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor4TextAnswers[1]);
 		scaleTransitionFor4TextAnswers_2_1.setFromX(0);
 		scaleTransitionFor4TextAnswers_2_1.setFromY(0);
 		scaleTransitionFor4TextAnswers_2_1.setToX(1.2);
@@ -2130,7 +2034,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4TextAnswers_2_2.setToX(1);
 		scaleTransitionFor4TextAnswers_2_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4TextAnswers_3_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[2]);
+		ScaleTransition scaleTransitionFor4TextAnswers_3_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor4TextAnswers[2]);
 		scaleTransitionFor4TextAnswers_3_1.setFromX(0);
 		scaleTransitionFor4TextAnswers_3_1.setFromY(0);
 		scaleTransitionFor4TextAnswers_3_1.setToX(1.2);
@@ -2142,7 +2046,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4TextAnswers_3_2.setToX(1);
 		scaleTransitionFor4TextAnswers_3_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4TextAnswers_4_1 = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[3]);
+		ScaleTransition scaleTransitionFor4TextAnswers_4_1 = new ScaleTransition(Duration.millis(150), radioButtonsFor4TextAnswers[3]);
 		scaleTransitionFor4TextAnswers_4_1.setFromX(0);
 		scaleTransitionFor4TextAnswers_4_1.setFromY(0);
 		scaleTransitionFor4TextAnswers_4_1.setToX(1.2);
@@ -2160,7 +2064,7 @@ public class GameScreen extends CoreScreen
 		sequentialTransitionsFor4TextAnswers[2] = new SequentialTransition(scaleTransitionFor4TextAnswers_3_1, scaleTransitionFor4TextAnswers_3_2);
 		sequentialTransitionsFor4TextAnswers[3] = new SequentialTransition(scaleTransitionFor4TextAnswers_4_1, scaleTransitionFor4TextAnswers_4_2);
 		
-		ScaleTransition scaleTransitionFor4ImageAnswers_1_1 = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[0]);
+		ScaleTransition scaleTransitionFor4ImageAnswers_1_1 = new ScaleTransition(Duration.millis(150), imageViewFor4ImageAnswers[0]);
 		scaleTransitionFor4ImageAnswers_1_1.setFromX(0);
 		scaleTransitionFor4ImageAnswers_1_1.setFromY(0);
 		scaleTransitionFor4ImageAnswers_1_1.setToX(1.2);
@@ -2172,7 +2076,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4ImageAnswers_1_2.setToX(1);
 		scaleTransitionFor4ImageAnswers_1_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4ImageAnswers_2_1 = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[1]);
+		ScaleTransition scaleTransitionFor4ImageAnswers_2_1 = new ScaleTransition(Duration.millis(150), imageViewFor4ImageAnswers[1]);
 		scaleTransitionFor4ImageAnswers_2_1.setFromX(0);
 		scaleTransitionFor4ImageAnswers_2_1.setFromY(0);
 		scaleTransitionFor4ImageAnswers_2_1.setToX(1.2);
@@ -2184,7 +2088,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4ImageAnswers_2_2.setToX(1);
 		scaleTransitionFor4ImageAnswers_2_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4ImageAnswers_3_1 = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[2]);
+		ScaleTransition scaleTransitionFor4ImageAnswers_3_1 = new ScaleTransition(Duration.millis(150), imageViewFor4ImageAnswers[2]);
 		scaleTransitionFor4ImageAnswers_3_1.setFromX(0);
 		scaleTransitionFor4ImageAnswers_3_1.setFromY(0);
 		scaleTransitionFor4ImageAnswers_3_1.setToX(1.2);
@@ -2196,7 +2100,7 @@ public class GameScreen extends CoreScreen
 		scaleTransitionFor4ImageAnswers_3_2.setToX(1);
 		scaleTransitionFor4ImageAnswers_3_2.setToY(1);
 		
-		ScaleTransition scaleTransitionFor4ImageAnswers_4_1 = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[3]);
+		ScaleTransition scaleTransitionFor4ImageAnswers_4_1 = new ScaleTransition(Duration.millis(150), imageViewFor4ImageAnswers[3]);
 		scaleTransitionFor4ImageAnswers_4_1.setFromX(0);
 		scaleTransitionFor4ImageAnswers_4_1.setFromY(0);
 		scaleTransitionFor4ImageAnswers_4_1.setToX(1.2);
@@ -2215,20 +2119,20 @@ public class GameScreen extends CoreScreen
 		sequentialTransitionsFor4ImageAnswers[3] = new SequentialTransition(scaleTransitionFor4ImageAnswers_4_1, scaleTransitionFor4ImageAnswers_4_2);
 		
 		scaleTransitionFor2TextAnswers = new ScaleTransition[2];
-		scaleTransitionFor2TextAnswers[0] = new ScaleTransition(Duration.millis(300), radioButtonsFor2TextAnswers[0]);
-		scaleTransitionFor2TextAnswers[1] = new ScaleTransition(Duration.millis(300), radioButtonsFor2TextAnswers[1]);
+		scaleTransitionFor2TextAnswers[0] = new ScaleTransition(Duration.millis(200), radioButtonsFor2TextAnswers[0]);
+		scaleTransitionFor2TextAnswers[1] = new ScaleTransition(Duration.millis(200), radioButtonsFor2TextAnswers[1]);
 		
 		scaleTransitionFor4TextAnswers = new ScaleTransition[4];
-		scaleTransitionFor4TextAnswers[0] = new ScaleTransition(Duration.millis(300), radioButtonsFor4TextAnswers[0]);
-		scaleTransitionFor4TextAnswers[1] = new ScaleTransition(Duration.millis(300), radioButtonsFor4TextAnswers[1]);
-		scaleTransitionFor4TextAnswers[2] = new ScaleTransition(Duration.millis(300), radioButtonsFor4TextAnswers[2]);
-		scaleTransitionFor4TextAnswers[3] = new ScaleTransition(Duration.millis(300), radioButtonsFor4TextAnswers[3]);
+		scaleTransitionFor4TextAnswers[0] = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[0]);
+		scaleTransitionFor4TextAnswers[1] = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[1]);
+		scaleTransitionFor4TextAnswers[2] = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[2]);
+		scaleTransitionFor4TextAnswers[3] = new ScaleTransition(Duration.millis(200), radioButtonsFor4TextAnswers[3]);
 		
 		scaleTransitionFor4ImageAnswers = new ScaleTransition[4];
-		scaleTransitionFor4ImageAnswers[0] = new ScaleTransition(Duration.millis(300), imageViewFor4ImageAnswers[0]);
-		scaleTransitionFor4ImageAnswers[1] = new ScaleTransition(Duration.millis(300), imageViewFor4ImageAnswers[1]);
-		scaleTransitionFor4ImageAnswers[2] = new ScaleTransition(Duration.millis(300), imageViewFor4ImageAnswers[2]);
-		scaleTransitionFor4ImageAnswers[3] = new ScaleTransition(Duration.millis(300), imageViewFor4ImageAnswers[3]);
+		scaleTransitionFor4ImageAnswers[0] = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[0]);
+		scaleTransitionFor4ImageAnswers[1] = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[1]);
+		scaleTransitionFor4ImageAnswers[2] = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[2]);
+		scaleTransitionFor4ImageAnswers[3] = new ScaleTransition(Duration.millis(200), imageViewFor4ImageAnswers[3]);
 		
 		scaleTransitionForAnswerIconsFor2TextAnswers = new ScaleTransition[2];
 		scaleTransitionForAnswerIconsFor2TextAnswers[0] = new ScaleTransition(Duration.millis(100), answerIconsFor2TextAnswers[0]);
@@ -2246,58 +2150,58 @@ public class GameScreen extends CoreScreen
 		scaleTransitionForAnswerIconsFor4ImageAnswers[2] = new ScaleTransition(Duration.millis(150), answerIconsFor4ImageAnswers[2]);
 		scaleTransitionForAnswerIconsFor4ImageAnswers[3] = new ScaleTransition(Duration.millis(150), answerIconsFor4ImageAnswers[3]);
 		
-		translateTransitionForTitleImageForFinishedGame = new TranslateTransition(Duration.millis(300), titleImageForFinishedGame);
+		translateTransitionForTitleImageForFinishedGame = new TranslateTransition(Duration.millis(200), titleImageForFinishedGame);
 		
-		translateTransitionForTextForCombo = new TranslateTransition(Duration.millis(300), textForCombo);
+		translateTransitionForTextForCombo = new TranslateTransition(Duration.millis(200), textForCombo);
 		
-		scaleTransitionForHBoxForLives = new ScaleTransition(Duration.millis(300), hBoxForLives);
+		scaleTransitionForHBoxForLives = new ScaleTransition(Duration.millis(200), hBoxForLives);
 		
-		scaleTransitionForTitleLabelForFinishedGame = new ScaleTransition(Duration.millis(300), titleLabelForFinishedGame);
+		scaleTransitionForTitleLabelForFinishedGame = new ScaleTransition(Duration.millis(200), titleLabelForFinishedGame);
 		
-		translateTransitionFoVBoxForPausedGame = new TranslateTransition(Duration.millis(300), vBoxForPausedGame);
+		translateTransitionFoVBoxForPausedGame = new TranslateTransition(Duration.millis(200), vBoxForPausedGame);
 		
-		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(300), vBoxForSound);
+		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(200), vBoxForSound);
 		
-		translateTransitionForWoodPanelFor5IconsImage = new TranslateTransition(Duration.millis(300), woodPanelFor5IconsImage);
+		scaleTransitionForPauseGameIcon = new ScaleTransition(Duration.millis(200), pauseGameIcon);
 		
-		scaleTransitionForHBoxFor5Icons = new ScaleTransition(Duration.millis(300), hBoxFor5Icons);
+		scaleTransitionForProgressBarForCountdown = new ScaleTransition(Duration.millis(200), progressBarForCountdown);
 		
-		scaleTransitionForPauseGameIcon = new ScaleTransition(Duration.millis(300), pauseGameIcon);
+		scaleTransitionForVBoxForNextQuestion = new ScaleTransition(Duration.millis(200), vBoxForNextQuestionButtonAndProgressBar);
 		
-		scaleTransitionForProgressBarForCountdown = new ScaleTransition(Duration.millis(300), progressBarForCountdown);
+		scaleTransitionForTextForQuestionNumber = new ScaleTransition(Duration.millis(200), textForQuestionNumber);
 		
-		scaleTransitionForVBoxForNextQuestion = new ScaleTransition(Duration.millis(300), vBoxForNextQuestionButtonAndProgressBar);
+		scaleTransitionForPopUpMessage = new ScaleTransition(Duration.millis(100), popUpMessage);
 		
-		scaleTransitionForTextForQuestionNumber = new ScaleTransition(Duration.millis(300), textForQuestionNumber);
+		scaleTransitionForTextForTimePassed = new ScaleTransition(Duration.millis(200), textForTimePassed);
 		
-		scaleTransitionForPopUpMessage = new ScaleTransition(Duration.millis(200), popUpMessage);
+		scaleTransitionForTextForScore = new ScaleTransition(Duration.millis(200), textForScore);
 		
-		scaleTransitionForTextForTimePassed = new ScaleTransition(Duration.millis(300), textForTimePassed);
+		translateTransitionForScoreText = new TranslateTransition(Duration.millis(200), textForScore);
 		
-		scaleTransitionForTextForScore = new ScaleTransition(Duration.millis(300), textForScore);
+		scaleTransitionForTextForCountdown = new ScaleTransition(Duration.millis(150), textForCountdown);
 		
-		translateTransitionForScoreText = new TranslateTransition(Duration.millis(300), textForScore);
+		scaleTransitionForTextForQuestion = new ScaleTransition(Duration.millis(200), textForQuestion);
 		
-		scaleTransitionForTextForCountdown = new ScaleTransition(Duration.millis(250), textForCountdown);
+		scaleTransitionForGridPaneFor4TextAnswers = new ScaleTransition(Duration.millis(200), gridPaneFor4TextAnswers);
 		
-		scaleTransitionForTextForQuestion = new ScaleTransition(Duration.millis(300), textForQuestion);
+		scaleTransitionForGridPaneFor2TextAnswers = new ScaleTransition(Duration.millis(200), gridPaneFor2TextAnswers);
 		
-		scaleTransitionForGridPaneFor4TextAnswers = new ScaleTransition(Duration.millis(300), gridPaneFor4TextAnswers);
+		scaleTransitionForStackPaneFor4ImageAnswers = new ScaleTransition(Duration.millis(200), stackPaneFor4ImageAnswers);
 		
-		scaleTransitionForGridPaneFor2TextAnswers = new ScaleTransition(Duration.millis(300), gridPaneFor2TextAnswers);
+		scaleTransitionForQuestionImage = new ScaleTransition(Duration.millis(200), imageViewForQuestionImage);
 		
-		scaleTransitionForStackPaneFor4ImageAnswers = new ScaleTransition(Duration.millis(300), stackPaneFor4ImageAnswers);
+		scaleTransitionForTextForResultsDuration = new ScaleTransition(Duration.millis(200), textForResultsDuration);
 		
-		scaleTransitionForQuestionImage = new ScaleTransition(Duration.millis(300), imageViewForQuestionImage);
+		scaleTransitionForTextForResults = new ScaleTransition(Duration.millis(200), textForResults);
+		scaleTransitionForTextForResults2 = new ScaleTransition(Duration.millis(200), textForResults2);
 		
-		scaleTransitionForTextForResultsDuration = new ScaleTransition(Duration.millis(300), textForResultsDuration);
+		scaleTransitionForRestartGameButton = new ScaleTransition(Duration.millis(200), restartGameFromFinishedScreenButton);
 		
-		scaleTransitionForTextForResults = new ScaleTransition(Duration.millis(300), textForResults);
-		scaleTransitionForTextForResults2 = new ScaleTransition(Duration.millis(300), textForResults2);
+		scaleTransitionForReturnToWelcomeScreenButton = new ScaleTransition(Duration.millis(200), returnToWelcomeScreenFromFinishedGameScreenButton);
 		
-		scaleTransitionForRestartGameButton = new ScaleTransition(Duration.millis(300), restartGameFromFinishedScreenButton);
+		translateTransitionForWoodPanelFor1IconImage = new TranslateTransition(Duration.millis(200), woodPanelFor1IconImage);
 		
-		scaleTransitionForReturnToWelcomeScreenButton = new ScaleTransition(Duration.millis(300), returnToWelcomeScreenFromFinishedGameScreenButton);
+		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(200), soundIcon);
 		
 		timelineToShow2TextAnswers = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
@@ -2310,78 +2214,79 @@ public class GameScreen extends CoreScreen
 				playPopUpSound();
 				sequentialTransitionsFor2TextAnswers[1].playFromStart();
 			}),
-			new KeyFrame(Duration.millis(400), e ->
+			new KeyFrame(Duration.millis(350), e ->
 			{
 				startTimers();
 				pauseGameIcon.setDisable(false);
 			}));
 		
 		timelineToShow4TextAnswers = new Timeline(
-				new KeyFrame(Duration.millis(0), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4TextAnswers[0].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(200), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4TextAnswers[1].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(400), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4TextAnswers[2].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(600), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4TextAnswers[3].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(850), e ->
-				{
-					startTimers();
-					pauseGameIcon.setDisable(false);
-				}));
+			new KeyFrame(Duration.millis(0), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4TextAnswers[0].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(150), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4TextAnswers[1].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(300), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4TextAnswers[2].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(450), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4TextAnswers[3].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(650), e ->
+			{
+				startTimers();
+				pauseGameIcon.setDisable(false);
+			}));
 		
 		timelineToShow4ImageAnswers = new Timeline(
-				new KeyFrame(Duration.millis(0), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4ImageAnswers[0].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(200), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4ImageAnswers[1].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(400), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4ImageAnswers[2].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(600), e ->
-				{
-					playPopUpSound();
-					sequentialTransitionsFor4ImageAnswers[3].playFromStart();
-				}),
-				new KeyFrame(Duration.millis(850), e ->
-				{
-					startTimers();
-					pauseGameIcon.setDisable(false);
-				}));
+			new KeyFrame(Duration.millis(0), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4ImageAnswers[0].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(150), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4ImageAnswers[1].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(300), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4ImageAnswers[2].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(450), e ->
+			{
+				playPopUpSound();
+				sequentialTransitionsFor4ImageAnswers[3].playFromStart();
+			}),
+			new KeyFrame(Duration.millis(650), e ->
+			{
+				startTimers();
+				pauseGameIcon.setDisable(false);
+			}));
 		
 		timelineToShowAllStuff = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
-				translateTransitionForWoodPanelFor5IconsImage.setToY(0);
-				
 				playSlideSound();
-				translateTransitionForWoodPanelFor5IconsImage.playFromStart();
+				
+				translateTransitionForWoodPanelFor1IconImage.setToY(0);
+				translateTransitionForWoodPanelFor1IconImage.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(300), e ->
+			new KeyFrame(Duration.millis(200), e ->
 			{
-				scaleTransitionForHBoxFor5Icons.setToX(1);
-				scaleTransitionForHBoxFor5Icons.setToY(1);
+				scaleTransitionForSoundIcon.setToX(1);
+				scaleTransitionForSoundIcon.setToY(1);
+				
 				scaleTransitionForPauseGameIcon.setToX(1);
 				scaleTransitionForPauseGameIcon.setToY(1);
 				scaleTransitionForVBoxForNextQuestion.setToX(1);
@@ -2392,11 +2297,11 @@ public class GameScreen extends CoreScreen
 				scaleTransitionForTextForScore.setToY(1);
 				
 				playPopUpSound();
-				scaleTransitionForHBoxFor5Icons.playFromStart();
 				scaleTransitionForPauseGameIcon.playFromStart();
 				scaleTransitionForTextForQuestionNumber.playFromStart();
 				scaleTransitionForTextForScore.playFromStart();
 				scaleTransitionForVBoxForNextQuestion.playFromStart();
+				scaleTransitionForSoundIcon.playFromStart();
 				
 				if(hBoxForLives.isVisible())
 				{
@@ -2441,7 +2346,7 @@ public class GameScreen extends CoreScreen
 				playSlideSound();
 				translateTransitionFoVBoxForPausedGame.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(300), e ->
+			new KeyFrame(Duration.millis(200), e ->
 			{
 				scaleTransitionForTextForQuestion.setToX(0);
 				scaleTransitionForTextForQuestion.setToY(0);
@@ -2477,10 +2382,11 @@ public class GameScreen extends CoreScreen
 					scaleTransitionForStackPaneFor4ImageAnswers.playFromStart();
 				}
 			}),
-			new KeyFrame(Duration.millis(600), e ->
+			new KeyFrame(Duration.millis(400), e ->
 			{
-				scaleTransitionForHBoxFor5Icons.setToX(0);
-				scaleTransitionForHBoxFor5Icons.setToY(0);
+				scaleTransitionForSoundIcon.setToX(0);
+				scaleTransitionForSoundIcon.setToY(0);
+				
 				scaleTransitionForPauseGameIcon.setToX(0);
 				scaleTransitionForPauseGameIcon.setToY(0);
 				scaleTransitionForVBoxForNextQuestion.setToX(0);
@@ -2491,7 +2397,136 @@ public class GameScreen extends CoreScreen
 				scaleTransitionForTextForScore.setToY(0);
 				
 				playMinimizeSound();
-				scaleTransitionForHBoxFor5Icons.playFromStart();
+				scaleTransitionForPauseGameIcon.playFromStart();
+				scaleTransitionForVBoxForNextQuestion.playFromStart();
+				scaleTransitionForTextForQuestionNumber.playFromStart();
+				scaleTransitionForTextForScore.playFromStart();
+				scaleTransitionForSoundIcon.playFromStart();
+				
+				if(hBoxForLives.isVisible())
+				{
+					scaleTransitionForHBoxForLives.setToX(0);
+					scaleTransitionForHBoxForLives.setToY(0);
+					scaleTransitionForHBoxForLives.playFromStart();
+				}
+				if(progressBarForCountdown.isVisible())
+				{
+					scaleTransitionForProgressBarForCountdown.setToX(0);
+					scaleTransitionForProgressBarForCountdown.setToY(0);
+					scaleTransitionForProgressBarForCountdown.playFromStart();
+				}
+				if(textForTimePassed.isVisible())
+				{
+					scaleTransitionForTextForTimePassed.setToX(0);
+					scaleTransitionForTextForTimePassed.setToY(0);
+					scaleTransitionForTextForTimePassed.playFromStart();
+				}
+				if(textForCombo.isVisible())
+				{
+					scaleTransitionForTextForCombo.setDuration(Duration.millis(200));
+					scaleTransitionForTextForCombo.setCycleCount(1);
+					scaleTransitionForTextForCombo.setAutoReverse(false);
+					scaleTransitionForTextForCombo.setFromX(textForCombo.getScaleX());
+					scaleTransitionForTextForCombo.setFromY(textForCombo.getScaleY());
+					scaleTransitionForTextForCombo.setToX(0);
+					scaleTransitionForTextForCombo.setToY(0);
+					scaleTransitionForTextForCombo.playFromStart();
+				}
+			}),
+			new KeyFrame(Duration.millis(800), e ->
+			{
+				playSlideSound();
+				
+				translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
+				translateTransitionForWoodPanelFor1IconImage.playFromStart();
+				
+				if(vBoxForSound.isVisible())
+				{
+					setSoundIcon(soundIcon, false);
+					
+					translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
+					translateTransitionForVBoxForSound.playFromStart();
+				}
+			}),
+			new KeyFrame(Duration.millis(1000), e ->
+			{
+				vBoxForSound.setVisible(false);
+				
+				if(returningToWelcomeScreen)
+				{
+					welcomeScreenImage.setVisible(true);
+					fadeTransitionForWorldMapImage.playFromStart();
+				}
+			}));
+		
+		timelineToFinishGame = new Timeline(
+			new KeyFrame(Duration.millis(0), e ->
+			{
+				scaleTransitionForTextForQuestion.setToX(0);
+				scaleTransitionForTextForQuestion.setToY(0);
+				scaleTransitionForTextForQuestion.playFromStart();
+				
+				playMinimizeSound();
+				
+				if(imageViewForQuestionImage.isVisible())
+				{
+					scaleTransitionForQuestionImage.setToX(0);
+					scaleTransitionForQuestionImage.setToY(0);
+					scaleTransitionForQuestionImage.playFromStart();
+				}
+				
+				if(gridPaneFor2TextAnswers.isVisible())
+				{
+					scaleTransitionForGridPaneFor2TextAnswers.setToX(0);
+					scaleTransitionForGridPaneFor2TextAnswers.setToY(0);
+					scaleTransitionForGridPaneFor2TextAnswers.playFromStart();
+				}
+				else if(gridPaneFor4TextAnswers.isVisible())
+				{
+					scaleTransitionForGridPaneFor4TextAnswers.setToX(0);
+					scaleTransitionForGridPaneFor4TextAnswers.setToY(0);
+					scaleTransitionForGridPaneFor4TextAnswers.playFromStart();
+				}
+				else if(stackPaneFor4ImageAnswers.isVisible())
+				{
+					scaleTransitionForStackPaneFor4ImageAnswers.setToX(0);
+					scaleTransitionForStackPaneFor4ImageAnswers.setToY(0);
+					scaleTransitionForStackPaneFor4ImageAnswers.playFromStart();
+				}
+				
+				if(scoreAnimated.getScaleX() != 0)
+				{
+					timelineForScoreAnimated.stop();
+					parallelTransitionForScoreAnimated.stop();
+					scaleTransitionForScoreAnimated.setToX(0);
+					scaleTransitionForScoreAnimated.setToY(0);
+					translateTransitionForScoreAnimated.setToX(scoreAnimated.getTranslateX());
+					translateTransitionForScoreAnimated.setToY(scoreAnimated.getTranslateY());
+					parallelTransitionForScoreAnimated.playFromStart();
+				}
+				if(comboAnimated.getScaleX() != 0)
+				{
+					timelineForComboAnimated.stop();
+					parallelTransitionForComboAnimated.stop();
+					scaleTransitionForComboAnimated.setToX(0);
+					scaleTransitionForComboAnimated.setToY(0);
+					translateTransitionForComboAnimated.setToX(comboAnimated.getTranslateX());
+					translateTransitionForComboAnimated.setToY(comboAnimated.getTranslateY());
+					parallelTransitionForComboAnimated.playFromStart();
+				}
+			}),
+			new KeyFrame(Duration.millis(200), e ->
+			{
+				scaleTransitionForPauseGameIcon.setToX(0);
+				scaleTransitionForPauseGameIcon.setToY(0);
+				scaleTransitionForVBoxForNextQuestion.setToX(0);
+				scaleTransitionForVBoxForNextQuestion.setToY(0);
+				scaleTransitionForTextForQuestionNumber.setToX(0);
+				scaleTransitionForTextForQuestionNumber.setToY(0);
+				scaleTransitionForTextForScore.setToX(0);
+				scaleTransitionForTextForScore.setToY(0);
+				
+				playMinimizeSound();
 				scaleTransitionForPauseGameIcon.playFromStart();
 				scaleTransitionForVBoxForNextQuestion.playFromStart();
 				scaleTransitionForTextForQuestionNumber.playFromStart();
@@ -2515,328 +2550,178 @@ public class GameScreen extends CoreScreen
 					scaleTransitionForTextForTimePassed.setToY(0);
 					scaleTransitionForTextForTimePassed.playFromStart();
 				}
-				if(textForCombo.isVisible())
-				{
-					scaleTransitionForTextForCombo.setDuration(Duration.millis(300));
-					scaleTransitionForTextForCombo.setCycleCount(1);
-					scaleTransitionForTextForCombo.setAutoReverse(false);
-					scaleTransitionForTextForCombo.setFromX(textForCombo.getScaleX());
-					scaleTransitionForTextForCombo.setFromY(textForCombo.getScaleY());
-					scaleTransitionForTextForCombo.setToX(0);
-					scaleTransitionForTextForCombo.setToY(0);
-					scaleTransitionForTextForCombo.playFromStart();
-				}
+				textForCombo.setText("");
 			}),
-			new KeyFrame(Duration.millis(900), e ->
+			new KeyFrame(Duration.millis(400), e ->
 			{
-				translateTransitionForWoodPanelFor5IconsImage.setToY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
+				titleImageForFinishedGame.setVisible(true);
+				
+				translateTransitionForTitleImageForFinishedGame.setToY(0);
 				
 				playSlideSound();
-				translateTransitionForWoodPanelFor5IconsImage.playFromStart();
+				translateTransitionForTitleImageForFinishedGame.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(600), e ->
+			{
+				titleLabelForFinishedGame.setVisible(true);
+				
+				scaleTransitionForTitleLabelForFinishedGame.setCycleCount(1);
+				scaleTransitionForTitleLabelForFinishedGame.setAutoReverse(false);
+				scaleTransitionForTitleLabelForFinishedGame.setDuration(Duration.millis(200));
+				scaleTransitionForTitleLabelForFinishedGame.setFromX(0);
+				scaleTransitionForTitleLabelForFinishedGame.setFromY(0);
+				scaleTransitionForTitleLabelForFinishedGame.setToX(0.95);
+				scaleTransitionForTitleLabelForFinishedGame.setToY(0.95);
+				
+				if(animationsUsed == ANIMATIONS.ALL)
+				{
+					scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev ->
+					{
+						scaleTransitionForTitleLabelForFinishedGame.setOnFinished(eve -> {});
+						startTextAnimationForTitleLabelForFinishedGame();
+					});
+				}
+				else scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev -> {});
+				
+				playPopUpSound();
+				scaleTransitionForTitleLabelForFinishedGame.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(800), e ->
+			{
+				if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
+				{
+					textForResultsDuration.setVisible(true);
+					scaleTransitionForTextForResultsDuration.setToX(1);
+					
+					scaleTransitionForTextForResultsDuration.playFromStart();
+				}
+				
+				textForResults.setVisible(true);
+				scaleTransitionForTextForResults.setToX(1);
+				
+				textForResults2.setVisible(true);
+				scaleTransitionForTextForResults2.setToX(1);
+				
+				playPopUpSound();
+				scaleTransitionForTextForResults.playFromStart();
+				scaleTransitionForTextForResults2.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(1000), e ->
+			{
+				if(isGameWon()) playGameWonSound();
+				else playGameLostSound();
+				
+				restartGameFromFinishedScreenButton.setVisible(true);
+				returnToWelcomeScreenFromFinishedGameScreenButton.setVisible(true);
+				
+				scaleTransitionForRestartGameButton.setToX(1);
+				scaleTransitionForRestartGameButton.setToY(1);
+				
+				scaleTransitionForReturnToWelcomeScreenButton.setToX(1);
+				scaleTransitionForReturnToWelcomeScreenButton.setToY(1);
+				
+				playPopUpSound();
+				scaleTransitionForRestartGameButton.playFromStart();
+				scaleTransitionForReturnToWelcomeScreenButton.playFromStart();
+			}));
+		
+		timelineToHideAllStuffFromFinishedGameScreen = new Timeline(
+			new KeyFrame(Duration.millis(0), e ->
+			{
+				scaleTransitionForRestartGameButton.setToX(0);
+				scaleTransitionForRestartGameButton.setToY(0);
+				
+				scaleTransitionForReturnToWelcomeScreenButton.setToX(0);
+				scaleTransitionForReturnToWelcomeScreenButton.setToY(0);
+				
+				playMinimizeSound();
+				scaleTransitionForRestartGameButton.playFromStart();
+				scaleTransitionForReturnToWelcomeScreenButton.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(200), e ->
+			{
+				if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
+				{
+					scaleTransitionForTextForResultsDuration.setToX(0);
+					
+					scaleTransitionForTextForResultsDuration.playFromStart();
+				}
+				
+				scaleTransitionForTextForResults.setToX(0);
+				scaleTransitionForTextForResults2.setToX(0);
+				
+				playMinimizeSound();
+				scaleTransitionForTextForResults.playFromStart();
+				scaleTransitionForTextForResults2.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(400), e ->
+			{
+				scaleTransitionForSoundIcon.setToX(0);
+				scaleTransitionForSoundIcon.setToY(0);
+				
+				scaleTransitionForTitleLabelForFinishedGame.setCycleCount(1);
+				scaleTransitionForTitleLabelForFinishedGame.setAutoReverse(false);
+				scaleTransitionForTitleLabelForFinishedGame.setDuration(Duration.millis(200));
+				scaleTransitionForTitleLabelForFinishedGame.setFromX(titleLabelForFinishedGame.getScaleX());
+				scaleTransitionForTitleLabelForFinishedGame.setFromY(titleLabelForFinishedGame.getScaleY());
+				scaleTransitionForTitleLabelForFinishedGame.setToX(0);
+				scaleTransitionForTitleLabelForFinishedGame.setToY(0);
+				scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev -> {});
+				
+				playMinimizeSound();
+				scaleTransitionForTitleLabelForFinishedGame.playFromStart();
+				scaleTransitionForSoundIcon.playFromStart();
+			}),
+			new KeyFrame(Duration.millis(600), e ->
+			{
+				playSlideSound();
+				
+				translateTransitionForTitleImageForFinishedGame.setToY(-1.0 * (titleImageForFinishedGame.getLayoutY() + titleImageForFinishedGame.getBoundsInParent().getHeight() + 20));
+				translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
+				
+				translateTransitionForWoodPanelFor1IconImage.playFromStart();
+				translateTransitionForTitleImageForFinishedGame.playFromStart();
 				
 				if(vBoxForSound.isVisible())
 				{
-					if (OS == OsCheck.OSType.Windows) translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
-					else translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
+					setSoundIcon(soundIcon, false);
+					
+					translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 					translateTransitionForVBoxForSound.playFromStart();
 				}
 			}),
-			new KeyFrame(Duration.millis(1200), e ->
+			new KeyFrame(Duration.millis(800), e ->
 			{
 				vBoxForSound.setVisible(false);
 				
-				if(returningToWelcomeScreen)
-				{
-					welcomeScreenImage.setVisible(true);
-					fadeTransitionForWorldMapImage.playFromStart();
-				}
+				welcomeScreenImage.setVisible(true);
+				fadeTransitionForWorldMapImage.playFromStart();
 			}));
-		
-		timelineToFinishGame = new Timeline(
-				new KeyFrame(Duration.millis(0), e ->
-				{
-					scaleTransitionForTextForQuestion.setToX(0);
-					scaleTransitionForTextForQuestion.setToY(0);
-					scaleTransitionForTextForQuestion.playFromStart();
-					
-					playMinimizeSound();
-					
-					if(imageViewForQuestionImage.isVisible())
-					{
-						scaleTransitionForQuestionImage.setToX(0);
-						scaleTransitionForQuestionImage.setToY(0);
-						scaleTransitionForQuestionImage.playFromStart();
-					}
-					
-					if(gridPaneFor2TextAnswers.isVisible())
-					{
-						scaleTransitionForGridPaneFor2TextAnswers.setToX(0);
-						scaleTransitionForGridPaneFor2TextAnswers.setToY(0);
-						scaleTransitionForGridPaneFor2TextAnswers.playFromStart();
-					}
-					else if(gridPaneFor4TextAnswers.isVisible())
-					{
-						scaleTransitionForGridPaneFor4TextAnswers.setToX(0);
-						scaleTransitionForGridPaneFor4TextAnswers.setToY(0);
-						scaleTransitionForGridPaneFor4TextAnswers.playFromStart();
-					}
-					else if(stackPaneFor4ImageAnswers.isVisible())
-					{
-						scaleTransitionForStackPaneFor4ImageAnswers.setToX(0);
-						scaleTransitionForStackPaneFor4ImageAnswers.setToY(0);
-						scaleTransitionForStackPaneFor4ImageAnswers.playFromStart();
-					}
-					
-					if(scoreAnimated.getScaleX() != 0)
-					{
-						timelineForScoreAnimated.stop();
-						parallelTransitionForScoreAnimated.stop();
-						scaleTransitionForScoreAnimated.setToX(0);
-						scaleTransitionForScoreAnimated.setToY(0);
-						translateTransitionForScoreAnimated.setToX(scoreAnimated.getTranslateX());
-						translateTransitionForScoreAnimated.setToY(scoreAnimated.getTranslateY());
-						parallelTransitionForScoreAnimated.playFromStart();
-					}
-					if(comboAnimated.getScaleX() != 0)
-					{
-						timelineForComboAnimated.stop();
-						parallelTransitionForComboAnimated.stop();
-						scaleTransitionForComboAnimated.setToX(0);
-						scaleTransitionForComboAnimated.setToY(0);
-						translateTransitionForComboAnimated.setToX(comboAnimated.getTranslateX());
-						translateTransitionForComboAnimated.setToY(comboAnimated.getTranslateY());
-						parallelTransitionForComboAnimated.playFromStart();
-					}
-				}),
-				new KeyFrame(Duration.millis(300), e ->
-				{
-					scaleTransitionForPauseGameIcon.setToX(0);
-					scaleTransitionForPauseGameIcon.setToY(0);
-					scaleTransitionForVBoxForNextQuestion.setToX(0);
-					scaleTransitionForVBoxForNextQuestion.setToY(0);
-					scaleTransitionForTextForQuestionNumber.setToX(0);
-					scaleTransitionForTextForQuestionNumber.setToY(0);
-					scaleTransitionForTextForScore.setToX(0);
-					scaleTransitionForTextForScore.setToY(0);
-					
-					playMinimizeSound();
-					scaleTransitionForPauseGameIcon.playFromStart();
-					scaleTransitionForVBoxForNextQuestion.playFromStart();
-					scaleTransitionForTextForQuestionNumber.playFromStart();
-					scaleTransitionForTextForScore.playFromStart();
-					
-					if(hBoxForLives.isVisible())
-					{
-						scaleTransitionForHBoxForLives.setToX(0);
-						scaleTransitionForHBoxForLives.setToY(0);
-						scaleTransitionForHBoxForLives.playFromStart();
-					}
-					if(progressBarForCountdown.isVisible())
-					{
-						scaleTransitionForProgressBarForCountdown.setToX(0);
-						scaleTransitionForProgressBarForCountdown.setToY(0);
-						scaleTransitionForProgressBarForCountdown.playFromStart();
-					}
-					if(textForTimePassed.isVisible())
-					{
-						scaleTransitionForTextForTimePassed.setToX(0);
-						scaleTransitionForTextForTimePassed.setToY(0);
-						scaleTransitionForTextForTimePassed.playFromStart();
-					}
-					textForCombo.setText("");
-				}),
-				new KeyFrame(Duration.millis(600), e ->
-				{
-					titleImageForFinishedGame.setVisible(true);
-					
-					translateTransitionForTitleImageForFinishedGame.setToY(0);
-					
-					playSlideSound();
-					translateTransitionForTitleImageForFinishedGame.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(900), e ->
-				{
-					titleLabelForFinishedGame.setVisible(true);
-					
-					scaleTransitionForTitleLabelForFinishedGame.setCycleCount(1);
-					scaleTransitionForTitleLabelForFinishedGame.setAutoReverse(false);
-					scaleTransitionForTitleLabelForFinishedGame.setDuration(Duration.millis(300));
-					scaleTransitionForTitleLabelForFinishedGame.setFromX(0);
-					scaleTransitionForTitleLabelForFinishedGame.setFromY(0);
-					scaleTransitionForTitleLabelForFinishedGame.setToX(0.95);
-					scaleTransitionForTitleLabelForFinishedGame.setToY(0.95);
-					
-					if(animationsUsed == ANIMATIONS.ALL)
-					{
-						scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev ->
-						{
-							scaleTransitionForTitleLabelForFinishedGame.setOnFinished(eve -> {});
-							startTextAnimationForTitleLabelForFinishedGame();
-						});
-					}
-					else scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev -> {});
-					
-					playPopUpSound();
-					scaleTransitionForTitleLabelForFinishedGame.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(1200), e ->
-				{
-					if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
-					{
-						textForResultsDuration.setVisible(true);
-						scaleTransitionForTextForResultsDuration.setToX(1);
-						
-						scaleTransitionForTextForResultsDuration.playFromStart();
-					}
-					
-					textForResults.setVisible(true);
-					scaleTransitionForTextForResults.setToX(1);
-					
-					textForResults2.setVisible(true);
-					scaleTransitionForTextForResults2.setToX(1);
-					
-					playPopUpSound();
-					scaleTransitionForTextForResults.playFromStart();
-					scaleTransitionForTextForResults2.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(1500), e ->
-				{
-					if(isGameWon()) playGameWonSound();
-					else playGameLostSound();
-					
-					restartGameFromFinishedScreenButton.setVisible(true);
-					returnToWelcomeScreenFromFinishedGameScreenButton.setVisible(true);
-					
-					scaleTransitionForRestartGameButton.setToX(1);
-					scaleTransitionForRestartGameButton.setToY(1);
-					
-					scaleTransitionForReturnToWelcomeScreenButton.setToX(1);
-					scaleTransitionForReturnToWelcomeScreenButton.setToY(1);
-					
-					playPopUpSound();
-					scaleTransitionForRestartGameButton.playFromStart();
-					scaleTransitionForReturnToWelcomeScreenButton.playFromStart();
-				}));
-		
-		timelineToHideAllStuffFromFinishedGameScreen = new Timeline(
-				new KeyFrame(Duration.millis(0), e ->
-				{
-					scaleTransitionForRestartGameButton.setToX(0);
-					scaleTransitionForRestartGameButton.setToY(0);
-					
-					scaleTransitionForReturnToWelcomeScreenButton.setToX(0);
-					scaleTransitionForReturnToWelcomeScreenButton.setToY(0);
-					
-					playMinimizeSound();
-					scaleTransitionForRestartGameButton.playFromStart();
-					scaleTransitionForReturnToWelcomeScreenButton.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(300), e ->
-				{
-					if(gameMode != GAMEMODE.TIME_ATTACK_GAMEMODE)
-					{
-						scaleTransitionForTextForResultsDuration.setToX(0);
-						
-						scaleTransitionForTextForResultsDuration.playFromStart();
-					}
-					
-					scaleTransitionForTextForResults.setToX(0);
-					scaleTransitionForTextForResults2.setToX(0);
-					
-					playMinimizeSound();
-					scaleTransitionForTextForResults.playFromStart();
-					scaleTransitionForTextForResults2.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(600), e ->
-				{
-					scaleTransitionForHBoxFor5Icons.setToX(0);
-					scaleTransitionForHBoxFor5Icons.setToY(0);
-					
-					scaleTransitionForTitleLabelForFinishedGame.setCycleCount(1);
-					scaleTransitionForTitleLabelForFinishedGame.setAutoReverse(false);
-					scaleTransitionForTitleLabelForFinishedGame.setDuration(Duration.millis(300));
-					scaleTransitionForTitleLabelForFinishedGame.setFromX(titleLabelForFinishedGame.getScaleX());
-					scaleTransitionForTitleLabelForFinishedGame.setFromY(titleLabelForFinishedGame.getScaleY());
-					scaleTransitionForTitleLabelForFinishedGame.setToX(0);
-					scaleTransitionForTitleLabelForFinishedGame.setToY(0);
-					scaleTransitionForTitleLabelForFinishedGame.setOnFinished(ev -> {});
-					
-					playMinimizeSound();
-					scaleTransitionForHBoxFor5Icons.playFromStart();
-					scaleTransitionForTitleLabelForFinishedGame.playFromStart();
-				}),
-				new KeyFrame(Duration.millis(900), e ->
-				{
-					translateTransitionForWoodPanelFor5IconsImage.setToY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
-					translateTransitionForTitleImageForFinishedGame.setToY(-1.0 * (titleImageForFinishedGame.getLayoutY() + titleImageForFinishedGame.getBoundsInParent().getHeight() + 20));
-					
-					playSlideSound();
-					translateTransitionForWoodPanelFor5IconsImage.playFromStart();
-					translateTransitionForTitleImageForFinishedGame.playFromStart();
-					
-					if(vBoxForSound.isVisible())
-					{
-						if (OS == OsCheck.OSType.Windows) translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
-						else translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
-						translateTransitionForVBoxForSound.playFromStart();
-					}
-				}),
-				new KeyFrame(Duration.millis(1200), e ->
-				{
-					vBoxForSound.setVisible(false);
-					
-					welcomeScreenImage.setVisible(true);
-					fadeTransitionForWorldMapImage.playFromStart();
-				}));
 		
 		timelineToShowSoundOptions = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
 				soundIcon.setDisable(true);
-				
-				if(OS == OsCheck.OSType.Windows)
-				{
-					translateTransitionForScoreText.setToY(0.2065 * stage.getHeight());
-					translateTransitionForTextForCombo.setToY(0.2065 * stage.getHeight());
-					
-					translateTransitionForScoreText.playFromStart();
-					translateTransitionForTextForCombo.playFromStart();
-				}
+				vBoxForSound.setVisible(true);
 				
 				playSlideSound();
-			}),
-			new KeyFrame(Duration.millis(150), e ->
-			{
-				vBoxForSound.setVisible(true);
-				translateTransitionForVBoxForSound.setToX(0);
 				
+				translateTransitionForVBoxForSound.setToY(0);
 				translateTransitionForVBoxForSound.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(450), e -> soundIcon.setDisable(false)));
+			new KeyFrame(Duration.millis(200), e -> soundIcon.setDisable(false)));
 		
 		timelineToHideSoundOptions = new Timeline(
 			new KeyFrame(Duration.millis(0), e ->
 			{
 				soundIcon.setDisable(true);
 				
-				if (OS == OsCheck.OSType.Windows) translateTransitionForVBoxForSound.setToX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
-				else translateTransitionForVBoxForSound.setToX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
-				
 				playSlideSound();
+				
+				translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 				translateTransitionForVBoxForSound.playFromStart();
 			}),
-			new KeyFrame(Duration.millis(150), e ->
-			{
-				if( OS == OsCheck.OSType.Windows)
-				{
-					translateTransitionForScoreText.setToY(0);
-					translateTransitionForTextForCombo.setToY(0);
-					
-					translateTransitionForScoreText.playFromStart();
-					translateTransitionForTextForCombo.playFromStart();
-				}
-			}),
-			new KeyFrame(Duration.millis(450), e ->
+			new KeyFrame(Duration.millis(200), e ->
 			{
 				soundIcon.setDisable(false);
 				vBoxForSound.setVisible(false);
@@ -2851,12 +2736,12 @@ public class GameScreen extends CoreScreen
 	public void showScreen(GAMEMODE gameMode)
 	{
 		this.gameMode = gameMode;
+		
+		stage.setScene(gameScene);
+		
 		setInitialStateForAllNodes();
 		
-		if (fullScreenMode) setFullScreenMode();
-		else setWindowedMode();
-		
-		mainScene.setRoot(anchorPane);
+		recalculateUI(windowWidth, windowHeight);
 		
 		if(animationsUsed != ANIMATIONS.NO)
 			timelineToShowAllStuff.playFromStart();
@@ -2960,9 +2845,9 @@ public class GameScreen extends CoreScreen
 		{
 			woodenFrameImage.setImage(FRAME_IMAGE);
 			titleImageForFinishedGame.setImage(EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE);
+			woodPanelFor1IconImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON);
 			welcomeScreenImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
 			worldMapBackground.setImage(WORLD_MAP);
-			woodPanelFor5IconsImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS);
 			nextQuestionArrowImage.setImage(BACK_ARROW);
 		}
 		
@@ -2973,10 +2858,10 @@ public class GameScreen extends CoreScreen
 		//SETUP POSITIONS BASED ON ANIMATIONS-------------------------------------------------------------
 		if(animationsUsed != ANIMATIONS.NO)
 		{
-			woodPanelFor5IconsImage.setTranslateY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
+			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
 			
-			hBoxFor5Icons.setScaleX(0);
-			hBoxFor5Icons.setScaleY(0);
+			soundIcon.setScaleX(0);
+			soundIcon.setScaleY(0);
 			
 			pauseGameIcon.setScaleX(0);
 			pauseGameIcon.setScaleY(0);
@@ -3106,10 +2991,10 @@ public class GameScreen extends CoreScreen
 		}
 		else
 		{
-			woodPanelFor5IconsImage.setTranslateY(0);
+			woodPanelFor1IconImage.setTranslateY(0);
 			
-			hBoxFor5Icons.setScaleX(1);
-			hBoxFor5Icons.setScaleY(1);
+			soundIcon.setScaleX(1);
+			soundIcon.setScaleY(1);
 			
 			pauseGameIcon.setScaleX(1);
 			pauseGameIcon.setScaleY(1);
@@ -3296,10 +3181,10 @@ public class GameScreen extends CoreScreen
 		vBoxForPausedGame.setVisible(false);
 		vBoxForPausedGame.setDisable(true);
 		
-		if (OS == OsCheck.OSType.Windows) vBoxForSound.setTranslateX(stage.getWidth() - vBoxForSound.getLayoutX() + 20);
-		else vBoxForSound.setTranslateX(-1.0 * (vBoxForSound.getLayoutX() + vBoxForSound.getPrefWidth() + 20));
-		
+		vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 		vBoxForSound.setVisible(false);
+		
+		setSoundIcon(soundIcon, false);
 		
 		updateStrings();
 		
@@ -3323,8 +3208,6 @@ public class GameScreen extends CoreScreen
 		nextQuestionButton.setText(languageResourceBundle.getString("nextQuestionButton"));
 		
 		soundOptionsToolTip.setText(languageResourceBundle.getString("soundOptionsTooltip"));
-		minimizeTooltip.setText(languageResourceBundle.getString("minimizeTooltip"));
-		exitTooltip.setText(languageResourceBundle.getString("exitTooltip"));
 		
 		radioButtonsFor2TextAnswers[0].setText(languageResourceBundle.getString("radioButtonCorrect"));
 		radioButtonsFor2TextAnswers[1].setText(languageResourceBundle.getString("radioButtonIncorrect"));
@@ -3455,8 +3338,6 @@ public class GameScreen extends CoreScreen
 				else textForQuestionNumber.setText(String.valueOf(n) + "th question");
 			}
 		}
-		
-		if(OS != OsCheck.OSType.Windows) textForQuestionNumber.setLayoutX(stage.getWidth() - textForQuestionNumber.getBoundsInLocal().getWidth() - 0.0469 * stage.getWidth());
 	}
 	
 	private void updateScoreText()
@@ -4773,7 +4654,7 @@ public class GameScreen extends CoreScreen
 			{
 				scaleTransitionForTextForCombo.stop();
 				
-				scaleTransitionForTextForCombo.setDuration(Duration.millis(300));
+				scaleTransitionForTextForCombo.setDuration(Duration.millis(200));
 				scaleTransitionForTextForCombo.setCycleCount(1);
 				scaleTransitionForTextForCombo.setAutoReverse(false);
 				scaleTransitionForTextForCombo.setFromX(textForCombo.getScaleX());
@@ -5274,7 +5155,7 @@ public class GameScreen extends CoreScreen
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askLargestCity() == 2) availableQuestionsArray[COUNTRIES_CITIES].add(y);
 						}
 						
-						for (int y = 1; y < NUM_ALL_CONTINENTS - 1; y++) availableQuestionsArray[CONTINENTS_CITIES].add(y);
+						for (int y = 1; y < Continent.NUMBER_OF_CONTINENTS - 1; y++) availableQuestionsArray[CONTINENTS_CITIES].add(y);
 					}
 					else if (chosenCategory == CAT_COUNTRY_LANGUAGES)
 					{
@@ -5367,7 +5248,7 @@ public class GameScreen extends CoreScreen
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askContinent() == 2) availableQuestionsArray[CONTINENTS_COUNTRIES].add(y);
 						}
 						
-						for (int y = 1; y < NUM_ALL_CONTINENTS - 1; y++) availableQuestionsArray[CONTINENTS_LARGEST_COUNTRIES].add(y);
+						for (int y = 1; y < Continent.NUMBER_OF_CONTINENTS - 1; y++) availableQuestionsArray[CONTINENTS_LARGEST_COUNTRIES].add(y);
 					}
 					else if (chosenCategory == CAT_SOVEREIGN_DEPENDENT_COUNTRIES)
 					{
@@ -5423,7 +5304,7 @@ public class GameScreen extends CoreScreen
 						{
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (!countries[y].hasEasyLocation()) availableQuestionsArray[COUNTRIES_LOCATION].add(y);
 							for (int y = 0; y < NUM_ALL_COUNTRIES; y++) if (countries[y].askGeographicalCharacteristics() == 2) availableQuestionsArray[COUNTRIES_LOCATION_ALTERNATIVE].add(y);
-							for (int y = 0; y < NUM_ALL_CONTINENTS; y++) availableQuestionsArray[CONTINENTS_LOCATION].add(y);
+							for (int y = 0; y < Continent.NUMBER_OF_CONTINENTS; y++) availableQuestionsArray[CONTINENTS_LOCATION].add(y);
 						}
 					}
 				}

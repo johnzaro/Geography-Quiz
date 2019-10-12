@@ -1,7 +1,7 @@
 package com.johnzaro.geographyquiz.screens;
 
 import com.johnzaro.geographyquiz.core.*;
-import com.johnzaro.geographyquiz.dataStructures.Attraction;
+import com.johnzaro.geographyquiz.dataStructures.*;
 import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -10,8 +10,8 @@ import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
@@ -23,16 +23,15 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
-
-import java.util.ArrayList;
-
 import org.controlsfx.control.GridCell;
 import org.controlsfx.control.GridView;
+
+import java.util.ArrayList;
 
 import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 
@@ -45,11 +44,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			greekDecentralizedAdministrationsObservableNamesList, greekRegionsObservableNamesList,
 			greekRegionalUnitsObservableNamesList, attractionsObservableNamesList;
 	
-	private ObservableList<Short> countriesSortList, capitalsOfCountriesSortList, continentsSortList, statesOfUSASortList,
+	private ObservableList<Integer> countriesSortList, capitalsOfCountriesSortList, continentsSortList, statesOfUSASortList,
 			capitalsOfStatesSortList, greekDecentralizedAdministrationsSortList, greekRegionsSortList, greekRegionalUnitsSortList,
 			attractionsSortList, emptyObservableList;
 	
-	private CustomImageView previousChalkboardImage, woodPanelFor5IconsImage,
+	private CustomImageView previousChalkboardImage, woodPanelFor1IconImage,
 			titleImage, backArrowImage, flagForCountriesAndContinentsImageSmall, flagForUSAImageSmall, coatOfArmsForCountriesAndContinentsImageSmall,
 			sealForUSAImageSmall, locationForCountriesAndContinentsImageSmall, locationForUSAImageSmall, logoForGreeceImageSmall, locationForGreeceSmall,
 			attractionImageSmall, attractionLocationImageSmall, bigImage, previousInBigImageButton, nextInBigImageButton, exitBigImage, zoomInBigImage, zoomOutBigImage;
@@ -59,11 +58,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			locationLabelForCountriesAndContinents, locationLabelForUSA, logoLabelForGreece, locationLabelForGreece, attractionLabel, attractionLocationLabel, labelForBigImage;
 	private InnerShadow innerShadow;
 	private DropShadow dropShadow;
-	private HBox hBoxForToggleButtons, hBoxFor5Icons, hBoxMainForCountriesAndContinents, hBoxMainForUSA, hBoxMainForGreece, hBoxMainForAttractions, hBoxForFlagAndCoatOfArmsForCountriesAndContinents,
+	private HBox hBoxForToggleButtons, hBoxMainForCountriesAndContinents, hBoxMainForUSA, hBoxMainForGreece, hBoxMainForAttractions, hBoxForFlagAndCoatOfArmsForCountriesAndContinents,
 			hBoxForFlagAndCoatOfArmsForUSA;
 	private VBox vBoxFor3ImagesForCountriesAndContinents, vBoxFor3ImagesForUSA, vBoxFor2ImagesForGreece, vBoxFor2ImagesForAttractions, vBoxForListViewForCountriesAndContinents, vBoxForListViewForUSA,
 			vBoxForListViewForGreece, vBoxForListViewForAttractions, vBoxForGridPaneForAttractions;
-	private ToggleButton continentsAndCountriesToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton;
+	private ToggleButton countriesAndContinentsToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton;
 	private ToggleGroup toggleGroupForToggleButtons;
 	private CustomButton backButton;
 	private Rectangle rectangleForBigImage, rectangleToShowInfo;
@@ -71,15 +70,15 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	private GridPane gridPaneForLabelsForCountriesAndContinents, gridPaneForLabelsForUSA, gridPaneForGreece, gridPaneForAttractions;
 	private CustomScrollPane scrollPaneForGridPaneForCountriesAndContinents, scrollPaneForGridPaneForUSA, scrollPaneForAttractionsBasicInfo;
-	private GridView<Short> gridViewForImagesForCountriesAndContinents, gridViewForImagesForUSA, gridViewForImagesForAttractions;
+	private GridView<Integer> gridViewForImagesForCountriesAndContinents, gridViewForImagesForUSA, gridViewForImagesForAttractions;
 
 	private Label[][] gridPaneLabelsForCountriesAndContinents, gridPaneLabelsForUSA, gridPaneLabelsForGreece, gridPaneLabelsForAttractions;
 	private Tooltip[] gridPaneTooltipsForCountriesAndContinents, gridPaneTooltipsForUSA, gridPaneTooltipsForGreece, gridPaneTooltipsForAttractions;
 	
-	private TranslateTransition translateTransitionForTitleImage, translateTransitionForTitleLabel, translateTransitionForVBoxForSound, translateTransitionForWoodImageFor5Icons,
+	private TranslateTransition translateTransitionForWoodPanelFor1IconImage, translateTransitionForTitleImage, translateTransitionForTitleLabel, translateTransitionForVBoxForSound,
 			translateTransitionForHBoxMainForCountriesAndContinents, translateTransitionForHBoxMainForUSA, translateTransitionForHBoxMainForGreece, translateTransitionForHBoxMainForAttractions;
 	private FadeTransition fadeTransitionForMovingEarthImage;
-	private ScaleTransition scaleTransitionForTitleLabel, scaleTransitionForHBoxFor5Icons, scaleTransitionForBackButton,
+	private ScaleTransition scaleTransitionForSoundIcon, scaleTransitionForTitleLabel, scaleTransitionForBackButton,
 			scaleTransitionForCountriesToggleButton, scaleTransitionForUSAStatesToggleButton, scaleTransitionForGreekCountiesToggleButton,
 			scaleTransitionForAttractionsToggleButton, scaleTransitionForHBoxMainForCountriesAndContinents, scaleTransitionForHBoxMainForUSA,
 			scaleTransitionForHBoxMainForGreece, scaleTransitionForHBoxMainForAttractions, scaleTransitionForRectangleForBigImage, scaleTransitionForBigImage,
@@ -155,31 +154,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	{
 		super.recalculateUI(width, height);
 		
-		if (width < 1850)
-		{
-			masterVolumeSlider.setId("small");
-			musicVolumeSlider.setId("small");
-			soundEffectsVolumeSlider.setId("small");
-		}
-		else if (width < 2200)
-		{
-			masterVolumeSlider.setId("medium");
-			musicVolumeSlider.setId("medium");
-			soundEffectsVolumeSlider.setId("medium");
-		}
-		else if (width < 3000)
-		{
-			masterVolumeSlider.setId("big");
-			musicVolumeSlider.setId("big");
-			soundEffectsVolumeSlider.setId("big");
-		}
-		else
-		{
-			masterVolumeSlider.setId("veryBig");
-			musicVolumeSlider.setId("veryBig");
-			soundEffectsVolumeSlider.setId("veryBig");
-		}
-		
 		//VARIABLES SET
 		double iconSize  = 0.0260 * width;
 		
@@ -188,133 +162,30 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		Font fontForButtons  = Font.font("Comic Sans MS", 0.0156 * width);
 		Font fontForLabels= Font.font("Comic Sans MS", FontWeight.BOLD, 0.0146 * width); // 26 -> 1920
 		fontBig = Font.font("Comic Sans MS", 0.0125 * width); // 26 -> 1920
-		Font fontForSound = Font.font("Comic Sans MS", 0.0094 * width);
 		
-		//SCREEN DEPENDENT STUFF
-		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-		{
-			titleImage.setLayoutY(0.0509 * height);
+		titleImage.setLayoutY(ratioProperties.getAtlas().getTitleImageSetY() * height);
 
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0593 * height);
+		titleLabel.setLayoutX(ratioProperties.getAtlas().getTitleLabelSetX() * width);
+		titleLabel.setLayoutY(ratioProperties.getAtlas().getTitleLabelSetY() * height);
 
-			woodPanelFor5IconsImage.setLayoutY(0.0361 * height);
-
-			hBoxFor5Icons.setLayoutY(0.0917 * height);
-			
-			vBoxForSound.setLayoutY(0.0648 * height);
-			vBoxForSound.setPrefSize(0.1146 * width, 0.1296 * height);
-
-			hBoxForToggleButtons.setLayoutY(0.2296 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-		{
-			titleImage.setLayoutY(0.0574 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0593 * height);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0438 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0914 * height);
-			
-			vBoxForSound.setLayoutY(0.0722 * height);
-			vBoxForSound.setPrefSize(0.1149 * width, 0.1389 * height);
-			
-			hBoxForToggleButtons.setLayoutY(0.2296 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-		{
-			titleImage.setLayoutY(0.0574 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			titleLabel.setLayoutY(0.0586 * height);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0459 * height);
-			
-			hBoxFor5Icons.setLayoutY(0.0901 * height);
-			
-			vBoxForSound.setLayoutY(0.0722 * height);
-			vBoxForSound.setPrefSize(0.1156 * width, 0.1389 * height);
-			
-			hBoxForToggleButtons.setLayoutY(0.2296 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-		{
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
-			{
-				titleLabel.setLayoutY(0.0333 * height);
-				
-				hBoxFor5Icons.setLayoutY(0.0667 * height);
-			}
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-			{
-				titleLabel.setLayoutY(0.0313 * height);
-				
-				hBoxFor5Icons.setLayoutY(0.0625 * height);
-			}
-			
-			titleImage.setLayoutY(0.0428 * height);
-			
-			titleLabel.setLayoutX(0.2813 * width);
-			
-			woodPanelFor5IconsImage.setLayoutY(0.0324 * height);
-			
-			vBoxForSound.setLayoutY(0.0560 * height);
-			vBoxForSound.setPrefSize(0.1150 * width, 0.1095 * height);
-			
-			hBoxForToggleButtons.setLayoutY((0.2047) * height);
-		}
+		vBoxForSound.setLayoutX(0.7031 * width);
+		vBoxForSound.setLayoutY(ratioProperties.getAtlas().getvBoxForSoundLayoutY() * height);
+		
+		hBoxForToggleButtons.setLayoutY(ratioProperties.getAtlas().gethBoxForToggleButtonsLayoutY() * height);
 		
 		dropShadow.setRadius(0.0104 * width);
 		dropShadow.setOffsetX(-0.0052 * width);
 		dropShadow.setOffsetY(-0.0052 * width);
 		
-		//5 ICONS WOODEN PANEL AND SOUND VBOX ------------------------------------------------------
-		woodPanelFor5IconsImage.setFitWidth(0.1667 * width);
-		
-		if (OS == OsCheck.OSType.Windows)
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.7672 * width);
-			vBoxForSound.setLayoutX(0.6396 * width);
-		}
-		else
-		{
-			woodPanelFor5IconsImage.setLayoutX(0.0656 * width);
-			vBoxForSound.setLayoutX(0.2448 * width);
-		}
-		
-		hBoxFor5Icons.setPrefSize(0.1667 * width, 0.0509 * height);
-		hBoxFor5Icons.setSpacing(0.0052 * width);
-		hBoxFor5Icons.setLayoutX(woodPanelFor5IconsImage.getLayoutX());
-		
-		vBoxForSound.setStyle("-fx-background-color: #00000099; " +
-		                      "-fx-border-color: black; " +
-		                      "-fx-background-radius:" + 0.0078 * width + "; " +
-		                      "-fx-border-radius:" + 0.0078 * width + "; " +
-		                      "-fx-border-width:" + 0.0026 * width + "; " +
-		                      "-fx-padding:" + 0.0052 * width + ";");
-		
-		soundIcon.setFitWidth(iconSize);
-		minimizeIcon.setFitWidth(iconSize);
-		moveIcon.setFitWidth(iconSize);
-		fullScreenIcon.setFitWidth(iconSize);
-		exitIcon.setFitWidth(iconSize);
-		
-		minimizeTooltip.setMaxWidth(tooltipMaxWidth);
-		moveTooltip.setMaxWidth(tooltipMaxWidth);
-		fullScreenTooltip.setMaxWidth(tooltipMaxWidth);
-		exitTooltip.setMaxWidth(tooltipMaxWidth);
-		
-		masterVolumeLabel.setFont(fontForSound);
-		musicVolumeLabel.setFont(fontForSound);
-		soundEffectsVolumeLabel.setFont(fontForSound);
-		
 		soundOptionsToolTip.setFont(fontForTooltips);
-		minimizeTooltip.setFont(fontForTooltips);
-		moveTooltip.setFont(fontForTooltips);
-		fullScreenTooltip.setFont(fontForTooltips);
-		exitTooltip.setFont(fontForTooltips);
+		
+		woodPanelFor1IconImage.setFitWidth(0.0482 * width);
+		woodPanelFor1IconImage.setLayoutX(ratioProperties.getScoreBoard().getWoodPanelFor1IconImageLayoutX() * width - woodPanelFor1IconImage.getFitWidth() / 2.0);
+		woodPanelFor1IconImage.setLayoutY(ratioProperties.getScoreBoard().getWoodPanelFor1IconImageLayoutY() * height);
+		
+		soundIcon.setFitWidth(1.2 * iconSize);
+		soundIcon.setLayoutX(woodPanelFor1IconImage.getLayoutX() + woodPanelFor1IconImage.getFitWidth() / 2.0 - soundIcon.getFitWidth() / 2.0);
+		soundIcon.setLayoutY(ratioProperties.getScoreBoard().getSoundIconLayoutY() * height - soundIcon.getFitWidth() / 2.0);
 		
 		//TITLE IMAGE ------------------------------------------------------
 		titleImage.setFitWidth(0.4688 * width);
@@ -322,16 +193,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		if(titleImage.getTranslateX() != 0)
 		{
-			if (OS == OsCheck.OSType.Windows)
-			{
-				titleImage.setTranslateX(-0.1068 * width);
-				titleLabel.setTranslateX(-0.1068 * width);
-			}
-			else
-			{
-				titleImage.setTranslateX(0.1068 * width);
-				titleLabel.setTranslateX(0.1068 * width);
-			}
+			titleImage.setTranslateX(-0.0416 * width);
+			titleLabel.setTranslateX(-0.0416 * width);
 		}
 		
 		//TITLE LABEL ------------------------------------------------------
@@ -354,12 +217,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		greekCountiesToggleButtonTooltip.setMaxWidth(tooltipMaxWidth);
 		attractionsToggleButtonTooltip.setMaxWidth(tooltipMaxWidth);
 		
-		continentsAndCountriesToggleButton.setPrefWidth(0.2500 * hBoxForToggleButtons.getPrefWidth());
+		countriesAndContinentsToggleButton.setPrefWidth(0.2500 * hBoxForToggleButtons.getPrefWidth());
 		USAToggleButton.setPrefWidth(0.2500 * hBoxForToggleButtons.getPrefWidth());
 		greeceToggleButton.setPrefWidth(0.2500 * hBoxForToggleButtons.getPrefWidth());
 		attractionsToggleButton.setPrefWidth(0.2500 * hBoxForToggleButtons.getPrefWidth());
 		
-		continentsAndCountriesToggleButton.setFont(fontForButtons);
+		countriesAndContinentsToggleButton.setFont(fontForButtons);
 		USAToggleButton.setFont(fontForButtons);
 		greeceToggleButton.setFont(fontForButtons);
 		attractionsToggleButton.setFont(fontForButtons);
@@ -384,7 +247,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		double rightWidth;
 		
 		//COUNTRIES AND CONTINENTS STUFF ------------------------------------------------------
-		if(getCategoryCurrentlyViewing() == 1)
+		if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 		{
 			hBoxMainForCountriesAndContinents.setPrefSize(0.9167 * width, 0.6055 * height);
 			hBoxMainForCountriesAndContinents.setLayoutX(width / 2.0 - hBoxMainForCountriesAndContinents.getPrefWidth() / 2.0);
@@ -468,7 +331,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 		
 		//USA STUFF ------------------------------------------------------
-		else if(getCategoryCurrentlyViewing() == 2)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 		{
 			hBoxMainForUSA.setPrefSize(0.9167 * width, 0.6055 * height);
 			hBoxMainForUSA.setLayoutX(width / 2.0 - hBoxMainForUSA.getPrefWidth() / 2.0);
@@ -539,7 +402,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			gridViewForImagesForUSA.setCellHeight(0.2315 * height);
 		}
 		//GREECE STUFF
-		else if(getCategoryCurrentlyViewing() == 3)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 		{
 			hBoxMainForGreece.setPrefSize(0.9167 * width, 0.6055 * height);
 			hBoxMainForGreece.setLayoutX(width / 2.0 - hBoxMainForGreece.getPrefWidth() / 2.0);
@@ -590,7 +453,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			locationForGreeceSmall.setFitWidth(0.87 * vBoxFor2ImagesForGreece.getPrefWidth());
 		}
 		//ATTRACTIONS STUFF
-		else if(getCategoryCurrentlyViewing() == 4)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == attractionsToggleButton)
 		{
 			hBoxMainForAttractions.setPrefSize(0.9167 * width, 0.6055 * height);
 			hBoxMainForAttractions.setLayoutX(width / 2.0 - hBoxMainForAttractions.getPrefWidth() / 2.0);
@@ -660,7 +523,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		else if (getNumberOfTextAreaLines() < 8) textAreaForInfo.setPrefHeight(0.2700 * height);
 		else if (getNumberOfTextAreaLines() < 11) textAreaForInfo.setPrefHeight(0.3700 * height);
 		else if (getNumberOfTextAreaLines() < 16) textAreaForInfo.setPrefHeight(0.5000 * height);
-		else textAreaForInfo.setPrefHeight(0.7000 * stage.getHeight());
+		else textAreaForInfo.setPrefHeight(0.7000 * atlasScene.getHeight());
 		
 		textAreaForInfo.setPrefWidth(0.3125 * width);
 		textAreaForInfo.setLayoutX(width / 2.0 - textAreaForInfo.getPrefWidth() / 2.0);
@@ -786,17 +649,9 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 		movingEarthImage = new CustomImageView(true, true, false, false, null);
 
-		woodPanelFor5IconsImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
-
-		hBoxFor5Icons = new HBox();
-		hBoxFor5Icons.setAlignment(Pos.CENTER);
-		hBoxFor5Icons.setCache(true);
-		hBoxFor5Icons.setCacheHint(CacheHint.SCALE);
-
-		if (OS == OsCheck.OSType.Windows) hBoxFor5Icons.getChildren().addAll(soundIcon, minimizeIcon, moveIcon, fullScreenIcon, exitIcon);
-		else hBoxFor5Icons.getChildren().addAll(exitIcon, fullScreenIcon, moveIcon, minimizeIcon, soundIcon);
-
 		titleImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
+		
+		woodPanelFor1IconImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
 
 		innerShadow = new InnerShadow();
 
@@ -812,8 +667,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		dropShadow = new DropShadow();
 		woodenFrameImage.setEffect(dropShadow);
 		titleImage.setEffect(dropShadow);
-		woodPanelFor5IconsImage.setEffect(dropShadow);
-		
 		//TOGGLE BUTTONS-------------------------------------------------------------------------------------
 		countriesToggleButtonTooltip = new CustomTooltip();
 
@@ -823,10 +676,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 		attractionsToggleButtonTooltip = new CustomTooltip();
 
-		continentsAndCountriesToggleButton = new ToggleButton();
-		continentsAndCountriesToggleButton.setCursor(Cursor.HAND);
-		continentsAndCountriesToggleButton.setTooltip(countriesToggleButtonTooltip);
-		continentsAndCountriesToggleButton.setFocusTraversable(false);
+		countriesAndContinentsToggleButton = new ToggleButton();
+		countriesAndContinentsToggleButton.setCursor(Cursor.HAND);
+		countriesAndContinentsToggleButton.setTooltip(countriesToggleButtonTooltip);
+		countriesAndContinentsToggleButton.setFocusTraversable(false);
 		
 		USAToggleButton = new ToggleButton();
 		USAToggleButton.setCursor(Cursor.HAND);
@@ -844,12 +697,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		attractionsToggleButton.setFocusTraversable(false);
 		
 		toggleGroupForToggleButtons = new ToggleGroup();
-		toggleGroupForToggleButtons.getToggles().addAll(continentsAndCountriesToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton);
+		toggleGroupForToggleButtons.getToggles().addAll(countriesAndContinentsToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton);
 
 		hBoxForToggleButtons = new HBox();
 		hBoxForToggleButtons.setAlignment(Pos.CENTER);
 		hBoxForToggleButtons.setFillHeight(true);
-		hBoxForToggleButtons.getChildren().addAll(continentsAndCountriesToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton);
+		hBoxForToggleButtons.getChildren().addAll(countriesAndContinentsToggleButton, USAToggleButton, greeceToggleButton, attractionsToggleButton);
 		hBoxForToggleButtons.setCache(true);
 		hBoxForToggleButtons.setCacheHint(CacheHint.SCALE);
 		
@@ -1300,9 +1153,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		hBoxMainForGreece.setVisible(false);
 		hBoxMainForAttractions.setVisible(false);
 		
-		nodesPane.getChildren().addAll(previousChalkboardImage, movingEarthImage, titleImage, titleLabel,
-				hBoxForToggleButtons, woodPanelFor5IconsImage, hBoxMainForCountriesAndContinents, hBoxMainForUSA,
-				hBoxMainForGreece, hBoxMainForAttractions, vBoxForSound, backButton, hBoxFor5Icons,
+		nodesPane.getChildren().addAll(previousChalkboardImage, movingEarthImage, woodPanelFor1IconImage,
+				titleImage, titleLabel,
+				hBoxForToggleButtons, hBoxMainForCountriesAndContinents, hBoxMainForUSA,
+				hBoxMainForGreece, hBoxMainForAttractions, soundIcon, vBoxForSound, backButton,
 				rectangleForBigImage, bigImage, labelForBigImage, previousInBigImageButton, nextInBigImageButton,
 				exitBigImage, zoomInBigImage, zoomOutBigImage, rectangleToShowInfo, textAreaForInfo);
 		
@@ -1313,6 +1167,33 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 		
 		setupListeners();
+		
+		createScene();
+	}
+	
+	private void createScene()
+	{
+		atlasScene = new Scene(anchorPane);
+		atlasScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
+				comboBoxCSS, toggleButtonCSS, listViewCSS, labelCSS, scrollPaneCSS, textAreaCSS,
+				progressBarCSS, tableViewCSS);
+		
+		atlasScene.widthProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowWidth = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+			getCurrentPlayer().setWindowWidth(windowWidth);
+		});
+		
+		atlasScene.heightProperty().addListener((observable, oldValue, newValue) ->
+		{
+			windowHeight = newValue.doubleValue();
+			
+			recalculateBackground(windowWidth, windowHeight);
+			recalculateUI(windowWidth, windowHeight);
+		});
 	}
 	
 	protected void setupListeners()
@@ -1331,443 +1212,182 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				{
 					playButtonClickSound();
 					
-					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
 					backButton.setDisable(true);
 				}
 				
-				if (getCategoryCurrentlyViewing() == 1)
+				boolean leftMove = makeLeftMove(oldValue, newValue);
+				
+				if(animationsUsed != ANIMATIONS.NO)
 				{
-					if(animationsUsed != ANIMATIONS.NO)
+					if(oldValue == countriesAndContinentsToggleButton)
 					{
-						if(oldValue == USAToggleButton)
+						translateTransitionForHBoxMainForCountriesAndContinents.setToX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
+						translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(ev -> hBoxMainForCountriesAndContinents.setVisible(false));
+						translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
+					}
+					else if(oldValue == USAToggleButton)
+					{
+						if(leftMove) translateTransitionForHBoxMainForUSA.setToX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
+						else translateTransitionForHBoxMainForUSA.setToX(atlasScene.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
+						translateTransitionForHBoxMainForUSA.setOnFinished(ev -> hBoxMainForUSA.setVisible(false));
+						translateTransitionForHBoxMainForUSA.playFromStart();
+					}
+					else if(oldValue == greeceToggleButton)
+					{
+						if(leftMove) translateTransitionForHBoxMainForGreece.setToX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
+						else translateTransitionForHBoxMainForGreece.setToX(atlasScene.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
+						translateTransitionForHBoxMainForGreece.setOnFinished(ev -> hBoxMainForGreece.setVisible(false));
+						translateTransitionForHBoxMainForGreece.playFromStart();
+					}
+					else if(oldValue == attractionsToggleButton)
+					{
+						translateTransitionForHBoxMainForAttractions.setToX(atlasScene.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
+						translateTransitionForHBoxMainForAttractions.setOnFinished(ev -> hBoxMainForAttractions.setVisible(false));
+						translateTransitionForHBoxMainForAttractions.playFromStart();
+					}
+					
+					if (toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
+					{
+						countriesAndContinentsToggleButtonPressed();
+						
+						if(newValue == countriesAndContinentsToggleButton && !hBoxMainForCountriesAndContinents.isVisible())
 						{
-							translateTransitionForHBoxMainForUSA.setToX(stage.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
-							translateTransitionForHBoxMainForUSA.setOnFinished(ev ->
+							hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
+							translateTransitionForHBoxMainForCountriesAndContinents.setToX(0);
+							
+							translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(evn ->
 							{
-								hBoxMainForUSA.setVisible(false);
-								
-								countriesAndContinentsToggleButtonPressed();
-								
-								hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForCountriesAndContinents.setToX(0);
-								
-								translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForCountriesAndContinents.setVisible(true);
-								translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
+								hBoxForToggleButtons.setDisable(false);
+								backButton.setDisable(false);
 							});
+							
+							hBoxMainForCountriesAndContinents.setVisible(true);
+							translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
+						}
+					}
+					else if (toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
+					{
+						usaStatesToggleButtonPressed();
+						
+						if(newValue == USAToggleButton && !hBoxMainForUSA.isVisible())
+						{
+							if(leftMove) hBoxMainForUSA.setTranslateX(atlasScene.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
+							else hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
+							translateTransitionForHBoxMainForUSA.setToX(0);
+							
+							translateTransitionForHBoxMainForUSA.setOnFinished(evn ->
+							{
+								hBoxForToggleButtons.setDisable(false);
+								backButton.setDisable(false);
+							});
+							
+							hBoxMainForUSA.setVisible(true);
 							translateTransitionForHBoxMainForUSA.playFromStart();
 						}
-						else if(oldValue == greeceToggleButton)
+					}
+					else if (toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
+					{
+						greeceToggleButtonPressed();
+						
+						if(newValue == greeceToggleButton && !hBoxMainForGreece.isVisible())
 						{
-							translateTransitionForHBoxMainForGreece.setToX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-							translateTransitionForHBoxMainForGreece.setOnFinished(ev ->
+							if(leftMove) hBoxMainForGreece.setTranslateX(atlasScene.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
+							else hBoxMainForGreece.setTranslateX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
+							translateTransitionForHBoxMainForGreece.setToX(0);
+							
+							translateTransitionForHBoxMainForGreece.setOnFinished(evn ->
 							{
-								hBoxMainForGreece.setVisible(false);
-								
-								countriesAndContinentsToggleButtonPressed();
-								
-								hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForCountriesAndContinents.setToX(0);
-								
-								translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForCountriesAndContinents.setVisible(true);
-								translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
+								hBoxForToggleButtons.setDisable(false);
+								backButton.setDisable(false);
 							});
+							
+							hBoxMainForGreece.setVisible(true);
 							translateTransitionForHBoxMainForGreece.playFromStart();
 						}
-						else if(oldValue == attractionsToggleButton)
+					}
+					else if (toggleGroupForToggleButtons.getSelectedToggle() == attractionsToggleButton)
+					{
+						attractionsToggleButtonPressed();
+						
+						if(newValue == attractionsToggleButton && !hBoxMainForAttractions.isVisible())
 						{
-							translateTransitionForHBoxMainForAttractions.setToX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							translateTransitionForHBoxMainForAttractions.setOnFinished(ev ->
+							hBoxMainForAttractions.setTranslateX(atlasScene.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
+							translateTransitionForHBoxMainForAttractions.setToX(0);
+							
+							translateTransitionForHBoxMainForAttractions.setOnFinished(evn ->
 							{
-								hBoxMainForAttractions.setVisible(false);
-								
-								countriesAndContinentsToggleButtonPressed();
-								
-								hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForCountriesAndContinents.setToX(0);
-								
-								translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForCountriesAndContinents.setVisible(true);
-								translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
+								hBoxForToggleButtons.setDisable(false);
+								backButton.setDisable(false);
 							});
+							
+							hBoxMainForAttractions.setVisible(true);
 							translateTransitionForHBoxMainForAttractions.playFromStart();
 						}
-						else if(oldValue == null)
-							countriesAndContinentsToggleButtonPressed();
 					}
-					else
+				}
+				else
+				{
+					if(oldValue == countriesAndContinentsToggleButton)
 					{
-						if(oldValue == USAToggleButton)
-						{
-							hBoxMainForUSA.setTranslateX(stage.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
-							hBoxMainForUSA.setVisible(false);
-						}
-						else if(oldValue == greeceToggleButton)
-						{
-							hBoxMainForGreece.setTranslateX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-							hBoxMainForGreece.setVisible(false);
-						}
-						else if(oldValue == attractionsToggleButton)
-						{
-							hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							hBoxMainForAttractions.setVisible(false);
-						}
-						else if(oldValue == null)
-							countriesAndContinentsToggleButtonPressed();
-						
+						hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
+						hBoxMainForCountriesAndContinents.setVisible(false);
+					}
+					else if(oldValue == USAToggleButton)
+					{
+						if(leftMove) hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
+						else hBoxMainForUSA.setTranslateX(atlasScene.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
+						hBoxMainForUSA.setVisible(false);
+					}
+					else if(oldValue == greeceToggleButton)
+					{
+						if(leftMove) hBoxMainForGreece.setTranslateX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
+						else hBoxMainForGreece.setTranslateX(atlasScene.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
+						hBoxMainForGreece.setVisible(false);
+					}
+					else if(oldValue == attractionsToggleButton)
+					{
+						hBoxMainForAttractions.setTranslateX(atlasScene.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
+						hBoxMainForAttractions.setVisible(false);
+					}
+					
+					if (toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
+					{
 						countriesAndContinentsToggleButtonPressed();
 						
 						hBoxMainForCountriesAndContinents.setTranslateX(0);
 						hBoxMainForCountriesAndContinents.setVisible(true);
 						
-						hBoxFor5Icons.setDisable(false);
 						hBoxForToggleButtons.setDisable(false);
 						backButton.setDisable(false);
 					}
-				}
-				else if (getCategoryCurrentlyViewing() == 2)
-				{
-					if(animationsUsed != ANIMATIONS.NO)
+					else if (toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 					{
-						if (oldValue == continentsAndCountriesToggleButton)
-						{
-							translateTransitionForHBoxMainForCountriesAndContinents.setToX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(ev ->
-							{
-								hBoxMainForCountriesAndContinents.setVisible(false);
-								
-								usaStatesToggleButtonPressed();
-								
-								hBoxMainForUSA.setTranslateX(stage.getWidth() - hBoxMainForUSA.getLayoutX() + 20);
-								translateTransitionForHBoxMainForUSA.setToX(0);
-								
-								translateTransitionForHBoxMainForUSA.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForUSA.setVisible(true);
-								translateTransitionForHBoxMainForUSA.playFromStart();
-							});
-							translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
-						}
-						else if (oldValue == greeceToggleButton)
-						{
-							translateTransitionForHBoxMainForGreece.setToX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-							translateTransitionForHBoxMainForGreece.setOnFinished(ev ->
-							{
-								hBoxMainForGreece.setVisible(false);
-								
-								usaStatesToggleButtonPressed();
-								
-								hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForUSA.setToX(0);
-								
-								translateTransitionForHBoxMainForUSA.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForUSA.setVisible(true);
-								translateTransitionForHBoxMainForUSA.playFromStart();
-							});
-							translateTransitionForHBoxMainForGreece.playFromStart();
-						}
-						else if(oldValue == attractionsToggleButton)
-						{
-							translateTransitionForHBoxMainForAttractions.setToX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							translateTransitionForHBoxMainForAttractions.setOnFinished(ev ->
-							{
-								hBoxMainForAttractions.setVisible(false);
-								
-								usaStatesToggleButtonPressed();
-								
-								hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForUSA.setToX(0);
-								
-								translateTransitionForHBoxMainForUSA.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForUSA.setVisible(true);
-								translateTransitionForHBoxMainForUSA.playFromStart();
-							});
-							translateTransitionForHBoxMainForAttractions.playFromStart();
-						}
-						else if(oldValue == null)
-							usaStatesToggleButtonPressed();
-					}
-					else
-					{
-						if(oldValue == continentsAndCountriesToggleButton)
-						{
-							hBoxMainForCountriesAndContinents.setTranslateX(stage.getWidth() - hBoxMainForCountriesAndContinents.getLayoutX() + 20);
-							hBoxMainForCountriesAndContinents.setVisible(false);
-						}
-						else if(oldValue == greeceToggleButton)
-						{
-							hBoxMainForGreece.setTranslateX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-							hBoxMainForGreece.setVisible(false);
-						}
-						else if(oldValue == attractionsToggleButton)
-						{
-							hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							hBoxMainForAttractions.setVisible(false);
-						}
-						else if(oldValue == null)
-							usaStatesToggleButtonPressed();
-						
 						usaStatesToggleButtonPressed();
 						
 						hBoxMainForUSA.setTranslateX(0);
 						hBoxMainForUSA.setVisible(true);
 						
-						hBoxFor5Icons.setDisable(false);
 						hBoxForToggleButtons.setDisable(false);
 						backButton.setDisable(false);
 					}
-				}
-				else if (getCategoryCurrentlyViewing() == 3)
-				{
-					if(animationsUsed != ANIMATIONS.NO)
+					else if (toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 					{
-						if (oldValue == continentsAndCountriesToggleButton)
-						{
-							translateTransitionForHBoxMainForCountriesAndContinents.setToX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(ev ->
-							{
-								hBoxMainForCountriesAndContinents.setVisible(false);
-								
-								greeceToggleButtonPressed();
-								
-								hBoxMainForGreece.setTranslateX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-								translateTransitionForHBoxMainForGreece.setToX(0);
-								
-								translateTransitionForHBoxMainForGreece.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForGreece.setVisible(true);
-								translateTransitionForHBoxMainForGreece.playFromStart();
-							});
-							translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
-						}
-						else if(oldValue == USAToggleButton)
-						{
-							translateTransitionForHBoxMainForUSA.setToX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForUSA.setOnFinished(ev ->
-							{
-								hBoxMainForUSA.setVisible(false);
-								
-								greeceToggleButtonPressed();
-								
-								hBoxMainForGreece.setTranslateX(stage.getWidth() - hBoxMainForGreece.getLayoutX() + 20);
-								translateTransitionForHBoxMainForGreece.setToX(0);
-								
-								translateTransitionForHBoxMainForGreece.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForGreece.setVisible(true);
-								translateTransitionForHBoxMainForGreece.playFromStart();
-							});
-							translateTransitionForHBoxMainForUSA.playFromStart();
-						}
-						else if(oldValue == attractionsToggleButton)
-						{
-							translateTransitionForHBoxMainForAttractions.setToX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							translateTransitionForHBoxMainForAttractions.setOnFinished(ev ->
-							{
-								hBoxMainForAttractions.setVisible(false);
-								
-								greeceToggleButtonPressed();
-								
-								hBoxMainForGreece.setTranslateX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
-								translateTransitionForHBoxMainForGreece.setToX(0);
-								
-								translateTransitionForHBoxMainForGreece.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForGreece.setVisible(true);
-								translateTransitionForHBoxMainForGreece.playFromStart();
-							});
-							translateTransitionForHBoxMainForAttractions.playFromStart();
-						}
-						else if(oldValue == null)
-							greeceToggleButtonPressed();
-					}
-					else
-					{
-						if(oldValue == continentsAndCountriesToggleButton)
-						{
-							hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-							hBoxMainForCountriesAndContinents.setVisible(false);
-						}
-						if(oldValue == USAToggleButton)
-						{
-							hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-							hBoxMainForUSA.setVisible(false);
-						}
-						else if(oldValue == attractionsToggleButton)
-						{
-							hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-							hBoxMainForAttractions.setVisible(false);
-						}
-						else if(oldValue == null)
-							greeceToggleButtonPressed();
-						
 						greeceToggleButtonPressed();
 						
 						hBoxMainForGreece.setTranslateX(0);
 						hBoxMainForGreece.setVisible(true);
 						
-						hBoxFor5Icons.setDisable(false);
 						hBoxForToggleButtons.setDisable(false);
 						backButton.setDisable(false);
 					}
-				}
-				else if(getCategoryCurrentlyViewing() == 4)
-				{
-					if(animationsUsed != ANIMATIONS.NO)
+					else if(toggleGroupForToggleButtons.getSelectedToggle() == attractionsToggleButton)
 					{
-						if(oldValue == continentsAndCountriesToggleButton)
-						{
-							translateTransitionForHBoxMainForCountriesAndContinents.setToX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForCountriesAndContinents.setOnFinished(ev ->
-							{
-								hBoxMainForCountriesAndContinents.setVisible(false);
-								
-								attractionsToggleButtonPressed();
-								
-								hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-								translateTransitionForHBoxMainForAttractions.setToX(0);
-								
-								translateTransitionForHBoxMainForAttractions.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForAttractions.setVisible(true);
-								translateTransitionForHBoxMainForAttractions.playFromStart();
-							});
-							translateTransitionForHBoxMainForCountriesAndContinents.playFromStart();
-						}
-						else if(oldValue == USAToggleButton)
-						{
-							translateTransitionForHBoxMainForUSA.setToX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForUSA.setOnFinished(ev ->
-							{
-								hBoxMainForUSA.setVisible(false);
-								
-								attractionsToggleButtonPressed();
-								
-								hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-								translateTransitionForHBoxMainForAttractions.setToX(0);
-								
-								translateTransitionForHBoxMainForAttractions.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForAttractions.setVisible(true);
-								translateTransitionForHBoxMainForAttractions.playFromStart();
-							});
-							translateTransitionForHBoxMainForUSA.playFromStart();
-						}
-						else if(oldValue == greeceToggleButton)
-						{
-							translateTransitionForHBoxMainForGreece.setToX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
-							translateTransitionForHBoxMainForGreece.setOnFinished(ev ->
-							{
-								hBoxMainForGreece.setVisible(false);
-								
-								attractionsToggleButtonPressed();
-								
-								hBoxMainForAttractions.setTranslateX(stage.getWidth() - hBoxMainForAttractions.getLayoutX() + 20);
-								translateTransitionForHBoxMainForAttractions.setToX(0);
-								
-								translateTransitionForHBoxMainForAttractions.setOnFinished(evn ->
-								{
-									hBoxFor5Icons.setDisable(false);
-									hBoxForToggleButtons.setDisable(false);
-									backButton.setDisable(false);
-								});
-								
-								hBoxMainForAttractions.setVisible(true);
-								translateTransitionForHBoxMainForAttractions.playFromStart();
-							});
-							translateTransitionForHBoxMainForGreece.playFromStart();
-						}
-						else if(oldValue == null)
-							attractionsToggleButtonPressed();
-					}
-					else
-					{
-						if(oldValue == continentsAndCountriesToggleButton)
-						{
-							hBoxMainForCountriesAndContinents.setTranslateX(-1 * (hBoxMainForCountriesAndContinents.getLayoutX() + hBoxMainForCountriesAndContinents.getPrefWidth() + 20));
-							hBoxMainForCountriesAndContinents.setVisible(false);
-						}
-						if(oldValue == USAToggleButton)
-						{
-							hBoxMainForUSA.setTranslateX(-1 * (hBoxMainForUSA.getLayoutX() + hBoxMainForUSA.getPrefWidth() + 20));
-							hBoxMainForUSA.setVisible(false);
-						}
-						else if(oldValue == greeceToggleButton)
-						{
-							hBoxMainForGreece.setTranslateX(-1 * (hBoxMainForGreece.getLayoutX() + hBoxMainForGreece.getPrefWidth() + 20));
-							hBoxMainForGreece.setVisible(false);
-						}
-						else if(oldValue == null)
-							attractionsToggleButtonPressed();
-						
 						attractionsToggleButtonPressed();
 						
 						hBoxMainForAttractions.setTranslateX(0);
 						hBoxMainForAttractions.setVisible(true);
 						
-						hBoxFor5Icons.setDisable(false);
 						hBoxForToggleButtons.setDisable(false);
 						backButton.setDisable(false);
 					}
@@ -1775,7 +1395,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			}
 		});
 		
-		continentsAndCountriesToggleButton.setOnMouseEntered(e -> playHoverSound());
+		countriesAndContinentsToggleButton.setOnMouseEntered(e -> playHoverSound());
 		
 		USAToggleButton.setOnMouseEntered(e -> playHoverSound());
 		
@@ -1792,7 +1412,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				setIndexInOptionsForCountriesAndContinents(optionsForCountriesAndContinentsComboBox.getSelectionModel().getSelectedIndex());
 				if (animationsUsed != ANIMATIONS.NO)
 				{
-					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
 					backButton.setDisable(true);
 					
@@ -1808,7 +1427,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						{
 							scaleTransitionForHBoxMainForCountriesAndContinents.setOnFinished(eve -> {});
 							
-							hBoxFor5Icons.setDisable(false);
 							hBoxForToggleButtons.setDisable(false);
 							backButton.setDisable(false);
 						});
@@ -1833,7 +1451,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if(animationsUsed != ANIMATIONS.NO)
 				{
-					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
 					backButton.setDisable(true);
 					
@@ -1849,7 +1466,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						{
 							scaleTransitionForHBoxMainForUSA.setOnFinished(eve -> {});
 							
-							hBoxFor5Icons.setDisable(false);
 							hBoxForToggleButtons.setDisable(false);
 							backButton.setDisable(false);
 						});
@@ -1874,7 +1490,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if (animationsUsed != ANIMATIONS.NO)
 				{
-					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
 					backButton.setDisable(true);
 					
@@ -1892,7 +1507,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 							{
 							});
 							
-							hBoxFor5Icons.setDisable(false);
 							hBoxForToggleButtons.setDisable(false);
 							backButton.setDisable(false);
 						});
@@ -1916,7 +1530,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				setIndexInOptionsForAttractions(optionsForAttractionsComboBox.getSelectionModel().getSelectedIndex());
 				if (animationsUsed != ANIMATIONS.NO)
 				{
-					hBoxFor5Icons.setDisable(true);
 					hBoxForToggleButtons.setDisable(true);
 					backButton.setDisable(true);
 					
@@ -1932,7 +1545,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						{
 							scaleTransitionForHBoxMainForAttractions.setOnFinished(eve -> {});
 							
-							hBoxFor5Icons.setDisable(false);
 							hBoxForToggleButtons.setDisable(false);
 							backButton.setDisable(false);
 						});
@@ -2196,7 +1808,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 						locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x500", countries[index].getNameInEnglish(), true));
 					else locationForCountriesAndContinentsImageSmall.setImage(getImage(ImageType.COUNTRY_LOCATION, "x1000", countries[index].getNameInEnglish(), true));
 				}
-				else if(getIndexInOptionsForCountriesAndContinents() == 5 && newValue.intValue() < NUM_ALL_CONTINENTS)
+				else if(getIndexInOptionsForCountriesAndContinents() == 5 && newValue.intValue() < Continent.NUMBER_OF_CONTINENTS)
 				{
 					int index = continentsSortList.get(newValue.intValue());
 					
@@ -2454,7 +2066,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				
 				if ((getIndexInOptionsForUSA() == 0 ||
 				     getIndexInOptionsForUSA() == 1) &&
-				     newValue.intValue() < NUM_ALL_USA_STATES)
+				     newValue.intValue() < StateOfUSA.NUMBER_OF_USA_STATES)
 				{
 					int index;
 					if(getIndexInOptionsForUSA() == 0)
@@ -2762,7 +2374,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				setIndexInListViewForGreece(newValue.intValue());
 				
-				if (getIndexInOptionsForGreece() == 0 && newValue.intValue() < NUM_ALL_GREEK_DEC_ADMIN)
+				if (getIndexInOptionsForGreece() == 0 && newValue.intValue() < GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS)
 				{
 					int index = greekDecentralizedAdministrationsSortList.get(newValue.intValue());
 					
@@ -2808,7 +2420,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					//Tooltips
 					for(int i = 0; i < 5; i++) gridPaneTooltipsForGreece[i].setText(gridPaneLabelsForGreece[i][1].getText());
 				}
-				else if(getIndexInOptionsForGreece() == 1 && newValue.intValue() < NUM_ALL_GREEK_REGIONS)
+				else if(getIndexInOptionsForGreece() == 1 && newValue.intValue() < GreekRegion.NUMBER_OF_GREEK_REGIONS)
 				{
 					int index = greekRegionsSortList.get(newValue.intValue());
 					
@@ -2874,7 +2486,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					//Tooltips
 					for(int i = 0; i < 9; i++) gridPaneTooltipsForGreece[i].setText(gridPaneLabelsForGreece[i][1].getText());
 				}
-				else if(getIndexInOptionsForGreece() == 2 && newValue.intValue() < NUM_ALL_GREEK_REGIONAL_UNITS)
+				else if(getIndexInOptionsForGreece() == 2 && newValue.intValue() < GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS)
 				{
 					int index = greekRegionalUnitsSortList.get(newValue.intValue());
 					
@@ -3102,15 +2714,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				pressedOutsideOfBigImage = (e.getSceneX() < rectangleForBigImage.getLayoutX() || e.getSceneX() > rectangleForBigImage.getLayoutX() + rectangleForBigImage.getWidth()
 						|| e.getSceneY() < rectangleForBigImage.getLayoutY() || e.getSceneY() > rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight())
-						&& !anchorPane.getCursor().equals(Cursor.H_RESIZE) && !anchorPane.getCursor().equals(Cursor.V_RESIZE)
-						&& !minimizeIcon.isHover() && !moveIcon.isHover() && !fullScreenIcon.isHover() && !exitIcon.isHover();
+						&& !anchorPane.getCursor().equals(Cursor.H_RESIZE) && !anchorPane.getCursor().equals(Cursor.V_RESIZE);
 			}
 			else if(isInfoOpen)
 			{
 				pressedOutsideOfGreekInfo = (e.getSceneX() < rectangleToShowInfo.getLayoutX() || e.getSceneX() > rectangleToShowInfo.getLayoutX() + rectangleToShowInfo.getWidth()
 						|| e.getSceneY() < rectangleToShowInfo.getLayoutY() || e.getSceneY() > rectangleToShowInfo.getLayoutY() + rectangleToShowInfo.getHeight())
-						&& !anchorPane.getCursor().equals(Cursor.H_RESIZE) && !anchorPane.getCursor().equals(Cursor.V_RESIZE)
-						&& !minimizeIcon.isHover() && !moveIcon.isHover() && !fullScreenIcon.isHover() && !exitIcon.isHover();
+						&& !anchorPane.getCursor().equals(Cursor.H_RESIZE) && !anchorPane.getCursor().equals(Cursor.V_RESIZE);
 			}
 		});
 		
@@ -3159,16 +2769,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 				else
 				{
-					if(OS == OsCheck.OSType.Windows)
-					{
-						titleImage.setTranslateX(-0.1068 * stage.getWidth());
-						titleLabel.setTranslateX(-0.1068 * stage.getWidth());
-					}
-					else
-					{
-						titleImage.setTranslateX(0.1068 * stage.getWidth());
-						titleLabel.setTranslateX(0.1068 * stage.getWidth());
-					}
+					titleImage.setTranslateX(-0.0416 * atlasScene.getWidth());
+					titleLabel.setTranslateX(-0.0416 * atlasScene.getWidth());
 					vBoxForSound.setTranslateY(0);
 					vBoxForSound.setVisible(true);
 				}
@@ -3232,7 +2834,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				if(bigImageStatus != 0) closeBigImage();
 				else if(isInfoOpen) closeMoreInfo();
-				else if(fullScreenMode) setWindowedMode();
 			}
 		});
 		
@@ -3261,52 +2862,52 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	protected void setupLimitedAnimations()
 	{
-		translateTransitionForTitleImage = new TranslateTransition(Duration.millis(300), titleImage);
-		scaleTransitionForTitleLabel = new ScaleTransition(Duration.millis(300), titleLabel);
-		translateTransitionForTitleLabel = new TranslateTransition(Duration.millis(300), titleLabel);
+		translateTransitionForTitleImage = new TranslateTransition(Duration.millis(200), titleImage);
+		scaleTransitionForTitleLabel = new ScaleTransition(Duration.millis(200), titleLabel);
+		translateTransitionForTitleLabel = new TranslateTransition(Duration.millis(200), titleLabel);
 		
-		translateTransitionForWoodImageFor5Icons = new TranslateTransition(Duration.millis(300), woodPanelFor5IconsImage);
-		scaleTransitionForHBoxFor5Icons = new ScaleTransition(Duration.millis(300), hBoxFor5Icons);
+		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(200), vBoxForSound);
 		
-		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(300), vBoxForSound);
+		scaleTransitionForBackButton = new ScaleTransition(Duration.millis(200), backButton);
 		
-		scaleTransitionForBackButton = new ScaleTransition(Duration.millis(300), backButton);
+		scaleTransitionForCountriesToggleButton = new ScaleTransition(Duration.millis(200), countriesAndContinentsToggleButton);
+		scaleTransitionForUSAStatesToggleButton = new ScaleTransition(Duration.millis(200), USAToggleButton);
+		scaleTransitionForGreekCountiesToggleButton = new ScaleTransition(Duration.millis(200), greeceToggleButton);
+		scaleTransitionForAttractionsToggleButton = new ScaleTransition(Duration.millis(200), attractionsToggleButton);
 		
-		scaleTransitionForCountriesToggleButton = new ScaleTransition(Duration.millis(300), continentsAndCountriesToggleButton);
-		scaleTransitionForUSAStatesToggleButton = new ScaleTransition(Duration.millis(300), USAToggleButton);
-		scaleTransitionForGreekCountiesToggleButton = new ScaleTransition(Duration.millis(300), greeceToggleButton);
-		scaleTransitionForAttractionsToggleButton = new ScaleTransition(Duration.millis(300), attractionsToggleButton);
-		
-		scaleTransitionForRectangleForBigImage = new ScaleTransition(Duration.millis(300), rectangleForBigImage);
-		scaleTransitionForBigImage = new ScaleTransition(Duration.millis(300), bigImage);
-		scaleTransitionForLabelInBigImage = new ScaleTransition(Duration.millis(300), labelForBigImage);
-		scaleTransitionForPreviousInBigImage = new ScaleTransition(Duration.millis(300), previousInBigImageButton);
-		scaleTransitionForNextInBigImage = new ScaleTransition(Duration.millis(300), nextInBigImageButton);
-		scaleTransitionForExitInBigImage = new ScaleTransition(Duration.millis(300), exitBigImage);
-		scaleTransitionForZoomInInBigImage = new ScaleTransition(Duration.millis(300), zoomInBigImage);
-		scaleTransitionForZoomOutInBigImage = new ScaleTransition(Duration.millis(300), zoomOutBigImage);
+		scaleTransitionForRectangleForBigImage = new ScaleTransition(Duration.millis(200), rectangleForBigImage);
+		scaleTransitionForBigImage = new ScaleTransition(Duration.millis(200), bigImage);
+		scaleTransitionForLabelInBigImage = new ScaleTransition(Duration.millis(200), labelForBigImage);
+		scaleTransitionForPreviousInBigImage = new ScaleTransition(Duration.millis(200), previousInBigImageButton);
+		scaleTransitionForNextInBigImage = new ScaleTransition(Duration.millis(200), nextInBigImageButton);
+		scaleTransitionForExitInBigImage = new ScaleTransition(Duration.millis(200), exitBigImage);
+		scaleTransitionForZoomInInBigImage = new ScaleTransition(Duration.millis(200), zoomInBigImage);
+		scaleTransitionForZoomOutInBigImage = new ScaleTransition(Duration.millis(200), zoomOutBigImage);
 		
 		scaleTransitionForRectangleForInfo = new ScaleTransition(Duration.millis(200), rectangleToShowInfo);
 		scaleTransitionForTextAreaForInfo = new ScaleTransition(Duration.millis(200), textAreaForInfo);
 		
-		scaleTransitionForHBoxMainForCountriesAndContinents = new ScaleTransition(Duration.millis(300), hBoxMainForCountriesAndContinents);
-		scaleTransitionForHBoxMainForUSA = new ScaleTransition(Duration.millis(300), hBoxMainForUSA);
-		scaleTransitionForHBoxMainForGreece = new ScaleTransition(Duration.millis(300), hBoxMainForGreece);
-		scaleTransitionForHBoxMainForAttractions = new ScaleTransition(Duration.millis(300), hBoxMainForAttractions);
+		scaleTransitionForHBoxMainForCountriesAndContinents = new ScaleTransition(Duration.millis(200), hBoxMainForCountriesAndContinents);
+		scaleTransitionForHBoxMainForUSA = new ScaleTransition(Duration.millis(200), hBoxMainForUSA);
+		scaleTransitionForHBoxMainForGreece = new ScaleTransition(Duration.millis(200), hBoxMainForGreece);
+		scaleTransitionForHBoxMainForAttractions = new ScaleTransition(Duration.millis(200), hBoxMainForAttractions);
 		
-		translateTransitionForHBoxMainForCountriesAndContinents = new TranslateTransition(Duration.millis(400), hBoxMainForCountriesAndContinents);
-		translateTransitionForHBoxMainForUSA = new TranslateTransition(Duration.millis(400), hBoxMainForUSA);
-		translateTransitionForHBoxMainForGreece = new TranslateTransition(Duration.millis(400), hBoxMainForGreece);
-		translateTransitionForHBoxMainForAttractions = new TranslateTransition(Duration.millis(400), hBoxMainForAttractions);
+		translateTransitionForHBoxMainForCountriesAndContinents = new TranslateTransition(Duration.millis(200), hBoxMainForCountriesAndContinents);
+		translateTransitionForHBoxMainForUSA = new TranslateTransition(Duration.millis(200), hBoxMainForUSA);
+		translateTransitionForHBoxMainForGreece = new TranslateTransition(Duration.millis(200), hBoxMainForGreece);
+		translateTransitionForHBoxMainForAttractions = new TranslateTransition(Duration.millis(200), hBoxMainForAttractions);
 		
-		fadeTransitionForMovingEarthImage = new FadeTransition(Duration.millis(400), movingEarthImage);
+		fadeTransitionForMovingEarthImage = new FadeTransition(Duration.millis(300), movingEarthImage);
+		
+		translateTransitionForWoodPanelFor1IconImage = new TranslateTransition(Duration.millis(200), woodPanelFor1IconImage);
+		
+		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(200), soundIcon);
 		
 		timeLineToShowAllStuff = new Timeline(
          new KeyFrame(Duration.millis(0), e ->
          {
              backButton.setDisable(true);
              hBoxForToggleButtons.setDisable(true);
-             hBoxFor5Icons.setDisable(true);
 	         hBoxMainForCountriesAndContinents.setDisable(true);
 	         hBoxMainForUSA.setDisable(true);
 	         hBoxMainForGreece.setDisable(true);
@@ -3315,19 +2916,23 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
              fadeTransitionForMovingEarthImage.setToValue(1);
              fadeTransitionForMovingEarthImage.playFromStart();
          }),
-         new KeyFrame(Duration.millis(400), e ->
+         new KeyFrame(Duration.millis(300), e ->
          {
              translateTransitionForTitleImage.setToX(0);
              translateTransitionForTitleImage.setToY(0);
-             translateTransitionForWoodImageFor5Icons.setToY(0);
+	
+			 translateTransitionForWoodPanelFor1IconImage.setToY(0);
 
              playSlideSound();
              translateTransitionForTitleImage.playFromStart();
-             translateTransitionForWoodImageFor5Icons.playFromStart();
+			 translateTransitionForWoodPanelFor1IconImage.playFromStart();
          }),
-         new KeyFrame(Duration.millis(700), e ->
+         new KeyFrame(Duration.millis(500), e ->
          {
-             scaleTransitionForTitleLabel.setDuration(Duration.millis(300));
+			 scaleTransitionForSoundIcon.setToX(1);
+			 scaleTransitionForSoundIcon.setToY(1);
+			 
+             scaleTransitionForTitleLabel.setDuration(Duration.millis(200));
              scaleTransitionForTitleLabel.setCycleCount(1);
              scaleTransitionForTitleLabel.setAutoReverse(false);
              scaleTransitionForTitleLabel.setFromX(0);
@@ -3335,8 +2940,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
              scaleTransitionForTitleLabel.setToX(0.90);
              scaleTransitionForTitleLabel.setToY(0.90);
 
-             scaleTransitionForHBoxFor5Icons.setToX(1);
-             scaleTransitionForHBoxFor5Icons.setToY(1);
              scaleTransitionForBackButton.setToX(1);
              scaleTransitionForBackButton.setToY(1);
 
@@ -3364,10 +2967,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
              scaleTransitionForGreekCountiesToggleButton.playFromStart();
              scaleTransitionForAttractionsToggleButton.playFromStart();
              scaleTransitionForTitleLabel.playFromStart();
-             scaleTransitionForHBoxFor5Icons.playFromStart();
              scaleTransitionForBackButton.playFromStart();
+			 scaleTransitionForSoundIcon.playFromStart();
          }),
-         new KeyFrame(Duration.millis(1000), e ->
+         new KeyFrame(Duration.millis(700), e ->
          {
 	         if(hBoxMainForCountriesAndContinents.isVisible())
 	         {
@@ -3402,11 +3005,10 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		         scaleTransitionForHBoxMainForAttractions.playFromStart();
 	         }
          }),
-         new KeyFrame(Duration.millis(1300), e ->
+         new KeyFrame(Duration.millis(900), e ->
          {
 	         backButton.setDisable(false);
 	         hBoxForToggleButtons.setDisable(false);
-	         hBoxFor5Icons.setDisable(false);
 	         hBoxMainForCountriesAndContinents.setDisable(false);
 	         hBoxMainForUSA.setDisable(false);
 	         hBoxMainForGreece.setDisable(false);
@@ -3418,7 +3020,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
          {
 	         backButton.setDisable(true);
 	         hBoxForToggleButtons.setDisable(true);
-	         hBoxFor5Icons.setDisable(true);
 	         hBoxMainForCountriesAndContinents.setDisable(true);
 	         hBoxMainForUSA.setDisable(true);
 	         hBoxMainForGreece.setDisable(true);
@@ -3457,12 +3058,15 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		         scaleTransitionForHBoxMainForAttractions.playFromStart();
 	         }
          }),
-         new KeyFrame(Duration.millis(500), e ->
+         new KeyFrame(Duration.millis(400), e ->
          {
 	         if(gridViewForImagesForCountriesAndContinents.getItems() != emptyObservableList) gridViewForImagesForCountriesAndContinents.setItems(emptyObservableList);
 	         else if(gridViewForImagesForUSA.getItems() != emptyObservableList) gridViewForImagesForUSA.setItems(emptyObservableList);
-	         
-             scaleTransitionForTitleLabel.setDuration(Duration.millis(300));
+	
+			 scaleTransitionForSoundIcon.setToX(0);
+			 scaleTransitionForSoundIcon.setToY(0);
+			 
+             scaleTransitionForTitleLabel.setDuration(Duration.millis(200));
              scaleTransitionForTitleLabel.setFromX(titleLabel.getScaleX());
              scaleTransitionForTitleLabel.setFromY(titleLabel.getScaleY());
              scaleTransitionForTitleLabel.setToX(0);
@@ -3472,8 +3076,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	         scaleTransitionForTitleLabel.setOnFinished(ev -> {});
 
-             scaleTransitionForHBoxFor5Icons.setToX(0);
-             scaleTransitionForHBoxFor5Icons.setToY(0);
              scaleTransitionForBackButton.setToX(0);
              scaleTransitionForBackButton.setToY(0);
 
@@ -3493,37 +3095,40 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
              playMinimizeSound();
              scaleTransitionForTitleLabel.playFromStart();
-             scaleTransitionForHBoxFor5Icons.playFromStart();
              scaleTransitionForBackButton.playFromStart();
+			 scaleTransitionForSoundIcon.playFromStart();
          }),
-         new KeyFrame(Duration.millis(800), e ->
+         new KeyFrame(Duration.millis(600), e ->
          {
              translateTransitionForTitleImage.setToY(-1.0 * (titleImage.getLayoutY() + titleImage.getBoundsInParent().getHeight() + 20));
-             translateTransitionForWoodImageFor5Icons.setToY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
-
+			 translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
+             
              playSlideSound();
              translateTransitionForTitleImage.playFromStart();
-             translateTransitionForWoodImageFor5Icons.playFromStart();
+			 translateTransitionForWoodPanelFor1IconImage.playFromStart();
 
              if(vBoxForSound.isVisible())
              {
+				 setSoundIcon(soundIcon, false);
+				 
                  translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
                  translateTransitionForVBoxForSound.playFromStart();
              }
          }),
-         new KeyFrame(Duration.millis(1100), e ->
+         new KeyFrame(Duration.millis(800), e ->
          {
+			 vBoxForSound.setVisible(false);
+			 
              fadeTransitionForMovingEarthImage.setToValue(0);
              fadeTransitionForMovingEarthImage.playFromStart();
          }),
-         new KeyFrame(Duration.millis(1500), e ->
+         new KeyFrame(Duration.millis(1100), e ->
          {
              if(animationsUsed == ANIMATIONS.ALL) pauseEarthAnimation();
              welcomeScreen.showScreen(false);
 	
 	         backButton.setDisable(false);
 	         hBoxForToggleButtons.setDisable(false);
-	         hBoxFor5Icons.setDisable(false);
 	         hBoxMainForCountriesAndContinents.setDisable(false);
 	         hBoxMainForUSA.setDisable(false);
 	         hBoxMainForGreece.setDisable(false);
@@ -3531,36 +3136,27 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
          }));
 		
 		timelineToShowSoundOptions = new Timeline(
-            new KeyFrame(Duration.millis(0), e ->
-             {
-                 soundIcon.setDisable(true);
-
-                 if(OS == OsCheck.OSType.Windows)
-                 {
-                     translateTransitionForTitleImage.setToX(-0.1068 * stage.getWidth());
-                     translateTransitionForTitleLabel.setToX(-0.1068 * stage.getWidth());
-                 }
-                 else
-                 {
-                     translateTransitionForTitleImage.setToX(0.1068 * stage.getWidth());
-                     translateTransitionForTitleLabel.setToX(0.1068 * stage.getWidth());
-                 }
-                 translateTransitionForTitleImage.setToY(0);
-                 translateTransitionForTitleLabel.setToY(0);
-
-                 playSlideSound();
-                 translateTransitionForTitleImage.playFromStart();
-                 translateTransitionForTitleLabel.playFromStart();
-             }),
-             new KeyFrame(Duration.millis(150), e ->
-             {
-                 vBoxForSound.setVisible(true);
-                 translateTransitionForVBoxForSound.setToY(0);
-
-                 playSlideSound();
-                 translateTransitionForVBoxForSound.playFromStart();
-             }),
-             new KeyFrame(Duration.millis(450), e -> soundIcon.setDisable(false)));
+		new KeyFrame(Duration.millis(0), e ->
+		{
+			soundIcon.setDisable(true);
+			
+			translateTransitionForTitleImage.setToX(-0.0416 * atlasScene.getWidth());
+			translateTransitionForTitleLabel.setToX(-0.0416 * atlasScene.getWidth());
+			translateTransitionForTitleImage.setToY(0);
+			translateTransitionForTitleLabel.setToY(0);
+			
+			playSlideSound();
+			translateTransitionForTitleImage.playFromStart();
+			translateTransitionForTitleLabel.playFromStart();
+		}),
+		new KeyFrame(Duration.millis(100), e ->
+		{
+			 vBoxForSound.setVisible(true);
+			 translateTransitionForVBoxForSound.setToY(0);
+			
+			 translateTransitionForVBoxForSound.playFromStart();
+		}),
+		new KeyFrame(Duration.millis(300), e -> soundIcon.setDisable(false)));
 		
 		timelineToHideSoundOptions = new Timeline(
          new KeyFrame(Duration.millis(0), e ->
@@ -3572,18 +3168,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
              playSlideSound();
              translateTransitionForVBoxForSound.playFromStart();
          }),
-         new KeyFrame(Duration.millis(150), e ->
+         new KeyFrame(Duration.millis(100), e ->
          {
              translateTransitionForTitleImage.setToY(0);
              translateTransitionForTitleImage.setToX(0);
              translateTransitionForTitleLabel.setToY(0);
              translateTransitionForTitleLabel.setToX(0);
 
-             playSlideSound();
              translateTransitionForTitleImage.playFromStart();
              translateTransitionForTitleLabel.playFromStart();
          }),
-         new KeyFrame(Duration.millis(450), e ->
+         new KeyFrame(Duration.millis(300), e ->
          {
              soundIcon.setDisable(false);
              vBoxForSound.setVisible(false);
@@ -3592,12 +3187,9 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	
 	void showScreen()
 	{
+		stage.setScene(atlasScene);
+		
 		setInitialStateForAllNodes();
-		
-		if (fullScreenMode) setFullScreenMode();
-		else setWindowedMode();
-		
-		mainScene.setRoot(anchorPane);
 		
 		if(animationsUsed != ANIMATIONS.NO) timeLineToShowAllStuff.playFromStart();
 	}
@@ -3609,8 +3201,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			previousChalkboardImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
 			woodenFrameImage.setImage(FRAME_IMAGE);
 			movingEarthImage.setImage(MOVING_EARTH_IMAGE_1);
-			woodPanelFor5IconsImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_5_BUTTONS);
 			titleImage.setImage(EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE);
+			woodPanelFor1IconImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON);
 			backArrowImage.setImage(BACK_ARROW);
 			previousInBigImageButton.setImage(BACK_ARROW);
 			nextInBigImageButton.setImage(BACK_ARROW);
@@ -3667,12 +3259,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			countriesObservableNamesList.clear();
 			countriesSortList.clear();
-			for (short i = 0; i < NUM_ALL_COUNTRIES; i++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES; i++)
 			{
 				String s = countries[i].getNameInGreek();
 				switch (s)
 				{
-					case "Πρώην Γιουγκοσλαβική Δημοκρατία της Μακεδονίας":s = "Πρώην Γιουγκοσλαβική\nΔημοκρατία της Μακεδονίας";break;
 					case "Κοινοπολιτεία των Βορείων Μαριανών Νήσων":s = "Κοινοπολιτεία των Βορείων\nΜαριανών Νήσων";break;
 					case "Ομόσπονδες Πολιτείες της Μικρονησίας":s = "Ομόσπονδες Πολιτείες\nτης Μικρονησίας";break;
 				}
@@ -3683,8 +3274,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			capitalsOfCountriesObservableNamesList.clear();
 			capitalsOfCountriesSortList.clear();
-			ArrayList<Short> tempList = new ArrayList<>();
-			for (short i = 0; i < NUM_ALL_COUNTRIES; i++)
+			ArrayList<Integer> tempList = new ArrayList<>();
+			for (int i = 0; i < NUM_ALL_COUNTRIES; i++)
 			{
 				String s = countries[i].getCapitalName();
 				switch (s)
@@ -3698,13 +3289,13 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				capitalsOfCountriesSortList.add(i);
 				tempList.add(countries[i].getPositionInCapitals());
 			}
-			for (short i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
-				for (short y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
+				for (int y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
 					if ((tempList.get(y).compareTo(tempList.get(y + 1))) > 0)
 					{
 						String temp = capitalsOfCountriesObservableNamesList.get(y);
-						short s = capitalsOfCountriesSortList.get(y);
-						short t = tempList.get(y);
+						int s = capitalsOfCountriesSortList.get(y);
+						int t = tempList.get(y);
 						
 						capitalsOfCountriesObservableNamesList.set(y, capitalsOfCountriesObservableNamesList.get(y + 1));
 						capitalsOfCountriesSortList.set(y, capitalsOfCountriesSortList.get(y + 1));
@@ -3717,7 +3308,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			continentsObservableNamesList.clear();
 			continentsSortList.clear();
-			for (short i = 0; i < NUM_ALL_CONTINENTS; i++)
+			for (int i = 0; i < Continent.NUMBER_OF_CONTINENTS; i++)
 			{
 				continentsObservableNamesList.add(continents[i].getNameInGreek());
 				continentsSortList.add(i);
@@ -3725,7 +3316,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			statesOfUSAObservableNamesList.clear();
 			statesOfUSASortList.clear();
-			for (short i = 0; i < NUM_ALL_USA_STATES; i++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES; i++)
 			{
 				statesOfUSAObservableNamesList.add(statesOfUSA[i].getNameInGreek());
 				statesOfUSASortList.add(i);
@@ -3734,19 +3325,19 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			capitalsOfStatesObservableNamesList.clear();
 			capitalsOfStatesSortList.clear();
 			tempList.clear();
-			for (short i = 0; i < NUM_ALL_USA_STATES; i++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES; i++)
 			{
 				capitalsOfStatesObservableNamesList.add(statesOfUSA[i].getCapitalName());
 				capitalsOfStatesSortList.add(i);
 				tempList.add(statesOfUSA[i].getPositionInCapitals());
 			}
-			for (short i = 0; i < NUM_ALL_USA_STATES - 1; i++)
-				for (short y = 0; y < NUM_ALL_USA_STATES - i - 1; y++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES - 1; i++)
+				for (int y = 0; y < StateOfUSA.NUMBER_OF_USA_STATES - i - 1; y++)
 					if ((tempList.get(y).compareTo(tempList.get(y + 1))) > 0)
 					{
 						String temp = capitalsOfStatesObservableNamesList.get(y);
-						short s = capitalsOfStatesSortList.get(y);
-						short t = tempList.get(y);
+						int s = capitalsOfStatesSortList.get(y);
+						int t = tempList.get(y);
 						
 						capitalsOfStatesObservableNamesList.set(y, capitalsOfStatesObservableNamesList.get(y + 1));
 						capitalsOfStatesSortList.set(y, capitalsOfStatesSortList.get(y + 1));
@@ -3759,7 +3350,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekDecentralizedAdministrationsObservableNamesList.clear();
 			greekDecentralizedAdministrationsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_DEC_ADMIN; i++)
+			for (int i = 0; i < GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS; i++)
 			{
 				String s = greekDecAdm[i].getNameInGreek();
 				switch (s)
@@ -3776,7 +3367,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekRegionsObservableNamesList.clear();
 			greekRegionsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONS; i++)
+			for (int i = 0; i < GreekRegion.NUMBER_OF_GREEK_REGIONS; i++)
 			{
 				String s = greekRegions[i].getNameInGreek();
 				if(s.equals("Περιφέρεια Ανατολικής Μακεδονίας και Θράκης")) s = "Περιφέρεια Ανατολικής Μακεδονίας\nκαι Θράκης";
@@ -3787,7 +3378,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekRegionalUnitsObservableNamesList.clear();
 			greekRegionalUnitsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONAL_UNITS; i++)
+			for (int i = 0; i < GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS; i++)
 			{
 				String s = greekRegionalUnits[i].getNameInGreek();
 				switch (s)
@@ -3810,7 +3401,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			attractionsObservableNamesList.clear();
 			attractionsSortList.clear();
-			for (short i = 0; i < Attraction.getNumberOfAttractions(); i++)
+			for (int i = 0; i < Attraction.getNumberOfAttractions(); i++)
 			{
 				String s = attractions[i].getNameInGreek();
 
@@ -3828,25 +3419,24 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			countriesObservableNamesList.clear();
 			countriesSortList.clear();
-			for (short i = 0; i < NUM_ALL_COUNTRIES; i++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES; i++)
 			{
 				String s = countries[i].getNameInEnglish();
 				switch (s)
 				{
 					case "Federated States of Micronesia":s = "Federated States\nof Micronesia";break;
-					case "Former Yugoslav Republic of Macedonia":s = "Former Yugoslav\nRepublic of Macedonia";break;
 					case "Commonwealth of the Northern Mariana Islands":s = "Commonwealth of the\nNorthern Mariana Islands";break;
 				}
 				
 				countriesObservableNamesList.add(s);
 				countriesSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
-				for (short y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
+				for (int y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
 					if (countriesObservableNamesList.get(y).compareTo(countriesObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = countriesObservableNamesList.get(y);
-						short s = countriesSortList.get(y);
+						int s = countriesSortList.get(y);
 						
 						countriesObservableNamesList.set(y, countriesObservableNamesList.get(y + 1));
 						countriesSortList.set(y, countriesSortList.get(y + 1));
@@ -3857,7 +3447,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			capitalsOfCountriesObservableNamesList.clear();
 			capitalsOfCountriesSortList.clear();
-			for (short i = 0; i < NUM_ALL_COUNTRIES; i++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES; i++)
 			{
 				String s = countries[i].getCapitalName();
 				if(s.equals("Flying Fish Cove (\"The Settlement\")")) s = "Flying Fish Cove\n(\"The Settlement\")";
@@ -3865,12 +3455,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				capitalsOfCountriesObservableNamesList.add(s);
 				capitalsOfCountriesSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
-				for (short y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
+			for (int i = 0; i < NUM_ALL_COUNTRIES - 1; i++)
+				for (int y = 0; y < NUM_ALL_COUNTRIES - i - 1; y++)
 					if (capitalsOfCountriesObservableNamesList.get(y).compareTo(capitalsOfCountriesObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = capitalsOfCountriesObservableNamesList.get(y);
-						short s = capitalsOfCountriesSortList.get(y);
+						int s = capitalsOfCountriesSortList.get(y);
 						
 						capitalsOfCountriesObservableNamesList.set(y, capitalsOfCountriesObservableNamesList.get(y + 1));
 						capitalsOfCountriesSortList.set(y, capitalsOfCountriesSortList.get(y + 1));
@@ -3881,17 +3471,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			continentsObservableNamesList.clear();
 			continentsSortList.clear();
-			for (short i = 0; i < NUM_ALL_CONTINENTS; i++)
+			for (int i = 0; i < Continent.NUMBER_OF_CONTINENTS; i++)
 			{
 				continentsObservableNamesList.add(continents[i].getNameInEnglish());
 				continentsSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_CONTINENTS - 1; i++)
-				for (short y = 0; y < NUM_ALL_CONTINENTS - i - 1; y++)
+			for (int i = 0; i < Continent.NUMBER_OF_CONTINENTS - 1; i++)
+				for (int y = 0; y < Continent.NUMBER_OF_CONTINENTS - i - 1; y++)
 					if (continentsObservableNamesList.get(y).compareTo(continentsObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = continentsObservableNamesList.get(y);
-						short s = continentsSortList.get(y);
+						int s = continentsSortList.get(y);
 						
 						continentsObservableNamesList.set(y, continentsObservableNamesList.get(y + 1));
 						continentsSortList.set(y, continentsSortList.get(y + 1));
@@ -3902,17 +3492,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			statesOfUSAObservableNamesList.clear();
 			statesOfUSASortList.clear();
-			for (short i = 0; i < NUM_ALL_USA_STATES; i++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES; i++)
 			{
 				statesOfUSAObservableNamesList.add(statesOfUSA[i].getNameInEnglish());
 				statesOfUSASortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_USA_STATES - 1; i++)
-				for (short y = 0; y < NUM_ALL_USA_STATES - i - 1; y++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES - 1; i++)
+				for (int y = 0; y < StateOfUSA.NUMBER_OF_USA_STATES - i - 1; y++)
 					if (statesOfUSAObservableNamesList.get(y).compareTo(statesOfUSAObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = statesOfUSAObservableNamesList.get(y);
-						short s = statesOfUSASortList.get(y);
+						int s = statesOfUSASortList.get(y);
 						
 						statesOfUSAObservableNamesList.set(y, statesOfUSAObservableNamesList.get(y + 1));
 						statesOfUSASortList.set(y, statesOfUSASortList.get(y + 1));
@@ -3923,17 +3513,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			capitalsOfStatesObservableNamesList.clear();
 			capitalsOfStatesSortList.clear();
-			for (short i = 0; i < NUM_ALL_USA_STATES; i++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES; i++)
 			{
 				capitalsOfStatesObservableNamesList.add(statesOfUSA[i].getCapitalName());
 				capitalsOfStatesSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_USA_STATES - 1; i++)
-				for (short y = 0; y < NUM_ALL_USA_STATES - i - 1; y++)
+			for (int i = 0; i < StateOfUSA.NUMBER_OF_USA_STATES - 1; i++)
+				for (int y = 0; y < StateOfUSA.NUMBER_OF_USA_STATES - i - 1; y++)
 					if (capitalsOfStatesObservableNamesList.get(y).compareTo(capitalsOfStatesObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = capitalsOfStatesObservableNamesList.get(y);
-						short s = capitalsOfStatesSortList.get(y);
+						int s = capitalsOfStatesSortList.get(y);
 						
 						capitalsOfStatesObservableNamesList.set(y, capitalsOfStatesObservableNamesList.get(y + 1));
 						capitalsOfStatesSortList.set(y, capitalsOfStatesSortList.get(y + 1));
@@ -3944,7 +3534,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekDecentralizedAdministrationsObservableNamesList.clear();
 			greekDecentralizedAdministrationsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_DEC_ADMIN; i++)
+			for (int i = 0; i < GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS; i++)
 			{
 				String s = greekDecAdm[i].getNameInEnglish();
 				switch (s)
@@ -3961,12 +3551,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				greekDecentralizedAdministrationsObservableNamesList.add(s);
 				greekDecentralizedAdministrationsSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_GREEK_DEC_ADMIN - 1; i++)
-				for (short y = 0; y < NUM_ALL_GREEK_DEC_ADMIN - i - 1; y++)
+			for (int i = 0; i < GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS - 1; i++)
+				for (int y = 0; y < GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS - i - 1; y++)
 					if (greekDecentralizedAdministrationsObservableNamesList.get(y).compareTo(greekDecentralizedAdministrationsObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = greekDecentralizedAdministrationsObservableNamesList.get(y);
-						short s = greekDecentralizedAdministrationsSortList.get(y);
+						int s = greekDecentralizedAdministrationsSortList.get(y);
 						
 						greekDecentralizedAdministrationsObservableNamesList.set(y, greekDecentralizedAdministrationsObservableNamesList.get(y + 1));
 						greekDecentralizedAdministrationsSortList.set(y, greekDecentralizedAdministrationsSortList.get(y + 1));
@@ -3977,7 +3567,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekRegionsObservableNamesList.clear();
 			greekRegionsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONS; i++)
+			for (int i = 0; i < GreekRegion.NUMBER_OF_GREEK_REGIONS; i++)
 			{
 				String s = greekRegions[i].getNameInEnglish();
 				if(s.equals("Region of Eastern Macedonia and Thrace")) s = "Region of Eastern Macedonia and\nThrace";
@@ -3985,12 +3575,12 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				greekRegionsObservableNamesList.add(s);
 				greekRegionsSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONS - 1; i++)
-				for (short y = 0; y < NUM_ALL_GREEK_REGIONS - i - 1; y++)
+			for (int i = 0; i < GreekRegion.NUMBER_OF_GREEK_REGIONS - 1; i++)
+				for (int y = 0; y < GreekRegion.NUMBER_OF_GREEK_REGIONS - i - 1; y++)
 					if (greekRegionsObservableNamesList.get(y).compareTo(greekRegionsObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = greekRegionsObservableNamesList.get(y);
-						short s = greekRegionsSortList.get(y);
+						int s = greekRegionsSortList.get(y);
 						
 						greekRegionsObservableNamesList.set(y, greekRegionsObservableNamesList.get(y + 1));
 						greekRegionsSortList.set(y, greekRegionsSortList.get(y + 1));
@@ -4001,17 +3591,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			greekRegionalUnitsObservableNamesList.clear();
 			greekRegionalUnitsSortList.clear();
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONAL_UNITS; i++)
+			for (int i = 0; i < GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS; i++)
 			{
 				greekRegionalUnitsObservableNamesList.add(greekRegionalUnits[i].getNameInEnglish());
 				greekRegionalUnitsSortList.add(i);
 			}
-			for (short i = 0; i < NUM_ALL_GREEK_REGIONAL_UNITS - 1; i++)
-				for (short y = 0; y < NUM_ALL_GREEK_REGIONAL_UNITS - i - 1; y++)
+			for (int i = 0; i < GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS - 1; i++)
+				for (int y = 0; y < GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS - i - 1; y++)
 					if (greekRegionalUnitsObservableNamesList.get(y).compareTo(greekRegionalUnitsObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = greekRegionalUnitsObservableNamesList.get(y);
-						short s = greekRegionalUnitsSortList.get(y);
+						int s = greekRegionalUnitsSortList.get(y);
 						
 						greekRegionalUnitsObservableNamesList.set(y, greekRegionalUnitsObservableNamesList.get(y + 1));
 						greekRegionalUnitsSortList.set(y, greekRegionalUnitsSortList.get(y + 1));
@@ -4022,17 +3612,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			
 			attractionsObservableNamesList.clear();
 			attractionsSortList.clear();
-			for (short i = 0; i < Attraction.getNumberOfAttractions(); i++)
+			for (int i = 0; i < Attraction.getNumberOfAttractions(); i++)
 			{
 				attractionsObservableNamesList.add(attractions[i].getNameInEnglish());
 				attractionsSortList.add(i);
 			}
-			for (short i = 0; i < Attraction.getNumberOfAttractions() - 1; i++)
-				for (short y = 0; y < Attraction.getNumberOfAttractions() - i - 1; y++)
+			for (int i = 0; i < Attraction.getNumberOfAttractions() - 1; i++)
+				for (int y = 0; y < Attraction.getNumberOfAttractions() - i - 1; y++)
 					if (attractionsObservableNamesList.get(y).compareTo(attractionsObservableNamesList.get(y + 1)) > 0)
 					{
 						String temp = attractionsObservableNamesList.get(y);
-						short s = attractionsSortList.get(y);
+						int s = attractionsSortList.get(y);
 
 						attractionsObservableNamesList.set(y, attractionsObservableNamesList.get(y + 1));
 						attractionsSortList.set(y, attractionsSortList.get(y + 1));
@@ -4044,6 +3634,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		if(animationsUsed != ANIMATIONS.NO)
 		{
+			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
+			
+			soundIcon.setScaleX(0);
+			soundIcon.setScaleY(0);
+			
 			movingEarthImage.setOpacity(0);
 			
 			titleImage.setTranslateX(0);
@@ -4052,10 +3647,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			titleLabel.setTranslateX(0);
 			titleLabel.setTranslateY(0);
 			
-			woodPanelFor5IconsImage.setTranslateY(-1.0 * (woodPanelFor5IconsImage.getLayoutY() + woodPanelFor5IconsImage.getBoundsInParent().getHeight() + 20));
-			
-			continentsAndCountriesToggleButton.setScaleX(0);
-			continentsAndCountriesToggleButton.setScaleY(0);
+			countriesAndContinentsToggleButton.setScaleX(0);
+			countriesAndContinentsToggleButton.setScaleY(0);
 			USAToggleButton.setScaleX(0);
 			USAToggleButton.setScaleY(0);
 			greeceToggleButton.setScaleX(0);
@@ -4087,9 +3680,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			backButton.setScaleX(0);
 			backButton.setScaleY(0);
 			
-			hBoxFor5Icons.setScaleX(0);
-			hBoxFor5Icons.setScaleY(0);
-			
 			titleLabel.setScaleX(0);
 			titleLabel.setScaleY(0);
 			
@@ -4097,18 +3687,21 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 		else
 		{
+			woodPanelFor1IconImage.setTranslateY(0);
+			
+			soundIcon.setScaleX(1);
+			soundIcon.setScaleY(1);
+			
 			titleImage.setTranslateX(0);
 			titleImage.setTranslateY(0);
 			
 			titleLabel.setTranslateX(0);
 			titleLabel.setTranslateY(0);
 			
-			woodPanelFor5IconsImage.setTranslateY(0);
-			
 			movingEarthImage.setOpacity(1);
 			
-			continentsAndCountriesToggleButton.setScaleX(1);
-			continentsAndCountriesToggleButton.setScaleY(1);
+			countriesAndContinentsToggleButton.setScaleX(1);
+			countriesAndContinentsToggleButton.setScaleY(1);
 			USAToggleButton.setScaleX(1);
 			USAToggleButton.setScaleY(1);
 			greeceToggleButton.setScaleX(1);
@@ -4140,21 +3733,18 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			backButton.setScaleX(1);
 			backButton.setScaleY(1);
 			
-			hBoxFor5Icons.setScaleX(1);
-			hBoxFor5Icons.setScaleY(1);
-			
 			titleLabel.setScaleX(1);
 			titleLabel.setScaleY(1);
 			
 			backButton.setDisable(false);
 			hBoxForToggleButtons.setDisable(false);
 			soundIcon.setDisable(false);
-			minimizeIcon.setDisable(false);
-			fullScreenIcon.setDisable(false);
 		}
 		
 		if(animationsUsed == ANIMATIONS.ALL) movingEarthImage.setCursor(Cursor.HAND);
 		else movingEarthImage.setCursor(Cursor.DEFAULT);
+		
+		setSoundIcon(soundIcon, false);
 		
 		vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 		vBoxForSound.setVisible(false);
@@ -4203,15 +3793,17 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		setIndexInOptionsForGreece(o3);
 		setIndexInOptionsForAttractions(o4);
 		
-		if(getCategoryCurrentlyViewing() == 0) continentsAndCountriesToggleButton.setSelected(true);
-		else if(getCategoryCurrentlyViewing() == 1) countriesAndContinentsToggleButtonPressed();
-		else if(getCategoryCurrentlyViewing() == 2) usaStatesToggleButtonPressed();
-		else if(getCategoryCurrentlyViewing() == 3) greeceToggleButtonPressed();
-		else if(getCategoryCurrentlyViewing() == 4) attractionsToggleButtonPressed();
+		if(toggleGroupForToggleButtons.getSelectedToggle() == null) countriesAndContinentsToggleButton.setSelected(true);
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton) countriesAndContinentsToggleButtonPressed();
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton) usaStatesToggleButtonPressed();
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton) greeceToggleButtonPressed();
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == attractionsToggleButton) attractionsToggleButtonPressed();
 	}
 	
 	private void countriesAndContinentsToggleButtonPressed()
 	{
+		setNamesForGridPaneLabels();
+		
 		if((getIndexInOptionsForCountriesAndContinents() == 0 ||
 		    getIndexInOptionsForCountriesAndContinents() == 1 ||
 		    getIndexInOptionsForCountriesAndContinents() == 5) &&
@@ -4330,9 +3922,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		listViewForCountriesAndContinents.getSelectionModel().selectFirst();
 		listViewForCountriesAndContinents.scrollTo(getIndexInListViewForCountriesAndContinents());
 		
-		setNamesForGridPaneLabels();
-		
-		recalculateUI(stage.getWidth(), stage.getHeight());
+		recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 	}
 	
 	private void usaStatesToggleButtonPressed()
@@ -4404,7 +3994,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		listViewForUSA.getSelectionModel().selectFirst();
 		listViewForUSA.scrollTo(getIndexInListViewForUSA());
 		
-		recalculateUI(stage.getWidth(), stage.getHeight());
+		recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 	}
 	
 	private void greeceToggleButtonPressed()
@@ -4508,7 +4098,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		listViewForGreece.getSelectionModel().selectFirst();
 		listViewForGreece.scrollTo(getIndexInListViewForGreece());
 		
-		recalculateUI(stage.getWidth(), stage.getHeight());
+		recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 	}
 	
 	private void attractionsToggleButtonPressed()
@@ -4564,7 +4154,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		listViewForAttractions.getSelectionModel().selectFirst();
 		listViewForAttractions.scrollTo(getIndexInOptionsForAttractions());
 		
-		recalculateUI(stage.getWidth(), stage.getHeight());
+		recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 	}
 
 	private void setupMoreInfo(String[] array)
@@ -4577,16 +4167,16 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 		setNumberOfTextAreaLines(array.length);
 
-		if(getNumberOfTextAreaLines() < 4) textAreaForInfo.setPrefHeight(0.15 * stage.getHeight());
-		else if(getNumberOfTextAreaLines() < 6) textAreaForInfo.setPrefHeight(0.2 * stage.getHeight());
-		else if(getNumberOfTextAreaLines() < 8) textAreaForInfo.setPrefHeight(0.27 * stage.getHeight());
-		else if(getNumberOfTextAreaLines() < 11) textAreaForInfo.setPrefHeight(0.37 * stage.getHeight());
-		else if(getNumberOfTextAreaLines() < 16) textAreaForInfo.setPrefHeight(0.5 * stage.getHeight());
-		else textAreaForInfo.setPrefHeight(0.7 * stage.getHeight());
-		textAreaForInfo.setLayoutY(stage.getHeight() / 2.0 - textAreaForInfo.getPrefHeight() / 2.0);
+		if(getNumberOfTextAreaLines() < 4) textAreaForInfo.setPrefHeight(0.15 * atlasScene.getHeight());
+		else if(getNumberOfTextAreaLines() < 6) textAreaForInfo.setPrefHeight(0.2 * atlasScene.getHeight());
+		else if(getNumberOfTextAreaLines() < 8) textAreaForInfo.setPrefHeight(0.27 * atlasScene.getHeight());
+		else if(getNumberOfTextAreaLines() < 11) textAreaForInfo.setPrefHeight(0.37 * atlasScene.getHeight());
+		else if(getNumberOfTextAreaLines() < 16) textAreaForInfo.setPrefHeight(0.5 * atlasScene.getHeight());
+		else textAreaForInfo.setPrefHeight(0.7 * atlasScene.getHeight());
+		textAreaForInfo.setLayoutY(atlasScene.getHeight() / 2.0 - textAreaForInfo.getPrefHeight() / 2.0);
 
-		rectangleToShowInfo.setHeight(textAreaForInfo.getPrefHeight() + 1.0 / 48.0 * stage.getHeight());
-		rectangleToShowInfo.setLayoutY(stage.getHeight() / 2.0 - rectangleToShowInfo.getHeight() / 2.0);
+		rectangleToShowInfo.setHeight(textAreaForInfo.getPrefHeight() + 1.0 / 48.0 * atlasScene.getHeight());
+		rectangleToShowInfo.setLayoutY(atlasScene.getHeight() / 2.0 - rectangleToShowInfo.getHeight() / 2.0);
 
 		int i = 1;
 		StringBuilder sb = new StringBuilder();
@@ -4674,7 +4264,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			bigImage.setCursor(Cursor.HAND);
 			String name = "";
-			if(getCategoryCurrentlyViewing() == 1)
+			if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 			{
 				if (getIndexInOptionsForCountriesAndContinents() == 0)
 					name = countries[countriesSortList.get(getIndexInListViewForCountriesAndContinents())].getNameInEnglish();
@@ -4685,7 +4275,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				else
 					name = countries[countriesSortList.get(getIndexInBigImageNormal())].getNameInEnglish();
 			}
-			else if(getCategoryCurrentlyViewing() == 2)
+			else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 			{
 				if (getIndexInOptionsForUSA() == 0)
 					name = statesOfUSA[statesOfUSASortList.get(getIndexInListViewForUSA())].getNameInEnglish();
@@ -4694,7 +4284,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				else
 					name = statesOfUSA[statesOfUSASortList.get(getIndexInBigImageNormal())].getNameInEnglish();
 			}
-			else if(getCategoryCurrentlyViewing() == 3)
+			else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 			{
 				if(getIndexInOptionsForGreece() == 0)
 					name = greekDecAdm[greekDecentralizedAdministrationsSortList.get(getIndexInListViewForGreece())].getNameInEnglish();
@@ -4768,7 +4358,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 	private void makeAStepInBigImage(int step)
 	{
 		int index = 0;
-		if(getCategoryCurrentlyViewing() == 1)
+		if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 		{
 			if(getIndexInOptionsForCountriesAndContinents() == 0 ||
 			   getIndexInOptionsForCountriesAndContinents() == 1 ||
@@ -4792,7 +4382,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				index = countriesSortList.get(getIndexInBigImageNormal());
 			}
 		}
-		else if(getCategoryCurrentlyViewing() == 2)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 		{
 			if(getIndexInOptionsForUSA() == 0 ||
 			   getIndexInOptionsForUSA() == 1)
@@ -4813,7 +4403,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				index = statesOfUSASortList.get(getIndexInBigImageNormal());
 			}
 		}
-		else if(getCategoryCurrentlyViewing() == 3)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 		{
 			setIndexInBigImageNormal(getIndexInListViewForGreece() + step);
 			setIndexInListViewForGreece(getIndexInBigImageNormal());
@@ -4836,7 +4426,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		typeOfNormalBigImage = type;
 		
 		String name = "";
-		if (getCategoryCurrentlyViewing() == 1)
+		if (toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 		{
 			if (getIndexInOptionsForCountriesAndContinents() != 5)
 			{
@@ -4855,11 +4445,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			else previousInBigImageButton.setDisable(false);
 			
 			if (getIndexInOptionsForCountriesAndContinents() == 0 && getIndexInListViewForCountriesAndContinents() == NUM_ALL_COUNTRIES - 1 ||
-			    getIndexInOptionsForCountriesAndContinents() == 5 && getIndexInListViewForCountriesAndContinents() == NUM_ALL_CONTINENTS - 1)
+			    getIndexInOptionsForCountriesAndContinents() == 5 && getIndexInListViewForCountriesAndContinents() == Continent.NUMBER_OF_CONTINENTS - 1)
 					nextInBigImageButton.setDisable(true);
 			else nextInBigImageButton.setDisable(false);
 		}
-		else if(getCategoryCurrentlyViewing() == 2)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 		{
 			name = statesOfUSA[index].getNameInEnglish();
 			if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
@@ -4868,11 +4458,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if (getIndexInListViewForUSA() == 0) previousInBigImageButton.setDisable(true);
 			else previousInBigImageButton.setDisable(false);
 			
-			if (getIndexInOptionsForUSA() == 0 && getIndexInListViewForUSA() == NUM_ALL_USA_STATES - 1)
+			if (getIndexInOptionsForUSA() == 0 && getIndexInListViewForUSA() == StateOfUSA.NUMBER_OF_USA_STATES - 1)
 				nextInBigImageButton.setDisable(true);
 			else nextInBigImageButton.setDisable(false);
 		}
-		else if(getCategoryCurrentlyViewing() == 3)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 		{
 			if (getIndexInOptionsForGreece() == 0)
 			{
@@ -4880,7 +4470,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				if (getCurrentLanguage() == LANGUAGE.GREEK) labelForBigImage.setText(name);
 				else labelForBigImage.setText(greekDecAdm[index].getNameInEnglish());
 				
-				if (labelForBigImage.getText().length() > 55) labelForBigImage.setFont(Font.font("Comic Sans MS", (0.0119) * stage.getWidth()));
+				if (labelForBigImage.getText().length() > 55) labelForBigImage.setFont(Font.font("Comic Sans MS", (0.0119) * atlasScene.getWidth()));
 				else if (labelForBigImage.getFont() != fontBig) labelForBigImage.setFont(fontBig);
 			}
 			else if (getIndexInOptionsForGreece() == 1)
@@ -4893,9 +4483,9 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			if (getIndexInListViewForGreece() == 0) previousInBigImageButton.setDisable(true);
 			else previousInBigImageButton.setDisable(false);
 			
-			if (getIndexInOptionsForGreece() == 0 && getIndexInListViewForGreece() == NUM_ALL_GREEK_DEC_ADMIN - 1 ||
-			    getIndexInOptionsForGreece() == 1 && getIndexInListViewForGreece() == NUM_ALL_GREEK_REGIONS - 1 ||
-			    getIndexInOptionsForGreece() == 2 && getIndexInListViewForGreece() == NUM_ALL_GREEK_REGIONAL_UNITS - 1 ||
+			if (getIndexInOptionsForGreece() == 0 && getIndexInListViewForGreece() == GreekDecentralizedAdministration.NUMBER_OF_GREEK_DECENTRALIZED_ADMINISTRATIONS - 1 ||
+			    getIndexInOptionsForGreece() == 1 && getIndexInListViewForGreece() == GreekRegion.NUMBER_OF_GREEK_REGIONS - 1 ||
+			    getIndexInOptionsForGreece() == 2 && getIndexInListViewForGreece() == GreekRegionalUnit.NUMBER_OF_GREEK_REGIONAL_UNITS - 1 ||
 			    getIndexInOptionsForGreece() == 3 && getIndexInListViewForGreece() == NUM_ALL_GREEK_MUNICIPALITIES - 1)
 					nextInBigImageButton.setDisable(true);
 			else nextInBigImageButton.setDisable(false);
@@ -4946,25 +4536,25 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		{
 			bigImage.setFitHeight(bigImage.getFitWidth() / 2.25);
 			
-			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (17.0 / 108.0) * stage.getHeight());
-			rectangleForBigImage.setLayoutY(stage.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
+			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (17.0 / 108.0) * atlasScene.getHeight());
+			rectangleForBigImage.setLayoutY(atlasScene.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
 			
-			bigImage.setLayoutY(rectangleForBigImage.getLayoutY() + (rectangleForBigImage.getHeight() - (7.0 / 54.0) * stage.getHeight()) / 2.0 - bigImage.getFitHeight() / 2.0);
+			bigImage.setLayoutY(rectangleForBigImage.getLayoutY() + (rectangleForBigImage.getHeight() - (7.0 / 54.0) * atlasScene.getHeight()) / 2.0 - bigImage.getFitHeight() / 2.0);
 		}
 		else
 		{
-			bigImage.setFitHeight(0.7 * stage.getHeight());
+			bigImage.setFitHeight(0.7 * atlasScene.getHeight());
 			
-			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (4.0 / 27.0) * stage.getHeight());
-			rectangleForBigImage.setLayoutY(stage.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
+			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (4.0 / 27.0) * atlasScene.getHeight());
+			rectangleForBigImage.setLayoutY(atlasScene.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
 			
-			bigImage.setLayoutY(rectangleForBigImage.getLayoutY() + (1.0 / 54.0) * stage.getHeight());
+			bigImage.setLayoutY(rectangleForBigImage.getLayoutY() + (1.0 / 54.0) * atlasScene.getHeight());
 		}
 		
-		labelForBigImage.setLayoutY(bigImage.getLayoutY() + bigImage.getFitHeight() + (1.0 / 200.0) * stage.getHeight());
-		previousInBigImageButton.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - previousInBigImageButton.getBoundsInLocal().getHeight() - (1.0 / 72.0) * stage.getHeight());
-		nextInBigImageButton.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - nextInBigImageButton.getBoundsInLocal().getHeight() - (1.0 / 72.0) * stage.getHeight());
-		exitBigImage.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - exitBigImage.getBoundsInLocal().getHeight() - (1.0 / 54.0) * stage.getHeight());
+		labelForBigImage.setLayoutY(bigImage.getLayoutY() + bigImage.getFitHeight() + (1.0 / 200.0) * atlasScene.getHeight());
+		previousInBigImageButton.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - previousInBigImageButton.getBoundsInLocal().getHeight() - (1.0 / 72.0) * atlasScene.getHeight());
+		nextInBigImageButton.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - nextInBigImageButton.getBoundsInLocal().getHeight() - (1.0 / 72.0) * atlasScene.getHeight());
+		exitBigImage.setLayoutY(rectangleForBigImage.getLayoutY() + rectangleForBigImage.getHeight() - exitBigImage.getBoundsInLocal().getHeight() - (1.0 / 54.0) * atlasScene.getHeight());
 	}
 	
 	private void setupBigImageNormal(BigImageType type, int index)
@@ -4996,7 +4586,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			else
 			{
 				processBigImageNormal(type, index);
-				recalculateUI(stage.getWidth(), stage.getHeight());
+				recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 				
 				if (rectangleForBigImage.getScaleX() == 0)
 				{
@@ -5054,7 +4644,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		else
 		{
 			processBigImageNormal(type, index);
-			recalculateUI(stage.getWidth(), stage.getHeight());
+			recalculateUI(atlasScene.getWidth(), atlasScene.getHeight());
 			
 			rectangleForBigImage.setScaleX(1);
 			rectangleForBigImage.setScaleY(1);
@@ -5091,7 +4681,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		bigImageStatus = 1;
 		
 		String name = "";
-		if (getCategoryCurrentlyViewing() == 1)
+		if (toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 		{
 			if (getIndexInOptionsForCountriesAndContinents() == 0 ||
 			    getIndexInOptionsForCountriesAndContinents() == 1)
@@ -5099,8 +4689,8 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			else if (getIndexInOptionsForCountriesAndContinents() == 5)
 				name = continents[index].getNameInEnglish();
 		}
-		else if(getCategoryCurrentlyViewing() == 2) name = statesOfUSA[index].getNameInEnglish();
-		else if(getCategoryCurrentlyViewing() == 3)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton) name = statesOfUSA[index].getNameInEnglish();
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 		{
 			if (getIndexInOptionsForGreece() == 0) name = greekDecAdm[index].getNameInEnglish();
 			else if (getIndexInOptionsForGreece() == 1) name = greekRegions[index].getNameInEnglish();
@@ -5147,23 +4737,23 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		if (type == BigImageType.LOGOS_FOR_GREEK_REGIONS)
 		{
 			bigImage.setFitHeight(bigImage.getFitWidth() / 2.25);
-			bigImage.setLayoutY(stage.getHeight() / 2.0 - bigImage.getFitHeight() / 2.0);
+			bigImage.setLayoutY(atlasScene.getHeight() / 2.0 - bigImage.getFitHeight() / 2.0);
 		}
 		else
 		{
-			bigImage.setFitHeight(0.7 * stage.getHeight());
-			bigImage.setLayoutY(stage.getHeight() / 2.0 - bigImage.getFitHeight() / 2.0);
+			bigImage.setFitHeight(0.7 * atlasScene.getHeight());
+			bigImage.setLayoutY(atlasScene.getHeight() / 2.0 - bigImage.getFitHeight() / 2.0);
 		}
 		
 		if (type == BigImageType.FLAG_FOR_COUNTRIES && !name.equals("Βατικανό") && !name.equals("Βέλγιο") && !name.equals("Ελβετία") && !name.equals("Μονακό") && !name.equals("Νεπάλ") && !name.equals("Νίγηρας"))
 		{
 			rectangleForBigImage.setHeight(0.8 * bigImage.getFitHeight());
-			rectangleForBigImage.setLayoutY(stage.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
+			rectangleForBigImage.setLayoutY(atlasScene.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
 		}
 		else
 		{
-			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (1.0 / 27.0) * stage.getHeight());
-			rectangleForBigImage.setLayoutY(stage.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
+			rectangleForBigImage.setHeight(bigImage.getFitHeight() + (1.0 / 27.0) * atlasScene.getHeight());
+			rectangleForBigImage.setLayoutY(atlasScene.getHeight() / 2.0 - rectangleForBigImage.getHeight() / 2.0);
 		}
 	}
 	
@@ -5345,7 +4935,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 
 	private void setNamesForGridPaneLabels()
 	{
-		if(getCategoryCurrentlyViewing() == 1)
+		if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 		{
 			if((getIndexInOptionsForCountriesAndContinents() == 0 ||
 			    getIndexInOptionsForCountriesAndContinents() == 1) &&
@@ -5391,7 +4981,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForCountriesAndContinents[16][0].setText(" " + languageResourceBundle.getString("timeZonesLabel"));
 			}
 		}
-		else if(getCategoryCurrentlyViewing() == 2)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 		{
 			if((getIndexInOptionsForUSA() == 0 ||
 			    getIndexInOptionsForUSA() == 1) &&
@@ -5417,7 +5007,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForUSA[17][0].setText(" " + languageResourceBundle.getString("timeZonesLabel"));
 			}
 		}
-		else if(getCategoryCurrentlyViewing() == 3)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton)
 		{
 			if(getIndexInOptionsForGreece() == 0 &&
 			   !gridPaneLabelsForGreece[3][0].getText().equals(" " + languageResourceBundle.getString("populationLabel")))
@@ -5477,7 +5067,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 				gridPaneLabelsForGreece[14][0].setText("");
 			}
 		}
-		else if(getCategoryCurrentlyViewing() == 4)
+		else if(toggleGroupForToggleButtons.getSelectedToggle() == attractionsToggleButton)
 		{
 			if(getIndexInOptionsForAttractions() == 0 &&
 			   !gridPaneLabelsForAttractions[0][0].getText().equals(" " + languageResourceBundle.getString("nameLabel")))
@@ -5498,7 +5088,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		titleLabel.setText(languageResourceBundle.getString("titleForAtlasScreenLabel"));
 		
 		//TOGGLE BUTTONS TEXT
-		continentsAndCountriesToggleButton.setText(languageResourceBundle.getString("continentsAndCountries"));
+		countriesAndContinentsToggleButton.setText(languageResourceBundle.getString("continentsAndCountries"));
 		USAToggleButton.setText(languageResourceBundle.getString("usa"));
 		greeceToggleButton.setText(languageResourceBundle.getString("greece"));
 		attractionsToggleButton.setText(languageResourceBundle.getString("attractions"));
@@ -5514,8 +5104,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		
 		//ICON TOOLTIPS
 		soundOptionsToolTip.setText(languageResourceBundle.getString("soundOptionsTooltip"));
-		minimizeTooltip.setText(languageResourceBundle.getString("minimizeTooltip"));
-		exitTooltip.setText(languageResourceBundle.getString("exitTooltip"));
 		
 		//IMAGE LABELS
 		flagLabelForCountriesAndContinents.setText(languageResourceBundle.getString("flagLabel"));
@@ -5609,7 +5197,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		scaleTransitionForTitleLabel.pause();
 	}
 	
-	public class LabelGridCell extends GridCell<Short>
+	public class LabelGridCell extends GridCell<Integer>
 	{
 		private ImageView imageView;
 		private Label label;
@@ -5619,8 +5207,6 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		LabelGridCell()
 		{
 			imageView = new CustomImageView(false, true, false, false, null);
-			imageView.setSmooth(false);
-			imageView.setPreserveRatio(true);
 			
 			label = new Label();
 			label.setGraphic(imageView);
@@ -5631,7 +5217,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			label.setCursor(Cursor.HAND);
 		}
 		
-		protected void updateItem(Short item, boolean empty)
+		protected void updateItem(Integer item, boolean empty)
 		{
 			super.updateItem(item, empty);
 			
@@ -5644,14 +5230,14 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 			{
 				i = this.getIndex();
 				
-				if(getCategoryCurrentlyViewing() == 1)
+				if(toggleGroupForToggleButtons.getSelectedToggle() == countriesAndContinentsToggleButton)
 				{
 					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = countries[item].getNameInEnglish();
 					else imageName = countries[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForCountriesAndContinents == GridViewImagesForCountriesAndContinentsType.FLAG)
 					{
-						imageView.setImage(getImage(ImageType.COUNTRY_FLAG, "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.COUNTRY_FLAG, "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5661,7 +5247,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 					else if(typeOfGridViewImagesForCountriesAndContinents == GridViewImagesForCountriesAndContinentsType.COAT_OF_ARMS)
 					{
-						imageView.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.COUNTRY_COAT_OF_ARMS, "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5671,7 +5257,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 					else
 					{
-						imageView.setImage(getImage(ImageType.COUNTRY_LOCATION,  "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.COUNTRY_LOCATION,  "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5683,14 +5269,14 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					label.setPrefWidth(gridViewForImagesForCountriesAndContinents.getCellWidth());
 					label.setPrefHeight(gridViewForImagesForCountriesAndContinents.getCellHeight());
 				}
-				else if(getCategoryCurrentlyViewing() == 2)
+				else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton)
 				{
 					if(getCurrentLanguage() == LANGUAGE.GREEK) imageName = statesOfUSA[item].getNameInEnglish();
 					else imageName = statesOfUSA[item].getNameInEnglish();
 
 					if(typeOfGridViewImagesForUSA == GridViewImagesForUSAType.FLAG)
 					{
-						imageView.setImage(getImage(ImageType.USA_FLAG, "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.USA_FLAG, "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5700,7 +5286,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 					else if(typeOfGridViewImagesForUSA == GridViewImagesForUSAType.SEAL)
 					{
-						imageView.setImage(getImage(ImageType.USA_SEAL, "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.USA_SEAL, "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5710,7 +5296,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					}
 					else
 					{
-						imageView.setImage(getImage(ImageType.USA_LOCATION, "x250", imageName, true));
+						imageView.setImage(getImage(ImageType.USA_LOCATION, "x250", imageName, false));
 						
 						label.setOnMouseClicked(e ->
 						{
@@ -5733,7 +5319,7 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 					Tooltip tooltip = new CustomTooltip();
 					tooltip.setText(imageName);
 					tooltip.setFont(fontForTooltips);
-					tooltip.setMaxWidth(0.3646 * stage.getWidth());
+					tooltip.setMaxWidth(0.3646 * atlasScene.getWidth());
 					label.setTooltip(tooltip);
 				}
 				else label.setTooltip(null);
@@ -5746,13 +5332,11 @@ public class AtlasScreen extends CoreScreenWithMovingBackground
 		}
 	}
 	
-	private int getCategoryCurrentlyViewing()
+	private boolean makeLeftMove(Toggle oldButton, Toggle newButton)
 	{
-		if(toggleGroupForToggleButtons.getSelectedToggle() == null) return 0;
-		else if(toggleGroupForToggleButtons.getSelectedToggle() == continentsAndCountriesToggleButton) return 1;
-		else if(toggleGroupForToggleButtons.getSelectedToggle() == USAToggleButton) return 2;
-		else if(toggleGroupForToggleButtons.getSelectedToggle() == greeceToggleButton) return 3;
-		else return 4;
+		return oldButton == countriesAndContinentsToggleButton && (newButton == USAToggleButton || newButton == greeceToggleButton || newButton == attractionsToggleButton) ||
+				oldButton == USAToggleButton && (newButton == greeceToggleButton || newButton == attractionsToggleButton) ||
+				oldButton == greeceToggleButton && newButton == attractionsToggleButton;
 	}
 	
 	private int getIndexInBigImageNormal()
