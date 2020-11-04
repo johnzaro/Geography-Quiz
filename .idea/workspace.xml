@@ -10,130 +10,677 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f219012a-635a-43fd-94f2-1747ff80601f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/controlsfx_12_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_annotations_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_databind_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_datatype_jsr310_2_10_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/globeStand.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x1000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x2000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x250/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x3000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x500/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x1000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x2000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x250/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x500/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x1000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x2000/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x250/North_Macedonia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/images/countries/location/x500/North_Macedonia.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/geographyquiz.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/controlsfx_9_0_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jdom2_2_0_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/john.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/AudioStuff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/ImageStuff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/ScreenStuff.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomComboBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomGridPane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomHBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomLabel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomRadioButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomRectangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomTextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomToggleButton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomVBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/MouseStationaryEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/MouseStationaryHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/errorScreens/MessageDisplayResolutionNotSupportedScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/errorScreens/MessageGameIsAlreadyRunningScreen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/css/various.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/emptyWoodBackground1Icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/emptyWoodBackgroundBigRope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/backgrounds/emptyWoodBackgroundSmallRope.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/101.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/102.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/103.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/104.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/105.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/106.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/107.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/108.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/109.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/110.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/111.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/112.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/113.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/114.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/115.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/116.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/117.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/118.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/119.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/120.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/121.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/122.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/123.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/124.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/125.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/126.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/127.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/128.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/129.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/130.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/131.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/132.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/133.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/134.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/135.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/136.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/137.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/138.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/139.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/140.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/141.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/142.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/143.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/145.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/146.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/147.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/148.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/149.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/151.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/153.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/154.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/155.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/156.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/157.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/158.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/159.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/160.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/161.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/162.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/163.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/164.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/165.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/166.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/167.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/168.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/169.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/170.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/171.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/172.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/173.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/174.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/175.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/176.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/177.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/178.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/179.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/181.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/182.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/183.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/184.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/185.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/186.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/187.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/188.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/189.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/190.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/191.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/193.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/194.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/195.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/196.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/197.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/198.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/199.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/200.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/201.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/202.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/203.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/204.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/205.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/206.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/207.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/208.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/209.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/210.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/211.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/212.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/213.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/214.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/215.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/216.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/217.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/218.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/219.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/220.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/221.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/222.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/223.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/224.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/225.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/226.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/227.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/228.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/229.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/230.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/231.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/232.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/233.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/234.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/235.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/236.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/237.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/238.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/239.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/240.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/241.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/242.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/243.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/244.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/245.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/246.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/247.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/248.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/249.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/250.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/251.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/252.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/253.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/254.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/255.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/256.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/257.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/258.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/259.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/260.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/261.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/262.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/263.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/264.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/265.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/266.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/267.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/268.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/269.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/270.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/271.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/272.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/273.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/274.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/275.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/276.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/277.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/278.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/279.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/280.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/281.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/282.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/283.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/284.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/285.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/286.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/287.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/288.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/289.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/290.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/291.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/292.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/293.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/294.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/295.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/296.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/297.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/298.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/299.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/300.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/301.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/302.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/303.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/304.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/305.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/306.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/307.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/308.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/309.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/310.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/311.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/312.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/313.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/314.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/315.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/316.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/317.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/318.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/319.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/320.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/321.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/322.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/323.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/324.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/325.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/326.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/327.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/328.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/329.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/330.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/331.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/332.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/333.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/334.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/335.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/336.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/337.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/338.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/339.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/340.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/341.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/342.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/343.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/344.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/345.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/346.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/347.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/348.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/349.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/350.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/351.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/352.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/353.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/354.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/355.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/356.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/357.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/358.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/359.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/51.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/52.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/53.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/54.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/55.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/56.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/57.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/58.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/59.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/61.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/62.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/63.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/64.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/65.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/66.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/67.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/68.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/69.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/70.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/71.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/72.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/73.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/74.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/75.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/77.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/78.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/79.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/80.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/81.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/82.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/83.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/84.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/85.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/86.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/87.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/88.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/89.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/90.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/91.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/92.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/93.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/94.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/95.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/96.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/97.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/98.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/globes/x600/99.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Attica.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Crete.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Epirus_and_Western_Macedonia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Macedonia_and_Thrace.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Peloponnese,_Western_Greece_and_the_Ionian.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_Thessaly_and_Central_Greece.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Decentralized_Administration_of_the_Aegean.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/icons/addPlayer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/icons/editPlayerName.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/icons/switchPlayer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lang/questions.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lang/questions_el.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lang/questions_en.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/geographyquiz_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/geographyquiz_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geographyquiz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/geographyquiz.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/BaseClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomCheckBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomCheckBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomImageView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomImageView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomScrollPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomScrollPaneSkin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomScrollPaneSkin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/CustomTooltip.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/CustomTooltip.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/FilesIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GUIUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/GUIUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GlobalVariables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/GreekLanguageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/GreekLanguageHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/MouseStationaryEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/MouseStationaryHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/OsCheck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/OsCheck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/PowerOn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Area.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Continent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekDecentralizedAdministration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/GreekRegionalUnit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/ShutdownHook.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/ShutdownHook.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/SwitchButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/customNodes/SwitchButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/UrlOpener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/helperClasses/UrlOpener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/Population.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/RatioProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/RatioProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/StateOfUSA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/dataStructures/StateOfUSA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/AtlasScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreenWithMovingBackground.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/CoreScreenWithMovingBackground.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ErrorScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/errorScreens/ErrorScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GamePropertiesScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageDisplayResolutionNotSupportedScreen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/MessageGameIsAlreadyRunningScreen.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/ScoreBoardScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/core/Splash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/johnzaro/geographyquiz/screens/WelcomeScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/button.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/button.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/checkbox.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/comboBox.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/listView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/listView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/radioButton.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/scrollPane.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/slider.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/slider.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/decentralizedAdministrations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/municipalities.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regionalUnits.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/Greece/regions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countries.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/statesOfUSA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor2Icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor4Icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor5Icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/leftGlobeStand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/rightGlobeStand.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x3000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/coatOfArms/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/flags/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x1000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x2000/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x250/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/countries/location/x500/Former_Yugoslav_Republic_of_Macedonia.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/exit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/exitClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/fullScreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/fullScreenClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@128x128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@16x16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@32x32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/icon@64x64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/mac.icns" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/minimize.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/minimizeClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/move.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveDisabled.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/moveDisabledClicked.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/refresh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/refreshAn.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/windows.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/tableView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/tableView.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/toggleButton.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/toggleButton.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/attractions.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/continents.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaAll.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaDifficult.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/countriesByAreaEasy.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/dependentStates.data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/dataFiles/ratioProperties.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/backgroundFor1Icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/emptyWoodBackgroundPanelBigRope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x400/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/globes/x850/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Αιγαίου.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Αττικής.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Ηπείρου_-_Δυτικής_Μακεδονίας.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Θεσσαλίας_-_Στερεάς_Ελλάδας.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Κρήτης.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Μακεδονίας_-_Θράκης.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/greece/decentralizedAdministrations/location/x2000/Αποκεντρωμένη_Διοίκηση_Πελοποννήσου,_Δυτικής_Ελλάδας_και_Ιονίου.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/addUser.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/editUsername.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/images/icons/switchUser.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_el.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_el.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_en.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/lang/GeoQuiz_en.properties" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Geography-Quiz" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GotoClassSymbolConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="GitIgnore" />
+      <filtered-out-file-type name="IgnoreLang" />
+      <filtered-out-file-type name="DTD" />
+      <filtered-out-file-type name="EditorConfig" />
+      <filtered-out-file-type name="HTML" />
+      <filtered-out-file-type name="JShellLanguage" />
+      <filtered-out-file-type name="JSON" />
+      <filtered-out-file-type name="JSON5" />
+      <filtered-out-file-type name="JVM" />
+      <filtered-out-file-type name="Manifest" />
+      <filtered-out-file-type name="Markdown" />
+      <filtered-out-file-type name="TEXT" />
+      <filtered-out-file-type name="Properties" />
+      <filtered-out-file-type name="RegExp" />
+      <filtered-out-file-type name="RELAX-NG" />
+      <filtered-out-file-type name="Shell Script" />
+      <filtered-out-file-type name="SPI" />
+      <filtered-out-file-type name="SVG" />
+      <filtered-out-file-type name="textmate" />
+      <filtered-out-file-type name="UAST" />
+      <filtered-out-file-type name="UastContextLanguage" />
+      <filtered-out-file-type name="XHTML" />
+      <filtered-out-file-type name="XML" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1OYV9JQa2x7NzuVWc8AWTB2W0Oj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
@@ -149,21 +696,15 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -172,12 +713,6 @@
     </configuration>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Geography Quiz" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.johnzaro.geographyquiz.core.BaseClass" />
@@ -201,32 +736,30 @@
       </method>
     </configuration>
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added some attractions, show coordinates in google maps, some changes in languageBundle loading, dynamic reading of number of attractions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some attractions, show coordinates in google maps, some changes in languageBundle loading, dynamic reading of number of attractions" />
+    <MESSAGE value="changed all datatypes in dataStructures (and other classes) to int &amp; double&#10;removed custom resize functions&#10;removed fullScreen, minimize, move, exit buttons from all the screens&#10;set default stage style&#10;added listeners to native resize functions to update ui&#10;added separate scenes for every screen&#10;removed splash screen completely&#10;fixed sound icon and sound vBox location and usage for all screens&#10;added hover color effect for radioButtons, checkBoxes, comboBoxes, scrollpanes etc.&#10;completely removed separate ui views based on OS&#10;made all animations and transitions considerably faster&#10;fixed images in gridview in atlasScreen which were unable to show up&#10;converted all data files and output files to json and changed all read and write methods accordingly&#10;removed dependency of jdom library and added jackson libraries to process json files&#10;updated controlsfx library to snapshot version 12&#10;moved some common ui recalculations to coreScreen&#10;converted all coordinates in attractions data file to correct format in order to open google maps correctly&#10;moved some counters for data files to their correspondent classes from GlobalVariables to dataStructures&#10;made a lot of changes and updates to ratioProperties class and data file&#10;updated name of FYROM to North Macedonia and corrected its position in countries data file&#10;removed all animations and sounds when minimizing, exiting or going full screen&#10;updated game properties screen to use ratio properties data&#10;removed all unused icons and images, used one globe stand image for both stands&#10;probably more stuff..." />
+    <option name="LAST_COMMIT_MESSAGE" value="changed all datatypes in dataStructures (and other classes) to int &amp; double&#10;removed custom resize functions&#10;removed fullScreen, minimize, move, exit buttons from all the screens&#10;set default stage style&#10;added listeners to native resize functions to update ui&#10;added separate scenes for every screen&#10;removed splash screen completely&#10;fixed sound icon and sound vBox location and usage for all screens&#10;added hover color effect for radioButtons, checkBoxes, comboBoxes, scrollpanes etc.&#10;completely removed separate ui views based on OS&#10;made all animations and transitions considerably faster&#10;fixed images in gridview in atlasScreen which were unable to show up&#10;converted all data files and output files to json and changed all read and write methods accordingly&#10;removed dependency of jdom library and added jackson libraries to process json files&#10;updated controlsfx library to snapshot version 12&#10;moved some common ui recalculations to coreScreen&#10;converted all coordinates in attractions data file to correct format in order to open google maps correctly&#10;moved some counters for data files to their correspondent classes from GlobalVariables to dataStructures&#10;made a lot of changes and updates to ratioProperties class and data file&#10;updated name of FYROM to North Macedonia and corrected its position in countries data file&#10;removed all animations and sounds when minimizing, exiting or going full screen&#10;updated game properties screen to use ratio properties data&#10;removed all unused icons and images, used one globe stand image for both stands&#10;probably more stuff..." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="768" y="271" key="SettingsEditor" timestamp="1594484201621">
+      <screen x="0" y="23" width="2560" height="1334" />
+    </state>
+    <state x="768" y="271" key="SettingsEditor/0.23.2560.1334@0.23.2560.1334" timestamp="1594484201621" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">

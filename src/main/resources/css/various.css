@@ -1,0 +1,50 @@
+.black-bordered-background-light
+{
+	-fx-background-color: #00000060;
+	-fx-border-color: black;
+}
+
+.black-bordered-background-dark
+{
+	-fx-background-color: #00000090;
+	-fx-border-color: black;
+}
+
+.black-bordered-white-background-light-transparent
+{
+	-fx-background-color: #ffffff90;
+	-fx-border-color: black;
+}
+
+.green-background-color
+{
+	-fx-background-color: #2ecc71;
+}
+
+.orange-background-color
+{
+	-fx-background-color: #AB5C3D;
+}
+
+.orange-border-light-background-color
+{
+	-fx-background-color: #FFEBCD;
+	-fx-border-color: #AB5C3D;
+}
+
+.grid-item-even
+{
+	-fx-background-color: #FFEBCD;
+	-fx-text-fill: #323232;
+}
+
+.grid-item-odd
+{
+	-fx-background-color: #EDD1A6;
+	-fx-text-fill: #323232;
+}
+
+.white-stroke
+{
+	-fx-stroke: white;
+}

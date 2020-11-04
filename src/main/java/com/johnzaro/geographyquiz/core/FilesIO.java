@@ -6,16 +6,13 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
-import com.johnzaro.geographyquiz.core.OsCheck.OSType;
+import com.johnzaro.geographyquiz.core.helperClasses.OsCheck.OSType;
 import com.johnzaro.geographyquiz.dataStructures.*;
-import com.johnzaro.geographyquiz.screens.ErrorScreen;
+import com.johnzaro.geographyquiz.screens.errorScreens.ErrorScreen;
 import javafx.application.Platform;
 import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,13 +21,16 @@ import java.util.Scanner;
 import java.util.stream.StreamSupport;
 
 import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
+import static com.johnzaro.geographyquiz.core.PowerOn.loadLanguageResourceBundle;
 import static com.johnzaro.geographyquiz.core.PowerOn.loadPlayersDataAndSettings;
+import static com.johnzaro.geographyquiz.core.helperClasses.GreekLanguageHelper.getEditedOriginalName;
 
 public class FilesIO
 {
-	static File gamesScoresFile, playersFile;
+	static File gamesScoresFile, playersFile, languageFile;
 	private static File gameFolder;
 	
+	private final static String LANGUAGE_FILE_PATH = "language";
 	private final static String PLAYERS_FILE_PATH = "players.json";
 	private final static String GAMES_SCORES_FILE_PATH = "gamesScores.json";
 	
@@ -50,20 +50,137 @@ public class FilesIO
 		return temp;
 	}
 	
+	static void createGameDataPathFolder()
+	{
+		gameFolder = new File(GAME_DATA_PATH);
+		if(!gameFolder.exists())
+		{
+			try
+			{
+				gameFolder.createNewFile();
+			}
+			catch (IOException e)
+			{
+				Platform.runLater(() -> new ErrorScreen("Error occurred while trying to create game data path folder", e));
+			}
+		}
+	}
+	
+	static LANGUAGE loadLanguageFile()
+	{
+		languageFile = new File(GAME_DATA_PATH + File.separator + LANGUAGE_FILE_PATH);
+		
+		BufferedReader bufferedReader = null;
+		BufferedWriter bufferedWriter = null;
+		
+		try
+		{
+			if (!languageFile.exists())
+			{
+				languageFile.createNewFile();
+				
+				bufferedWriter = new BufferedWriter(new FileWriter(languageFile));
+				language = loadAndSaveDefaultLanguage(bufferedWriter);
+			}
+			else
+			{
+				bufferedReader = new BufferedReader(new FileReader(languageFile));
+				
+				String languageString = bufferedReader.readLine();
+				if(languageString != null && (languageString.equals("greek") || languageString.equals("english")))
+				{
+					if(languageString.equals("greek"))
+					{
+						language = LANGUAGE.GREEK;
+						loadLanguageResourceBundle(language);
+					}
+					else
+					{
+						language = LANGUAGE.ENGLISH;
+						loadLanguageResourceBundle(language);
+					}
+				}
+				else
+				{
+					bufferedWriter = new BufferedWriter(new FileWriter(languageFile));
+					language = loadAndSaveDefaultLanguage(bufferedWriter);
+				}
+				bufferedReader.close();
+			}
+			
+			return language;
+		}
+		catch (IOException e)
+		{
+			try
+			{
+				if(bufferedReader != null) bufferedReader.close();
+				if(bufferedWriter != null) bufferedWriter.close();
+			}
+			catch(IOException ex)
+			{
+				Platform.runLater(() -> new ErrorScreen("Error occurred while trying to close language file", ex));
+			}
+			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load language file", e));
+			
+			return LANGUAGE.ENGLISH;
+		}
+	}
+	
+	private static LANGUAGE loadAndSaveDefaultLanguage(BufferedWriter bufferedWriter) throws IOException
+	{
+		if(Locale.getDefault().getLanguage().equals("el"))
+		{
+			language = LANGUAGE.GREEK;
+			loadLanguageResourceBundle(language);
+			bufferedWriter.write("greek");
+		}
+		else
+		{
+			language = LANGUAGE.ENGLISH;
+			loadLanguageResourceBundle(language);
+			bufferedWriter.write("english");
+		}
+		bufferedWriter.close();
+		
+		return language;
+	}
+	
+	public static void writeCurrentLanguage(LANGUAGE language)
+	{
+		BufferedWriter bufferedWriter = null;
+		
+		try
+		{
+			bufferedWriter = new BufferedWriter(new FileWriter(languageFile));
+			
+			if(language == LANGUAGE.ENGLISH) bufferedWriter.write("english");
+			else bufferedWriter.write("greek");
+			
+			bufferedWriter.close();
+		}
+		catch(IOException e)
+		{
+			try
+			{
+				if(bufferedWriter != null) bufferedWriter.close();
+			}
+			catch(IOException ex)
+			{
+				Platform.runLater(() -> new ErrorScreen("Error occurred while trying to close write to language file", ex));
+			}
+			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to write language file", e));
+		}
+	}
+	
 	//	SETUP AND CREATE SAVE FILES
 	static void setupFiles()
 	{
-		gameFolder = new File(GAME_DATA_PATH);
-		
 		playersFile = new File(GAME_DATA_PATH + File.separator + PLAYERS_FILE_PATH);
 		gamesScoresFile = new File(GAME_DATA_PATH + File.separator + GAMES_SCORES_FILE_PATH);
 		
 		try
 		{
-			//create game data folder and data files if they don't exist
-			
-			if (!playersFile.getParentFile().exists()) playersFile.getParentFile().mkdirs();
-			
 			if (!playersFile.exists()) playersFile.createNewFile();
 			if (!gamesScoresFile.exists()) gamesScoresFile.createNewFile();
 		}
@@ -142,7 +259,7 @@ public class FilesIO
 					
 					Locale locale = Locale.forLanguageTag(playerNode.path("locale").asText());
 					int localeIndex = playerNode.path("localeIndex").asInt();
-					int language = playerNode.path("language").asText().equals("ENGLISH")? 0 : 1;
+					int languageInt = playerNode.path("language").asText().equals("ENGLISH")? 0 : 1;
 					int unitSystem = playerNode.path("unitSystem").asText().equals("METRIC")? 0 : 1;
 					int difficulty = playerNode.path("difficultyLevel").asText().equals("EASY")? 0 : 1;
 					int numForClassic = playerNode.path("numberOfQuestionsInClassicalMode").asInt();
@@ -159,7 +276,7 @@ public class FilesIO
 					
 					double windowWidth = playerNode.path("windowWidth").asDouble();
 					//check if width got is valid for current screen resolution
-					if (!isWidthValid(windowWidth)) windowWidth = 0.75 * primaryScreenWidth;
+					if (!getScreenStuff().isWidthValid(windowWidth)) windowWidth = 0.75 * getScreenStuff().getPrimaryScreenWidth();
 					
 					boolean startAtFullScreen = playerNode.path("startAtFullScreen").asBoolean();
 					
@@ -171,7 +288,7 @@ public class FilesIO
 						case "ALL": animationsUsed = 2; break;
 					}
 					
-					if((localeIndex < 0 || localeIndex > NUM_ALL_COUNTRIES) || (language < 0 || language > 1) || (unitSystem < 0 || unitSystem > 1) || (difficulty < 0 || difficulty > 1) ||
+					if((localeIndex < 0 || localeIndex > NUM_ALL_COUNTRIES) || (languageInt < 0 || languageInt > 1) || (unitSystem < 0 || unitSystem > 1) || (difficulty < 0 || difficulty > 1) ||
 						(numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_10  && numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_20  &&
 						 numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_50  && numForClassic != NUM_OF_QUESTIONS_FOR_CLASSIC_100) ||
 						(duration != TIME_ATTACK_DURATION_1_MINUTE && duration != TIME_ATTACK_DURATION_2_MINUTES &&
@@ -184,9 +301,8 @@ public class FilesIO
 							tempPlayer.setDefaultPlayerSettings();
 					else
 					{
-						LANGUAGE lan;
-						if(language == 0) lan = LANGUAGE.ENGLISH;
-						else lan = LANGUAGE.GREEK;
+						if(languageInt == 0) language = LANGUAGE.ENGLISH;
+						else language = LANGUAGE.GREEK;
 						
 						UNIT_SYSTEM unS;
 						if(unitSystem == 0) unS = UNIT_SYSTEM.METRIC;
@@ -201,7 +317,7 @@ public class FilesIO
 						if(difficulty == 0) df = DIFFICULTY.EASY;
 						else df = DIFFICULTY.DIFFICULT;
 						
-						tempPlayer.setPlayerSettings(locale, localeIndex, lan, unS, df, numForClassic, timerClassic,
+						tempPlayer.setPlayerSettings(locale, localeIndex, language, unS, df, numForClassic, timerClassic,
 								duration, lives, timerEndless, masterSliderVolume, musicSliderVolume, soundEffectsSliderVolume, windowWidth, an, startAtFullScreen);
 					}
 					playersArrayList.add(tempPlayer);
@@ -376,12 +492,12 @@ public class FilesIO
 			JsonNode screensNode = root.path("ratioProperties");
 			
 			String ratioName;
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9) ratioName = "ratio_16_9";
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10) ratioName = "ratio_16_10";
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16) ratioName = "ratio_25_16";
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) ratioName = "ratio_3_2";
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3) ratioName = "ratio_4_3";
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4) ratioName = "ratio_5_4";
+			if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_16_9) ratioName = "ratio_16_9";
+			else if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_16_10) ratioName = "ratio_16_10";
+			else if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_25_16) ratioName = "ratio_25_16";
+			else if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_3_2) ratioName = "ratio_3_2";
+			else if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_4_3) ratioName = "ratio_4_3";
+			else if(getScreenStuff().getCurrentScreenRatioEnum() == ScreenStuff.SUPPORTED_SCREEN_RATIOS.RATIO_5_4) ratioName = "ratio_5_4";
 			else ratioName = null;
 			
 			for (JsonNode screenNode: screensNode)
@@ -414,25 +530,21 @@ public class FilesIO
 						ratioProperties.getGameProperties().setTitleImage2LayoutY(ratio.path("titleImage2LayoutY").asDouble());
 						ratioProperties.getGameProperties().setTitleLabel2LayoutX(ratio.path("titleLabel2LayoutX").asDouble());
 						ratioProperties.getGameProperties().setTitleLabel2LayoutY(ratio.path("titleLabel2LayoutY").asDouble());
-						ratioProperties.getGameProperties().setRectangleForDifficultyLevelWidth(ratio.path("rectangleForDifficultyLevelWidth").asDouble());
-						ratioProperties.getGameProperties().setRectangleForDifficultyLevelHeight(ratio.path("rectangleForDifficultyLevelHeight").asDouble());
-						ratioProperties.getGameProperties().setRectangleForDifficultyLevelLayoutY(ratio.path("rectangleForDifficultyLevelLayoutY").asDouble());
-						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesWidth(ratio.path("rectangleForQuestionCategoriesWidth").asDouble());
-						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesHeight(ratio.path("rectangleForQuestionCategoriesHeight").asDouble());
-						ratioProperties.getGameProperties().setRectangleForQuestionCategoriesLayoutY(ratio.path("rectangleForQuestionCategoriesLayoutY").asDouble());
+						ratioProperties.getGameProperties().setGridPaneForQuestionsCategoriesWidth(ratio.path("gridPaneForQuestionsCategoriesWidth").asDouble());
+						ratioProperties.getGameProperties().setGridPaneForQuestionsCategoriesHeight(ratio.path("gridPaneForQuestionsCategoriesHeight").asDouble());
+						ratioProperties.getGameProperties().setGridPaneForQuestionsCategoriesLayoutY(ratio.path("gridPaneForQuestionsCategoriesLayoutY").asDouble());
 						ratioProperties.getGameProperties().setvBoxForDifficultyLevelWidth(ratio.path("vBoxForDifficultyLevelWidth").asDouble());
 						ratioProperties.getGameProperties().setvBoxForDifficultyLevelHeight(ratio.path("vBoxForDifficultyLevelHeight").asDouble());
 						ratioProperties.getGameProperties().setvBoxForDifficultyLevelLayoutY(ratio.path("vBoxForDifficultyLevelLayoutY").asDouble());
 						ratioProperties.getGameProperties().setExtendedQuestionCategoriesWidth(ratio.path("extendedQuestionCategoriesWidth").asDouble());
 						ratioProperties.getGameProperties().setExtendedQuestionCategoriesHeight(ratio.path("extendedQuestionCategoriesHeight").asDouble());
-						ratioProperties.getGameProperties().setRectangleForExtendedQuestionCategoriesHeight(ratio.path("rectangleForExtendedQuestionCategoriesHeight").asDouble());
+						ratioProperties.getGameProperties().setScrollPaneForExtendedCategoryQuestionsGridPaneHeight(ratio.path("scrollPaneForExtendedCategoryQuestionsGridPaneHeight").asDouble());
 						ratioProperties.getGameProperties().sethBoxForGameModesWidth(ratio.path("hBoxForGameModesWidth").asDouble());
 						ratioProperties.getGameProperties().sethBoxForGameModesHeight(ratio.path("hBoxForGameModesHeight").asDouble());
 						ratioProperties.getGameProperties().sethBoxForGameModesLayoutY(ratio.path("hBoxForGameModesLayoutY").asDouble());
 						ratioProperties.getGameProperties().setButtonHeight(ratio.path("buttonHeight").asDouble());
 						ratioProperties.getGameProperties().setHeightOfDescriptions(ratio.path("heightOfDescriptions").asDouble());
 						ratioProperties.getGameProperties().setBackButtonLayoutY(ratio.path("backButtonLayoutY").asDouble());
-						ratioProperties.getGameProperties().setNextButtonLayoutY(ratio.path("nextButtonLayoutY").asDouble());
 						ratioProperties.getGameProperties().setWoodPanelFor1IconImageLayoutX(ratio.path("woodPanelFor1IconImageLayoutX").asDouble());
 						ratioProperties.getGameProperties().setWoodPanelFor1IconImageLayoutY(ratio.path("woodPanelFor1IconImageLayoutY").asDouble());
 						ratioProperties.getGameProperties().setSoundIconLayoutY(ratio.path("soundIconLayoutY").asDouble());
@@ -645,7 +757,7 @@ public class FilesIO
 				population.setPopulationDensityPerSquareMile(countryNode.path("populationData").path("populationDensityPerSquareMile").asDouble());
 				population.setGlobalRanking(countryNode.path("populationData").path("globalRanking").asInt());
 				countries[i].setPopulation(population);
-
+				
 				i++;
 			}
 		}

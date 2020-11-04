@@ -47,3 +47,8 @@
 {
 	-fx-background-color: transparent;
 }
+
+#no-vertical-scrollBar
+{
+	-fx-vbar-policy: never;
+}

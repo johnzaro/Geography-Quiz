@@ -1,107 +1,120 @@
 package com.johnzaro.geographyquiz.core;
 
+import com.johnzaro.geographyquiz.core.helperClasses.ShutdownHook;
 import com.johnzaro.geographyquiz.dataStructures.RatioProperties;
+import com.johnzaro.geographyquiz.screens.WelcomeScreen;
+import com.johnzaro.geographyquiz.screens.errorScreens.ErrorScreen;
+import com.johnzaro.geographyquiz.screens.errorScreens.MessageDisplayResolutionNotSupportedScreen;
+import com.johnzaro.geographyquiz.screens.errorScreens.MessageGameIsAlreadyRunningScreen;
 import it.sauronsoftware.junique.AlreadyLockedException;
 import it.sauronsoftware.junique.JUnique;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.collections.ObservableList;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.util.concurrent.ExecutionException;
 
 import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 import static com.johnzaro.geographyquiz.core.PowerOn.*;
 
 public class BaseClass extends Application
 {
-//	Boolean to store weather the game is already running
 	private boolean isAlreadyRunning = false;
-//	public static Thread t1, t2, t3, t4, t5;
-
-//	main method: first method that runs, only used to call start method
+	
+	private MessageDisplayResolutionNotSupportedScreen messageDisplayResolutionNotSupportedScreen;
+	private MessageGameIsAlreadyRunningScreen messageGameIsAlreadyRunningScreen;
+	
+	//	main method: first method that runs, only used to call start method
 	public static void main(String[] args)
 	{
-		launch(args);
+		System.out.println(System.currentTimeMillis()%100000);
+		System.setProperty("javafx.preloader", "com.johnzaro.geographyquiz.core.Splash");
+		Application.launch(BaseClass.class, args);
+	}
+	
+	public void init()
+	{
+		setupGameVariables();
+		audioStuff = new AudioStuff();
+		
+		if(!getScreenStuff().isCurrentScreenRatioSupported())
+			messageDisplayResolutionNotSupportedScreen = new MessageDisplayResolutionNotSupportedScreen();
+		else
+		{
+			tryToLockGameInstance();
+			
+			if(isAlreadyRunning)
+				messageGameIsAlreadyRunningScreen = new MessageGameIsAlreadyRunningScreen();
+			else
+			{
+				FilesIO.setupFiles();
+				loadPlayersDataAndSettings();
+				
+				imageStuff = new ImageStuff();
+				imageStuff.registerImages();
+				imageStuff.loadImages();
+				imageStuff.loadAnimatedGlobeImages();
+				
+				powerOnStringData();
+				loadQuestionsResourceBundle(getCurrentLanguage());
+				audioStuff.loadAudio();
+				
+				ratioProperties = new RatioProperties();
+				FilesIO.loadRatioProperties();
+				
+				welcomeScreen = new WelcomeScreen();
+				powerOnGamePropertiesScreen();
+				powerOnGameScreen();
+				powerOnAtlasScreen();
+				powerOnScoreBoardScreen();
+				
+				try
+				{
+					ImageStuff.imagesLoadedFuture.get();
+				}
+				catch(InterruptedException | ExecutionException e)
+				{ Platform.runLater(() -> new ErrorScreen("Error occurred while waiting for images to load", e)); }
+				
+				getImageStuff().setMovingEarthImageViewportProperties();
+				if(animationsUsed == ANIMATIONS.ALL)
+				{
+					gamePropertiesScreen.setupAdvancedAnimations();
+					atlasScreen.setupAdvancedAnimations();
+					scoreBoardScreen.setupAdvancedAnimations();
+				}
+			}
+		}
 	}
 
 //	first method that starts the game
 	public void start(Stage coreStage)
 	{
-		coreStage.getProperties().put("hostServices", this.getHostServices());
+		stage = coreStage;
 		
-//		setup basic game variables and objects
-		setupGameVariables();
-		
-//		load the fonts needed to correctly display texts
-		loadFonts();
-		
-//		get the bounds of primary screen that is used in order to check if it is supported
-		setupPrimaryScreenBounds();
-		
-//		pass the width and height of primary screen to method to set currentScreenRatioValue & enum
-		setCurrentScreenRatio(primaryScreenWidth, primaryScreenHeight);
-		
-		if(!isCurrentScreenRatioSupported())
-		{
-//			follow steps to show the "display not supported" screen
-//			use helping resourceBundle to get the system language
-			loadLanguageResourceBundle(true);
-			
-//			setup the stage
-			setupStage(coreStage);
-			
-//			setup the "display not supported" screen and show it
-			powerOnMessageDisplayIsNotSupported(languageResourceBundle);
-		}
+		if(!getScreenStuff().isCurrentScreenRatioSupported())
+			messageDisplayResolutionNotSupportedScreen.setupAndShowStage();
+		else if(isAlreadyRunning)
+			messageGameIsAlreadyRunningScreen.setupAndShowStage();
 		else
 		{
-//			enter here only if display resolution is supported
-
-//			try to create .lock files to check if the game is already running
-			tryToLockGameInstance();
+			setupStage();
 			
-//			setup the correct paths for all the files used by the game
-			FilesIO.setupFiles();
-
-//			use the files to load the settings or set default settings if not any
-			loadPlayersDataAndSettings();
+			setWindowedModeValues();
+			if(getCurrentPlayer().getStartAtFullScreen()) stage.setFullScreen(true);
 			
-//			setup the stage
-			setupStage(coreStage);
-			
-			if(isAlreadyRunning)
-			{
-//				setup "game is already running" screen and show it
-				powerOnMessageGameIsAlreadyRunning();
-			}
-			else
-			{
-//				add shutdown hook that writes game settings before exiting game
-				Runtime.getRuntime().addShutdownHook(shutdownHook);
-				
-//				load all data files
-				powerOnStringData();
-
-//				load basic images and sounds
-				loadMedia();
-				
-				ratioProperties = new RatioProperties();
-				FilesIO.loadRatioProperties();
-				
-				setWindowedModeValues();
-				
-				powerOnWelcomeScreen();
-				
-				if(welcomeScreen != null) welcomeScreen.showScreen(true);
-				
-				powerOnGamePropertiesScreen();
-				powerOnGameScreen();
-				powerOnAtlasScreen();
-				powerOnScoreBoardScreen();
-			}
+			welcomeScreen.createScene();
+			System.out.println(System.currentTimeMillis()%100000);
+			welcomeScreen.showScreen();
 		}
 	}
 
 	private void tryToLockGameInstance()
 	{
-//		try to create lock file and check if one is already there
 		try
 		{
 			JUnique.acquireLock("com.johnzaro.geographyquiz.core.BaseClass");
@@ -111,5 +124,157 @@ public class BaseClass extends Application
 		{
 			isAlreadyRunning = true;
 		}
+	}
+	
+	private void setupStage()
+	{
+		stage.setMinWidth(getScreenStuff().getMinStageWidth());
+		
+		stage.setTitle(languageResourceBundle.getString("gameName"));
+		
+		stage.getProperties().put("hostServices", this.getHostServices());
+		clipboard = Clipboard.getSystemClipboard();
+		clipboardContent = new ClipboardContent();
+		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
+		
+		stage.fullScreenProperty().addListener((observable, oldValue, newValue) ->
+		{
+			if(newValue != oldValue && newValue)
+			{
+				double newWidth, newHeight;
+				ScreenStuff.SUPPORTED_SCREEN_RATIOS previousScreenRatio;
+				ObservableList<Screen> screens = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
+				
+				newWidth = screens.get(0).getBounds().getWidth();
+				newHeight = screens.get(0).getBounds().getHeight();
+				
+				previousScreenRatio = getScreenStuff().getCurrentScreenRatioEnum();
+				getScreenStuff().setCurrentScreenRatio(newWidth, newHeight);
+				if(previousScreenRatio != getScreenStuff().getCurrentScreenRatioEnum())
+				{
+					getScreenStuff().setPrimaryScreenWidth(newWidth);
+					getScreenStuff().setPrimaryScreenHeight(newHeight);
+					
+					stage.setMinWidth(getScreenStuff().getMinStageWidth());
+					
+					imageStuff.registerImages();
+					imageStuff.loadImages();
+					imageStuff.loadAnimatedGlobeImages();
+					
+					try { getImageStuff().imagesLoadedFuture.get(); }
+					catch(InterruptedException | ExecutionException e)
+					{ Platform.runLater(() -> new ErrorScreen("Error occurred while waiting for images to load", e)); }
+					
+					if(animationsUsed == ANIMATIONS.ALL)
+					{
+						getImageStuff().setMovingEarthImageViewportProperties();
+						gamePropertiesScreen.setupAdvancedAnimations();
+						atlasScreen.setupAdvancedAnimations();
+						scoreBoardScreen.setupAdvancedAnimations();
+					}
+				}
+			}
+		});
+		
+		stage.focusedProperty().addListener((observable, oldValue, newValue) ->
+		{
+			if(newValue)
+			{
+				if (animationsUsed == ANIMATIONS.ALL)
+				{
+//					if it has no focus and gains it back and animations are enabled -> play them
+					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
+					{
+						welcomeScreen.playGlobeAnimation();
+						welcomeScreen.resumeWelcomeTextAnimation();
+					}
+					else if(gamePropertiesScreen != null && mainScene.getRoot() == gamePropertiesScreen.getAnchorPane())
+					{
+						gamePropertiesScreen.playEarthAnimation();
+						gamePropertiesScreen.resumeTextAnimation();
+					}
+					else if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+					{
+						gameScreen.resumeTextAnimation();
+					}
+					else if(atlasScreen != null && mainScene.getRoot() == atlasScreen.getAnchorPane())
+					{
+						atlasScreen.playEarthAnimation();
+						atlasScreen.resumeTextAnimation();
+					}
+					else if(scoreBoardScreen != null && mainScene.getRoot() == scoreBoardScreen.getAnchorPane())
+					{
+						scoreBoardScreen.playEarthAnimation();
+						scoreBoardScreen.resumeTextAnimation();
+					}
+				}
+				
+				if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+				{
+					gameScreen.resumeComboAnimation();
+					gameScreen.resumeTimelineFor2_5SecondsWait();
+				}
+			}
+			else
+			{
+				if (animationsUsed == ANIMATIONS.ALL)
+				{
+//					if it has focus and loses it and uses animations -> pause them
+					if(welcomeScreen != null && mainScene.getRoot() == welcomeScreen.getAnchorPane())
+					{
+						welcomeScreen.stopGlobeAnimation();
+						welcomeScreen.pauseWelcomeTextAnimation();
+					}
+					else if(gamePropertiesScreen != null && mainScene.getRoot() == gamePropertiesScreen.getAnchorPane())
+					{
+						gamePropertiesScreen.pauseEarthAnimation();
+						gamePropertiesScreen.pauseTextAnimation();
+					}
+					else if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+					{
+						gameScreen.pauseTextAnimation();
+					}
+					else if(atlasScreen != null && mainScene.getRoot() == atlasScreen.getAnchorPane())
+					{
+						atlasScreen.pauseEarthAnimation();
+						atlasScreen.pauseTextAnimation();
+					}
+					else if(scoreBoardScreen != null && mainScene.getRoot() == scoreBoardScreen.getAnchorPane())
+					{
+						scoreBoardScreen.pauseEarthAnimation();
+						scoreBoardScreen.pauseTextAnimation();
+					}
+				}
+				
+				if(gameScreen != null && mainScene.getRoot() == gameScreen.getAnchorPane())
+				{
+					gameScreen.pauseComboAnimation();
+					gameScreen.pauseTimelineFor2_5SecondsWait();
+				}
+			}
+		});
+		
+		stage.iconifiedProperty().addListener((observable, oldValue, newValue) ->
+		{
+			if(newValue)
+			{
+				if(getAudioStuff().isIntroductionSoundPlaying()) getAudioStuff().pauseIntroductionSound();
+				else if(getAudioStuff().isWelcomeLoopSoundPlaying()) getAudioStuff().pauseWelcomeLoopSound();
+			}
+			else
+			{
+				if(getAudioStuff().isIntroductionSoundPaused()) getAudioStuff().playIntroductionSound();
+				else if(getAudioStuff().isWelcomeLoopSoundPaused()) getAudioStuff().playWelcomeLoopSoundSound();
+			}
+		});
+		
+		stage.setOnCloseRequest(e ->
+		{
+			if(scoreBoardScreen != null &&
+				mainScene.getRoot() == scoreBoardScreen.getAnchorPane() &&
+				scoreBoardScreen.getPopOver() != null &&
+				scoreBoardScreen.getPopOver().isShowing())
+					scoreBoardScreen.getPopOver().hide(Duration.millis(0));
+		});
 	}
 }

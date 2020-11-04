@@ -1,11 +1,22 @@
 .check-box .box
 {
 	-fx-background-color: #CF9788;
+
+    -fx-background-insets: 0;
 }
 
 .check-box:hover .box
 {
 	-fx-background-color: #FFC4B3;
+
+    -fx-background-insets: 0;
+}
+
+.check-box:armed .box
+{
+	-fx-background-color: #FFC4B3;
+
+    -fx-background-insets: 4 0 -4 0;
 }
 
 .check-box:selected .mark

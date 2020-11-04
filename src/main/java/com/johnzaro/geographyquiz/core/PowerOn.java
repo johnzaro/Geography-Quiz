@@ -1,17 +1,18 @@
 package com.johnzaro.geographyquiz.core;
 
-import com.johnzaro.geographyquiz.screens.*;
+import com.johnzaro.geographyquiz.core.helperClasses.OsCheck;
+import com.johnzaro.geographyquiz.screens.AtlasScreen;
+import com.johnzaro.geographyquiz.screens.GamePropertiesScreen;
+import com.johnzaro.geographyquiz.screens.GameScreen;
+import com.johnzaro.geographyquiz.screens.ScoreBoardScreen;
+import com.johnzaro.geographyquiz.screens.errorScreens.ErrorScreen;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleDoubleProperty;
-import javafx.scene.image.Image;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
-import javafx.stage.Stage;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -19,7 +20,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.util.ArrayList;
 import java.util.Locale;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import static com.johnzaro.geographyquiz.core.FilesIO.*;
@@ -28,14 +28,14 @@ import static com.johnzaro.geographyquiz.core.GlobalVariables.*;
 //helper class that contains all methods used when the game boots up
 public class PowerOn
 {
-	static void setupGameVariables()
+	static void setupOSType()
 	{
-		clipboard = Clipboard.getSystemClipboard();
-		clipboardContent = new ClipboardContent();
-		shutdownHook = new ShutdownHook();
-		System.setProperty("prism.lcdtext", "false");
 		OS = OsCheck.getOperatingSystemType();
 		GAME_DATA_PATH = getGameDataPath(OS);
+	}
+	
+	static void setupGameVariables()
+	{
 		email = "johnzrgnns@gmail.com";
 		
 		decimalFormatForSaving = ((DecimalFormat) NumberFormat.getNumberInstance(Locale.US));
@@ -43,13 +43,6 @@ public class PowerOn
 		
 		dateTimeFormatForSaving = DateTimeFormatter.ofPattern("dd/MM/yyyy - HH:mm");
 		dateFormatForSaving = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-		
-		masterSliderVolume = new SimpleDoubleProperty();
-		musicSliderVolume = new SimpleDoubleProperty();
-		soundEffectsSliderVolume = new SimpleDoubleProperty();
-		
-		musicCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(musicSliderVolume.divide(100.0));
-		soundEffectsCalculatedVolume = (masterSliderVolume.divide(100.0)).multiply(soundEffectsSliderVolume.divide(100.0));
 		
 		playersArrayList = new ArrayList<>();
 		games = new ArrayList<>();
@@ -70,141 +63,9 @@ public class PowerOn
 	
 	static void setupPrimaryScreenBounds()
 	{
-		primaryScreenResolution = Screen.getPrimary().getBounds();
-		primaryScreenWidth = primaryScreenResolution.getWidth();
-		primaryScreenHeight = primaryScreenResolution.getHeight();
-	}
-	
-	static void setupStage(Stage coreStage)
-	{
-//		set global variable "stage" = javafx stage
-		stage = coreStage;
-		
-		stage.setMinWidth(minStageWidth);
-
-//		set game name
-		stage.setTitle(languageResourceBundle.getString("gameName"));
-
-//		set focus and minimize functions to set game in sleep mode when not in focus
-		stage.focusedProperty().addListener(e ->
-		{
-			if (stage.isFocused())
-			{
-				if (animationsUsed == ANIMATIONS.ALL)
-				{
-//							if it has no focus and gains it back and animations are enabled -> play them
-					if(welcomeScreen != null && welcomeScene.getRoot() == welcomeScreen.getAnchorPane())
-					{
-						welcomeScreen.playGlobeAnimation();
-						welcomeScreen.resumeWelcomeTextAnimation();
-					}
-					else if(gamePropertiesScreen != null && welcomeScene.getRoot() == gamePropertiesScreen.getAnchorPane())
-					{
-						gamePropertiesScreen.playEarthAnimation();
-						gamePropertiesScreen.resumeTextAnimation();
-					}
-					else if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
-					{
-						gameScreen.resumeTextAnimation();
-					}
-					else if(atlasScreen != null && welcomeScene.getRoot() == atlasScreen.getAnchorPane())
-					{
-						atlasScreen.playEarthAnimation();
-						atlasScreen.resumeTextAnimation();
-					}
-					else if(scoreBoardScreen != null && welcomeScene.getRoot() == scoreBoardScreen.getAnchorPane())
-					{
-						scoreBoardScreen.playEarthAnimation();
-						scoreBoardScreen.resumeTextAnimation();
-					}
-				}
-				
-				if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
-				{
-					gameScreen.resumeTimelineFor2_5SecondsWait();
-				}
-				
-				if (minimizedMode)
-				{
-					//it is in minimized state and get back its focus
-					minimizedMode = false;
-					restoreMinimizedWindow();
-				}
-			}
-			else
-			{
-				if (animationsUsed == ANIMATIONS.ALL)
-				{
-//							if it has focus and loses it and uses animations -> pause them
-					if(welcomeScreen != null && welcomeScene.getRoot() == welcomeScreen.getAnchorPane())
-					{
-						welcomeScreen.stopGlobeAnimation();
-						welcomeScreen.pauseWelcomeTextAnimation();
-					}
-					else if(gamePropertiesScreen != null && welcomeScene.getRoot() == gamePropertiesScreen.getAnchorPane())
-					{
-						gamePropertiesScreen.pauseEarthAnimation();
-						gamePropertiesScreen.pauseTextAnimation();
-					}
-					else if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
-					{
-						gameScreen.pauseTextAnimation();
-					}
-					else if(atlasScreen != null && welcomeScene.getRoot() == atlasScreen.getAnchorPane())
-					{
-						atlasScreen.pauseEarthAnimation();
-						atlasScreen.pauseTextAnimation();
-					}
-					else if(scoreBoardScreen != null && welcomeScene.getRoot() == scoreBoardScreen.getAnchorPane())
-					{
-						scoreBoardScreen.pauseEarthAnimation();
-						scoreBoardScreen.pauseTextAnimation();
-					}
-				}
-				
-				if(gameScreen != null && welcomeScene.getRoot() == gameScreen.getAnchorPane())
-				{
-					gameScreen.pauseTimelineFor2_5SecondsWait();
-				}
-			}
-		});
-	}
-	
-	static void powerOnMessageDisplayIsNotSupported(ResourceBundle r)
-	{
-		try
-		{
-			if(primaryScreenWidth <= 1920)
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@1920x1080.png").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-			}
-			else if(primaryScreenWidth <= 2560)
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@2560x1440.png").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-			}
-			else
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@5120x2880.png").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg").toExternalForm(), 0.85 * primaryScreenWidth, 0, true, false);
-			}
-			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-			else GAME_NAME_IMAGE  = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-			
-//			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
-//			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
-			
-//			BUTTON_CLICK_SOUND.setVolume(0.7);
-//			MINIMIZE_SOUND.setVolume(0.7);
-			
-			messageDisplayResolutionNotSupportedScreen = new MessageDisplayResolutionNotSupportedScreen(r);
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to display the \"Resolution not supported\" message", e));
-		}
+		getScreenStuff().setPrimaryScreenResolution(Screen.getPrimary().getBounds());
+		getScreenStuff().setPrimaryScreenWidth(getScreenStuff().getPrimaryScreenResolution().getWidth());
+		getScreenStuff().setPrimaryScreenHeight(getScreenStuff().getPrimaryScreenResolution().getHeight());
 	}
 	
 	static void loadPlayersDataAndSettings()
@@ -212,39 +73,34 @@ public class PowerOn
 		if(!isEmpty(playersFile)) readPlayersFile();
 		else setDefaultPlayerName();
 		
-		loadLanguageResourceBundle(false);
-		
 		setSettingsBasedOnCurrentPlayer();
 		
 		if(!isEmpty(gamesScoresFile)) readGamesScores();
 	}
 	
-	public static void loadLanguageResourceBundle(boolean loadDefault)
+	public static void loadLanguageResourceBundle(LANGUAGE language)
 	{
-		if(loadDefault)
-		{
-			if(Locale.getDefault().getLanguage().equals("el")) languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("el"));
-			else languageResourceBundle = ResourceBundle.getBundle("resources.lang.GeoQuiz", new Locale("en"));
-		}
-		else
-		{
-			if(getCurrentLanguage() == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
-			else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
-		}
+		if(language == LANGUAGE.GREEK) languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("el"));
+		else languageResourceBundle = ResourceBundle.getBundle("lang.GeoQuiz", new Locale("en"));
+	}
+	
+	public static void loadQuestionsResourceBundle(LANGUAGE language)
+	{
+		if(language == LANGUAGE.GREEK) questionsResourceBundle = ResourceBundle.getBundle("lang.questions", new Locale("el"));
+		else questionsResourceBundle = ResourceBundle.getBundle("lang.questions", new Locale("en"));
 	}
 	
 	public static void setSettingsBasedOnCurrentPlayer()
 	{
 		setNumberAndDateFormats(getCurrentPlayer().getLocale());
 		
-		masterSliderVolume.set(getCurrentPlayer().getMasterSliderVolume());
-		musicSliderVolume.set(getCurrentPlayer().getMusicSliderVolume());
-		soundEffectsSliderVolume.set(getCurrentPlayer().getSoundEffectsSliderVolume());
-		startAtFullScreen = getCurrentPlayer().getStartAtFullScreen();
+		audioStuff.setMasterSliderVolume(getCurrentPlayer().getMasterSliderVolume());
+		audioStuff.setMusicSliderVolume(getCurrentPlayer().getMusicSliderVolume());
+		audioStuff.setSoundEffectsSliderVolume(getCurrentPlayer().getSoundEffectsSliderVolume());
 		animationsUsed = getCurrentPlayer().getAnimationsUsed();
 		
-		windowWidth = getCurrentPlayer().getWindowWidth();
-		windowHeight = getHeightBasedOnWidth(windowWidth);
+		getScreenStuff().setWindowWidth(getCurrentPlayer().getWindowWidth());
+		getScreenStuff().setWindowHeight(getScreenStuff().getHeightBasedOnWidth(getScreenStuff().getWindowWidth()));
 	}
 	
 	public static void setNumberAndDateFormats(Locale locale)
@@ -258,395 +114,12 @@ public class PowerOn
 		
 	}
 	
-	public static void setWindowedModeValues()
+	static void setWindowedModeValues()
 	{
-		stage.setX(primaryScreenResolution.getMinX() + primaryScreenWidth / 2.0 - windowWidth / 2.0);
-		stage.setY(primaryScreenResolution.getMinY() + primaryScreenHeight / 2.0 - windowHeight / 2.0);
-		stage.setWidth(windowWidth);
-		stage.setHeight(windowHeight);
-		
-		if(getCurrentPlayer().getStartAtFullScreen()) stage.setFullScreen(true);
-	}
-	
-	static void powerOnMessageGameIsAlreadyRunning()
-	{
-		try
-		{
-			double width;
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-				width = 0.75 * primaryScreenWidth;
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) width = 0.8 * primaryScreenWidth;
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-				width = 0.9 * primaryScreenWidth;
-			else width = 0.85 * primaryScreenWidth;
-			
-			if(primaryScreenWidth <= 1920)
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@1920x1080.png").toExternalForm(), width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg").toExternalForm(), width, 0, true, false);
-			} else if(primaryScreenWidth <= 2560)
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@2560x1440.png").toExternalForm(), width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg").toExternalForm(), width, 0, true, false);
-			} else
-			{
-				FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@5120x2880.png").toExternalForm(), width, 0, true, false);
-				CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg").toExternalForm(), width, 0, true, false);
-			}
-			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-			else GAME_NAME_IMAGE  = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-			
-//			BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.mp3").toExternalForm());
-//			MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.mp3").toExternalForm());
-			
-			messageGameIsAlreadyRunningScreen = new MessageGameIsAlreadyRunningScreen();
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to display the \"Game is already running\" message", e));
-		}
-	}
-	
-	static void loadMedia()
-	{
-		try
-		{
-			powerOnAudio();
-			powerOnImages();
-			powerOnAnimatedGlobeImages();
-			powerOnScreenDependentImages(primaryScreenWidth);
-//			Thread t1 = new Thread(PowerOn::powerOnAudio);
-//			Thread t2 = new Thread(PowerOn::powerOnImages);
-//			Thread t3 = new Thread(PowerOn::powerOnAnimatedGlobeImages);
-//			Thread t4 = new Thread(() -> powerOnScreenDependentImages(primaryScreenWidth));
-//
-//			t1.start();
-//			t2.start();
-//			t3.start();
-//			t4.start();
-//
-//			t1.join();
-//			t2.join();
-//			t3.join();
-//			t4.join();
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load media", e));
-		}
-	}
-	
-	private static void powerOnAudio()
-	{
-		HOVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/hover.wav").toExternalForm());
-		BUTTON_CLICK_SOUND = new AudioClip(PowerOn.class.getResource("/audio/buttonClick.wav").toExternalForm());
-		SWITCH_BUTTON_ON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOn.wav").toExternalForm());
-		SWITCH_BUTTON_OFF_SOUND = new AudioClip(PowerOn.class.getResource("/audio/switchButtonOff.wav").toExternalForm());
-		CHECKBOX_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxSelected.wav").toExternalForm());
-		CHECKBOX_DESELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/checkboxDeselected.wav").toExternalForm());
-		RADIOBUTTON_SELECTED_SOUND = new AudioClip(PowerOn.class.getResource("/audio/radioButtonSelected.wav").toExternalForm());
-
-		POPUP_SOUND = new AudioClip(PowerOn.class.getResource("/audio/popUp.wav").toExternalForm());
-		SLIDE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/slide.wav").toExternalForm());
-
-		MINIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/minimize.wav").toExternalForm());
-		MAXIMIZE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/maximize.wav").toExternalForm());
-
-		REWIND_SOUND = new AudioClip(PowerOn.class.getResource("/audio/rewind.wav").toExternalForm());
-		CORRECT_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/correctAnswerSimple.wav").toExternalForm());
-		WRONG_ANSWER_SIMPLE_SOUND = new AudioClip(PowerOn.class.getResource("/audio/wrongAnswerSimple.wav").toExternalForm());
-		GAME_WON_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameWon.wav").toExternalForm());
-		GAME_LOST_SOUND = new AudioClip(PowerOn.class.getResource("/audio/gameLost.wav").toExternalForm());
-		HEART_BREAKING_SOUND = new AudioClip(PowerOn.class.getResource("/audio/heartBreaking.wav").toExternalForm());
-		TIME_OVER_SOUND = new AudioClip(PowerOn.class.getResource("/audio/timeOver.wav").toExternalForm());
-
-		CLOCK_TICKING_30S_SOUND = new Media(PowerOn.class.getResource("/audio/clockTicking30S.mp3").toExternalForm());
-		CLOCK_TICKING_30S_PLAYER = new MediaPlayer(CLOCK_TICKING_30S_SOUND);
-		CLOCK_TICKING_30S_PLAYER.setCycleCount(MediaPlayer.INDEFINITE);
-
-		introductionSound = new Media(PowerOn.class.getResource("/audio/introductionSound.mp3").toExternalForm());
-		welcomeLoopSound = new Media(PowerOn.class.getResource("/audio/welcomeLoopSound.mp3").toExternalForm());
-		introductionMediaPlayer = new MediaPlayer(introductionSound);
-		welcomeLoopMediaPlayer = new MediaPlayer(welcomeLoopSound);
-
-		welcomeLoopMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-
-		introductionMediaPlayer.setOnEndOfMedia(() ->
-		{
-			playWelcomeLoopSoundSound();
-			introductionMediaPlayer.dispose();
-		});
-
-		HOVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		BUTTON_CLICK_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SWITCH_BUTTON_ON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SWITCH_BUTTON_OFF_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CHECKBOX_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CHECKBOX_DESELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		RADIOBUTTON_SELECTED_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		POPUP_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		SLIDE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		MINIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		MAXIMIZE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		REWIND_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CORRECT_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		WRONG_ANSWER_SIMPLE_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		GAME_WON_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		GAME_LOST_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		HEART_BREAKING_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		TIME_OVER_SOUND.volumeProperty().bind(soundEffectsCalculatedVolume);
-		CLOCK_TICKING_30S_PLAYER.volumeProperty().bind(soundEffectsCalculatedVolume);
-
-		introductionMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
-		welcomeLoopMediaPlayer.volumeProperty().bind(musicCalculatedVolume);
-	}
-	
-	private static void powerOnImages()
-	{
-		if (getCurrentLanguage() == LANGUAGE.GREEK) GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameGreek.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-		else GAME_NAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/gameNameEnglish.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, false);
-		
-		EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE = new Image(PowerOn.class.getResource("/images/backgrounds/emptyWoodBackgroundPanelSmallRope.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, true);
-		EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE = new Image(PowerOn.class.getResource("/images/backgrounds/emptyWoodBackgroundPanelBigRope.png").toExternalForm(), 0.7 * primaryScreenWidth, 0, true, true);
-		
-		WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON = new Image(PowerOn.class.getResource("/images/backgrounds/backgroundFor1Icon.png").toExternalForm(), 0.15 * primaryScreenWidth, 0, true, true);
-		
-		GLOBE_STAND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/globeStand.png").toExternalForm(), 0.2 * primaryScreenWidth, 0, true, true);
-		
-		BACK_ARROW = new Image(PowerOn.class.getResource("/images/icons/backArrow.png").toExternalForm(), 0.15 * primaryScreenWidth, 0, true, false);
-		
-		GREEK_FLAG_ICON = new Image(PowerOn.class.getResource("/images/icons/el.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ENGLISH_FLAG_ICON = new Image(PowerOn.class.getResource("/images/icons/en.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_3_BARS_ICON = new Image(PowerOn.class.getResource("/images/icons/soundOn_3bars.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_3_BARS_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/soundOnClicked_3bars.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_2_BARS_ICON = new Image(PowerOn.class.getResource("/images/icons/soundOn_2bars.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_2_BARS_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/soundOnClicked_2bars.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_1_BAR_ICON = new Image(PowerOn.class.getResource("/images/icons/soundOn_1bar.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_ON_1_BAR_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/soundOnClicked_1bar.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_OFF_ICON = new Image(PowerOn.class.getResource("/images/icons/soundOff.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SOUND_OFF_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/soundOffClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SETTINGS_ICON = new Image(PowerOn.class.getResource("/images/icons/settings.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SETTINGS_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/settingsClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		X_ICON = new Image(PowerOn.class.getResource("/images/icons/x.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		X_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/xClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_IN_ICON = new Image(PowerOn.class.getResource("/images/icons/zoomIn.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_IN_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/zoomInClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_OUT_ICON = new Image(PowerOn.class.getResource("/images/icons/zoomOut.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ZOOM_OUT_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/zoomOutClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		PENCIL_ICON = new Image(PowerOn.class.getResource("/images/icons/pencil.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		PENCIL_ICON_DISABLED = new Image(PowerOn.class.getResource("/images/icons/pencilDisabled.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		EDIT_USERNAME_ICON = new Image(PowerOn.class.getResource("/images/icons/editUsername.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SWITCH_USER_ICON = new Image(PowerOn.class.getResource("/images/icons/switchUser.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ADD_USER_ICON = new Image(PowerOn.class.getResource("/images/icons/addUser.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		INFO_ICON = new Image(PowerOn.class.getResource("/images/icons/info.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		INFO_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/infoClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SINGLE_PLAYER_ICON = new Image(PowerOn.class.getResource("/images/icons/singlePlayer.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		MULTI_PLAYER_ICON = new Image(PowerOn.class.getResource("/images/icons/multiPlayer.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		ATLAS_ICON = new Image(PowerOn.class.getResource("/images/icons/globe.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		SCORES_ICON = new Image(PowerOn.class.getResource("/images/icons/scores.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		PAUSE_ICON = new Image(PowerOn.class.getResource("/images/icons/pause.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		PAUSE_ICON_CLICKED = new Image(PowerOn.class.getResource("/images/icons/pauseClicked.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		CORRECT_ICON_SMALL = new Image(PowerOn.class.getResource("/images/icons/correctSmall.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		INCORRECT_ICON_SMALL = new Image(PowerOn.class.getResource("/images/icons/incorrectSmall.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		HEART_ICON_SMALL = new Image(PowerOn.class.getResource("/images/icons/heartSmall.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		HEART_ICON_LOST_SMALL = new Image(PowerOn.class.getResource("/images/icons/heartLostSmall.png").toExternalForm(), 0.05 * primaryScreenWidth, 0, true, true);
-		
-		PROGRESS_BAR_COLOR = new Image(PowerOn.class.getResource("/images/icons/progressBarColor.jpg").toExternalForm());
-		
-		if(primaryScreenHeight < 2800)
-		{
-			CORRECT_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/correctBig.png").toExternalForm(), 0.7 * primaryScreenHeight, 0, true, true);
-			INCORRECT_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/incorrectBig.png").toExternalForm(), 0.7 * primaryScreenHeight, 0, true, true);
-			HEART_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/heartBig.png").toExternalForm(), 0.7 * primaryScreenHeight, 0, true, true);
-			HEART_ICON_BROKEN_BIG = new Image(PowerOn.class.getResource("/images/icons/heartBrokenBig.png").toExternalForm(), 0.7 * primaryScreenHeight, 0, true, true);
-		}
-		else
-		{
-			CORRECT_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/correctBig.png").toExternalForm());
-			INCORRECT_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/incorrectBig.png").toExternalForm());
-			HEART_ICON_BIG = new Image(PowerOn.class.getResource("/images/icons/heartBig.png").toExternalForm());
-			HEART_ICON_BROKEN_BIG = new Image(PowerOn.class.getResource("/images/icons/heartBrokenBig.png").toExternalForm());
-		}
-	}
-	
-	public static void powerOnScreenDependentImages(double width)
-	{
-		try
-		{
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-			{
-				if(primaryScreenWidth <= 1920)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@1920x1080.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@1920x1080.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-9@1920x1080.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0271; worldMapLayoutY = 0.0481; worldMapFitWidth = 0.9469; worldMapFitHeight = 0.9037;
-				}
-				else if(primaryScreenWidth <= 2560)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@2560x1440.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@2560x1440.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-9@2560x1440.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0266; worldMapLayoutY = 0.0444; worldMapFitWidth = 0.9510; worldMapFitHeight = 0.9120;
-				}
-				else
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-9@5120x2880.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-9@5120x2880.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-9@5120x2880.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0444; worldMapFitWidth = 0.9505; worldMapFitHeight = 0.9167;
-				}
-			}
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-			{
-				if(primaryScreenWidth <= 1440)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-10@1440x900.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-10@1440x900.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-10@1440x900.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0281; worldMapLayoutY = 0.0508; worldMapFitWidth = 0.9458; worldMapFitHeight = 0.9000;
-				}
-				else if(primaryScreenWidth <= 1920)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-10@1920x1200.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-10@1920x1200.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-10@1920x1200.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0271; worldMapLayoutY = 0.0500; worldMapFitWidth = 0.9479; worldMapFitHeight = 0.9025;
-				}
-				else
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_16-10@2880x1800.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_16-10@2880x1800.jpg").toExternalForm(), width, 0, true, false);
-					WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap_16-10@2880x1800.jpg").toExternalForm(), width, 0, true, false);
-					worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0442; worldMapFitWidth = 0.9531; worldMapFitHeight = 0.9150;
-				}
-			}
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-			{
-				if(primaryScreenWidth <= 1400)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_4-3@1400x1050.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_4-3@1400x1050.jpg").toExternalForm(), width, 0, true, false);
-					if(new Random().nextBoolean())
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap1_4-3@1400x1050.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
-					}
-					else
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap2_4-3@1400x1050.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
-					}
-				}
-				else if(primaryScreenWidth <= 2048)
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_4-3@2048x1536.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_4-3@2048x1536.jpg").toExternalForm(), width, 0, true, false);
-					if(new Random().nextBoolean())
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap1_4-3@2048x1536.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
-					}
-					else
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap2_4-3@2048x1536.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
-					}
-				}
-				else
-				{
-					FRAME_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/frame_4-3@4000x3000.png").toExternalForm(), width, 0, true, false);
-					CHALKBOARD_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/chalkboardBackground_4-3@4000x3000.jpg").toExternalForm(), width, 0, true, false);
-					if(new Random().nextBoolean())
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap1_4-3@4000x3000.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0240; worldMapLayoutY = 0.0352; worldMapFitWidth = 0.9507; worldMapFitHeight = 0.9343;
-					}
-					else
-					{
-						WORLD_MAP = new Image(PowerOn.class.getResource("/images/backgrounds/worldMap2_4-3@4000x3000.jpg").toExternalForm(), width, 0, true, false);
-						worldMapLayoutX = 0.0250; worldMapLayoutY = 0.0324; worldMapFitWidth = 0.9521; worldMapFitHeight = 0.9371;
-					}
-				}
-			}
-			
-			if(primaryScreenHeight <= 950)
-			{
-				MOVING_EARTH_IMAGE_1 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap1@3461x900.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap2@3461x900.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-			}
-			else if(primaryScreenHeight <= 1500)
-			{
-				MOVING_EARTH_IMAGE_1 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap1@5538x1440.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap2@5538x1440.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-			}
-			else
-			{
-				MOVING_EARTH_IMAGE_1 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap1@10000x2600.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-				MOVING_EARTH_IMAGE_2 = new Image(PowerOn.class.getResource("/images/backgrounds/doubleEarthMap2@10000x2600.jpg").toExternalForm(), 0, primaryScreenHeight, true, false);
-			}
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load screen dependent images", e));
-		}
-	}
-	
-	public static void powerOnAnimatedGlobeImages()
-	{
-		if(animationsUsed == ANIMATIONS.ALL)
-		{
-			animatedGlobe = new Image[80];
-			
-			if(primaryScreenWidth < 2250) for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image(PowerOn.class.getResource("/images/globes/x400/" + i + ".png").toExternalForm(), 0.18 * primaryScreenWidth, 0, true, false);
-			else for(int i = 1; i <= 80; i++) animatedGlobe[i - 1] = new Image(PowerOn.class.getResource("/images/globes/x850/" + i + ".png").toExternalForm(), 0.18 * primaryScreenWidth, 0, true, false);
-		}
-		else
-		{
-			animatedGlobe = new Image[1];
-			if(primaryScreenWidth < 2250) animatedGlobe[0] = new Image(PowerOn.class.getResource("/images/globes/x400/" + (new Random().nextInt(80) + 1) + ".png").toExternalForm(), 0.18 * primaryScreenWidth, 0, true, false);
-			else animatedGlobe[0] = new Image(PowerOn.class.getResource("/images/globes/x850/" + (new Random().nextInt(80) + 1) + ".png").toExternalForm(), 0.18 * primaryScreenWidth, 0, true, false);
-		}
-	}
-	
-	static void powerOnSplashScreen()
-	{
-		try
-		{
-			double width;
-			if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10)
-				width = 0.75 * primaryScreenWidth;
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2) width = 0.8 * primaryScreenWidth;
-			else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3 || getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-				width = 0.9 * primaryScreenWidth;
-			else width = 0.85 * primaryScreenWidth;
-			
-			if(primaryScreenWidth <= 1920) SPLASH_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/splashImage@1920x1080.png").toExternalForm(), width, 0, true, false);
-			else if(primaryScreenWidth <= 2560) SPLASH_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/splashImage@2560x1440.png").toExternalForm(), width, 0, true, false);
-			else SPLASH_BACKGROUND_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/splashImage@3072x1728.png").toExternalForm(), width, 0, true, false);
-			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) SPLASH_TEXT_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/splashImageGreekName.png").toExternalForm(), 0.7 * width, 0, true, false);
-			else SPLASH_TEXT_IMAGE = new Image(PowerOn.class.getResource("/images/backgrounds/splashImageEnglishName.png").toExternalForm(), 0.7 * width, 0, true, false);
-			
-			splashScreen = new SplashScreen();
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to display the Splash Screen", e));
-		}
-	}
-	
-	static void powerOnWelcomeScreen()
-	{
-		try
-		{
-			welcomeScreen = new WelcomeScreen();
-		}
-		catch(Exception e)
-		{
-			Platform.runLater(() -> new ErrorScreen("Error occurred while trying to load the Welcome Screen", e));
-		}
+		stage.setX(getScreenStuff().getPrimaryScreenResolution().getMinX() + getScreenStuff().getPrimaryScreenWidth() / 2.0 - getScreenStuff().getWindowWidth() / 2.0);
+		stage.setY(getScreenStuff().getPrimaryScreenResolution().getMinY() + getScreenStuff().getPrimaryScreenHeight() / 2.0 - getScreenStuff().getWindowHeight() / 2.0);
+		stage.setWidth(getScreenStuff().getWindowWidth());
+		stage.setHeight(getScreenStuff().getWindowHeight());
 	}
 	
 	static void powerOnGamePropertiesScreen()
@@ -818,36 +291,6 @@ public class PowerOn
 			readGreekDecentralizedAdministrationsDataFile();
 			readGreekRegionsDataFile();
 			readGreekRegionalUnitsDataFile();
-
-//			for(int i = 0; i < statesOfUSA.length; i++)
-//			{
-//				System.out.println(statesOfUSA[i].getNameInGreek());
-//			}
-//
-//			try
-//			{
-//				SAXBuilder b   = new SAXBuilder();
-//				Document   doc = b.build(FilesIO.class.getResourceAsStream(PowerOn.class.getResource("/dataFiles/statesOfUSA.xml"));
-//
-//				Element root = doc.getRootElement();
-//
-//				List list = root.getChildren();
-//
-//				for(int i = 0; i < list.size(); i++)
-//				{
-//					Element state = ((Element) list.get(i));
-//
-//					state.addContent(12, new Element("articleForCapital").setText("Το"));
-//				}
-//
-//				XMLOutputter xmlOutput = new XMLOutputter();
-//				xmlOutput.setFormat(Format.getPrettyFormat().setIndent("\t"));
-//				xmlOutput.output(doc, new OutputStreamWriter(new FileOutputStream(new File("statesOfUSA.xml"), false), "UTF-8"));
-//			}
-//			catch(Exception e)
-//			{
-//				e.printStackTrace();
-//			}
 		});
 		
 		t1.start();

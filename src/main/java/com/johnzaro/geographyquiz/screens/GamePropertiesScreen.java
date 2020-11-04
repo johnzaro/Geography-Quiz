@@ -1,6 +1,8 @@
 package com.johnzaro.geographyquiz.screens;
 
 import com.johnzaro.geographyquiz.core.*;
+import com.johnzaro.geographyquiz.core.ImageStuff.Images;
+import com.johnzaro.geographyquiz.core.customNodes.*;
 import javafx.animation.*;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -9,19 +11,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.CacheHint;
 import javafx.scene.Cursor;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.InnerShadow;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
@@ -35,52 +28,44 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 {
 	private CustomCheckBox[] extQCCategories, extQCCountries, extQCUSA, extQCGreece;
 	private CustomCheckBox continentsAndCountriesCheckBox, USACheckBox, greeceCheckBox, attractionsCheckBox;
-	
-	private CustomImageView woodPanelFor1IconImage, previousImage, titleImage1, titleImage2,
-			backArrowImage, nextArrowImage, exitExtendedCategoryQuestions;
-	private CustomButton classicGameButton, timeAttackGameButton, endlessGameButton, backButton, nextButton;
+	private CustomImageView previousImage, titleImage1, titleImage2,
+			exitExtendedCategoryQuestions;
+	private CustomButton classicGameButton, timeAttackGameButton, endlessGameButton, backButton, nextButton, extendedQuestionCategoriesButton;
 	private SwitchButton countDownToggleForClassicGameLabel, countDownToggleForEndlessGameLabel;
-	private Label titleLabel1, titleLabel2, extendedQuestionCategories, numberOfQuestionsForClassicGameLabel, countDownForClassicGameLabel, descriptionForClassicGameLabel,
+	private CustomLabel titleLabel1, titleLabel2, numberOfQuestionsForClassicGameLabel, countDownForClassicGameLabel, descriptionForClassicGameLabel,
 			gameDurationForTimeAttackGameLabel, descriptionForTimeAttackGameLabel, livesForEndlessGameLabel, countDownForEndlessGameLabel, descriptionForEndlessGameLabel;
-	private ScrollPane scrollPaneForExtendedCategoryQuestionsGridPane;
-	private RadioButton easyLevelRadioButton, difficultLevelRadioButton, radioButton10QuestionsForClassicGameLabel,
+	private CustomScrollPane scrollPaneForExtendedCategoryQuestionsGridPane;
+	private CustomRadioButton easyLevelRadioButton, difficultLevelRadioButton, radioButton10QuestionsForClassicGameLabel,
 			radioButton20QuestionsForClassicGameLabel, radioButton50QuestionsForClassicGameLabel, radioButton100QuestionsForClassicGameLabel,
 			radioButton1MinuteDurationForTimeAttackGameLabel, radioButton2MinutesDurationForTimeAttackGameLabel, radioButton5MinutesDurationForTimeAttackGameLabel,
 			radioButton10MinutesDurationForTimeAttackGameLabel, radioButton1LifeForEndlessGameLabel, radioButton3LivesForEndlessGameLabel,
 			radioButton5LivesForEndlessGameLabel;
-	
 	private ToggleGroup toggleGroupForDifficultyLevel, toggleGroupForClassicGame, toggleGroupForTimeAttackGame, toggleGroupForEndlessGame;
-	private InnerShadow innerShadow;
-	private DropShadow dropShadow;
-	private HBox hBoxForGameModes, hBoxForNumberOfQuestionsForClassicGame, hBoxForCountDownForClassicGame,
+	private CustomHBox hBoxForGameModes, hBoxForNumberOfQuestionsForClassicGame, hBoxForCountDownForClassicGame,
 			hBoxForGameDurationForTimeAttackGame, hBoxEmpty, hBoxForLivesForEndlessGame, hBoxForCountDownForEndlessGame;
-	private VBox vBoxForDifficultyLevel, vBoxForClassicGame, vBoxForTimeAttackGame, vBoxForEndlessGame;
-	private GridPane gridPaneForQuestionsCategories, gridPaneForExtendedQuestionCategories;
-	private Rectangle rectangleForDifficultyLevel, rectangleForQuestionCategories, rectangleForExtendedQuestionCategories;
-	private TranslateTransition translateTransitionForWoodPanelFor1IconImage, translateTransitionForTitleImage1, translateTransitionForTitleLabel1, translateTransitionForVBoxForSound;
+	private CustomVBox vBoxForDifficultyLevel, vBoxForClassicGame, vBoxForTimeAttackGame, vBoxForEndlessGame;
+	private CustomGridPane gridPaneForQuestionsCategories, gridPaneForExtendedQuestionCategories;
+
+	private TranslateTransition translateTransitionForTitleImage1, translateTransitionForTitleLabel1;
 	private FadeTransition fadeTransitionForMovingEarthImage;
-	private ScaleTransition scaleTransitionForTitleLabel1, scaleTransitionForTitleLabel2, scaleTransitionForBackButton, scaleTransitionForSoundIcon,
+	private ScaleTransition scaleTransitionForTitleLabel1, scaleTransitionForTitleLabel2, scaleTransitionForBackButton,
 			scaleTransitionForNextButton, scaleTransitionForVBoxForDifficultyLevel, scaleTransitionForGridPaneForQuestionsCategories, scaleTransitionForExtendedQuestionCategoriesLabel,
-			scaleTransitionForScrollPaneForExtendedQuestionCategories, scaleTransitionForRectangleForExtendedQuestionCategories, scaleTransitionForExitExtendedCategoryQuestions,
-			scaleTransitionForRectangleForDifficultyLevel, scaleTransitionForRectangleForQuestionsCategories, scaleTransitionForVBoxForClassicGame,
-			scaleTransitionForVBoxForTimeAttackGame, scaleTransitionForVBoxForEndlessGame;
+			scaleTransitionForScrollPaneForExtendedQuestionCategories, scaleTransitionForExitExtendedCategoryQuestions,
+			scaleTransitionForVBoxForClassicGame, scaleTransitionForVBoxForTimeAttackGame, scaleTransitionForVBoxForEndlessGame;
 	private ParallelTransition parallelTransitionForTitleImage2;
-	private Timeline timelineToShowSoundOptions, timelineToHideSoundOptions, timeLineToShowAllStuff, timeLineToHideAllStuffFromScreen1,
-			timeLineToHideAllStuffFromScreen2, timeLineFromScreen1ToScreen2, timeLineFromScreen2ToScreen1;
-	
+	private Timeline timelineToHideAllStuffFromScreen1,
+			timelineToHideAllStuffFromScreen2, timelineFromScreen1ToScreen2, timelineFromScreen2ToScreen1;
+
 	private boolean screen1 = true, isExtendedQuestionCategoriesOpen = false, pressedOutsideExtendedQuestionCategories = false;
-	
+
 	private Handler handler = new Handler();
-		
+
+	private boolean fromWelcomeScreen;
+
 	protected void recalculateUI(double width, double height)
 	{
 		super.recalculateUI(width, height);
-		
-		double iconSize  = 0.0260 * width;
-		
-		Font fontForButtons  = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0234 * width);
-		Font fontForArrowButtons = Font.font("Comic Sans MS", FontWeight.BOLD, 0.0156 * width);
-		
+
 		if (width < 1200)
 		{
 			easyLevelRadioButton.setId("small");
@@ -114,365 +99,234 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			radioButton5LivesForEndlessGameLabel.setId("big");
 		}
 		
-		if(screen1)
-		{
-			Font fontForLabels = Font.font("Comic Sans MS", 0.0182 * width);
-			
-			titleImage1.setLayoutY(ratioProperties.getGameProperties().getTitleImage1LayoutY_1() * height);
-			titleLabel1.setLayoutX(ratioProperties.getGameProperties().getTitleLabel1LayoutX_1() * width);
-			titleLabel1.setLayoutY(ratioProperties.getGameProperties().getTitleLabel1LayoutY_1() * height);
-			
-			titleImage2.setLayoutY(ratioProperties.getGameProperties().getTitleImage2LayoutY() * height);
-			titleLabel2.setLayoutX(ratioProperties.getGameProperties().getTitleLabel2LayoutX() * width);
-			titleLabel2.setLayoutY(ratioProperties.getGameProperties().getTitleLabel2LayoutY() * height);
-			
-			rectangleForDifficultyLevel.setWidth(ratioProperties.getGameProperties().getRectangleForDifficultyLevelWidth() * width);
-			rectangleForDifficultyLevel.setHeight(ratioProperties.getGameProperties().getRectangleForDifficultyLevelHeight() * height);
-			rectangleForDifficultyLevel.setLayoutY(ratioProperties.getGameProperties().getRectangleForDifficultyLevelLayoutY() * height);
-			
-			rectangleForQuestionCategories.setWidth(ratioProperties.getGameProperties().getRectangleForQuestionCategoriesWidth() * width);
-			rectangleForQuestionCategories.setHeight(ratioProperties.getGameProperties().getRectangleForQuestionCategoriesHeight() * height);
-			rectangleForQuestionCategories.setLayoutY(ratioProperties.getGameProperties().getRectangleForQuestionCategoriesLayoutY() * height);
-			
-			vBoxForDifficultyLevel.setPrefSize(ratioProperties.getGameProperties().getvBoxForDifficultyLevelWidth() * width, ratioProperties.getGameProperties().getvBoxForDifficultyLevelHeight() * height);
-			vBoxForDifficultyLevel.setLayoutY(ratioProperties.getGameProperties().getvBoxForDifficultyLevelLayoutY() * height);
-			
-			extendedQuestionCategories.setPrefSize(ratioProperties.getGameProperties().getExtendedQuestionCategoriesWidth() * width, ratioProperties.getGameProperties().getExtendedQuestionCategoriesHeight() * height);
-			
-			rectangleForExtendedQuestionCategories.setHeight(ratioProperties.getGameProperties().getRectangleForExtendedQuestionCategoriesHeight() * height);
-			
-			gridPaneForQuestionsCategories.setPrefSize(0.3650 * width, 0.2220 * height);
-			
-			extendedQuestionCategories.setLayoutX(width / 2.0 - extendedQuestionCategories.getPrefWidth() / 2.0);
-			extendedQuestionCategories.setLayoutY(rectangleForQuestionCategories.getLayoutY() + rectangleForQuestionCategories.getHeight());
-			
-			vBoxForDifficultyLevel.setLayoutX(width / 2.0 - vBoxForDifficultyLevel.getPrefWidth() / 2.0);
-			
-			rectangleForDifficultyLevel.setLayoutX(width / 2.0 - rectangleForDifficultyLevel.getWidth() / 2.0);
-			
-			rectangleForQuestionCategories.setLayoutX(width / 2.0 - rectangleForQuestionCategories.getWidth() / 2.0);
-			
-			gridPaneForQuestionsCategories.setLayoutX(width / 2.0 - gridPaneForQuestionsCategories.getPrefWidth() / 2.0);
-			gridPaneForQuestionsCategories.setLayoutY(rectangleForQuestionCategories.getLayoutY() + rectangleForQuestionCategories.getHeight() / 2.0 - gridPaneForQuestionsCategories.getPrefHeight() / 2.0);
-			
-			titleImage2.setFitWidth(0.5156 * width);
-			titleImage2.setLayoutX(width / 2.0 - titleImage2.getFitWidth() / 2.0);
-			titleLabel2.setPrefSize(0.5052 * width, 0.1111 * height);
-			
-			if (getCurrentLanguage() == LANGUAGE.GREEK)
-			{
-				if(isExtendedQuestionCategoriesOpen) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * width));
-				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * width));
-				
-				titleLabel2.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0417 * width));
-			}
-			else
-			{
-				if(isExtendedQuestionCategoriesOpen) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0401 * width));
-				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0354 * width));
-				
-				titleLabel2.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0450 * width));
-			}
-			
-			rectangleForDifficultyLevel.setArcWidth(0.0208 * width);
-			rectangleForDifficultyLevel.setArcHeight(0.0208 * width);
-			rectangleForDifficultyLevel.setStrokeWidth(0.0042 * width);
-			
-			vBoxForDifficultyLevel.setSpacing(0.0130 * width);
-			
-			gridPaneForQuestionsCategories.setVgap(0.0740 * height);
-			
-			rectangleForQuestionCategories.setArcWidth(0.0208 * width);
-			rectangleForQuestionCategories.setArcHeight(0.0208 * width);
-			rectangleForQuestionCategories.setStrokeWidth(0.0042 * width);
-			
-			continentsAndCountriesCheckBox.getTooltip().setMaxWidth(0.3646 * width);
-			USACheckBox.getTooltip().setMaxWidth(0.3646 * width);
-			greeceCheckBox.getTooltip().setMaxWidth(0.3646 * width);
-			attractionsCheckBox.getTooltip().setMaxWidth(0.3646 * width);
-			
-			nextButton.setLayoutX(0.8670 * width);
-			nextArrowImage.setFitWidth(0.0703 * width);
-			nextButton.getTooltip().setMaxWidth(0.3646 * width);
-			nextButton.setFont(fontForArrowButtons);
-			nextButton.getTooltip().setFont(fontForTooltips);
-			
-			easyLevelRadioButton.setFont(fontForLabels);
-			difficultLevelRadioButton.setFont(fontForLabels);
-			
-			if(getCurrentLanguage() == LANGUAGE.GREEK)
-			{
-				gridPaneForQuestionsCategories.setHgap(0.0390 * width);
-				
-				continentsAndCountriesCheckBox.setFont(fontForLabels);
-				USACheckBox.setFont(fontForLabels);
-				greeceCheckBox.setFont(fontForLabels);
-				attractionsCheckBox.setFont(fontForLabels);
-			}
-			else
-			{
-				gridPaneForQuestionsCategories.setHgap(0.0208 * width);
-				
-				Font fontForCheckboxes = Font.font("Comic Sans MS", 0.0156 * width);
-				
-				continentsAndCountriesCheckBox.setFont(fontForCheckboxes);
-				USACheckBox.setFont(fontForCheckboxes);
-				greeceCheckBox.setFont(fontForCheckboxes);
-				attractionsCheckBox.setFont(fontForCheckboxes);
-			}
-			
-			extendedQuestionCategories.setFont(Font.font("Comic Sans MS", 0.0156 * width));
-			
-			continentsAndCountriesCheckBox.getTooltip().setFont(fontForTooltips);
-			USACheckBox.getTooltip().setFont(fontForTooltips);
-			greeceCheckBox.getTooltip().setFont(fontForTooltips);
-			attractionsCheckBox.getTooltip().setFont(fontForTooltips);
-			
-			//EXTENDED CATEGORIES
-			rectangleForExtendedQuestionCategories.setWidth(0.8958 * width);
-			rectangleForExtendedQuestionCategories.setArcWidth(0.0208 * width);
-			rectangleForExtendedQuestionCategories.setArcHeight(0.0208 * width);
-			rectangleForExtendedQuestionCategories.setStrokeWidth(0.0042 * width);
-			rectangleForExtendedQuestionCategories.setLayoutX(width / 2.0 - rectangleForExtendedQuestionCategories.getBoundsInLocal().getWidth() / 2.0);
-			rectangleForExtendedQuestionCategories.setLayoutY(rectangleForDifficultyLevel.getLayoutY());
-			
-			scrollPaneForExtendedCategoryQuestionsGridPane.setLayoutX(rectangleForExtendedQuestionCategories.getLayoutX() + 0.0104 * width);
-			scrollPaneForExtendedCategoryQuestionsGridPane.setLayoutY(rectangleForExtendedQuestionCategories.getLayoutY() + 0.0185 * height);
-			scrollPaneForExtendedCategoryQuestionsGridPane.setPrefSize(
-					rectangleForExtendedQuestionCategories.getWidth() - 0.0260 * width,
-					rectangleForExtendedQuestionCategories.getHeight() - 0.0463 * height);
-			
-			gridPaneForExtendedQuestionCategories.setHgap(0.0026 * width);
-			gridPaneForExtendedQuestionCategories.setVgap(0.0111 * height);
-			
-			exitExtendedCategoryQuestions.setFitWidth(0.0313 * width);
-			exitExtendedCategoryQuestions.setLayoutX(rectangleForExtendedQuestionCategories.getLayoutX()
-			                                         + rectangleForExtendedQuestionCategories.getWidth()
-			                                         - exitExtendedCategoryQuestions.getFitWidth()
-			                                         - 0.0156 * width);
-			
-			if(width > 1200) exitExtendedCategoryQuestions.setLayoutY(rectangleForExtendedQuestionCategories.getLayoutY()
-			                                                          + rectangleForExtendedQuestionCategories.getHeight()
-			                                                          - exitExtendedCategoryQuestions.getFitWidth()
-			                                                          - 0.0694 * height);
-			else exitExtendedCategoryQuestions.setLayoutY(rectangleForExtendedQuestionCategories.getLayoutY()
-			                                              + rectangleForExtendedQuestionCategories.getHeight()
-			                                              - exitExtendedCategoryQuestions.getFitWidth()
-			                                              - 0.0787 * height);
-			
-			Insets pos1 = new Insets(0, 0, 0, 0.0026 * width);
-			Insets pos2 = new Insets(0, 0, 0, 0.0198 * width);
-			
-			Font fontForExtCat = Font.font("Comic Sans MS", 0.0115 * width);
-
-			for(int i = 0; i < extQCCountries.length; i++)
-			{
-				if(i < extQCCategories.length)
-				{
-					extQCCategories[i].setFont(fontForExtCat);
-					gridPaneForExtendedQuestionCategories.setMargin(extQCCategories[i], pos1);
-				}
-				
-				extQCCountries[i].setFont(fontForExtCat);
-				gridPaneForExtendedQuestionCategories.setMargin(extQCCountries[i], pos2);
-				
-				if(i < extQCUSA.length)
-				{
-					extQCUSA[i].setFont(fontForExtCat);
-					gridPaneForExtendedQuestionCategories.setMargin(extQCUSA[i], pos2);
-					
-				}
-				if(i < extQCGreece.length)
-				{
-					extQCGreece[i].setFont(fontForExtCat);
-					gridPaneForExtendedQuestionCategories.setMargin(extQCGreece[i], pos2);
-				}
-			}
-			
-		}
-		else
-		{
-			Font fontForLabels = Font.font("Comic Sans MS", 0.0156 * width);
-			
-			double widthOfNodesInVBox, heightOfNodesInVBox, heightOfDescriptions = 0, buttonHeight = 0;
-			
-			if(getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0469 * width));
-			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0521 * width));
-			
-			titleImage1.setLayoutY(ratioProperties.getGameProperties().getTitleImage1LayoutY_2() * height);
-			
-			titleLabel1.setLayoutX(ratioProperties.getGameProperties().getTitleLabel1LayoutX_2() * width);
-			titleLabel1.setLayoutY(ratioProperties.getGameProperties().getTitleLabel1LayoutY_2() * height);
-			
-			hBoxForGameModes.setPrefSize(ratioProperties.getGameProperties().gethBoxForGameModesWidth() * width, ratioProperties.getGameProperties().gethBoxForGameModesHeight() * height);
-			hBoxForGameModes.setLayoutY(ratioProperties.getGameProperties().gethBoxForGameModesLayoutY() * height);
-			
-			buttonHeight = ratioProperties.getGameProperties().getButtonHeight() * height;
-			heightOfDescriptions = ratioProperties.getGameProperties().getHeightOfDescriptions() * height;
-			
-			if(titleImage1.getTranslateX() != 0)
-			{
-				titleImage1.setTranslateX(-0.1484 * width);
-				titleLabel1.setTranslateX(-0.1484 * width);
-			}
-			
-			double vBoxSpacing = 0.0074 * height;
-			vBoxForClassicGame.setSpacing(vBoxSpacing);
-			vBoxForTimeAttackGame.setSpacing(vBoxSpacing);
-			vBoxForEndlessGame.setSpacing(vBoxSpacing);
-			
-			double buttonWidth = 0.1927 * width;
-			classicGameButton.setPrefSize(buttonWidth, buttonHeight);
-			timeAttackGameButton.setPrefSize(buttonWidth, buttonHeight);
-			endlessGameButton.setPrefSize(buttonWidth, buttonHeight);
-			
-			hBoxForGameModes.setLayoutX(width / 2.0 - hBoxForGameModes.getPrefWidth() / 2.0);
-			hBoxForGameModes.setSpacing(0.0078 * width);
-			
-			vBoxForClassicGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
-			vBoxForTimeAttackGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
-			vBoxForEndlessGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
-			
-			String vBoxStyle = "-fx-background-color: #00000099; -fx-border-color: black;" +
-					"-fx-background-radius:" + 0.0208 * width + ";" +
-					"-fx-border-radius:" + 0.0208 * width + ";" +
-					"-fx-border-width:" + 0.0042 * width;
-			
-			vBoxForClassicGame.setStyle(vBoxStyle);
-			vBoxForTimeAttackGame.setStyle(vBoxStyle);
-			vBoxForEndlessGame.setStyle(vBoxStyle);
-			
-			widthOfNodesInVBox = 0.2266 * width;
-			heightOfNodesInVBox = 0.0509 * height;
-			
-			numberOfQuestionsForClassicGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForNumberOfQuestionsForClassicGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForNumberOfQuestionsForClassicGame.setSpacing(0.0052 * width);
-			hBoxForCountDownForClassicGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForCountDownForClassicGame.setSpacing(0.0052 * width);
-			descriptionForClassicGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
-			
-			gameDurationForTimeAttackGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForGameDurationForTimeAttackGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxEmpty.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForGameDurationForTimeAttackGame.setSpacing(0.0052 * width);
-			descriptionForTimeAttackGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
-			
-			livesForEndlessGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForLivesForEndlessGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForLivesForEndlessGame.setSpacing(0.0052 * width);
-			hBoxForCountDownForEndlessGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
-			hBoxForCountDownForEndlessGame.setSpacing(0.0052 * width);
-			descriptionForEndlessGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
-			
-			countDownToggleForClassicGameLabel.recalculateUI(0.0208 * width, 0.0208 * width, 0.0115 * width);
-			countDownToggleForEndlessGameLabel.recalculateUI(0.0208 * width, 0.0208 * width, 0.0115 * width);
-			
-			countDownToggleForClassicGameLabel.setPrefWidth(0.0521 * width);
-			countDownToggleForEndlessGameLabel.setPrefWidth(0.0521 * width);
-			
-			countDownToggleForClassicGameLabel.setPrefHeight(0.0208 * width);
-			countDownToggleForEndlessGameLabel.setPrefHeight(0.0208 * width);
-			
-			backArrowImage.setFitWidth(0.0703 * width);
-			
-			classicGameButton.setFont(fontForButtons);
-			timeAttackGameButton.setFont(fontForButtons);
-			endlessGameButton.setFont(fontForButtons);
-			
-			numberOfQuestionsForClassicGameLabel.setFont(fontForLabels);
-			radioButton10QuestionsForClassicGameLabel.setFont(fontForLabels);
-			radioButton20QuestionsForClassicGameLabel.setFont(fontForLabels);
-			radioButton50QuestionsForClassicGameLabel.setFont(fontForLabels);
-			radioButton100QuestionsForClassicGameLabel.setFont(fontForLabels);
-			countDownForClassicGameLabel.setFont(fontForLabels);
-			descriptionForClassicGameLabel.setFont(fontForLabels);
-			gameDurationForTimeAttackGameLabel.setFont(fontForLabels);
-			radioButton1MinuteDurationForTimeAttackGameLabel.setFont(fontForLabels);
-			radioButton2MinutesDurationForTimeAttackGameLabel.setFont(fontForLabels);
-			radioButton5MinutesDurationForTimeAttackGameLabel.setFont(fontForLabels);
-			radioButton10MinutesDurationForTimeAttackGameLabel.setFont(fontForLabels);
-			descriptionForTimeAttackGameLabel.setFont(fontForLabels);
-			livesForEndlessGameLabel.setFont(fontForLabels);
-			radioButton1LifeForEndlessGameLabel.setFont(fontForLabels);
-			radioButton3LivesForEndlessGameLabel.setFont(fontForLabels);
-			radioButton5LivesForEndlessGameLabel.setFont(fontForLabels);
-			countDownForEndlessGameLabel.setFont(fontForLabels);
-			descriptionForEndlessGameLabel.setFont(fontForLabels);
-		}
-		
-		woodPanelFor1IconImage.setFitWidth(0.0482 * width);
-		woodPanelFor1IconImage.setLayoutX(ratioProperties.getGameProperties().getWoodPanelFor1IconImageLayoutX() * width - woodPanelFor1IconImage.getFitWidth() / 2.0);
-		woodPanelFor1IconImage.setLayoutY(ratioProperties.getGameProperties().getWoodPanelFor1IconImageLayoutY() * height);
-		
-		soundIcon.setFitWidth(1.2 * iconSize);
-		soundIcon.setLayoutX(woodPanelFor1IconImage.getLayoutX() + woodPanelFor1IconImage.getFitWidth() / 2.0 - soundIcon.getFitWidth() / 2.0);
-		soundIcon.setLayoutY(ratioProperties.getGameProperties().getSoundIconLayoutY() * height - soundIcon.getFitWidth() / 2.0);
-		
-		backButton.setLayoutY(ratioProperties.getGameProperties().getBackButtonLayoutY() * height);
-		nextButton.setLayoutY(ratioProperties.getGameProperties().getNextButtonLayoutY() * height);
-		
 		titleImage1.setFitWidth(0.5156 * width);
 		titleImage1.setLayoutX(width / 2.0 - titleImage1.getFitWidth() / 2.0);
 		
 		titleLabel1.setPrefSize(0.5052 * width, 0.1111 * height);
 		
-		innerShadow.setOffsetX(0.0041 * width);
-		innerShadow.setOffsetY(0.0041 * width);
-		
-		dropShadow.setRadius(0.0104 * width);
-		dropShadow.setOffsetX(-0.0052 * width);
-		dropShadow.setOffsetY(-0.0052 * width);
-		
-		titleLabel1.setEffect(innerShadow);
-		titleLabel2.setEffect(innerShadow);
+		woodPanelFor1IconImage.setLayoutX(ratioProperties.getGameProperties().getWoodPanelFor1IconImageLayoutX() * width - woodPanelFor1IconImage.getFitWidth() / 2.0);
+		woodPanelFor1IconImage.setLayoutY(ratioProperties.getGameProperties().getWoodPanelFor1IconImageLayoutY() * height);
 		
 		vBoxForSound.setLayoutX(0.7031 * width);
 		vBoxForSound.setLayoutY(ratioProperties.getGameProperties().getvBoxForSoundLayoutY() * height);
+		if(vBoxForSound.getTranslateY() != 0) vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 		
-		if (width < 1200) backButton.setLayoutX(0.0240 * width);
-		else if (width < 2000) backButton.setLayoutX(0.0286 * width);
-		else backButton.setLayoutX(0.0339 * width);
-		
-		backArrowImage.setFitWidth(0.0703 * width);
-		backButton.getTooltip().setMaxWidth(0.3646 * width);
-		backButton.getTooltip().setFont(fontForTooltips);
-		
-		backButton.setFont(fontForArrowButtons);
-		
-		soundOptionsToolTip.setFont(fontForTooltips);
+		soundButton.setLayoutY(ratioProperties.getGameProperties().getSoundIconLayoutY() * height - soundButton.getFitWidth() / 2.0);
+
+		backButton.setFitWidth(0.0703 * width);
+		backButton.setLayoutX(0.0420 * width);
+		backButton.setLayoutY(ratioProperties.getGameProperties().getBackButtonLayoutY() * height);
+		backButton.setFont(font25P);
+		backButton.getTooltip().setFont(font25P);
+
+		if(screen1)
+		{
+			titleImage1.setLayoutY(ratioProperties.getGameProperties().getTitleImage1LayoutY_1() * height);
+			titleLabel1.setLayoutX(ratioProperties.getGameProperties().getTitleLabel1LayoutX_1() * width);
+			titleLabel1.setLayoutY(ratioProperties.getGameProperties().getTitleLabel1LayoutY_1() * height);
+			
+			titleImage2.setFitWidth(0.5156 * width);
+			titleImage2.setLayoutX(width / 2.0 - titleImage2.getFitWidth() / 2.0);
+			titleImage2.setLayoutY(ratioProperties.getGameProperties().getTitleImage2LayoutY() * height);
+			
+			titleLabel2.setPrefSize(0.5052 * width, 0.1111 * height);
+			titleLabel2.setLayoutX(ratioProperties.getGameProperties().getTitleLabel2LayoutX() * width);
+			titleLabel2.setLayoutY(ratioProperties.getGameProperties().getTitleLabel2LayoutY() * height);
+			
+			if (getCurrentLanguage() == LANGUAGE.GREEK)
+			{
+				if(isExtendedQuestionCategoriesOpen) titleLabel1.setFont(font55B);
+				else titleLabel1.setFont(font65B);
+				titleLabel2.setFont(font80B);
+			}
+			else
+			{
+				titleLabel1.setFont(font70B);
+				titleLabel2.setFont(font85B);
+			}
+
+			vBoxForDifficultyLevel.setPrefSize(ratioProperties.getGameProperties().getvBoxForDifficultyLevelWidth() * width, ratioProperties.getGameProperties().getvBoxForDifficultyLevelHeight() * height);
+			vBoxForDifficultyLevel.setLayoutX(width / 2.0 - vBoxForDifficultyLevel.getPrefWidth() / 2.0);
+			vBoxForDifficultyLevel.setLayoutY(ratioProperties.getGameProperties().getvBoxForDifficultyLevelLayoutY() * height);
+			vBoxForDifficultyLevel.setSpacing(0.0130 * width);
+			vBoxForDifficultyLevel.setStyle(cssBackgroundAndBorderMedium + "-fx-padding:" + 0.0156 * width + "px " + 0.0525 * width + "px;");
+			
+			easyLevelRadioButton.setFont(font35P);
+			difficultLevelRadioButton.setFont(font35P);
+
+			gridPaneForQuestionsCategories.setPrefSize(ratioProperties.getGameProperties().getGridPaneForQuestionsCategoriesWidth() * width,
+					ratioProperties.getGameProperties().getGridPaneForQuestionsCategoriesHeight() * height);
+			gridPaneForQuestionsCategories.setLayoutX(width / 2.0 - gridPaneForQuestionsCategories.getPrefWidth() / 2.0);
+			gridPaneForQuestionsCategories.setLayoutY(ratioProperties.getGameProperties().getGridPaneForQuestionsCategoriesLayoutY() * height);
+			gridPaneForQuestionsCategories.setVgap(0.0740 * height);
+			gridPaneForQuestionsCategories.setStyle(cssBackgroundAndBorderMedium + cssPadding30);
+			
+			continentsAndCountriesCheckBox.getTooltip().setFont(font25P);
+			USACheckBox.getTooltip().setFont(font25P);
+			greeceCheckBox.getTooltip().setFont(font25P);
+			attractionsCheckBox.getTooltip().setFont(font25P);
+			
+			if(getCurrentLanguage() == LANGUAGE.GREEK)
+			{
+				gridPaneForQuestionsCategories.setHgap(0.0390 * width);
+
+				continentsAndCountriesCheckBox.setFont(font35P);
+				USACheckBox.setFont(font35P);
+				greeceCheckBox.setFont(font35P);
+				attractionsCheckBox.setFont(font35P);
+			}
+			else
+			{
+				gridPaneForQuestionsCategories.setHgap(0.0208 * width);
+
+				continentsAndCountriesCheckBox.setFont(font30P);
+				USACheckBox.setFont(font30P);
+				greeceCheckBox.setFont(font30P);
+				attractionsCheckBox.setFont(font30P);
+			}
+			
+			extendedQuestionCategoriesButton.setPrefSize(ratioProperties.getGameProperties().getExtendedQuestionCategoriesWidth() * width, ratioProperties.getGameProperties().getExtendedQuestionCategoriesHeight() * height);
+			extendedQuestionCategoriesButton.setLayoutX(width / 2.0 - extendedQuestionCategoriesButton.getPrefWidth() / 2.0);
+			extendedQuestionCategoriesButton.setLayoutY(gridPaneForQuestionsCategories.getLayoutY() + gridPaneForQuestionsCategories.getPrefHeight() + 0.0093 * height);
+			extendedQuestionCategoriesButton.setFont(font30P);
+			
+			nextButton.setFitWidth(backButton.getFitWidth());
+			nextButton.setLayoutX(width - 0.1110 * width);
+			nextButton.setLayoutY(backButton.getLayoutY());
+			nextButton.setFont(font25P);
+			nextButton.getTooltip().setFont(font25P);
+
+			scrollPaneForExtendedCategoryQuestionsGridPane.setPrefSize(0.8958 * width, ratioProperties.getGameProperties().getScrollPaneForExtendedCategoryQuestionsGridPaneHeight() * height);
+			scrollPaneForExtendedCategoryQuestionsGridPane.setLayoutX(width / 2.0 - scrollPaneForExtendedCategoryQuestionsGridPane.getPrefWidth() / 2.0);
+			scrollPaneForExtendedCategoryQuestionsGridPane.setLayoutY(vBoxForDifficultyLevel.getLayoutY());
+			scrollPaneForExtendedCategoryQuestionsGridPane.setStyle(cssBackgroundAndBorderMedium + cssPadding30);
+
+			gridPaneForExtendedQuestionCategories.setHgap(0.0026 * width);
+			gridPaneForExtendedQuestionCategories.setVgap(0.0111 * height);
+
+			exitExtendedCategoryQuestions.setFitWidth(0.0313 * width);
+			exitExtendedCategoryQuestions.setLayoutX(scrollPaneForExtendedCategoryQuestionsGridPane.getLayoutX() + scrollPaneForExtendedCategoryQuestionsGridPane.getPrefWidth()
+					- exitExtendedCategoryQuestions.getFitWidth() - 0.0156 * width);
+			exitExtendedCategoryQuestions.setLayoutY(scrollPaneForExtendedCategoryQuestionsGridPane.getLayoutY() + scrollPaneForExtendedCategoryQuestionsGridPane.getPrefHeight()
+					- exitExtendedCategoryQuestions.getFitWidth() - 0.0156 * width);
+
+			Insets pos1 = new Insets(0, 0, 0, 0.0026 * width);
+			Insets pos2 = new Insets(0, 0, 0, 0.0198 * width);
+			for(int i = 0; i < extQCCountries.length; i++)
+			{
+				if(i < extQCCategories.length)
+				{
+					extQCCategories[i].setFont(font25P);
+					GridPane.setMargin(extQCCategories[i], pos1);
+				}
+
+				extQCCountries[i].setFont(font25P);
+				GridPane.setMargin(extQCCountries[i], pos2);
+
+				if(i < extQCUSA.length)
+				{
+					extQCUSA[i].setFont(font25P);
+					GridPane.setMargin(extQCUSA[i], pos2);
+
+				}
+				if(i < extQCGreece.length)
+				{
+					extQCGreece[i].setFont(font25P);
+					GridPane.setMargin(extQCGreece[i], pos2);
+				}
+			}
+		}
+		else
+		{
+			double buttonWidth = 0.1927 * width;
+			double buttonHeight = ratioProperties.getGameProperties().getButtonHeight() * height;
+			double vBoxSpacing = 0.0074 * height;
+			double widthOfNodesInVBox = 0.2266 * width;
+			double heightOfNodesInVBox = 0.0509 * height;
+			double heightOfDescriptions = ratioProperties.getGameProperties().getHeightOfDescriptions() * height;
+
+			titleImage1.setLayoutY(ratioProperties.getGameProperties().getTitleImage1LayoutY_2() * height);
+			if(titleImage1.getTranslateX() != 0)
+			{
+				titleImage1.setTranslateX(-0.1484 * width);
+				titleLabel1.setTranslateX(-0.1484 * width);
+			}
+
+			titleLabel1.setLayoutX(ratioProperties.getGameProperties().getTitleLabel1LayoutX_2() * width);
+			titleLabel1.setLayoutY(ratioProperties.getGameProperties().getTitleLabel1LayoutY_2() * height);
+			if(getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(font85B);
+			else titleLabel1.setFont(font95B);
+
+			hBoxForGameModes.setPrefSize(ratioProperties.getGameProperties().gethBoxForGameModesWidth() * width, ratioProperties.getGameProperties().gethBoxForGameModesHeight() * height);
+			hBoxForGameModes.setLayoutX(width / 2.0 - hBoxForGameModes.getPrefWidth() / 2.0);
+			hBoxForGameModes.setLayoutY(ratioProperties.getGameProperties().gethBoxForGameModesLayoutY() * height);
+			hBoxForGameModes.setSpacing(0.0078 * width);
+			
+			vBoxForClassicGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
+			vBoxForClassicGame.setSpacing(vBoxSpacing);
+			vBoxForClassicGame.setStyle(cssBackgroundAndBorderBig);
+			classicGameButton.setPrefSize(buttonWidth, buttonHeight);
+			classicGameButton.setFont(font45B);
+			hBoxForNumberOfQuestionsForClassicGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			hBoxForNumberOfQuestionsForClassicGame.setSpacing(0.0052 * width);
+			numberOfQuestionsForClassicGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			numberOfQuestionsForClassicGameLabel.setFont(font30P);
+			radioButton10QuestionsForClassicGameLabel.setFont(font30P);
+			radioButton20QuestionsForClassicGameLabel.setFont(font30P);
+			radioButton50QuestionsForClassicGameLabel.setFont(font30P);
+			radioButton100QuestionsForClassicGameLabel.setFont(font30P);
+			hBoxForCountDownForClassicGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			hBoxForCountDownForClassicGame.setSpacing(0.0104 * width);
+			countDownForClassicGameLabel.setFont(font30P);
+			countDownToggleForClassicGameLabel.setPrefSize(0.0521 * width, 0.0370 * height);
+			countDownToggleForClassicGameLabel.recalculateUI(0.0208 * width, 0.0208 * width, font25P);
+			descriptionForClassicGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
+			descriptionForClassicGameLabel.setFont(font30P);
+			
+			vBoxForTimeAttackGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
+			vBoxForTimeAttackGame.setSpacing(vBoxSpacing);
+			vBoxForTimeAttackGame.setStyle(cssBackgroundAndBorderBig);
+			timeAttackGameButton.setPrefSize(buttonWidth, buttonHeight);
+			timeAttackGameButton.setFont(font45B);
+			hBoxForGameDurationForTimeAttackGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			hBoxForGameDurationForTimeAttackGame.setSpacing(0.0052 * width);
+			gameDurationForTimeAttackGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			gameDurationForTimeAttackGameLabel.setFont(font30P);
+			radioButton1MinuteDurationForTimeAttackGameLabel.setFont(font30P);
+			radioButton2MinutesDurationForTimeAttackGameLabel.setFont(font30P);
+			radioButton5MinutesDurationForTimeAttackGameLabel.setFont(font30P);
+			radioButton10MinutesDurationForTimeAttackGameLabel.setFont(font30P);
+			hBoxEmpty.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			descriptionForTimeAttackGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
+			descriptionForTimeAttackGameLabel.setFont(font30P);
+			
+			vBoxForEndlessGame.setPrefWidth((hBoxForGameModes.getPrefWidth() - hBoxForGameModes.getSpacing() * 2.0) / 3.0);
+			vBoxForEndlessGame.setSpacing(vBoxSpacing);
+			vBoxForEndlessGame.setStyle(cssBackgroundAndBorderBig);
+			endlessGameButton.setPrefSize(buttonWidth, buttonHeight);
+			endlessGameButton.setFont(font45B);
+			hBoxForLivesForEndlessGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			hBoxForLivesForEndlessGame.setSpacing(0.0052 * width);
+			livesForEndlessGameLabel.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			livesForEndlessGameLabel.setFont(font30P);
+			radioButton1LifeForEndlessGameLabel.setFont(font30P);
+			radioButton3LivesForEndlessGameLabel.setFont(font30P);
+			radioButton5LivesForEndlessGameLabel.setFont(font30P);
+			hBoxForCountDownForEndlessGame.setPrefSize(widthOfNodesInVBox, heightOfNodesInVBox);
+			hBoxForCountDownForEndlessGame.setSpacing(0.0104 * width);
+			countDownForEndlessGameLabel.setFont(font30P);
+			countDownToggleForEndlessGameLabel.setPrefSize(0.0521 * width, 0.0370 * height);
+			countDownToggleForEndlessGameLabel.recalculateUI(0.0208 * width, 0.0208 * width, font25P);
+			descriptionForEndlessGameLabel.setPrefSize(widthOfNodesInVBox, heightOfDescriptions);
+			descriptionForEndlessGameLabel.setFont(font30P);
+		}
 	}
-	
+
 	protected void recalculateBackground(double width, double height)
 	{
 		super.recalculateBackground(width, height);
-		
-		if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_9)
-		{
-			movingEarthImage.setFitWidth(0.9500 * width);
-			movingEarthImage.setLayoutY(0.0500 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_16_10
-				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_25_16
-				|| getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_3_2)
-		{
-			movingEarthImage.setFitWidth(0.9590 * width);
-			movingEarthImage.setLayoutY(0.0519 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_4_3)
-		{
-			movingEarthImage.setFitWidth(0.9548 * width);
-			movingEarthImage.setLayoutY(0.0322 * height);
-		}
-		else if(getCurrentScreenRatioEnum() == SUPPORTED_SCREEN_RATIOS.RATIO_5_4)
-		{
-			movingEarthImage.setFitWidth(0.9500 * width);
-			movingEarthImage.setLayoutY(0.0332 * height);
-		}
-		
-		movingEarthImage.setLayoutX(width / 2.0 - movingEarthImage.getFitWidth() / 2.0);
-		
-		if(previousImage.getImage() != null && previousImage.getImage().equals(CHALKBOARD_BACKGROUND_IMAGE))
+
+		if(fromWelcomeScreen)
 		{
 			previousImage.setLayoutX(0);
 			previousImage.setLayoutY(0);
@@ -481,165 +335,75 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		}
 		else
 		{
-			previousImage.setLayoutX(getWorldMapLayoutX() * width);
-			previousImage.setLayoutY(getWorldMapLayoutY() * height);
-			previousImage.setFitWidth(getWorldMapFitWidth() * width);
-			previousImage.setFitHeight(getWorldMapFitHeight() * height);
+			previousImage.setLayoutX(getImageStuff().getWorldMapLayoutX() * width);
+			previousImage.setLayoutY(getImageStuff().getWorldMapLayoutY() * height);
+			previousImage.setFitWidth(getImageStuff().getWorldMapFitWidth() * width);
+			previousImage.setFitHeight(getImageStuff().getWorldMapFitHeight() * height);
 		}
 	}
-	
-	protected void setScreenRatioDependentImages()
-	{
-		woodenFrameImage.setImage(FRAME_IMAGE);
-		movingEarthImage.setImage(MOVING_EARTH_IMAGE_1);
-		setViewPortProperties();
-	}
-	
+
 	public GamePropertiesScreen()
 	{
 		previousImage = new CustomImageView(false, false, false, true, CacheHint.SPEED);
-		previousImage.setLayoutX(0);
-		previousImage.setLayoutY(0);
-		
-		woodPanelFor1IconImage = new CustomImageView(true, true, false, true, CacheHint.SPEED);
-		
+
 		movingEarthImage = new CustomImageView(false, true, false, false, null);
-		
-		backArrowImage = new CustomImageView(true, true, true, false, null);
-		
-		backButton = new CustomButton();
-		backButton.setStyle("-fx-background-color: transparent");
-		backButton.setGraphic(backArrowImage);
-		backButton.setContentDisplay(ContentDisplay.TOP);
-		backButton.setTextAlignment(TextAlignment.CENTER);
-		backButton.setTextFill(Color.valueOf("#7A301B"));
-		backButton.setTooltip(new CustomTooltip());
-		backButton.setCache(true);
-		backButton.setCacheHint(CacheHint.SCALE);
-		
+
+		backButton = new CustomButton(null, images.get(Images.BACK_ARROW), ContentDisplay.TOP, null, CustomButton.COLOR, true, true, true, true, CacheHint.SCALE);
+
 //		Difficulty and categories selection screen
-		nextArrowImage = new CustomImageView(true, true, true, false, null);
-		nextArrowImage.setRotate(180);
-		
-		nextButton = new CustomButton();
-		nextButton.setStyle("-fx-background-color: transparent");
-		nextButton.setGraphic(nextArrowImage);
-		nextButton.setContentDisplay(ContentDisplay.TOP);
-		nextButton.setTextAlignment(TextAlignment.CENTER);
-		nextButton.setTextFill(Color.valueOf("#7A301B"));
-		nextButton.setTooltip(new CustomTooltip());
-		nextButton.setCache(true);
-		nextButton.setCacheHint(CacheHint.SCALE);
-		
+		nextButton = new CustomButton(null, images.get(Images.BACK_ARROW), ContentDisplay.TOP, null, CustomButton.COLOR, true, true, true, true, CacheHint.SCALE);
+		nextButton.getGraphic().setRotate(180);
+
 		titleImage1 = new CustomImageView(true, true, false, true, CacheHint.SPEED);
-		
 		titleImage2 = new CustomImageView(true, true, false, true, CacheHint.SCALE);
-		
-		innerShadow = new InnerShadow();
-		
-		titleLabel1 = new Label();
-		titleLabel1.setTextFill(Color.valueOf("#602000"));
-		titleLabel1.setTextAlignment(TextAlignment.CENTER);
-		titleLabel1.setAlignment(Pos.CENTER);
-		titleLabel1.setCache(true);
-		titleLabel1.setCacheHint(CacheHint.SCALE);
-		
-		titleLabel2 = new Label();
-		titleLabel2.setTextFill(Color.valueOf("#602000"));
-		titleLabel2.setTextAlignment(TextAlignment.CENTER);
-		titleLabel2.setAlignment(Pos.CENTER);
-		titleLabel2.setCache(true);
-		titleLabel2.setCacheHint(CacheHint.SCALE);
-		
-		easyLevelRadioButton = new RadioButton();
-		easyLevelRadioButton.setFocusTraversable(false);
-		easyLevelRadioButton.setCursor(Cursor.HAND);
-		easyLevelRadioButton.setTextFill(Color.WHITE);
-		
-		difficultLevelRadioButton = new RadioButton();
-		difficultLevelRadioButton.setFocusTraversable(false);
-		difficultLevelRadioButton.setCursor(Cursor.HAND);
-		difficultLevelRadioButton.setTextFill(Color.WHITE);
-		
+
+		titleLabel1 = new CustomLabel(Pos.CENTER, TextAlignment.CENTER, DARK_BROWN, null, null, null, false, false, false, false, true, CacheHint.SCALE);
+		titleLabel2 = new CustomLabel(Pos.CENTER, TextAlignment.CENTER, DARK_BROWN, null, null, null, false, false, false, false, true, CacheHint.SCALE);
+
+		easyLevelRadioButton = new CustomRadioButton(null, true);
+		difficultLevelRadioButton = new CustomRadioButton(null, true);
+
 		toggleGroupForDifficultyLevel = new ToggleGroup();
 		toggleGroupForDifficultyLevel.getToggles().addAll(easyLevelRadioButton, difficultLevelRadioButton);
-		
-		rectangleForDifficultyLevel = new Rectangle();
-		rectangleForDifficultyLevel.setSmooth(true);
-		rectangleForDifficultyLevel.setStroke(Color.BLACK);
-		rectangleForDifficultyLevel.setFill(Color.valueOf("00000099"));
-		
-		rectangleForQuestionCategories = new Rectangle();
-		rectangleForQuestionCategories.setSmooth(true);
-		rectangleForQuestionCategories.setStroke(Color.BLACK);
-		rectangleForQuestionCategories.setFill(Color.valueOf("00000099"));
-		rectangleForQuestionCategories.setCache(true);
-		rectangleForQuestionCategories.setCacheHint(CacheHint.SCALE);
-		
-		vBoxForDifficultyLevel = new VBox();
-		vBoxForDifficultyLevel.setAlignment(Pos.CENTER_LEFT);
+
+		vBoxForDifficultyLevel = new CustomVBox(false, Pos.CENTER_LEFT, "black-bordered-background-light", true, CacheHint.SCALE);
 		vBoxForDifficultyLevel.getChildren().addAll(easyLevelRadioButton, difficultLevelRadioButton);
-		vBoxForDifficultyLevel.setCache(true);
-		vBoxForDifficultyLevel.setCacheHint(CacheHint.SCALE);
-		
+
 		continentsAndCountriesCheckBox = new CustomCheckBox();
 		continentsAndCountriesCheckBox.setCursor(Cursor.HAND);
-		continentsAndCountriesCheckBox.setTextFill(Color.WHITE);
+		continentsAndCountriesCheckBox.setTextFill(WHITE);
 		continentsAndCountriesCheckBox.setTooltip(new CustomTooltip());
-		
+
 		USACheckBox = new CustomCheckBox();
 		USACheckBox.setTooltip(new CustomTooltip());
-		
+
 		greeceCheckBox = new CustomCheckBox();
 		greeceCheckBox.setTooltip(new CustomTooltip());
-		
+
 		attractionsCheckBox = new CustomCheckBox();
 		attractionsCheckBox.setTooltip(new CustomTooltip());
-		
-		gridPaneForQuestionsCategories = new GridPane();
-		gridPaneForQuestionsCategories.setAlignment(Pos.CENTER);
-		
+
+		gridPaneForQuestionsCategories = new CustomGridPane(Pos.CENTER, "black-bordered-background-light", true, CacheHint.SCALE);
 		gridPaneForQuestionsCategories.add(continentsAndCountriesCheckBox, 0, 0);
 		gridPaneForQuestionsCategories.add(USACheckBox, 1, 0);
 		gridPaneForQuestionsCategories.add(greeceCheckBox, 0, 1);
 		gridPaneForQuestionsCategories.add(attractionsCheckBox, 1, 1);
-		gridPaneForQuestionsCategories.setCache(true);
-		gridPaneForQuestionsCategories.setCacheHint(CacheHint.SCALE);
-		
-		extendedQuestionCategories = new Label();
-		extendedQuestionCategories.setTextFill(Color.BLACK);
-		extendedQuestionCategories.setTextAlignment(TextAlignment.CENTER);
-		extendedQuestionCategories.setAlignment(Pos.CENTER);
-		extendedQuestionCategories.setUnderline(true);
-		extendedQuestionCategories.setPickOnBounds(true);
-		extendedQuestionCategories.setCursor(Cursor.HAND);
-		
-		gridPaneForExtendedQuestionCategories = new GridPane();
-		gridPaneForExtendedQuestionCategories.setAlignment(Pos.TOP_CENTER);
-		
-		scrollPaneForExtendedCategoryQuestionsGridPane = new ScrollPane();
-		scrollPaneForExtendedCategoryQuestionsGridPane.setFitToHeight(true);
-		scrollPaneForExtendedCategoryQuestionsGridPane.setPannable(true);
-		scrollPaneForExtendedCategoryQuestionsGridPane.setCursor(Cursor.MOVE);
-		scrollPaneForExtendedCategoryQuestionsGridPane.setContent(gridPaneForExtendedQuestionCategories);
-		scrollPaneForExtendedCategoryQuestionsGridPane.setCache(true);
-		scrollPaneForExtendedCategoryQuestionsGridPane.setCacheHint(CacheHint.SCALE);
-		                                      
-		rectangleForExtendedQuestionCategories = new Rectangle();
-		rectangleForExtendedQuestionCategories.setSmooth(true);
-		rectangleForExtendedQuestionCategories.setStroke(Color.BLACK);
-		rectangleForExtendedQuestionCategories.setFill(Color.valueOf("000000de"));
-		rectangleForExtendedQuestionCategories.setCache(true);
-		rectangleForExtendedQuestionCategories.setCacheHint(CacheHint.SCALE);
-		
+
+		extendedQuestionCategoriesButton = new CustomButton(null, null, null, null, BLACK, true, true, false, true, CacheHint.SCALE);
+
+		gridPaneForExtendedQuestionCategories = new CustomGridPane(Pos.TOP_CENTER, null, false, null);
+
+		scrollPaneForExtendedCategoryQuestionsGridPane =
+				new CustomScrollPane(true, false, true, Cursor.MOVE, gridPaneForExtendedQuestionCategories, "black-bordered-background-dark", true, CacheHint.SCALE);
+
 		exitExtendedCategoryQuestions = new CustomImageView(true, true, false, false, null);
 		exitExtendedCategoryQuestions.setCursor(Cursor.HAND);
-		
+
 		extQCCategories = new CustomCheckBox[4];
 		extQCCountries = new CustomCheckBox[11];
 		extQCUSA = new CustomCheckBox[9];
 		extQCGreece = new CustomCheckBox[7];
-		
+
 		for(int i = 0; i < extQCCountries.length; i++)
 		{
 			if(i < extQCCategories.length) extQCCategories[i] = new CustomCheckBox();
@@ -647,246 +411,132 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			if(i < extQCUSA.length) extQCUSA[i] = new CustomCheckBox();
 			if(i < extQCGreece.length) extQCGreece[i] = new CustomCheckBox();
 		}
-		
+
 		gridPaneForExtendedQuestionCategories.add(extQCCategories[0], 0, 0);
 		for(int i = 0; i < extQCCountries.length; i++) gridPaneForExtendedQuestionCategories.add(extQCCountries[i], 0, i + 1);
-		
+
 		gridPaneForExtendedQuestionCategories.add(extQCCategories[1], 1, 0);
 		for(int i = 0; i < extQCUSA.length; i++) gridPaneForExtendedQuestionCategories.add(extQCUSA[i], 1, i + 1);
-		
+
 		gridPaneForExtendedQuestionCategories.add(extQCCategories[2], 2, 0);
 		for(int i = 0; i < extQCGreece.length; i++) gridPaneForExtendedQuestionCategories.add(extQCGreece[i], 2, i + 1);
 
 		gridPaneForExtendedQuestionCategories.add(extQCCategories[3], 3, 0);
-		
+
 //		Game mode selection screen
-		
-		classicGameButton = new CustomButton("Classic");
-		
-		timeAttackGameButton = new CustomButton("Time attack");
-		
-		endlessGameButton = new CustomButton("Endless");
-		
-		numberOfQuestionsForClassicGameLabel = new Label();
-		numberOfQuestionsForClassicGameLabel.setUnderline(true);
-		numberOfQuestionsForClassicGameLabel.setTextFill(Color.WHITE);
-		numberOfQuestionsForClassicGameLabel.setAlignment(Pos.CENTER);
-		
-		gameDurationForTimeAttackGameLabel = new Label();
-		gameDurationForTimeAttackGameLabel.setUnderline(true);
-		gameDurationForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		gameDurationForTimeAttackGameLabel.setAlignment(Pos.CENTER);
-		
-		livesForEndlessGameLabel = new Label();
-		livesForEndlessGameLabel.setUnderline(true);
-		livesForEndlessGameLabel.setTextFill(Color.WHITE);
-		livesForEndlessGameLabel.setAlignment(Pos.CENTER);
-		
-		countDownForClassicGameLabel = new Label();
-		countDownForClassicGameLabel.setUnderline(true);
-		countDownForClassicGameLabel.setTextFill(Color.WHITE);
-		countDownForClassicGameLabel.setAlignment(Pos.CENTER);
-		
-		countDownForEndlessGameLabel = new Label();
-		countDownForEndlessGameLabel.setUnderline(true);
-		countDownForEndlessGameLabel.setTextFill(Color.WHITE);
-		countDownForEndlessGameLabel.setAlignment(Pos.CENTER);
-		
-		descriptionForClassicGameLabel = new Label();
-		descriptionForClassicGameLabel.setTextFill(Color.WHITE);
-		descriptionForClassicGameLabel.setAlignment(Pos.TOP_CENTER);
-		descriptionForClassicGameLabel.setWrapText(true);
-		
-		descriptionForTimeAttackGameLabel = new Label();
-		descriptionForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		descriptionForTimeAttackGameLabel.setAlignment(Pos.TOP_CENTER);
-		descriptionForTimeAttackGameLabel.setWrapText(true);
-		
-		descriptionForEndlessGameLabel = new Label();
-		descriptionForEndlessGameLabel.setTextFill(Color.WHITE);
-		descriptionForEndlessGameLabel.setAlignment(Pos.TOP_CENTER);
-		descriptionForEndlessGameLabel.setWrapText(true);
-		
-		radioButton10QuestionsForClassicGameLabel = new RadioButton("10");
-		radioButton10QuestionsForClassicGameLabel.setFocusTraversable(false);
-		radioButton10QuestionsForClassicGameLabel.setCursor(Cursor.HAND);
-		radioButton10QuestionsForClassicGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton20QuestionsForClassicGameLabel = new RadioButton("20");
-		radioButton20QuestionsForClassicGameLabel.setFocusTraversable(false);
-		radioButton20QuestionsForClassicGameLabel.setCursor(Cursor.HAND);
-		radioButton20QuestionsForClassicGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton50QuestionsForClassicGameLabel = new RadioButton("50");
-		radioButton50QuestionsForClassicGameLabel.setFocusTraversable(false);
-		radioButton50QuestionsForClassicGameLabel.setCursor(Cursor.HAND);
-		radioButton50QuestionsForClassicGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton100QuestionsForClassicGameLabel = new RadioButton("100");
-		radioButton100QuestionsForClassicGameLabel.setFocusTraversable(false);
-		radioButton100QuestionsForClassicGameLabel.setCursor(Cursor.HAND);
-		radioButton100QuestionsForClassicGameLabel.setTextFill(Color.WHITE);
-		
+
+		classicGameButton = new CustomButton("Classic", null, null, null, null, false, true, false, true, CacheHint.SCALE);
+		timeAttackGameButton = new CustomButton("Time attack", null, null, null, null, false, true, false, true, CacheHint.SCALE);
+		endlessGameButton = new CustomButton("Endless", null, null, null, null, false, true, false, true, CacheHint.SCALE);
+
+		numberOfQuestionsForClassicGameLabel = new CustomLabel(Pos.CENTER, null, WHITE, null, null, null, false, true, false, false, false, null);
+		gameDurationForTimeAttackGameLabel = new CustomLabel(Pos.CENTER, null, WHITE, null, null, null, false, true, false, false, false, null);
+		livesForEndlessGameLabel = new CustomLabel(Pos.CENTER, null, WHITE, null, null, null, false, true, false, false, false, null);
+		countDownForClassicGameLabel = new CustomLabel(Pos.CENTER, null, WHITE, null, null, null, false, true, false, false, false, null);
+		countDownForEndlessGameLabel = new CustomLabel(Pos.CENTER, null, WHITE, null, null, null, false, true, false, false, false, null);
+		descriptionForClassicGameLabel = new CustomLabel(Pos.TOP_CENTER, null, WHITE, null, null, null, false, false, true, false, false, null);
+		descriptionForTimeAttackGameLabel = new CustomLabel(Pos.TOP_CENTER, null, WHITE, null, null, null, false, false, true, false, false, null);
+		descriptionForEndlessGameLabel = new CustomLabel(Pos.TOP_CENTER, null, WHITE, null, null, null, false, false, true, false, false, null);
+
+		radioButton10QuestionsForClassicGameLabel = new CustomRadioButton("10", true);
+		radioButton20QuestionsForClassicGameLabel = new CustomRadioButton("20", true);
+		radioButton50QuestionsForClassicGameLabel = new CustomRadioButton("50", true);
+		radioButton100QuestionsForClassicGameLabel = new CustomRadioButton("100", true);
+
 		toggleGroupForClassicGame = new ToggleGroup();
 		toggleGroupForClassicGame.getToggles().addAll(radioButton10QuestionsForClassicGameLabel,
 				radioButton20QuestionsForClassicGameLabel,
 				radioButton50QuestionsForClassicGameLabel,
 				radioButton100QuestionsForClassicGameLabel);
-		
+
 		countDownToggleForClassicGameLabel = new SwitchButton();
-		
-		hBoxForNumberOfQuestionsForClassicGame = new HBox();
-		hBoxForNumberOfQuestionsForClassicGame.setFillHeight(true);
-		hBoxForNumberOfQuestionsForClassicGame.setAlignment(Pos.CENTER);
+
+		hBoxForNumberOfQuestionsForClassicGame = new CustomHBox(true, Pos.CENTER, false, null);
 		hBoxForNumberOfQuestionsForClassicGame.getChildren().addAll(radioButton10QuestionsForClassicGameLabel,
 				radioButton20QuestionsForClassicGameLabel,
 				radioButton50QuestionsForClassicGameLabel,
 				radioButton100QuestionsForClassicGameLabel);
-		
-		hBoxForCountDownForClassicGame = new HBox();
-		hBoxForCountDownForClassicGame.setAlignment(Pos.CENTER);
+
+		hBoxForCountDownForClassicGame = new CustomHBox(false, Pos.CENTER, false, null);
 		hBoxForCountDownForClassicGame.getChildren().addAll(countDownForClassicGameLabel, countDownToggleForClassicGameLabel);
-		
-		radioButton1MinuteDurationForTimeAttackGameLabel = new RadioButton("1");
-		radioButton1MinuteDurationForTimeAttackGameLabel.setFocusTraversable(false);
-		radioButton1MinuteDurationForTimeAttackGameLabel.setCursor(Cursor.HAND);
-		radioButton1MinuteDurationForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton2MinutesDurationForTimeAttackGameLabel = new RadioButton("2");
-		radioButton2MinutesDurationForTimeAttackGameLabel.setFocusTraversable(false);
-		radioButton2MinutesDurationForTimeAttackGameLabel.setCursor(Cursor.HAND);
-		radioButton2MinutesDurationForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton5MinutesDurationForTimeAttackGameLabel = new RadioButton("5");
-		radioButton5MinutesDurationForTimeAttackGameLabel.setFocusTraversable(false);
-		radioButton5MinutesDurationForTimeAttackGameLabel.setCursor(Cursor.HAND);
-		radioButton5MinutesDurationForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton10MinutesDurationForTimeAttackGameLabel = new RadioButton("10");
-		radioButton10MinutesDurationForTimeAttackGameLabel.setFocusTraversable(false);
-		radioButton10MinutesDurationForTimeAttackGameLabel.setCursor(Cursor.HAND);
-		radioButton10MinutesDurationForTimeAttackGameLabel.setTextFill(Color.WHITE);
-		
+
+		radioButton1MinuteDurationForTimeAttackGameLabel = new CustomRadioButton("1", true);
+		radioButton2MinutesDurationForTimeAttackGameLabel = new CustomRadioButton("2", true);
+		radioButton5MinutesDurationForTimeAttackGameLabel = new CustomRadioButton("5", true);
+		radioButton10MinutesDurationForTimeAttackGameLabel = new CustomRadioButton("10", true);
+
 		toggleGroupForTimeAttackGame = new ToggleGroup();
 		toggleGroupForTimeAttackGame.getToggles().addAll(radioButton1MinuteDurationForTimeAttackGameLabel,
 				radioButton2MinutesDurationForTimeAttackGameLabel,
 				radioButton5MinutesDurationForTimeAttackGameLabel,
 				radioButton10MinutesDurationForTimeAttackGameLabel);
-		
-		hBoxForGameDurationForTimeAttackGame = new HBox();
-		hBoxForGameDurationForTimeAttackGame.setFillHeight(true);
-		hBoxForGameDurationForTimeAttackGame.setAlignment(Pos.CENTER);
+
+		hBoxForGameDurationForTimeAttackGame = new CustomHBox(true, Pos.CENTER, false, null);
 		hBoxForGameDurationForTimeAttackGame.getChildren().addAll(radioButton1MinuteDurationForTimeAttackGameLabel,
 				radioButton2MinutesDurationForTimeAttackGameLabel,
 				radioButton5MinutesDurationForTimeAttackGameLabel,
 				radioButton10MinutesDurationForTimeAttackGameLabel);
-		
-		hBoxEmpty = new HBox();
-		
-		radioButton1LifeForEndlessGameLabel = new RadioButton("1");
-		radioButton1LifeForEndlessGameLabel.setFocusTraversable(false);
-		radioButton1LifeForEndlessGameLabel.setCursor(Cursor.HAND);
-		radioButton1LifeForEndlessGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton3LivesForEndlessGameLabel = new RadioButton("3");
-		radioButton3LivesForEndlessGameLabel.setFocusTraversable(false);
-		radioButton3LivesForEndlessGameLabel.setCursor(Cursor.HAND);
-		radioButton3LivesForEndlessGameLabel.setTextFill(Color.WHITE);
-		
-		radioButton5LivesForEndlessGameLabel = new RadioButton("5");
-		radioButton5LivesForEndlessGameLabel.setFocusTraversable(false);
-		radioButton5LivesForEndlessGameLabel.setCursor(Cursor.HAND);
-		radioButton5LivesForEndlessGameLabel.setTextFill(Color.WHITE);
-		
+
+		hBoxEmpty = new CustomHBox(false, null, false, null);
+
+		radioButton1LifeForEndlessGameLabel = new CustomRadioButton("1", true);
+		radioButton3LivesForEndlessGameLabel = new CustomRadioButton("3", true);
+		radioButton5LivesForEndlessGameLabel = new CustomRadioButton("5", true);
+
 		toggleGroupForEndlessGame = new ToggleGroup();
 		toggleGroupForEndlessGame.getToggles().addAll(radioButton1LifeForEndlessGameLabel,
 				radioButton3LivesForEndlessGameLabel,
 				radioButton5LivesForEndlessGameLabel);
-		
+
 		countDownToggleForEndlessGameLabel = new SwitchButton();
-		
-		hBoxForLivesForEndlessGame = new HBox();
-		hBoxForLivesForEndlessGame.setFillHeight(true);
-		hBoxForLivesForEndlessGame.setAlignment(Pos.CENTER);
+
+		hBoxForLivesForEndlessGame = new CustomHBox(true, Pos.CENTER, false, null);
 		hBoxForLivesForEndlessGame.getChildren().addAll(radioButton1LifeForEndlessGameLabel,
 				radioButton3LivesForEndlessGameLabel,
 				radioButton5LivesForEndlessGameLabel);
-		
-		hBoxForCountDownForEndlessGame = new HBox();
-		hBoxForCountDownForEndlessGame.setAlignment(Pos.CENTER);
+
+		hBoxForCountDownForEndlessGame = new CustomHBox(false, Pos.CENTER, false, null);
 		hBoxForCountDownForEndlessGame.getChildren().addAll(countDownForEndlessGameLabel, countDownToggleForEndlessGameLabel);
-		
-		vBoxForClassicGame = new VBox();
-		vBoxForClassicGame.setAlignment(Pos.CENTER);
+
+		vBoxForClassicGame = new CustomVBox(false, Pos.CENTER, "black-bordered-background-light", true, CacheHint.SCALE);
 		vBoxForClassicGame.getChildren().addAll(classicGameButton, numberOfQuestionsForClassicGameLabel, hBoxForNumberOfQuestionsForClassicGame,
 				hBoxForCountDownForClassicGame, descriptionForClassicGameLabel);
-		vBoxForClassicGame.setCache(true);
-		vBoxForClassicGame.setCacheHint(CacheHint.SCALE);
-		
-		vBoxForTimeAttackGame = new VBox();
-		vBoxForTimeAttackGame.setAlignment(Pos.CENTER);
+
+		vBoxForTimeAttackGame = new CustomVBox(false, Pos.CENTER, "black-bordered-background-light", true, CacheHint.SCALE);
 		vBoxForTimeAttackGame.getChildren().addAll(timeAttackGameButton, gameDurationForTimeAttackGameLabel,
 				hBoxForGameDurationForTimeAttackGame, hBoxEmpty, descriptionForTimeAttackGameLabel);
-		vBoxForTimeAttackGame.setCache(true);
-		vBoxForTimeAttackGame.setCacheHint(CacheHint.SCALE);
-		
-		vBoxForEndlessGame = new VBox();
-		vBoxForEndlessGame.setAlignment(Pos.CENTER);
+
+		vBoxForEndlessGame = new CustomVBox(false, Pos.CENTER, "black-bordered-background-light", true, CacheHint.SCALE);
 		vBoxForEndlessGame.getChildren().addAll(endlessGameButton, livesForEndlessGameLabel, hBoxForLivesForEndlessGame, hBoxForCountDownForEndlessGame, descriptionForEndlessGameLabel);
-		vBoxForEndlessGame.setCache(true);
-		vBoxForEndlessGame.setCacheHint(CacheHint.SCALE);
-		
-		hBoxForGameModes = new HBox();
-		hBoxForGameModes.setFillHeight(true);
-		hBoxForGameModes.setAlignment(Pos.CENTER);
+
+		hBoxForGameModes = new CustomHBox(true, Pos.CENTER, false, null);
 		hBoxForGameModes.getChildren().addAll(vBoxForClassicGame, vBoxForTimeAttackGame, vBoxForEndlessGame);
-		
-		dropShadow = new DropShadow();
+
+		titleLabel1.setEffect(innerShadow);
+		titleLabel2.setEffect(innerShadow);
+
 		woodenFrameImage.setEffect(dropShadow);
 		titleImage1.setEffect(dropShadow);
 		titleImage2.setEffect(dropShadow);
-		
+		backButton.setEffect(dropShadow);
+		nextButton.setEffect(dropShadow);
+		titleImage2.setEffect(dropShadow);
+		vBoxForDifficultyLevel.setEffect(dropShadow);
+		gridPaneForQuestionsCategories.setEffect(dropShadow);
+		scrollPaneForExtendedCategoryQuestionsGridPane.setEffect(dropShadow);
+		vBoxForClassicGame.setEffect(dropShadow);
+		vBoxForTimeAttackGame.setEffect(dropShadow);
+		vBoxForEndlessGame.setEffect(dropShadow);
+
 		nodesPane.getChildren().addAll(previousImage, movingEarthImage, woodPanelFor1IconImage, titleImage2, titleImage1, titleLabel1,
-				titleLabel2, vBoxForSound, soundIcon, backButton, nextButton,
-				rectangleForDifficultyLevel, vBoxForDifficultyLevel, rectangleForQuestionCategories, gridPaneForQuestionsCategories,
-				extendedQuestionCategories, rectangleForExtendedQuestionCategories, scrollPaneForExtendedCategoryQuestionsGridPane, exitExtendedCategoryQuestions);
+				titleLabel2, vBoxForSound, soundButton, backButton, nextButton, vBoxForDifficultyLevel, gridPaneForQuestionsCategories,
+				extendedQuestionCategoriesButton, scrollPaneForExtendedCategoryQuestionsGridPane, exitExtendedCategoryQuestions);
 		
-		if(animationsUsed != ANIMATIONS.NO)
-		{
-			setupLimitedAnimations();
-			if(animationsUsed == ANIMATIONS.ALL) setupAdvancedAnimations();
-		}
-		
+		if(animationsUsed != ANIMATIONS.NO) setupLimitedAnimations();
+
 		setupListeners();
-		
-		createScene();
 	}
-	
-	private void createScene()
-	{
-		gamePropertiesScene = new Scene(anchorPane);
-		gamePropertiesScene.getStylesheets().addAll(buttonCSS, checkboxCSS, radioButtonCSS, sliderCSS,
-				comboBoxCSS, toggleButtonCSS, listViewCSS, labelCSS, scrollPaneCSS, textAreaCSS,
-				progressBarCSS, tableViewCSS);
-		
-		gamePropertiesScene.widthProperty().addListener((observable, oldValue, newValue) ->
-		{
-			windowWidth = newValue.doubleValue();
-			
-			recalculateBackground(windowWidth, windowHeight);
-			recalculateUI(windowWidth, windowHeight);
-			getCurrentPlayer().setWindowWidth(windowWidth);
-		});
-		
-		gamePropertiesScene.heightProperty().addListener((observable, oldValue, newValue) ->
-		{
-			windowHeight = newValue.doubleValue();
-			
-			recalculateBackground(windowWidth, windowHeight);
-			recalculateUI(windowWidth, windowHeight);
-		});
-	}
-	
+
 	protected void setupListeners()
 	{
 		for(int i = 0; i < extQCCountries.length; i++)
@@ -896,7 +546,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			if(i < extQCUSA.length) extQCUSA[i].setOnAction(handler);
 			if(i < extQCGreece.length) extQCGreece[i].setOnAction(handler);
 		}
-		
+
 		continentsAndCountriesCheckBox.setOnAction(handler);
 		USACheckBox.setOnAction(handler);
 		greeceCheckBox.setOnAction(handler);
@@ -904,133 +554,104 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 
 		toggleGroupForDifficultyLevel.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) ->
 			{
-				if(old_toggle != null) playRadioButtonSelectedSound();
-				
 				if(new_toggle == easyLevelRadioButton) setDifficultyLevel(DIFFICULTY.EASY);
 				else setDifficultyLevel(DIFFICULTY.DIFFICULT);
-				
+
 				handler.updateCheckboxesState(false);
 			});
-		
-		extendedQuestionCategories.setOnMouseClicked(e -> openExtendedQuestionCategories());
-		
-		exitExtendedCategoryQuestions.setOnMousePressed(e -> exitExtendedCategoryQuestions.setImage(X_ICON_CLICKED));
-		
+
+		extendedQuestionCategoriesButton.setOnAction(e -> openExtendedQuestionCategories());
+
+		exitExtendedCategoryQuestions.setOnMousePressed(e -> exitExtendedCategoryQuestions.setImage(images.get(Images.X_CLICKED)));
 		exitExtendedCategoryQuestions.setOnMouseClicked(e -> closeExtendedQuestionCategories());
-		
-		exitExtendedCategoryQuestions.setOnMouseReleased(e -> exitExtendedCategoryQuestions.setImage(X_ICON));
-		
+		exitExtendedCategoryQuestions.setOnMouseReleased(e -> exitExtendedCategoryQuestions.setImage(images.get(Images.X)));
+
 		scrollPaneForExtendedCategoryQuestionsGridPane.setOnScroll(e -> scrollPaneForExtendedCategoryQuestionsGridPane.setHvalue(-e.getDeltaY()));
-		
-		classicGameButton.setOnMouseEntered(e -> playHoverSound());
-		classicGameButton.setOnAction(e ->
-		{
-			playButtonClickSound();
-			
-			startGame(GAMEMODE.CLASSIC_GAMEMODE);
-		});
-		
-		timeAttackGameButton.setOnMouseEntered(e -> playHoverSound());
-		timeAttackGameButton.setOnAction(e ->
-		{
-			playButtonClickSound();
-			
-			startGame(GAMEMODE.TIME_ATTACK_GAMEMODE);
-		});
-		
-		endlessGameButton.setOnMouseEntered(e -> playHoverSound());
-		endlessGameButton.setOnAction(e ->
-		{
-			playButtonClickSound();
-			
-			startGame(GAMEMODE.ENDLESS_GAMEMODE);
-		});
-		
+
+		classicGameButton.setOnAction(e -> startGame(GAMEMODE.CLASSIC_GAMEMODE));
+		timeAttackGameButton.setOnAction(e -> startGame(GAMEMODE.TIME_ATTACK_GAMEMODE));
+		endlessGameButton.setOnAction(e -> startGame(GAMEMODE.ENDLESS_GAMEMODE));
+
 		toggleGroupForClassicGame.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) ->
 		{
-			if(old_toggle != null) playRadioButtonSelectedSound();
-			
 			if(new_toggle == radioButton10QuestionsForClassicGameLabel) setNumberOfQuestionsForClassic(NUM_OF_QUESTIONS_FOR_CLASSIC_10);
 			else if(new_toggle == radioButton20QuestionsForClassicGameLabel) setNumberOfQuestionsForClassic(NUM_OF_QUESTIONS_FOR_CLASSIC_20);
 			else if(new_toggle == radioButton50QuestionsForClassicGameLabel) setNumberOfQuestionsForClassic(NUM_OF_QUESTIONS_FOR_CLASSIC_50);
 			else setNumberOfQuestionsForClassic(NUM_OF_QUESTIONS_FOR_CLASSIC_100);
-			
+
 			descriptionForClassicGameLabel.setText(getDescriptionForClassicGameMode());
 		});
-		
+
 		countDownToggleForClassicGameLabel.setOnMouseClicked(e ->
 		{
 			countDownToggleForClassicGameLabel.setValue(!countDownToggleForClassicGameLabel.getValue());
-			
-			if(countDownToggleForClassicGameLabel.getValue()) playSwitchButtonOnSound();
-			else playSwitchButtonOffSound();
-			
+
+			if(countDownToggleForClassicGameLabel.getValue()) getAudioStuff().playSwitchButtonOnSound();
+			else getAudioStuff().playSwitchButtonOffSound();
+
 			setTimerForClassic(countDownToggleForClassicGameLabel.getValue());
-			
+
 			descriptionForClassicGameLabel.setText(getDescriptionForClassicGameMode());
 		});
-		
+
 		countDownToggleForClassicGameLabel.getButton().setOnAction(e ->
 		{
 			countDownToggleForClassicGameLabel.setValue(!countDownToggleForClassicGameLabel.getValue());
-			
-			if(countDownToggleForClassicGameLabel.getValue()) playSwitchButtonOnSound();
-			else playSwitchButtonOffSound();
-			
+
+			if(countDownToggleForClassicGameLabel.getValue()) getAudioStuff().playSwitchButtonOnSound();
+			else getAudioStuff().playSwitchButtonOffSound();
+
 			setTimerForClassic(countDownToggleForClassicGameLabel.getValue());
-			
+
 			descriptionForClassicGameLabel.setText(getDescriptionForClassicGameMode());
 		});
-		
+
 		toggleGroupForTimeAttackGame.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) ->
 		{
-			if(welcomeScene.getRoot() == anchorPane) playRadioButtonSelectedSound();
-			
 			if(new_toggle == radioButton1MinuteDurationForTimeAttackGameLabel) setDurationInMinutesForTimeAttack(TIME_ATTACK_DURATION_1_MINUTE);
 			else if(new_toggle == radioButton2MinutesDurationForTimeAttackGameLabel) setDurationInMinutesForTimeAttack(TIME_ATTACK_DURATION_2_MINUTES);
 			else if(new_toggle == radioButton5MinutesDurationForTimeAttackGameLabel) setDurationInMinutesForTimeAttack(TIME_ATTACK_DURATION_5_MINUTES);
 			else setDurationInMinutesForTimeAttack(TIME_ATTACK_DURATION_10_MINUTES);
-			
+
 			descriptionForTimeAttackGameLabel.setText(getDescriptionForTimeAttackGameMode());
 		});
-		
+
 		toggleGroupForEndlessGame.selectedToggleProperty().addListener((ObservableValue<? extends Toggle> ov, Toggle old_toggle, Toggle new_toggle) ->
 		{
-			if(welcomeScene.getRoot() == anchorPane) playRadioButtonSelectedSound();
-			
 			if(new_toggle == radioButton1LifeForEndlessGameLabel) setLivesForEndless(ENDLESS_LIVES_1);
 			else if(new_toggle == radioButton3LivesForEndlessGameLabel) setLivesForEndless(ENDLESS_LIVES_3);
 			else setLivesForEndless(ENDLESS_LIVES_5);
-			
+
 			descriptionForEndlessGameLabel.setText(getDescriptionForEndlessGameMode());
 		});
-		
+
 		countDownToggleForEndlessGameLabel.setOnMouseClicked(e ->
 		{
 			countDownToggleForEndlessGameLabel.setValue(!countDownToggleForEndlessGameLabel.getValue());
-			
-			if(countDownToggleForEndlessGameLabel.getValue()) playSwitchButtonOnSound();
-			else playSwitchButtonOffSound();
-			
+
+			if(countDownToggleForEndlessGameLabel.getValue()) getAudioStuff().playSwitchButtonOnSound();
+			else getAudioStuff().playSwitchButtonOffSound();
+
 			setTimerForEndless(countDownToggleForEndlessGameLabel.getValue());
-			
+
 			descriptionForEndlessGameLabel.setText(getDescriptionForEndlessGameMode());
 		});
 		countDownToggleForEndlessGameLabel.getButton().setOnAction(e ->
 		{
 			countDownToggleForEndlessGameLabel.setValue(!countDownToggleForEndlessGameLabel.getValue());
-			
-			if(countDownToggleForEndlessGameLabel.getValue()) playSwitchButtonOnSound();
-			else playSwitchButtonOffSound();
-			
+
+			if(countDownToggleForEndlessGameLabel.getValue()) getAudioStuff().playSwitchButtonOnSound();
+			else getAudioStuff().playSwitchButtonOffSound();
+
 			setTimerForEndless(countDownToggleForEndlessGameLabel.getValue());
-			
+
 			descriptionForEndlessGameLabel.setText(getDescriptionForEndlessGameMode());
 		});
 		
+		backButton.setOnMouseClicked(e -> {});
 		backButton.setOnAction(e ->
 			{
-				playButtonClickSound();
+				getAudioStuff().playButtonClickSound();
 				
 				if(screen1)
 				{
@@ -1038,130 +659,107 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}
 				else
 				{
-					if(animationsUsed != ANIMATIONS.NO) timeLineFromScreen2ToScreen1.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineFromScreen2ToScreen1.playFromStart();
 					else
 					{
 						if(vBoxForSound.isVisible())
 						{
 							vBoxForSound.setVisible(false);
-							
-							setSoundIcon(soundIcon, false);
-							
+							setCorrectSoundIcon(false);
+
 							vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
-							
+
 							titleImage1.setTranslateX(0);
 							titleLabel1.setTranslateX(0);
 						}
-						
+
 						nodesPane.getChildren().clear();
-						
+
 						screen1 = true;
-						
+
 						updateStrings();
-						
+
 						nodesPane.getChildren().addAll(previousImage, movingEarthImage, woodPanelFor1IconImage,
-								titleImage2, titleImage1, titleLabel1, titleLabel2, vBoxForSound, soundIcon,
-								backButton, nextButton, rectangleForDifficultyLevel, vBoxForDifficultyLevel,
-								rectangleForQuestionCategories, gridPaneForQuestionsCategories,
-								extendedQuestionCategories, rectangleForExtendedQuestionCategories,
-								scrollPaneForExtendedCategoryQuestionsGridPane, exitExtendedCategoryQuestions);
-						
-						recalculateBackground(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
-						recalculateUI(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
+								titleImage2, titleImage1, titleLabel1, titleLabel2, vBoxForSound, soundButton,
+								backButton, nextButton, vBoxForDifficultyLevel, gridPaneForQuestionsCategories,
+								extendedQuestionCategoriesButton, scrollPaneForExtendedCategoryQuestionsGridPane,
+								exitExtendedCategoryQuestions);
+
+						recalculateBackground(mainScene.getWidth(), mainScene.getHeight());
+						recalculateUI(mainScene.getWidth(), mainScene.getHeight());
 					}
 				}
-				
 			});
 		
-		backButton.setOnMouseEntered(e -> playHoverSound());
-		
+		nextButton.setOnMouseClicked(e -> {});
 		nextButton.setOnAction(e ->
 			{
+				getAudioStuff().playButtonClickSound();
+				
 				if(!isNextButtonDisabled())
 				{
-					playButtonClickSound();
-					
-					if(animationsUsed != ANIMATIONS.NO) timeLineFromScreen1ToScreen2.playFromStart();
+					if(animationsUsed != ANIMATIONS.NO) timelineFromScreen1ToScreen2.playFromStart();
 					else
 					{
 						if(vBoxForSound.isVisible())
 						{
 							vBoxForSound.setVisible(false);
-							
-							setSoundIcon(soundIcon, false);
-							
+							setCorrectSoundIcon(false);
+
 							vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
-							
+
 							titleImage1.setTranslateX(0);
 							titleLabel1.setTranslateX(0);
 						}
-						
+
 						nodesPane.getChildren().clear();
-						
+
 						screen1 = false;
-						
+
 						updateStrings();
-						
+
 						nodesPane.getChildren().addAll(movingEarthImage, woodPanelFor1IconImage, titleImage1,
-								titleLabel1, hBoxForGameModes, backButton, vBoxForSound, soundIcon);
-						
-						recalculateBackground(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
-						recalculateUI(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
+								titleLabel1, hBoxForGameModes, backButton, vBoxForSound, soundButton);
+
+						recalculateBackground(mainScene.getWidth(), mainScene.getHeight());
+						recalculateUI(mainScene.getWidth(), mainScene.getHeight());
 					}
 				}
 			});
-		
-		nextButton.setOnMouseEntered(e -> playHoverSound());
-		
-		soundIcon.setOnMouseClicked(e ->
+
+		soundButton.setOnAction(e ->
 			{
-				soundIcon.setDisable(true);
-				
+				soundButton.setDisable(true);
+
 				if (!vBoxForSound.isVisible())
 				{
-					setSoundIcon(soundIcon, true);
-					
 					if(animationsUsed != ANIMATIONS.NO) timelineToShowSoundOptions.play();
 					else
 					{
 						vBoxForSound.setTranslateY(0);
-						
-						titleImage1.setTranslateX(-0.0651 * gamePropertiesScene.getWidth());
-						titleLabel1.setTranslateX(-0.0651 * gamePropertiesScene.getWidth());
-						
+
+						titleImage1.setTranslateX(-0.0651 * mainScene.getWidth());
+						titleLabel1.setTranslateX(-0.0651 * mainScene.getWidth());
+
 						vBoxForSound.setVisible(true);
 					}
 				}
 				else
 				{
-					setSoundIcon(soundIcon, false);
-					
 					if(animationsUsed != ANIMATIONS.NO) timelineToHideSoundOptions.play();
 					else
 					{
 						vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
-						
+
 						titleImage1.setTranslateX(0);
 						titleLabel1.setTranslateX(0);
-						
+
 						vBoxForSound.setVisible(false);
 					}
 				}
-				soundIcon.setDisable(false);
+				soundButton.setDisable(false);
 			});
-		
-		soundIcon.setOnMousePressed(e ->
-		{
-			if (!vBoxForSound.isVisible()) setSoundIcon(soundIcon, true);
-			else setSoundIcon(soundIcon, false);
-		});
-		
-		soundIcon.setOnMouseReleased(e ->
-		{
-			if (!vBoxForSound.isVisible()) setSoundIcon(soundIcon, false);
-			else setSoundIcon(soundIcon, true);
-		});
-		
+
 		movingEarthImage.setOnMouseClicked(e ->
 			{
 				if (animationsUsed == ANIMATIONS.ALL)
@@ -1186,7 +784,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					}
 				}
 			});
-		
+
 		anchorPane.addEventFilter(MouseEvent.MOUSE_PRESSED, e ->
 		{
 			if(isExtendedQuestionCategoriesOpen)
@@ -1198,7 +796,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				else pressedOutsideExtendedQuestionCategories = false;
 			}
 		});
-		
+
 		anchorPane.addEventFilter(MouseEvent.MOUSE_RELEASED, e ->
 		{
 			if(isExtendedQuestionCategoriesOpen)
@@ -1208,7 +806,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					if(pressedOutsideExtendedQuestionCategories) closeExtendedQuestionCategories();
 			}
 		});
-		
+
 		anchorPane.setOnKeyPressed(e ->
 			{
 				if (e.getCode() == KeyCode.ESCAPE)
@@ -1217,50 +815,47 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}
 			});
 	}
-	
+
 	protected void setupLimitedAnimations()
 	{
 		fadeTransitionForMovingEarthImage = new FadeTransition(Duration.millis(300), movingEarthImage);
-		
+
 		translateTransitionForWoodPanelFor1IconImage = new TranslateTransition(Duration.millis(200), woodPanelFor1IconImage);
-		
+
 		translateTransitionForTitleImage1 = new TranslateTransition(Duration.millis(200), titleImage1);
 		translateTransitionForTitleLabel1 = new TranslateTransition(Duration.millis(200), titleLabel1);
-		
+
 		scaleTransitionForTitleLabel1 = new ScaleTransition(Duration.millis(200), titleLabel1);
 		scaleTransitionForTitleLabel2 = new ScaleTransition(Duration.millis(200), titleLabel2);
-		
+
 		TranslateTransition translateTransitionForTitleImage2 = new TranslateTransition(Duration.millis(200), titleImage2);
 		ScaleTransition scaleTransitionForTitleImage2 = new ScaleTransition(Duration.millis(200), titleImage2);
 		parallelTransitionForTitleImage2 = new ParallelTransition(translateTransitionForTitleImage2, scaleTransitionForTitleImage2);
-		
+
 		scaleTransitionForBackButton = new ScaleTransition(Duration.millis(200), backButton);
 		scaleTransitionForNextButton = new ScaleTransition(Duration.millis(200), nextButton);
-		
-		scaleTransitionForRectangleForDifficultyLevel = new ScaleTransition(Duration.millis(200), rectangleForDifficultyLevel);
+
 		scaleTransitionForVBoxForDifficultyLevel = new ScaleTransition(Duration.millis(200), vBoxForDifficultyLevel);
-		
-		scaleTransitionForRectangleForQuestionsCategories = new ScaleTransition(Duration.millis(200), rectangleForQuestionCategories);
+
 		scaleTransitionForGridPaneForQuestionsCategories = new ScaleTransition(Duration.millis(200), gridPaneForQuestionsCategories);
-		
-		scaleTransitionForExtendedQuestionCategoriesLabel = new ScaleTransition(Duration.millis(200), extendedQuestionCategories);
+
+		scaleTransitionForExtendedQuestionCategoriesLabel = new ScaleTransition(Duration.millis(200), extendedQuestionCategoriesButton);
 		scaleTransitionForScrollPaneForExtendedQuestionCategories = new ScaleTransition(Duration.millis(200), scrollPaneForExtendedCategoryQuestionsGridPane);
-		scaleTransitionForRectangleForExtendedQuestionCategories = new ScaleTransition(Duration.millis(200), rectangleForExtendedQuestionCategories);
 		scaleTransitionForExitExtendedCategoryQuestions = new ScaleTransition(Duration.millis(200), exitExtendedCategoryQuestions);
-		
+
 		translateTransitionForVBoxForSound = new TranslateTransition(Duration.millis(200), vBoxForSound);
-		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(200), soundIcon);
-		
+		scaleTransitionForSoundIcon = new ScaleTransition(Duration.millis(200), soundButton);
+
 		scaleTransitionForVBoxForClassicGame = new ScaleTransition(Duration.millis(200), vBoxForClassicGame);
 		scaleTransitionForVBoxForTimeAttackGame = new ScaleTransition(Duration.millis(200), vBoxForTimeAttackGame);
 		scaleTransitionForVBoxForEndlessGame = new ScaleTransition(Duration.millis(200), vBoxForEndlessGame);
-		
-		timeLineToShowAllStuff = new Timeline(
+
+		timelineToShowAllStuff = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
 					backButton.setDisable(true);
 					nextButton.setDisable(true);
-					
+
 					fadeTransitionForMovingEarthImage.setToValue(1);
 					fadeTransitionForMovingEarthImage.playFromStart();
 				}),
@@ -1268,10 +863,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					translateTransitionForTitleImage1.setToX(0);
 					translateTransitionForTitleImage1.setToY(0);
-					
+
 					translateTransitionForWoodPanelFor1IconImage.setToY(0);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.play();
 					translateTransitionForWoodPanelFor1IconImage.playFromStart();
 				}),
@@ -1279,42 +874,38 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					translateTransitionForTitleImage2.setToY(0);
 					scaleTransitionForTitleImage2.setToY(1);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					parallelTransitionForTitleImage2.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(700), e ->
 				{
 					scaleTransitionForSoundIcon.setToX(1);
 					scaleTransitionForSoundIcon.setToY(1);
-					
+
 					scaleTransitionForTitleLabel1.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel1.setFromX(0);
 					scaleTransitionForTitleLabel1.setFromY(0);
 					scaleTransitionForTitleLabel1.setToX(0.95);
 					scaleTransitionForTitleLabel1.setToY(0.95);
-					
+
 					scaleTransitionForTitleLabel2.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel2.setFromX(0);
 					scaleTransitionForTitleLabel2.setFromY(0);
 					scaleTransitionForTitleLabel2.setToX(0.95);
 					scaleTransitionForTitleLabel2.setToY(0.95);
-					
+
 					scaleTransitionForBackButton.setToX(1);
 					scaleTransitionForBackButton.setToY(1);
 					scaleTransitionForNextButton.setToX(1);
 					scaleTransitionForNextButton.setToY(1);
-					scaleTransitionForRectangleForDifficultyLevel.setToX(1);
-					scaleTransitionForRectangleForDifficultyLevel.setToY(1);
-					scaleTransitionForRectangleForQuestionsCategories.setToX(1);
-					scaleTransitionForRectangleForQuestionsCategories.setToY(1);
 					scaleTransitionForVBoxForDifficultyLevel.setToX(1);
 					scaleTransitionForVBoxForDifficultyLevel.setToY(1);
 					scaleTransitionForGridPaneForQuestionsCategories.setToX(1);
 					scaleTransitionForGridPaneForQuestionsCategories.setToY(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToX(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToY(1);
-					
+
 					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel1.setOnFinished(ev ->
@@ -1325,13 +916,11 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						});
 					}
 
-					playPopUpSound();
+					getAudioStuff().playPopUpSound();
 					scaleTransitionForTitleLabel1.playFromStart();
 					scaleTransitionForTitleLabel2.playFromStart();
 					scaleTransitionForBackButton.playFromStart();
 					scaleTransitionForNextButton.playFromStart();
-					scaleTransitionForRectangleForDifficultyLevel.playFromStart();
-					scaleTransitionForRectangleForQuestionsCategories.playFromStart();
 					scaleTransitionForVBoxForDifficultyLevel.playFromStart();
 					scaleTransitionForGridPaneForQuestionsCategories.playFromStart();
 					scaleTransitionForExtendedQuestionCategoriesLabel.playFromStart();
@@ -1343,16 +932,16 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					nextButton.setDisable(false);
 				})
 		);
-		
-		timeLineToHideAllStuffFromScreen1 = new Timeline(
+
+		timelineToHideAllStuffFromScreen1 = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
 					backButton.setDisable(true);
 					nextButton.setDisable(true);
-					
+
 					scaleTransitionForSoundIcon.setToX(0);
 					scaleTransitionForSoundIcon.setToY(0);
-					
+
 					scaleTransitionForTitleLabel1.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel1.setFromX(titleLabel1.getScaleX());
 					scaleTransitionForTitleLabel1.setFromY(titleLabel1.getScaleY());
@@ -1360,7 +949,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel1.setToY(0);
 					scaleTransitionForTitleLabel1.setAutoReverse(false);
 					scaleTransitionForTitleLabel1.setCycleCount(1);
-					
+
 					scaleTransitionForTitleLabel2.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel2.setFromX(titleLabel2.getScaleX());
 					scaleTransitionForTitleLabel2.setFromY(titleLabel2.getScaleY());
@@ -1368,14 +957,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel2.setToY(0);
 					scaleTransitionForTitleLabel2.setAutoReverse(false);
 					scaleTransitionForTitleLabel2.setCycleCount(1);
-					
+
 					scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
 					scaleTransitionForTitleLabel2.setOnFinished(ev -> {});
-					
-					scaleTransitionForRectangleForDifficultyLevel.setToX(0);
-					scaleTransitionForRectangleForDifficultyLevel.setToY(0);
-					scaleTransitionForRectangleForQuestionsCategories.setToX(0);
-					scaleTransitionForRectangleForQuestionsCategories.setToY(0);
+
 					scaleTransitionForVBoxForDifficultyLevel.setToX(0);
 					scaleTransitionForVBoxForDifficultyLevel.setToY(0);
 					scaleTransitionForGridPaneForQuestionsCategories.setToX(0);
@@ -1387,9 +972,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForNextButton.setToX(0);
 					scaleTransitionForNextButton.setToY(0);
 
-					playMinimizeSound();
-					scaleTransitionForRectangleForDifficultyLevel.playFromStart();
-					scaleTransitionForRectangleForQuestionsCategories.playFromStart();
+					getAudioStuff().playMinimizeSound();
 					scaleTransitionForVBoxForDifficultyLevel.playFromStart();
 					scaleTransitionForGridPaneForQuestionsCategories.playFromStart();
 					scaleTransitionForExtendedQuestionCategoriesLabel.playFromStart();
@@ -1401,25 +984,25 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}),
 				new KeyFrame(Duration.millis(200), e ->
 				{
-					translateTransitionForTitleImage2.setToY(-1.0 * (0.231) * gamePropertiesScene.getHeight());
+					translateTransitionForTitleImage2.setToY(-1.0 * (0.231) * mainScene.getHeight());
 					scaleTransitionForTitleImage2.setToY(0);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					parallelTransitionForTitleImage2.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(400), e ->
 				{
 					translateTransitionForTitleImage1.setToY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
-					
+
 					translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.playFromStart();
 					translateTransitionForWoodPanelFor1IconImage.playFromStart();
 					if(vBoxForSound.isVisible())
 					{
-						setSoundIcon(soundIcon, false);
-						
+						setCorrectSoundIcon(false);
+
 						translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 						translateTransitionForVBoxForSound.playFromStart();
 					}
@@ -1427,7 +1010,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				new KeyFrame(Duration.millis(600), e ->
 				{
 					vBoxForSound.setVisible(false);
-					
+
 					fadeTransitionForMovingEarthImage.setToValue(0);
 					fadeTransitionForMovingEarthImage.playFromStart();
 				}),
@@ -1438,36 +1021,36 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						pauseEarthAnimation();
 						pauseTextAnimation();
 					}
-					
+
 					backButton.setDisable(false);
 					nextButton.setDisable(false);
 				})
 		);
-		
-		timeLineToHideAllStuffFromScreen2 = new Timeline(
+
+		timelineToHideAllStuffFromScreen2 = new Timeline(
 			new KeyFrame(Duration.millis(200), e ->
 			{
 				backButton.setDisable(true);
 				classicGameButton.setDisable(true);
 				timeAttackGameButton.setDisable(true);
 				endlessGameButton.setDisable(true);
-				
-				playPopUpSound();
-				
+
+				getAudioStuff().playPopUpSound();
+
 				scaleTransitionForVBoxForClassicGame.setToY(0);
 				scaleTransitionForVBoxForClassicGame.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(350), e ->
 			{
-				playPopUpSound();
-				
+				getAudioStuff().playPopUpSound();
+
 				scaleTransitionForVBoxForTimeAttackGame.setToY(0);
 				scaleTransitionForVBoxForTimeAttackGame.playFromStart();
 			}),
 			new KeyFrame(Duration.millis(500), e ->
 			{
-				playPopUpSound();
-				
+				getAudioStuff().playPopUpSound();
+
 				scaleTransitionForVBoxForEndlessGame.setToY(0);
 				scaleTransitionForVBoxForEndlessGame.playFromStart();
 			}),
@@ -1475,7 +1058,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				scaleTransitionForSoundIcon.setToX(0);
 				scaleTransitionForSoundIcon.setToY(0);
-				
+
 				scaleTransitionForTitleLabel1.setDuration(Duration.millis(200));
 				scaleTransitionForTitleLabel1.setFromX(titleLabel1.getScaleX());
 				scaleTransitionForTitleLabel1.setFromY(titleLabel1.getScaleY());
@@ -1483,13 +1066,13 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				scaleTransitionForTitleLabel1.setToY(0);
 				scaleTransitionForTitleLabel1.setAutoReverse(false);
 				scaleTransitionForTitleLabel1.setCycleCount(1);
-				
+
 				scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
-				
+
 				scaleTransitionForBackButton.setToX(0);
 				scaleTransitionForBackButton.setToY(0);
-				
-				playMinimizeSound();
+
+				getAudioStuff().playMinimizeSound();
 				scaleTransitionForTitleLabel1.playFromStart();
 				scaleTransitionForBackButton.playFromStart();
 				scaleTransitionForSoundIcon.playFromStart();
@@ -1497,16 +1080,16 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			new KeyFrame(Duration.millis(900), e ->
 			{
 				translateTransitionForTitleImage1.setToY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
-				
+
 				translateTransitionForWoodPanelFor1IconImage.setToY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
-				
-				playSlideSound();
+
+				getAudioStuff().playSlideSound();
 				translateTransitionForTitleImage1.playFromStart();
 				translateTransitionForWoodPanelFor1IconImage.playFromStart();
 				if(vBoxForSound.isVisible())
 				{
-					setSoundIcon(soundIcon, false);
-					
+					setCorrectSoundIcon(false);
+
 					translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 					translateTransitionForVBoxForSound.playFromStart();
 				}
@@ -1514,7 +1097,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			new KeyFrame(Duration.millis(1100), e ->
 			{
 				vBoxForSound.setVisible(false);
-				
+
 				fadeTransitionForMovingEarthImage.setToValue(0);
 				fadeTransitionForMovingEarthImage.playFromStart();
 			}),
@@ -1525,14 +1108,14 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					pauseEarthAnimation();
 					pauseTextAnimation();
 				}
-				
+
 				backButton.setDisable(false);
 				classicGameButton.setDisable(false);
 				timeAttackGameButton.setDisable(false);
 				endlessGameButton.setDisable(false);
 			}));
-		
-		timeLineFromScreen1ToScreen2 = new Timeline(
+
+		timelineFromScreen1ToScreen2 = new Timeline(
 				new KeyFrame(Duration.millis(200), e ->
 				{
 					backButton.setDisable(true);
@@ -1540,7 +1123,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					classicGameButton.setDisable(true);
 					timeAttackGameButton.setDisable(true);
 					endlessGameButton.setDisable(true);
-					
+
 					scaleTransitionForTitleLabel1.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel1.setFromX(titleLabel1.getScaleX());
 					scaleTransitionForTitleLabel1.setFromY(titleLabel1.getScaleY());
@@ -1548,7 +1131,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel1.setToY(0);
 					scaleTransitionForTitleLabel1.setAutoReverse(false);
 					scaleTransitionForTitleLabel1.setCycleCount(1);
-					
+
 					scaleTransitionForTitleLabel2.setDuration(Duration.millis(200));
 					scaleTransitionForTitleLabel2.setFromX(titleLabel2.getScaleX());
 					scaleTransitionForTitleLabel2.setFromY(titleLabel2.getScaleY());
@@ -1556,14 +1139,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel2.setToY(0);
 					scaleTransitionForTitleLabel2.setAutoReverse(false);
 					scaleTransitionForTitleLabel2.setCycleCount(1);
-					
+
 					scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
 					scaleTransitionForTitleLabel2.setOnFinished(ev -> {});
-					
-					scaleTransitionForRectangleForDifficultyLevel.setToX(0);
-					scaleTransitionForRectangleForDifficultyLevel.setToY(0);
-					scaleTransitionForRectangleForQuestionsCategories.setToX(0);
-					scaleTransitionForRectangleForQuestionsCategories.setToY(0);
+
 					scaleTransitionForVBoxForDifficultyLevel.setToX(0);
 					scaleTransitionForVBoxForDifficultyLevel.setToY(0);
 					scaleTransitionForGridPaneForQuestionsCategories.setToX(0);
@@ -1575,9 +1154,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForNextButton.setToX(0);
 					scaleTransitionForNextButton.setToY(0);
 
-					playMinimizeSound();
-					scaleTransitionForRectangleForDifficultyLevel.playFromStart();
-					scaleTransitionForRectangleForQuestionsCategories.playFromStart();
+					getAudioStuff().playMinimizeSound();
 					scaleTransitionForVBoxForDifficultyLevel.playFromStart();
 					scaleTransitionForGridPaneForQuestionsCategories.playFromStart();
 					scaleTransitionForExtendedQuestionCategoriesLabel.playFromStart();
@@ -1588,16 +1165,16 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				}),
 				new KeyFrame(Duration.millis(400), e ->
 				{
-					translateTransitionForTitleImage2.setToY(-1.0 * (0.231) * gamePropertiesScene.getHeight());
+					translateTransitionForTitleImage2.setToY(-1.0 * (0.231) * mainScene.getHeight());
 					scaleTransitionForTitleImage2.setToY(0);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					parallelTransitionForTitleImage2.playFromStart();
-					
+
 					if(vBoxForSound.isVisible())
 					{
-						setSoundIcon(soundIcon, false);
-						
+						setCorrectSoundIcon(false);
+
 						translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 						translateTransitionForVBoxForSound.playFromStart();
 					}
@@ -1605,35 +1182,35 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				new KeyFrame(Duration.millis(600), e ->
 				{
 					vBoxForSound.setVisible(false);
-					
+
 					translateTransitionForTitleImage1.setToY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(800), e ->
 				{
 					nodesPane.getChildren().clear();
-					
+
 					screen1 = false;
-					
+
 					updateStrings();
-					
+
 					nodesPane.getChildren().addAll(previousImage, movingEarthImage, woodPanelFor1IconImage,
-							titleImage1, titleLabel1, hBoxForGameModes, backButton, vBoxForSound, soundIcon);
-					
-					recalculateBackground(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
-					recalculateUI(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
+							titleImage1, titleLabel1, hBoxForGameModes, backButton, vBoxForSound, soundButton);
+
+					recalculateBackground(mainScene.getWidth(), mainScene.getHeight());
+					recalculateUI(mainScene.getWidth(), mainScene.getHeight());
 				}),
                 new KeyFrame(Duration.millis(850), e ->
                 {
                 	titleImage1.setTranslateX(0);
 					titleLabel1.setTranslateX(0);
-					
+
                     translateTransitionForTitleImage1.setToX(0);
                     translateTransitionForTitleImage1.setToY(0);
-	
-	                playSlideSound();
+
+	                getAudioStuff().playSlideSound();
                     translateTransitionForTitleImage1.playFromStart();
                 }),
                 new KeyFrame(Duration.millis(1050), e ->
@@ -1643,10 +1220,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	                scaleTransitionForTitleLabel1.setFromY(0);
 	                scaleTransitionForTitleLabel1.setToX(0.95);
 	                scaleTransitionForTitleLabel1.setToY(0.95);
-	
+
 	                scaleTransitionForBackButton.setToX(1);
 	                scaleTransitionForBackButton.setToY(1);
-	
+
 	                if(animationsUsed == ANIMATIONS.ALL)
 	                {
 		                scaleTransitionForTitleLabel1.setOnFinished(ev ->
@@ -1655,28 +1232,28 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			                startTextAnimationForTitleLabel1();
 		                });
 	                }
-	                
+
 	                scaleTransitionForTitleLabel1.playFromStart();
 	                scaleTransitionForBackButton.playFromStart();
                 }),
                 new KeyFrame(Duration.millis(1250), e ->
                 {
-                	playPopUpSound();
-	
+                	getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForClassicGame.setToY(1);
 					scaleTransitionForVBoxForClassicGame.playFromStart();
                 }),
                 new KeyFrame(Duration.millis(1400), e ->
                 {
-	                playPopUpSound();
-	
+	                getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForTimeAttackGame.setToY(1);
 	                scaleTransitionForVBoxForTimeAttackGame.playFromStart();
                 }),
                 new KeyFrame(Duration.millis(1550), e ->
                 {
-	                playPopUpSound();
-	
+	                getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForEndlessGame.setToY(1);
                     scaleTransitionForVBoxForEndlessGame.playFromStart();
                 }),
@@ -1689,8 +1266,8 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 	                endlessGameButton.setDisable(false);
                 })
 		);
-		
-		timeLineFromScreen2ToScreen1 = new Timeline(
+
+		timelineFromScreen2ToScreen1 = new Timeline(
 				new KeyFrame(Duration.millis(200), e ->
 				{
 					backButton.setDisable(true);
@@ -1698,23 +1275,23 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					classicGameButton.setDisable(true);
 					timeAttackGameButton.setDisable(true);
 					endlessGameButton.setDisable(true);
-					
-					playPopUpSound();
-					
+
+					getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForClassicGame.setToY(0);
 					scaleTransitionForVBoxForClassicGame.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(350), e ->
 				{
-					playPopUpSound();
-					
+					getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForTimeAttackGame.setToY(0);
 					scaleTransitionForVBoxForTimeAttackGame.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(500), e ->
 				{
-					playPopUpSound();
-					
+					getAudioStuff().playPopUpSound();
+
 					scaleTransitionForVBoxForEndlessGame.setToY(0);
 					scaleTransitionForVBoxForEndlessGame.playFromStart();
 				}),
@@ -1727,13 +1304,13 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel1.setToY(0);
 					scaleTransitionForTitleLabel1.setAutoReverse(false);
 					scaleTransitionForTitleLabel1.setCycleCount(1);
-					
+
 					scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
-					
+
 					scaleTransitionForBackButton.setToX(0);
 					scaleTransitionForBackButton.setToY(0);
-					
-					playMinimizeSound();
+
+					getAudioStuff().playMinimizeSound();
 					scaleTransitionForTitleLabel1.playFromStart();
 					scaleTransitionForBackButton.playFromStart();
 				}),
@@ -1741,13 +1318,13 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					translateTransitionForTitleImage1.setToY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
 					translateTransitionForTitleImage1.setToX(titleImage1.getTranslateX());
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.playFromStart();
 					if(vBoxForSound.isVisible())
 					{
-						setSoundIcon(soundIcon, false);
-						
+						setCorrectSoundIcon(false);
+
 						translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 						translateTransitionForVBoxForSound.playFromStart();
 					}
@@ -1755,40 +1332,39 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				new KeyFrame(Duration.millis(1100), e ->
 				{
 					vBoxForSound.setVisible(false);
-					
+
 					nodesPane.getChildren().clear();
-					
+
 					screen1 = true;
-					
+
 					updateStrings();
-					
+
 					nodesPane.getChildren().addAll(previousImage, movingEarthImage, woodPanelFor1IconImage,
-							titleImage2, titleImage1, titleLabel1, titleLabel2, vBoxForSound, soundIcon,
-							backButton, nextButton, rectangleForDifficultyLevel, vBoxForDifficultyLevel,
-							rectangleForQuestionCategories, gridPaneForQuestionsCategories, extendedQuestionCategories,
-							rectangleForExtendedQuestionCategories, scrollPaneForExtendedCategoryQuestionsGridPane,
+							titleImage2, titleImage1, titleLabel1, titleLabel2, vBoxForSound, soundButton,
+							backButton, nextButton, vBoxForDifficultyLevel, gridPaneForQuestionsCategories,
+							extendedQuestionCategoriesButton, scrollPaneForExtendedCategoryQuestionsGridPane,
 							exitExtendedCategoryQuestions);
-					
-					recalculateBackground(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
-					recalculateUI(gamePropertiesScene.getWidth(), gamePropertiesScene.getHeight());
+
+					recalculateBackground(mainScene.getWidth(), mainScene.getHeight());
+					recalculateUI(mainScene.getWidth(), mainScene.getHeight());
 				}),
 				new KeyFrame(Duration.millis(1150), e ->
 				{
 					titleImage1.setTranslateX(0);
 					titleLabel1.setTranslateX(0);
-					
+
 					translateTransitionForTitleImage1.setToX(0);
 					translateTransitionForTitleImage1.setToY(0);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(1350), e ->
 				{
 					translateTransitionForTitleImage2.setToY(0);
 					scaleTransitionForTitleImage2.setToY(1);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					parallelTransitionForTitleImage2.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(1550), e ->
@@ -1797,27 +1373,23 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					scaleTransitionForTitleLabel1.setFromY(0);
 					scaleTransitionForTitleLabel1.setToX(0.95);
 					scaleTransitionForTitleLabel1.setToY(0.95);
-					
+
 					scaleTransitionForTitleLabel2.setFromX(0);
 					scaleTransitionForTitleLabel2.setFromY(0);
 					scaleTransitionForTitleLabel2.setToX(0.95);
 					scaleTransitionForTitleLabel2.setToY(0.95);
-					
+
 					scaleTransitionForBackButton.setToX(1);
 					scaleTransitionForBackButton.setToY(1);
 					scaleTransitionForNextButton.setToX(1);
 					scaleTransitionForNextButton.setToY(1);
-					scaleTransitionForRectangleForDifficultyLevel.setToX(1);
-					scaleTransitionForRectangleForDifficultyLevel.setToY(1);
-					scaleTransitionForRectangleForQuestionsCategories.setToX(1);
-					scaleTransitionForRectangleForQuestionsCategories.setToY(1);
 					scaleTransitionForVBoxForDifficultyLevel.setToX(1);
 					scaleTransitionForVBoxForDifficultyLevel.setToY(1);
 					scaleTransitionForGridPaneForQuestionsCategories.setToX(1);
 					scaleTransitionForGridPaneForQuestionsCategories.setToY(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToX(1);
 					scaleTransitionForExtendedQuestionCategoriesLabel.setToY(1);
-					
+
 					if(animationsUsed == ANIMATIONS.ALL)
 					{
 						scaleTransitionForTitleLabel1.setOnFinished(ev ->
@@ -1827,14 +1399,12 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 							startTextAnimationForTitleLabel2();
 						});
 					}
-					
-					playPopUpSound();
+
+					getAudioStuff().playPopUpSound();
 					scaleTransitionForTitleLabel1.playFromStart();
 					scaleTransitionForTitleLabel2.playFromStart();
 					scaleTransitionForBackButton.playFromStart();
 					scaleTransitionForNextButton.playFromStart();
-					scaleTransitionForRectangleForDifficultyLevel.playFromStart();
-					scaleTransitionForRectangleForQuestionsCategories.playFromStart();
 					scaleTransitionForVBoxForDifficultyLevel.playFromStart();
 					scaleTransitionForGridPaneForQuestionsCategories.playFromStart();
 					scaleTransitionForExtendedQuestionCategoriesLabel.playFromStart();
@@ -1848,19 +1418,19 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					endlessGameButton.setDisable(false);
 				})
 		);
-		
+
 		timelineToShowSoundOptions = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
-					soundIcon.setDisable(true);
-					
-					translateTransitionForTitleImage1.setToX(-0.0651 * gamePropertiesScene.getWidth());
-					translateTransitionForTitleLabel1.setToX(-0.0651 * gamePropertiesScene.getWidth());
-					
+					soundButton.setDisable(true);
+
+					translateTransitionForTitleImage1.setToX(-0.0651 * mainScene.getWidth());
+					translateTransitionForTitleLabel1.setToX(-0.0651 * mainScene.getWidth());
+
 					translateTransitionForTitleImage1.setToY(0);
 					translateTransitionForTitleLabel1.setToY(0);
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForTitleImage1.playFromStart();
 					translateTransitionForTitleLabel1.playFromStart();
 				}),
@@ -1868,19 +1438,19 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				{
 					vBoxForSound.setVisible(true);
 					translateTransitionForVBoxForSound.setToY(0);
-					
+
 					translateTransitionForVBoxForSound.playFromStart();
 				}),
-				new KeyFrame(Duration.millis(300), e -> soundIcon.setDisable(false)));
-		
+				new KeyFrame(Duration.millis(300), e -> soundButton.setDisable(false)));
+
 		timelineToHideSoundOptions = new Timeline(
 				new KeyFrame(Duration.millis(0), e ->
 				{
-					soundIcon.setDisable(true);
-					
+					soundButton.setDisable(true);
+
 					translateTransitionForVBoxForSound.setToY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
-					
-					playSlideSound();
+
+					getAudioStuff().playSlideSound();
 					translateTransitionForVBoxForSound.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(100), e ->
@@ -1889,180 +1459,168 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					translateTransitionForTitleImage1.setToX(0);
 					translateTransitionForTitleLabel1.setToY(0);
 					translateTransitionForTitleLabel1.setToX(0);
-					
+
 					translateTransitionForTitleImage1.playFromStart();
 					translateTransitionForTitleLabel1.playFromStart();
 				}),
 				new KeyFrame(Duration.millis(300), e ->
 				{
-					soundIcon.setDisable(false);
+					soundButton.setDisable(false);
 					vBoxForSound.setVisible(false);
 				}));
 	}
-	
-	public void showScreen(boolean fromWelcomeScreen)
+
+	protected void showScreen()
 	{
-		stage.setScene(gamePropertiesScene);
-		
-		setInitialStateForAllNodes(fromWelcomeScreen);
-		
-		recalculateUI(windowWidth, windowHeight);
-		
+		super.showScreen();
+
 		if(animationsUsed != ANIMATIONS.NO)
-		{
-			movingEarthImage.setOpacity(0);
-			timeLineToShowAllStuff.playFromStart();
-		}
+			timelineToShowAllStuff.playFromStart();
 	}
-	
-	private void setInitialStateForAllNodes(boolean fromWelcomeScreen)
+
+	protected void setInitialStateForAllNodes()
 	{
 //		--------------- Load images if not already set ---------------
-		if(woodenFrameImage.getImage() == null || !woodenFrameImage.getImage().equals(FRAME_IMAGE))
+		if(previousImage.getImage() == null || !woodenFrameImage.getImage().equals(images.get(Images.FRAME)))
 		{
-			woodenFrameImage.setImage(FRAME_IMAGE);
-			movingEarthImage.setImage(MOVING_EARTH_IMAGE_2);
-			
-			titleImage1.setImage(EMPTY_WOOD_BACKGROUND_PANEL_SMALL_ROPE);
-			titleImage2.setImage(EMPTY_WOOD_BACKGROUND_PANEL_BIG_ROPE);
-			
-			woodPanelFor1IconImage.setImage(WOOD_BACKGROUND_IMAGE_FOR_1_BUTTON);
-			
-			if(fromWelcomeScreen) previousImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
-			else previousImage.setImage(WORLD_MAP);
-			
-			backArrowImage.setImage(BACK_ARROW);
-			nextArrowImage.setImage(BACK_ARROW);
-			
-			exitExtendedCategoryQuestions.setImage(X_ICON);
+			woodenFrameImage.setImage(images.get(Images.FRAME));
+			movingEarthImage.setImage(images.get(Images.MOVING_EARTH_2));
+
+			titleImage1.setImage(images.get(Images.EMPTY_WOOD_BACKGROUND_SMALL_ROPE));
+			titleImage2.setImage(images.get(Images.EMPTY_WOOD_BACKGROUND_BIG_ROPE));
+
+			woodPanelFor1IconImage.setImage(images.get(Images.EMPTY_WOOD_BACKGROUND_1_ICON));
+
+			if(fromWelcomeScreen) previousImage.setImage(images.get(Images.CHALKBOARD_BACKGROUND));
+			else previousImage.setImage(images.get(Images.WORLD_MAP));
+
+			exitExtendedCategoryQuestions.setImage(images.get(Images.X));
 		}
-		
+
 		if(!screen1)
 		{
-			if(fromWelcomeScreen) previousImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
-			else previousImage.setImage(WORLD_MAP);
-			
+			if(fromWelcomeScreen) previousImage.setImage(images.get(Images.CHALKBOARD_BACKGROUND));
+			else previousImage.setImage(images.get(Images.WORLD_MAP));
+
 			nodesPane.getChildren().clear();
-			
+
 			screen1 = true;
-			
+
 			updateStrings();
-			
+
 			nodesPane.getChildren().addAll(previousImage, movingEarthImage, woodPanelFor1IconImage, titleImage2, titleImage1,
-					titleLabel1, titleLabel2, vBoxForSound, soundIcon, backButton, nextButton, rectangleForDifficultyLevel,
-					vBoxForDifficultyLevel, rectangleForQuestionCategories, gridPaneForQuestionsCategories,
-					extendedQuestionCategories, rectangleForExtendedQuestionCategories,
-					scrollPaneForExtendedCategoryQuestionsGridPane, exitExtendedCategoryQuestions);
+					titleLabel1, titleLabel2, vBoxForSound, soundButton, backButton, nextButton, vBoxForDifficultyLevel,
+					gridPaneForQuestionsCategories, extendedQuestionCategoriesButton, scrollPaneForExtendedCategoryQuestionsGridPane,
+					exitExtendedCategoryQuestions);
 		}
-		
+
 //		--------------- SET POSITIONS ---------------
-		setSoundIcon(soundIcon, false);
+		setCorrectSoundIcon(false);
 		vBoxForSound.setTranslateY(-1.0 * (vBoxForSound.getLayoutY() + vBoxForSound.getPrefHeight() + 20));
 		vBoxForSound.setVisible(false);
-		
+
 		titleImage1.setTranslateX(0);
 		titleLabel1.setTranslateX(0);
-		
-		rectangleForExtendedQuestionCategories.setScaleX(0);
-		rectangleForExtendedQuestionCategories.setScaleY(0);
+
 		scrollPaneForExtendedCategoryQuestionsGridPane.setScaleX(0);
 		scrollPaneForExtendedCategoryQuestionsGridPane.setScaleY(0);
 		exitExtendedCategoryQuestions.setScaleX(0);
 		exitExtendedCategoryQuestions.setScaleY(0);
-		
+
 		if(animationsUsed != ANIMATIONS.NO)
 		{
 			woodPanelFor1IconImage.setTranslateY(-1.0 * (woodPanelFor1IconImage.getLayoutY() + woodPanelFor1IconImage.getBoundsInParent().getHeight()));
-			
+
 			titleImage1.setTranslateY(-1.0 * (titleImage1.getLayoutY() + titleImage1.getBoundsInParent().getHeight() + 20));
 			
-			titleImage2.setTranslateY(-1.0 * (0.231) * gamePropertiesScene.getHeight());
+			movingEarthImage.setOpacity(0);
+
+			titleImage2.setTranslateY(-1.0 * (0.231) * mainScene.getHeight());
 			titleImage2.setScaleY(0);
-			
+
 			titleLabel1.setScaleX(0);
 			titleLabel1.setScaleY(0);
-			
+
 			titleLabel2.setScaleX(0);
 			titleLabel2.setScaleY(0);
-			
-			soundIcon.setScaleX(0);
-			soundIcon.setScaleY(0);
-			
-			rectangleForDifficultyLevel.setScaleX(0);
-			rectangleForDifficultyLevel.setScaleY(0);
-			
-			rectangleForQuestionCategories.setScaleX(0);
-			rectangleForQuestionCategories.setScaleY(0);
-			
+
+			soundButton.setScaleX(0);
+			soundButton.setScaleY(0);
+
 			vBoxForDifficultyLevel.setScaleX(0);
 			vBoxForDifficultyLevel.setScaleY(0);
-			
+
 			gridPaneForQuestionsCategories.setScaleX(0);
 			gridPaneForQuestionsCategories.setScaleY(0);
-			
-			extendedQuestionCategories.setScaleX(0);
-			extendedQuestionCategories.setScaleY(0);
-			
+
+			extendedQuestionCategoriesButton.setScaleX(0);
+			extendedQuestionCategoriesButton.setScaleY(0);
+
 			vBoxForClassicGame.setScaleY(0);
 			vBoxForTimeAttackGame.setScaleY(0);
 			vBoxForEndlessGame.setScaleY(0);
-			
+
 			backButton.setScaleX(0);
 			backButton.setScaleY(0);
-			
+
 			nextButton.setScaleX(0);
 			nextButton.setScaleY(0);
 		}
 		else
 		{
 			woodPanelFor1IconImage.setTranslateY(0);
-			
-			soundIcon.setScaleX(1);
-			soundIcon.setScaleY(1);
-			
+
+			soundButton.setScaleX(1);
+			soundButton.setScaleY(1);
+
 			movingEarthImage.setOpacity(1);
-			
+
 			titleImage1.setTranslateY(0);
 			titleImage2.setTranslateY(0);
-			
+
 			titleImage2.setScaleY(1);
-			
+
 			titleLabel1.setScaleX(1);
 			titleLabel1.setScaleY(1);
-			
+
 			titleLabel2.setScaleX(1);
 			titleLabel2.setScaleY(1);
-			
-			rectangleForDifficultyLevel.setScaleX(1);
-			rectangleForDifficultyLevel.setScaleY(1);
-			
-			rectangleForQuestionCategories.setScaleX(1);
-			rectangleForQuestionCategories.setScaleY(1);
-			
+
 			vBoxForDifficultyLevel.setScaleX(1);
 			vBoxForDifficultyLevel.setScaleY(1);
-			
+
 			gridPaneForQuestionsCategories.setScaleX(1);
 			gridPaneForQuestionsCategories.setScaleY(1);
-			
-			extendedQuestionCategories.setScaleX(1);
-			extendedQuestionCategories.setScaleY(1);
-			
+
+			extendedQuestionCategoriesButton.setScaleX(1);
+			extendedQuestionCategoriesButton.setScaleY(1);
+
 			vBoxForClassicGame.setScaleY(1);
 			vBoxForTimeAttackGame.setScaleY(1);
 			vBoxForEndlessGame.setScaleY(1);
-			
+
 			backButton.setScaleX(1);
 			backButton.setScaleY(1);
-			
+
 			nextButton.setScaleX(1);
 			nextButton.setScaleY(1);
-			
+
 			backButton.setDisable(false);
 			nextButton.setDisable(false);
-			soundIcon.setDisable(false);
+			soundButton.setDisable(false);
 		}
 		
+		if(animationsUsed == ANIMATIONS.ALL)
+		{
+			movingEarthImage.setCursor(Cursor.HAND);
+			playEarthAnimation();
+		}
+		else
+		{
+			movingEarthImage.setCursor(Cursor.DEFAULT);
+			movingEarthImage.setViewport(getImageStuff().getMovingEarthImageViewports()[0]);
+		}
+
 //		--------------- SET VARIABLES AND TEXT ---------------
 		if (getDifficultyLevel() == DIFFICULTY.EASY) easyLevelRadioButton.setSelected(true);
 		else difficultLevelRadioButton.setSelected(true);
@@ -2079,42 +1637,33 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				extQCCategories[3].setSelected(isCategorySelected(i));
 		}
 		handler.updateCheckboxesState(true);
-		
+
 		updateNextButtonState();
-		
-		setViewPortProperties();
-		
-		if (animationsUsed == ANIMATIONS.ALL)
-		{
-			movingEarthImage.setCursor(Cursor.HAND);
-			playEarthAnimation();
-		}
-		else movingEarthImage.setCursor(Cursor.DEFAULT);
-		
+
 		countDownToggleForClassicGameLabel.setValue(isTimerForClassic());
 		countDownToggleForEndlessGameLabel.setValue(isTimerForEndless());
-		
+
 		if(getNumberOfQuestionsForClassic() == 10) radioButton10QuestionsForClassicGameLabel.setSelected(true);
 		else if(getNumberOfQuestionsForClassic() == 20) radioButton20QuestionsForClassicGameLabel.setSelected(true);
 		else if(getNumberOfQuestionsForClassic() == 50) radioButton50QuestionsForClassicGameLabel.setSelected(true);
 		else radioButton100QuestionsForClassicGameLabel.setSelected(true);
-		
+
 		if(getDurationInMinutesForTimeAttack() == 1) radioButton1MinuteDurationForTimeAttackGameLabel.setSelected(true);
 		else if(getDurationInMinutesForTimeAttack() == 2) radioButton2MinutesDurationForTimeAttackGameLabel.setSelected(true);
 		else if(getDurationInMinutesForTimeAttack() == 5) radioButton5MinutesDurationForTimeAttackGameLabel.setSelected(true);
 		else radioButton10MinutesDurationForTimeAttackGameLabel.setSelected(true);
-		
+
 		if(getLivesForEndless() == 1) radioButton1LifeForEndlessGameLabel.setSelected(true);
 		else if(getLivesForEndless() == 3) radioButton3LivesForEndlessGameLabel.setSelected(true);
 		else radioButton5LivesForEndlessGameLabel.setSelected(true);
-		
+
 		updateStrings();
 	}
-	
+
 	private void openExtendedQuestionCategories()
 	{
 		setExtendedQuestionCategoriesStrings();
-		
+
 		if(animationsUsed != ANIMATIONS.NO)
 		{
 			scaleTransitionForTitleLabel1.setDuration(Duration.millis(200));
@@ -2127,17 +1676,17 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel1.setOnFinished(e ->
 			{
 				titleLabel1.setText(languageResourceBundle.getString("extendedQuestionCategories"));
-				
-				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * gamePropertiesScene.getWidth()));
-				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0401 * gamePropertiesScene.getWidth()));
-				
+
+				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(font55B);
+				else titleLabel1.setFont(font70B);
+
 				pauseTextAnimation();
-				
+
 				scaleTransitionForTitleLabel1.setFromX(0);
 				scaleTransitionForTitleLabel1.setFromY(0);
 				scaleTransitionForTitleLabel1.setToX(titleLabel2.getScaleX());
 				scaleTransitionForTitleLabel1.setToY(titleLabel2.getScaleY());
-				
+
 				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					scaleTransitionForTitleLabel1.setOnFinished(ev ->
@@ -2148,51 +1697,46 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					});
 				}
 				else scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
-				
+
 				scaleTransitionForTitleLabel1.playFromStart();
 			});
-			
+
 			scaleTransitionForScrollPaneForExtendedQuestionCategories.setToX(1);
 			scaleTransitionForScrollPaneForExtendedQuestionCategories.setToY(1);
-			scaleTransitionForRectangleForExtendedQuestionCategories.setToX(1);
-			scaleTransitionForRectangleForExtendedQuestionCategories.setToY(1);
 			scaleTransitionForExitExtendedCategoryQuestions.setToX(1);
 			scaleTransitionForExitExtendedCategoryQuestions.setToY(1);
-			
-			scaleTransitionForRectangleForExtendedQuestionCategories.setOnFinished(e ->
+
+			scaleTransitionForScrollPaneForExtendedQuestionCategories.setOnFinished(e ->
 			{
-				scaleTransitionForRectangleForExtendedQuestionCategories.setOnFinished(ev -> {});
+				scaleTransitionForScrollPaneForExtendedQuestionCategories.setOnFinished(ev -> {});
 				scaleTransitionForExitExtendedCategoryQuestions.playFromStart();
 			});
-			
-			playMaximizeSound();
+
+			getAudioStuff().playMaximizeSound();
 			scaleTransitionForScrollPaneForExtendedQuestionCategories.playFromStart();
-			scaleTransitionForRectangleForExtendedQuestionCategories.playFromStart();
 			scaleTransitionForTitleLabel1.playFromStart();
 		}
 		else
 		{
 			titleLabel1.setText(languageResourceBundle.getString("extendedQuestionCategories"));
-			
-			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0302 * gamePropertiesScene.getWidth()));
-			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0401 * gamePropertiesScene.getWidth()));
-			
+
+			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(font55B);
+			else titleLabel1.setFont(font70B);
+
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleX(1);
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleY(1);
-			rectangleForExtendedQuestionCategories.setScaleX(1);
-			rectangleForExtendedQuestionCategories.setScaleY(1);
 			exitExtendedCategoryQuestions.setScaleX(1);
 			exitExtendedCategoryQuestions.setScaleY(1);
 		}
 		isExtendedQuestionCategoriesOpen = true;
-		
+
 		backButton.setDisable(true);
 		nextButton.setDisable(true);
 		vBoxForDifficultyLevel.setDisable(true);
-		extendedQuestionCategories.setDisable(true);
-		soundIcon.setDisable(true);
+		extendedQuestionCategoriesButton.setDisable(true);
+		soundButton.setDisable(true);
 	}
-	
+
 	private void closeExtendedQuestionCategories()
 	{
 		if(animationsUsed != ANIMATIONS.NO)
@@ -2207,17 +1751,17 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel1.setOnFinished(e ->
 			{
 				titleLabel1.setText(languageResourceBundle.getString("titleForDifficultySelectionLabel"));
-				
-				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * gamePropertiesScene.getWidth()));
-				else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0354 * gamePropertiesScene.getWidth()));
-				
+
+				if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(font65B);
+				else titleLabel1.setFont(font70B);
+
 				pauseTextAnimation();
-				
+
 				scaleTransitionForTitleLabel1.setFromX(0);
 				scaleTransitionForTitleLabel1.setFromY(0);
 				scaleTransitionForTitleLabel1.setToX(titleLabel2.getScaleX());
 				scaleTransitionForTitleLabel1.setToY(titleLabel2.getScaleY());
-				
+
 				if(animationsUsed == ANIMATIONS.ALL)
 				{
 					scaleTransitionForTitleLabel1.setOnFinished(ev ->
@@ -2228,24 +1772,21 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					});
 				}
 				else scaleTransitionForTitleLabel1.setOnFinished(ev -> {});
-				
+
 				scaleTransitionForTitleLabel1.playFromStart();
 			});
-			
+
 			scaleTransitionForScrollPaneForExtendedQuestionCategories.setToX(0);
 			scaleTransitionForScrollPaneForExtendedQuestionCategories.setToY(0);
-			scaleTransitionForRectangleForExtendedQuestionCategories.setToX(0);
-			scaleTransitionForRectangleForExtendedQuestionCategories.setToY(0);
 			scaleTransitionForExitExtendedCategoryQuestions.setToX(0);
 			scaleTransitionForExitExtendedCategoryQuestions.setToY(0);
-			
+
 			scaleTransitionForExitExtendedCategoryQuestions.setOnFinished(e ->
 			{
 				scaleTransitionForExitExtendedCategoryQuestions.setOnFinished(ev -> {});
-				
-				playMinimizeSound();
+
+				getAudioStuff().playMinimizeSound();
 				scaleTransitionForScrollPaneForExtendedQuestionCategories.playFromStart();
-				scaleTransitionForRectangleForExtendedQuestionCategories.playFromStart();
 			});
 			scaleTransitionForExitExtendedCategoryQuestions.playFromStart();
 			scaleTransitionForTitleLabel1.playFromStart();
@@ -2253,33 +1794,31 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		else
 		{
 			titleLabel1.setText(languageResourceBundle.getString("titleForDifficultySelectionLabel"));
-			
-			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0339 * gamePropertiesScene.getWidth()));
-			else titleLabel1.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 0.0354 * gamePropertiesScene.getWidth()));
-			
+
+			if (getCurrentLanguage() == LANGUAGE.GREEK) titleLabel1.setFont(font65B);
+			else titleLabel1.setFont(font70B);
+
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleX(0);
 			scrollPaneForExtendedCategoryQuestionsGridPane.setScaleY(0);
-			rectangleForExtendedQuestionCategories.setScaleX(0);
-			rectangleForExtendedQuestionCategories.setScaleY(0);
 			exitExtendedCategoryQuestions.setScaleX(0);
 			exitExtendedCategoryQuestions.setScaleY(0);
 		}
 		isExtendedQuestionCategoriesOpen = false;
-		
+
 		backButton.setDisable(false);
 		nextButton.setDisable(false);
 		vBoxForDifficultyLevel.setDisable(false);
-		extendedQuestionCategories.setDisable(false);
-		soundIcon.setDisable(false);
+		extendedQuestionCategoriesButton.setDisable(false);
+		soundButton.setDisable(false);
 	}
-	
+
 	private void setExtendedQuestionCategoriesStrings()
 	{
 		extQCCategories[0].setText(languageResourceBundle.getString("extContinentsAndCountries"));
 		extQCCategories[1].setText(languageResourceBundle.getString("extUSA"));
 		extQCCategories[2].setText(languageResourceBundle.getString("extGreece"));
 		extQCCategories[3].setText(languageResourceBundle.getString("extAttractions"));
-		
+
 		extQCCountries[0].setText(languageResourceBundle.getString("extCapital"));
 		extQCCountries[1].setText(languageResourceBundle.getString("extLargestCities"));
 		extQCCountries[2].setText(languageResourceBundle.getString("extOfficialLanguages"));
@@ -2291,7 +1830,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		extQCCountries[8].setText(languageResourceBundle.getString("extFlag"));
 		extQCCountries[9].setText(languageResourceBundle.getString("extCoatOfArms"));
 		extQCCountries[10].setText(languageResourceBundle.getString("extLocation"));
-		
+
 		extQCUSA[0].setText(languageResourceBundle.getString("extCapital"));
 		extQCUSA[1].setText(languageResourceBundle.getString("extLargestCities"));
 		extQCUSA[2].setText(languageResourceBundle.getString("extUSAYearEnteredUnion"));
@@ -2310,7 +1849,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		extQCGreece[5].setText(languageResourceBundle.getString("extArea"));
 		extQCGreece[6].setText(languageResourceBundle.getString("extLocation"));
 	}
-	
+
 	private void updateNextButtonState()
 	{
 		if(continentsAndCountriesCheckBox.isSelected() || USACheckBox.isSelected() || greeceCheckBox.isSelected() || attractionsCheckBox.isSelected() ||
@@ -2325,7 +1864,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			nextButton.setCursor(Cursor.DEFAULT);
 		}
 	}
-	
+
 	private boolean isNextButtonDisabled()
 	{
 		if(continentsAndCountriesCheckBox.isSelected() || USACheckBox.isSelected() || greeceCheckBox.isSelected() || attractionsCheckBox.isSelected() ||
@@ -2333,63 +1872,63 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		return false;
 		else return true;
 	}
-	
+
 	private void updateStrings()
 	{
 		if(screen1)
 		{
 			titleLabel1.setText(languageResourceBundle.getString("titleForDifficultySelectionLabel"));
 			titleLabel2.setText(languageResourceBundle.getString("titleForCategoriesSelectionLabel"));
-			
+
 			nextButton.setText(languageResourceBundle.getString("nextButton"));
 			nextButton.getTooltip().setText(languageResourceBundle.getString("nextButtonTooltipInDifficultySelectionScreenEnabled"));
-			
+
 			easyLevelRadioButton.setText(languageResourceBundle.getString("easyLabel"));
 			difficultLevelRadioButton.setText(languageResourceBundle.getString("difficultLabel"));
-			
+
 			continentsAndCountriesCheckBox.setText(languageResourceBundle.getString("continentsAndCountries"));
 			USACheckBox.setText(languageResourceBundle.getString("usa"));
 			greeceCheckBox.setText(languageResourceBundle.getString("greece"));
 			attractionsCheckBox.setText(languageResourceBundle.getString("attractions"));
-			
+
 			continentsAndCountriesCheckBox.getTooltip().setText(languageResourceBundle.getString("continentsAndCountriesCheckBoxTooltip"));
 			USACheckBox.getTooltip().setText(languageResourceBundle.getString("usaCheckBoxTooltip"));
 			greeceCheckBox.getTooltip().setText(languageResourceBundle.getString("greeceCheckBoxTooltip"));
 			attractionsCheckBox.getTooltip().setText(languageResourceBundle.getString("attractionsCheckBoxTooltip"));
-			
-			extendedQuestionCategories.setText(languageResourceBundle.getString("extendedQuestionCategories"));
+
+			extendedQuestionCategoriesButton.setText(languageResourceBundle.getString("extendedQuestionCategories"));
 		}
 		else
 		{
 			titleLabel1.setText(languageResourceBundle.getString("titleForGameModeSelectionLabel"));
-			
+
 			numberOfQuestionsForClassicGameLabel.setText(languageResourceBundle.getString("numberOfQuestionsLabel"));
 			gameDurationForTimeAttackGameLabel.setText(languageResourceBundle.getString("gameDurationLabel"));
 			livesForEndlessGameLabel.setText(languageResourceBundle.getString("livesLabel"));
 			countDownForClassicGameLabel.setText(languageResourceBundle.getString("countDownLabel"));
 			countDownForEndlessGameLabel.setText(languageResourceBundle.getString("countDownLabel"));
-			
+
 			descriptionForClassicGameLabel.setText(getDescriptionForClassicGameMode());
 			descriptionForTimeAttackGameLabel.setText(getDescriptionForTimeAttackGameMode());
 			descriptionForEndlessGameLabel.setText(getDescriptionForEndlessGameMode());
 		}
-		
-		soundOptionsToolTip.setText(languageResourceBundle.getString("soundOptionsTooltip"));
-		
+
+		soundButton.getTooltip().setText(languageResourceBundle.getString("soundOptionsTooltip"));
+
 		backButton.setText(languageResourceBundle.getString("backButton"));
-		backButton.getTooltip().setText(languageResourceBundle.getString("backButtonTooltipInDifficultySelectionScreen"));
-		
+		backButton.getTooltip().setText(languageResourceBundle.getString("backButtonTooltipReturnToPreviousScreen"));
+
 		updateMasterVolumeText();
 		updateMusicVolumeText();
 		updateOtherVolumeText();
 	}
-	
+
 	private void startTextAnimationForTitleLabel2()
 	{
 		if(titleLabel2.getScaleX() != 0.95)
 		{
 			double time = (Math.abs(titleLabel2.getScaleX() - 0.95) / 0.1) * TEXT_SCALE_ANIMATION_TIME;
-			
+
 			scaleTransitionForTitleLabel2.setDuration(Duration.millis(time));
 			scaleTransitionForTitleLabel2.setFromX(titleLabel1.getScaleX());
 			scaleTransitionForTitleLabel2.setFromY(titleLabel1.getScaleY());
@@ -2397,7 +1936,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel2.setToY(0.95);
 			scaleTransitionForTitleLabel2.setCycleCount(1);
 			scaleTransitionForTitleLabel2.setAutoReverse(false);
-			
+
 			scaleTransitionForTitleLabel2.setOnFinished(e ->
 			{
 				scaleTransitionForTitleLabel2.setDuration(Duration.millis(TEXT_SCALE_ANIMATION_TIME));
@@ -2408,10 +1947,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				scaleTransitionForTitleLabel2.setCycleCount(Animation.INDEFINITE);
 				scaleTransitionForTitleLabel2.setAutoReverse(true);
 				scaleTransitionForTitleLabel2.setOnFinished(null);
-				
+
 				scaleTransitionForTitleLabel2.playFromStart();
 			});
-			
+
 			scaleTransitionForTitleLabel2.playFromStart();
 		}
 		else
@@ -2424,17 +1963,17 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel2.setCycleCount(Animation.INDEFINITE);
 			scaleTransitionForTitleLabel2.setAutoReverse(true);
 			scaleTransitionForTitleLabel2.setOnFinished(null);
-			
+
 			scaleTransitionForTitleLabel2.playFromStart();
 		}
 	}
-	
+
 	private void startTextAnimationForTitleLabel1()
 	{
 		if(titleLabel1.getScaleX() != 0.95)
 		{
 			double time = (Math.abs(titleLabel1.getScaleX() - 0.95) / 0.1) * TEXT_SCALE_ANIMATION_TIME;
-			
+
 			scaleTransitionForTitleLabel1.setDuration(Duration.millis(time));
 			scaleTransitionForTitleLabel1.setFromX(titleLabel1.getScaleX());
 			scaleTransitionForTitleLabel1.setFromY(titleLabel1.getScaleY());
@@ -2442,7 +1981,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel1.setToY(0.95);
 			scaleTransitionForTitleLabel1.setCycleCount(1);
 			scaleTransitionForTitleLabel1.setAutoReverse(false);
-			
+
 			scaleTransitionForTitleLabel1.setOnFinished(e ->
 			{
 				scaleTransitionForTitleLabel1.setDuration(Duration.millis(TEXT_SCALE_ANIMATION_TIME));
@@ -2453,10 +1992,10 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				scaleTransitionForTitleLabel1.setCycleCount(Animation.INDEFINITE);
 				scaleTransitionForTitleLabel1.setAutoReverse(true);
 				scaleTransitionForTitleLabel1.setOnFinished(null);
-				
+
 				scaleTransitionForTitleLabel1.playFromStart();
 			});
-			
+
 			scaleTransitionForTitleLabel1.playFromStart();
 		}
 		else
@@ -2469,63 +2008,71 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			scaleTransitionForTitleLabel1.setCycleCount(Animation.INDEFINITE);
 			scaleTransitionForTitleLabel1.setAutoReverse(true);
 			scaleTransitionForTitleLabel1.setOnFinished(null);
-			
+
 			scaleTransitionForTitleLabel1.playFromStart();
 		}
 	}
-	
+
 	public void resumeTextAnimation()
 	{
 		scaleTransitionForTitleLabel1.play();
 		if(screen1) scaleTransitionForTitleLabel2.play();
 	}
-	
+
 	public void pauseTextAnimation()
 	{
 		scaleTransitionForTitleLabel1.pause();
 		if(screen1) scaleTransitionForTitleLabel2.pause();
 	}
-	
+
 	private void startGame(GAMEMODE gameMode)
 	{
 		FilesIO.writePlayersFile();
-		
+
 		if(animationsUsed != ANIMATIONS.NO)
 		{
-			previousImage.setImage(WORLD_MAP);
-			previousImage.setLayoutX(getWorldMapLayoutX() * gamePropertiesScene.getWidth());
-			previousImage.setLayoutY(getWorldMapLayoutY() * gamePropertiesScene.getHeight());
-			previousImage.setFitWidth(getWorldMapFitWidth() * gamePropertiesScene.getWidth());
-			previousImage.setFitHeight(getWorldMapFitHeight() * gamePropertiesScene.getHeight());
-			
-			timeLineToHideAllStuffFromScreen2.setOnFinished(ev -> gameScreen.showScreen(gameMode));
-			timeLineToHideAllStuffFromScreen2.playFromStart();
+			previousImage.setImage(images.get(Images.WORLD_MAP));
+			previousImage.setLayoutX(getImageStuff().getWorldMapLayoutX() * mainScene.getWidth());
+			previousImage.setLayoutY(getImageStuff().getWorldMapLayoutY() * mainScene.getHeight());
+			previousImage.setFitWidth(getImageStuff().getWorldMapFitWidth() * mainScene.getWidth());
+			previousImage.setFitHeight(getImageStuff().getWorldMapFitHeight() * mainScene.getHeight());
+
+			timelineToHideAllStuffFromScreen2.setOnFinished(ev ->
+			{
+				gameScreen.setGameMode(gameMode);
+				showOtherScreen(gameScreen);
+			});
+			timelineToHideAllStuffFromScreen2.playFromStart();
 		}
-		else gameScreen.showScreen(gameMode);
+		else
+		{
+			gameScreen.setGameMode(gameMode);
+			showOtherScreen(gameScreen);
+		}
 	}
-	
+
 	private void returnToWelcomeScreen()
 	{
 		FilesIO.writePlayersFile();
-		
+
 		if(animationsUsed != ANIMATIONS.NO)
 		{
-			previousImage.setImage(CHALKBOARD_BACKGROUND_IMAGE);
+			previousImage.setImage(images.get(Images.CHALKBOARD_BACKGROUND));
 			previousImage.setLayoutX(0);
 			previousImage.setLayoutY(0);
-			previousImage.setFitWidth(gamePropertiesScene.getWidth());
-			previousImage.setFitHeight(gamePropertiesScene.getHeight());
-			
-			timeLineToHideAllStuffFromScreen1.setOnFinished(ev -> welcomeScreen.showScreen(false));
-			timeLineToHideAllStuffFromScreen1.playFromStart();
+			previousImage.setFitWidth(mainScene.getWidth());
+			previousImage.setFitHeight(mainScene.getHeight());
+
+			timelineToHideAllStuffFromScreen1.setOnFinished(ev -> showOtherScreen(welcomeScreen));
+			timelineToHideAllStuffFromScreen1.playFromStart();
 		}
-		else welcomeScreen.showScreen(false);
+		else showOtherScreen(welcomeScreen);
 	}
-	
+
 	private String getDescriptionForClassicGameMode()
 	{
 		StringBuilder s = new StringBuilder();
-		
+
 		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
 			s.append("Γίνονται " + getNumberOfQuestionsForClassic() + " ερωτήσεις από τις κατηγορίες που θα επιλέξεις.");
@@ -2542,70 +2089,70 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 		}
 		return s.toString();
 	}
-	
+
 	private String getDescriptionForTimeAttackGameMode()
 	{
 		StringBuilder s = new StringBuilder();
-		
+
 		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
-			s.append("Έχεις " + getDurationInMinutesForTimeAttack());
-			
+			s.append("Έχεις ").append(getDurationInMinutesForTimeAttack());
+
 			if(getDurationInMinutesForTimeAttack() == 1) s.append(" λεπτό ");
 			else s.append(" λεπτά ");
-			
+
 			s.append("για να απαντήσεις σωστά σε όσες περισσότερες ερωτήσεις μπορείς από τις κατηγορίες που θα επιλέξεις. Κάθε λάθος απάντηση βαθμολογείται αρνητικά.");
 		}
 		else
 		{
-			s.append("You'll have " + getDurationInMinutesForTimeAttack());
-			
+			s.append("You'll have ").append(getDurationInMinutesForTimeAttack());
+
 			if(getDurationInMinutesForTimeAttack() == 1) s.append(" minute ");
 			else s.append(" minutes ");
-			
+
 			s.append("to correctly answer as many questions as you can from the categories you'll choose. Each wrong answer is scored negatively.");
 		}
 		return s.toString();
 	}
-	
+
 	private String getDescriptionForEndlessGameMode()
 	{
 		StringBuilder s = new StringBuilder();
-		
+
 		if(getCurrentLanguage() == LANGUAGE.GREEK)
 		{
-			s.append("Πρέπει να απαντήσεις σωστά σε όσες περισσότερες ερωτήσεις μπορείς. Έχεις " + getLivesForEndless());
-			
+			s.append("Πρέπει να απαντήσεις σωστά σε όσες περισσότερες ερωτήσεις μπορείς. Έχεις ").append(getLivesForEndless());
+
 			if(getLivesForEndless() == 1) s.append(" ευκαιρία ");
 			else s.append(" ευκαιρίες ");
-			
+
 			s.append("για λάθος απάντηση ");
-			
+
 			if(isTimerForEndless()) s.append("και 10 δευτερόλεπτα για να απαντήσεις σε κάθε ερώτηση.");
 			else s.append("χωρίς περιορισμό στο χρόνο απάντησης κάθε ερώτησης.");
 		}
 		else
 		{
-			s.append("You must correctly answer as many questions as you can. You have " + getLivesForEndless());
-			
+			s.append("You must correctly answer as many questions as you can. You have ").append(getLivesForEndless());
+
 			if(getLivesForEndless() == 1) s.append(" chance ");
 			else s.append(" chances ");
-			
+
 			s.append("for a wrong answer ");
-			
+
 			if(isTimerForEndless()) s.append("and 10 seconds to answer each question.");
 			else s.append("without limitation to the answering time of each question.");
 		}
 		return s.toString();
 	}
-	
+
 	private class Handler implements EventHandler<ActionEvent>
 	{
 		public void handle(ActionEvent e)
 		{
-			if(((CheckBox) e.getSource()).isSelected()) playCheckBoxSelectedSound();
-			else playCheckBoxDeselectedSound();
-			
+			if(((CheckBox) e.getSource()).isSelected()) getAudioStuff().playCheckBoxSelectedSound();
+			else getAudioStuff().playCheckBoxDeselectedSound();
+
 //			----------------------------------------------------------------------------
 			if(e.getSource() == extQCCategories[0] || e.getSource() == continentsAndCountriesCheckBox)
 			{
@@ -2640,7 +2187,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						extQCCategories[0].setIndeterminate(false);
 					}
 				}
-				
+
 				if(extQCCategories[0].isSelected()) for(CustomCheckBox extQCCountry : extQCCountries) extQCCountry.setSelected(true);
 				else for(CustomCheckBox extQCCountry : extQCCountries) extQCCountry.setSelected(false);
 			}
@@ -2672,7 +2219,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						extQCCategories[1].setIndeterminate(false);
 					}
 				}
-				
+
 				if(extQCCategories[1].isSelected()) for(CustomCheckBox anExtQCUSA1 : extQCUSA) anExtQCUSA1.setSelected(true);
 				else for(CustomCheckBox anExtQCUSA : extQCUSA) anExtQCUSA.setSelected(false);
 			}
@@ -2704,7 +2251,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 						extQCCategories[2].setIndeterminate(false);
 					}
 				}
-				
+
 				if(extQCCategories[2].isSelected()) for(CustomCheckBox anExtQCGreece : extQCGreece) anExtQCGreece.setSelected(true);
 				else for(CustomCheckBox anExtQCGreece : extQCGreece) anExtQCGreece.setSelected(false);
 			}
@@ -2739,7 +2286,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			}
 //			----------------------------------------------------------------------------
 			updateCheckboxesState(true);
-			
+
 			updateNextButtonState();
 
 			for(int i = 0; i < NUM_ALL_CATEGORIES; i++)
@@ -2753,7 +2300,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				else setIsCategorySelected(i, extQCCategories[3].isSelected());
 			}
 		}
-		
+
 		private void updateCheckboxesState(boolean checkboxChanged)
 		{
 			if(getDifficultyLevel() == DIFFICULTY.EASY)
@@ -2764,7 +2311,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				extQCCountries[7].setDisable(true);
 				extQCCountries[9].setSelected(false);
 				extQCCountries[9].setDisable(true);
-				
+
 //				switch(userLocale.getCountry())
 //				{
 //					case "GR":
@@ -2859,7 +2406,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 					extQCCountries[7].setSelected(true);
 					extQCCountries[9].setSelected(true);
 				}
-				
+
 //				switch(userLocale.getCountry())
 //				{
 //					case "GR":
@@ -2918,19 +2465,19 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 //						break;
 //				}
 			}
-			
+
 			int cSel = 0, cDis = 0;
 			for (CustomCheckBox extQCCountry : extQCCountries)
 			{
 				if (extQCCountry.isSelected()) cSel++;
 				if (extQCCountry.isDisabled()) cDis++;
 			}
-			
+
 			if(cSel + cDis == extQCCountries.length)
 			{
 				extQCCategories[0].setSelected(true);
 				extQCCategories[0].setIndeterminate(false);
-				
+
 				continentsAndCountriesCheckBox.setSelected(true);
 				continentsAndCountriesCheckBox.setIndeterminate(false);
 			}
@@ -2938,7 +2485,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[0].setSelected(false);
 				extQCCategories[0].setIndeterminate(true);
-				
+
 				continentsAndCountriesCheckBox.setSelected(false);
 				continentsAndCountriesCheckBox.setIndeterminate(true);
 			}
@@ -2946,7 +2493,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[0].setSelected(false);
 				extQCCategories[0].setIndeterminate(false);
-				
+
 				continentsAndCountriesCheckBox.setSelected(false);
 				continentsAndCountriesCheckBox.setIndeterminate(false);
 			}
@@ -2958,12 +2505,12 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				if (anExtQCUSA.isSelected()) cSel++;
 				if (anExtQCUSA.isDisabled()) cDis++;
 			}
-			
+
 			if(cSel + cDis == extQCUSA.length && cDis != extQCUSA.length)
 			{
 				extQCCategories[1].setSelected(true);
 				extQCCategories[1].setIndeterminate(false);
-				
+
 				USACheckBox.setSelected(true);
 				USACheckBox.setIndeterminate(false);
 			}
@@ -2971,7 +2518,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[1].setSelected(false);
 				extQCCategories[1].setIndeterminate(true);
-				
+
 				USACheckBox.setSelected(false);
 				USACheckBox.setIndeterminate(true);
 			}
@@ -2979,7 +2526,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[1].setSelected(false);
 				extQCCategories[1].setIndeterminate(false);
-				
+
 				USACheckBox.setSelected(false);
 				USACheckBox.setIndeterminate(false);
 			}
@@ -2991,12 +2538,12 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 				if (anExtQCGreece.isSelected()) cSel++;
 				if (anExtQCGreece.isDisabled()) cDis++;
 			}
-			
+
 			if(cSel + cDis == extQCGreece.length && cDis != extQCGreece.length)
 			{
 				extQCCategories[2].setSelected(true);
 				extQCCategories[2].setIndeterminate(false);
-				
+
 				greeceCheckBox.setSelected(true);
 				greeceCheckBox.setIndeterminate(false);
 			}
@@ -3004,7 +2551,7 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[2].setSelected(false);
 				extQCCategories[2].setIndeterminate(true);
-				
+
 				greeceCheckBox.setSelected(false);
 				greeceCheckBox.setIndeterminate(true);
 			}
@@ -3012,10 +2559,15 @@ public class GamePropertiesScreen extends CoreScreenWithMovingBackground
 			{
 				extQCCategories[2].setSelected(false);
 				extQCCategories[2].setIndeterminate(false);
-				
+
 				greeceCheckBox.setSelected(false);
 				greeceCheckBox.setIndeterminate(false);
 			}
 		}
+	}
+
+	public void setFromWelcomeScreen(boolean fromWelcomeScreen)
+	{
+		this.fromWelcomeScreen = fromWelcomeScreen;
 	}
 }

@@ -337,7 +337,7 @@ public class Player
 		setMusicSliderVolume(50);
 		setSoundEffectsSliderVolume(50);
 		
-		setWindowWidth(0.75 * primaryScreenWidth);
+		setWindowWidth(0.75 * getScreenStuff().getPrimaryScreenWidth());
 		
 		setAnimationsUsed(ANIMATIONS.ALL);
 		setStartAtFullScreen(false);

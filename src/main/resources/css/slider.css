@@ -18,6 +18,14 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }
 
+#veryBig.slider:pressed *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+    -fx-background-insets: 4 0 -4 0;
+}
+
 #big.slider *.track
 {
     -fx-base: #9C3E23;
@@ -36,6 +44,14 @@
     -fx-background-color: #DD6944;
     -fx-padding: 14px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
+#big.slider:pressed *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+    -fx-background-insets: 3 0 -3 0;
 }
 
 #medium.slider *.track
@@ -58,6 +74,14 @@
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
 }
 
+#medium.slider:pressed *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+    -fx-background-insets: 2 0 -2 0;
+}
+
 #small.slider *.track
 {
     -fx-base: #9C3E23;
@@ -76,6 +100,14 @@
     -fx-background-color: #DD6944;
     -fx-padding: 6px;
     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+}
+
+#small.slider:pressed *.thumb
+{
+    -fx-background-color: #DD6944;
+    -fx-padding: 6px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.6), 4, 0.0, 0, 1);
+    -fx-background-insets: 1 0 -1 0;
 }
 
 .slider:disabled

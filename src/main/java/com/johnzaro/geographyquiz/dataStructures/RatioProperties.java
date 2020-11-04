@@ -179,18 +179,15 @@ public class RatioProperties
 		private double titleLabel2LayoutX;
 		private double titleLabel2LayoutY;
 		private double vBoxForSoundLayoutY;
-		private double rectangleForDifficultyLevelWidth;
-		private double rectangleForDifficultyLevelHeight;
-		private double rectangleForDifficultyLevelLayoutY;
-		private double rectangleForQuestionCategoriesWidth;
-		private double rectangleForQuestionCategoriesHeight;
-		private double rectangleForQuestionCategoriesLayoutY;
+		private double gridPaneForQuestionsCategoriesWidth;
+		private double gridPaneForQuestionsCategoriesHeight;
+		private double gridPaneForQuestionsCategoriesLayoutY;
 		private double vBoxForDifficultyLevelWidth;
 		private double vBoxForDifficultyLevelHeight;
 		private double vBoxForDifficultyLevelLayoutY;
 		private double extendedQuestionCategoriesWidth;
 		private double extendedQuestionCategoriesHeight;
-		private double rectangleForExtendedQuestionCategoriesHeight;
+		private double scrollPaneForExtendedCategoryQuestionsGridPaneHeight;
 		private double hBoxForGameModesWidth;
 		private double hBoxForGameModesHeight;
 		private double hBoxForGameModesLayoutY;
@@ -198,7 +195,6 @@ public class RatioProperties
 		private double heightOfDescriptions;
 		private double backButtonLayoutY;
 		private double soundIconLayoutY;
-		private double nextButtonLayoutY;
 		private double woodPanelFor1IconImageLayoutX;
 		private double woodPanelFor1IconImageLayoutY;
 		
@@ -302,64 +298,34 @@ public class RatioProperties
 			this.vBoxForSoundLayoutY = vBoxForSoundLayoutY;
 		}
 		
-		public double getRectangleForDifficultyLevelWidth()
+		public double getGridPaneForQuestionsCategoriesWidth()
 		{
-			return rectangleForDifficultyLevelWidth;
+			return gridPaneForQuestionsCategoriesWidth;
 		}
 		
-		public void setRectangleForDifficultyLevelWidth(double rectangleForDifficultyLevelWidth)
+		public void setGridPaneForQuestionsCategoriesWidth(double gridPaneForQuestionsCategoriesWidth)
 		{
-			this.rectangleForDifficultyLevelWidth = rectangleForDifficultyLevelWidth;
+			this.gridPaneForQuestionsCategoriesWidth = gridPaneForQuestionsCategoriesWidth;
 		}
 		
-		public double getRectangleForDifficultyLevelHeight()
+		public double getGridPaneForQuestionsCategoriesHeight()
 		{
-			return rectangleForDifficultyLevelHeight;
+			return gridPaneForQuestionsCategoriesHeight;
 		}
 		
-		public void setRectangleForDifficultyLevelHeight(double rectangleForDifficultyLevelHeight)
+		public void setGridPaneForQuestionsCategoriesHeight(double gridPaneForQuestionsCategoriesHeight)
 		{
-			this.rectangleForDifficultyLevelHeight = rectangleForDifficultyLevelHeight;
+			this.gridPaneForQuestionsCategoriesHeight = gridPaneForQuestionsCategoriesHeight;
 		}
 		
-		public double getRectangleForDifficultyLevelLayoutY()
+		public double getGridPaneForQuestionsCategoriesLayoutY()
 		{
-			return rectangleForDifficultyLevelLayoutY;
+			return gridPaneForQuestionsCategoriesLayoutY;
 		}
 		
-		public void setRectangleForDifficultyLevelLayoutY(double rectangleForDifficultyLevelLayoutY)
+		public void setGridPaneForQuestionsCategoriesLayoutY(double gridPaneForQuestionsCategoriesLayoutY)
 		{
-			this.rectangleForDifficultyLevelLayoutY = rectangleForDifficultyLevelLayoutY;
-		}
-		
-		public double getRectangleForQuestionCategoriesWidth()
-		{
-			return rectangleForQuestionCategoriesWidth;
-		}
-		
-		public void setRectangleForQuestionCategoriesWidth(double rectangleForQuestionCategoriesWidth)
-		{
-			this.rectangleForQuestionCategoriesWidth = rectangleForQuestionCategoriesWidth;
-		}
-		
-		public double getRectangleForQuestionCategoriesHeight()
-		{
-			return rectangleForQuestionCategoriesHeight;
-		}
-		
-		public void setRectangleForQuestionCategoriesHeight(double rectangleForQuestionCategoriesHeight)
-		{
-			this.rectangleForQuestionCategoriesHeight = rectangleForQuestionCategoriesHeight;
-		}
-		
-		public double getRectangleForQuestionCategoriesLayoutY()
-		{
-			return rectangleForQuestionCategoriesLayoutY;
-		}
-		
-		public void setRectangleForQuestionCategoriesLayoutY(double rectangleForQuestionCategoriesLayoutY)
-		{
-			this.rectangleForQuestionCategoriesLayoutY = rectangleForQuestionCategoriesLayoutY;
+			this.gridPaneForQuestionsCategoriesLayoutY = gridPaneForQuestionsCategoriesLayoutY;
 		}
 		
 		public double getvBoxForDifficultyLevelWidth()
@@ -412,14 +378,14 @@ public class RatioProperties
 			this.extendedQuestionCategoriesHeight = extendedQuestionCategoriesHeight;
 		}
 		
-		public double getRectangleForExtendedQuestionCategoriesHeight()
+		public double getScrollPaneForExtendedCategoryQuestionsGridPaneHeight()
 		{
-			return rectangleForExtendedQuestionCategoriesHeight;
+			return scrollPaneForExtendedCategoryQuestionsGridPaneHeight;
 		}
 		
-		public void setRectangleForExtendedQuestionCategoriesHeight(double rectangleForExtendedQuestionCategoriesHeight)
+		public void setScrollPaneForExtendedCategoryQuestionsGridPaneHeight(double scrollPaneForExtendedCategoryQuestionsGridPaneHeight)
 		{
-			this.rectangleForExtendedQuestionCategoriesHeight = rectangleForExtendedQuestionCategoriesHeight;
+			this.scrollPaneForExtendedCategoryQuestionsGridPaneHeight = scrollPaneForExtendedCategoryQuestionsGridPaneHeight;
 		}
 		
 		public double gethBoxForGameModesWidth()
@@ -490,16 +456,6 @@ public class RatioProperties
 		public void setSoundIconLayoutY(double soundIconLayoutY)
 		{
 			this.soundIconLayoutY = soundIconLayoutY;
-		}
-		
-		public double getNextButtonLayoutY()
-		{
-			return nextButtonLayoutY;
-		}
-		
-		public void setNextButtonLayoutY(double nextButtonLayoutY)
-		{
-			this.nextButtonLayoutY = nextButtonLayoutY;
 		}
 		
 		public double getWoodPanelFor1IconImageLayoutX()
