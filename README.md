@@ -1,3 +1,3 @@
 # Geography-Quiz
 
-![Start Screen](/screenshot.jpeg?raw=true)
+![Start Screen](/screenshot.jpg?raw=true)
